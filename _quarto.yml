@@ -1,19 +1,24 @@
 project:
   type: website
+  output-dir: docs
+  resources: 
+    - images/
+    - data/
 
 website:
-  title: "saberhood_webpage"
+  title: "The Saberhood"
   navbar:
+    logo: "images/SABRHOODpng.png"
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-
+      - href: blog.qmd
+        text: Blog
+      - href: about.qmd
+        text: About
+        
 format:
   html:
-    theme: cosmo
-    css: styles.css
-    toc: true
-
-editor: visual
-
+    theme: 
+     - default
+     - styles.scss

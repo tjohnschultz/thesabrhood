@@ -1,0 +1,19 @@
+---
+title: "Red Sox Rotation"
+date: 2026-02-19
+author: "Tyler Schultz"
+image: "../images/crochet.png"
+format:
+  html:
+    code-fold: true
+    toc: true
+    toc-depth: 2
+---
+```{r}
+#| include: FALSE
+library(here)
+source(here("R", "metrics.R"))
+mlb_pbp_2025 <- readRDS(here("data", "mlb_pbp_2025.rds"))
+```
+
+![](../images/crochet.png){fig-alt="Crochet chart" fig-align="center" width="70%"}

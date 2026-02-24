@@ -5,3 +5,8 @@
 .httr-oauth
 .DS_Store
 .quarto
+
+/.quarto/
+data/mlb_pbp_2025.rds
+docs/data/mlb_pbp_2025.rds
+R/mlb_pbp_2025.rds

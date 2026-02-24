@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Sabrhood Blog",
+    "section": "",
+    "text": "Red Sox Rotation\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2026\n\n\nTyler Schultz\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "THE SABRHOOD",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "The Sabrhood is a page dedicated to providing our internet neighbors with advanced stats, metrics, and insights in MLB and MiLB.\nThe Sabrhood’s head contributor and anaylst is Tyler Schultz. Tyler is a Senior student of Sport Management at the University of Florida with a minor in Statistics. He works with the University’s sport radio station ,WRUF, providing insights on-air and to live broadcasters. Tyler plans to earn his Masters of Arts in Mass Communications upon graduation.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "posts/red-sox-rotation.html",
+    "href": "posts/red-sox-rotation.html",
+    "title": "Red Sox Rotation",
+    "section": "",
+    "text": "source(“../R/metrics.R”) source(“../R/mlb_pbp_2025.rds”)"
+  }
+]
