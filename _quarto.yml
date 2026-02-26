@@ -6,7 +6,7 @@ project:
     - data/
 
 website:
-  title: "The Saberhood"
+  title: ""
   navbar:
     logo: "images/SABRHOODpng.png"
     left:

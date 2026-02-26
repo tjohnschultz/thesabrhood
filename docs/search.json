@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Sabrhood Blog",
     "section": "",
-    "text": "Red Sox Rotation\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2026\n\n\nTyler Schultz\n\n\n\n\n\n\nNo matching items"
+    "text": "Ceddanne’s New Groove\n\n\n\n\n\n\n\n\n\n\n\nFeb 26, 2026\n\n\nTyler Schultz\n\n\n\n\n\n\n\n\n\n\n\n\nRed Sox Rotation\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2026\n\n\nTyler Schultz\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -25,6 +25,13 @@
     "href": "posts/red-sox-rotation.html",
     "title": "Red Sox Rotation",
     "section": "",
-    "text": "source(“../R/metrics.R”) source(“../R/mlb_pbp_2025.rds”)"
+    "text": "player\nheadshot\nteam\n\n\n\n\nPlayer A\n\nBOS"
+  },
+  {
+    "objectID": "posts/ceddannesnewgroove.html",
+    "href": "posts/ceddannesnewgroove.html",
+    "title": "Ceddanne’s New Groove",
+    "section": "",
+    "text": "During Spring Training thus far, Ceddanne Rafaela is approaching the plate in a much different manner than that of what Red Sox fans have been used to since 2023. In his career, Rafaela has struggled with swing selection and has lacked discipline on pitches outside of the zone. His outside zone swing% is 20% higher than the MLB average with a swinging strike% 40% higher than the league mean. This can be frustrating at times but he does have good power, holding the 9th highest ISO in MLB as a CF(while also being the best defensive CF in MLB). Power and poor swing discipline metrics are frequently correlated with one another, for example San Diego’s young star Jackson Merrill shares very similar metrics with Rafaela between power and discipline.\n\n\n\n\n\nplayer\nheadshot\nteam\n\n\n\n\nPlayer A\n\nBOS\n\n\n\n\n\n\n\nNow, while spring has not even sprung, Rafaela seems to be taking a different approach at the plate; dropping his swing% to 40%. This mark is a 30% decrease from his swing rate last year. Cutting down on his extreme swing tendencies is Rafaela’s path to improvement, giving him room to grow his walk%. Other players at the top of outside zone swing% such as Lonyn Sosa and Pete Crow-Armstrong sport very low BB% and players like Ivan Herrera and Juan Soto are among the best in BB% while also being the least likely to swing at an outside pitch. If Rafaela can remove himself from MLB’s quadrant of high o-zone swing%, he has the chance to increase his BB% and selectivity, which could lead to a higher OBP and higher SLG.\nThis spring, Rafaela went deep on his 7th AB on a sinker over the plate. Rafaela has plenty of pop when he gets a good pitch to hit and in 2026 he may be the most selective he has been thus far in his career. If he is able to even decrease his o-zone swing% by 5% this season, we can expect to see career highs in BB% and even some power metrics."
   }
 ]
