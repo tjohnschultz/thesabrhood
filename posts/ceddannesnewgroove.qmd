@@ -54,7 +54,52 @@ kable(df, format = "html", escape = FALSE, col.names = c("2025 Season", "Player"
 
 Now, while spring has not even sprung, Rafaela seems to be taking a different approach at the plate; dropping his swing% to **40%**. This mark is a **30%** decrease from his swing rate last year. Cutting down on his extreme swing tendencies is Rafaela’s path to improvement, giving him room to grow his walk%. Other players at the top of outside zone swing% such as Lonyn Sosa and Pete Crow-Armstrong sport very low BB% and players like Ivan Herrera and Juan Soto are among the best in BB% while also being the least likely to swing at an outside pitch. If Rafaela can remove himself from MLB’s quadrant of high o-zone swing%, he has the chance to increase his BB% and selectivity, which could lead to a higher OBP and higher SLG.
 
-This spring, Rafaela went deep on his 7th AB on a sinker over the plate. Rafaela has plenty of pop when he gets a good pitch to hit and in 2026 he may be the most selective he has been thus far in his career. If he is able to even decrease his o-zone swing% by **5%** this season, we can expect to see career highs in BB% and even some power metrics.
+This spring, Rafaela went deep on his 7th AB on a sinker over the plate. Rafaela has plenty of pop when he gets a good pitch to hit and in 2026 he may be the most selective he has been thus far in his career. If he is able to even decrease his o-zone swing% by **5%** this season, we can expect to see career highs in BB% and even some power metrics. 
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+library(teamcolors)
+data("teamcolors")
+mlb_colors <- teamcolors[teamcolors$league == "mlb", ] %>% 
+  rename(team = name) %>% 
+  mutate(
+    abv = case_when(
+    team == "Arizona Diamondbacks" ~ "ARI", 
+    team == "Atlanta Braves" ~ "ATL", 
+    team == "Baltimore Orioles" ~ "BAL", 
+    team == "Boston Red Sox" ~ "BOS", 
+    team == "Chicago Cubs" ~ "CHC", 
+    team == "Chicago White Sox" ~ "CHW", 
+    team == "Cincinnati Reds" ~ "CIN", 
+    team == "Cleveland Indians" ~ "CLE",
+    team == "Colorado Rockies" ~ "COL", 
+    team == "Detroit Tigers" ~ "DET", 
+    team == "Houston Astros" ~ "HOU", 
+    team == "Kansas City Royals" ~ "KCR",
+    team == "Los Angeles Angels" ~ "LAA", 
+    team == "Los Angeles Dodgers" ~ "LAD", 
+    team == "Miami Marlins" ~ "MIA", 
+    team == "Milwaukee Brewers" ~ "MIL", 
+    team == "Minnesota Twins" ~ "MIN", 
+    team == "New York Mets" ~ "NYM", 
+    team == "New York Yankees" ~ "NYY", 
+    team == "Oakland Athletics" ~ "ATH", 
+    team == "Philadelphia Phillies" ~ "PHI", 
+    team == "Pittsburgh Pirates" ~ "PIT", 
+    team == "San Diego Padres" ~ "SDP", 
+    team == "San Francisco Giants" ~ "SFG", 
+    team == "Seattle Mariners" ~ "SEA", 
+    team == "St. Louis Cardinals" ~ "STL", 
+    team == "Tampa Bay Rays" ~ "TBR", 
+    team == "Texas Rangers" ~ "TEX", 
+    team == "Toronto Blue Jays" ~ "TOR", 
+    team == "Washington Nationals" ~ "WSH" 
+    )
+  )
+mlb_colors <- mlb_colors[,c(3,4,12)]
+```
+
 ```{r}
 #| message: false
 #| warning: false
@@ -68,9 +113,20 @@ cln_bb_oswing <- bb_oswing[,1:4] %>%
 nums <- vapply(cln_bb_oswing, is.numeric, FUN.VALUE = logical(1))
 cln_bb_oswing[, nums] <- round(cln_bb_oswing[, nums], digits = 2)
 
-kable(cln_bb_oswing[1:10,], format = "html", escape = FALSE, col.names = c("Name", "Team", "BB%", "O-Zone Swing %")) |>
+cln_bb_oswing[1:10, ] |>
+  left_join(mlb_colors, by = c("Team" = "abv")) |> 
+  mutate(across(everything(),
+                ~ cell_spec(.x, background = primary, color = secondary))) |> 
+  select(-primary, -secondary) |>
+  kable(format = "html", escape = FALSE,
+        col.names = c("Name", "Team", "BB%", "O-Zone Swing %")) |>
   kable_styling(full_width = FALSE)
-
+```
+According to this simple linear model, Ceddanne Rafaela's swing profile from 2025 promoted a lower walk rate than he actually drew; and if he wants to maintain the level of last year he must improve his swing decisions. This Spring so far has been a great start for him and we will continue to track his progress throughout the year.
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
 ggplot(data = cln_bb_oswing, aes(x = O.Swing...sc., y = BB.)) +
   geom_point() + 
   geom_smooth(method = "lm") +
@@ -88,5 +144,7 @@ ggplot(data = cln_bb_oswing, aes(x = O.Swing...sc., y = BB.)) +
 
 model <- lm(BB. ~ O.Swing...sc., data = cln_bb_oswing)
 
-predict(object = model, newdata = data.frame(O.Swing...sc. = cln_bb_oswing[8,4]), type = "response")
+paste("Rafaela's 2025 predicted BB%", round(as.numeric(predict(object = model, newdata = data.frame(O.Swing...sc. = cln_bb_oswing[8,4]), type = "response")), 2))
+
+paste("Rafaela's 2026 predicted BB%, with a 5% decrease in outside zone swings:", round(as.numeric(predict(object = model, newdata = data.frame(O.Swing...sc. = .38), type = "response")), 2))
 ```
