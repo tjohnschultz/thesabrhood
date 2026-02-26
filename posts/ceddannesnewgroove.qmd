@@ -10,7 +10,25 @@ format:
     toc-depth: 2
 ---
 
-During Spring Training thus far, Ceddanne Rafaela is approaching the plate in a much different manner than that of what Red Sox fans have been used to since 2023. In his career, Rafaela has struggled with swing selection and has lacked discipline on pitches outside of the zone. His outside zone swing% is 20% higher than the MLB average with a swinging strike% 40% higher than the league mean. This can be frustrating at times but he does have good power, holding the 9th highest ISO in MLB as a CF(while also being the best defensive CF in MLB). Power and poor swing discipline metrics are frequently correlated with one another, for example San Diego’s young star Jackson Merrill shares very similar metrics with Rafaela between power and discipline. 
+```{=html}
+<style>
+  body {
+    background-color: #0C2340; /* A light blue, for example */
+  }
+  
+  main.content {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  max-width: 900px;     /* controls how wide the text block is */
+  margin: 2rem auto;    /* centers the rectangle */
+}
+</style>
+```
+
+During Spring Training thus far, Ceddanne Rafaela is approaching the plate in a much different manner than that of what Red Sox fans have been used to since 2023. In his career, Rafaela has struggled with swing selection and has lacked discipline on pitches outside of the zone. His outside zone swing% is **20%** higher than the MLB average with a swinging strike% **40%** higher than the league mean. This can be frustrating at times but he does have good power, holding the **9th** highest ISO in MLB as a CF(while also being the best defensive CF in MLB). Power and poor swing discipline metrics are frequently correlated with one another, for example San Diego’s young star Jackson Merrill shares very similar metrics with Rafaela between power and discipline.
+
 ```{r}
 #| message: false
 #| warning: false
@@ -22,15 +40,53 @@ img_tag <- function(src, width = 60) {
 }
 
 df <- data.frame(
-  player = "Player A",
-  headshot = img_tag("/images/ceddanne_head.png", 60),
-  team = "BOS"
+  images = c(img_tag("/images/ceddanne_head.png", 100), img_tag("/images/merrill_head.png", 100)),
+  player = c("Ceddanne Rafaela", "Jackson Merrill"),
+  age = c(25, 22), 
+  BB= c("4%", "11%"),
+  ISO = c(".165" ,".193")
 )
 
-kable(df, format = "html", escape = FALSE) |>
-  kable_styling(full_width = FALSE)
+kable(df, format = "html", escape = FALSE, col.names = c("2025 Season", "Player", "Age", "BB%", "ISO"), align = "c") |>
+  kable_styling(full_width = FALSE) |> 
+  row_spec(0:2, bold = TRUE, align = "c")
 ```
-Now, while spring has not even sprung, Rafaela seems to be taking a different approach at the plate; dropping his swing% to 40%. This mark is a 30% decrease from his swing rate last year. Cutting down on his extreme swing tendencies is Rafaela’s path to improvement, giving him room to grow his walk%. Other players at the top of outside zone swing% such as Lonyn Sosa and Pete Crow-Armstrong sport very low BB% and players like Ivan Herrera and Juan Soto are among the best in BB% while also being the least likely to swing at an outside pitch. If Rafaela can remove himself from MLB’s quadrant of high o-zone swing%, he has the chance to increase his BB% and selectivity, which could lead to a higher OBP and higher SLG. 
 
-This spring, Rafaela went deep on his 7th AB on a sinker over the plate. Rafaela has plenty of pop when he gets a good pitch to hit and in 2026 he may be the most selective he has been thus far in his career. If he is able to even decrease his o-zone swing% by 5% this season, we can expect to see career highs in BB% and even some power metrics. 
+Now, while spring has not even sprung, Rafaela seems to be taking a different approach at the plate; dropping his swing% to **40%**. This mark is a **30%** decrease from his swing rate last year. Cutting down on his extreme swing tendencies is Rafaela’s path to improvement, giving him room to grow his walk%. Other players at the top of outside zone swing% such as Lonyn Sosa and Pete Crow-Armstrong sport very low BB% and players like Ivan Herrera and Juan Soto are among the best in BB% while also being the least likely to swing at an outside pitch. If Rafaela can remove himself from MLB’s quadrant of high o-zone swing%, he has the chance to increase his BB% and selectivity, which could lead to a higher OBP and higher SLG.
 
+This spring, Rafaela went deep on his 7th AB on a sinker over the plate. Rafaela has plenty of pop when he gets a good pitch to hit and in 2026 he may be the most selective he has been thus far in his career. If he is able to even decrease his o-zone swing% by **5%** this season, we can expect to see career highs in BB% and even some power metrics.
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+library(here)
+source(here("R", "metrics.R"))
+bb_oswing <- read.csv(here("data", "bb-oswing.csv"))
+cln_bb_oswing <- bb_oswing[,1:4] %>% 
+  arrange(desc(4))
+
+nums <- vapply(cln_bb_oswing, is.numeric, FUN.VALUE = logical(1))
+cln_bb_oswing[, nums] <- round(cln_bb_oswing[, nums], digits = 2)
+
+kable(cln_bb_oswing[1:10,], format = "html", escape = FALSE, col.names = c("Name", "Team", "BB%", "O-Zone Swing %")) |>
+  kable_styling(full_width = FALSE)
+
+ggplot(data = cln_bb_oswing, aes(x = O.Swing...sc., y = BB.)) +
+  geom_point() + 
+  geom_smooth(method = "lm") +
+  labs(
+    x = "O-Zone Swing%",
+    y = "BB%", 
+    title = "O-Zone Swing% as a predictor for BB%."
+  ) + 
+  theme(
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5), 
+    panel.background = element_rect(fill = "lightblue", color = NA),
+    plot.background = element_rect(fill = "yellow", color = NA)
+  )
+
+
+model <- lm(BB. ~ O.Swing...sc., data = cln_bb_oswing)
+
+predict(object = model, newdata = data.frame(O.Swing...sc. = cln_bb_oswing[8,4]), type = "response")
+```
