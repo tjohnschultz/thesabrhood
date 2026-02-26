@@ -6,6 +6,4 @@ The Sabrhood is a page dedicated to providing our internet neighbors with advanc
 
 The Sabrhood's head contributor and anaylst is Tyler Schultz. Tyler is a Senior student of Sport Management at the University of Florida with a minor in Statistics. He works with the University's sport radio station ,WRUF, providing insights on-air and to live broadcasters. Tyler plans to earn his Masters of Arts in Mass Communications upon graduation.
 
-```{r}
-1 + 1
-```
+![](images/Headshot2Final.png){fig-align="center" width="214"}

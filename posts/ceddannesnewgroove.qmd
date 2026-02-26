@@ -35,6 +35,7 @@ In his MLB career, Rafaela has struggled with swing decisions. He has chased pit
 {{< video https://www.youtube.com/embed/ANmgRA09dRY aspect-ratio="9x14" >}}
 
 A similar player archetype is San Diego’s Jackson Merrill. Merrill sported a better hitter profile than Rafaela in 2025 to go along with his lower chase rate, which shows even a modest improvement in chase can matter. A few extra takes can turn into more favorable counts, more walks, and more pitches that can be driven.
+
 ```{r}
 #| message: false
 #| warning: false
@@ -58,9 +59,11 @@ kable(df, format = "html", escape = FALSE, col.names = c("2025 Season", "Player"
   kable_styling(full_width = FALSE) |> 
   row_spec(0:2, bold = TRUE, align = "c")
 ```
+
 On the other end of the spectrum, look at Juan Soto, MLB’s reigning king of plate discipline. Soto effectively shrinks the zone he’s willing to offer at, especially on pitches that start off the plate. That selectivity does lead to walks, but it also creates more opportunities to attack mistakes in the heart of the zone.
 
 That’s why Rafaela’s early-spring approach is notable. So far, his overall swing rate has dropped to **40%**, an **18%** difference from where he was sitting in 2025. If Rafaela can cut down even slightly on his chase, say by 3 percentage points over a full season, the domino effect could show up in his walk rate, on-base percentage, and even slugging. Less chasing means more hitter’s counts, and hitter’s counts mean more pitches in the zone.
+
 ```{r}
 #| message: false
 #| warning: false
@@ -113,7 +116,9 @@ k_zone_plot
 swinging_plot(soto, "Juan Soto", 2025)
 swinging_plot(ceddanne, "Ceddanne Rafaela", 2025)
 ```
+
 You can see how this works across the league. Players who live at the high end of chase rates often run low walk rates, while hitters who consistently avoid expanding the zone tend to sit near the top of the leaderboard in **BB%**. Rafaela doesn’t need to become passive — he just needs to be aggressive in the right places.
+
 ```{r}
 #| message: false
 #| warning: false
@@ -158,6 +163,7 @@ mlb_colors <- teamcolors[teamcolors$league == "mlb", ] %>%
   )
 mlb_colors <- mlb_colors[,c(3,4,12)]
 ```
+
 ```{r}
 #| message: false
 #| warning: false
@@ -181,9 +187,11 @@ cln_bb_oswing[1:10, ] |>
   kable_styling(full_width = FALSE) |> 
   row_spec(1:10, bold = T)
 ```
+
 He’s already shown off the muscle this spring, after he homered on his seventh at-bat, turning on a sinker left over the plate. Power is not a question for Rafaela, and now he is taking the next step in his development, giving himself more opportunities to access said power.
 
 A simple linear model suggests Rafaela’s 2025 swing profile would typically produce a lower walk rate than he actually posted and if he wants to sustain or improve on last year’s on-base contributions, sharpening his swing decisions is the clearest path. Early returns this spring are encouraging, and it’ll be worth monitoring whether the reduced chase and lower swing rate carry into the regular season.
+
 ```{r}
 #| message: false
 #| warning: false

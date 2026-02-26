@@ -14,9 +14,6 @@ format:
 #| message: false
 #| warning: false
 #| echo: false
-library(here)
-source(here("R", "metrics.R"))
-mlb_pbp_2025 <- readRDS(here("data", "mlb_pbp_2025.rds"))
 ```
 
 ![](../images/crochet.png){fig-alt="Crochet chart" fig-align="center" width="70%"}
