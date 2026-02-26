@@ -1,5 +1,5 @@
 ---
-title: "THE SABRHOOD"
+logo: "images/SABRHOODpng.png"
 ---
 
 This is a Quarto website.

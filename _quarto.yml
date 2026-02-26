@@ -8,15 +8,19 @@ project:
 website:
   title: ""
   navbar:
-    logo: "images/SABRHOODpng.png"
+    background: "#FFFFFF"
+    foreground: "#BD3039"
+    logo: "images/thesabrhood2clean.png"
     left:
       - href: index.qmd
         text: Home
       - href: blog.qmd
         text: Blog
+      - href: leaderboards.qmd
+        text: Leaderboards
       - href: about.qmd
         text: About
-        
+      
 format:
   html:
     css: styles.css

@@ -1,7 +1,7 @@
 ---
-title: "BLOG HOME"
+title: "Leaderboards"
 listing:
-  contents: posts
+  contents: leaders
   sort: "date desc"
   feed: true
 ---
