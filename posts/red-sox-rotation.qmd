@@ -1,5 +1,5 @@
 ---
-title: "Red Sox Rotation"
+title: "The War Pig and His Men"
 date: 2026-02-19
 author: "Tyler Schultz"
 image: "../images/crochet.png"
@@ -18,3 +18,4 @@ format:
 
 ![](../images/crochet.png){fig-alt="Crochet chart" fig-align="center" width="70%"}
 
+Garrett Crochet, MLB's Strikeout King of 2025, is coming for his first career Cy Young. The War Pig's nasty arsenal may have gotten even deeper, as he added a new page when working out in Nashville during the off-season. How will he and the Red Sox staff, now with Sonny Gray and Ranger Suarez, will the Red Sox be able to rise to their lofty expectation as the best rotation in MLB?
