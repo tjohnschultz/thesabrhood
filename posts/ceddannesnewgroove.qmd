@@ -74,45 +74,7 @@ source(here("R", "metrics.R"))
 soto <- readRDS(here("data", "soto.rds"))
 ceddanne <- readRDS(here("data", "ceddanne.rds"))
 
-swinging_plot <- function(data, playername, year) {
-plot_title <- paste("Pitches swung at by", playername, "in", year)
-values_to_remove <- c("Hit By Pitch", "Foul Bunt", "Missed Bunt", "Called Strike", "Ball", "Ball In Dirt")
-data <- data %>% 
-  filter(matchup.batter.fullName == playername & isPitch == TRUE) %>% 
-  filter(!(details.call.description %in% values_to_remove)) %>% 
-  mutate(
-    whiff = as.factor(case_when(
-      details.call.description == "Swinging Strike" ~ 1,
-      details.call.description == "Swinging Strike (Blocked)" ~ 1,
-      TRUE ~ 0
-    ))
-  )
 
-plate_width <- 17 + 2 * (9 / pi)
-k_zone_plot <- ggplot(data = data, aes(x = pitchData.coordinates.pX, y = pitchData.coordinates.pZ, color = whiff) ) + 
-  geom_point() + 
-  geom_rect(
-    xmin = -(plate_width/2)/12, 
-    xmax = (plate_width/2)/12, 
-    ymin = mean(data$pitchData.strikeZoneBottom), 
-    ymax = mean(data$pitchData.strikeZoneTop), color = "blue", alpha = 0
-  ) +
-    coord_equal() + 
-  scale_x_continuous(
-    "Horizontal location (ft.)", 
-    limits = c(-2, 2)
-  ) + 
-  scale_y_continuous(
-    "Vertical location (ft.)", 
-    limits = c(0, 5)
-  ) + 
-  labs(
-    title = plot_title,
-    subtitle = "From Catcher's Perspective.",
-    caption = "Data supplied by baseballR. Plot by Tyler Schultz."
-  )
-k_zone_plot
-}
 swinging_plot(soto, "Juan Soto", 2025)
 swinging_plot(ceddanne, "Ceddanne Rafaela", 2025)
 ```

@@ -9,13 +9,67 @@ format:
     toc: true
     toc-depth: 2
 ---
+```{=html}
+<style>
+  body {
+    background-color: #0C2340; /* A light blue, for example */
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  main.content {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  max-width: 900px;     /* controls how wide the text block is */
+  margin: 2rem auto;    /* centers the rectangle */
+}
+</style>
+```
 
+![](../images/crochet.png){fig-alt="Crochet chart" fig-align="center" width="100%"}
+Garrett Crochet, MLB's Strikeout King of 2025, is coming for his first career Cy Young. The War Pig's nasty arsenal may have gotten even deeper, as he added a new page when working out in Nashville during the off-season. How will he and the Red Sox staff, now with Sonny Gray and Ranger Suarez, will the Red Sox be able to rise to their lofty expectation as the best rotation in MLB?
+
+## Garrett Crochet
+Garrett Crochet spent some time over the off-season further growing his arsenal, by working on his changeup. In 2025, Crochet used the pitch only 3% of the time and primarily relied on his fastball mix to get right-handed hitters out. Crochet said that he felt like he faced a lot of righties this past year which moved him to work on the pitch, but that was an understatement. A whopping **81%** of the batters he faced were in the right side of the box. 
+
+His changeup last year 
+{{< video https://www.youtube.com/embed/UmmfF9aocWw aspect-ratio="9x14" >}}
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+41.2 / (41.67 + 163.2)
+
+library(tidyverse)
+library(here)
+source(here("R", "metrics.R"))
+crochet <- readRDS(here("data", "crochet.rds"))
+pitch_metric_avgs <- readRDS(here("data", "pitch_metric_avgs.rds"))
+crochet_pitch_sum <- pitch_summary(crochet, "Garrett Crochet")
+
+```
+## Ranger Suarez
 ```{r}
 #| message: false
 #| warning: false
 #| echo: false
 ```
-
-![](../images/crochet.png){fig-alt="Crochet chart" fig-align="center" width="70%"}
-
-Garrett Crochet, MLB's Strikeout King of 2025, is coming for his first career Cy Young. The War Pig's nasty arsenal may have gotten even deeper, as he added a new page when working out in Nashville during the off-season. How will he and the Red Sox staff, now with Sonny Gray and Ranger Suarez, will the Red Sox be able to rise to their lofty expectation as the best rotation in MLB?
+## Sonny Gray
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+```
+## Brayan Bello
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+```
+## Johan OVideo
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+```

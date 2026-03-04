@@ -1,0 +1,7 @@
+---
+title: "glossary"
+format: html
+---
+
+Stat Glossary: 
+O-Swing% / Chase%: The percent of swings that a batter takes/ pitcher induces that are on pitches outside of the strike zone.
