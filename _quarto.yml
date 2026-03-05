@@ -16,13 +16,14 @@ website:
       - href: index.qmd
         text: Home
       - href: blog.qmd
-        text: Our Column
+        text: Articles
       - href: leaderboards.qmd
         text: Leaderboards
+      - href: glossary.qmd
+        text: Stat Glossary
       - href: about.qmd
         text: About
-      - href: glossary.qmd
-        text: Statistical Glossary
+
       
 format:
   html:

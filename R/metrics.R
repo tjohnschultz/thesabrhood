@@ -33,10 +33,10 @@ pitch_summary <- function(data, playername) {
     group_by(pitch_type) %>% 
     summarize(
       pitches = n(), 
-      velo = mean(release_velo, na.rm = TRUE), 
-      IVB = mean(ivb_movement, na.rm = TRUE), 
-      HB = mean(hz_movement, na.rm = TRUE), 
-      spin = mean(release_spin, na.rm = TRUE)
+      velo = round(mean(release_velo, na.rm = TRUE), 2),
+      IVB = round(mean(ivb_movement, na.rm = TRUE), 2),
+      HB = round(mean(hz_movement, na.rm = TRUE), 2),
+      spin = round(mean(release_spin, na.rm = TRUE), 0)
       
     )
   #return summary
@@ -203,10 +203,10 @@ pitch_summary_avg <- function(data) {
     group_by(pitch_type) %>% 
     summarize(
       pitches = n(), 
-      velo = mean(release_velo, na.rm = TRUE), 
-      IVB = mean(ivb_movement, na.rm = TRUE), 
-      HB = mean(abs(hz_movement), na.rm = TRUE), 
-      spin = mean(release_spin, na.rm = TRUE)
+      velo = round(mean(release_velo, na.rm = TRUE), 2), 
+      IVB = round(mean(ivb_movement, na.rm = TRUE), 2), 
+      HB = round(mean(abs(hz_movement), na.rm = TRUE), 2), 
+      spin = round(mean(release_spin, na.rm = TRUE), 0)
     )
   #return summary
   return(sum)
@@ -421,11 +421,38 @@ swinging_plot <- function(data, playername, year) {
   k_zone_plot
 }
 
-#2026 mlb game pks
-library(baseballr)
-st_dates <- seq(as.Date("2026-02-14"), as.Date("2026-03-24"), by = "days")
+#update pbp function with new games
+update_pbp <- function(og_pbp, season_type = "Regular Season", szn) {
+  library(baseballr); library(tidyverse)
+  
+  schedule <- mlb_schedule(season = szn) %>% 
+    filter(series_description == season_type & status_detailed_state == "Final")
+  new_pks <- setdiff(schedule$game_pk, og_pbp$game_pk)
+  
+  new_pbp <- map(new_pks, ~get_pbp_mlb(game_pk = .x)) %>% 
+    bind_rows()
+  updated <- bind_rows(og_pbp, new_pbp)
+  
+  paste("Updated pbp with", length(new_pks), "added.")
+  return(updated)
+}
 
-st_sch <- mlb_schedule(season = 2026) %>% 
-  filter(series_description == "Spring Training" & status_detailed_state == "Final")
-st_pks_final <- st_sch$game_pk
-st_pbp_2026 <- map_dfr(st_pks_final, ~get_pbp_mlb(game_pk = .x))
+# create vector of rolling batting average from pbp data
+rolling_ba_vectors <- function() {
+  rolling_ba_df <- f
+}
+
+# play by play enhancement function
+enhance_pbp <- function(data) {
+  enhanced <- data %>% 
+    mutate(
+      is_ab = if_else(
+        
+      )
+    )
+}
+
+# filter by function
+filter_by <- function(pitcher = NA, batter = NA, team = NA){
+  
+}

@@ -9,9 +9,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "",
+    "title": "THE SABRHOOD",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "Welcome to the Sabrhood!\n\nCheckout our column on column of articles under the “Articles” tab of the nav-bar!"
   },
   {
     "objectID": "about.html",
@@ -39,14 +39,14 @@
     "href": "leaderboards.html",
     "title": "Leaderboards",
     "section": "",
-    "text": "No matching items"
+    "text": "Construction Zone!\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/red-sox-rotation.html#garrett-crochet",
     "href": "posts/red-sox-rotation.html#garrett-crochet",
     "title": "The War Pig and His Men",
     "section": "Garrett Crochet",
-    "text": "Garrett Crochet\nGarrett Crochet spent some time over the off-season further growing his arsenal, by working on his changeup. In 2025, Crochet used the pitch only 3% of the time and primarily relied on his fastball mix to get right-handed hitters out. Crochet said that he felt like he faced a lot of righties this past year which moved him to work on the pitch, but that was an understatement. A whopping 81% of the batters he faced were in the right side of the box.\n\n\n\n[1] 0.2011031"
+    "text": "Garrett Crochet\nGarrett Crochet spent some time over the off-season further growing his arsenal, by working on his changeup. In 2025, Crochet used the pitch only 3% of the time and primarily relied on his fastball mix to get right-handed hitters out. Crochet said that he felt like he faced a lot of righties this past year which moved him to work on the pitch, but that was an understatement. A whopping 81% of the batters he faced were in the right side of the box.\nHis changeup last year\n\n\n\n\n\n\npitch_type\npitches\nvelo\nIVB\nHB\nspin\n\n\n\n\nChangeup\n134\n87.68\n6.39\n-11.96\n1711\n\n\nCutter\n875\n90.86\n6.19\n3.66\n2597\n\n\nFour-Seam Fastball\n1141\n96.40\n15.94\n-8.03\n2459\n\n\nSinker\n498\n96.00\n8.08\n-16.28\n2399\n\n\nSweeper\n503\n82.62\n-2.88\n13.78\n2376\n\n\n\n\n\n\n\n\nGarrett Crochet Pitch Mix, 2025:\n\n\nPitch\nPitch Type\nPitches Thrown\nMPH\nIVB\nHB\nSpin Rate\n\n\n\n\nCrochet 2025\nChangeup\n134\n87.68\n6.39\n-11.96\n1711\n\n\nCrochet ST\nSplitter\n1\n87.30\n2.20\n-12.20\n1114\n\n\nMLB Avg Change\nChangeup\n73235\n85.84\n4.50\n14.38\n1786\n\n\nMLB Avg Split\nSplitter\n23614\n86.46\n3.26\n11.14\n1343"
   },
   {
     "objectID": "posts/red-sox-rotation.html#ranger-suarez",
@@ -79,8 +79,8 @@
   {
     "objectID": "glossary.html",
     "href": "glossary.html",
-    "title": "glossary",
+    "title": "Glossary",
     "section": "",
-    "text": "Stat Glossary: O-Swing% / Chase%: The percent of swings that a batter takes/ pitcher induces that are on pitches outside of the strike zone."
+    "text": "Stat Glossary:\n\nO-Swing% / Chase%: The percent of swings that a batter takes/ pitcher induces that are on pitches outside of the strike zone."
   }
 ]

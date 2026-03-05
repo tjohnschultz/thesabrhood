@@ -69,6 +69,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -97,11 +101,15 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../blog.html"> 
-<span class="menu-text">Blog</span></a>
+<span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../leaderboards.html"> 
 <span class="menu-text">Leaderboards</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../glossary.html"> 
+<span class="menu-text">Statistical Glossary</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../about.html"> 
@@ -180,14 +188,126 @@ ul.task-list li input[type="checkbox"] {
   margin: 2rem auto;    /* centers the rectangle */
 }
 </style>
-<p><img src="../images/crochet.png" class="img-fluid quarto-figure quarto-figure-center" style="width:70.0%" alt="Crochet chart"> Garrett Crochet, MLB’s Strikeout King of 2025, is coming for his first career Cy Young. The War Pig’s nasty arsenal may have gotten even deeper, as he added a new page when working out in Nashville during the off-season. How will he and the Red Sox staff, now with Sonny Gray and Ranger Suarez, will the Red Sox be able to rise to their lofty expectation as the best rotation in MLB?</p>
+<p><img src="../images/crochet.png" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%" alt="Crochet chart"> Garrett Crochet, MLB’s Strikeout King of 2025, is coming for his first career Cy Young. The War Pig’s nasty arsenal may have gotten even deeper, as he added a new page when working out in Nashville during the off-season. How will he and the Red Sox staff, now with Sonny Gray and Ranger Suarez, will the Red Sox be able to rise to their lofty expectation as the best rotation in MLB?</p>
 <section id="garrett-crochet" class="level2">
 <h2 class="anchored" data-anchor-id="garrett-crochet">Garrett Crochet</h2>
 <p>Garrett Crochet spent some time over the off-season further growing his arsenal, by working on his changeup. In 2025, Crochet used the pitch only 3% of the time and primarily relied on his fastball mix to get right-handed hitters out. Crochet said that he felt like he faced a lot of righties this past year which moved him to work on the pitch, but that was an understatement. A whopping <strong>81%</strong> of the batters he faced were in the right side of the box.</p>
+<p>His changeup last year</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/UmmfF9aocWw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2011031</code></pre>
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">pitch_type</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">pitches</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">velo</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">IVB</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">HB</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">spin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Changeup</td>
+<td style="text-align: center;">134</td>
+<td style="text-align: center;">87.68</td>
+<td style="text-align: center;">6.39</td>
+<td style="text-align: center;">-11.96</td>
+<td style="text-align: center;">1711</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Cutter</td>
+<td style="text-align: center;">875</td>
+<td style="text-align: center;">90.86</td>
+<td style="text-align: center;">6.19</td>
+<td style="text-align: center;">3.66</td>
+<td style="text-align: center;">2597</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Four-Seam Fastball</td>
+<td style="text-align: center;">1141</td>
+<td style="text-align: center;">96.40</td>
+<td style="text-align: center;">15.94</td>
+<td style="text-align: center;">-8.03</td>
+<td style="text-align: center;">2459</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Sinker</td>
+<td style="text-align: center;">498</td>
+<td style="text-align: center;">96.00</td>
+<td style="text-align: center;">8.08</td>
+<td style="text-align: center;">-16.28</td>
+<td style="text-align: center;">2399</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Sweeper</td>
+<td style="text-align: center;">503</td>
+<td style="text-align: center;">82.62</td>
+<td style="text-align: center;">-2.88</td>
+<td style="text-align: center;">13.78</td>
+<td style="text-align: center;">2376</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Garrett Crochet Pitch Mix, 2025:</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">Pitch</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">Pitch Type</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">Pitches Thrown</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">MPH</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">IVB</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">HB</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">Spin Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(189, 48, 57, 255) !important;">Crochet 2025</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(189, 48, 57, 255) !important;">Changeup</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(189, 48, 57, 255) !important;">134</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(189, 48, 57, 255) !important;">87.68</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(189, 48, 57, 255) !important;">6.39</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(189, 48, 57, 255) !important;">-11.96</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(189, 48, 57, 255) !important;">1711</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">Crochet ST</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">Splitter</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">1</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">87.30</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">2.20</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">-12.20</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">1114</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(189, 48, 57, 255) !important;">MLB Avg Change</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(189, 48, 57, 255) !important;">Changeup</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(189, 48, 57, 255) !important;">73235</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(189, 48, 57, 255) !important;">85.84</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(189, 48, 57, 255) !important;">4.50</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(189, 48, 57, 255) !important;">14.38</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(189, 48, 57, 255) !important;">1786</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">MLB Avg Split</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">Splitter</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">23614</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">86.46</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">3.26</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">11.14</td>
+<td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(12, 35, 64, 255) !important;">1343</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
 </div>
 </section>
