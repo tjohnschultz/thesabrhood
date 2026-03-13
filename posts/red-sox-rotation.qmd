@@ -28,72 +28,187 @@ format:
 </style>
 ```
 
-![](../images/crochet.png){fig-alt="Crochet chart" fig-align="center" width="100%"}
-Garrett Crochet, MLB's Strikeout King of 2025, is coming for his first career Cy Young. The War Pig's nasty arsenal may have gotten even deeper, as he added a new page when working out in Nashville during the off-season. How will he and the Red Sox staff, now with Sonny Gray and Ranger Suarez, will the Red Sox be able to rise to their lofty expectation as the best rotation in MLB?
+![](../images/crochet.png){fig-alt="Crochet chart" fig-align="center" width="100%"} Garrett Crochet, MLB's Strikeout King of 2025, is coming for his first career Cy Young. The War Pig's nasty arsenal may have gotten even deeper, as he added a new page when working out in Nashville during the off-season. How will he and the Red Sox staff, now with Sonny Gray and Ranger Suarez, will the Red Sox be able to rise to their lofty expectation as the best rotation in MLB?
 
 ## Garrett Crochet
-Garrett Crochet spent some time over the off-season further growing his arsenal, by working on his changeup. In 2025, Crochet used the pitch only 3% of the time and primarily relied on his fastball mix to get right-handed hitters out. Crochet said that he felt like he faced a lot of righties this past year which moved him to work on the pitch, but that was an understatement. A whopping **81%** of the batters he faced were in the right side of the box. 
 
-His changeup last year 
-{{< video https://www.youtube.com/embed/UmmfF9aocWw aspect-ratio="9x14" >}}
+Garrett Crochet spent some time over the off-season further growing his arsenal, by working on his changeup. In 2025, Crochet used the pitch only 3% of the time and primarily relied on his fastball mix to get right-handed hitters out. Crochet said that he felt like he faced a lot of righties this past year which moved him to work on the pitch, but that was an understatement. A whopping **81%** of the batters he faced were in the right side of the box.
+
+His changeup last year {{< video https://www.youtube.com/embed/UmmfF9aocWw aspect-ratio="9x14" >}}
+
 ```{r}
 #| message: false
 #| warning: false
 #| echo: false
 
-library(tidyverse); library(here); library(kableExtra); source(here("R", "metrics.R"))
-# load previously filtered data: crochet pbp 2025, crochet 2026 ST, MLB pitch shape summary 2025
+library(tidyverse); library(here); library(kableExtra); source(here("R", "metrics.R")); dl_path <- "C:\\Users\\Owner\\Downloads\\R Baseball\\saberhood_webpage\\data"
+#crochet <- mlb_pbp_2025 %>% 
+#  filter(matchup.pitcher.fullName == "Garrett Crochet")
+#write_rds(crochet, file = file.path(dl_path, "crochet.rds"))
+#crochetst <- st_0311 %>% 
+#  filter(matchup.pitcher.fullName == "Garrett Crochet")
+#write_rds(crochetst, file = file.path(dl_path, "crochetst.rds"))
+
 crochet <- readRDS(here("data", "crochet.rds"))
-crochet_st <- readRDS(here("data", "crochet_st.rds"))
-pitch_summary_avg <- readRDS(here("data", "pitch_summary_avg.rds"))
-# pitch summaries for last season and spring training
-crochet_pitch_sum <- pitch_summary(crochet, "Garrett Crochet") 
-# arrange by pitch type
-crochet_pitch_sum <- crochet_pitch_sum %>% 
-  arrange(pitch_type)
-crochet_st_pitch_sum <- pitch_summary(crochet_st, "Garrett Crochet")
-# arrange by pitch type
-crochet_st_pitch_sum <- crochet_st_pitch_sum %>% 
-  arrange(pitch_type)
+crochetst <- readRDS(here("data", "crochetst.rds"))
 
-# create changeup comparison
-crochet_ch <- crochet_pitch_sum[1,]
-crochet_ch_st <- crochet_st_pitch_sum[4,]
-mlb_ch <- pitch_summary_avg[c(1,15),]
-changes <- rbind(crochet_ch, crochet_ch_st, mlb_ch) %>% 
-  cbind(Pitch = c("Crochet 2025", "Crochet ST", "MLB Avg Change", "MLB Avg Split")) %>% 
-  relocate(Pitch)
+crochet_sums <- create_pitch_sums(crochet)
+crochetst_sums <- create_pitch_sums(crochetst)
+#pitch shapes
+kbl(crochet_sums$shape_sum, col.names = c("Pitch Type", "Pitches", "Velo", "IVB", "HB", "Spin Rate", "VAA", "HAA", "Usage", "Movement Diversity"))
+kbl(crochetst_sums$shape_sum, col.names = c("Pitch Type", "Pitches", "Velo", "IVB", "HB", "Spin Rate", "VAA", "HAA", "Usage", "Movement Diversity"))
+#discipline
+kbl(crochet_sums$disc_pit_sum, col.names = c("Pitch Type", "Pitches", "Swing%", "Whiff%", "Contact%", "Zone%", "Chase%", "Zone Swing%", "Chase Contact%", "Zone Contact%")) %>% 
+  kable_styling(full_width = T) %>% 
+  row_spec(odd_nums(1:nrow(crochet_sums$disc_pit_sum)), color = "white", background = "#0C2340", bold = TRUE) %>% 
+  row_spec(even_nums(1:nrow(crochet_sums$disc_pit_sum)), color = "white", background = "#BD3039", bold = TRUE)
+kbl(crochetst_sums$disc_pit_sum, col.names = c("Pitch Type", "Pitches", "Swing%", "Whiff%", "Contact%", "Zone%", "Chase%", "Zone Swing%", "Chase Contact%", "Zone Contact%")) %>% 
+  kable_styling(full_width = T) %>% 
+  row_spec(odd_nums(1:nrow(crochetst_sums$disc_pit_sum)), color = "white", background = "#0C2340", bold = TRUE) %>% 
+  row_spec(even_nums(1:nrow(crochetst_sums$disc_pit_sum)), color = "white", background = "#BD3039", bold = TRUE)
 
-# Crochet's 2025 Arsenal
-kbl(crochet_pitch_sum, col.names = , align = "c") %>% 
-  kable_styling(full_width = TRUE)
-
-kbl(changes, col.names = c("Pitch", "Pitch Type", "Pitches Thrown", "MPH", "IVB", "HB", "Spin Rate"), align = "c", caption = "Garrett Crochet Pitch Mix, 2025:") %>% 
-  kable_styling(full_width = TRUE) %>%
-  row_spec(c(1,3), color = "white", background = "#BD3039", bold = T) %>% 
-  row_spec(c(0,2,4), color = "white", background = "#0C2340", bold = T)
+kable(crochet_sums$bbe_pit_sum, col.names = c("Pitch Type", "BBE", "Hard Hit%", "Barrel%", "Average EV", "Average LA"), caption = "Batted Ball Event Summary 2025") %>% 
+  row_spec(odd_nums(1:nrow(crochet_sums$bbe_pit_sum)), color = "white", background = "#0C2340", bold = TRUE) %>% 
+  row_spec(even_nums(1:nrow(crochet_sums$bbe_pit_sum)), color = "white", background = "#BD3039", bold = TRUE)
+kable(crochetst_sums$bbe_pit_sum, col.names = c("Pitch Type", "BBE", "Hard Hit%", "Barrel%", "Average EV", "Average LA"), caption = "Batted Ball Event Summary ST 2026") %>% 
+  row_spec(odd_nums(1:nrow(crochetst_sums$bbe_pit_sum)), color = "white", background = "#0C2340", bold = TRUE) %>% 
+  row_spec(even_nums(1:nrow(crochetst_sums$bbe_pit_sum)), color = "white", background = "#BD3039", bold = TRUE)
 ```
+
 ## Ranger Suarez
+
 ```{r}
 #| message: false
 #| warning: false
 #| echo: false
+
+#ranger <- mlb_pbp_2025 %>% 
+#  filter(matchup.pitcher.fullName == "Ranger Suárez")
+#write_rds(ranger, file = file.path(dl_path, "ranger.rds"))
+#rangerst <- st_0311 %>% 
+#  filter(matchup.pitcher.fullName == "Ranger Suárez")
+#write_rds(rangerst, file = file.path(dl_path, "rangerst.rds"))
+
+ranger <- readRDS(here("data", "ranger.rds"))
+rangerst <- readRDS(here("data", "rangerst.rds"))
+
+rang_sums <- create_pitch_sums(ranger)
+rangerst_sums <- create_pitch_sums(rangerst)
+kable(rang_sums)
+kable(rangerst_sums)
 ```
+
 ## Sonny Gray
+
 ```{r}
 #| message: false
 #| warning: false
 #| echo: false
+
+#sonny <- mlb_pbp_2025 %>% 
+#  filter(matchup.pitcher.fullName == "Sonny Gray")
+#write_rds(sonny, file = file.path(dl_path, "sonny.rds"))
+#sonnyst <- st_0311 %>% 
+#  filter(matchup.pitcher.fullName == "Sonny Gray")
+#write_rds(sonnyst, file = file.path(dl_path, "sonnyst.rds"))
+
+sonny <- readRDS(here("data", "sonny.rds"))
+sonnyst <- readRDS(here("data", "sonnyst.rds"))
+
+sonny_sums <- create_pitch_sums(sonny)
+sonnyst_sums <- create_pitch_sums(sonnyst)
+kable(sonny_sums)
+kable(sonnyst_sums)
 ```
+
 ## Brayan Bello
+
 ```{r}
 #| message: false
 #| warning: false
 #| echo: false
+#bello <- mlb_pbp_2025 %>% 
+#  filter(matchup.pitcher.fullName == "Brayan Bello")
+#write_rds(bello, file = file.path(dl_path, "bello.rds"))
+#bellost <- st_0311 %>% 
+#  filter(matchup.pitcher.fullName == "Brayan Bello")
+#write_rds(bellost, file = file.path(dl_path, "bellost.rds"))
+
+bello <- readRDS(here("data", "bello.rds"))
+bellost <- readRDS(here("data", "bellost.rds"))
+
+bello_sums <- create_pitch_sums(bello)
+bellost_sums <- create_pitch_sums(bellost)
+kable(bello_sums)
+kable(bellost_sums)
+
 ```
-## Johan OVideo
+
+## Johan Ovideo
+
 ```{r}
 #| message: false
 #| warning: false
 #| echo: false
+
+#ovi <- mlb_pbp_2025 %>% 
+#  filter(matchup.pitcher.fullName == "Johan Oviedo")
+#write_rds(ovi, file = file.path(dl_path, "ovi.rds"))
+#ovist <- st_0311 %>% 
+#  filter(matchup.pitcher.fullName == "Johan Oviedo")
+#write_rds(ovist, file = file.path(dl_path, "ovist.rds"))
+
+ovi <- readRDS(here("data", "ovi.rds"))
+ovist <- readRDS(here("data", "ovist.rds"))
+
+ovi_sums <- create_pitch_sums(ovi)
+ovist_sums <- create_pitch_sums(ovist)
+kable(ovi_sums)
+kable(ovist_sums)
+```
+# From the Outside Looking in
+
+## Connelly Early
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+
+#early <- mlb_pbp_2025 %>% 
+#  filter(matchup.pitcher.fullName == "Connelly Early")
+#write_rds(early, file = file.path(dl_path, "early.rds"))
+#earlyst <- st_0311 %>% 
+#  filter(matchup.pitcher.fullName == "Connelly Early")
+#write_rds(earlyst, file = file.path(dl_path, "earlyst.rds"))
+
+early <- readRDS(here("data", "early.rds"))
+earlyst <- readRDS(here("data", "earlyst.rds"))
+
+early_sums <- create_pitch_sums(early)
+earlyst_sums <- create_pitch_sums(earlyst)
+kable(early_sums)
+kable(earlyst_sums)
+```
+
+## Payton Tolle
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+
+#tolle <- mlb_pbp_2025 %>% 
+#  filter(matchup.pitcher.fullName == "Payton Tolle")
+#write_rds(tolle, file = file.path(dl_path, "tolle.rds"))
+#tollest <- st_0311 %>% 
+#  filter(matchup.pitcher.fullName == "Payton Tolle")
+#write_rds(tollest, file = file.path(dl_path, "tollest.rds"))
+
+tolle <- readRDS(here("data", "tolle.rds"))
+tollest <- readRDS(here("data", "tollest.rds"))
+
+tolle_sums <- create_pitch_sums(tolle)
+tollest_sums <- create_pitch_sums(tollest)
+kable(tolle_sums)
+kable(tollest_sums)
 ```

@@ -1,5 +1,5 @@
 ---
-title: "BLOG HOME"
+title: "Articles"
 listing:
   contents: posts
   sort: "date desc"
