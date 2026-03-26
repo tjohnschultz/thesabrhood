@@ -32,7 +32,7 @@ st_pa <- st_bat_lead$pa_sum
 
 hrs <- st_pa %>% 
   arrange(desc(HR)) %>% 
-  head(5) %>% 
+  head(10) %>% 
   select(matchup.batter.fullName, HR)
 kbl_hrs <- kbl(hrs, position = "float_right") %>% 
   kable_styling() %>% 
@@ -40,7 +40,7 @@ kbl_hrs <- kbl(hrs, position = "float_right") %>%
 
 slg <- st_pa %>% 
   arrange(desc(SLG)) %>% 
-  head(5) %>% 
+  head(10) %>% 
   select(matchup.batter.fullName, SLG)
 kbl_slg <- kbl(slg, position = "float_left") %>% 
   kable_styling() %>% 
@@ -48,7 +48,7 @@ kbl_slg <- kbl(slg, position = "float_left") %>%
 
 hit <- st_pa %>% 
   arrange(desc(H)) %>% 
-  head(5) %>% 
+  head(10) %>% 
   select(matchup.batter.fullName, H)
 kbl_hit <- kbl(hit, position = "float_center") %>% 
   kable_styling() %>% 

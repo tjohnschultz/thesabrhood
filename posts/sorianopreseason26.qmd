@@ -1,0 +1,152 @@
+---
+title: "The Halos Need a Hail Mary"
+date: 2026-03-26
+author: "Tyler Schultz"
+image: "../images/Soriano.png"
+format:
+  html:
+    code-fold: true
+    toc: true
+    toc-depth: 2
+---
+
+```{=html}
+<style>
+  body {
+    background-color: #BA0021; /* A light blue, for example */
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  main.content {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  max-width: 900px;     /* controls how wide the text block is */
+  margin: 2rem auto;    /* centers the rectangle */
+}
+</style>
+```
+
+![José Soriano chart](https://blogs.fangraphs.com/wp-content/uploads/2025/07/Jose-Soriano-Lacks-Strikeouts.jpg){width=80% fig-align="center" fig-alt="FanGraphs chart about José Soriano lacking strikeouts"}
+
+Jose Soriano was named the Opening Day starter for the Halos this past Tuesday, as announced by first-year manager Kurt Suzuki. This afternoon will mark Soriano’s first Opening Day nod. The 27-year-old starter was selected by the Pirates from the Angels in the 2021 Rule 5 Draft and was returned after that season.
+
+Soriano separates himself from other major league starters with a hard sinker that averages 97.2 mph, placing him in the 95th percentile in sinker velocity. The flame-throwing righty is now tasked with leading an Angels staff that posted the third-highest ERA in baseball last season. Can Soriano anchor this staff?
+
+The foundation of Soriano’s arsenal is that sinker, which he throws 49% of the time. It plays well against hitters on both sides of the plate, but it is especially effective against right-handed hitters. Soriano complements the sinker with a knuckle curveball, which he throws 27% of the time, bringing his combined usage of those two pitches to 76%. Batters can generally assume that one of the two is coming, yet right-handed hitters in particular still struggle to square them up.
+
+By whiff% — the percentage of swings that result in a swing-and-miss — Soriano’s sinker and knuckle curve against righties rank in the league’s top 20% and 10%. But strikeouts and whiffs are not the most eye-catching part of Soriano’s profile. He stands out even more when it comes to batted-ball metrics.
+
+Simply put, Soriano does not allow many hard-hit balls in the air, especially to the pull side. That suppresses his home run rate and helps keep his ERA down even when he is not locating perfectly or generating whiffs. Soriano will carry another heavy workload this season, which could create issues over the course of a long year. His 169 innings pitched in 2025 were by far the most of his career, and his production suffered as the season wore on.
+
+At the All-Star break, Soriano owned a 3.90 ERA, but that mark finished at 4.26 at season's end. He allowed eight home runs in his final 56 innings, double the number he had allowed before the break in roughly half the innings.
+
+His arsenal looked strong in spring training, as he added velocity to both his sinker and four-seamer. However, Soriano also appeared to be experimenting with his pitch mix, with the four-seam fastball becoming his primary pitch. He was most likely just refining it to add another weapon to his mix, but he should not move too far away from his elite sinker once the season begins.
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+library(tidyverse); library(here); library(kableExtra); source(here("R", "metrics.R")); dl_path <- "C:\\Users\\Owner\\Downloads\\R Baseball\\saberhood_webpage\\data"
+
+#soriano <- mlb_pbp_2025 %>% 
+# filter(matchup.pitcher.fullName == "José Soriano" & isPitch == TRUE)
+#write_rds(soriano,file = file.path(dl_path,  "soriano25.rds"))
+soriano <- read_rds(here("data", "soriano25.rds"))
+soriano_sums <- create_pitch_sums_leader(soriano)
+kable(soriano_sums$shape_sum[-c(2,10,11)], col.names = c("Pitch Type", "Pitches", "Velo", "IVB", "HB", "Spin Rate", "VAA", "HAA"), caption = "Jose Soriano 2025 Arsenal", align = c("l", "c", "c", "c", "c", "c", "c", "c")) %>% 
+  kable_styling(full_width = T) %>% 
+  row_spec(odd_nums(1:nrow(soriano_sums$shape_sum)), color = "white", background = "#BA0021", bold = TRUE) %>% 
+  row_spec(even_nums(1:nrow(soriano_sums$shape_sum)), color = "black", background = "white", bold = TRUE)
+```
+
+The Angels made one notable move this offseason to upgrade their staff from 2025, trading for Grayson Rodriguez from Baltimore. Rodriguez was the No. 2 pitching prospect in baseball behind Andrew Painter in 2023. Since the end of the 2024 season, however, he has not pitched in an MLB game. A mix of lat and elbow injuries plagued him throughout last season as he worked his way back, resulting in an entire missed season. These injuries during his developmental seasons lower the possible ceiling he once had.
+
+To make the deal, the Angels traded away outfielder Taylor Ward, who is coming off a 36-homer season. Ward has gradually developed a more home-run-oriented approach over the past three years, increasing his fly-ball rate each season, thus giving himself more opportunities to leave the yard.
+
+Rodriguez, though, appears to be trending in the opposite direction. In spring training, his pitches lost velocity compared to his last appearance in 2024. He was down about 3 mph on all of his offspeed pitches, and his four-seamer now sits at 95 mph instead of 96.1. Other spring metrics were not encouraging either: he was leaving his curveball in the heart of the zone 13% of the time, leading to a wave of hard-hit contact, and his overall hard-hit rate in camp was 50%.
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+
+grod1 <- data.frame(
+  name = c('Hard Hit%', 'Heart%(Curveball)'), 
+  stat = c('50%', '13%'), 
+  percentile = c('93rd', '98th')
+)
+
+kable(grod1, col.names = c('', 'Value', 'Percentile'), align = 'c', caption = 'Grayson Rodriguez Spring Training Metrics') %>% 
+  kable_styling() %>% 
+  row_spec(c(1), background = "#BA0021", color = "white", bold = T)
+
+grod2 <- data.frame(
+  name = c('2024 Pitches', '2026 S.T. Pitches'), 
+  four_seam_velo = c(96.1, 94.8), 
+  curve_velo = c(81.3, 78.8), 
+  change_velo = c(83.1, 81.9), 
+  silder_velo = c(86.5, 83.5)
+)
+
+kable(grod2, col.names = c('Season', 'Four-Seam Velo', 'Curve Velo', 'Changeup Velo', 'Slider Velo'), align = 'c', caption = 'G. Rodriguez Pitch Comparison') %>%
+  kable_styling(full_width = F) %>% 
+  row_spec(c(1), background = "#BA0021", color = "white", bold = T) %>% 
+  row_spec(c(2), background = "#003263", color = "white", bold = T)
+
+grod2_long <- grod2 %>%
+  pivot_longer(
+    cols = -name,
+    names_to = "pitch_type",
+    values_to = "velo"
+  ) %>%
+  mutate(
+    pitch_type = recode(
+      pitch_type,
+      four_seam_velo = "Four-seam",
+      curve_velo = "Curveball",
+      change_velo = "Changeup",
+      silder_velo = "Slider"
+    )
+  )
+
+ggplot(grod2_long, aes(x = pitch_type, y = velo, fill = name)) +
+  geom_col(position = "dodge", width = 0.7) +
+  labs(
+    title = "Pitch Velocity Comparison",
+    x = NULL,
+    y = "Velocity (mph)",
+    fill = NULL
+  ) +
+  theme_minimal() + 
+  scale_fill_manual(values = c("#003263", "#BA0021"))
+```
+
+Those warning signs led the Angels to place him on the IL with shoulder inflammation; manager Kurt Suzuki deemed it as a case of "dead arm". Not the optimal return thus far for a 36-home run outfielder.
+
+The loss of Rodriguez before the season began prompted the Angels to add another young arm to the rotation. Ryan Johnson is now slotted into the fifth spot, bringing the average service time of Angels starters to 2.8 years. The No. 7 prospect in the Angels system made history on Opening Day in 2025, skipping the minors entirely at age 22 and jumping straight from Dallas Baptist University to the majors.
+
+Skipping the minors is an incredible feat, but Johnson was rushed. He posted a 7.36 ERA in 14 appearances and was sent down to High-A by May. He simply allowed too many home runs: 20% of the fly balls he gave up left the yard. Part of that can be traced to the fact that 20% of his allowed fly balls were pulled, which placed him in the 1st percentile. Pulled fly balls are a home run hitter’s best friend and a pitcher’s worst enemy.
+
+Johnson has improved since his first major league stint, and he showed some of that development in spring training, most notably in the shape of his sweeper. He dropped its average velocity by 4 mph to a sluggish 79 mph, making it one of the slowest sweepers in baseball. That gives the pitch more bend and creates greater separation from his cutter. If he can locate and sequence those pitches effectively, he could produce strong strikeout numbers.
+
+Still, the most important areas for Johnson’s development are limiting home runs and walks, the two factors that most hold back a pitcher with this kind of tunneling potential built around his primary cutter. His 11% walk rate in the majors last season was poor enough to place him near the bottom of MLB.
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+
+rj1 <- data.frame(
+  stat = c('BB%', 'HR/FB%', 'Pull FB%'), 
+  value = c('11%', '20%', '20%'), 
+  percentile = c('3rd', '41st', '1st')
+)
+
+kable(rj1, col.names = c('Stat', 'Percent', 'Percentile'), align = 'c', caption = 'Ryan Johnson Troubles') %>% 
+  kable_styling() %>% 
+  row_spec(c(1,3), background = "#BA0021", color = "white", bold = T) %>% 
+  row_spec(c(0,2), background = "#003263", color = "white", bold = T)
+```
+
+Maybe the Angels’ fate does not rest in the hands of God after all. If the question marks surrounding Grayson Rodriguez and Ryan Johnson turn into check marks, the Angels’ starting five could be trending upward in 2026. Soriano, meanwhile, should once again be effective with his power sinker, keeping the ball on the ground.
