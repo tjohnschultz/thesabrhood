@@ -102,8 +102,8 @@ update_pbp <- function(og_data, szn_type) {
   updated <- bind_rows(og_data, new_data)
   return(updated)
 }
-st_0320 <- update_pbp(st_0311, "Spring Training")
-
+#st_26 <- update_pbp(st_0311, "Spring Training")
+#write_rds(st_26, "st_26.rds")
 
 ##
 soriano_dates <- as.Date(c("2026-02-21", "2026-02-26", "2026-03-09"))
@@ -120,7 +120,7 @@ lewis_pitches <- pbp_data %>%
 lewis_sums <- pitch_summary(twhite_pitches, "Cory Lewis")
 
 ##small vector function for specific player pbp
-soriano_dates <- as.Date(c("2025-02-21", "2025-02-26", "2025-03-09"))
+soriano_dates <- as.Date(c("2026-02-21", "2026-02-26", "2026-03-09", "2026-03-20"))
 
 small_date_pbp_pull <- function(dates, team, name, level_code) {
   game_ids <- map_dfr(dates, ~get_game_pks_mlb(date = .x, level_ids = level_code))
@@ -324,6 +324,8 @@ keller_pit <- redsox_spring_pitch %>%
   filter(matchup.pitcher.fullName == "Kyle Keller")
 plot_pitcher_heatmaps(keller_pit, "Kyle Keller")
 
+
+
 redsox_spring_bat <- st_0319 %>% 
   filter(batting_team == "Boston Red Sox")
 redsox_bat <- create_bat_sums_leader(redsox_spring_bat)
@@ -387,8 +389,12 @@ percentilef <- function(name, summary, col, pitch_type, value) {
 }
 
 
-percentilef("mlbsum_pit", "disc_pit_sum", "Whiff_pct", "Knuckle Curve", .46)
-percentilef("mlbsum_pit", "bbe_pit_sum", "HRFB", "Sinker", .22)
+percentilef("mlbsum_pit", "shape_sum", "VAA", "Four-Seam Fastball", -5.86)
+percentilef("mlbsum_pit", "bbe_sum", "pull_fbpct", "", .2)
+percentilef("mlbsum_pit", "bbe_pit_sum", "pull_fbpct", "Sinker", .22)
+percentilef("mlbsum_pit", "disc_pit_sum", "Zone_pct", "Cutter", .63)
+percentilef("mlbsum_pit", "disc_pit_sum", "Chase_pct", "Sweeper", .33)
+percentilef("mlbsum_pit", "disc_pit_sum", "Heart_pct", "Curveball", .13)
 so_sums_left$pa_sum
 so_sums_right$pa_sum
 so_sums_left$bbe_sum
@@ -421,3 +427,32 @@ usage_by_count<- function(pitch_tbl) {
 }
 headpbp <- head(mlb_tbs$pitch, 20000)
 view(usage_by_count(headpbp))
+
+
+#st_rj <- st_26 %>% 
+#  filter(matchup.pitcher.fullName == "Ryan Johnson")
+#write_rds(st_rj,file = file.path(dl_path, "st_rj.rds"))
+#rj_25 <- mlb_pbp_2025 %>% 
+#  filter(matchup.pitcher.fullName == "Ryan Johnson")
+#write_rds(rj_25,file = file.path(dl_path, "rj_25.rds"))
+
+rj_sums25 <- create_pitch_sums(rj_25)
+rjstsums <- create_pitch_sums(st_rj)
+
+rj_sums25$pa_sum
+rj_sums25$disc_sum
+rj_sums25$shape_sum
+rj_sums25$bbe_sum
+rj_sums25$bbe_pit_sum
+rj_sums25$disc_pit_sum
+
+
+#grod <- st_0318 %>% 
+# filter(matchup.pitcher.fullName == "Grayson Rodriguez" & isPitch == TRUE)
+#write_rds(grod,file = file.path(dl_path, "grod25.rds"))
+grod <- read_rds(here("data", "grod25.rds"))
+grod_sums <- create_pitch_sums(grod)
+grod_sums$disc_pit_sum
+grod_sums$bbe_sum
+grod_sums$shape_sum
+plot_pitcher_heatmaps(grod, "Grayson Rodriguez")

@@ -28,7 +28,7 @@ format:
 </style>
 ```
 
-![José Soriano chart](https://blogs.fangraphs.com/wp-content/uploads/2025/07/Jose-Soriano-Lacks-Strikeouts.jpg){width=80% fig-align="center" fig-alt="FanGraphs chart about José Soriano lacking strikeouts"}
+![José Soriano](https://blogs.fangraphs.com/wp-content/uploads/2025/07/Jose-Soriano-Lacks-Strikeouts.jpg){width=80% fig-align="center" fig-alt="FanGraphs chart about José Soriano lacking strikeouts"}
 
 Jose Soriano was named the Opening Day starter for the Halos this past Tuesday, as announced by first-year manager Kurt Suzuki. This afternoon will mark Soriano’s first Opening Day nod. The 27-year-old starter was selected by the Pirates from the Angels in the 2021 Rule 5 Draft and was returned after that season.
 

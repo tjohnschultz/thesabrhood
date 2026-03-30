@@ -1,0 +1,195 @@
+---
+title: "How the Gators Fell Short."
+date: 2026-03-24
+author: "Tyler Schultz"
+format:
+  html:
+    embed-resources: true
+editor: visual
+---
+
+#### How the 2026 Florida Gators were unable to replicate the success of 2025.
+
+```{=html}
+<style>
+  body {
+    background-color: #0021A5; /* A light blue, for example */
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  main.content {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  max-width: 900px;     /* controls how wide the text block is */
+  margin: 2rem auto;    /* centers the rectangle */
+}
+</style>
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+
+library(tidyverse)
+library(kableExtra)
+library(bigballR)
+library(here)
+source(here("R", "metrics.R"))
+
+fiv_full_pbp <- readRDS(here("data", "fiv_full_pbp.rds"))
+six_full_pbp <- readRDS(here("data", "six_full_pbp.rds"))
+
+#fiv_full_pbp <- readRDS("fiv_full_pbp.rds")
+#fiv_full_pbp$Date <- as.Date(fiv_full_pbp$Date, format = "%m/%d/%Y")
+#fiv_roster <- readRDS("fiv_roster.rds")
+
+fiv_p_stat <- get_player_stats(play_by_play_data = fiv_full_pbp, multi.games = T) %>% filter(Team == "Florida") %>% 
+  arrange(desc(MINS))
+fiv_p_stat <- fiv_p_stat[1:8,]
+
+#six_full_pbp <- readRDS("six_full_pbp.rds")
+#six_full_pbp$Date <- as.Date(six_full_pbp$Date, format = "%m/%d/%Y")
+#six_roster <- readRDS("six_roster.rds")
+
+six_p_stat <- get_player_stats(play_by_play_data = six_full_pbp, multi.games = T) %>% filter(Team == "Florida") %>% 
+  arrange(desc(MINS))
+six_p_stat <- six_p_stat[1:8,]
+```
+
+After the nets were cut down on April 7, 2025, Todd Golden knew that he would have his hands full replacing a starting 5 featuring Walter Clayton Jr., Will Richard, and Alijah Martin, all of whom would be drafted to the NBA in June. Golden felt that the team had the frontcourt to put together a back-to-back campaign with returners Thomas Haugh, Reuben Chinyelu, Alex Condon, and Micah Handlogten. However, he went into the portal and made some splashes with the addition of Princeton guard Xaivian Lee and Arkansas guard Boogie Fland. After these signings, the Gators did not have a deep enough NIL bag to retain Denzel Aberdeen, who walked after getting a major check from the Kentucky Wildcats. Entering 2026, one question needed to be answered to determine whether the Gators would go back-to-back: how will the transfer guards mesh with their new squad?
+
+Our questions were answered on November 3, when the Gators took on the Arizona Wildcats on Opening Night in Las Vegas. The Gators dropped the contest 87-93, and this matchup served as a microcosm of the season that would follow, no matter how hard fans wished there would be a turnaround. The new guards shot a combined 3/13(23%) from deep that night and went on to shoot 24% and 29% each for the season. Compare that to the 2025 starting Gator front court; Walt shot 39%, Will 36%, and Alijah 35%. These guys also shot threes at a way higher volume compared to their 2026 counterparts. All 3 of these soon-to-be NBA players shot more 3s than 2s as well, and as we know, more 3s taken and more threes made lead to more points on the board. In 2025, the only starter with the majority of his shots coming from distance was Xaivian Lee, who shot an aforementioned 28% from 3. When comparing these teams during conference play, the Gators took 5 more threes a game.
+
+We could just focus on the results; there were not a lot of made 3s this year, but let's look at why there was such a drop off and how it affected the rest of the team’s offensive production. The Gators of yesteryear took a higher volume of 3s coming off a pass compared to the alternative, shooting off 3s off the dribble. The percentage of 3-point attempts with a potential assist over the total 3-point shots attempted gives the assisted 3-point rate(A3pt%).
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+
+a3ptfiv <- data.frame(
+  name = c("Walter Clayton Jr.", "Will Richard", "Alijah Martin"),
+  a3pt = c("21%", "28%", "26%"),
+  una_3pt_pct = c("22%", "11%", '12%'),
+  pct_3 = c("29%", '36%', '35%')
+)
+
+a3ptsix <- data.frame(
+  name = c('Boogie Fland', 'Xaivian Lee', 'Urban Klazvar'),
+  a3pt = c('18%', '21%', '34%'),
+  una_3pt_pct = c('8%', '11%', '10%'),
+  pct_3 = c('24%', '29%', '41%')
+)
+
+a3ptfiv %>% 
+  kbl(col.names = c("Name", 'A3PT Rate', 'u-Ast 3P%', '3P%'), align = "c", 
+    caption = "2025 Gator Guard 3PT Breakdown") %>% 
+  kable_styling(full_width = F, position = "float_left") %>% 
+  row_spec(c(1,3), color = "white", background = "blue", bold = T) %>% 
+  row_spec(2, color = "white", background = "orange", bold = T)
+
+a3ptsix %>% 
+  kbl(col.names = c("Name", 'A3PT Rate', 'u-Ast 3P%', '3P%'), align = "c", 
+      caption = "2026 Gator Guard 3PT Breakdown") %>% 
+  kable_styling(full_width = F, position = "right") %>% 
+  row_spec(c(1,3), color = "white", background = "blue", bold = T) %>% 
+  row_spec(c(2), color = "white", background = "orange", bold = T)
+```
+
+As you can see, Walt was an anomaly; his 3-point shooting percentage on unassisted shots is almost double his closest counterpart on these lists. But this also shows you the relationship between the shot quality taken and 3PT%. Alijah Martin and Will Richard shot a lot more assisted 3s than Xaivian Lee and Boogie Fland; as a result, they had a higher percentage of 3s made. I wouldn’t even go so far as to say Will and Alijah are incredibly better shooters, but they definitely were better shot selectors.
+
+The lack of effectiveness from distance also allowed defenses to push more resources to defending the drive and shots in the paint. Compared to their 2025 seasons, Alex Condon and Rueben Chinyelu had starkly different shot tendency profiles. These metrics changed not only from their own play style changes after an offseason, but also due to the rest of the offense built around them. In 2025, Alex Condon shot 31% of his threes off a pass, making 33% of his total 3s. But in 2026, his assisted 3-point rate plummeted to just 17%, leaving his 2026 3PT% at the same clip, 17%. This consistent lack of taking proper shots from distance really came to haunt this team. Reuben Chinyelu changed as well, though not from 3-point land. Chinyelu had a great season as a dominating paint presence, especially on the offensive glass. He got more volume as the team had to divert from 3-point volume since the success rate was so low, but he also had to take worse shots since his guards couldn’t space the floor and get him in a good position. His share of shots at the rim compared to all other field goals dropped 3%, and his percentage of assisted shots at the rim dropped a huge 10% from 2025. This was the reason behind his shooting percentage dropping from 2025, even though he was a much more skilled player after the offseason.
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+
+rub <- data.frame(
+  name = c('2025', '2026'), 
+  FG_pct = c('60%', '58%'), 
+  rim_pct = c('80%', '77%'), 
+  ast_rim_rate = c('44%', '34%')
+)
+
+rub %>% 
+  kable(col.names = c('Rueben Chinyelu Season', 'FG%', 'Rim Rate', 'Ast-Rim Rate'), 
+        align = "c", caption = "Rueben Chinyelu Shot Tendencies: 2025 v. 2026") %>% 
+  kable_styling(full_width = F) %>% 
+  row_spec(c(1), color = "white", background = "blue", bold = T) %>% 
+  row_spec(c(2), color = "white", background = "orange", bold = T)
+```
+
+Entering the regional tournament in Tampa, the Iowa Hawkeyes were aware of the Florida Gators’ tendencies. The first-year Head Coach Ben McCollum had his defense focused on limiting Florida on drives to the basket. Over the course of the season, 81% of Xaivian Lee’s shots at the rim came from unassisted attempts, meaning he was creating his own opportunities at the basket. A high rate is good for guards since it means they are able to beat defenders off the dribble. Iowa’s game plan totally slowed the Florida offensive rhythm by limiting drives to the basket; only 40% of Lee’s shots at the basket were unassisted. This congested the paint for Rueben Chinyelu, who was the beneficiary of plenty of dump-offs and put-backs when his defender was obligated to help when a Florida guard had a free lane to the basket. Chinyelu’s tempo was totally thrown out of whack, getting almost no easy opportunities at the rim. He finished with 1 rebound and 1 FGA, both season lows. The only bright spot on the offensive side of the ball was Xaivian Lee, who shot 43% in 2 tournament games and 3/6 against Iowa. Unsurprisingly, he also happened to shoot a much higher volume of assisted 3-point attempts.
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+
+lee <- data.frame(
+  name = c('Rest of Season', 'Tournament Games'), 
+  t_pct = c('29%', '43%'),
+  a_att_pct = c('21%', '43%'), 
+  un_rim = c('81%', '40%')
+)
+
+lee %>% 
+  kable(col.names = c('', '3PT%', 'Ast-3PT Rate', 'uAst-Rim Rate'), align = 'c', 
+        caption = 'Xaivian Lee Player Tendency Profile') %>% 
+  kable_styling(full_width = F) %>% 
+  row_spec(c(1), color = "white", background = "blue", bold = T) %>% 
+  row_spec(c(2), color = "white", background = "orange", bold = T)
+```
+
+Repeating is hard. In 2006-07, the Gators had all starters return from the previous year’s national championship team. While the 2025-26 team lost 3 starters to the NBA draft, those shoes were just too big to fill. You could just chalk it up to a skill difference between the Champs and this year’s group, but shot selection definitely played a bigger hand in the lack of efficiency from deep this season. That bled into the front-court’s game, which had a great season since there was such an increase in workload. But when the inside game was stuck in quicksand, the Gators were stuck like deer in headlights. A high-powered modern offense demands a 3-point threat, not only for the added points on the board but for the spacing it generates. Defensive players are too long and athletic now for a good offense to have a lacking 3-point attack. A more congested court gives every advantage to the defense; it was only a matter of time before the Gators were exposed in the tournament.
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+
+p_fiv <- ggplot(data = fiv_p_stat, aes(x = TP., y = TP._unast, label = Player)) + 
+  geom_point(color = "#0021A5") +
+  geom_text(vjust = -0.7, size = 3, nudge_x = -0.05) +
+  labs(
+    title = '2025 Florida Gator Shooting', 
+    x = 'Three Point%',
+    y = 'Three Point% on Unassisted Shots',
+    caption = "Source: bigballR | Graph by Tyler Schultz" # Text goes here
+  ) + 
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16, color = "#FA4616"),
+    axis.title.x = element_text(family = "courier", color = "grey30", face = 'bold'),
+    axis.title.y = element_text(family = "courier", color = "grey30", face = 'bold'),
+    panel.background = element_rect(fill = "white"),
+    panel.grid.major = element_line(color = "grey90"),
+    panel.grid.minor = element_blank(),
+    plot.caption = element_text(size = 8, face = "italic", color = "grey50")
+  )
+
+p_six <- ggplot(data = six_p_stat, aes(x = TP., y = TP._unast, label = Player)) + 
+  geom_point(color = "#0021A5") +
+  geom_text(vjust = -0.7, size = 3, nudge_x = -0.05) +
+  labs(
+    title = '2026 Florida Gator Shooting', 
+    x = 'Three Point%',
+    y = 'Three Point% on Unassisted Shots',
+    caption = "Source: bigballR | Graph by Tyler Schultz" # Text goes here
+  ) + 
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16, color = "#FA4616"),
+    axis.title.x = element_text(family = "courier", color = "grey30", face = 'bold'),
+    axis.title.y = element_text(family = "courier", color = "grey30", face = 'bold'),
+    panel.background = element_rect(fill = "white"),
+    panel.grid.major = element_line(color = "grey90"),
+    panel.grid.minor = element_blank(),
+    plot.caption = element_text(size = 8, face = "italic", color = "grey50"), 
+  )
+
+print(p_fiv)
+print(p_six)
+```
