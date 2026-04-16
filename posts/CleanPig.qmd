@@ -1,0 +1,121 @@
+---
+title: "Clean Pig?"
+date: 2026-04-16
+author: "Tyler Schultz"
+format:
+  html:
+    code-fold: true
+    toc: true
+    toc-depth: 2
+---
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+library(tidyverse); library(here); library(kableExtra); library(baseballr); source(here("R", "my methods.R"))
+```
+
+```{=html}
+<style>
+  body {
+    background-color: #0C2340; /* A light blue, for example */
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  main.content {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  max-width: 900px;     /* controls how wide the text block is */
+  margin: 2rem auto;    /* centers the rectangle */
+}
+</style>
+```
+## Garrett Crochet has not had his ‘filth’ to start his 2026 campaign; has it washed away for good?
+
+![Garrett Crochet on the mound for Monday's outing v. Minnesota(AP Photo/Abbie Parr)](https://www.masslive.com/resizer/v2/2O77PU26VZEOTDGO4TNZF7VE3U.jpg?auth=3d28cb4d320707604f704ab8f2eb745e95644260c932905ed68a540abeba237d&width=1280&smart=true&quality=90)
+
+Pigs love their filth; usually, it is not hard for them to get comfortable and properly filthy. However, for the 2025 AL Cy Young runner-up, filth has come at a premium in the dawn of the 2026 campaign. Last season, Garret Crochet twirled a 2.59 ERA to go along with an MLB-leading 255 Ks. He also capped his previous career high in innings pitched by about 60. League-wide, LHP face LHB in \~30% of plate appearances. So far this year, Crochet has faced a LHB only 15% the time. Managers have every right to avoid these matchups against Crochet this season; his OPS allowed against lefties last year was .447(4th best among pitchers with 90 LHB faced). Will Crochet be able to take control of his season before it sinks?
+
+Last year, his go-to pitch in lefty-on-lefty matchups was the sweeper. This was one of the most devastating in the game, inducing a 39% swing-and-miss rate. That rate has fallen to 24% thus far in 2026, yet there is no corresponding drop in shape metrics that would indicate a drop in production. The velocity and spin of his sweeper have actually increased this year, creating more drop and more ‘sweep’ on the pitch. Well, there must be a reason for his ERA to balloon to 7.58; the reason can be found in the location metrics of his pitches. While it is a good sign that his velocity and spin metrics haven’t plummeted along with his ERA, this may be an explanation for his rocky start. Location metrics reveal a pitcher's ability to execute a given pitch. His fastball location has been down across the board; his two dominant fastballs (cutters v. LHB and sinkers v. RHB) are down 9% and 6%, respectively, in pitches thrown in the shadow of the zone. Pitches thrown in the shadow of the zone are a necessity for fastballs, as they generate uncomfortable swings while still pumping the zone. Too many pitches over the heart of the plate result in solid contact, while too many out of the zone allow hitters to be selective. Overall, he threw 49% of his pitches in the zone last year and is on pace to only throw 43% in the zone this year.
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+crochet <- readRDS(here("data", "crochet04.15.rds"))
+plot_pitcher_heatmaps(crochet, 'Garrett Crochet')
+```
+
+The main issue seems to be pitch location related; Crochet also had a below-average start locating his pitches in 2025. He allowed 3.68 walks per 9 innings last year from March to April, with the mark settling to 2.02 by the end of the year. The reason that no one seemed to care about last April's command issues was because he kept up a 2.05 ERA during that stretch. Last year’s lack of location early was covered up by low-quality contact from opposing hitters. The month of April featured an especially low hard hit% of 30%, which is 7 points better than his next best month in 2025. His HR per fly ball rate was also minuscule at 5%; hitters did not take advantage last year when Crochet was having command issues.
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+crochetmonth <- readRDS(here("data", "crochetmonth.rds"))
+crochetmonth26 <- readRDS(here("data", "crochetmonth26.rds"))
+#Crochet April Comparisons. 2025 v. 2026
+crochetapril25 <- crochetmonth[2,]
+crochetapril26 <- crochetmonth26[1,]
+aprils <- bind_rows(crochetapril25, crochetapril26)
+years <- c('2025', '2026')
+aprils <- years %>% bind_cols(aprils)
+aprils <- aprils[,c(1,46, 72, 76)]
+
+aprils_clean <- aprils %>%
+  rename(year = `...1`) %>%
+  pivot_longer(
+    cols = -year,
+    names_to = "stat",
+    values_to = "value"
+  )
+
+ggplot(aprils_clean, aes(x = factor(year), y = value, fill = stat)) +
+  geom_col(position = "dodge") +
+  labs(
+    title = "April Stats by Year", 
+    subtitle = "Garrett Crochet", 
+    x = "Year",
+    y = "Value",
+    fill = "Stat Type"
+  ) +
+  theme_minimal() + 
+  scale_fill_discrete(labels = c("HardHit_pct" = "Hard Hit%", "HRFB" = "HR/FB%", "Zone_pct" = "Zone%")) + 
+  scale_fill_brewer(palette = 'Set2')
+```
+
+His pitches have stayed sharp even while holding an ERA in the mid-7s. He only has to work through command issues, especially when establishing the fastball. Following his shabby location in April, May saw his best location numbers in a full month all year. April showers truly did bring May flowers. Once Crochet, yet again, bounces back from early command struggles, question marks will soon fall away. If Crochet can complete 195 IP the full season while maintaining a 2.51 or better ERA, he can finish out the year with a sub-3 ERA. This expectation is not too far out of the picture, and the Pig’s season numbers may still be recoverable, even after the 10 ER allowed in 1 ⅔ IP against the Twins. However this graph also shows cause for late season concern. After his May spike, Crochet's location consistently dropped as the season wore on; showing signs of wear in a 205 inning season.
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+crochetmonth <- crochetmonth %>% arrange(month_name)
+ggplot(data = crochetmonth, aes(x = month_name, y = Zone_pct, group = name.x, colour = name.x)) + 
+  geom_point(colour = 'red', size = 4) + 
+  geom_line() + 
+  labs(
+    title = "Garrett Crochet Zone% by Month", 
+    subtitle = "Zone%: Percentage of pitches thrown that are in K-Zone.", 
+    x = "Month", 
+    y = "Zone%"
+  ) +
+  theme(
+    panel.background = element_rect(fill = 'white'),
+    # Use element_line for grid properties
+    panel.grid.major = element_line(color = "black", linewidth = 0.5),
+    panel.grid.minor = element_line(color = "gray80", linetype = "dashed"), 
+    panel.border = element_rect(color = "black", fill = NA), 
+    legend.position = 'none'
+  )
+```
+
+Since 2011, 10 pitchers have held a sub-2.5 ERA in 195+ IP during their final 28 games. Will Crochet find his stuff to join these ranks?
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+table <- read.csv(here("data", 'article1fig1.csv'))
+table <- table[1:10, c(2:9, 13:14, 27)]
+
+kable(table, col.names = c('Name', 'Team', 'Date Began', 'Date Ended', 'ERA', 'IP', 'W', 'L', 'CG', 'SHO', 'Ks'), align = 'c') %>% 
+  kable_styling(full_width = T) %>%
+  row_spec(1, color = '#00A3E0', background = '#EF3340', bold= T) %>%
+  row_spec(2, color = '#00385D', background = '#E50022', bold = T) %>%
+  row_spec(3:4, color = '#005A9C', background = '#A5ACAF', bold = T) %>%
+  row_spec(5, color = '#0C2340', background = '#FA4616', bold = T) %>%
+  row_spec(6, color = '#0E3386', background = '#CC3433', bold = T) %>%
+  row_spec(7, color = '#00385D', background = '#E50022', bold = T) %>%
+  row_spec(8, color = '#C41E3A', background = '#0C2340', bold = T) %>%
+  row_spec(9, color = '#005A9C', background = '#A5ACAF', bold = T) %>% 
+  row_spec(10, color = '#092C5C', background = '#F5D130', bold = T)
+```
