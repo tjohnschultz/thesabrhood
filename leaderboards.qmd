@@ -18,7 +18,7 @@ format: html
 #| echo: false
 #fgbat25 <- fg_batter_leaders(startseason = 2025, endseason = 2025)
 ```
-
+Leaders as of April 16, 2026.
 ```{r}
 #| message: false
 #| warning: false
