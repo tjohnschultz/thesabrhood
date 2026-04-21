@@ -119,3 +119,7 @@ kable(table, col.names = c('Name', 'Team', 'Date Began', 'Date Ended', 'ERA', 'I
   row_spec(9, color = '#005A9C', background = '#A5ACAF', bold = T) %>% 
   row_spec(10, color = '#092C5C', background = '#F5D130', bold = T)
 ```
+
+```{=html}
+<div class="substack-post-embed"><p lang="en">Clean Pig? by The SabrHood</p><p>Garrett Crochet has not had his ‘filth’ to start his 2026 campaign; has it washed away for good?</p><a data-post-link href="https://thesabrhood.substack.com/p/clean-pig">Read on Substack</a></div><script async src="https://substack.com/embedjs/embed.js" charset="utf-8"></script>
+```
