@@ -9,6 +9,7 @@ project:
 website:
   title: ""
   favicon: "images/sabrlogo.png"
+  google-analytics: "G-GGNXXW6FWM"
   navbar:
     background: "#FFFFFF"
     foreground: "#BD3039"
