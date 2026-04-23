@@ -1,5 +1,6 @@
 ---
 title: "Leaderboards"
+subtitle: "`r paste('Updated stats from', format(Sys.Date(), '%B %d, %Y'))`"
 format: html
 ---
 
@@ -9,23 +10,103 @@ format: html
     background-color: #0C2340; /* A light blue, for example */
     font-family: 'Roboto', sans-serif;
   }
+  
+  main.content {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  max-width: 900px;     /* controls how wide the text block is */
+  margin: 2rem auto;    /* centers the rectangle */
+}
 </style>
 ```
 
-```{r}
-#| message: false
-#| warning: false
-#| echo: false
-#fgbat25 <- fg_batter_leaders(startseason = 2025, endseason = 2025)
-```
-Leaders as of April 16, 2026.
-```{r}
-#| message: false
-#| warning: false
-#| echo: false
+
+```{r,message=FALSE,warning=FALSE,echo=FALSE}
 
 library(tidyverse); library(here); library(kableExtra); library(knitr); source(here("R", "metrics.R")); dl_path <- "C:\\Users\\Owner\\Downloads\\R Baseball\\saberhood_webpage\\data"; source(here("R", "my methods.R"))
-#st_week <- readRDS(here("data", "days_bat_all.rds"))
 
+bat_all <- readRDS(here("data", "bat_all.rds"))
+#bat_week <- readRDS(here("data", "bat_week.rds"))
+```
 
+```{r,message=FALSE,warning=FALSE,echo=FALSE}
+#leaderboards from season-long total stats
+render_mlb_leaderboard(
+  data = bat_all,
+  stat_col = HR,
+  name_col = name.x,
+  team_col = team,
+  n = 5,
+  title = "Home Run Leaders",
+  stat_header = "HR", 
+  sort_order = "desc"
+)
+
+render_mlb_leaderboard(
+  data = bat_all,
+  stat_col = OPS,
+  name_col = name.x,
+  team_col = team,
+  n = 10,
+  title = "OPS Leaders",
+  stat_header = "OPS", 
+  sort_order = "desc"
+)
+
+render_mlb_leaderboard(
+  data = bat_all,
+  stat_col = Whiff_pct,
+  name_col = name.x,
+  team_col = team,
+  n = 10,
+  title = "Whiff% Leaders",
+  stat_header = "Whiff%", 
+  sort_order = "asc"
+)
+
+render_mlb_leaderboard(
+  data = bat_all,
+  stat_col = barrel_pct,
+  name_col = name.x,
+  team_col = team,
+  n = 10,
+  title = "Barrel% Leaders",
+  stat_header = "Barrel%", 
+  sort_order = "desc"
+)
+
+render_mlb_leaderboard(
+  data = bat_all,
+  stat_col = pull_fbpct,
+  name_col = name.x,
+  team_col = team,
+  n = 10,
+  title = "Full FB% Leaders",
+  stat_header = "Pull FB%", 
+  sort_order = "desc"
+)
+
+render_mlb_leaderboard(
+  data = bat_all,
+  stat_col = K_pct,
+  name_col = name.x,
+  team_col = team,
+  n = 10,
+  title = "SO Leaders",
+  stat_header = "SO", 
+  sort_order = "asc"
+)
+
+render_mlb_leaderboard(
+  data = bat_all,
+  stat_col = BB_pct,
+  name_col = name.x,
+  team_col = team,
+  n = 10,
+  title = "BB Leaders",
+  stat_header = "BB", 
+  sort_order = "desc"
+)
 ```

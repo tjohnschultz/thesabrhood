@@ -38,13 +38,7 @@ library(dplyr); library(slider)
 enhance_pbp <- function(data) {
   library(dplyr)
   library(stringr)
-  
-  baserunning_events <- c(
-    "pickoff_1b", "pickoff_2b", "pickoff_3b", "pickoff_error_1b",
-    "caught_stealing_2b", "caught_stealing_3b", "caught_stealing_home",
-    "stolen_base_2b", "wild_pitch", "pickoff_caught_stealing_2b",
-    "pickoff_caught_stealing_3b", "game_advisory"
-  )
+  library(lubridate)
   
   swing_events <- c(
     "Swinging Strike", "Foul", "In play, out(s)", "In play, run(s)",
@@ -56,49 +50,76 @@ enhance_pbp <- function(data) {
     "Swinging Strike", "Swinging Strike (Blocked)", "Missed Bunt"
   )
   
-  non_ab_events <- c(
-    "walk", "intent_walk", "hit_by_pitch",
-    "sac_fly", "sac_bunt", "sac_fly_double_play", "sac_bunt_double_play",
-    "catcher_interf"
-  )
-  
-  non_pa_events <- c(
+  non_pa_only <- c(
     "pickoff_1b", "pickoff_2b", "pickoff_3b", "pickoff_error_1b",
     "caught_stealing_2b", "caught_stealing_3b", "caught_stealing_home",
-    "stolen_base_2b", "wild_pitch", "pickoff_caught_stealing_2b", 
+    "stolen_base_2b", "wild_pitch", "pickoff_caught_stealing_2b",
     "pickoff_caught_stealing_3b", "game_advisory"
   )
   
-  pa_only_events <- c(
-    "walk", "intent_walk", "hit_by_pitch", "sac_fly", 
-    "sac_bunt", "sac_fly_double_play", "catcher_interf"
+  pa_end_events <- c(
+    "single", "double", "triple", "home_run",
+    "field_out", "force_out", "field_error",
+    "double_play", "grounded_into_double_play",
+    "fielders_choice", "fielders_choice_out",
+    "strikeout", "strikeout_double_play",
+    "walk", "intent_walk", "hit_by_pitch",
+    "sac_fly", "sac_bunt", "sac_fly_double_play",
+    "sac_bunt_double_play", "catcher_interf", "other_out"
   )
+  
+  pa_only_events <- c(
+    "walk", "intent_walk", "hit_by_pitch",
+    "sac_fly", "sac_bunt", "sac_fly_double_play",
+    "sac_bunt_double_play", "catcher_interf"
+  )
+  
+  hit_events <- c("single", "double", "triple", "home_run")
   
   data %>%
     mutate(game_date = as.Date(game_date)) %>%
     group_by(game_pk, atBatIndex) %>%
     mutate(
-      game_date = as.Date(game_date), 
-      month_name = month(as.Date(game_date), label = TRUE), 
+      game_date = as.Date(game_date),
+      month_name = lubridate::month(game_date, label = TRUE),
+      
       last_pitch_num = ifelse(
         any(isPitch %in% TRUE & !is.na(pitchNumber)),
         max(pitchNumber[isPitch %in% TRUE], na.rm = TRUE),
         NA_real_
       ),
+      
       is_last_pitch = as.integer(
         isPitch %in% TRUE &
           !is.na(pitchNumber) &
           pitchNumber == last_pitch_num
       ),
+      
+      pa_end_row = as.integer(
+        row_number() == dplyr::n() &
+          result.eventType %in% pa_end_events
+      ),
+      
       is_swing = as.integer(details.call.description %in% swing_events),
       is_whiff = as.integer(details.call.description %in% whiff_events),
       is_contact = as.integer(is_swing == 1 & is_whiff == 0),
-      is_pa = as.integer(is_last_pitch == 1 & !(result.eventType %in% non_pa_events)),
-      is_at_bat = as.integer(is_pa == 1 & !(result.eventType %in% pa_only_events)),
-      is_bb = as.integer(is_pa == 1 & (result.eventType %in% c("walk", "intent_walk"))),
-      is_k  = as.integer(is_pa == 1 & str_detect(result.eventType, "^strikeout")),
+      
+      is_pa = pa_end_row,
+      
+      is_at_bat = as.integer(
+        pa_end_row == 1 & !(result.eventType %in% pa_only_events)
+      ),
+      
+      is_bb = as.integer(
+        pa_end_row == 1 & result.eventType %in% c("walk", "intent_walk")
+      ),
+      
+      is_k = as.integer(
+        pa_end_row == 1 & str_detect(result.eventType, "^strikeout")
+      ),
+      
       total_bases = case_when(
-        is_last_pitch != 1 ~ NA_real_,
+        pa_end_row != 1 ~ NA_real_,
         result.eventType == "single" ~ 1,
         result.eventType == "double" ~ 2,
         result.eventType == "triple" ~ 3,
@@ -106,28 +127,46 @@ enhance_pbp <- function(data) {
         is_at_bat == 1 ~ 0,
         TRUE ~ NA_real_
       ),
+      
       is_hit = as.integer(
-        is_last_pitch == 1 &
-          result.eventType %in% c("single", "double", "triple", "home_run")), 
+        pa_end_row == 1 & result.eventType %in% hit_events
+      ),
+      
+      is_hr = as.integer(
+        pa_end_row == 1 & result.eventType == "home_run"
+      ),
+      
       is_bbe = as.integer(
         is_last_pitch == 1 &
           isPitch %in% TRUE &
           ((details.isInPlay %in% TRUE) | !is.na(hitData.launchSpeed))
       ),
+      
       ev = suppressWarnings(as.numeric(hitData.launchSpeed)),
       la = suppressWarnings(as.numeric(hitData.launchAngle)),
       hit_location = suppressWarnings(as.numeric(hitData.location)),
+      
       is_hard_hit = as.integer(is_bbe == 1 & !is.na(ev) & ev >= 95),
-      is_barrel = as.integer(is_bbe == 1 & !is.na(ev) & ev >= 98 & la >= 24 & la <= 33), 
-      is_fb = as.integer(is_bbe == 1 & !is.na(ev) & la >= 25 & la <= 50), 
+      
+      is_barrel = as.integer(
+        is_bbe == 1 & !is.na(ev) & ev >= 98 & la >= 24 & la <= 33
+      ),
+      
+      is_fb = as.integer(
+        is_bbe == 1 & !is.na(ev) & la >= 25 & la <= 50
+      ),
+      
       contact_quality = case_when(
         is_bbe != 1 | is.na(ev) ~ NA_character_,
         ev < 84.4 ~ "Weak",
         ev < 97.2 ~ "Average",
         TRUE ~ "Hard"
       ),
-      is_gb = as.integer(is_bbe == 1 & hitData.trajectory == "ground_ball"), 
-      is_hr = as.integer(is_last_pitch == 1 & result.eventType == "home_run"), 
+      
+      is_gb = as.integer(
+        is_bbe == 1 & hitData.trajectory == "ground_ball"
+      ),
+      
       bbe_type = case_when(
         is_bbe != 1 ~ NA_character_,
         hitData.trajectory %in% c("ground_ball", "bunt_grounder") ~ "Grounder",
@@ -135,6 +174,7 @@ enhance_pbp <- function(data) {
         hitData.trajectory %in% c("fly_ball", "popup", "bunt_popup") ~ "FlyBall",
         TRUE ~ NA_character_
       ),
+      
       spray_direction = case_when(
         is_bbe != 1 ~ NA_character_,
         
@@ -148,18 +188,23 @@ enhance_pbp <- function(data) {
         
         TRUE ~ NA_character_
       ),
+      
       is_pull = as.integer(spray_direction == "Pull"),
-      is_fbhr = as.integer(is_fb == 1 & is_hr == 1), 
-      is_pull_fb = as.integer(is_fb == 1 & is_pull == 1), 
+      is_fbhr = as.integer(is_fb == 1 & is_hr == 1),
+      is_pull_fb = as.integer(is_fb == 1 & is_pull == 1),
+      
       zone = suppressWarnings(as.integer(pitchData.zone)),
       is_zone  = as.integer(isPitch %in% TRUE & !is.na(zone) & zone >= 1 & zone <= 9),
       is_ozone = as.integer(isPitch %in% TRUE & !is.na(zone) & zone > 9),
-      is_heart = as.integer(isPitch %in% TRUE & !is.na(zone) & zone == 5), 
-      is_chase   = as.integer(is_swing == 1 & is_ozone == 1),
+      is_heart = as.integer(isPitch %in% TRUE & !is.na(zone) & zone == 5),
+      
+      is_chase = as.integer(is_swing == 1 & is_ozone == 1),
       is_z_swing = as.integer(is_swing == 1 & is_zone == 1),
       is_o_contact = as.integer(is_contact == 1 & is_ozone == 1),
-      is_z_contact = as.integer(is_contact == 1 & is_zone == 1), 
-      count = paste(count.balls.start, "-", count.strikes.start), 
+      is_z_contact = as.integer(is_contact == 1 & is_zone == 1),
+      
+      count = paste(count.balls.start, "-", count.strikes.start),
+      
       lineup_spot = suppressWarnings(as.integer(battingOrder)),
       lineup_bucket = case_when(
         lineup_spot %in% 1:3 ~ "Front",
@@ -167,10 +212,16 @@ enhance_pbp <- function(data) {
         lineup_spot %in% 7:9 ~ "Back",
         TRUE ~ NA_character_
       ),
-      is_RISP = as.integer(!is.na(matchup.postOnThird.fullName) | !is.na(matchup.postOnSecond.fullName)), 
+      
+      is_RISP = as.integer(
+        !is.na(matchup.postOnThird.fullName) |
+          !is.na(matchup.postOnSecond.fullName)
+      ),
+      
       bbe_type = factor(bbe_type, levels = c("Grounder", "LineDrive", "FlyBall")),
-      spray_direction = factor(spray_direction, levels = c("Pull", "Middle", "Oppo")), 
-      contact_quality = factor(contact_quality, levels = c("Weak", "Average", "Hard")), 
+      spray_direction = factor(spray_direction, levels = c("Pull", "Middle", "Oppo")),
+      contact_quality = factor(contact_quality, levels = c("Weak", "Average", "Hard")),
+      
       player_name_key = case_when(
         matchup.batter.fullName == "Max Muncy" & batting_team == "Athletics" ~ "Max Muncy_ATH",
         matchup.batter.fullName == "Max Muncy" & batting_team == "Los Angeles Dodgers" ~ "Max Muncy_LAD",
@@ -178,6 +229,18 @@ enhance_pbp <- function(data) {
       )
     ) %>%
     ungroup()
+}
+
+update_pbp <- function(og_data, szn_type) {
+  og_pks <- as.vector(og_data$game_pk)
+  dates <- seq(from = as.Date("2026-02-20"), to = Sys.Date(), by = "day")
+  scheds <- map_dfr(dates, ~get_game_pks_mlb(date = .x, level_ids = 1)) %>% 
+    filter(seriesDescription == szn_type & status.codedGameState == "F")
+  new_pks <- as.vector(scheds$game_pk)
+  pks_diff <- setdiff(new_pks, og_pks)
+  new_data <- map_dfr(pks_diff, ~get_pbp_mlb(game_pk = .x))
+  updated <- bind_rows(og_data, new_data)
+  return(updated)
 }
 #Prepare with inside enhancement
 prepare_pbp_views <- function(pbp) {
@@ -237,13 +300,9 @@ apply_split_filters <- function(tbl,
   }
   
   if (risp == "yes") {
-    pitch_tbl <- pitch_tbl %>% filter(is_RISP == TRUE)
-    bbe_tbl   <- bbe_tbl %>% filter(is_RISP == TRUE)
-    pa_tbl    <- pa_tbl %>% filter(is_RISP == TRUE)
+    tbl <- tbl %>% filter(is_RISP == TRUE)
   } else if (risp == "no") {
-    pitch_tbl <- pitch_tbl %>% filter(is_RISP == FALSE)
-    bbe_tbl   <- bbe_tbl %>% filter(is_RISP == FALSE)
-    pa_tbl    <- pa_tbl %>% filter(is_RISP == FALSE)
+    tbl <- tbl %>% filter(is_RISP == FALSE)
   }
   
   tbl
@@ -781,6 +840,7 @@ summarize_pa_batter <- function(pa_tbl, level = "player", group.by = NULL, team_
     group_by(across(all_of(grouping_cols))) %>%
     summarise(
       name = dplyr::first(.data[[name_col]]),
+      team = dplyr::first(.data[[team_col]]), 
       PA = n(),
       AB = sum(is_at_bat, na.rm = TRUE),
       H  = sum(is_hit, na.rm = TRUE),
@@ -962,24 +1022,25 @@ summarize_overall_batter <- function(views,
   
   pa_sum <- add_metric_ranks(
     pa_sum,
-    high_good = c("PA", "AB", "H", "BB", "HR", "TB", "AVG", "BB_pct", "SLG", "OBP", "OPS"),
-    low_good  = c("SO", "K_pct"),
+    high_good = c("PA", "AB", "H", "BB", "HR", "TB", "AVG", "BB_pct", "SLG", "OBP", "OPS", "SO", "K_pct"),
+    low_good  = c(),
     by_group  = group.by
   )
   
   disc_sum <- add_metric_ranks(
     disc_sum,
     high_good = c("Pitches", "Swings", "Contact", "Contact_pct",
-                  "OContact", "OContact_pct", "ZContact", "ZContact_pct"),
-    low_good  = c("Whiffs", "Whiff_pct", "Chase", "Chase_pct"),
+                  "OContact", "OContact_pct", "ZContact", "ZContact_pct", 
+                  "Whiffs", "Whiff_pct", "Chase", "Chase_pct"),
+    low_good  = c(),
     by_group  = group.by
   )
   
   bbe_sum <- add_metric_ranks(
     bbe_sum,
     high_good = c("BBE", "HardHit", "HardHit_pct", "barrels", "barrel_pct",
-                  "pull_fb", "pull_fbpct", "FBHR", "HRFB", "EV"),
-    low_good  = c("GB", "GB_pct"),
+                  "pull_fb", "pull_fbpct", "FBHR", "HRFB", "EV", "GB", "GB_pct"),
+    low_good  = c(),
     by_group  = group.by
   )
   
@@ -1119,58 +1180,106 @@ plot_rolling_trend <- function(data, x_col = "game_date", y_col, color_col = NUL
 }
 
 ####
-build_contact_matrix <- function(enhanced_pbp, group_type = "player") {
+build_contact_pa_table <- function(enhanced_pbp,
+                                   perspective = "batter") {
   library(dplyr)
   
-  tbl <- enhanced_pbp %>%
+  player_col <- if (perspective == "batter") {
+    "matchup.batter.fullName"
+  } else if (perspective == "pitcher") {
+    "matchup.pitcher.fullName"
+  } else {
+    stop("perspective must be 'batter' or 'pitcher'")
+  }
+  
+  team_col <- if (perspective == "batter") {
+    "batting_team"
+  } else {
+    "fielding_team"
+  }
+  
+  enhanced_pbp %>%
+    group_by(game_pk, atBatIndex) %>%
+    summarise(
+      name = first(na.omit(.data[[player_col]])),
+      team = first(na.omit(.data[[team_col]])),
+      
+      has_bbe = any(is_bbe == 1, na.rm = TRUE),
+      
+      contact_quality = first(contact_quality[is_bbe == 1 & !is.na(contact_quality)]),
+      bbe_type = first(bbe_type[is_bbe == 1 & !is.na(bbe_type)]),
+      spray_direction = first(spray_direction[is_bbe == 1 & !is.na(spray_direction)]),
+      
+      bbe = as.integer(any(is_bbe == 1, na.rm = TRUE)),
+      hits = sum(is_hit, na.rm = TRUE),
+      HR = sum(is_hr, na.rm = TRUE),
+      TB = sum(total_bases, na.rm = TRUE),
+      
+      .groups = "drop"
+    ) %>%
     filter(
-      is_bbe == 1,
+      has_bbe,
       !is.na(contact_quality),
       !is.na(bbe_type),
       !is.na(spray_direction)
-    )
+    ) %>%
+    select(-has_bbe)
+}
+
+build_contact_matrix <- function(enhanced_pbp,
+                                 group_type = "player",
+                                 perspective = "batter") {
+  library(dplyr)
+  
+  contact_pa_tbl <- build_contact_pa_table(
+    enhanced_pbp = enhanced_pbp,
+    perspective = perspective
+  )
   
   if (group_type == "player") {
-    out <- tbl %>%
+    out <- contact_pa_tbl %>%
       group_by(
-        matchup.batter.fullName,
+        name,
         contact_quality,
         bbe_type,
         spray_direction
       ) %>%
-      summarize(
-        bbe = n(),
-        hits = sum(is_hit, na.rm = TRUE),
-        TB = sum(total_bases, na.rm = TRUE),
+      summarise(
+        bbe = sum(bbe, na.rm = TRUE),
+        hits = sum(hits, na.rm = TRUE),
+        HR = sum(HR, na.rm = TRUE),
+        TB = sum(TB, na.rm = TRUE),
         .groups = "drop"
       )
     
   } else if (group_type == "team") {
-    out <- tbl %>%
+    out <- contact_pa_tbl %>%
       group_by(
-        batting_team,
+        team,
         contact_quality,
         bbe_type,
         spray_direction
       ) %>%
-      summarize(
-        bbe = n(),
-        hits = sum(is_hit, na.rm = TRUE),
-        TB = sum(total_bases, na.rm = TRUE),
+      summarise(
+        bbe = sum(bbe, na.rm = TRUE),
+        hits = sum(hits, na.rm = TRUE),
+        HR = sum(HR, na.rm = TRUE),
+        TB = sum(TB, na.rm = TRUE),
         .groups = "drop"
       )
     
   } else if (group_type == "league") {
-    out <- tbl %>%
+    out <- contact_pa_tbl %>%
       group_by(
         contact_quality,
         bbe_type,
         spray_direction
       ) %>%
-      summarize(
-        bbe = n(),
-        hits = sum(is_hit, na.rm = TRUE),
-        TB = sum(total_bases, na.rm = TRUE),
+      summarise(
+        bbe = sum(bbe, na.rm = TRUE),
+        hits = sum(hits, na.rm = TRUE),
+        HR = sum(HR, na.rm = TRUE),
+        TB = sum(TB, na.rm = TRUE),
         .groups = "drop"
       )
     
@@ -1192,10 +1301,17 @@ load_contact_matrix <- function(path = "contact_matrix.csv") {
     )
 }
 
-expected_contact_detail <- function(pbp, contact_matrix, group_type = "player") {
+expected_contact_detail <- function(pbp,
+                                    contact_matrix,
+                                    group_type = "player",
+                                    perspective = "batter") {
   library(dplyr)
   
-  build_contact_matrix(pbp, group_type = group_type) %>%
+  build_contact_matrix(
+    enhanced_pbp = pbp,
+    group_type = group_type,
+    perspective = perspective
+  ) %>%
     left_join(
       contact_matrix,
       by = c("contact_quality", "bbe_type", "spray_direction")
@@ -1206,21 +1322,26 @@ expected_contact_detail <- function(pbp, contact_matrix, group_type = "player") 
     )
 }
 
-calc_expected_contact_stats <- function(pbp, contact_matrix, group_type = "player") {
+calc_expected_contact_stats <- function(pbp,
+                                        contact_matrix,
+                                        group_type = "player",
+                                        perspective = "batter") {
   library(dplyr)
   
   detail_tbl <- expected_contact_detail(
     pbp = pbp,
     contact_matrix = contact_matrix,
-    group_type = group_type
+    group_type = group_type,
+    perspective = perspective
   )
   
   if (group_type == "player") {
     out <- detail_tbl %>%
-      group_by(matchup.batter.fullName) %>%
-      summarize(
+      group_by(name) %>%
+      summarise(
         BBE = sum(bbe, na.rm = TRUE),
         H = sum(hits, na.rm = TRUE),
+        HR = sum(HR, na.rm = TRUE),
         TB = sum(TB, na.rm = TRUE),
         xH = sum(xH_contrib, na.rm = TRUE),
         xTB = sum(xTB_contrib, na.rm = TRUE),
@@ -1228,17 +1349,18 @@ calc_expected_contact_stats <- function(pbp, contact_matrix, group_type = "playe
         SLG_on_contact = round(rate(TB, BBE), 3),
         xBA = round(rate(xH, BBE), 3),
         xSLG = round(rate(xTB, BBE), 3),
-        BA_v_exp = (BA_on_contact - xBA), 
-        SLG_v_exp = (SLG_on_contact - xSLG), 
+        BA_v_exp = round(BA_on_contact - xBA, 3),
+        SLG_v_exp = round(SLG_on_contact - xSLG, 3),
         .groups = "drop"
       )
     
   } else if (group_type == "team") {
     out <- detail_tbl %>%
-      group_by(batting_team) %>%
-      summarize(
+      group_by(team) %>%
+      summarise(
         BBE = sum(bbe, na.rm = TRUE),
         H = sum(hits, na.rm = TRUE),
+        HR = sum(HR, na.rm = TRUE),
         TB = sum(TB, na.rm = TRUE),
         xH = sum(xH_contrib, na.rm = TRUE),
         xTB = sum(xTB_contrib, na.rm = TRUE),
@@ -1246,25 +1368,26 @@ calc_expected_contact_stats <- function(pbp, contact_matrix, group_type = "playe
         SLG_on_contact = round(rate(TB, BBE), 3),
         xBA = round(rate(xH, BBE), 3),
         xSLG = round(rate(xTB, BBE), 3),
-        BA_v_exp = (BA_on_contact - xBA), 
-        SLG_v_exp = (SLG_on_contact - xSLG), 
+        BA_v_exp = round(BA_on_contact - xBA, 3),
+        SLG_v_exp = round(SLG_on_contact - xSLG, 3),
         .groups = "drop"
       )
     
   } else if (group_type == "league") {
     out <- detail_tbl %>%
-      summarize(
+      summarise(
         BBE = sum(bbe, na.rm = TRUE),
         H = sum(hits, na.rm = TRUE),
+        HR = sum(HR, na.rm = TRUE),
         TB = sum(TB, na.rm = TRUE),
         xH = sum(xH_contrib, na.rm = TRUE),
         xTB = sum(xTB_contrib, na.rm = TRUE),
         BA_on_contact = round(rate(H, BBE), 3),
         SLG_on_contact = round(rate(TB, BBE), 3),
         xBA = round(rate(xH, BBE), 3),
-        xSLG = round(rate(xTB, BBE), 3), 
-        BA_v_exp = (BA_on_contact - xBA), 
-        SLG_v_exp = (SLG_on_contact - xSLG)
+        xSLG = round(rate(xTB, BBE), 3),
+        BA_v_exp = round(BA_on_contact - xBA, 3),
+        SLG_v_exp = round(SLG_on_contact - xSLG, 3)
       )
     
   } else {
@@ -1272,4 +1395,166 @@ calc_expected_contact_stats <- function(pbp, contact_matrix, group_type = "playe
   }
   
   out
+}
+
+run_expected_contact_workflow <- function(raw_pbp,
+                                          contact_matrix_path = "contact_matrix.csv",
+                                          group_type = "player",
+                                          perspective = "batter",
+                                          return_type = "summary",
+                                          already_enhanced = FALSE) {
+  library(dplyr)
+  
+  pbp_use <- if (already_enhanced) raw_pbp else enhance_pbp(raw_pbp)
+  
+  contact_matrix <- load_contact_matrix(contact_matrix_path)
+  
+  if (return_type == "pa_table") {
+    out <- build_contact_pa_table(
+      enhanced_pbp = pbp_use,
+      perspective = perspective
+    )
+    
+  } else if (return_type == "detail") {
+    out <- expected_contact_detail(
+      pbp = pbp_use,
+      contact_matrix = contact_matrix,
+      group_type = group_type,
+      perspective = perspective
+    )
+    
+  } else if (return_type == "summary") {
+    out <- calc_expected_contact_stats(
+      pbp = pbp_use,
+      contact_matrix = contact_matrix,
+      group_type = group_type,
+      perspective = perspective
+    )
+    
+  } else {
+    stop("return_type must be 'summary', 'detail', or 'pa_table'")
+  }
+  
+  out
+}
+
+
+###====RENDER TABLE FUNCTIONS
+render_mlb_leaderboard <- function(data,
+                                   stat_col,
+                                   name_col = "name",
+                                   team_col = "team",
+                                   n = 10,
+                                   title = NULL,
+                                   digits = NULL,
+                                   sort_order = c("desc", "asc"),
+                                   name_header = "Player",
+                                   stat_header = NULL) {
+  
+  sort_order <- match.arg(sort_order)
+  
+  stat_sym <- rlang::ensym(stat_col)
+  name_sym <- rlang::ensym(name_col)
+  team_sym <- rlang::ensym(team_col)
+  
+  stat_name <- rlang::as_name(stat_sym)
+  name_name <- rlang::as_name(name_sym)
+  team_name <- rlang::as_name(team_sym)
+  
+  if (is.null(stat_header)) stat_header <- stat_name
+  if (is.null(title)) title <- paste(stat_header, "Leaders")
+  
+  mlb_cols <- teamcolors::league_pal("mlb") %>%
+    utils::stack() %>%
+    tibble::as_tibble() %>%
+    dplyr::rename(
+      team = ind,
+      color = values
+    ) %>%
+    dplyr::mutate(
+      abv = dplyr::case_when(
+        team == "Arizona Diamondbacks" ~ "ARI",
+        team == "Atlanta Braves" ~ "ATL",
+        team == "Baltimore Orioles" ~ "BAL",
+        team == "Boston Red Sox" ~ "BOS",
+        team == "Chicago Cubs" ~ "CHC",
+        team == "Chicago White Sox" ~ "CHW",
+        team == "Cincinnati Reds" ~ "CIN",
+        team == "Cleveland Indians" ~ "CLE",
+        team == "Cleveland Guardians" ~ "CLE",
+        team == "Colorado Rockies" ~ "COL",
+        team == "Detroit Tigers" ~ "DET",
+        team == "Houston Astros" ~ "HOU",
+        team == "Kansas City Royals" ~ "KCR",
+        team == "Los Angeles Angels" ~ "LAA",
+        team == "Los Angeles Dodgers" ~ "LAD",
+        team == "Miami Marlins" ~ "MIA",
+        team == "Milwaukee Brewers" ~ "MIL",
+        team == "Minnesota Twins" ~ "MIN",
+        team == "New York Mets" ~ "NYM",
+        team == "New York Yankees" ~ "NYY",
+        team == "Oakland Athletics" ~ "ATH",
+        team == "Athletics" ~ "ATH",
+        team == "Philadelphia Phillies" ~ "PHI",
+        team == "Pittsburgh Pirates" ~ "PIT",
+        team == "San Diego Padres" ~ "SDP",
+        team == "San Francisco Giants" ~ "SFG",
+        team == "Seattle Mariners" ~ "SEA",
+        team == "St. Louis Cardinals" ~ "STL",
+        team == "Tampa Bay Rays" ~ "TBR",
+        team == "Texas Rangers" ~ "TEX",
+        team == "Toronto Blue Jays" ~ "TOR",
+        team == "Washington Nationals" ~ "WSH",
+        TRUE ~ NA_character_
+      )
+    )
+  
+  leaderboard <- data %>%
+    dplyr::mutate(
+      .name = .data[[name_name]],
+      .team = .data[[team_name]],
+      .stat = .data[[stat_name]]
+    ) %>%
+    dplyr::filter(!is.na(.name), !is.na(.stat)) %>%
+    dplyr::left_join(
+      mlb_cols %>% dplyr::select(team, color, abv),
+      by = c(".team" = "team")
+    ) %>%
+    dplyr::mutate(
+      color = dplyr::if_else(is.na(color), "#444444", color)
+    )
+  
+  leaderboard <- if (sort_order == "desc") {
+    leaderboard %>% dplyr::arrange(dplyr::desc(.stat), .name)
+  } else {
+    leaderboard %>% dplyr::arrange(.stat, .name)
+  }
+  
+  leaderboard <- leaderboard %>%
+    dplyr::slice_head(n = n) %>%
+    dplyr::mutate(
+      Rank = dplyr::row_number(),
+      Player = kableExtra::cell_spec(
+        .name,
+        bold = TRUE,
+        color = "white",
+        background = color
+      ),
+      Stat = if (!is.null(digits)) round(.stat, digits) else .stat
+    ) %>%
+    dplyr::select(Rank, Player, Stat)
+  
+  kableExtra::kbl(
+    leaderboard,
+    escape = FALSE,
+    caption = title,
+    align = c("c", "l", "c"),
+    col.names = c("Rank", name_header, stat_header)
+  ) %>%
+    kableExtra::kable_styling(
+      bootstrap_options = c("striped", "hover", "condensed"),
+      full_width = FALSE
+    ) %>%
+    kableExtra::column_spec(1, bold = TRUE) %>%
+    kableExtra::column_spec(3, bold = TRUE)
 }
