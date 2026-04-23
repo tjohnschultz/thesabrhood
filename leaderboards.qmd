@@ -24,40 +24,8 @@ Leaders as of April 16, 2026.
 #| warning: false
 #| echo: false
 
-library(tidyverse); library(here); library(kableExtra); library(knitr); source(here("R", "metrics.R")); dl_path <- "C:\\Users\\Owner\\Downloads\\R Baseball\\saberhood_webpage\\data"
-st_week <- readRDS(here("data", "st_week.rds"))
+library(tidyverse); library(here); library(kableExtra); library(knitr); source(here("R", "metrics.R")); dl_path <- "C:\\Users\\Owner\\Downloads\\R Baseball\\saberhood_webpage\\data"; source(here("R", "my methods.R"))
+#st_week <- readRDS(here("data", "days_bat_all.rds"))
 
-st_bat_lead <- batter_leaders(st_week)
-st_pa <- st_bat_lead$pa_sum
 
-hrs <- st_pa %>% 
-  arrange(desc(HR)) %>% 
-  head(10) %>% 
-  select(matchup.batter.fullName, HR)
-kbl_hrs <- kbl(hrs, position = "float_right") %>% 
-  kable_styling() %>% 
-  row_spec(0:5, color = "white")
-
-slg <- st_pa %>% 
-  arrange(desc(SLG)) %>% 
-  head(10) %>% 
-  select(matchup.batter.fullName, SLG)
-kbl_slg <- kbl(slg, position = "float_left") %>% 
-  kable_styling() %>% 
-  row_spec(0:5, color = "white")
-
-hit <- st_pa %>% 
-  arrange(desc(H)) %>% 
-  head(10) %>% 
-  select(matchup.batter.fullName, H)
-kbl_hit <- kbl(hit, position = "float_center") %>% 
-  kable_styling() %>% 
-  row_spec(0:5, color = "white")
-
-kables(list(
-  kbl_hrs, 
-  kbl_slg, 
-  kbl_hit
-  )
-)
 ```
