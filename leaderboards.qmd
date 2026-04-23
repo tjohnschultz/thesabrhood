@@ -140,4 +140,15 @@ render_mlb_leaderboard(
   stat_header = "BB", 
   sort_order = "asc"
 )
+
+render_mlb_leaderboard(
+  data = pit_all,
+  stat_col = SO,
+  name_col = name.x,
+  team_col = team,
+  n = 10,
+  title = "Total SO Leaders",
+  stat_header = "SO", 
+  sort_order = "desc"
+)
 ```
