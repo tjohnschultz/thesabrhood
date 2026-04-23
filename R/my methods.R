@@ -352,6 +352,7 @@ summarize_pa_pitcher <- function(pa_tbl, level = "player", group.by = NULL, team
     group_by(across(all_of(grouping_cols))) %>%
     summarise(
       name = dplyr::first(.data[[name_col]]),
+      team = dplyr::first(.data[[team_col]]), 
       PA = n(),
       AB = sum(is_at_bat, na.rm = TRUE),
       H  = sum(is_hit, na.rm = TRUE),

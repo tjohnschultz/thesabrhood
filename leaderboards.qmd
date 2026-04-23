@@ -22,7 +22,7 @@ format: html
 </style>
 ```
 
-
+## Batter Season-Long Leaders
 ```{r,message=FALSE,warning=FALSE,echo=FALSE}
 
 library(tidyverse); library(here); library(kableExtra); library(knitr); source(here("R", "metrics.R")); dl_path <- "C:\\Users\\Owner\\Downloads\\R Baseball\\saberhood_webpage\\data"; source(here("R", "my methods.R"))
@@ -108,5 +108,36 @@ render_mlb_leaderboard(
   title = "BB Leaders",
   stat_header = "BB", 
   sort_order = "desc"
+)
+```
+
+## Pitcher Season-Long Leaders
+```{r,message=FALSE,warning=FALSE,echo=FALSE}
+pit_all <- readRDS(here("data", "pit_all.rds"))
+#pit_week <- readRDS(here("data", "pit_week.rds"))
+```
+
+
+```{r,message=FALSE,warning=FALSE,echo=FALSE}
+render_mlb_leaderboard(
+  data = pit_all,
+  stat_col = K_pct,
+  name_col = name.x,
+  team_col = team,
+  n = 10,
+  title = "SO Leaders",
+  stat_header = "SO", 
+  sort_order = "desc"
+)
+
+render_mlb_leaderboard(
+  data = pit_all,
+  stat_col = BB_pct,
+  name_col = name.x,
+  team_col = team,
+  n = 10,
+  title = "BB Leaders",
+  stat_header = "BB", 
+  sort_order = "asc"
 )
 ```
