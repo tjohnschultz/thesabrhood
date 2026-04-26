@@ -1159,6 +1159,132 @@ rolling_daily_rate <- function(data,
   
   daily_tbl
 }
+
+rolling_daily_stat <- function(data,
+                               value_col,
+                               date_col = "game_date",
+                               group_cols = NULL,
+                               window = 7,
+                               stat_type = c("rate", "sum", "mean"),
+                               den_col = NULL,
+                               stat_name = "rolling_stat",
+                               min_obs = window) {
+  library(dplyr)
+  library(slider)
+  
+  stat_type <- match.arg(stat_type)
+  
+  grouping <- c(group_cols, date_col)
+  
+  if (stat_type == "rate" && is.null(den_col)) {
+    stop("For stat_type = 'rate', you must supply den_col.")
+  }
+  
+  daily_tbl <- data %>%
+    dplyr::group_by(dplyr::across(dplyr::all_of(grouping))) %>%
+    dplyr::summarise(
+      value = sum(.data[[value_col]], na.rm = TRUE),
+      den   = if (!is.null(den_col)) sum(.data[[den_col]], na.rm = TRUE) else NA_real_,
+      n_obs = dplyr::n(),
+      .groups = "drop"
+    ) %>%
+    dplyr::arrange(dplyr::across(dplyr::all_of(grouping)))
+  
+  if (!is.null(group_cols) && length(group_cols) > 0) {
+    
+    daily_tbl <- daily_tbl %>%
+      dplyr::group_by(dplyr::across(dplyr::all_of(group_cols))) %>%
+      dplyr::mutate(
+        rolling_value = slider::slide_dbl(
+          value,
+          ~ sum(.x, na.rm = TRUE),
+          .before = window - 1,
+          .complete = FALSE
+        ),
+        rolling_den = if (stat_type == "rate") {
+          slider::slide_dbl(
+            den,
+            ~ sum(.x, na.rm = TRUE),
+            .before = window - 1,
+            .complete = FALSE
+          )
+        } else {
+          NA_real_
+        },
+        rolling_obs = slider::slide_dbl(
+          n_obs,
+          ~ sum(.x, na.rm = TRUE),
+          .before = window - 1,
+          .complete = FALSE
+        )
+      ) %>%
+      dplyr::ungroup()
+    
+  } else {
+    
+    daily_tbl <- daily_tbl %>%
+      dplyr::mutate(
+        rolling_value = slider::slide_dbl(
+          value,
+          ~ sum(.x, na.rm = TRUE),
+          .before = window - 1,
+          .complete = FALSE
+        ),
+        rolling_den = if (stat_type == "rate") {
+          slider::slide_dbl(
+            den,
+            ~ sum(.x, na.rm = TRUE),
+            .before = window - 1,
+            .complete = FALSE
+          )
+        } else {
+          NA_real_
+        },
+        rolling_obs = slider::slide_dbl(
+          n_obs,
+          ~ sum(.x, na.rm = TRUE),
+          .before = window - 1,
+          .complete = FALSE
+        )
+      )
+  }
+  
+  if (stat_type == "rate") {
+    daily_tbl <- daily_tbl %>%
+      dplyr::mutate(
+        !!stat_name := dplyr::if_else(
+          rolling_den > 0 & rolling_obs >= min_obs,
+          rolling_value / rolling_den,
+          NA_real_
+        )
+      )
+  }
+  
+  if (stat_type == "sum") {
+    daily_tbl <- daily_tbl %>%
+      dplyr::mutate(
+        !!stat_name := dplyr::if_else(
+          rolling_obs >= min_obs,
+          rolling_value,
+          NA_real_
+        )
+      )
+  }
+  
+  if (stat_type == "mean") {
+    daily_tbl <- daily_tbl %>%
+      dplyr::mutate(
+        !!stat_name := dplyr::if_else(
+          rolling_obs >= min_obs,
+          rolling_value / rolling_obs,
+          NA_real_
+        )
+      )
+  }
+  
+  return(daily_tbl)
+}
+
 #plot function
 plot_rolling_trend <- function(data, x_col = "game_date", y_col, color_col = NULL, title = NULL) {
   library(ggplot2)
@@ -1449,10 +1575,13 @@ render_mlb_leaderboard <- function(data,
                                    title = NULL,
                                    digits = NULL,
                                    sort_order = c("desc", "asc"),
-                                   name_header = "Player",
+                                   leader_type = c("player", "team"),
+                                   percent = FALSE,
+                                   name_header = NULL,
                                    stat_header = NULL) {
   
   sort_order <- match.arg(sort_order)
+  leader_type <- match.arg(leader_type)
   
   stat_sym <- rlang::ensym(stat_col)
   name_sym <- rlang::ensym(name_col)
@@ -1461,6 +1590,10 @@ render_mlb_leaderboard <- function(data,
   stat_name <- rlang::as_name(stat_sym)
   name_name <- rlang::as_name(name_sym)
   team_name <- rlang::as_name(team_sym)
+  
+  if (is.null(name_header)) {
+    name_header <- ifelse(leader_type == "team", "Team", "Player")
+  }
   
   if (is.null(stat_header)) stat_header <- stat_name
   if (is.null(title)) title <- paste(stat_header, "Leaders")
@@ -1535,15 +1668,20 @@ render_mlb_leaderboard <- function(data,
     dplyr::slice_head(n = n) %>%
     dplyr::mutate(
       Rank = dplyr::row_number(),
-      Player = kableExtra::cell_spec(
+      Name = kableExtra::cell_spec(
         .name,
         bold = TRUE,
         color = "white",
         background = color
       ),
-      Stat = if (!is.null(digits)) round(.stat, digits) else .stat
+      Stat = dplyr::case_when(
+        percent == TRUE & !is.null(digits) ~ paste0(round(.stat * 100, digits), "%"),
+        percent == TRUE & is.null(digits) ~ paste0(round(.stat * 100, 1), "%"),
+        percent == FALSE & !is.null(digits) ~ as.character(round(.stat, digits)),
+        TRUE ~ as.character(.stat)
+      )
     ) %>%
-    dplyr::select(Rank, Player, Stat)
+    dplyr::select(Rank, Name, Stat)
   
   kableExtra::kbl(
     leaderboard,
@@ -1558,4 +1696,34 @@ render_mlb_leaderboard <- function(data,
     ) %>%
     kableExtra::column_spec(1, bold = TRUE) %>%
     kableExtra::column_spec(3, bold = TRUE)
+}
+
+plot_rolling_stat <- function(data,
+                              x_col = "game_date",
+                              y_col,
+                              color_col = NULL,
+                              facet_col = NULL,
+                              title = NULL) {
+  library(ggplot2)
+  
+  p <- ggplot(data, aes(x = .data[[x_col]], y = .data[[y_col]]))
+  
+  if (!is.null(color_col)) {
+    p <- p + geom_line(aes(color = .data[[color_col]]), linewidth = 1)
+  } else {
+    p <- p + geom_line(linewidth = 1)
+  }
+  
+  if (!is.null(facet_col)) {
+    p <- p + facet_wrap(vars(.data[[facet_col]]))
+  }
+  
+  p +
+    labs(
+      title = title,
+      x = "Date",
+      y = y_col,
+      color = color_col
+    ) +
+    theme_minimal()
 }
