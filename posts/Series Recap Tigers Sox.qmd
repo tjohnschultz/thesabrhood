@@ -108,7 +108,7 @@ render_mlb_leaderboard(
   team_col = team,
   percent = TRUE,
   digits = 1,
-  stat_header = "K%", 
+  stat_header = "GB%", 
   leader_type = "player"
 )
 ```

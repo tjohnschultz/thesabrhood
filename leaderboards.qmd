@@ -41,7 +41,9 @@ render_mlb_leaderboard(
   n = 5,
   title = "Home Run Leaders",
   stat_header = "HR", 
-  sort_order = "desc"
+  sort_order = "desc",
+  percent = FALSE,
+  digits = 1
 )
 
 render_mlb_leaderboard(
@@ -52,7 +54,9 @@ render_mlb_leaderboard(
   n = 10,
   title = "OPS Leaders",
   stat_header = "OPS", 
-  sort_order = "desc"
+  sort_order = "desc",
+  percent = FALSE,
+  digits = 3
 )
 
 render_mlb_leaderboard(
@@ -63,7 +67,9 @@ render_mlb_leaderboard(
   n = 10,
   title = "Whiff% Leaders",
   stat_header = "Whiff%", 
-  sort_order = "asc"
+  sort_order = "asc",
+  percent = TRUE,
+  digits = 1
 )
 
 render_mlb_leaderboard(
@@ -74,7 +80,9 @@ render_mlb_leaderboard(
   n = 10,
   title = "Barrel% Leaders",
   stat_header = "Barrel%", 
-  sort_order = "desc"
+  sort_order = "desc",
+  percent = TRUE,
+  digits = 1
 )
 
 render_mlb_leaderboard(
@@ -85,7 +93,9 @@ render_mlb_leaderboard(
   n = 10,
   title = "Full FB% Leaders",
   stat_header = "Pull FB%", 
-  sort_order = "desc"
+  sort_order = "desc",
+  percent = TRUE,
+  digits = 1
 )
 
 render_mlb_leaderboard(
@@ -96,7 +106,9 @@ render_mlb_leaderboard(
   n = 10,
   title = "SO Leaders",
   stat_header = "SO", 
-  sort_order = "asc"
+  sort_order = "desc",
+  percent = TRUE,
+  digits = 1
 )
 
 render_mlb_leaderboard(
@@ -107,7 +119,9 @@ render_mlb_leaderboard(
   n = 10,
   title = "BB Leaders",
   stat_header = "BB", 
-  sort_order = "desc"
+  sort_order = "desc",
+  percent = TRUE,
+  digits = 1
 )
 ```
 
@@ -127,7 +141,9 @@ render_mlb_leaderboard(
   n = 10,
   title = "SO Leaders",
   stat_header = "SO", 
-  sort_order = "desc"
+  sort_order = "desc",
+  percent = TRUE,
+  digits = 1
 )
 
 render_mlb_leaderboard(
@@ -138,7 +154,9 @@ render_mlb_leaderboard(
   n = 10,
   title = "BB Leaders",
   stat_header = "BB", 
-  sort_order = "asc"
+  sort_order = "asc",
+  percent = TRUE,
+  digits = 1
 )
 
 render_mlb_leaderboard(
@@ -149,6 +167,8 @@ render_mlb_leaderboard(
   n = 10,
   title = "Total SO Leaders",
   stat_header = "SO", 
-  sort_order = "desc"
+  sort_order = "desc",
+  percent = FALSE,
+  digits = 1
 )
 ```
