@@ -1,0 +1,406 @@
+---
+title: "Breaking Down Bello"
+date: 2026-06-10
+author: "Tyler Schultz"
+format:
+  html:
+    code-fold: true
+    toc: true
+    toc-depth: 2
+image: "../images/bello_head.png"
+---
+
+## Brayan Bello has been sent down to AAA, what is the cause for his disastrous season and will he contribute in Boston in 2026?
+```{=html}
+<style>
+  body {
+    background-color: #0C2340; /* A light blue, for example */
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  main.content {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  max-width: 900px;     /* controls how wide the text block is */
+  margin: 2rem auto;    /* centers the rectangle */
+}
+</style>
+```
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+library(tidyverse); library(here); library(kableExtra); library(baseballr); library(ggimage)
+firstinning <- readRDS(here("data", "firstinning.rds"))
+rolling_bello <- readRDS(here("data", "rolling_bello.rds"))
+```
+
+The Boston Red Sox agreed to a 6-year extension, totalling $55 million with Brayan Bello prior to the 2024 season. Leading up to this extension, Bello was one of the most promising young arms on a Red Sox staff amongst a hodgepodge of older arms on one-year deals like Corey Kluber and James Paxton. The promise was there for the righty and he quickly worked his way into the hearts of the Red Sox faithful. 
+
+## The Yankee Killer
+
+In his first two years in the league, Bello seemed to relish getting the ball versus the most hated team in Boston, the New York Yankees. In his first 2 seasons, Bello went toe-to-toe with the Evil Empire five times and held an ERA of just 1.45 in those games. In 4 of those 5 starts he went +6 innings of allowing just 1 earned run. The excitement around Bello was palpable and Red Sox fans were itching for a dominant starter in the age when Chris Sale seemed to never get healthy. After the 2021 ALCS run, the Red Sox team ERA over the next two seasons was the 3rd highest in the American League, leading only the A’s and Royals. The newfound Yankee Killer had all of Boston behind him; some Bostonians even crowned him as the second coming of Pedro Martinez. 
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+####LOWEST ERA V. YANKEES IN FIRST 5 CAREER GAMES AS A RED SOX
+yank_df <- data.frame(
+  name = c("Brayan Bello", "Roger Moret", "Eduardo Rodríguez", "Jim Lonborg", "Ray Culp"), 
+  years = c("2022-23", "1971-73", "2015-16", "1965", "1968-69"), 
+  IP = c("IP: 31", "IP: 41.1","IP: 31.1","IP: 37.2","IP: 40"), 
+  SO = c("Ks: 25","Ks: 22","Ks: 17","Ks: 17","Ks: 41"), 
+  ERA = c(1.45,1.52,2.01,2.15,2.25), 
+  ERA_text = c("ERA: 1.45","ERA: 1.52","ERA: 2.01","ERA: 2.15","ERA: 2.25"), 
+  pics = c("https://www.baseball-reference.com/req/2025011210/images/headshots/6/6cf5eb59_mlbam.jpg", 
+           "https://www.baseball-reference.com/req/2025011210/images/headshots/9/9e2f0fd4_sabr.jpg", 
+           "https://www.baseball-reference.com/req/2025011210/images/headshots/0/05cbabce_mlbam.jpg", 
+           "https://www.baseball-reference.com/req/2025011210/images/headshots/8/8eb88355_sabr.jpg", 
+           "https://www.baseball-reference.com/req/2025011210/images/headshots/4/49d66c10_sabr.jpg")
+)
+
+ggplot(yank_df, aes(x = reorder(name, ERA), y = ERA)) + 
+  geom_col() +
+  geom_text(aes(label = ERA_text, vjust = 3), color = "#0C2340", size = 4.5, family = "mono", 
+            fontface = "bold") + 
+  geom_text(aes(label = SO, vjust = 4.5), color = "#0C2340", size = 4.5, family = "mono", 
+            fontface = "bold") + 
+  geom_text(aes(label = IP, vjust = 6), color = "#0C2340", size = 4.5, family = "mono", 
+            fontface = "bold") + 
+  geom_text(aes(label = years, vjust = 1.5), color = "#0C2340", size = 4.5, family = "mono", 
+            fontface = "bold") + 
+  geom_image(aes(image = pics), size = 0.18, nudge_y = -1) + 
+  labs(
+    title = "Lowest ERA for Red Sox starters in first 5 games v. NYY", 
+    subtitle = "Since the Deadball Era(1920).", 
+    x = ""
+  ) + 
+  theme(
+    text = element_text(family = "mono", color = "white", face = "bold"), 
+    panel.grid.major = element_line(color = "white", linewidth = 0.8), # Thicker major grid
+    panel.grid.minor = element_line(color = "#BD3039", linewidth = 0.2),
+    # Use 'fill' for the background rectangle
+    plot.background = element_rect(fill = "#0C2340"),
+    panel.background = element_rect(fill = "#BD3039"),
+    # Use 'color' for the text and 'face' for styling
+    plot.title = element_text(color = "#BD3039", size = 16, face = "bold"),
+    plot.subtitle = element_text(colour = "#BD3039", face = "bold"), 
+    # Fix: Make labels visible against the navy background
+    legend.background = element_rect(fill = "black"),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    strip.text = element_text(color = "#0C2340"), 
+    axis.text.x = element_text(size = 10)
+  )
+####
+```
+
+Skip to June 5th, 2026, Brayan Bello was optioned to AAA after his most miserable start of the year, one that swelled his ERA to a grotesque 6.34. The Baltimore Orioles tagged Bello with 6 runs in the first and 2 more across the subsequent four innings, bringing his total line to: 5 IP, 8 ER, 3 BB, 4 SO. This start came after a slough of games where Bello was pitching after an opener. The decision to use an opener came from Bello’s inability to get top-of-the-lineup hitters out early in the game. The Red Sox brass figured protecting Bello early may help him pitch through the rest of a game. Anything seemed better than his first inning ERA of 11.57 on June 1st. In the 4 games he started a game with an opener he had an ERA of 0.71. Smooth sailing in the new experiment. But his next two starts after first using an opener were even more disastrous than previous. These two games being the aforementioned Oriole game and his start against the Braves, where he allowed 3 runs in the first and totalled 7 over 5 innings. As of his demotion on June 5th, Bello had the third highest SLG against in the first in all of baseball. The highest allowed SLG in the first inning is held by the pitcher who opened for Bello in his first 3 games with an opener, Jovani Morán. 
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+#### FIRST INNNING STRUGGLE
+#firstinnning<- summarize_overall_pitcher(views = views, 
+#                                         level = "players", 
+#                                         group = "none", 
+#                                         start_date = NULL,
+#                                         end_date = "2026-06-05",
+#                                         group.by = "about.inning", 
+#                                         min_pitch_pct = 0.1, 
+#                                         min_bbe_pct = 0.1, 
+#                                         min_pa_pct = 0.15) %>% filter(about.inning == 1)
+
+#ggplot(firstinnning, aes(x = K_pct, y = SLG)) + 
+#  geom_point() + 
+#  geom_text()
+
+#chart_df <- firstinnning %>% 
+#  arrange(desc(SLG)) %>% 
+#  select(name, SLG) %>% 
+#  head(5) %>% 
+#  mutate(pics = c("https://www.baseball-reference.com/req/2025011210/images/headshots/6/6d00497b_mlbam.jpg", 
+#                  "https://www.baseball-reference.com/req/2025011210/images/headshots/9/9c455a26_mlbam.jpg", 
+#                  "https://www.baseball-reference.com/req/2025011210/images/headshots/6/6cf5eb59_mlbam.jpg", 
+#                  "https://www.baseball-reference.com/req/2025011210/images/headshots/4/49f9de62_mlbam.jpg", 
+#                  "https://www.baseball-reference.com/req/2025011210/images/headshots/a/a42f41ba_mlbam.jpg"))
+
+#saveRDS(chart_df, "firstinning.rds")
+chart_df <- firstinning
+
+ggplot(chart_df, aes(x = reorder(name, SLG), y = SLG)) + 
+  geom_col() + 
+  labs(
+    title = "Highest allowed SLG allowed in first inning.", 
+    subtitle = "With at least 18 PA", 
+    x = ""
+  ) + 
+  geom_text(aes(label = SLG, vjust = 1.5), color = "#0C2340", size = 6, family = "mono", 
+            fontface = "bold") + 
+  geom_image(aes(image = pics), size = 0.18, nudge_y = -0.3) + 
+  theme(
+    text = element_text(family = "mono", color = "white", face = "bold"), 
+    panel.grid.major = element_line(color = "white", linewidth = 0.8), # Thicker major grid
+    panel.grid.minor = element_line(color = "#BD3039", linewidth = 0.2),
+    # Use 'fill' for the background rectangle
+    plot.background = element_rect(fill = "#0C2340"),
+    panel.background = element_rect(fill = "#BD3039"),
+    # Use 'color' for the text and 'face' for styling
+    plot.title = element_text(color = "#BD3039", size = 16, face = "bold"),
+    plot.subtitle = element_text(colour = "#BD3039", face = "bold"), 
+    # Fix: Make labels visible against the navy background
+    legend.background = element_rect(fill = "black"),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    strip.text = element_text(color = "#0C2340"), 
+    axis.text.x = element_text(size = 10)
+  )
+####
+```
+
+## Changeup Decay
+
+Bello’s changeup was a marvel when he was called up from Worcester in 2022. The pitch induced a swing-and-miss 44% of the time compared to the 30% league average. He allowed hard hit balls only once in a blue moon, coming at a rate of 16%, 6th lowest in MLB. Now as we progress to 2026, that changeup has become a husk of its former self. The 2026 whiff rate generated from the pitch is just 24%, well below the league average. 
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+#### BELLO CHANGEUP WHIFF RATE AND HARD HIT RATE
+bello_df1 <- data.frame(
+  year = c(2022,2023,2024,2025,2026), 
+  whiff = c(44.2,38.7,36.9,32.8,26.4), 
+  hard = c(16.2,25,30.2,27.7,35.9)
+)
+
+bello_long <- pivot_longer(bello_df1, cols = c(whiff, hard), names_to = "Metric", values_to = "value")
+
+change_colors <- c(hard = "#39BD30", whiff = "#3039BD")
+
+ggplot(bello_long, aes(x = factor(year), y = value, fill = Metric)) + 
+  geom_col(position = position_dodge(width = 0.9)) + 
+  geom_text(
+    aes(label = value), 
+    position = position_dodge(width = 0.9), 
+    vjust = 1.5, 
+    color = "white",
+    fontface = "bold", 
+    family = "mono"
+  ) + 
+  theme(
+    text = element_text(family = "mono", color = "white", face = "bold"), 
+    panel.grid.major = element_line(color = "white", linewidth = 0.8), # Thicker major grid
+    panel.grid.minor = element_line(color = "#BD3039", linewidth = 0.2),
+    # Use 'fill' for the background rectangle
+    plot.background = element_rect(fill = "#0C2340"),
+    panel.background = element_rect(fill = "#BD3039"),
+    # Use 'color' for the text and 'face' for styling
+    plot.title = element_text(color = "#BD3039", size = 16, face = "bold"),
+    plot.subtitle = element_text(colour = "#BD3039", face = "bold"), 
+    # Fix: Make labels visible against the navy background
+    legend.background = element_rect(fill = "black"),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    strip.text = element_text(color = "#0C2340"), 
+    axis.text.x = element_text(size = 10)
+  ) + 
+  scale_fill_manual(values = change_colors, 
+                    labels = c("hard" = "Hard Hit", "whiff" = "Whiff")) + 
+  labs(
+    title = "Metrics of Brayan Bello's Changeup", 
+    subtitle = "Changes in Hard Hit Rate (%) & Whiff Rate (%), 2022-2026", 
+    x = ""
+  )
+####
+```
+
+The pitch has deservedly lost its production, as supported by the underlying metrics. A changeup gets most of its value by dropping out of the batter’s swing path, especially if the batter is set up for a fastball variant; the sinker in Brayan Bello’s case. However his changeup has lost this drop that made the pitch effective. Over the past two seasons there is significantly less drop on the pitch, and therefore more batter success. This loss of movement from the changeup and loss of velocity in the sinker has the led the two pitches on a convergent path, path that makes it easier for hitters to adjust between the two pitches. But why is there such a change in his changeup?
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+####MANUALLY INPUT DATA AND CHART FOR SINKER AND CHANGEUP CONVERGENCE - X = TIME, Y = IVB, HB, VELO
+df <- data.frame(
+  Season = c(2023,2024,2025,2026,2023,2024,2025,2026), 
+  pitch_type = c("Changeup", "Changeup", "Changeup", "Changeup", "Sinker", "Sinker", "Sinker", 
+                 "Sinker"), 
+  VD = c(33.8,32.5,30.2,29.4,27.9,26,24.5,24.3), 
+  HB = c(16.4,16.1,16,16.3,18,17.2,16.9,16.4), 
+  velo = c(86.2,87.6,88.8,88.4,95,95.7,95.3,94.8)
+)
+
+df_long <- df %>%
+  pivot_longer(cols = c(VD, HB, velo), 
+               names_to = "metric", 
+               values_to = "value")
+
+metric_labels <- c(
+  "HB" = "Horizontal Break (in)",
+  "VD" = "Vertical Drop (in)",
+  "velo" = "Pitch Velocity (mph)"
+)
+
+pitch_colors <- c(
+  "Changeup" = "#1AD6FF", # Electric Blue
+  "Sinker"   = "#00FF7F"  # Spring Green
+)
+
+# 3. Plot using the labeller
+ggplot(df_long, aes(x = Season, y = value, color = pitch_type, group = pitch_type)) + 
+  geom_line(linewidth = 1) + 
+  geom_point() + 
+  facet_wrap(~ metric, scales = "free_y", labeller = as_labeller(metric_labels)) + 
+  labs(title = "The Convergence of Pitches", 
+       subtitle = "Brayan Bello's Changeup and Sinker have begun to lose their disimilarity.", 
+       color = "Pitch Type") + 
+  scale_color_manual(values = pitch_colors) + 
+  theme(
+    text = element_text(family = "sans", color = "white"), 
+    panel.grid.major = element_line(color = "white", linewidth = 0.8), # Thicker major grid
+    panel.grid.minor = element_line(color = "white", linewidth = 0.2),
+    # Use 'fill' for the background rectangle
+    plot.background = element_rect(fill = "#0C2340"),
+    panel.background = element_rect(fill = "#BD3039"),
+    # Use 'color' for the text and 'face' for styling
+    plot.title = element_text(color = "#BD3039", size = 16, face = "bold"),
+    plot.subtitle = element_text(colour = "#BD3039", face = "bold"), 
+    # Fix: Make labels visible against the navy background
+    legend.background = element_rect(fill = "black"),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    strip.text = element_text(color = "#0C2340") # Facet titles
+  )
+####
+```
+
+## Loss of Command
+
+The sinker for Bello is thrown around 40% of the time in 2026, but he does not seem to be comfortable throwing it. His location of the pitch is the worst of his career, only throwing it in the zone 51% of the time. Of sinkers thrown as the first pitch of a plate appearance, Bello has only thrown 75% in the zone. Which sounds decent enough, but most pitchers are in the zone 83% of the time throwing a first pitch sinker. A steady decrease in command of his most thrown pitch is a major warning sign for Bello’s productivity in the future. 
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+####SINKER USAGE AND ZONE PERCENTAGE
+sinker_df <- data.frame(
+  year = c(2022,2023,2024,2025,2026),
+  zone_p = c(54.3,60.1,62.3,57.1,54.6)
+)
+
+ggplot(sinker_df, aes(x = year, y = zone_p)) + 
+  geom_line(linewidth = 2) +
+  geom_hline(aes(yintercept = 55.8), color = "grey", linetype = "dashed", linewidth = 1) + 
+  theme(
+    text = element_text(family = "mono", color = "white", face = "bold"), 
+    panel.grid.major = element_line(color = "white", linewidth = 0.8), # Thicker major grid
+    panel.grid.minor = element_line(color = "#BD3039", linewidth = 0.2),
+    # Use 'fill' for the background rectangle
+    plot.background = element_rect(fill = "#0C2340"),
+    panel.background = element_rect(fill = "#BD3039"),
+    # Use 'color' for the text and 'face' for styling
+    plot.title = element_text(color = "#BD3039", size = 16, face = "bold"),
+    plot.subtitle = element_text(colour = "#BD3039", face = "bold"), 
+    # Fix: Make labels visible against the navy background
+    legend.background = element_rect(fill = "black"),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    strip.text = element_text(color = "#0C2340"), 
+    axis.text.x = element_text(size = 10)
+  ) +
+  labs(
+    title = "Sinker Location", 
+    subtitle = "Percent of Sinkers thrown in the strike zone.", 
+    x = "", 
+    y = "Zone%"
+  ) + 
+  annotate("text", x = 2024.5, y = 55.5, label = "League Avg.", color = "grey", fontface = "bold")
+####
+```
+
+## An Ever Changing Mix
+
+On June 5th, Craig Breslow said that he hopes that Brayan can find his love for baseball again. This was soon followed by Bello stating that he has, and will always, love the game. This disconnect between the Red Sox Chief Baseball Officer goes further than these dichotic statements. When Breslow took over the Red Sox front office in 2024, Bello’s whole approach and pitch mix changed. His four-seamer was dropped from his arsenal in favor of a sweeper that surpassed the usage of his changeup to become his number two pitch. In 2025 and 2026 the changeup was thrown the least of his career, in favor of a newly introduced cutter and the sweeper from 2024. All of this tinkering under Breslow surely led to some soul-searching for the young right-handed pitcher who identified so much with his changeup in his days on the farm. The lack of identity for Bello may play a part in his mental struggle to get control of his ever-changing arsenal. 
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+####PIE CHART FOR PITCH MIX 2024-26 FACETED
+mix_df <- data.frame(
+  year = c(2022, 2023, 2024, 2025, 2026),
+  Sinker = c(35.2, 36.3, 40.3, 35, 42.3),
+  Changeup = c(23.7, 23.9, 26.9, 15.2, 17.5),
+  Four_Seam = c(18.7, 20.6, 4.7, 15.1, 6.2),
+  Slider = c(22, 11.8, 0, 0, 0),
+  Sweeper = c(0, 5.9, 27.8, 19, 12),
+  Cutter = c(0, 1.5, 0, 15.7, 15.9), 
+  Curveball = c(0,0,0,0,6.1)
+)
+
+# Reshape
+mix_long <- mix_df %>% 
+  pivot_longer(cols = -year, names_to = "Pitch_Type", values_to = "Usage")
+
+# Plot
+ggplot(mix_long, aes(x = "", y = Usage, fill = Pitch_Type)) + # Removed quotes
+  geom_bar(stat = "identity", width = 1, color = "white") +
+  coord_polar("y", start = 0) +
+  facet_wrap(~year) + # Added the facets
+  labs(title = "Pitch Mix by Year", fill = "Pitch Type") + 
+    theme(
+    text = element_text(family = "mono", color = "white", face = "bold"),
+    # Use 'fill' for the background rectangle
+    plot.background = element_rect(fill = "#0C2340"),
+    panel.background = element_rect(fill = "#BD3039"),
+    # Use 'color' for the text and 'face' for styling
+    plot.title = element_text(color = "#BD3039", size = 16, face = "bold"),
+    plot.subtitle = element_text(colour = "#BD3039", face = "bold"),
+    legend.background = element_rect(fill = "black"),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    strip.text = element_text(color = "#0C2340"), 
+    axis.text.x = element_text(size = 10)
+  )
+####
+```
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+#### PITCH LOCATION CHART
+#bello_spray <- plot_pitcher_heatmaps(views$pitch %>% filter(matchup.pitcher.fullName == "Brayan Bello"), "Brayan Bello")
+#ggsave("bello_spray.png", width = 6, height = 4, dpi = 300)
+####
+```
+
+## How will Brayan come back to Boston?
+
+Now, when can we expect Bello to find himself in Worcester and what steps will bring him back to Boston? There are obviously issues with his decaying arsenal, which have already been laid out, but how will Bello elude his first inning struggles? MLB hitting labs now have a read on Bello, to make him throw more pitches in the first. MLB hitters have become less aggressive against Bello in the first inning as the season has gone on. This lack of aggression leads to longer counts and gives a pitcher with a lack of focus more time to brood over his first inning complications. The issue isn’t that Bello can’t throw strikes in the first inning; it’s that hitters are patient enough to know there will be a quality pitch to hit if they are patient enough. The barrel rate allowed by Bello in the first inning is 11%, 8% higher than the rest of his innings of work combined. This patience from batters also leads to walks. If Bello wants to change the narrative of this season, he will have to bear down in the first innings. Challenging these batters that are waiting for a good pitch is what he needs to do. This may mean moving away from the sinker, which has been his comfort blanket his entire career. 
+
+In the first inning, the sinker is thrown in the zone 51% of the time but batters only swing on 39% of pitches. Alternatively the cutter is in the zone 54% of pitches and induces a swing 51% of pitches. Batters are too prepared for the sinker from Bello, so by mixing in the other fastball variant, hitters will not be able to sit back so easily. The cutter even generates a whiff on 52% of swings in the first inning. It will be difficult to dwindle the usage of his sinker, but for Bello a move away from his status quo may be what saves his career. 
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+ggplot(rolling_bello, aes(x = game_date, y = `Swing%`)) + 
+  geom_line(linewidth = 2) + 
+  labs(
+    title = "Swing% against Brayan Bello in the first inning", 
+    subtitle = "Rolling Swing% across his 8 starts", 
+    x = "Date"
+  ) + 
+  theme(
+    text = element_text(family = "mono", color = "white", face = "bold"), 
+    panel.grid.major = element_line(color = "white", linewidth = 0.8), # Thicker major grid
+    panel.grid.minor = element_line(color = "#BD3039", linewidth = 0.2),
+    # Use 'fill' for the background rectangle
+    plot.background = element_rect(fill = "#0C2340"),
+    panel.background = element_rect(fill = "#BD3039"),
+    # Use 'color' for the text and 'face' for styling
+    plot.title = element_text(color = "#BD3039", size = 16, face = "bold"),
+    plot.subtitle = element_text(colour = "#BD3039", face = "bold"), 
+    # Fix: Make labels visible against the navy background
+    legend.background = element_rect(fill = "black"),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    strip.text = element_text(color = "#0C2340"), 
+    axis.text.x = element_text(size = 10)
+  )
+```
+
+I will keep an eye on Bello’s usage of his cutter and sinker while down on the farm.
