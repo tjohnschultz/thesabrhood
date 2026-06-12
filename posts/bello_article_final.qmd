@@ -12,19 +12,38 @@ image: "../images/bello_head.png"
 
 ## Brayan Bello has been sent down to AAA, what is the cause for his disastrous season and will he contribute in Boston in 2026?
 ```{=html}
-<style>
-  body {
-    background-color: #0C2340; /* A light blue, for example */
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  main.content {
-  background: rgba(255, 255, 255, 0.92);
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  max-width: 900px;     /* controls how wide the text block is */
-  margin: 2rem auto;    /* centers the rectangle */
+<style> 
+body { 
+  background-color: #0C2340; 
+  font-family: 'Roboto', sans-serif; 
+} 
+
+main.content { 
+  background: rgba(255, 255, 255, 0.92); 
+  padding: 2rem; 
+  border-radius: 16px; 
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12); 
+  max-width: 900px; 
+  margin: 2rem auto; 
+}
+
+/* --- Added TOC Color Controls --- */
+#TOC, .toc-actions, #quarto-sidebar-toc-left {
+  color: #white !important; /* Main TOC text color */
+}
+
+#TOC a, .toc-actions a {
+  color: white !important; /* TOC links text color */
+  text-decoration: none;
+}
+
+#TOC a:hover, .toc-actions a:hover {
+  color: #BD3039 !important; /* Changes to red when you hover your mouse over it */
+}
+
+#TOC .active {
+  color: #BD3039 !important; /* Highlights active section in red as you scroll */
+  font-weight: bold;
 }
 </style>
 ```
@@ -69,8 +88,8 @@ ggplot(yank_df, aes(x = reorder(name, ERA), y = ERA)) +
             fontface = "bold") + 
   geom_image(aes(image = pics), size = 0.18, nudge_y = -1) + 
   labs(
-    title = "Lowest ERA for Red Sox starters in first 5 games v. NYY", 
-    subtitle = "Since the Deadball Era(1920).", 
+    title = "Best ERA for Sox starters v. NYY", 
+    subtitle = "In first 5 games with club, since 1920.", 
     x = ""
   ) + 
   theme(
@@ -370,7 +389,7 @@ ggplot(mix_long, aes(x = "", y = Usage, fill = Pitch_Type)) + # Removed quotes
 
 ## How will Brayan come back to Boston?
 
-Now, when can we expect Bello to find himself in Worcester and what steps will bring him back to Boston? There are obviously issues with his decaying arsenal, which have already been laid out, but how will Bello elude his first inning struggles? MLB hitting labs now have a read on Bello, to make him throw more pitches in the first. MLB hitters have become less aggressive against Bello in the first inning as the season has gone on. This lack of aggression leads to longer counts and gives a pitcher with a lack of focus more time to brood over his first inning complications. The issue isn’t that Bello can’t throw strikes in the first inning; it’s that hitters are patient enough to know there will be a quality pitch to hit if they are patient enough. The barrel rate allowed by Bello in the first inning is 11%, 8% higher than the rest of his innings of work combined. This patience from batters also leads to walks. If Bello wants to change the narrative of this season, he will have to bear down in the first innings. Challenging these batters that are waiting for a good pitch is what he needs to do. This may mean moving away from the sinker, which has been his comfort blanket his entire career. 
+Now, when can we expect Bello to find himself in Worcester and what steps will bring him back to Boston? There are obviously issues with his decaying arsenal, which have already been laid out, but how will Bello elude his first inning struggles? MLB hitting labs now have a read on Bello, to make him throw more pitches in the first. MLB hitters have become less aggressive against Bello in the first inning as the season has gone on. This lack of aggression leads to longer counts and gives a pitcher with a lack of focus more time to brood over his first inning complications. The issue isn’t that Bello can’t throw strikes in the first inning; it’s that hitters are patient enough to know there will be a quality pitch to hit if they see enough pitches. The barrel rate allowed by Bello in the first inning is 11%, 8% higher than the rest of his innings of work combined. This patience from batters also leads to walks. If Bello wants to change the narrative of this season, he will have to bear down in the first innings. Challenging these batters that are waiting for a good pitch is what he needs to do. This may mean moving away from the sinker, which has been his comfort blanket his entire career. 
 
 In the first inning, the sinker is thrown in the zone 51% of the time but batters only swing on 39% of pitches. Alternatively the cutter is in the zone 54% of pitches and induces a swing 51% of pitches. Batters are too prepared for the sinker from Bello, so by mixing in the other fastball variant, hitters will not be able to sit back so easily. The cutter even generates a whiff on 52% of swings in the first inning. It will be difficult to dwindle the usage of his sinker, but for Bello a move away from his status quo may be what saves his career. 
 
