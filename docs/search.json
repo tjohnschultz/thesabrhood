@@ -60,7 +60,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "The Sabrhood is a page dedicated to providing our internet neighbors with advanced stats, metrics, and insights in MLB and MiLB.\nThe Sabrhood’s head contributor and anaylst is Tyler Schultz. Tyler is a senior at the University of Florida, working to complete his BA in Sports Management. He works with the ESPN-affiliated sport radio station ,WRUF, by providing insights on-air and to live broadcasters. Tyler plans to persue his Masters of Arts in Mass Communications upon graduation in May.\nFollow our Twitter/X @ thesabrhood!"
+    "text": "The Sabrhood is a page dedicated to providing our internet neighbors with advanced stats, metrics, and insights in MLB and MiLB.\nThe Sabrhood’s head contributor and anaylst is Tyler Schultz. Tyler is a graduate student at the University of Florida’s College of Journalism and Communications after completing his B.A. in Sports Management with a minor in Statistics; also at the University of Florida. He is a lead sport researcher for the on-campus sport radio station, WRUF.\nFollow our Twitter/X @ thesabrhood!"
   },
   {
     "objectID": "blog.html",
@@ -72,9 +72,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "WELCOME TO THE SABRHOOD!",
+    "title": "Welcome to the SABRhood",
     "section": "",
-    "text": "Checkout our articles under the “Articles” tab of the nav-bar!\n\nPlease feel free to reference the Stat Glossary to answer all of your questions and also find data distributions."
+    "text": "Welcome to the ’hood! Join us to learn more about the trends and #’s below the surface that control where the game is heading.\nRead Articles Explore Leaderboards Stat Glossary"
   },
   {
     "objectID": "posts/ceddannesnewgroove.html",
@@ -187,5 +187,68 @@
     "title": "Breaking Down Bello",
     "section": "How will Brayan come back to Boston?",
     "text": "How will Brayan come back to Boston?\nNow, when can we expect Bello to find himself in Worcester and what steps will bring him back to Boston? There are obviously issues with his decaying arsenal, which have already been laid out, but how will Bello elude his first inning struggles? MLB hitting labs now have a read on Bello, to make him throw more pitches in the first. MLB hitters have become less aggressive against Bello in the first inning as the season has gone on. This lack of aggression leads to longer counts and gives a pitcher with a lack of focus more time to brood over his first inning complications. The issue isn’t that Bello can’t throw strikes in the first inning; it’s that hitters are patient enough to know there will be a quality pitch to hit if they see enough pitches. The barrel rate allowed by Bello in the first inning is 11%, 8% higher than the rest of his innings of work combined. This patience from batters also leads to walks. If Bello wants to change the narrative of this season, he will have to bear down in the first innings. Challenging these batters that are waiting for a good pitch is what he needs to do. This may mean moving away from the sinker, which has been his comfort blanket his entire career.\nIn the first inning, the sinker is thrown in the zone 51% of the time but batters only swing on 39% of pitches. Alternatively the cutter is in the zone 54% of pitches and induces a swing 51% of pitches. Batters are too prepared for the sinker from Bello, so by mixing in the other fastball variant, hitters will not be able to sit back so easily. The cutter even generates a whiff on 52% of swings in the first inning. It will be difficult to dwindle the usage of his sinker, but for Bello a move away from his status quo may be what saves his career.\n\n\n\n\n\n\n\n\n\nI will keep an eye on Bello’s usage of his cutter and sinker while down on the farm."
+  },
+  {
+    "objectID": "index.html#baseball-stories-with-numbers-behind-them",
+    "href": "index.html#baseball-stories-with-numbers-behind-them",
+    "title": "Welcome to the SABRhood",
+    "section": "Baseball stories with numbers behind them",
+    "text": "Baseball stories with numbers behind them\nPlayer trends, matchup notes, Red Sox angles, and visual analysis.\nRead Articles"
+  },
+  {
+    "objectID": "index.html#find-what-stands-out",
+    "href": "index.html#find-what-stands-out",
+    "title": "Welcome to the SABRhood",
+    "section": "Find what stands out",
+    "text": "Find what stands out\nCustom tables and rankings that turn data into quick research paths.\nView Leaderboards"
+  },
+  {
+    "objectID": "index.html#make-the-stats-readable",
+    "href": "index.html#make-the-stats-readable",
+    "title": "Welcome to the SABRhood",
+    "section": "Make the stats readable",
+    "text": "Make the stats readable\nSimple explanations for the advanced numbers used across the site.\nOpen Glossary"
+  },
+  {
+    "objectID": "index.html#get-schooled-on-the-numbers-behind-the-game",
+    "href": "index.html#get-schooled-on-the-numbers-behind-the-game",
+    "title": "Welcome to the SABRhood",
+    "section": "Get schooled on the numbers behind the game",
+    "text": "Get schooled on the numbers behind the game\nPlayer trends, matchup notes, Red Sox angles, and visual analysis.\nRead Articles"
+  },
+  {
+    "objectID": "index.html#sort-though-our-niche-league-leaders",
+    "href": "index.html#sort-though-our-niche-league-leaders",
+    "title": "Welcome to the SABRhood",
+    "section": "Sort though our niche league leaders",
+    "text": "Sort though our niche league leaders\nCustom tables and rankings that turn data into quick research paths.\nView Leaderboards"
+  },
+  {
+    "objectID": "index.html#even-manny-machado-cares-about-our-stats",
+    "href": "index.html#even-manny-machado-cares-about-our-stats",
+    "title": "Welcome to the SABRhood",
+    "section": "Even Manny Machado cares about our stats",
+    "text": "Even Manny Machado cares about our stats\nSimple explanations for the advanced numbers used across the site.\nOpen Glossary"
+  },
+  {
+    "objectID": "index.html#get-schooled-on-the-numbers-behind-the-game.",
+    "href": "index.html#get-schooled-on-the-numbers-behind-the-game.",
+    "title": "Welcome to the SABRhood",
+    "section": "Get schooled on the numbers behind the game.",
+    "text": "Get schooled on the numbers behind the game.\nPlayer/team trends, prospects, and season expectations.\nRead Articles"
+  },
+  {
+    "objectID": "index.html#sort-though-our-niche-league-leaders.",
+    "href": "index.html#sort-though-our-niche-league-leaders.",
+    "title": "Welcome to the SABRhood",
+    "section": "Sort though our niche league leaders.",
+    "text": "Sort though our niche league leaders.\nCustom leaderboards that make you say, “Huh”.\nView Leaderboards"
+  },
+  {
+    "objectID": "index.html#even-manny-machado-can-understand-our-stats.",
+    "href": "index.html#even-manny-machado-can-understand-our-stats.",
+    "title": "Welcome to the SABRhood",
+    "section": "Even Manny Machado can understand our stats.",
+    "text": "Even Manny Machado can understand our stats.\nExplanations for custom and universal baseball stats.\nOpen Glossary"
   }
 ]

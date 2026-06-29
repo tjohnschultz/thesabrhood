@@ -29,4 +29,7 @@ website:
       
 format:
   html:
+    theme: cosmo
     css: styles.css
+    page-layout: full
+    smooth-scroll: true

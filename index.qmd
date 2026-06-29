@@ -1,8 +1,43 @@
----
-title: "WELCOME TO THE SABRHOOD!"
----
+::: {.sabr-hero}
+# Welcome to the SABRhood
 
-Checkout our articles under the "Articles" tab of the nav-bar!\
+Welcome to the 'hood! Join us to learn more about the trends and #'s below the surface that control where the game is heading.
 
-Please feel free to reference the Stat Glossary to answer all of your questions and also find data distributions. 
+[Read Articles](blog.qmd){.btn .btn-metallic}
+[Explore Leaderboards](leaderboards.qmd){.btn .btn-primary}
+[Stat Glossary](glossary.qmd){.btn .btn-outline-light}
+:::
 
+::: {.sabr-grid}
+
+::: {.sabr-card}
+<span class="sabr-pill">Articles</span>
+
+## Get schooled on the numbers behind the game.
+
+Player/team trends, prospects, and season expectations.
+
+[Read Articles](blog.qmd){.btn .btn-primary}
+:::
+
+::: {.sabr-card}
+<span class="sabr-pill">Leaderboards</span>
+
+## Sort though our niche league leaders.
+
+Custom leaderboards that make you say, "Huh".
+
+[View Leaderboards](leaderboards.qmd){.btn .btn-sabr-navy}
+:::
+
+::: {.sabr-card}
+<span class="sabr-pill">Glossary</span>
+
+## Even Manny Machado can understand our stats.
+
+Explanations for custom and universal baseball stats.
+
+[Open Glossary](glossary.qmd){.btn .btn-metallic}
+:::
+
+:::

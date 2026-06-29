@@ -1,14 +1,558 @@
 /* styles.css */
-h1 {
-  color: #BD3039;
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
+
+/* -------------------------
+   SABRhood brand variables
+------------------------- */
+
+:root {
+  --sabr-red: #BD3039;
+  --sabr-red-dark: #8F1F2A;
+  --sabr-navy: #0C2340;
+  --sabr-navy-light: #17406F;
+  --sabr-light-blue: #DDEAF0;
+  --sabr-bg: #F6F9FC;
+  --sabr-card: #FFFFFF;
+  --sabr-text: #111827;
+  --sabr-muted: #64748B;
+  --sabr-border: rgba(12, 35, 64, 0.14);
+  --sabr-shadow: 0 12px 30px rgba(12, 35, 64, 0.11);
+  --sabr-shadow-hover: 0 20px 46px rgba(12, 35, 64, 0.18);
+}
+
+/* -------------------------
+   Global page style
+------------------------- */
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+  background: var(--sabr-light-blue);
 }
 
 body {
-  background-color: #DDEAF0;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--sabr-light-blue) !important;
+  color: var(--sabr-text);
+  font-family: "Roboto", "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.01em;
+  position: relative;
+  overflow-x: hidden;
 }
 
-.navbar-logo {
+/* Fixed full-page background layer */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at top left, rgba(189, 48, 57, 0.08), transparent 28rem),
+    linear-gradient(180deg, #ffffff 0%, #F6F9FC 45%, #DDEAF0 100%);
+
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+}
+
+/* Keep all Quarto content above the fixed background */
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Slight page entrance smoothness */
+main {
+  animation: sabrFadeIn 0.35s ease;
+}
+
+@keyframes sabrFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -------------------------
+   Headings
+------------------------- */
+
+h1 {
+  color: var(--sabr-red);
+  text-align: center;
+  font-family: "Roboto", "Inter", "Segoe UI", system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  margin-bottom: 1rem;
+}
+
+h2,
+h3,
+h4 {
+  color: var(--sabr-navy);
+  font-family: "Roboto", "Inter", "Segoe UI", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+p {
+  line-height: 1.65;
+}
+
+/* -------------------------
+   Navbar
+------------------------- */
+
+.navbar {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid rgba(189, 48, 57, 0.16);
+  box-shadow: 0 8px 26px rgba(12, 35, 64, 0.08);
+  z-index: 1030;
+}
+
+.navbar-logo,
+.navbar-brand img {
   max-height: 80px;
+}
+
+.navbar-nav .nav-link {
+  color: var(--sabr-red) !important;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  margin: 0 0.08rem;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: rgba(189, 48, 57, 0.10);
+  color: var(--sabr-navy) !important;
+  transform: translateY(-1px);
+}
+
+.navbar-nav .nav-link.active {
+  background: var(--sabr-red);
+  color: #ffffff !important;
+}
+
+/* -------------------------
+   Links
+------------------------- */
+
+a {
+  color: var(--sabr-red);
+  text-underline-offset: 0.18em;
+  transition:
+    color 0.18s ease,
+    opacity 0.18s ease;
+}
+
+a:hover {
+  color: var(--sabr-navy);
+}
+
+/* -------------------------
+   Buttons
+------------------------- */
+
+.btn,
+a.btn,
+button.btn {
+  border-radius: 999px;
+  font-weight: 800;
+  padding: 0.7rem 1.2rem;
+  border: 0;
+  text-decoration: none;
+  box-shadow:
+    0 4px 0 rgba(12, 35, 64, 0.20),
+    0 12px 26px rgba(12, 35, 64, 0.15);
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    filter 0.16s ease;
+}
+
+.btn:hover,
+a.btn:hover,
+button.btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 rgba(12, 35, 64, 0.20),
+    0 18px 38px rgba(12, 35, 64, 0.22);
+  filter: brightness(1.04);
+}
+
+.btn:active,
+a.btn:active,
+button.btn:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 2px 0 rgba(12, 35, 64, 0.25),
+    0 8px 18px rgba(12, 35, 64, 0.16);
+}
+
+/* SABRhood red button */
+.btn-primary,
+a.btn-primary {
+  background: linear-gradient(135deg, var(--sabr-red), var(--sabr-red-dark));
+  color: #ffffff;
+}
+
+/* SABRhood navy button */
+.btn-sabr-navy,
+a.btn-sabr-navy {
+  background: linear-gradient(135deg, var(--sabr-navy), var(--sabr-navy-light));
+  color: #ffffff;
+}
+
+/* Metallic button */
+.btn-metallic,
+a.btn-metallic {
+  color: #ffffff;
+  background:
+    linear-gradient(
+      135deg,
+      #07182C 0%,
+      #0C2340 30%,
+      #CBD5E1 49%,
+      #BD3039 66%,
+      #07182C 100%
+    );
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+}
+
+.btn-metallic:hover,
+a.btn-metallic:hover {
+  color: #ffffff;
+}
+
+/* Soft outline button */
+.btn-outline-sabr,
+a.btn-outline-sabr {
+  background: #ffffff;
+  color: var(--sabr-red);
+  border: 1px solid rgba(189, 48, 57, 0.35);
+}
+
+/* -------------------------
+   Homepage hero block
+------------------------- */
+
+.sabr-hero {
+  padding: clamp(2.2rem, 6vw, 5rem);
+  border-radius: 1.6rem;
+  margin: 1.25rem 0 2rem;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.23), transparent 22rem),
+    radial-gradient(circle at bottom right, rgba(189, 48, 57, 0.48), transparent 24rem),
+    linear-gradient(135deg, #07182C 0%, #0C2340 48%, #BD3039 100%);
+  box-shadow: 0 28px 70px rgba(12, 35, 64, 0.30);
+}
+
+.sabr-hero h1 {
+  color: #ffffff;
+  text-align: left;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 0.95;
+}
+
+.sabr-hero p {
+  color: rgba(255, 255, 255, 0.84);
+  max-width: 780px;
+  font-size: 1.15rem;
+}
+
+/* -------------------------
+   Cards / sections
+------------------------- */
+
+.sabr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+
+.sabr-card {
+  background: var(--sabr-card);
+  border: 1px solid var(--sabr-border);
+  border-radius: 1.25rem;
+  padding: 1.35rem;
+  box-shadow: var(--sabr-shadow);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.sabr-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sabr-shadow-hover);
+  border-color: rgba(189, 48, 57, 0.28);
+}
+
+.sabr-card h2,
+.sabr-card h3 {
+  margin-top: 0.6rem;
+}
+
+/* Small label pills */
+.sabr-pill {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 0.35rem 0.72rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--sabr-red);
+  background: rgba(189, 48, 57, 0.10);
+  border: 1px solid rgba(189, 48, 57, 0.18);
+}
+
+/* -------------------------
+   Blog/listing polish
+------------------------- */
+
+.quarto-listing .card {
+  border-radius: 1.15rem;
+  border: 1px solid var(--sabr-border);
+  box-shadow: var(--sabr-shadow);
+  overflow: hidden;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.quarto-listing .card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sabr-shadow-hover);
+  border-color: rgba(189, 48, 57, 0.24);
+}
+
+.quarto-listing .card-title {
+  color: var(--sabr-navy);
+  font-weight: 900;
+}
+
+/* -------------------------
+   Leaderboards / tables
+------------------------- */
+
+table {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+thead,
+.table thead {
+  background: var(--sabr-navy);
+  color: #ffffff;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: rgba(12, 35, 64, 0.035);
+}
+
+/* -------------------------
+   Figures and plots
+------------------------- */
+
+img,
+.figure-img {
+  border-radius: 1rem;
+}
+
+.figure,
+.cell-output-display {
+  margin-top: 1.25rem;
+  margin-bottom: 1.8rem;
+}
+
+/* -------------------------
+   Mobile
+------------------------- */
+
+@media (max-width: 768px) {
+  .navbar-logo,
+  .navbar-brand img {
+    max-height: 52px;
+  }
+
+  .sabr-hero {
+    padding: 2rem 1.25rem;
+    border-radius: 1.2rem;
+  }
+
+  .sabr-hero h1 {
+    text-align: left;
+  }
+
+  .btn,
+  a.btn,
+  button.btn {
+    width: 100%;
+    margin-bottom: 0.55rem;
+    text-align: center;
+  }
+}
+
+/* -------------------------
+   Article page system
+------------------------- */
+
+.article-shell {
+  --team-primary: var(--sabr-navy);
+  --team-secondary: var(--sabr-red);
+  --team-accent: var(--sabr-light-blue);
+
+  max-width: 940px;
+  margin: 2rem auto 3rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: 1.4rem;
+
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.91)),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--team-secondary) 16%, transparent), transparent 22rem);
+
+  border: 1px solid rgba(12, 35, 64, 0.12);
+  border-top: 8px solid var(--team-primary);
+
+  box-shadow:
+    0 18px 48px rgba(12, 35, 64, 0.16),
+    0 4px 0 color-mix(in srgb, var(--team-primary) 45%, transparent);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.article-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 10px;
+  background: linear-gradient(90deg, var(--team-primary), var(--team-secondary));
+}
+
+.article-shell h1 {
+  color: var(--team-primary);
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+.article-shell h2,
+.article-shell h3 {
+  color: var(--team-primary);
+}
+
+.article-shell a {
+  color: var(--team-secondary);
+}
+
+.article-shell a:hover {
+  color: var(--team-primary);
+}
+
+.article-kicker {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  margin-bottom: 0.8rem;
+
+  color: var(--team-secondary);
+  background: color-mix(in srgb, var(--team-secondary) 12%, white);
+  border: 1px solid color-mix(in srgb, var(--team-secondary) 25%, white);
+
+  font-size: 0.8rem;
+  font-weight: 850;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.article-deck {
+  color: var(--sabr-muted);
+  font-size: 1.12rem;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.article-callout {
+  margin: 1.5rem 0;
+  padding: 1.15rem 1.25rem;
+  border-radius: 1rem;
+
+  background: color-mix(in srgb, var(--team-accent) 35%, white);
+  border-left: 6px solid var(--team-secondary);
+  box-shadow: 0 10px 26px rgba(12, 35, 64, 0.08);
+}
+
+.article-shell img,
+.article-shell .figure-img {
+  border-radius: 1rem;
+  box-shadow: 0 14px 34px rgba(12, 35, 64, 0.14);
+}
+
+/* -------------------------
+   Team article themes
+------------------------- */
+
+.theme-red-sox {
+  --team-primary: #0C2340;
+  --team-secondary: #BD3039;
+  --team-accent: #DDEAF0;
+}
+
+.theme-yankees {
+  --team-primary: #0C2340;
+  --team-secondary: #C4CED4;
+  --team-accent: #E8EEF3;
+}
+
+.theme-orioles {
+  --team-primary: #DF4601;
+  --team-secondary: #000000;
+  --team-accent: #FFF3EA;
+}
+
+.theme-rays {
+  --team-primary: #092C5C;
+  --team-secondary: #8FBCE6;
+  --team-accent: #E7F2FB;
+}
+
+.theme-blue-jays {
+  --team-primary: #134A8E;
+  --team-secondary: #E8291C;
+  --team-accent: #EAF3FB;
+}
+
+.theme-neutral {
+  --team-primary: var(--sabr-navy);
+  --team-secondary: var(--sabr-red);
+  --team-accent: var(--sabr-light-blue);
+}
+
+/* Mobile article pages */
+@media (max-width: 768px) {
+  .article-shell {
+    margin: 1rem auto 2rem;
+    padding: 1.25rem;
+    border-radius: 1.1rem;
+  }
+
+  .article-shell h1 {
+    text-align: left;
+    letter-spacing: -0.04em;
+  }
 }

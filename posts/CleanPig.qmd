@@ -9,27 +9,16 @@ format:
     toc-depth: 2
 ---
 
-```{r, echo=FALSE,warning=FALSE,message=FALSE}
-library(tidyverse); library(here); library(kableExtra); library(baseballr); source(here("R", "my methods.R"))
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(here)
+library(kableExtra)
+library(baseballr)
+
+source(here("R", "my methods.R"))
 ```
 
-```{=html}
-<style>
-  body {
-    background-color: #0C2340; /* A light blue, for example */
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  main.content {
-  background: rgba(255, 255, 255, 0.92);
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  max-width: 900px;     /* controls how wide the text block is */
-  margin: 2rem auto;    /* centers the rectangle */
-}
-</style>
-```
+::: {.article-shell .theme-red-sox}
 ## Garrett Crochet has not had his ‘filth’ to start his 2026 campaign; has it washed away for good?
 
 ![Garrett Crochet on the mound for Monday's outing v. Minnesota(AP Photo/Abbie Parr)](https://www.masslive.com/resizer/v2/2O77PU26VZEOTDGO4TNZF7VE3U.jpg?auth=3d28cb4d320707604f704ab8f2eb745e95644260c932905ed68a540abeba237d&width=1280&smart=true&quality=90)
@@ -123,3 +112,4 @@ kable(table, col.names = c('Name', 'Team', 'Date Began', 'Date Ended', 'ERA', 'I
 ```{=html}
 <div class="substack-post-embed"><p lang="en">Clean Pig? by The SabrHood</p><p>Garrett Crochet has not had his ‘filth’ to start his 2026 campaign; has it washed away for good?</p><a data-post-link href="https://thesabrhood.substack.com/p/clean-pig">Read on Substack</a></div><script async src="https://substack.com/embedjs/embed.js" charset="utf-8"></script>
 ```
+:::
