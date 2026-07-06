@@ -1,12 +1,15 @@
-.Rproj.user
+.Rproj.user/
 .Rhistory
 .RData
 .Ruserdata
 .httr-oauth
 .DS_Store
-.quarto
 
-/.quarto/
+# Quarto temporary/build folders
+.quarto/
+_site/
+
+# Old large/source data
 data/mlb_pbp_2025.rds
 docs/data/mlb_pbp_2025.rds
 R/mlb_pbp_2025.rds
@@ -14,3 +17,14 @@ docs/data/st_pbp_2026_03_04.rds
 enhanced_pbp_2025.rds
 data/st_0311.rds
 docs/data/st_0311.rds
+
+# Newsletter raw/generated data that should NOT go to GitHub
+data/newsletter_data/mlb_pbp.rds
+data/newsletter_data/mlb_pbp_enhanced.rds
+data/newsletter_data/archive/
+data/newsletter_data/derived/
+
+# Other untracked data showing in your status
+data/aps_indy.rds
+data/mlb25_tbs.rds
+/.quarto/

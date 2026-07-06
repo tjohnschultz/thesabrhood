@@ -1,10 +1,10 @@
 project:
   type: website
   output-dir: docs
-  resources: 
-    - images/
-    - data/
+  resources:
+    - images/**
     - CNAME
+    - data/newsletter_data/newsletter_today.rds
 
 website:
   title: ""
@@ -19,6 +19,8 @@ website:
         text: Home
       - href: blog.qmd
         text: Articles
+      - href: newsletter.qmd
+        text: Daily Newsletter
       - href: leaderboards.qmd
         text: Leaderboards
       - href: glossary.qmd

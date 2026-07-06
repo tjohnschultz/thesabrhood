@@ -1,0 +1,517 @@
+---
+title: "The SABRhood Daily"
+format: 
+  html:
+    css: styles.css
+    code-fold: false
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(glue)
+library(knitr)
+
+newsletter_path <- file.path("data", "newsletter_data", "newsletter_today.rds")
+
+if (!file.exists(newsletter_path)) {
+  stop("Missing newsletter_today.rds. Run source('scripts/newsletter/update_newsletter.R') first.")
+}
+
+daily <- readRDS(newsletter_path)
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+escape_html <- function(x) {
+  x <- as.character(x)
+  x <- gsub("&", "&amp;", x, fixed = TRUE)
+  x <- gsub("<", "&lt;", x, fixed = TRUE)
+  x <- gsub(">", "&gt;", x, fixed = TRUE)
+  x <- gsub('"', "&quot;", x, fixed = TRUE)
+  x
+}
+
+null_or_na <- function(x) {
+  is.null(x) || length(x) == 0 || all(is.na(x))
+}
+
+safe_text <- function(x, fallback = "—") {
+  if (null_or_na(x)) return(fallback)
+  escape_html(x[[1]])
+}
+
+fmt_board_field <- function(value, col) {
+  if (null_or_na(value)) return("—")
+
+  if (col == "IP") {
+    return(sprintf("%.1f", suppressWarnings(as.numeric(value))))
+  }
+
+  if (col %in% c("hot_score", "best_z", "z_score", "pitcher_game_score", "hitter_game_score", "diff")) {
+    return(as.character(round(suppressWarnings(as.numeric(value)), 1)))
+  }
+
+  if (is.numeric(value)) {
+    return(as.character(round(value, 1)))
+  }
+
+  escape_html(value)
+}
+
+pretty_label <- function(x) {
+  dplyr::recode(
+    x,
+    "team" = "Team",
+    "H" = "H",
+    "HR" = "HR",
+    "TB" = "TB",
+    "RBI" = "RBI",
+    "SO" = "K",
+    "whiffs" = "Whiffs",
+    "IP" = "IP",
+    "best_category" = "Type",
+    "best_stat" = "Stat",
+    "direction" = "Move",
+    "stat" = "Stat",
+    "pitch_type" = "Pitch",
+    .default = stringr::str_to_title(gsub("_", " ", x))
+  )
+}
+
+render_img <- function(path, alt = "") {
+  if (!null_or_na(path)) {
+    path <- as.character(path[[1]])
+
+    img_id <- paste0(
+      "img-",
+      stringr::str_replace_all(
+        stringr::str_to_lower(basename(path)),
+        "[^a-z0-9]+",
+        "-"
+      )
+    )
+
+    cat(
+      '<a class="daily-img-link" href="#', img_id, '">',
+      '<img src="', escape_html(path), '" alt="', escape_html(alt), '">',
+      '</a>',
+      '<div id="', img_id, '" class="daily-lightbox">',
+      '<a class="daily-lightbox-close" href="#_">×</a>',
+      '<img src="', escape_html(path), '" alt="', escape_html(paste(alt, "expanded")), '">',
+      '</div>',
+      sep = ""
+    )
+  }
+}
+
+render_evidence_strip <- function(items) {
+  if (is.null(items) || length(items) == 0) {
+    return(invisible(NULL))
+  }
+
+  cat('<div class="daily-evidence-strip">', sep = "")
+
+  for (item in items) {
+    cat(
+      '<div class="daily-evidence-pill">',
+      '<span>', safe_text(item$label), '</span>',
+      '<strong>', safe_text(item$value), '</strong>',
+      '</div>',
+      sep = ""
+    )
+  }
+
+  cat('</div>', sep = "")
+}
+
+render_mini_board <- function(tbl, name_col, sub_cols = NULL, value_col, value_suffix = "", n = 6) {
+  if (is.null(tbl) || nrow(tbl) == 0 || !name_col %in% names(tbl) || !value_col %in% names(tbl)) {
+    cat('<p class="daily-small-note">No qualifying rows available.</p>', sep = "")
+    return(invisible(NULL))
+  }
+
+  tbl <- tbl %>% slice_head(n = n)
+
+  cat('<div class="daily-mini-board">', sep = "")
+
+  for (i in seq_len(nrow(tbl))) {
+    main <- tbl[[name_col]][i]
+    value <- tbl[[value_col]][i]
+
+    subline <- ""
+    if (!is.null(sub_cols)) {
+      subline <- paste(
+        purrr::map_chr(sub_cols, function(col) {
+          if (!col %in% names(tbl)) return("")
+          paste0(pretty_label(col), ": ", fmt_board_field(tbl[[col]][i], col))
+        }) %>% discard(~ .x == ""),
+        collapse = " • "
+      )
+    }
+
+    cat(
+      '<div class="daily-board-row">',
+      '<span class="daily-rank">', i, '</span>',
+      '<div class="daily-board-main">',
+      '<strong>', escape_html(main), '</strong>',
+      '<span>', subline, '</span>',
+      '</div>',
+      '<div class="daily-board-value">', fmt_board_field(value, value_col), value_suffix, '</div>',
+      '</div>',
+      sep = ""
+    )
+  }
+
+  cat('</div>', sep = "")
+}
+```
+
+<div class="daily-paper">
+
+```{r}
+#| echo: false
+#| results: asis
+
+cat(
+  '<section class="daily-masthead">',
+  '<div class="daily-meta">',
+  '<span class="daily-chip">', safe_text(daily$weekday), ' Edition</span>',
+  '<span class="daily-chip">', safe_text(daily$edition_type), '</span>',
+  '</div>',
+  '<h1>The SABRhood Daily</h1>',
+  '<p>', safe_text(daily$lead_blurb), '</p>',
+  '</section>',
+  sep = ""
+)
+```
+
+<div class="daily-grid">
+
+<div class="daily-stack">
+
+<section class="daily-section daily-lead-card">
+  <span class="daily-kicker">Lead Board</span>
+  <h2>`r daily$headline`</h2>
+  <p>`r daily$deck`</p>
+</section>
+
+<section class="daily-section">
+  <span class="daily-kicker">Featured Players</span>
+  <h2>Hot bat and hot arm</h2>
+
+  <div class="daily-card-grid">
+
+```{r}
+#| echo: false
+#| results: asis
+
+h <- daily$featured_hitter_card
+
+if (!is.null(h)) {
+  cat('<article class="daily-player-card">', sep = "")
+  cat('<span class="daily-kicker">', safe_text(h$tag), '</span>', sep = "")
+  cat('<h3>', safe_text(h$headline), '</h3>', sep = "")
+  cat('<p class="daily-subline">', safe_text(h$team), ' • ', safe_text(h$trend_stat), ' movement</p>', sep = "")
+  cat('<p>', safe_text(h$summary), '</p>', sep = "")
+
+  render_evidence_strip(h$evidence)
+
+  cat('<p class="daily-small-note">', safe_text(h$season_line), '</p>', sep = "")
+
+  render_img(h$chart_path, paste("Rolling trend chart for", h$player))
+
+  cat('</article>', sep = "")
+}
+
+p <- daily$featured_pitcher_card
+
+if (!is.null(p)) {
+  cat('<article class="daily-player-card">', sep = "")
+  cat('<span class="daily-kicker">', safe_text(p$tag), '</span>', sep = "")
+  cat('<h3>', safe_text(p$headline), '</h3>', sep = "")
+  cat('<p class="daily-subline">', safe_text(p$team), ' • pitcher trend card</p>', sep = "")
+  cat('<p>', safe_text(p$summary), '</p>', sep = "")
+
+  render_evidence_strip(p$evidence)
+
+  cat('<p>', safe_text(p$result_line), '</p>', sep = "")
+  cat('<p>', safe_text(p$whiff_line), '</p>', sep = "")
+  cat('<p><strong>Pitch mix:</strong> ', safe_text(p$pitchmix_note), '</p>', sep = "")
+
+  render_img(p$chart_path, paste("Pitch mix chart for", p$pitcher))
+
+  cat('</article>', sep = "")
+}
+```
+
+  </div>
+</section>
+
+<section class="daily-section">
+  <span class="daily-kicker">Pitch Lab</span>
+  <h2>Pitch of the Day</h2>
+
+```{r}
+#| echo: false
+#| results: asis
+
+pod <- daily$pitch_of_day
+
+if (!is.null(pod)) {
+  cat('<div class="daily-player-card">', sep = "")
+  cat('<span class="daily-kicker">', safe_text(pod$tag), '</span>', sep = "")
+  cat('<h3>', safe_text(pod$title), '</h3>', sep = "")
+  cat('<p class="daily-subline">', safe_text(pod$pitcher), ' • ', safe_text(pod$team), '</p>', sep = "")
+  cat('<p>', safe_text(pod$note), '</p>', sep = "")
+  render_evidence_strip(pod$evidence)
+  cat('</div>', sep = "")
+} else {
+  cat('<p class="daily-small-note">No pitch qualified for today’s Pitch of the Day.</p>', sep = "")
+}
+```
+
+</section>
+
+<section class="daily-section">
+  <span class="daily-kicker">Split Lens</span>
+  <h2>Where the profile bends</h2>
+
+```{r}
+#| echo: false
+#| results: asis
+
+split_items <- list(
+  daily$split_spotlight$hitter,
+  daily$split_spotlight$pitcher
+)
+
+split_items <- split_items[!purrr::map_lgl(split_items, is.null)]
+
+if (length(split_items) > 0) {
+  cat('<div class="daily-card-grid">', sep = "")
+
+  for (item in split_items) {
+    cat('<article class="daily-player-card">', sep = "")
+    cat('<span class="daily-kicker">', safe_text(item$type), '</span>', sep = "")
+    cat('<h3>', safe_text(item$player), '</h3>', sep = "")
+    cat('<p class="daily-subline">', safe_text(item$comparison), '</p>', sep = "")
+    cat('<p>', safe_text(item$note), '</p>', sep = "")
+
+    render_evidence_strip(list(
+      list(label = "Stat", value = item$stat),
+      list(label = "Diff", value = round(item$diff, 3)),
+      list(label = "View", value = "Split")
+    ))
+
+    cat('</article>', sep = "")
+  }
+
+  cat('</div>', sep = "")
+} else {
+  cat('<p class="daily-small-note">No split spotlight qualified today.</p>', sep = "")
+}
+```
+
+</section>
+
+<section class="daily-section daily-chart-card">
+  <span class="daily-kicker">Visual Read</span>
+  <h2>`r daily$rolling_ops_comparison$title`</h2>
+  <p>`r daily$rolling_ops_comparison$note`</p>
+
+```{r}
+#| echo: false
+#| results: asis
+
+if (!is.null(daily$rolling_ops_comparison)) {
+  render_img(daily$rolling_ops_comparison$path, "Rolling OPS comparison")
+}
+```
+
+</section>
+
+<section class="daily-section daily-chart-card">
+  <span class="daily-kicker">Chart of the Day</span>
+  <h2>`r daily$chart_of_day$title`</h2>
+  <p>`r daily$chart_of_day$note`</p>
+
+```{r}
+#| echo: false
+#| results: asis
+
+if (!is.null(daily$chart_of_day)) {
+  render_img(daily$chart_of_day$path, "Chart of the day")
+}
+```
+
+</section>
+
+<section class="daily-section">
+  <span class="daily-kicker">Signal Boards</span>
+  <h2>Who else is moving?</h2>
+
+  <div class="daily-card-grid">
+
+  <article class="daily-player-card">
+    <span class="daily-kicker">Pitcher Trends</span>
+    <h3>Hot arm board</h3>
+
+```{r}
+#| echo: false
+#| results: asis
+
+render_mini_board(
+  tbl = daily$pitcher_hot_board,
+  name_col = "pitcher",
+  sub_cols = c("team", "best_category", "best_stat"),
+  value_col = "hot_score",
+  n = 7
+)
+```
+
+  </article>
+
+  <article class="daily-player-card">
+    <span class="daily-kicker">Hitter Trends</span>
+    <h3>Movement board</h3>
+
+```{r}
+#| echo: false
+#| results: asis
+
+if (!is.null(daily$trenders) && nrow(daily$trenders) > 0) {
+  movement_board <- daily$trenders %>%
+    arrange(desc(abs(z_change))) %>%
+    distinct(player, .keep_all = TRUE) %>%
+    mutate(
+      z_score = round(z_change, 2)
+    )
+
+  render_mini_board(
+    tbl = movement_board,
+    name_col = "player",
+    sub_cols = c("team", "stat", "direction"),
+    value_col = "z_score",
+    n = 8
+  )
+} else {
+  cat('<p class="daily-small-note">No hitter movement rows available.</p>', sep = "")
+}
+```
+
+  </article>
+
+  </div>
+</section>
+
+<section class="daily-section">
+  <span class="daily-kicker">Trend Queue</span>
+  <h2>Names to watch</h2>
+
+```{r}
+#| echo: false
+#| results: asis
+
+if (!is.null(daily$watch_list) && nrow(daily$watch_list) > 0) {
+  watch_tbl <- daily$watch_list %>% slice_head(n = 6)
+
+  cat('<div class="daily-card-grid">', sep = "")
+
+  for (i in seq_len(nrow(watch_tbl))) {
+    cat('<article class="daily-player-card">', sep = "")
+    cat('<span class="daily-kicker">', escape_html(watch_tbl$type[i]), '</span>', sep = "")
+    cat('<h3>', escape_html(watch_tbl$name[i]), '</h3>', sep = "")
+    cat('<p class="daily-subline">', escape_html(watch_tbl$team[i]), ' • ', escape_html(watch_tbl$tag[i]), '</p>', sep = "")
+    cat('<p>', escape_html(watch_tbl$reason[i]), '</p>', sep = "")
+    cat('</article>', sep = "")
+  }
+
+  cat('</div>', sep = "")
+} else {
+  cat('<p class="daily-small-note">No watch-list rows available.</p>', sep = "")
+}
+```
+
+</section>
+
+<section class="daily-section">
+  <span class="daily-kicker">Method</span>
+  <h2>Trend key</h2>
+
+```{r}
+#| echo: false
+#| results: asis
+
+if (!is.null(daily$trend_legend) && nrow(daily$trend_legend) > 0) {
+  cat('<div class="daily-card-grid">', sep = "")
+
+  for (i in seq_len(nrow(daily$trend_legend))) {
+    cat('<article class="daily-player-card">', sep = "")
+    cat('<span class="daily-kicker">Signal</span>', sep = "")
+    cat('<h3>', escape_html(daily$trend_legend$tag[i]), '</h3>', sep = "")
+    cat('<p>', escape_html(daily$trend_legend$meaning[i]), '</p>', sep = "")
+    cat('</article>', sep = "")
+  }
+
+  cat('</div>', sep = "")
+} else {
+  cat('<p class="daily-small-note">Trend key unavailable.</p>', sep = "")
+}
+```
+
+</section>
+
+</div>
+
+<aside class="daily-stack">
+
+<section class="daily-section">
+  <span class="daily-kicker">Last Night</span>
+  <h2>Top bats</h2>
+
+```{r}
+#| echo: false
+#| results: asis
+
+render_mini_board(
+  tbl = daily$last_night$hitters,
+  name_col = "player",
+  sub_cols = c("team", "H", "HR", "TB", "RBI"),
+  value_col = "hitter_game_score",
+  n = 6
+)
+```
+
+</section>
+
+<section class="daily-section">
+  <span class="daily-kicker">Last Night</span>
+  <h2>Top arms</h2>
+
+```{r}
+#| echo: false
+#| results: asis
+
+render_mini_board(
+  tbl = daily$last_night$pitchers,
+  name_col = "pitcher",
+  sub_cols = c("team", "IP", "SO", "whiffs"),
+  value_col = "pitcher_game_score",
+  n = 6
+)
+```
+
+</section>
+
+</aside>
+
+</div>
+
+</div>

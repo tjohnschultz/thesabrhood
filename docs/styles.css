@@ -556,3 +556,409 @@ img,
     letter-spacing: -0.04em;
   }
 }
+
+/* =========================================================
+   SABRhood Daily Newsletter Layout
+   Paste at bottom of styles.css
+========================================================= */
+
+/* Hide default Quarto title block only on pages using daily-paper */
+body:has(.daily-paper) .quarto-title-block {
+  display: none;
+}
+
+.daily-paper {
+  --daily-navy: var(--sabr-navy, #0C2340);
+  --daily-red: var(--sabr-red, #BD3039);
+  --daily-bg: var(--sabr-bg, #f5f7fb);
+  --daily-card: #ffffff;
+  --daily-text: var(--sabr-text, #182235);
+  --daily-muted: var(--sabr-muted, #6b7280);
+  --daily-border: var(--sabr-border, rgba(12, 35, 64, 0.12));
+  --daily-shadow: 0 10px 24px rgba(12, 35, 64, 0.09);
+
+  max-width: 1180px;
+  margin: 0 auto 3rem;
+  padding: 0 0.75rem;
+  color: var(--daily-text);
+}
+
+/* -------------------------
+   Masthead
+------------------------- */
+
+.daily-masthead {
+  margin: 1rem 0 1.25rem;
+  padding: 1.35rem 1.55rem;
+  border-radius: 1.1rem;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.16), transparent 18rem),
+    linear-gradient(135deg, var(--daily-navy), var(--daily-red));
+  box-shadow: 0 18px 42px rgba(12, 35, 64, 0.20);
+}
+
+.daily-masthead h1 {
+  color: #ffffff;
+  text-align: left;
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.65rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.daily-masthead p {
+  max-width: 780px;
+  margin: 0.65rem 0 0;
+  color: rgba(255,255,255,0.86);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.daily-meta {
+  display: inline-flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.65rem;
+}
+
+.daily-chip {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 0.25rem 0.62rem;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.22);
+}
+
+/* -------------------------
+   Page grid
+------------------------- */
+
+.daily-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.85fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.daily-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.daily-section {
+  background: rgba(255,255,255,0.94);
+  border: 1px solid var(--daily-border);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: var(--daily-shadow);
+}
+
+.daily-section h2 {
+  margin: 0.25rem 0 0.7rem;
+  font-size: 1.25rem;
+  line-height: 1.15;
+  color: var(--daily-navy);
+  letter-spacing: -0.02em;
+}
+
+.daily-section h3 {
+  margin: 0.2rem 0 0.45rem;
+  font-size: 1.05rem;
+  line-height: 1.18;
+  color: var(--daily-navy);
+}
+
+.daily-section p {
+  margin: 0.35rem 0;
+  line-height: 1.45;
+}
+
+.daily-lead-card {
+  border-top: 6px solid var(--daily-red);
+}
+
+.daily-kicker {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 0.22rem 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--daily-red);
+  background: rgba(189, 48, 57, 0.09);
+  border: 1px solid rgba(189, 48, 57, 0.16);
+}
+
+.daily-small-note {
+  color: var(--daily-muted);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+/* -------------------------
+   Player cards
+------------------------- */
+
+.daily-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.daily-player-card {
+  background: #ffffff;
+  border: 1px solid var(--daily-border);
+  border-radius: 0.95rem;
+  padding: 0.9rem;
+  box-shadow: 0 8px 18px rgba(12, 35, 64, 0.08);
+}
+
+.daily-player-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.2rem;
+}
+
+.daily-subline {
+  color: var(--daily-muted);
+  font-size: 0.84rem;
+  font-weight: 700;
+  margin: 0.15rem 0 0.55rem;
+}
+
+/* -------------------------
+   Evidence strips
+------------------------- */
+
+.daily-evidence-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin: 0.7rem 0;
+}
+
+.daily-evidence-pill {
+  padding: 0.52rem 0.55rem;
+  border-radius: 0.75rem;
+  background: rgba(189, 48, 57, 0.07);
+  border: 1px solid rgba(189, 48, 57, 0.14);
+}
+
+.daily-evidence-pill span {
+  display: block;
+  color: var(--daily-muted);
+  font-size: 0.66rem;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.daily-evidence-pill strong {
+  display: block;
+  color: var(--daily-navy);
+  font-size: 0.92rem;
+  margin-top: 0.12rem;
+}
+
+/* -------------------------
+   Last night mini boards
+------------------------- */
+
+.daily-mini-board {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.daily-board-row {
+  display: grid;
+  grid-template-columns: 1.6rem minmax(0, 1fr) auto;
+  gap: 0.55rem;
+  align-items: center;
+  padding: 0.45rem 0.5rem;
+  border-radius: 0.7rem;
+  background: rgba(12, 35, 64, 0.035);
+  border: 1px solid rgba(12, 35, 64, 0.06);
+}
+
+.daily-rank {
+  width: 1.4rem;
+  height: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--daily-navy);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.daily-board-main strong {
+  display: block;
+  color: var(--daily-navy);
+  font-size: 0.88rem;
+  line-height: 1.15;
+}
+
+.daily-board-main span {
+  display: block;
+  color: var(--daily-muted);
+  font-size: 0.74rem;
+  line-height: 1.18;
+  margin-top: 0.08rem;
+}
+
+.daily-board-value {
+  color: var(--daily-red);
+  font-weight: 900;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* -------------------------
+   Charts and clickable images
+------------------------- */
+
+.daily-chart-card {
+  padding: 0.85rem;
+}
+
+.daily-img-link {
+  display: block;
+  overflow: hidden;
+  border-radius: 0.85rem;
+  margin-top: 0.65rem;
+  cursor: zoom-in;
+  border: 1px solid rgba(12, 35, 64, 0.08);
+  background: #ffffff;
+}
+
+.daily-img-link img {
+  display: block;
+  width: 100%;
+  border-radius: 0.85rem;
+  transition: transform 0.18s ease, filter 0.18s ease;
+}
+
+.daily-img-link:hover img {
+  transform: scale(1.018);
+  filter: brightness(1.025) contrast(1.015);
+}
+
+/* -------------------------
+   Click-to-expand image lightbox
+------------------------- */
+
+.daily-lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  padding: 2.5rem;
+  background: rgba(4, 13, 26, 0.88);
+  align-items: center;
+  justify-content: center;
+}
+
+.daily-lightbox:target {
+  display: flex;
+}
+
+.daily-lightbox img {
+  max-width: min(1120px, 92vw);
+  max-height: 86vh;
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+}
+
+.daily-lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1.25rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.daily-lightbox-close:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.24);
+  text-decoration: none;
+}
+
+/* -------------------------
+   Tables, if used later
+------------------------- */
+
+.daily-tight-table table {
+  font-size: 0.78rem;
+}
+
+.daily-tight-table th,
+.daily-tight-table td {
+  padding: 0.32rem 0.4rem;
+}
+
+/* -------------------------
+   Responsive behavior
+------------------------- */
+
+@media (max-width: 1050px) {
+  .daily-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .daily-paper {
+    padding: 0 0.35rem;
+  }
+
+  .daily-masthead {
+    padding: 1.15rem;
+    border-radius: 0.9rem;
+  }
+
+  .daily-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .daily-evidence-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .daily-section {
+    padding: 0.85rem;
+  }
+
+  .daily-board-row {
+    grid-template-columns: 1.45rem minmax(0, 1fr);
+  }
+
+  .daily-board-value {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: -0.15rem;
+  }
+
+  .daily-lightbox {
+    padding: 1rem;
+  }
+}
