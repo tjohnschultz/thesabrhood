@@ -27,6 +27,9 @@ required_data <- c(
   ,"offensive-race-board.csv"
   ,"run-prevention-race-board.csv"
   ,"team-intelligence-summary.csv"
+  ,"manager-hook-model.csv"
+  ,"manager-hook-scenarios.csv"
+  ,"bullpen-matchup-selector.csv"
 )
 
 required_fragments <- c(

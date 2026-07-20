@@ -25,7 +25,7 @@
     "href": "projections.html",
     "title": "Projections",
     "section": "",
-    "text": "Simulation laboratory\n\n\nThe rebuilt model will simulate the full game state rather than stopping when the starters leave."
+    "text": "Simulation laboratory\n\n\nThe simulation roadmap now includes an auditable manager-hook model and a leverage-aware reliever selector - the bridge between the starter engine and a complete game simulation."
   },
   {
     "objectID": "projections.html#starter-matchup-engine",

@@ -196,8 +196,11 @@ team_intelligence <- read_product("team-intelligence-summary.csv")
 re24 <- read_product("run-expectancy-24.csv")
 bullpen <- read_product("bullpen-availability.csv")
 manager <- read_product("manager-data-summary.csv")
+manager_model <- read_product("manager-hook-model.csv")
 hook_validation <- read_product("manager-hook-validation-metrics.csv")
 hook_calibration <- read_product("manager-hook-calibration.csv")
+hook_scenarios <- read_product("manager-hook-scenarios.csv")
+bullpen_matchups <- read_product("bullpen-matchup-selector.csv")
 articles <- build_article_index()
 
 updated_date <- max(as.Date(hitters$last_game), na.rm = TRUE)
@@ -478,6 +481,33 @@ write_fragment("pitch-lab.html", c(
   '</section>'
 ))
 
+factor_labels <- c(
+  pitches_over_60 = "Workload beyond 60 pitches",
+  bf_over_18 = "Batters faced beyond 18",
+  third_time = "Third time through order",
+  late_inning = "Later inning",
+  close_game = "Score within two runs",
+  trailing_badly = "Team trailing by four-plus",
+  adverse_result = "Adverse plate-appearance result",
+  starter_flag = "Starter role",
+  reliever_flag = "Reliever role"
+)
+manager_factors <- manager_model[manager_model$term != "(Intercept)", , drop = FALSE]
+manager_factors$factor <- unname(factor_labels[manager_factors$term])
+manager_factors$direction <- ifelse(num(manager_factors$estimate) > 0, "Higher modeled likelihood", "Lower modeled likelihood")
+manager_factors$coefficient <- num(manager_factors$estimate)
+manager_factors <- manager_factors[order(-abs(manager_factors$coefficient)), , drop = FALSE]
+scenario_cards <- vapply(seq_len(min(3L, nrow(hook_scenarios))), function(index) {
+  player_card(
+    paste(hook_scenarios$relative_likelihood[[index]], "hook likelihood"),
+    hook_scenarios$scenario_label[[index]],
+    paste(fmt_int(hook_scenarios$inning[[index]]), "inning | tied game"),
+    paste(fmt_rate(hook_scenarios$hook_probability[[index]]), "modeled hook probability"),
+    paste(fmt_int(hook_scenarios$pitches_in_appearance[[index]]), "pitches |", fmt_int(hook_scenarios$batters_faced_in_appearance[[index]]), "batters faced"),
+    fmt_score(100 * num(hook_scenarios$hook_probability[[index]]))
+  )
+}, character(1))
+boston_matchups <- bullpen_matchups[bullpen_matchups$team == "Boston Red Sox", , drop = FALSE]
 write_fragment("projections-model.html", c(
   '<section class="section-heading"><span class="eyebrow">Manager decision model</span><h2>The first bullpen-entry layer is now measurable</h2><p>The pooled hook model is evaluated on later game dates that were not used for fitting. These are development diagnostics, not production probabilities.</p></section>',
   '<div class="data-card-grid">',
@@ -486,6 +516,25 @@ write_fragment("projections-model.html", c(
   stat_card("Probability error", "Brier score", fmt_dec(hook_validation$brier_score[[1]], 3L), "Lower is better; calibration still requires improvement before publishing forecasts.", "steel"),
   stat_card("Observed vs predicted", "Hook rate", paste0(fmt_rate(hook_validation$observed_hook_rate[[1]]), " / ", fmt_rate(hook_validation$mean_predicted_hook_rate[[1]])), "Observed first, mean prediction second.", "navy"),
   '</div>',
+  '<section class="section-heading"><span class="eyebrow">Situation ladder</span><h2>How workload changes the decision environment</h2><p>Representative tied-game contexts scored through the pooled model. These fixed scenarios isolate the shape of the model, not a specific manager.</p></section>',
+  '<div class="signal-grid">', scenario_cards, '</div>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Hook scenario board</span><h2>Starter and reliever decision points</h2></div>',
+  render_table(hook_scenarios, c("hook_probability_rank", "scenario_label", "pitcher_role", "inning", "pitches_in_appearance", "batters_faced_in_appearance", "times_through_order_proxy", "hook_probability", "relative_likelihood"),
+    c("Rank", "Situation", "Role", "Inn.", "Pitches", "BF", "TTO", "Hook prob.", "Relative"),
+    list(hook_probability_rank = fmt_int, inning = fmt_int, pitches_in_appearance = fmt_int, batters_faced_in_appearance = fmt_int, times_through_order_proxy = fmt_int, hook_probability = fmt_rate)),
+  '</section>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">What moves the model</span><h2>Observed manager-decision factors</h2><p>Coefficient direction is descriptive. Correlated game situations mean these are not isolated causal effects.</p></div>',
+  render_table(manager_factors, c("factor", "coefficient", "direction"),
+    c("Factor", "Coefficient", "Association"),
+    list(coefficient = function(x) fmt_dec(x, 2L))),
+  '</section>',
+  '<section class="section-heading"><span class="eyebrow">Bullpen matchup selector</span><h2>A Boston proof of concept for the broadcast workflow</h2><p>Left- and right-handed matchup pockets combine recent availability, pitcher role, exact MLBAM identity, handedness, and current results allowed.</p></section>',
+  '<section class="dashboard-block">',
+  render_table(boston_matchups, c("upcoming_batter_side", "selection_rank", "pitcher_name", "throws", "pitcher_role", "availability_score", "performance_score_used", "matchup_score", "selection_score"),
+    c("Next batter", "Rank", "Reliever", "Throws", "Role", "Available", "Performance", "Matchup", "Selector"),
+    list(selection_rank = fmt_int, availability_score = fmt_rate, performance_score_used = fmt_rate, matchup_score = fmt_rate, selection_score = fmt_score)),
+  '</section>',
+  '<div class="method-callout"><strong>Roster limitation:</strong> the current selector uses a recent-appearance eligibility proxy because an authoritative active-roster feed is not yet connected. It is a research lead, not a live recommendation.</div>',
   '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Calibration audit</span><h2>Predicted probability against observed decisions</h2></div>',
   render_table(hook_calibration, c("calibration_bin", "rows", "minimum_predicted", "maximum_predicted", "mean_predicted", "observed_rate"),
     c("Bin", "Rows", "Min predicted", "Max predicted", "Mean predicted", "Observed hook rate"),

@@ -6,9 +6,9 @@ description: "The SABRhood daily simulation laboratory."
 ::: {.page-intro .page-intro--dark}
 <span class="eyebrow">Simulation laboratory</span>
 
-# From starting lineups to the final bullpen decision
+# From starting lineups to the manager's final bullpen decision
 
-The rebuilt model will simulate the full game state rather than stopping when the starters leave.
+The simulation roadmap now includes an auditable manager-hook model and a leverage-aware reliever selector - the bridge between the starter engine and a complete game simulation.
 :::
 
 ::: {.roadmap-grid}
