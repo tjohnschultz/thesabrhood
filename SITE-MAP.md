@@ -11,6 +11,7 @@ flowchart TD
   Home --> Races[League races]
   Home --> Research[Research stories]
   Home --> Newsletter[Daily newsletter]
+  Home --> Projections[Daily simulation center]
   Today --> Players[Player intelligence]
   Players --> ChangeEngine[Player Change Engine / z-scores plus percentiles]
   Today --> Teams[Team intelligence]
@@ -43,7 +44,7 @@ flowchart TD
 ## Product boundaries
 
 - Public editorial: home, Today, races, players, Player Change Engine, teams, history, Pitch Lab,
-  Matchup Edges, Story Engine, projections, newsletter, research, and selected
+  Matchup Edges, Story Engine, daily simulation center, newsletter, research, and selected
   packet examples.
 - Private production: analytics lab, packet studio, editorial queue, and data
   quality controls.

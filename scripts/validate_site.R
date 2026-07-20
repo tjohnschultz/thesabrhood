@@ -37,6 +37,10 @@ required_data <- c(
   ,"team-broadcast-notes.csv"
   ,"hitter-change-profiles.csv"
   ,"pitcher-change-profiles.csv"
+  ,"daily-projection-demo.csv"
+  ,"daily-projection-margin.csv"
+  ,"daily-projection-scorelines.csv"
+  ,"daily-projection-drivers.csv"
 )
 
 required_fragments <- c(
@@ -59,6 +63,8 @@ required_fragments <- c(
   ,"team-dossier-index.html"
   ,"home-player-change.html"
   ,"player-change-cards.html"
+  ,"daily-projections.html"
+  ,"home-projections.html"
 )
 
 for (name in required_data) {

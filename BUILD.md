@@ -5,7 +5,15 @@ Raw play-by-play and private research inputs are not deployed with the site.
 
 ## Local build
 
-From the repository root:
+From `Package Construction`, refresh the representative simulation products and
+approved public-data mirror:
+
+```powershell
+& "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/build_projection_artifacts.R
+& "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/sync_site_artifacts.R
+```
+
+Then, from the `thesabrhood-site` repository root:
 
 ```powershell
 & "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/build_site_fragments.R
@@ -37,8 +45,10 @@ artifact. It does not deploy to GitHub Pages or change `thesabrhood.com`.
 
 1. Update the private pitch-by-pitch store.
 2. Run the package artifact targets.
-3. Validate data grains, dates, row counts, and method versions.
-4. Copy only approved derived CSV products into `data/derived`.
-5. Generate static HTML fragments.
-6. Render and validate the Quarto site.
-7. Publish only after every earlier stage succeeds.
+3. Assemble each game input contract and run the daily score simulations.
+4. Validate data grains, dates, row counts, method versions, and projection
+   input completeness.
+5. Copy only approved derived CSV products into `data/derived`.
+6. Generate static HTML fragments.
+7. Render and validate the Quarto site.
+8. Publish only after every earlier stage succeeds.

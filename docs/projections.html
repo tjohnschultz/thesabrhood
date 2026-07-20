@@ -230,32 +230,554 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 
 
 <div class="page-intro page-intro--dark">
-<p><span class="eyebrow">Simulation laboratory</span></p>
-<section id="from-starting-lineups-to-the-managers-final-bullpen-decision" class="level1">
-<h1>From starting lineups to the manager’s final bullpen decision</h1>
-<p>The simulation roadmap now includes an auditable manager-hook model and a leverage-aware reliever selector - the bridge between the starter engine and a complete game simulation.</p>
+<p><span class="eyebrow">Daily simulation center</span></p>
+<section id="a-forecast-is-a-range-of-game-stories-not-one-final-score" class="level1">
+<h1>A forecast is a range of game stories, not one final score</h1>
+<p>The production page will turn confirmed game inputs into transparent win probabilities, score ranges, matchup drivers, bullpen effects, and player opportunities, with uncertainty visible everywhere.</p>
+</section>
+</div>
+<div class="projection-status-strip">
+<span><strong>Development interface</strong> Representative matchups, not today’s MLB schedule</span><span>20,000 simulations per game · team-strength inputs only</span>
+</div>
+<section class="section-heading">
+<span class="eyebrow">Daily projection board</span>
+<h2 class="anchored">
+The whole slate in one scan
+</h2>
+<p>
+When the automated run finishes, each game card will show the win split, score center, uncertainty, close-game chance, and input status before a reader opens the deeper matchup view.
+</p>
+</section>
+<div class="projection-slate-grid">
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 1 · team baseline</span><span class="projection-lean">Near toss-up</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>New York Yankees</strong></span><b>49.2%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Milwaukee Brewers</strong></span><b>50.8%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="New York Yankees 49.2% Milwaukee Brewers 50.8%">
+<span class="is-away" style="width:49.2%"></span><span class="is-home" style="width:50.8%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>4.5 – 4.5</strong></span><span><small>Model total</small><strong>9.0</strong></span><span><small>One-run game</small><strong>35.8%</strong></span>
+</div>
+<footer>
+<strong>Milwaukee Brewers 50.8%</strong><span>20,000 draws · starters/lineups pending</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 2 · team baseline</span><span class="projection-lean">Narrow lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Pittsburgh Pirates</strong></span><b>40.5%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Los Angeles Dodgers</strong></span><b>59.5%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Pittsburgh Pirates 40.5% Los Angeles Dodgers 59.5%">
+<span class="is-away" style="width:40.5%"></span><span class="is-home" style="width:59.5%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>4.1 – 4.8</strong></span><span><small>Model total</small><strong>8.9</strong></span><span><small>One-run game</small><strong>34.8%</strong></span>
+</div>
+<footer>
+<strong>Los Angeles Dodgers 59.5%</strong><span>20,000 draws · starters/lineups pending</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 3 · team baseline</span><span class="projection-lean">Narrow lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Baltimore Orioles</strong></span><b>42.2%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Miami Marlins</strong></span><b>57.8%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Baltimore Orioles 42.2% Miami Marlins 57.8%">
+<span class="is-away" style="width:42.2%"></span><span class="is-home" style="width:57.8%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>4.3 – 5.0</strong></span><span><small>Model total</small><strong>9.3</strong></span><span><small>One-run game</small><strong>35.0%</strong></span>
+</div>
+<footer>
+<strong>Miami Marlins 57.8%</strong><span>20,000 draws · starters/lineups pending</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 4 · team baseline</span><span class="projection-lean">Narrow lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Houston Astros</strong></span><b>43.2%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Chicago White Sox</strong></span><b>56.8%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Houston Astros 43.2% Chicago White Sox 56.8%">
+<span class="is-away" style="width:43.2%"></span><span class="is-home" style="width:56.8%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>4.6 – 5.1</strong></span><span><small>Model total</small><strong>9.7</strong></span><span><small>One-run game</small><strong>34.1%</strong></span>
+</div>
+<footer>
+<strong>Chicago White Sox 56.8%</strong><span>20,000 draws · starters/lineups pending</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 5 · team baseline</span><span class="projection-lean">Clear lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Colorado Rockies</strong></span><b>37.8%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Texas Rangers</strong></span><b>62.2%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Colorado Rockies 37.8% Texas Rangers 62.2%">
+<span class="is-away" style="width:37.8%"></span><span class="is-home" style="width:62.2%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>4.4 – 5.3</strong></span><span><small>Model total</small><strong>9.7</strong></span><span><small>One-run game</small><strong>32.9%</strong></span>
+</div>
+<footer>
+<strong>Texas Rangers 62.2%</strong><span>20,000 draws · starters/lineups pending</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 6 · team baseline</span><span class="projection-lean">Narrow lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>New York Mets</strong></span><b>43.9%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Cleveland Guardians</strong></span><b>56.1%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="New York Mets 43.9% Cleveland Guardians 56.1%">
+<span class="is-away" style="width:43.9%"></span><span class="is-home" style="width:56.1%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>4.1 – 4.5</strong></span><span><small>Model total</small><strong>8.6</strong></span><span><small>One-run game</small><strong>36.2%</strong></span>
+</div>
+<footer>
+<strong>Cleveland Guardians 56.1%</strong><span>20,000 draws · starters/lineups pending</span>
+</footer>
+</article>
+</div>
+<section class="projection-feature">
+<div class="projection-feature__head">
+<div>
+<span class="eyebrow">Feature simulation · 20,000 draws</span>
+<h2 class="anchored">
+New York Yankees at Milwaukee Brewers
+</h2>
+<p>
+The closest matchup on the representative slate shows how uncertainty, bullpen context, and competing team strengths will be reported.
+</p>
+</div>
+<div class="projection-feature__call">
+<small>Model lean</small><strong>Milwaukee Brewers</strong><span>50.8%</span>
+</div>
+</div>
+<div class="projection-matchup-score">
+<div>
+<span>New York Yankees</span><strong>4.5</strong><small>80% range 2–7</small>
+</div>
+<i aria-hidden="true">at</i>
+<div>
+<span>Milwaukee Brewers</span><strong>4.5</strong><small>80% range 2–7</small>
+</div>
+</div>
+<div class="projection-feature__grid">
+<section>
+<div class="context-subhead">
+<span>Winning-margin distribution</span><small>Away ← outcome → Home</small>
+</div>
+<div class="margin-distribution">
+<div class="margin-row">
+<span>Away by 5+</span>
+<div class="margin-row__track">
+<i style="width:34.7%"></i>
+</div>
+<strong>6.3%</strong>
+</div>
+<div class="margin-row">
+<span>Away by 3-4</span>
+<div class="margin-row__track">
+<i style="width:73.8%"></i>
+</div>
+<strong>13.5%</strong>
+</div>
+<div class="margin-row">
+<span>Away by 2</span>
+<div class="margin-row__track">
+<i style="width:64.9%"></i>
+</div>
+<strong>11.9%</strong>
+</div>
+<div class="margin-row">
+<span>Away by 1</span>
+<div class="margin-row__track">
+<i style="width:95.7%"></i>
+</div>
+<strong>17.5%</strong>
+</div>
+<div class="margin-row">
+<span>Home by 1</span>
+<div class="margin-row__track">
+<i style="width:100.0%"></i>
+</div>
+<strong>18.3%</strong>
+</div>
+<div class="margin-row">
+<span>Home by 2</span>
+<div class="margin-row__track">
+<i style="width:66.9%"></i>
+</div>
+<strong>12.2%</strong>
+</div>
+<div class="margin-row">
+<span>Home by 3-4</span>
+<div class="margin-row__track">
+<i style="width:75.6%"></i>
+</div>
+<strong>13.8%</strong>
+</div>
+<div class="margin-row">
+<span>Home by 5+</span>
+<div class="margin-row__track">
+<i style="width:35.1%"></i>
+</div>
+<strong>6.4%</strong>
+</div>
+</div>
+</section>
+<section>
+<div class="context-subhead">
+<span>Why the model lands here</span><small>League ranks</small>
+</div>
+<ol class="projection-driver-list">
+<li>
+<span>Offensive quality</span><strong>New York Yankees</strong><small>New York Yankees #2 vs Milwaukee Brewers #6</small>
+</li>
+<li>
+<span>Run prevention</span><strong>New York Yankees</strong><small>New York Yankees #2 vs Milwaukee Brewers #4</small>
+</li>
+<li>
+<span>Bullpen readiness</span><strong>Milwaukee Brewers</strong><small>New York Yankees #25 vs Milwaukee Brewers #11</small>
+</li>
+</ol>
+</section>
+</div>
+<div class="projection-outcome-grid">
+<span><small>Mean total</small><strong>9.0</strong><em>80% range 5–13</em></span><span><small>One-run game</small><strong>35.8%</strong><em>Close-game likelihood</em></span><span><small>Extras</small><strong>13.7%</strong><em>Regulation tie rate</em></span><span><small>Bullpen effect</small><strong>+1.1 pts</strong><em>Home win probability adds</em></span>
+</div>
+<div class="projection-scorelines">
+<div class="context-subhead">
+<span>Most common exact scores</span><small>Away – home</small>
+</div>
+<div>
+<span><small>#1 exact score</small><strong>4 – 5</strong><em>4.7%</em></span><span><small>#2 exact score</small><strong>3 – 4</strong><em>4.4%</em></span><span><small>#3 exact score</small><strong>5 – 4</strong><em>4.3%</em></span><span><small>#4 exact score</small><strong>4 – 3</strong><em>4.3%</em></span><span><small>#5 exact score</small><strong>3 – 5</strong><em>3.3%</em></span>
+</div>
+</div>
+</section>
+<section class="dashboard-block">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">Slate table</span>
+<h2 class="anchored">
+Every game, every uncertainty signal
+</h2>
+<p>
+The published version will replace this representative slate after schedule, probable pitcher, confirmed lineup, park, and weather gates pass.
+</p>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+<thead>
+<tr>
+<th>
+Away
+</th>
+<th>
+Home
+</th>
+<th>
+Away win
+</th>
+<th>
+Home win
+</th>
+<th>
+Away runs
+</th>
+<th>
+Home runs
+</th>
+<th>
+Total
+</th>
+<th>
+One-run
+</th>
+<th>
+Extras
+</th>
+<th>
+Model lean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+New York Yankees
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+49.2%
+</td>
+<td>
+50.8%
+</td>
+<td>
+4.5
+</td>
+<td>
+4.5
+</td>
+<td>
+9.0
+</td>
+<td>
+35.8%
+</td>
+<td>
+13.7%
+</td>
+<td>
+Milwaukee Brewers
+</td>
+</tr>
+<tr>
+<td>
+Pittsburgh Pirates
+</td>
+<td>
+Los Angeles Dodgers
+</td>
+<td>
+40.5%
+</td>
+<td>
+59.5%
+</td>
+<td>
+4.1
+</td>
+<td>
+4.8
+</td>
+<td>
+8.9
+</td>
+<td>
+34.8%
+</td>
+<td>
+13.7%
+</td>
+<td>
+Los Angeles Dodgers
+</td>
+</tr>
+<tr>
+<td>
+Baltimore Orioles
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+42.2%
+</td>
+<td>
+57.8%
+</td>
+<td>
+4.3
+</td>
+<td>
+5.0
+</td>
+<td>
+9.3
+</td>
+<td>
+35.0%
+</td>
+<td>
+13.2%
+</td>
+<td>
+Miami Marlins
+</td>
+</tr>
+<tr>
+<td>
+Houston Astros
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+43.2%
+</td>
+<td>
+56.8%
+</td>
+<td>
+4.6
+</td>
+<td>
+5.1
+</td>
+<td>
+9.7
+</td>
+<td>
+34.1%
+</td>
+<td>
+12.9%
+</td>
+<td>
+Chicago White Sox
+</td>
+</tr>
+<tr>
+<td>
+Colorado Rockies
+</td>
+<td>
+Texas Rangers
+</td>
+<td>
+37.8%
+</td>
+<td>
+62.2%
+</td>
+<td>
+4.4
+</td>
+<td>
+5.3
+</td>
+<td>
+9.7
+</td>
+<td>
+32.9%
+</td>
+<td>
+12.4%
+</td>
+<td>
+Texas Rangers
+</td>
+</tr>
+<tr>
+<td>
+New York Mets
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+43.9%
+</td>
+<td>
+56.1%
+</td>
+<td>
+4.1
+</td>
+<td>
+4.5
+</td>
+<td>
+8.6
+</td>
+<td>
+36.2%
+</td>
+<td>
+13.9%
+</td>
+<td>
+Cleveland Guardians
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="projection-model-card">
+<div>
+<span class="eyebrow">Model card · score layer v1</span>
+<h2 class="anchored">
+What this demonstration does — and does not — know
+</h2>
+</div>
+<div class="projection-model-grid">
+<span><small>Included now</small><strong>Team offense, run prevention, form, bullpen readiness, home field</strong></span><span><small>Next inputs</small><strong>Probable starters, confirmed lineups, platoons, park, weather, reliever chain</strong></span><span><small>Publication gate</small><strong>Time-based calibration and daily input-completeness checks</strong></span>
+</div>
+</section>
+<div class="method-callout">
+<strong>Interpretation boundary:</strong> these matchups are an interface demonstration generated from the June 14 team snapshot. The probabilities are real Monte Carlo outputs from an uncalibrated team-strength score layer, but they are not today’s schedule, betting advice, or public forecasts.
+</div>
+<div class="section-heading">
+<p><span class="eyebrow">Build path</span></p>
+<section id="what-still-connects-before-these-become-daily-public-forecasts" class="level2">
+<h2 class="anchored" data-anchor-id="what-still-connects-before-these-become-daily-public-forecasts">What still connects before these become daily public forecasts</h2>
+<p>The score layer now has a complete output contract. The next work is improving what enters it and proving that the probabilities remain calibrated on games the model has not seen.</p>
 </section>
 </div>
 <div class="roadmap-grid">
 <div class="roadmap-card is-complete">
 <p><span class="roadmap-step">01</span></p>
-<section id="starter-matchup-engine" class="level2">
-<h2 class="anchored" data-anchor-id="starter-matchup-engine">Starter matchup engine</h2>
-<p>Validated event probabilities, explicit lineups, reproducible seeds, and compact outputs.</p>
+<section id="score-distribution-layer" class="level2">
+<h2 class="anchored" data-anchor-id="score-distribution-layer">Score distribution layer</h2>
+<p>Complete-game draws, win splits, score intervals, close-game likelihood, and reproducible seeds.</p>
 </section>
 </div>
 <div class="roadmap-card is-active">
 <p><span class="roadmap-step">02</span></p>
-<section id="bullpen-entry" class="level2">
-<h2 class="anchored" data-anchor-id="bullpen-entry">Bullpen entry</h2>
-<p>Hook probability, recent workload, pitcher handedness, batter side, and leverage-aware reliever selection.</p>
+<section id="game-input-assembly" class="level2">
+<h2 class="anchored" data-anchor-id="game-input-assembly">Game input assembly</h2>
+<p>Schedule, probable starters, projected or confirmed lineups, handedness, park, weather, and roster gates.</p>
 </section>
 </div>
 <div class="roadmap-card">
 <p><span class="roadmap-step">03</span></p>
-<section id="calibration" class="level2">
-<h2 class="anchored" data-anchor-id="calibration">Calibration</h2>
-<p>Backtests, uncertainty bands, park and opponent adjustments, and documented model versions.</p>
+<section id="dynamic-bullpen-chain" class="level2">
+<h2 class="anchored" data-anchor-id="dynamic-bullpen-chain">Dynamic bullpen chain</h2>
+<p>Hook probability, workload, leverage, batter pockets, reliever choice, and performance after each pitching change.</p>
+</section>
+</div>
+<div class="roadmap-card">
+<p><span class="roadmap-step">04</span></p>
+<section id="calibration-and-archive" class="level2">
+<h2 class="anchored" data-anchor-id="calibration-and-archive">Calibration and archive</h2>
+<p>Rolling backtests, probability calibration, model-version tracking, misses review, and a searchable projection archive.</p>
 </section>
 </div>
 </div>

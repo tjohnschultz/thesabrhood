@@ -29,6 +29,8 @@ The SABRhood combines pitch-level research, daily signals, simulation, history, 
 
 {{< include includes/home-player-change.html >}}
 
+{{< include includes/home-projections.html >}}
+
 {{< include includes/home-research.html >}}
 
 {{< include includes/home-team-pulse.html >}}

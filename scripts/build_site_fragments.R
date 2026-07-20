@@ -40,17 +40,17 @@ html_escape <- function(value) {
 num <- function(value) suppressWarnings(as.numeric(value))
 fmt_int <- function(value) format(round(num(value)), big.mark = ",", scientific = FALSE, trim = TRUE)
 fmt_rate <- function(value, digits = 1L) {
-  ifelse(is.finite(num(value)), paste0(format(round(100 * num(value), digits), nsmall = digits), "%"), "—")
+  ifelse(is.finite(num(value)), paste0(format(round(100 * num(value), digits), nsmall = digits), "%"), "-")
 }
 fmt_dec <- function(value, digits = 3L) {
-  ifelse(is.finite(num(value)), format(round(num(value), digits), nsmall = digits), "—")
+  ifelse(is.finite(num(value)), format(round(num(value), digits), nsmall = digits), "-")
 }
 fmt_score <- function(value) {
-  ifelse(is.finite(num(value)), format(round(num(value), 1L), nsmall = 1L), "—")
+  ifelse(is.finite(num(value)), format(round(num(value), 1L), nsmall = 1L), "-")
 }
 fmt_z <- function(value) {
   value <- num(value)
-  ifelse(is.finite(value), paste0(ifelse(value > 0, "+", ""), format(round(value, 1L), nsmall = 1L), " SD"), "—")
+  ifelse(is.finite(value), paste0(ifelse(value > 0, "+", ""), format(round(value, 1L), nsmall = 1L), " SD"), "-")
 }
 fmt_ordinal <- function(value) {
   value <- round(num(value))
@@ -376,6 +376,10 @@ hook_validation <- read_product("manager-hook-validation-metrics.csv")
 hook_calibration <- read_product("manager-hook-calibration.csv")
 hook_scenarios <- read_product("manager-hook-scenarios.csv")
 bullpen_matchups <- read_product("bullpen-matchup-selector.csv")
+daily_projections <- read_product("daily-projection-demo.csv")
+projection_margins <- read_product("daily-projection-margin.csv")
+projection_scorelines <- read_product("daily-projection-scorelines.csv")
+projection_drivers <- read_product("daily-projection-drivers.csv")
 articles <- build_article_index()
 
 updated_date <- max(as.Date(hitters$last_game), na.rm = TRUE)
@@ -397,6 +401,87 @@ woba_leaders <- hitters[order(-num(hitters$woba_estimate), -num(hitters$pa)), ][
 pitcher_suppressors <- pitchers[order(num(pitchers$ops), -num(pitchers$pa)), ][1:10, ]
 arsenal_whiffs <- pitch_types[num(pitch_types$swings) >= 50, ]
 arsenal_whiffs <- arsenal_whiffs[order(-num(arsenal_whiffs$whiff_rate), -num(arsenal_whiffs$pitches)), ][1:10, ]
+daily_projections <- daily_projections[order(num(daily_projections$display_order)), , drop = FALSE]
+feature_projection <- daily_projections[as.logical(daily_projections$feature_game), , drop = FALSE][1L, ]
+
+projection_lean <- function(probability) {
+  probability <- num(probability)
+  if (probability < 0.54) "Near toss-up" else if (probability < 0.60) "Narrow lean" else "Clear lean"
+}
+
+projection_game_card <- function(row) {
+  away_width <- round(100 * num(row$away_win_probability[[1L]]), 1L)
+  home_width <- round(100 * num(row$home_win_probability[[1L]]), 1L)
+  paste0(
+    '<article class="projection-game-card"><header><span class="eyebrow">Game ', html_escape(fmt_int(row$display_order[[1L]])),
+    ' &middot; team baseline</span><span class="projection-lean">', html_escape(projection_lean(row$winner_probability[[1L]])), '</span></header>',
+    '<div class="projection-team-row"><span><small>Away</small><strong>', html_escape(row$away_team[[1L]]),
+    '</strong></span><b>', html_escape(fmt_rate(row$away_win_probability[[1L]])), '</b></div>',
+    '<div class="projection-team-row"><span><small>Home</small><strong>', html_escape(row$home_team[[1L]]),
+    '</strong></span><b>', html_escape(fmt_rate(row$home_win_probability[[1L]])), '</b></div>',
+    '<div class="projection-win-track" role="img" aria-label="',
+    html_escape(paste(row$away_team[[1L]], fmt_rate(row$away_win_probability[[1L]]), row$home_team[[1L]], fmt_rate(row$home_win_probability[[1L]]))),
+    '"><span class="is-away" style="width:', away_width, '%"></span><span class="is-home" style="width:', home_width, '%"></span></div>',
+    '<div class="projection-score-strip"><span><small>Mean score</small><strong>', html_escape(fmt_dec(row$away_mean_runs[[1L]], 1L)),
+    ' &ndash; ', html_escape(fmt_dec(row$home_mean_runs[[1L]], 1L)), '</strong></span><span><small>Model total</small><strong>',
+    html_escape(fmt_dec(row$mean_total_runs[[1L]], 1L)), '</strong></span><span><small>One-run game</small><strong>',
+    html_escape(fmt_rate(row$one_run_probability[[1L]])), '</strong></span></div>',
+    '<footer><strong>', html_escape(row$projected_winner[[1L]]), ' ', html_escape(fmt_rate(row$winner_probability[[1L]])),
+    '</strong><span>20,000 draws &middot; starters/lineups pending</span></footer></article>'
+  )
+}
+
+projection_feature <- function(row) {
+  game_id <- row$game_id[[1L]]
+  margins <- projection_margins[projection_margins$game_id == game_id, , drop = FALSE]
+  scores <- projection_scorelines[projection_scorelines$game_id == game_id, , drop = FALSE]
+  drivers <- projection_drivers[projection_drivers$game_id == game_id, , drop = FALSE]
+  max_margin <- max(num(margins$probability))
+  margin_bars <- vapply(seq_len(nrow(margins)), function(index) {
+    width <- 100 * num(margins$probability[[index]]) / max_margin
+    paste0(
+      '<div class="margin-row"><span>', html_escape(margins$margin_group[[index]]), '</span>',
+      '<div class="margin-row__track"><i style="width:', format(round(width, 1), nsmall = 1), '%"></i></div>',
+      '<strong>', html_escape(fmt_rate(margins$probability[[index]])), '</strong></div>'
+    )
+  }, character(1))
+  score_cards <- vapply(seq_len(nrow(scores)), function(index) {
+    paste0('<span><small>#', index, ' exact score</small><strong>',
+      html_escape(fmt_int(scores$away_runs[[index]])), ' &ndash; ', html_escape(fmt_int(scores$home_runs[[index]])),
+      '</strong><em>', html_escape(fmt_rate(scores$probability[[index]])), '</em></span>')
+  }, character(1))
+  driver_cards <- vapply(seq_len(nrow(drivers)), function(index) {
+    paste0('<li><span>', html_escape(drivers$driver_label[[index]]), '</span><strong>',
+      html_escape(drivers$advantage_team[[index]]), '</strong><small>', html_escape(drivers$driver_detail[[index]]), '</small></li>')
+  }, character(1))
+  bullpen_swing <- num(row$bullpen_home_win_swing[[1L]])
+  bullpen_direction <- if (bullpen_swing >= 0) "adds" else "subtracts"
+  paste0(
+    '<section class="projection-feature"><div class="projection-feature__head"><div><span class="eyebrow">Feature simulation &middot; ',
+    html_escape(fmt_int(row$simulations[[1L]])), ' draws</span><h2>', html_escape(row$away_team[[1L]]),
+    ' at ', html_escape(row$home_team[[1L]]), '</h2><p>The closest matchup on the representative slate shows how uncertainty, bullpen context, and competing team strengths will be reported.</p></div>',
+    '<div class="projection-feature__call"><small>Model lean</small><strong>', html_escape(row$projected_winner[[1L]]),
+    '</strong><span>', html_escape(fmt_rate(row$winner_probability[[1L]])), '</span></div></div>',
+    '<div class="projection-matchup-score"><div><span>', html_escape(row$away_team[[1L]]), '</span><strong>',
+    html_escape(fmt_dec(row$away_mean_runs[[1L]], 1L)), '</strong><small>80% range ', html_escape(fmt_int(row$away_runs_p10[[1L]])),
+    '&ndash;', html_escape(fmt_int(row$away_runs_p90[[1L]])), '</small></div><i aria-hidden="true">at</i><div><span>',
+    html_escape(row$home_team[[1L]]), '</span><strong>', html_escape(fmt_dec(row$home_mean_runs[[1L]], 1L)),
+    '</strong><small>80% range ', html_escape(fmt_int(row$home_runs_p10[[1L]])), '&ndash;', html_escape(fmt_int(row$home_runs_p90[[1L]])), '</small></div></div>',
+    '<div class="projection-feature__grid"><section><div class="context-subhead"><span>Winning-margin distribution</span><small>Away &larr; outcome &rarr; Home</small></div>',
+    '<div class="margin-distribution">', paste0(margin_bars, collapse = ''), '</div></section>',
+    '<section><div class="context-subhead"><span>Why the model lands here</span><small>League ranks</small></div>',
+    '<ol class="projection-driver-list">', paste0(driver_cards, collapse = ''), '</ol></section></div>',
+    '<div class="projection-outcome-grid"><span><small>Mean total</small><strong>', html_escape(fmt_dec(row$mean_total_runs[[1L]], 1L)),
+    '</strong><em>80% range ', html_escape(fmt_int(row$total_runs_p10[[1L]])), '&ndash;', html_escape(fmt_int(row$total_runs_p90[[1L]])),
+    '</em></span><span><small>One-run game</small><strong>', html_escape(fmt_rate(row$one_run_probability[[1L]])),
+    '</strong><em>Close-game likelihood</em></span><span><small>Extras</small><strong>', html_escape(fmt_rate(row$extra_innings_probability[[1L]])),
+    '</strong><em>Regulation tie rate</em></span><span><small>Bullpen effect</small><strong>',
+    html_escape(paste0(ifelse(bullpen_swing >= 0, "+", ""), fmt_dec(100 * bullpen_swing, 1L), " pts")),
+    '</strong><em>Home win probability ', bullpen_direction, '</em></span></div>',
+    '<div class="projection-scorelines"><div class="context-subhead"><span>Most common exact scores</span><small>Away &ndash; home</small></div><div>',
+    paste0(score_cards, collapse = ''), '</div></div></section>'
+  )
+}
 
 home_cards <- c(
   stat_card("Data through", "Season pulse", updated_label, paste(fmt_int(nrow(hitters)), "qualified hitter profiles"), "red"),
@@ -661,7 +746,7 @@ newsletter_radar_list <- paste0(
 )
 write_fragment("newsletter-daily.html", c(
   paste0(
-    '<section class="newsletter-mast"><div><span class="eyebrow">Daily edition · ', html_escape(updated_label),
+    '<section class="newsletter-mast"><div><span class="eyebrow">Daily edition &middot; ', html_escape(updated_label),
     '</span><h2>The signals changing the MLB conversation</h2><p>A compact morning briefing generated from form, contact quality, pitch data, game context, and baseball history.</p></div>',
     '<div class="newsletter-mast__stamp"><strong>SABR</strong><span>hood daily</span></div></section>'
   ),
@@ -685,6 +770,16 @@ write_fragment("newsletter-daily.html", c(
     '</strong></span><span><small>Season context</small><strong>', html_escape(paste0(fmt_ordinal(newsletter_pitcher$dominant_season_percentile[[1]]), " pct.")), '</strong></span></div>'),
   paste0('<p class="method-note"><strong>Context read:</strong> ', html_escape(newsletter_pitcher$change_context[[1]]), '</p>'),
   '</section>',
+  paste0('<section class="newsletter-story"><span class="eyebrow">Simulation center preview</span><h2>',
+    html_escape(feature_projection$away_team[[1L]]), ' at ', html_escape(feature_projection$home_team[[1L]]),
+    ' profiles as a ', html_escape(projection_lean(feature_projection$winner_probability[[1L]])), '</h2><p>The demonstration score layer gives ',
+    html_escape(feature_projection$projected_winner[[1L]]), ' a ', html_escape(fmt_rate(feature_projection$winner_probability[[1L]])),
+    ' win share, with a ', html_escape(fmt_dec(feature_projection$mean_total_runs[[1L]], 1L)),
+    '-run mean total and a ', html_escape(fmt_rate(feature_projection$one_run_probability[[1L]])),
+    ' chance of a one-run result.</p><div class="evidence-row"><span><small>Away mean</small><strong>',
+    html_escape(fmt_dec(feature_projection$away_mean_runs[[1L]], 1L)), '</strong></span><span><small>Home mean</small><strong>',
+    html_escape(fmt_dec(feature_projection$home_mean_runs[[1L]], 1L)), '</strong></span><span><small>Extras</small><strong>',
+    html_escape(fmt_rate(feature_projection$extra_innings_probability[[1L]])), '</strong></span></div><p class="method-note">Representative matchup only; starters, lineups, park, and weather are not connected yet. <a href="projections.html">Open the simulation center.</a></p></section>'),
   '</main><aside class="newsletter-side">',
   '<section class="newsletter-note"><span class="eyebrow">On this date</span><h2>History queue</h2><ul class="history-list">',
   newsletter_history_list,
@@ -698,10 +793,10 @@ write_fragment("newsletter-daily.html", c(
     ' OPS and a ', html_escape(fmt_score(offense_top$race_score[[1]])), ' descriptive race score.</p><p><strong>',
     html_escape(active_milestones$player_name[[1]]), ':</strong> ', html_escape(active_milestones$headline[[1]]),
     '.</p><p class="method-note">The race score describes current statistical quality; it is not an award forecast.</p></section>'),
-  '<section class="newsletter-note newsletter-note--dark"><span class="eyebrow">Today’s reading list</span><h2>Go deeper</h2>',
-  '<a href="today.html">Open the signal desk <span>→</span></a>',
-  '<a href="pitch-lab.html">Inspect the Pitch Lab <span>→</span></a>',
-  '<a href="methodology.html">Audit the methods <span>→</span></a>',
+  '<section class="newsletter-note newsletter-note--dark"><span class="eyebrow">Today&rsquo;s reading list</span><h2>Go deeper</h2>',
+  '<a href="today.html">Open the signal desk <span>&rarr;</span></a>',
+  '<a href="pitch-lab.html">Inspect the Pitch Lab <span>&rarr;</span></a>',
+  '<a href="methodology.html">Audit the methods <span>&rarr;</span></a>',
   '</section></aside></div>'
 ))
 
@@ -750,11 +845,34 @@ write_fragment("pitch-lab.html", c(
     list(pitches = fmt_int, usage_rate = fmt_rate, average_velocity = function(x) fmt_dec(x, 1L), whiff_rate = fmt_rate, chase_rate = fmt_rate, pitch_change_rate = fmt_rate)),
   '</section>',
   '<section class="method-grid">',
-  stat_card("Pitch context", "Sequence change", "Previous → current", "Every pitch can be evaluated relative to the pitch before it.", "navy"),
+  stat_card("Pitch context", "Sequence change", "Previous to current", "Every pitch can be evaluated relative to the pitch before it.", "navy"),
   stat_card("Location", "Separation", "Feet at the plate", "Measures how far consecutive pitches move across the hitting window.", "steel"),
   stat_card("Contact", "Quality", "EV + launch angle", "Hard-hit and barrel-proxy fields remain explicitly labeled.", "red"),
   '</section>',
   '<div class="section-action"><a class="btn btn-metallic" href="matchups.html">Explore handedness matchup edges</a></div>'
+))
+
+projection_cards <- vapply(seq_len(nrow(daily_projections)), function(index) {
+  projection_game_card(daily_projections[index, , drop = FALSE])
+}, character(1))
+write_fragment("daily-projections.html", c(
+  '<div class="projection-status-strip"><span><strong>Development interface</strong> Representative matchups, not today&rsquo;s MLB schedule</span><span>20,000 simulations per game &middot; team-strength inputs only</span></div>',
+  '<section class="section-heading"><span class="eyebrow">Daily projection board</span><h2>The whole slate in one scan</h2><p>When the automated run finishes, each game card will show the win split, score center, uncertainty, close-game chance, and input status before a reader opens the deeper matchup view.</p></section>',
+  '<div class="projection-slate-grid">', projection_cards, '</div>',
+  projection_feature(feature_projection),
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Slate table</span><h2>Every game, every uncertainty signal</h2><p>The published version will replace this representative slate after schedule, probable pitcher, confirmed lineup, park, and weather gates pass.</p></div>',
+  render_table(daily_projections, c("away_team", "home_team", "away_win_probability", "home_win_probability", "away_mean_runs", "home_mean_runs", "mean_total_runs", "one_run_probability", "extra_innings_probability", "projected_winner"),
+    c("Away", "Home", "Away win", "Home win", "Away runs", "Home runs", "Total", "One-run", "Extras", "Model lean"),
+    list(away_win_probability = fmt_rate, home_win_probability = fmt_rate, away_mean_runs = function(x) fmt_dec(x, 1L), home_mean_runs = function(x) fmt_dec(x, 1L), mean_total_runs = function(x) fmt_dec(x, 1L), one_run_probability = fmt_rate, extra_innings_probability = fmt_rate)),
+  '</section>',
+  '<section class="projection-model-card"><div><span class="eyebrow">Model card &middot; score layer v1</span><h2>What this demonstration does &mdash; and does not &mdash; know</h2></div><div class="projection-model-grid"><span><small>Included now</small><strong>Team offense, run prevention, form, bullpen readiness, home field</strong></span><span><small>Next inputs</small><strong>Probable starters, confirmed lineups, platoons, park, weather, reliever chain</strong></span><span><small>Publication gate</small><strong>Time-based calibration and daily input-completeness checks</strong></span></div></section>',
+  '<div class="method-callout"><strong>Interpretation boundary:</strong> these matchups are an interface demonstration generated from the June 14 team snapshot. The probabilities are real Monte Carlo outputs from an uncalibrated team-strength score layer, but they are not today&rsquo;s schedule, betting advice, or public forecasts.</div>'
+))
+
+write_fragment("home-projections.html", c(
+  '<section class="section-heading"><span class="eyebrow">Simulation center preview</span><h2>Probabilities with the uncertainty left in</h2><p>The future daily board will report a lean, a score range, and the factors behind the number &mdash; never a naked percentage.</p></section>',
+  '<div class="projection-slate-grid projection-slate-grid--home">', projection_cards[seq_len(min(3L, length(projection_cards)))], '</div>',
+  '<div class="section-action"><a class="btn btn-metallic" href="projections.html">Preview the complete projection board</a></div>'
 ))
 
 factor_labels <- c(

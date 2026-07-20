@@ -16,6 +16,7 @@ is chosen. It needs four independently failing stages:
 |---|---|---|---|
 | Ingest | Private prior snapshot + MLB updates | Versioned raw snapshot | Preserve prior snapshot |
 | Analyze | Raw snapshot + `sabrhoodR` | Derived CSV products | Publish nothing |
+| Simulate | Schedule + approved pregame inputs | Game draws + projection summaries | Withhold incomplete games |
 | Editorial | Derived products | Story queue + newsletter | Mark edition for review or fall back to last edition |
 | Publish | Approved derived products | Quarto `docs` artifact | Keep last successful Pages deployment |
 
@@ -27,6 +28,13 @@ is chosen. It needs four independently failing stages:
 - All 24 RE24 base-out states exist.
 - Recent-form windows do not overlap their baselines.
 - Pregame products contain no post-cutoff information.
+- Every projected game records schedule, starter, lineup, park, weather, and
+  roster status; missing required inputs are visible and cannot silently become
+  a public probability.
+- Win probabilities sum to one, all simulated ties are resolved, and the model
+  version and simulation count are attached to every game.
+- The daily backtest archive is written before the slate is replaced, so misses
+  and calibration can be audited by model version.
 - Public data contains no raw PBP, secrets, or local absolute paths.
 - Every generated page and required link exists.
 

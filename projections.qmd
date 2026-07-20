@@ -4,36 +4,54 @@ description: "The SABRhood daily simulation laboratory."
 ---
 
 ::: {.page-intro .page-intro--dark}
-<span class="eyebrow">Simulation laboratory</span>
+<span class="eyebrow">Daily simulation center</span>
 
-# From starting lineups to the manager's final bullpen decision
+# A forecast is a range of game stories, not one final score
 
-The simulation roadmap now includes an auditable manager-hook model and a leverage-aware reliever selector - the bridge between the starter engine and a complete game simulation.
+The production page will turn confirmed game inputs into transparent win probabilities, score ranges, matchup drivers, bullpen effects, and player opportunities, with uncertainty visible everywhere.
+:::
+
+{{< include includes/daily-projections.html >}}
+
+::: {.section-heading}
+<span class="eyebrow">Build path</span>
+
+## What still connects before these become daily public forecasts
+
+The score layer now has a complete output contract. The next work is improving what enters it and proving that the probabilities remain calibrated on games the model has not seen.
 :::
 
 ::: {.roadmap-grid}
 ::: {.roadmap-card .is-complete}
 <span class="roadmap-step">01</span>
 
-## Starter matchup engine
+## Score distribution layer
 
-Validated event probabilities, explicit lineups, reproducible seeds, and compact outputs.
+Complete-game draws, win splits, score intervals, close-game likelihood, and reproducible seeds.
 :::
 
 ::: {.roadmap-card .is-active}
 <span class="roadmap-step">02</span>
 
-## Bullpen entry
+## Game input assembly
 
-Hook probability, recent workload, pitcher handedness, batter side, and leverage-aware reliever selection.
+Schedule, probable starters, projected or confirmed lineups, handedness, park, weather, and roster gates.
 :::
 
 ::: {.roadmap-card}
 <span class="roadmap-step">03</span>
 
-## Calibration
+## Dynamic bullpen chain
 
-Backtests, uncertainty bands, park and opponent adjustments, and documented model versions.
+Hook probability, workload, leverage, batter pockets, reliever choice, and performance after each pitching change.
+:::
+
+::: {.roadmap-card}
+<span class="roadmap-step">04</span>
+
+## Calibration and archive
+
+Rolling backtests, probability calibration, model-version tracking, misses review, and a searchable projection archive.
 :::
 :::
 
