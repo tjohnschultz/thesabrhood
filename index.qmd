@@ -40,6 +40,7 @@ Our products connect outcomes to pitch traits, sequence, handedness, workload, g
 
 ::: {.feature-band__links}
 [Player intelligence](players.qmd){.feature-link}
+[Performance races](races.qmd){.feature-link}
 [Team pulse](teams.qmd){.feature-link}
 [History desk](history.qmd){.feature-link}
 [Daily newsletter](newsletter.qmd){.feature-link}

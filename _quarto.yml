@@ -4,6 +4,7 @@ project:
   render:
     - index.qmd
     - today.qmd
+    - races.qmd
     - players.qmd
     - teams.qmd
     - history.qmd
@@ -45,6 +46,8 @@ website:
         text: Home
       - href: today.qmd
         text: Today
+      - href: races.qmd
+        text: Races
       - href: players.qmd
         text: Players
       - href: teams.qmd

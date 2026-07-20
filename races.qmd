@@ -1,0 +1,14 @@
+---
+title: "Performance Races"
+description: "Transparent season-to-date MLB offensive and run-prevention race boards."
+---
+
+::: {.page-intro .race-intro}
+<span class="eyebrow">League race room</span>
+
+# The strongest cases in baseball
+
+Follow the players building exceptional season profiles, with every ingredient visible and every limitation stated.
+:::
+
+{{< include includes/league-races.html >}}

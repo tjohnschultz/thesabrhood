@@ -23,6 +23,10 @@ required_data <- c(
   "manager-data-summary.csv"
   ,"manager-hook-validation-metrics.csv"
   ,"manager-hook-calibration.csv"
+  ,"active-milestone-watch.csv"
+  ,"offensive-race-board.csv"
+  ,"run-prevention-race-board.csv"
+  ,"team-intelligence-summary.csv"
 )
 
 required_fragments <- c(
@@ -38,6 +42,7 @@ required_fragments <- c(
   ,"home-research.html"
   ,"history-desk.html"
   ,"home-team-pulse.html"
+  ,"league-races.html"
 )
 
 for (name in required_data) {
@@ -118,7 +123,7 @@ if (file.exists(re24_path)) {
 
 if (check_rendered) {
   required_pages <- c(
-    "index.html", "today.html", "players.html", "teams.html", "history.html", "pitch-lab.html",
+    "index.html", "today.html", "races.html", "players.html", "teams.html", "history.html", "pitch-lab.html",
     "projections.html", "newsletter.html", "blog.html", "broadcast.html",
     "methodology.html", "glossary.html", "about.html", "404.html"
   )

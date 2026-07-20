@@ -1,6 +1,6 @@
 ---
 title: "Teams"
-description: "Current organization-level form signals across MLB."
+description: "A 30-team view combining offensive quality, run prevention, recent form, and bullpen readiness."
 ---
 
 ::: {.page-intro}
@@ -8,7 +8,7 @@ description: "Current organization-level form signals across MLB."
 
 # Team pulse
 
-A fast view of which organizations have the largest concentration of improving and cooling player signals.
+A league-wide intelligence board connecting season quality, current movement, bullpen state, and each club's strongest reporting lead.
 :::
 
 {{< include includes/team-pulse.html >}}

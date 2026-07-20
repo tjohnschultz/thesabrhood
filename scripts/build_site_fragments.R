@@ -189,6 +189,10 @@ pitch_types <- read_product("pitch-type-summary.csv")
 historical <- read_product("historical-anniversary-notes.csv")
 historical_milestones <- read_product("historical-milestone-notes.csv")
 historical_profiles <- read_product("historical-player-profiles.csv")
+active_milestones <- read_product("active-milestone-watch.csv")
+offensive_race <- read_product("offensive-race-board.csv")
+prevention_race <- read_product("run-prevention-race-board.csv")
+team_intelligence <- read_product("team-intelligence-summary.csv")
 re24 <- read_product("run-expectancy-24.csv")
 bullpen <- read_product("bullpen-availability.csv")
 manager <- read_product("manager-data-summary.csv")
@@ -229,6 +233,12 @@ home_signals <- c(
   player_card(
     "On this date", historical$subject_name[[1]], paste(historical$years_ago[[1]], "years ago"),
     historical$headline[[1]], historical$body[[1]], fmt_score(historical$story_score[[1]])
+  ),
+  player_card(
+    "Milestone watch", active_milestones$player_name[[1]], active_milestones$team[[1]],
+    active_milestones$headline[[1]],
+    paste("Career estimate", fmt_int(active_milestones$career_to_date_value[[1]]), "|", active_milestones$milestone_stat[[1]]),
+    fmt_score(active_milestones$story_score[[1]])
   )
 )
 write_fragment("home-snapshot.html", c(
@@ -259,6 +269,7 @@ icon_profiles <- icon_profiles[seq_len(min(15L, nrow(icon_profiles))), ]
 milestone_spotlights <- historical_milestones[!duplicated(historical_milestones$subject_id), ]
 milestone_spotlights <- milestone_spotlights[seq_len(min(8L, nrow(milestone_spotlights))), ]
 anniversary_spotlights <- historical[seq_len(min(8L, nrow(historical))), ]
+active_milestone_spotlights <- active_milestones[seq_len(min(8L, nrow(active_milestones))), ]
 
 anniversary_cards <- vapply(seq_len(nrow(anniversary_spotlights)), function(index) {
   player_card(
@@ -282,6 +293,18 @@ milestone_cards <- vapply(seq_len(nrow(milestone_spotlights)), function(index) {
   )
 }, character(1))
 
+active_milestone_cards <- vapply(seq_len(nrow(active_milestone_spotlights)), function(index) {
+  status <- if (active_milestone_spotlights$milestone_status[[index]] == "reached_this_season") "Reached in 2026" else "Closing in"
+  player_card(
+    paste(active_milestone_spotlights$role[[index]], "milestone"),
+    active_milestone_spotlights$player_name[[index]],
+    active_milestone_spotlights$team[[index]],
+    active_milestone_spotlights$headline[[index]],
+    paste(status, "| career estimate", fmt_int(active_milestone_spotlights$career_to_date_value[[index]])),
+    fmt_score(active_milestone_spotlights$story_score[[index]])
+  )
+}, character(1))
+
 write_fragment("history-desk.html", c(
   '<div class="history-scoreboard">',
   stat_card("Career profiles", "Recognizable players", fmt_int(nrow(historical_profiles)), "Historical careers above the public significance threshold.", "navy"),
@@ -291,6 +314,9 @@ write_fragment("history-desk.html", c(
   '</div>',
   '<section class="section-heading"><span class="eyebrow">On this date</span><h2>The recognizable names rise first</h2><p>Career significance, awards, Hall of Fame status, record standing, and broadcast value now influence the daily queue.</p></section>',
   '<div class="signal-grid signal-grid--four">', anniversary_cards, '</div>',
+  '<section class="section-heading"><span class="eyebrow">Active milestone watch</span><h2>Career landmarks moving right now</h2><p>Prior Lahman career totals through 2025 plus current 2026 summaries surface the players who have reached or are approaching recognizable clubs.</p></section>',
+  '<div class="signal-grid signal-grid--four">', active_milestone_cards, '</div>',
+  '<div class="method-callout"><strong>Identity note:</strong> this prototype uses unique normalized-name matching between MLBAM summaries and Lahman. Ambiguous duplicate names are rejected, and every published row carries the provisional match method.</div>',
   '<section class="section-heading"><span class="eyebrow">Milestone vault</span><h2>Career clubs and record context</h2><p>Evergreen research candidates built from Lahman career totals. True WAR remains a separate future input.</p></section>',
   '<div class="signal-grid signal-grid--four">', milestone_cards, '</div>',
   '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Career prominence</span><h2>Historical icons in the recognition model</h2></div>',
@@ -333,6 +359,44 @@ write_fragment("today-dashboard.html", c(
   paste0('<div class="signal-grid signal-grid--four">', paste0(history_cards, collapse = ""), '</div>')
 ))
 
+offense_top <- offensive_race[seq_len(min(12L, nrow(offensive_race))), ]
+prevention_top <- prevention_race[seq_len(min(12L, nrow(prevention_race))), ]
+offense_race_cards <- vapply(seq_len(min(3L, nrow(offense_top))), function(index) {
+  player_card(
+    paste("Offense #", fmt_int(offense_top$race_rank[[index]])),
+    offense_top$player_name[[index]], offense_top$team[[index]],
+    paste(fmt_dec(offense_top$ops[[index]]), "OPS |", fmt_dec(offense_top$woba_estimate[[index]]), "estimated wOBA"),
+    paste(fmt_int(offense_top$pa[[index]]), "PA |", fmt_rate(offense_top$hard_hit_rate[[index]]), "hard-hit rate"),
+    fmt_score(offense_top$race_score[[index]])
+  )
+}, character(1))
+prevention_race_cards <- vapply(seq_len(min(3L, nrow(prevention_top))), function(index) {
+  player_card(
+    paste("Run prevention #", fmt_int(prevention_top$race_rank[[index]])),
+    prevention_top$player_name[[index]], prevention_top$team[[index]],
+    paste(fmt_dec(prevention_top$ops[[index]]), "OPS allowed |", fmt_dec(prevention_top$woba_estimate[[index]]), "estimated wOBA"),
+    paste(fmt_int(prevention_top$pa[[index]]), "BF |", fmt_rate(prevention_top$strikeout_rate[[index]]), "strikeout rate"),
+    fmt_score(prevention_top$race_score[[index]])
+  )
+}, character(1))
+write_fragment("league-races.html", c(
+  '<div class="race-disclaimer"><strong>Performance race, not award prediction.</strong><span>These boards describe season-to-date statistical quality. They do not model ballots, position, defense, team record, or official award criteria.</span></div>',
+  '<section class="section-heading"><span class="eyebrow">The offensive race</span><h2>Who has built the strongest hitting case?</h2><p>Estimated wOBA, OPS, run value per plate appearance, contact quality, and sample reliability form the transparent composite.</p></section>',
+  '<div class="signal-grid">', offense_race_cards, '</div>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Offensive board</span><h2>Top 12 season performances</h2></div>',
+  render_table(offense_top, c("race_rank", "player_name", "team", "pa", "ops", "woba_estimate", "hard_hit_rate", "run_value_per_pa", "race_score"),
+    c("Rank", "Player", "Team", "PA", "OPS", "wOBA est.", "Hard-hit", "RV/PA", "Score"),
+    list(race_rank = fmt_int, pa = fmt_int, ops = fmt_dec, woba_estimate = fmt_dec, hard_hit_rate = fmt_rate, run_value_per_pa = fmt_dec, race_score = fmt_score)),
+  '</section>',
+  '<section class="section-heading"><span class="eyebrow">The run-prevention race</span><h2>Which pitchers are suppressing offense most completely?</h2><p>Opponent estimated wOBA and OPS lead the model, reinforced by strikeouts, contact suppression, and sample reliability.</p></section>',
+  '<div class="signal-grid">', prevention_race_cards, '</div>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Run-prevention board</span><h2>Top 12 season performances</h2></div>',
+  render_table(prevention_top, c("race_rank", "player_name", "team", "pa", "ops", "woba_estimate", "strikeout_rate", "hard_hit_rate", "race_score"),
+    c("Rank", "Pitcher", "Team", "BF", "OPS allowed", "wOBA est.", "K%", "Hard-hit", "Score"),
+    list(race_rank = fmt_int, pa = fmt_int, ops = fmt_dec, woba_estimate = fmt_dec, strikeout_rate = fmt_rate, hard_hit_rate = fmt_rate, race_score = fmt_score)),
+  '</section>'
+))
+
 newsletter_hitter <- top_hitter_form[1, ]
 newsletter_pitcher <- top_pitcher_form[1, ]
 newsletter_history <- historical[1:min(5L, nrow(historical)), ]
@@ -370,6 +434,12 @@ write_fragment("newsletter-daily.html", c(
   '<section class="newsletter-note"><span class="eyebrow">On this date</span><h2>History queue</h2><ul class="history-list">',
   newsletter_history_list,
   '</ul><p class="method-note">Candidates are ranked automatically and intended for editorial review.</p></section>',
+  paste0('<section class="newsletter-note"><span class="eyebrow">Race and milestone watch</span><h2>',
+    html_escape(offense_top$player_name[[1]]), ' leads the offensive board</h2><p>',
+    html_escape(offense_top$player_name[[1]]), ' carries a ', html_escape(fmt_dec(offense_top$ops[[1]])),
+    ' OPS and a ', html_escape(fmt_score(offense_top$race_score[[1]])), ' descriptive race score.</p><p><strong>',
+    html_escape(active_milestones$player_name[[1]]), ':</strong> ', html_escape(active_milestones$headline[[1]]),
+    '.</p><p class="method-note">The race score describes current statistical quality; it is not an award forecast.</p></section>'),
   '<section class="newsletter-note newsletter-note--dark"><span class="eyebrow">Today’s reading list</span><h2>Go deeper</h2>',
   '<a href="today.html">Open the signal desk <span>→</span></a>',
   '<a href="pitch-lab.html">Inspect the Pitch Lab <span>→</span></a>',
@@ -423,51 +493,34 @@ write_fragment("projections-model.html", c(
   '</section>'
 ))
 
-team_form <- rbind(
-  data.frame(team = hitter_form$team, form_score = num(hitter_form$form_score), type = "Hitter", player = hitter_form$player_name),
-  data.frame(team = pitcher_form$team, form_score = num(pitcher_form$form_score), type = "Pitcher", player = pitcher_form$player_name)
-)
-team_split <- split(team_form, team_form$team)
-team_pulse <- do.call(rbind, lapply(names(team_split), function(team_name) {
-  rows <- team_split[[team_name]]
-  top <- rows[order(-rows$form_score), ][1, ]
-  data.frame(
-    team = team_name,
-    average_form = mean(rows$form_score, na.rm = TRUE),
-    surging = sum(rows$form_score >= 65, na.rm = TRUE),
-    cooling = sum(rows$form_score <= 35, na.rm = TRUE),
-    top_signal = paste(top$player, paste0("(", top$type, ")")),
-    stringsAsFactors = FALSE
-  )
-}))
-team_pulse <- team_pulse[order(-team_pulse$average_form), ][1:min(30L, nrow(team_pulse)), ]
-team_pulse_cards <- vapply(seq_len(min(6L, nrow(team_pulse))), function(index) {
+team_pulse_cards <- vapply(seq_len(min(6L, nrow(team_intelligence))), function(index) {
   player_card(
-    paste("League pulse #", index),
-    team_pulse$team[[index]],
-    paste("Top driver:", team_pulse$top_signal[[index]]),
-    paste(fmt_int(team_pulse$surging[[index]]), "surging player signals"),
-    paste(fmt_int(team_pulse$cooling[[index]]), "cooling signals | average form", fmt_score(team_pulse$average_form[[index]])),
-    fmt_score(team_pulse$average_form[[index]])
+    paste("Team intelligence #", fmt_int(team_intelligence$team_index_rank[[index]])),
+    team_intelligence$team[[index]],
+    paste("Top driver:", team_intelligence$top_signal[[index]]),
+    paste("Offense #", fmt_int(team_intelligence$offense_rank[[index]]), "| run prevention #", fmt_int(team_intelligence$run_prevention_rank[[index]])),
+    paste(fmt_int(team_intelligence$surging_signals[[index]]), "surging | bullpen", team_intelligence$bullpen_health[[index]]),
+    fmt_score(team_intelligence$team_index[[index]])
   )
 }, character(1))
 write_fragment("team-pulse.html", c(
-  '<section class="section-heading"><span class="eyebrow">Team spotlights</span><h2>Who is driving the league pulse?</h2><p>The six strongest team-level concentrations, with the top individual signal attached.</p></section>',
+  '<section class="section-heading"><span class="eyebrow">Team dossiers</span><h2>Who has the most complete analytical profile?</h2><p>Offense, run prevention, recent player form, and bullpen readiness now travel together instead of living in separate tables.</p></section>',
   '<div class="signal-grid">', team_pulse_cards, '</div>',
-  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Organization pulse</span><h2>Which clubs have the strongest current signals?</h2><p>Average recent-form score across qualifying hitters and pitchers. This is a roster-signal board, not a projected standings table.</p></div>',
-  render_table(team_pulse, c("team", "average_form", "surging", "cooling", "top_signal"),
-    c("Team", "Avg. form", "Surging", "Cooling", "Top signal"),
-    list(average_form = fmt_score, surging = fmt_int, cooling = fmt_int)),
-  '</section>'
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Full league board</span><h2>Thirty-team intelligence index</h2><p>This is a descriptive reporting index, not a standings projection. Component ranks make each placement auditable.</p></div>',
+  render_table(team_intelligence, c("team_index_rank", "team", "team_index", "offense_rank", "run_prevention_rank", "form_rank", "bullpen_rank", "surging_signals", "cooling_signals", "bullpen_health", "top_signal"),
+    c("Rank", "Team", "Index", "Offense", "Run prev.", "Form", "Bullpen", "Surging", "Cooling", "Pen state", "Top signal"),
+    list(team_index_rank = fmt_int, team_index = fmt_score, offense_rank = fmt_int, run_prevention_rank = fmt_int, form_rank = fmt_int, bullpen_rank = fmt_int, surging_signals = fmt_int, cooling_signals = fmt_int)),
+  '</section>',
+  '<div class="method-callout"><strong>How to read it:</strong> offense and run prevention each carry 35% of the index, recent form carries 20%, and bullpen readiness carries 10%. The visible ranks expose why a club moves.</div>'
 ))
 write_fragment("home-team-pulse.html", c(
-  '<section class="section-heading"><span class="eyebrow">Around the league</span><h2>The clubs carrying the most surge signals</h2><p>Recent player movement aggregated into a team-level reporting lead.</p></section>',
+  '<section class="section-heading"><span class="eyebrow">Around the league</span><h2>The most complete team profiles</h2><p>A composite of season quality, current movement, and bullpen readiness built to lead reporters toward the next question.</p></section>',
   '<section class="dashboard-block home-pulse-board">',
-  render_table(utils::head(team_pulse, 8L), c("team", "average_form", "surging", "cooling", "top_signal"),
-    c("Team", "Avg. form", "Surging", "Cooling", "Top driver"),
-    list(average_form = fmt_score, surging = fmt_int, cooling = fmt_int)),
+  render_table(utils::head(team_intelligence, 8L), c("team_index_rank", "team", "team_index", "offense_rank", "run_prevention_rank", "surging_signals", "bullpen_health", "top_signal"),
+    c("Rank", "Team", "Index", "Offense", "Run prev.", "Surging", "Pen", "Top driver"),
+    list(team_index_rank = fmt_int, team_index = fmt_score, offense_rank = fmt_int, run_prevention_rank = fmt_int, surging_signals = fmt_int)),
   '</section>',
-  '<div class="section-action"><a class="btn btn-metallic" href="teams.html">See all 30 team signals</a></div>'
+  '<div class="section-action"><a class="btn btn-metallic" href="teams.html">Open all 30 team dossiers</a></div>'
 ))
 
 re_empty <- re24[re24$outs_before == 0 & re24$base_state_before == 0, ]

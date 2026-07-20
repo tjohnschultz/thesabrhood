@@ -963,6 +963,37 @@ body:has(.daily-paper) .quarto-title-block {
   }
 }
 
+/* Prototype release 3: race room and richer team intelligence */
+.race-intro {
+  overflow: hidden;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.98), rgba(221, 234, 240, 0.92)),
+    #ffffff;
+}
+
+.race-disclaimer {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.32fr) 1fr;
+  gap: 1rem;
+  width: min(1180px, calc(100% - 2rem));
+  margin: 1.5rem auto 0;
+  padding: 1.15rem 1.3rem;
+  color: #ffffff;
+  background: var(--sabr-navy);
+  border-left: 8px solid var(--sabr-red);
+  box-shadow: 0 12px 28px rgba(12, 35, 64, 0.15);
+}
+
+.race-disclaimer strong { color: #ffffff; }
+.race-disclaimer span { color: #dbe5ef; }
+
+@media (max-width: 650px) {
+  .race-disclaimer {
+    grid-template-columns: 1fr;
+    width: min(100% - 1rem, 1180px);
+  }
+}
+
 /* =========================================================
    2026 data-hub foundation
    ========================================================= */
