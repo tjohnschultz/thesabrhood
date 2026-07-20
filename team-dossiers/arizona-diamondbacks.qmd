@@ -1,0 +1,6 @@
+---
+title: "Arizona Diamondbacks Team Dossier"
+description: "Automated SABRhood research dossier for the Arizona Diamondbacks."
+---
+
+{{< include ../includes/team-dossiers/arizona-diamondbacks.html >}}

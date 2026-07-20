@@ -1,0 +1,6 @@
+---
+title: "Philadelphia Phillies Team Dossier"
+description: "Automated SABRhood research dossier for the Philadelphia Phillies."
+---
+
+{{< include ../includes/team-dossiers/philadelphia-phillies.html >}}

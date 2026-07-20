@@ -9,6 +9,8 @@ project:
     - matchups.qmd
     - players.qmd
     - teams.qmd
+    - team-dossiers.qmd
+    - team-dossiers/*.qmd
     - history.qmd
     - pitch-lab.qmd
     - projections.qmd
@@ -58,6 +60,8 @@ website:
             text: Players
           - href: teams.qmd
             text: Teams
+          - href: team-dossiers.qmd
+            text: Team Dossiers
           - href: matchups.qmd
             text: Matchups
           - href: pitch-lab.qmd

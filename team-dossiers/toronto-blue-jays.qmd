@@ -1,0 +1,6 @@
+---
+title: "Toronto Blue Jays Team Dossier"
+description: "Automated SABRhood research dossier for the Toronto Blue Jays."
+---
+
+{{< include ../includes/team-dossiers/toronto-blue-jays.html >}}

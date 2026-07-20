@@ -1,0 +1,6 @@
+---
+title: "San Diego Padres Team Dossier"
+description: "Automated SABRhood research dossier for the San Diego Padres."
+---
+
+{{< include ../includes/team-dossiers/san-diego-padres.html >}}

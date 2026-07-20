@@ -18,6 +18,7 @@ flowchart TD
   Players --> PitchLab[Pitch and sequence lab]
   Matchups --> PitchLab
   Teams --> TeamPages[Thirty team dossiers]
+  TeamPages --> BroadcastThree[Broadcast Three / on-air notes]
   Races --> Forecasts[Projections and simulations]
   Forecasts --> Decisions[Manager and bullpen decisions]
   Research --> StoryPages[Articles and visual spotlights]

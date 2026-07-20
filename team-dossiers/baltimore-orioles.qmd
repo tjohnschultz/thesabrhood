@@ -1,0 +1,6 @@
+---
+title: "Baltimore Orioles Team Dossier"
+description: "Automated SABRhood research dossier for the Baltimore Orioles."
+---
+
+{{< include ../includes/team-dossiers/baltimore-orioles.html >}}

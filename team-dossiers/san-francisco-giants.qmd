@@ -1,0 +1,6 @@
+---
+title: "San Francisco Giants Team Dossier"
+description: "Automated SABRhood research dossier for the San Francisco Giants."
+---
+
+{{< include ../includes/team-dossiers/san-francisco-giants.html >}}

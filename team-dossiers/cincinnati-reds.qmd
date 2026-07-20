@@ -1,0 +1,6 @@
+---
+title: "Cincinnati Reds Team Dossier"
+description: "Automated SABRhood research dossier for the Cincinnati Reds."
+---
+
+{{< include ../includes/team-dossiers/cincinnati-reds.html >}}

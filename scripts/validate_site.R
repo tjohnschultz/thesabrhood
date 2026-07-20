@@ -34,6 +34,7 @@ required_data <- c(
   ,"pitcher-matchup-edges.csv"
   ,"signature-pitch-board.csv"
   ,"daily-story-queue.csv"
+  ,"team-broadcast-notes.csv"
 )
 
 required_fragments <- c(
@@ -53,6 +54,7 @@ required_fragments <- c(
   ,"story-desk.html"
   ,"home-story-desk.html"
   ,"matchup-edges.html"
+  ,"team-dossier-index.html"
 )
 
 for (name in required_data) {
@@ -133,7 +135,7 @@ if (file.exists(re24_path)) {
 
 if (check_rendered) {
   required_pages <- c(
-    "index.html", "today.html", "races.html", "story-desk.html", "matchups.html", "players.html", "teams.html", "history.html", "pitch-lab.html",
+    "index.html", "today.html", "races.html", "story-desk.html", "matchups.html", "players.html", "teams.html", "team-dossiers.html", "history.html", "pitch-lab.html",
     "projections.html", "newsletter.html", "blog.html", "broadcast.html",
     "methodology.html", "glossary.html", "about.html", "404.html"
   )
@@ -142,6 +144,12 @@ if (check_rendered) {
     if (!file.exists(path) || file.info(path)$size < 500) {
       fail(paste("Missing rendered page:", name))
     }
+  }
+  dossier_pages <- list.files(file.path(site_root, "docs", "team-dossiers"), pattern = "[.]html$", full.names = TRUE)
+  if (length(dossier_pages) != 30L) {
+    fail(paste("Rendered team dossier count must be 30; found", length(dossier_pages)))
+  } else if (any(file.info(dossier_pages)$size < 1000)) {
+    fail("One or more rendered team dossiers are unexpectedly small")
   }
   required_legacy_assets <- c(
     "site_libs/kePrint-0.0.1/kePrint.js",

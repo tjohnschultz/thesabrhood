@@ -1,0 +1,6 @@
+---
+title: "Miami Marlins Team Dossier"
+description: "Automated SABRhood research dossier for the Miami Marlins."
+---
+
+{{< include ../includes/team-dossiers/miami-marlins.html >}}

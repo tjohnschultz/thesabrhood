@@ -12,3 +12,7 @@ A league-wide intelligence board connecting season quality, current movement, bu
 :::
 
 {{< include includes/team-pulse.html >}}
+
+::: {.section-action}
+[Open the 30-team dossier directory](team-dossiers.qmd){.btn .btn-metallic}
+:::

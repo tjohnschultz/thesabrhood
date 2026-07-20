@@ -1,0 +1,6 @@
+---
+title: "Milwaukee Brewers Team Dossier"
+description: "Automated SABRhood research dossier for the Milwaukee Brewers."
+---
+
+{{< include ../includes/team-dossiers/milwaukee-brewers.html >}}

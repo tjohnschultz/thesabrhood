@@ -1,0 +1,6 @@
+---
+title: "Pittsburgh Pirates Team Dossier"
+description: "Automated SABRhood research dossier for the Pittsburgh Pirates."
+---
+
+{{< include ../includes/team-dossiers/pittsburgh-pirates.html >}}

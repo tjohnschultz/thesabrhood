@@ -54,6 +54,23 @@ write_fragment <- function(name, lines) {
   writeLines(enc2utf8(lines), file.path(include_dir, name), useBytes = TRUE)
 }
 
+slugify <- function(value) {
+  value <- iconv(as.character(value), from = "", to = "ASCII//TRANSLIT")
+  value <- tolower(value)
+  value <- gsub("[^a-z0-9]+", "-", value)
+  gsub("(^-|-$)", "", value)
+}
+
+rank_meter <- function(label, rank, detail) {
+  width <- pmax(pmin(100 * (31 - num(rank)) / 30, 100), 3)
+  paste0(
+    '<div class="rank-meter"><div class="rank-meter__label"><span>', html_escape(label), '</span><strong>#',
+    html_escape(fmt_int(rank)), '</strong></div><div class="rank-meter__track" role="img" aria-label="',
+    html_escape(paste(label, "rank", fmt_int(rank), "of 30")), '"><span style="width:',
+    base::format(round(width, 1), nsmall = 1), '%"></span></div><small>', html_escape(detail), '</small></div>'
+  )
+}
+
 stat_card <- function(kicker, title, value, detail, tone = "navy") {
   paste0(
     '<article class="data-card data-card--', tone, '">',
@@ -245,6 +262,7 @@ story_queue <- read_product("daily-story-queue.csv")
 hitter_matchups <- read_product("hitter-matchup-edges.csv")
 pitcher_matchups <- read_product("pitcher-matchup-edges.csv")
 signature_pitches <- read_product("signature-pitch-board.csv")
+team_broadcast_notes <- read_product("team-broadcast-notes.csv")
 re24 <- read_product("run-expectancy-24.csv")
 bullpen <- read_product("bullpen-availability.csv")
 manager <- read_product("manager-data-summary.csv")
@@ -689,6 +707,129 @@ write_fragment("home-team-pulse.html", c(
   '</section>',
   '<div class="section-action"><a class="btn btn-metallic" href="teams.html">Open all 30 team dossiers</a></div>'
 ))
+
+team_source_dir <- file.path(site_root, "team-dossiers")
+team_include_dir <- file.path(include_dir, "team-dossiers")
+dir.create(team_source_dir, recursive = TRUE, showWarnings = FALSE)
+dir.create(team_include_dir, recursive = TRUE, showWarnings = FALSE)
+
+team_dossier_links <- vapply(seq_len(nrow(team_intelligence)), function(index) {
+  team <- team_intelligence$team[[index]]
+  slug <- slugify(team)
+  paste0(
+    '<a class="team-dossier-link" href="team-dossiers/', html_escape(slug), '.html">',
+    '<span class="team-dossier-link__rank">#', html_escape(fmt_int(team_intelligence$team_index_rank[[index]])), '</span>',
+    '<span><strong>', html_escape(team), '</strong><small>Index ', html_escape(fmt_score(team_intelligence$team_index[[index]])),
+    ' | offense #', html_escape(fmt_int(team_intelligence$offense_rank[[index]])),
+    ' | run prevention #', html_escape(fmt_int(team_intelligence$run_prevention_rank[[index]])), '</small></span>',
+    '<span aria-hidden="true">&rarr;</span></a>'
+  )
+}, character(1))
+write_fragment("team-dossier-index.html", c(
+  '<section class="section-heading"><span class="eyebrow">Thirty club research rooms</span><h2>Choose a team dossier</h2><p>Every page uses the same auditable framework so strengths, weaknesses, player movement, pitches, and bullpen decisions can be compared consistently.</p></section>',
+  '<div class="team-dossier-directory">', team_dossier_links, '</div>',
+  '<div class="method-callout"><strong>Dossier status:</strong> these are automated research foundations through June 14, 2026. Editorial notes, roster confirmation, and opponent-specific context are the next layer before broadcast use.</div>'
+))
+
+form_card_for_team <- function(row) {
+  role_label <- if (row$perspective[[1L]] == "pitcher") "Pitcher form" else "Hitter form"
+  metric_label <- if (row$perspective[[1L]] == "pitcher") "recent OPS allowed" else "recent OPS"
+  player_card(
+    role_label, row$player_name[[1L]], row$team[[1L]],
+    paste(fmt_dec(row$recent_ops[[1L]]), metric_label),
+    paste("Prior", fmt_dec(row$baseline_ops[[1L]]), "| change", fmt_dec(row$ops_delta[[1L]])),
+    fmt_score(row$form_score[[1L]])
+  )
+}
+
+team_names <- as.character(team_intelligence$team)
+for (index in seq_along(team_names)) {
+  team <- team_names[[index]]
+  slug <- slugify(team)
+  team_row <- team_intelligence[team_intelligence$team == team, , drop = FALSE][1L, ]
+  team_hitters <- hitters[hitters$team == team, , drop = FALSE]
+  team_hitters <- team_hitters[order(-num(team_hitters$woba_estimate), -num(team_hitters$pa)), , drop = FALSE]
+  team_pitchers <- pitchers[pitchers$team == team, , drop = FALSE]
+  team_pitchers <- team_pitchers[order(num(team_pitchers$woba_estimate), -num(team_pitchers$pa)), , drop = FALSE]
+  team_form <- rbind(hitter_form[hitter_form$team == team, , drop = FALSE], pitcher_form[pitcher_form$team == team, , drop = FALSE])
+  team_form <- team_form[order(-num(team_form$form_score), -num(team_form$recent_pa)), , drop = FALSE]
+  team_pitches <- signature_pitches[signature_pitches$team == team, , drop = FALSE]
+  team_pitches <- team_pitches[order(num(team_pitches$pitch_quality_rank)), , drop = FALSE]
+  team_matchups <- rbind(hitter_matchups[hitter_matchups$team == team, , drop = FALSE], pitcher_matchups[pitcher_matchups$team == team, , drop = FALSE])
+  team_matchups <- team_matchups[order(-num(team_matchups$matchup_edge_score)), , drop = FALSE]
+  team_bullpen <- bullpen_matchups[bullpen_matchups$team == team, , drop = FALSE]
+  team_notes <- team_broadcast_notes[team_broadcast_notes$team == team, , drop = FALSE]
+  team_stories <- story_queue[story_queue$team == team, , drop = FALSE]
+  team_stories <- team_stories[order(-num(team_stories$story_score)), , drop = FALSE]
+
+  prior_index <- if (index == 1L) length(team_names) else index - 1L
+  next_index <- if (index == length(team_names)) 1L else index + 1L
+  prior_slug <- slugify(team_names[[prior_index]])
+  next_slug <- slugify(team_names[[next_index]])
+  dossier_nav <- paste0(
+    '<nav class="team-dossier-nav" aria-label="Team dossier navigation">',
+    '<a href="', prior_slug, '.html">&larr; ', html_escape(team_names[[prior_index]]), '</a>',
+    '<a href="../team-dossiers.html">All teams</a>',
+    '<a href="', next_slug, '.html">', html_escape(team_names[[next_index]]), ' &rarr;</a></nav>'
+  )
+
+  notes_html <- paste0(
+    '<li><span>', html_escape(fmt_int(team_notes$note_order)), '</span><div><small>', html_escape(gsub("_", " ", team_notes$note_category)),
+    '</small><h3>', html_escape(team_notes$headline), '</h3><p>', html_escape(team_notes$evidence), '</p></div></li>',
+    collapse = ""
+  )
+  form_cards <- if (nrow(team_form)) {
+    vapply(seq_len(min(4L, nrow(team_form))), function(row_index) form_card_for_team(team_form[row_index, , drop = FALSE]), character(1))
+  } else character()
+  pitch_cards <- if (nrow(team_pitches)) {
+    vapply(seq_len(min(2L, nrow(team_pitches))), function(row_index) pitch_identity_card(team_pitches[row_index, , drop = FALSE]), character(1))
+  } else character()
+  matchup_cards <- if (nrow(team_matchups)) {
+    vapply(seq_len(min(3L, nrow(team_matchups))), function(row_index) matchup_edge_card(team_matchups[row_index, , drop = FALSE]), character(1))
+  } else character()
+
+  dossier_lines <- c(
+    dossier_nav,
+    '<section class="team-dossier-hero"><div><span class="eyebrow">SABRhood team dossier</span><h1>', html_escape(team), '</h1><p>', html_escape(team_row$team_story[[1L]]), '</p></div>',
+    '<div class="team-dossier-hero__score"><small>League intelligence</small><strong>#', html_escape(fmt_int(team_row$team_index_rank[[1L]])), '</strong><span>', html_escape(fmt_score(team_row$team_index[[1L]])), ' index</span></div></section>',
+    '<section class="team-fingerprint" aria-label="Team component ranks">',
+    rank_meter("Offensive quality", team_row$offense_rank[[1L]], paste("Weighted estimated wOBA", fmt_dec(team_row$offense_woba[[1L]]))),
+    rank_meter("Run prevention", team_row$run_prevention_rank[[1L]], paste("Opponent estimated wOBA", fmt_dec(team_row$opponent_woba[[1L]]))),
+    rank_meter("Recent form", team_row$form_rank[[1L]], paste(fmt_int(team_row$surging_signals[[1L]]), "surging signals")),
+    rank_meter("Bullpen readiness", team_row$bullpen_rank[[1L]], paste("Current state", team_row$bullpen_health[[1L]])),
+    '</section>',
+    '<section class="broadcast-three"><div class="section-heading section-heading--tight"><span class="eyebrow">Broadcast three</span><h2>Three notes to take on air</h2><p>Short leads with an evidence trail, ready for verification and expansion.</p></div><ol>', notes_html, '</ol></section>',
+    '<section class="section-heading"><span class="eyebrow">Current movement</span><h2>The players changing the team conversation</h2></section>',
+    if (length(form_cards)) paste0('<div class="signal-grid signal-grid--four">', paste0(form_cards, collapse = ""), '</div>') else '<div class="method-callout">No players met both recent and baseline form thresholds.</div>',
+    '<section class="dossier-split-grid"><div class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Offense</span><h2>Leading hitter profiles</h2></div>',
+    if (nrow(team_hitters)) render_table(utils::head(team_hitters, 5L), c("player_name", "pa", "ops", "woba_estimate", "hard_hit_rate", "strikeout_rate", "walk_rate"), c("Hitter", "PA", "OPS", "wOBA est.", "Hard-hit", "K%", "BB%"), list(pa = fmt_int, ops = fmt_dec, woba_estimate = fmt_dec, hard_hit_rate = fmt_rate, strikeout_rate = fmt_rate, walk_rate = fmt_rate)) else '<p>No qualified hitters in the current build.</p>',
+    '</div><div class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Run prevention</span><h2>Leading pitcher profiles</h2></div>',
+    if (nrow(team_pitchers)) render_table(utils::head(team_pitchers, 5L), c("player_name", "pa", "ops", "woba_estimate", "strikeout_rate", "hard_hit_rate"), c("Pitcher", "BF", "OPS allowed", "wOBA est.", "K%", "Hard-hit"), list(pa = fmt_int, ops = fmt_dec, woba_estimate = fmt_dec, strikeout_rate = fmt_rate, hard_hit_rate = fmt_rate)) else '<p>No qualified pitchers in the current build.</p>',
+    '</div></section>',
+    '<section class="section-heading"><span class="eyebrow">Pitch identity</span><h2>The arsenal signatures worth knowing</h2></section>',
+    if (length(pitch_cards)) paste0('<div class="pitch-identity-grid pitch-identity-grid--compact">', paste0(pitch_cards, collapse = ""), '</div>') else '<div class="method-callout">No pitch types met the signature-pitch thresholds.</div>',
+    '<section class="section-heading"><span class="eyebrow">Matchup intelligence</span><h2>The largest qualified handedness edges</h2></section>',
+    if (length(matchup_cards)) paste0('<div class="signal-grid">', paste0(matchup_cards, collapse = ""), '</div>') else '<div class="method-callout">No players met the two-sided matchup threshold.</div>',
+    '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Bullpen decision board</span><h2>Top options against the next left- or right-handed batter</h2><p>Development selector using recent-appearance roster proxy, workload, role, matchup, and performance.</p></div>',
+    if (nrow(team_bullpen)) render_table(team_bullpen, c("upcoming_batter_side", "selection_rank", "pitcher_name", "throws", "availability_score", "performance_score_used", "selection_score"), c("Next batter", "Rank", "Reliever", "Throws", "Available", "Performance", "Selector"), list(selection_rank = fmt_int, availability_score = fmt_rate, performance_score_used = fmt_rate, selection_score = fmt_score)) else '<p>No eligible bullpen candidates.</p>',
+    '</section>',
+    '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Story leads</span><h2>What this team could become next</h2></div>',
+    if (nrow(team_stories)) render_table(utils::head(team_stories, 6L), c("category", "subject", "headline", "story_score"), c("Lane", "Subject", "Reporting lead", "Score"), list(story_score = fmt_score), "data-table story-queue-table") else '<p>No current story candidates.</p>',
+    '</section>',
+    '<div class="method-callout"><strong>Research status:</strong> this automated dossier is a reporting foundation, not a finished scouting report. Confirm active rosters, injuries, probable pitchers, and opponent context before broadcast use.</div>',
+    dossier_nav
+  )
+  writeLines(enc2utf8(dossier_lines), file.path(team_include_dir, paste0(slug, ".html")), useBytes = TRUE)
+  qmd_lines <- c(
+    "---",
+    paste0('title: "', team, ' Team Dossier"'),
+    paste0('description: "Automated SABRhood research dossier for the ', team, '."'),
+    "---",
+    "",
+    paste0("{{< include ../includes/team-dossiers/", slug, ".html >}}")
+  )
+  writeLines(enc2utf8(qmd_lines), file.path(team_source_dir, paste0(slug, ".qmd")), useBytes = TRUE)
+}
 
 re_empty <- re24[re24$outs_before == 0 & re24$base_state_before == 0, ]
 re_loaded <- re24[re24$outs_before == 0 & re24$base_state_before == 7, ]

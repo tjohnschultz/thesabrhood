@@ -1,0 +1,6 @@
+---
+title: "Detroit Tigers Team Dossier"
+description: "Automated SABRhood research dossier for the Detroit Tigers."
+---
+
+{{< include ../includes/team-dossiers/detroit-tigers.html >}}
