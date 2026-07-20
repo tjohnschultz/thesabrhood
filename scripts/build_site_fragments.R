@@ -380,6 +380,9 @@ daily_projections <- read_product("daily-projection-demo.csv")
 projection_margins <- read_product("daily-projection-margin.csv")
 projection_scorelines <- read_product("daily-projection-scorelines.csv")
 projection_drivers <- read_product("daily-projection-drivers.csv")
+projection_inputs <- read_product("projection-input-readiness.csv")
+bullpen_chains <- read_product("bullpen-chain-demo.csv")
+projection_hook_path <- read_product("projection-hook-path.csv")
 articles <- build_article_index()
 
 updated_date <- max(as.Date(hitters$last_game), na.rm = TRUE)
@@ -403,6 +406,7 @@ arsenal_whiffs <- pitch_types[num(pitch_types$swings) >= 50, ]
 arsenal_whiffs <- arsenal_whiffs[order(-num(arsenal_whiffs$whiff_rate), -num(arsenal_whiffs$pitches)), ][1:10, ]
 daily_projections <- daily_projections[order(num(daily_projections$display_order)), , drop = FALSE]
 feature_projection <- daily_projections[as.logical(daily_projections$feature_game), , drop = FALSE][1L, ]
+feature_projection_input <- projection_inputs[projection_inputs$game_id == feature_projection$game_id[[1L]], , drop = FALSE][1L, ]
 
 projection_lean <- function(probability) {
   probability <- num(probability)
@@ -480,6 +484,87 @@ projection_feature <- function(row) {
     '</strong><em>Home win probability ', bullpen_direction, '</em></span></div>',
     '<div class="projection-scorelines"><div class="context-subhead"><span>Most common exact scores</span><small>Away &ndash; home</small></div><div>',
     paste0(score_cards, collapse = ''), '</div></div></section>'
+  )
+}
+
+projection_input_board <- function(row) {
+  gates <- data.frame(
+    label = c("Demo slate shell", "Probable starters", "Lineups", "Park factor", "Weather", "Active rosters"),
+    ready = c(row$schedule_ready, row$starters_ready, row$lineups_ready, row$park_ready, row$weather_ready, row$rosters_ready),
+    detail = c(
+      "Representative teams and date are present; authoritative schedule is not connected.",
+      "Both starters must be identified before pitcher-specific run expectations.",
+      "Projected lineups permit a conditional run; confirmed lineups unlock publication.",
+      "A neutral demonstration factor is present; production uses the actual venue.",
+      "Roof and weather context are still missing.",
+      "Recent-appearance eligibility remains a proxy, not an active-roster feed."
+    ),
+    stringsAsFactors = FALSE
+  )
+  gate_html <- vapply(seq_len(nrow(gates)), function(index) {
+    is_ready <- as.logical(gates$ready[[index]])
+    paste0(
+      '<article class="projection-input-gate ', if (is_ready) 'is-ready' else 'is-missing', '">',
+      '<span>', if (is_ready) 'Ready' else 'Missing', '</span><h3>', html_escape(gates$label[[index]]),
+      '</h3><p>', html_escape(gates$detail[[index]]), '</p></article>'
+    )
+  }, character(1))
+  paste0(
+    '<section class="projection-readiness"><div class="projection-readiness__head"><div><span class="eyebrow">Publication gate</span>',
+    '<h2>Why this remains a development forecast</h2><p>Every game must pass the same six-part input contract. Missing information is exposed instead of silently replaced by a confident-looking number.</p></div>',
+    '<div class="projection-readiness__score"><strong>', html_escape(fmt_rate(row$input_completeness[[1L]])),
+    '</strong><span>demo inputs complete</span></div></div><div class="projection-input-grid">',
+    paste0(gate_html, collapse = ''), '</div></section>'
+  )
+}
+
+projection_hook_visual <- function(path) {
+  nodes <- vapply(seq_len(nrow(path)), function(index) {
+    width <- pmax(3, 100 * num(path$hook_probability[[index]]))
+    paste0(
+      '<article class="hook-path-node"><header><span>Inning ', html_escape(fmt_int(path$inning[[index]])),
+      '</span><strong>', html_escape(fmt_rate(path$hook_probability[[index]])), '</strong></header><h3>',
+      html_escape(path$decision_label[[index]]), '</h3><p>', html_escape(fmt_int(path$pitches_in_appearance[[index]])),
+      ' pitches &middot; ', html_escape(fmt_int(path$batters_faced_in_appearance[[index]])), ' BF &middot; ',
+      html_escape(fmt_int(path$times_through_order_proxy[[index]])), 'x through</p><div class="hook-path-track" role="img" aria-label="Hook probability ',
+      html_escape(fmt_rate(path$hook_probability[[index]])), '"><i style="width:', format(round(width, 1), nsmall = 1),
+      '%"></i></div></article>'
+    )
+  }, character(1))
+  paste0(
+    '<section class="hook-path-section"><div class="section-heading section-heading--tight"><span class="eyebrow">Starter decision path</span>',
+    '<h2>The handoff becomes part of every game simulation</h2><p>A fixed tied-game workload path shows when the pooled hook model begins shifting probability toward the bullpen.</p></div>',
+    '<div class="hook-path">', paste0(nodes, collapse = ''), '</div><p class="method-note">Descriptive pooled-model scenarios, not causal manager tendencies or a forecast for a named starter.</p></section>'
+  )
+}
+
+bullpen_chain_visual <- function(chains) {
+  team_names <- unique(as.character(chains$defense_team))
+  chain_cards <- vapply(team_names, function(team) {
+    rows <- chains[chains$defense_team == team, , drop = FALSE]
+    rows <- rows[order(num(rows$chain_step)), , drop = FALSE]
+    steps <- vapply(seq_len(nrow(rows)), function(index) {
+      paste0(
+        '<li><div class="bullpen-chain-step__inning"><span>', html_escape(fmt_int(rows$inning[[index]])), '</span><small>inning</small></div>',
+        '<div class="bullpen-chain-step__body"><header><span>', html_escape(rows$pocket_label[[index]]), ' &middot; vs ',
+        html_escape(rows$upcoming_batter_side[[index]]), 'HB</span><strong>', html_escape(fmt_score(rows$selection_score[[index]])),
+        '</strong></header><h3>', html_escape(rows$pitcher_name[[index]]), ' <small>', html_escape(rows$throws[[index]]), 'HP</small></h3>',
+        '<p>Availability ', html_escape(fmt_rate(rows$availability_entering[[index]])), ' &middot; matchup ',
+        html_escape(fmt_rate(rows$matchup_score[[index]])), ' &middot; planned ', html_escape(fmt_int(rows$estimated_pitches[[index]])),
+        ' pitches</p><footer>Alternatives: ', html_escape(rows$alternatives[[index]]), '</footer></div></li>'
+      )
+    }, character(1))
+    paste0(
+      '<article class="bullpen-chain"><header><div><span class="eyebrow">Defending ', html_escape(rows$offense_team[[1L]]),
+      '</span><h3>', html_escape(team), ' bullpen path</h3></div><span>Scenario</span></header><ol>',
+      paste0(steps, collapse = ''), '</ol></article>'
+    )
+  }, character(1))
+  paste0(
+    '<section class="bullpen-chain-section"><div class="section-heading section-heading--tight"><span class="eyebrow">Reliever chain planner</span>',
+    '<h2>Handedness, leverage, and fatigue change the next arm</h2><p>Once a starter exits, each three-batter pocket reranks the available bullpen and carries planned workload into the next decision.</p></div>',
+    '<div class="bullpen-chain-grid">', paste0(chain_cards, collapse = ''), '</div>',
+    '<div class="method-callout"><strong>Selector score, not probability:</strong> the displayed score transparently combines availability, role fit, performance, handedness, and leverage. Active rosters and confirmed batting order remain required before operational use.</div></section>'
   )
 }
 
@@ -860,6 +945,9 @@ write_fragment("daily-projections.html", c(
   '<section class="section-heading"><span class="eyebrow">Daily projection board</span><h2>The whole slate in one scan</h2><p>When the automated run finishes, each game card will show the win split, score center, uncertainty, close-game chance, and input status before a reader opens the deeper matchup view.</p></section>',
   '<div class="projection-slate-grid">', projection_cards, '</div>',
   projection_feature(feature_projection),
+  projection_input_board(feature_projection_input),
+  projection_hook_visual(projection_hook_path),
+  bullpen_chain_visual(bullpen_chains),
   '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Slate table</span><h2>Every game, every uncertainty signal</h2><p>The published version will replace this representative slate after schedule, probable pitcher, confirmed lineup, park, and weather gates pass.</p></div>',
   render_table(daily_projections, c("away_team", "home_team", "away_win_probability", "home_win_probability", "away_mean_runs", "home_mean_runs", "mean_total_runs", "one_run_probability", "extra_innings_probability", "projected_winner"),
     c("Away", "Home", "Away win", "Home win", "Away runs", "Home runs", "Total", "One-run", "Extras", "Model lean"),

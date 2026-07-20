@@ -31,6 +31,9 @@ is chosen. It needs four independently failing stages:
 - Every projected game records schedule, starter, lineup, park, weather, and
   roster status; missing required inputs are visible and cannot silently become
   a public probability.
+- The bullpen chain is rebuilt after confirmed lineups and whenever recent
+  workload changes; every step retains the top alternatives and its selector
+  method instead of publishing an unexplained reliever choice.
 - Win probabilities sum to one, all simulated ties are resolved, and the model
   version and simulation count are attached to every game.
 - The daily backtest archive is written before the slate is replaced, so misses

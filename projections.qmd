@@ -38,12 +38,12 @@ Complete-game draws, win splits, score intervals, close-game likelihood, and rep
 Schedule, probable starters, projected or confirmed lineups, handedness, park, weather, and roster gates.
 :::
 
-::: {.roadmap-card}
+::: {.roadmap-card .is-active}
 <span class="roadmap-step">03</span>
 
-## Dynamic bullpen chain
+## Bullpen chain prototype
 
-Hook probability, workload, leverage, batter pockets, reliever choice, and performance after each pitching change.
+The scenario planner now carries hook probability, workload, leverage, batter handedness, alternatives, and reliever choice across the final three innings. Confirmed lineups and active rosters are the next gate.
 :::
 
 ::: {.roadmap-card}

@@ -41,6 +41,9 @@ required_data <- c(
   ,"daily-projection-margin.csv"
   ,"daily-projection-scorelines.csv"
   ,"daily-projection-drivers.csv"
+  ,"projection-input-readiness.csv"
+  ,"bullpen-chain-demo.csv"
+  ,"projection-hook-path.csv"
 )
 
 required_fragments <- c(
