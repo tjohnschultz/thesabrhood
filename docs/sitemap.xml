@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://thesabrhood.com/index.html</loc>
-    <lastmod>2026-07-20T15:56:16.691Z</lastmod>
+    <lastmod>2026-07-20T16:37:57.585Z</lastmod>
   </url>
   <url>
     <loc>https://thesabrhood.com/blog.html</loc>
@@ -18,11 +18,15 @@
   </url>
   <url>
     <loc>https://thesabrhood.com/players.html</loc>
-    <lastmod>2026-07-20T07:03:16.311Z</lastmod>
+    <lastmod>2026-07-20T16:38:00.584Z</lastmod>
+  </url>
+  <url>
+    <loc>https://thesabrhood.com/story-desk.html</loc>
+    <lastmod>2026-07-20T16:37:52.963Z</lastmod>
   </url>
   <url>
     <loc>https://thesabrhood.com/today.html</loc>
-    <lastmod>2026-07-20T15:56:18.039Z</lastmod>
+    <lastmod>2026-07-20T16:37:59.107Z</lastmod>
   </url>
   <url>
     <loc>https://thesabrhood.com/leaderboards.html</loc>
@@ -43,6 +47,10 @@
   <url>
     <loc>https://thesabrhood.com/races.html</loc>
     <lastmod>2026-07-20T15:56:13.865Z</lastmod>
+  </url>
+  <url>
+    <loc>https://thesabrhood.com/matchups.html</loc>
+    <lastmod>2026-07-20T16:37:54.399Z</lastmod>
   </url>
   <url>
     <loc>https://thesabrhood.com/teams.html</loc>

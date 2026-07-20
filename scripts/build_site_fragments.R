@@ -67,7 +67,7 @@ stat_card <- function(kicker, title, value, detail, tone = "navy") {
 
 player_card <- function(kicker, name, team, headline, detail, score = NULL) {
   score_html <- if (is.null(score)) "" else paste0(
-    '<span class="signal-score" aria-label="Form score ', html_escape(score), '">',
+    '<span class="signal-score" aria-label="Signal score ', html_escape(score), '">',
     html_escape(score), '</span>'
   )
   paste0(
@@ -78,6 +78,54 @@ player_card <- function(kicker, name, team, headline, detail, score = NULL) {
     '<p><strong>', html_escape(headline), '</strong></p>',
     '<p class="muted">', html_escape(detail), '</p>',
     '</article>'
+  )
+}
+
+meter_bar <- function(label, value, ceiling = 0.70, formatter = fmt_rate, highlight = FALSE) {
+  width <- pmax(pmin(100 * num(value) / ceiling, 100), 0)
+  paste0(
+    '<div class="metric-bar', if (highlight) ' is-highlight' else '', '">',
+    '<div class="metric-bar__label"><span>', html_escape(label), '</span><strong>', html_escape(formatter(value)), '</strong></div>',
+    '<div class="metric-bar__track" role="img" aria-label="', html_escape(paste(label, formatter(value))), '">',
+    '<span style="width:', base::format(round(width, 1), nsmall = 1), '%"></span></div></div>'
+  )
+}
+
+pitch_identity_card <- function(row) {
+  x <- pmax(pmin(50 + 2 * num(row$average_horizontal_break), 95), 5)
+  y <- pmax(pmin(20 + 2.8 * num(row$average_induced_vertical_break), 95), 5)
+  movement_label <- paste(
+    fmt_dec(row$average_horizontal_break, 1L), "inches horizontal and",
+    fmt_dec(row$average_induced_vertical_break, 1L), "inches induced vertical break"
+  )
+  paste0(
+    '<article class="pitch-identity-card"><div class="pitch-identity-card__head"><div><span class="eyebrow">',
+    html_escape(row$pitch_family), ' identity</span><h3>', html_escape(row$player_name), '</h3><p>',
+    html_escape(row$team), ' | ', html_escape(row$pitch_name), '</p></div><span class="signal-score">',
+    html_escape(fmt_score(row$pitch_quality_score)), '</span></div>',
+    '<div class="pitch-identity-card__body"><div class="movement-plane" role="img" aria-label="', html_escape(movement_label), '">',
+    '<span class="movement-plane__pitch" style="left:', format(round(x, 1), nsmall = 1), '%;bottom:', format(round(y, 1), nsmall = 1), '%"></span>',
+    '<span class="movement-plane__x">Horizontal break</span><span class="movement-plane__y">IVB</span></div>',
+    '<div class="pitch-metrics">',
+    meter_bar("Whiff", row$whiff_rate, 0.70),
+    meter_bar("Chase", row$chase_rate, 0.55),
+    meter_bar("Usage", row$usage_rate, 0.60),
+    '<div class="pitch-velo"><span>Average velocity</span><strong>', html_escape(fmt_dec(row$average_velocity, 1L)), ' mph</strong></div>',
+    '</div></div></article>'
+  )
+}
+
+matchup_edge_card <- function(row) {
+  left_strong <- row$stronger_opponent_hand == "L"
+  paste0(
+    '<article class="matchup-edge-card"><div class="player-signal__top"><span class="eyebrow">',
+    html_escape(paste(row$perspective, "edge")), '</span><span class="signal-score">', html_escape(fmt_score(row$matchup_edge_score)), '</span></div>',
+    '<h3>', html_escape(row$player_name), '</h3><p class="player-signal__team">', html_escape(row$team), '</p>',
+    '<p><strong>', html_escape(row$headline), '</strong></p>',
+    '<div class="matchup-bars">',
+    meter_bar("vs L", row$woba_vs_l, 0.55, fmt_dec, left_strong),
+    meter_bar("vs R", row$woba_vs_r, 0.55, fmt_dec, !left_strong),
+    '</div><p class="muted">', html_escape(row$evidence), '</p></article>'
   )
 }
 
@@ -193,6 +241,10 @@ active_milestones <- read_product("active-milestone-watch.csv")
 offensive_race <- read_product("offensive-race-board.csv")
 prevention_race <- read_product("run-prevention-race-board.csv")
 team_intelligence <- read_product("team-intelligence-summary.csv")
+story_queue <- read_product("daily-story-queue.csv")
+hitter_matchups <- read_product("hitter-matchup-edges.csv")
+pitcher_matchups <- read_product("pitcher-matchup-edges.csv")
+signature_pitches <- read_product("signature-pitch-board.csv")
 re24 <- read_product("run-expectancy-24.csv")
 bullpen <- read_product("bullpen-availability.csv")
 manager <- read_product("manager-data-summary.csv")
@@ -265,6 +317,58 @@ write_fragment("home-research.html", c(
   vapply(seq_len(min(3L, nrow(articles))), function(index) article_card(articles[index, , drop = FALSE]), character(1)),
   '</div>',
   '<div class="section-action"><a class="btn btn-metallic" href="blog.html">Open the full article archive</a></div>'
+))
+
+category_labels <- c(
+  hitter_form = "Hitter form", pitcher_form = "Pitcher form",
+  offensive_race = "Offensive race", run_prevention = "Run prevention",
+  milestone = "Milestone", history = "On this date", team = "Team intelligence",
+  pitch_identity = "Pitch identity"
+)
+story_shortlist <- story_queue[as.logical(story_queue$daily_shortlist), , drop = FALSE]
+story_shortlist$lane_label <- unname(category_labels[story_shortlist$category])
+story_lineup <- story_shortlist[!duplicated(story_shortlist$category), , drop = FALSE]
+story_lineup <- story_lineup[seq_len(min(8L, nrow(story_lineup))), , drop = FALSE]
+story_cards <- vapply(seq_len(nrow(story_lineup)), function(index) {
+  player_card(
+    category_labels[[story_lineup$category[[index]]]],
+    story_lineup$subject[[index]], story_lineup$team[[index]],
+    story_lineup$headline[[index]], story_lineup$evidence[[index]],
+    fmt_score(story_lineup$story_score[[index]])
+  )
+}, character(1))
+write_fragment("story-desk.html", c(
+  '<div class="update-strip"><strong>Eight reporting lanes</strong><span>One leading candidate from each analytical category prevents a single metric from owning the news cycle.</span></div>',
+  '<section class="section-heading"><span class="eyebrow">Editor\'s lineup</span><h2>The stories the data desk would assign today</h2><p>Form, races, milestones, history, team movement, and pitch identity compete inside their own lanes before the daily lineup is assembled.</p></section>',
+  '<div class="signal-grid signal-grid--four">', story_cards, '</div>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Shortlist</span><h2>The next 16 reporting leads</h2><p>Scores order research attention. Publication still requires editorial review and source verification.</p></div>',
+  render_table(utils::head(story_shortlist, 16L), c("queue_rank", "lane_label", "subject", "team", "headline", "story_score", "confidence"),
+    c("Queue", "Lane", "Subject", "Team", "Reporting lead", "Score", "Confidence"),
+    list(queue_rank = fmt_int, story_score = fmt_score, confidence = fmt_rate), "data-table story-queue-table"),
+  '</section>',
+  '<div class="method-callout"><strong>Why this matters:</strong> the Story Engine is the bridge between statistical detection and journalism. It creates an assignment queue, not automated finished prose.</div>'
+))
+write_fragment("home-story-desk.html", c(
+  '<section class="section-heading"><span class="eyebrow">The assignment desk</span><h2>Eight different ways to find tomorrow\'s baseball story</h2><p>The daily queue protects editorial variety while preserving the evidence behind every lead.</p></section>',
+  '<div class="signal-grid signal-grid--four">', utils::head(story_cards, 4L), '</div>',
+  '<div class="section-action"><a class="btn btn-metallic" href="story-desk.html">Open the complete Story Engine</a></div>'
+))
+
+hitter_matchup_spotlights <- hitter_matchups[seq_len(min(6L, nrow(hitter_matchups))), ]
+pitcher_matchup_spotlights <- pitcher_matchups[seq_len(min(6L, nrow(pitcher_matchups))), ]
+hitter_matchup_cards <- vapply(seq_len(nrow(hitter_matchup_spotlights)), function(index) matchup_edge_card(hitter_matchup_spotlights[index, , drop = FALSE]), character(1))
+pitcher_matchup_cards <- vapply(seq_len(nrow(pitcher_matchup_spotlights)), function(index) matchup_edge_card(pitcher_matchup_spotlights[index, , drop = FALSE]), character(1))
+write_fragment("matchup-edges.html", c(
+  '<section class="section-heading"><span class="eyebrow">Hitter matchup edges</span><h2>Where the damage profile changes most</h2><p>Two-sided samples only: every card requires at least 40 plate appearances against both left- and right-handed pitching.</p></section>',
+  '<div class="signal-grid">', hitter_matchup_cards, '</div>',
+  '<section class="section-heading"><span class="eyebrow">Pitcher matchup edges</span><h2>Which side is each arm suppressing?</h2><p>For pitchers, the highlighted side is the opponent hand with the lower estimated wOBA allowed.</p></section>',
+  '<div class="signal-grid">', pitcher_matchup_cards, '</div>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Full hitter board</span><h2>Largest qualified platoon gaps</h2></div>',
+  render_table(utils::head(hitter_matchups, 20L), c("matchup_edge_rank", "player_name", "team", "pa_vs_l", "woba_vs_l", "pa_vs_r", "woba_vs_r", "woba_gap", "stronger_opponent_hand", "matchup_edge_score"),
+    c("Rank", "Hitter", "Team", "PA vs L", "wOBA vs L", "PA vs R", "wOBA vs R", "Gap", "Edge vs", "Score"),
+    list(matchup_edge_rank = fmt_int, pa_vs_l = fmt_int, woba_vs_l = fmt_dec, pa_vs_r = fmt_int, woba_vs_r = fmt_dec, woba_gap = fmt_dec, matchup_edge_score = fmt_score)),
+  '</section>',
+  '<div class="method-callout"><strong>Use the split, not the stereotype:</strong> handedness is a reporting starting point. Pitch type, release point, command, park, and sample stability still shape the actual matchup.</div>'
 ))
 
 icon_profiles <- historical_profiles[order(-num(historical_profiles$career_significance_score)), ]
@@ -408,6 +512,12 @@ newsletter_history_list <- paste0(
   html_escape(newsletter_history$headline), '</span></li>',
   collapse = ""
 )
+newsletter_radar <- story_lineup[seq_len(min(5L, nrow(story_lineup))), ]
+newsletter_radar_list <- paste0(
+  '<li><strong>', html_escape(category_labels[newsletter_radar$category]), ': ', html_escape(newsletter_radar$subject), '</strong><span>',
+  html_escape(newsletter_radar$headline), '</span></li>',
+  collapse = ""
+)
 write_fragment("newsletter-daily.html", c(
   paste0(
     '<section class="newsletter-mast"><div><span class="eyebrow">Daily edition · ', html_escape(updated_label),
@@ -437,6 +547,9 @@ write_fragment("newsletter-daily.html", c(
   '<section class="newsletter-note"><span class="eyebrow">On this date</span><h2>History queue</h2><ul class="history-list">',
   newsletter_history_list,
   '</ul><p class="method-note">Candidates are ranked automatically and intended for editorial review.</p></section>',
+  '<section class="newsletter-note"><span class="eyebrow">Editor\'s radar</span><h2>Five different reporting lanes</h2><ul class="history-list">',
+  newsletter_radar_list,
+  '</ul><p class="method-note">The queue deliberately selects across categories instead of simply taking the five highest raw scores.</p></section>',
   paste0('<section class="newsletter-note"><span class="eyebrow">Race and milestone watch</span><h2>',
     html_escape(offense_top$player_name[[1]]), ' leads the offensive board</h2><p>',
     html_escape(offense_top$player_name[[1]]), ' carries a ', html_escape(fmt_dec(offense_top$ops[[1]])),
@@ -468,7 +581,11 @@ write_fragment("player-leaders.html", c(
   '</section>'
 ))
 
+signature_spotlights <- signature_pitches[seq_len(min(6L, nrow(signature_pitches))), ]
+signature_cards <- vapply(seq_len(nrow(signature_spotlights)), function(index) pitch_identity_card(signature_spotlights[index, , drop = FALSE]), character(1))
 write_fragment("pitch-lab.html", c(
+  '<section class="section-heading"><span class="eyebrow">Pitch identities</span><h2>Six pitches with a visual fingerprint</h2><p>Movement location, velocity, bat-missing, chase, and usage combine into a transparent pitch-quality board.</p></section>',
+  '<div class="pitch-identity-grid">', signature_cards, '</div>',
   '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Arsenal leaderboard</span><h2>Highest whiff pitch types</h2><p>At least 50 swings and 100 total pitches in the underlying product.</p></div>',
   render_table(arsenal_whiffs, c("player_name", "team", "pitch_name", "pitches", "usage_rate", "average_velocity", "whiff_rate", "chase_rate", "pitch_change_rate"),
     c("Pitcher", "Team", "Pitch", "Pitches", "Usage", "Velo", "Whiff", "Chase", "Changed from prior"),
@@ -478,7 +595,8 @@ write_fragment("pitch-lab.html", c(
   stat_card("Pitch context", "Sequence change", "Previous → current", "Every pitch can be evaluated relative to the pitch before it.", "navy"),
   stat_card("Location", "Separation", "Feet at the plate", "Measures how far consecutive pitches move across the hitting window.", "steel"),
   stat_card("Contact", "Quality", "EV + launch angle", "Hard-hit and barrel-proxy fields remain explicitly labeled.", "red"),
-  '</section>'
+  '</section>',
+  '<div class="section-action"><a class="btn btn-metallic" href="matchups.html">Explore handedness matchup edges</a></div>'
 ))
 
 factor_labels <- c(

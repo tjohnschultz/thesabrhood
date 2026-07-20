@@ -1,0 +1,14 @@
+---
+title: "Story Engine"
+description: "A diversified, evidence-linked daily editorial assignment queue."
+---
+
+::: {.page-intro .story-intro}
+<span class="eyebrow">The assignment desk</span>
+
+# Where a statistic becomes a reporting lead
+
+The Story Engine ranks evidence without pretending to replace journalism. Eight analytical lanes create a balanced daily lineup for articles, video, newsletters, and broadcast notes.
+:::
+
+{{< include includes/story-desk.html >}}

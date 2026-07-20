@@ -7,13 +7,16 @@ reviewable outputs into those public surfaces.
 ```mermaid
 flowchart TD
   Home[Home / latest intelligence] --> Today[Today / signal desk]
+  Home --> StoryDesk[Story Engine / assignment queue]
   Home --> Races[League races]
   Home --> Research[Research stories]
   Home --> Newsletter[Daily newsletter]
   Today --> Players[Player intelligence]
   Today --> Teams[Team intelligence]
   Today --> History[History and milestones]
+  Today --> Matchups[Matchup edges]
   Players --> PitchLab[Pitch and sequence lab]
+  Matchups --> PitchLab
   Teams --> TeamPages[Thirty team dossiers]
   Races --> Forecasts[Projections and simulations]
   Forecasts --> Decisions[Manager and bullpen decisions]
@@ -38,7 +41,8 @@ flowchart TD
 ## Product boundaries
 
 - Public editorial: home, Today, races, players, teams, history, Pitch Lab,
-  projections, newsletter, research, and selected packet examples.
+  Matchup Edges, Story Engine, projections, newsletter, research, and selected
+  packet examples.
 - Private production: analytics lab, packet studio, editorial queue, and data
   quality controls.
 - Reusable engine: `sabrhoodR`, derived-data jobs, simulations, historical

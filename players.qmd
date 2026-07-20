@@ -12,3 +12,7 @@ Season results, quality of contact, run value, and sample reliability in one rep
 :::
 
 {{< include includes/player-leaders.html >}}
+
+::: {.section-action}
+[See the largest handedness matchup edges](matchups.qmd){.btn .btn-metallic}
+:::

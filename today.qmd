@@ -14,6 +14,8 @@ The strongest changes, matchups, and historical notes surfaced by our analytical
 {{< include includes/today-dashboard.html >}}
 
 ::: {.section-action}
+[Open the Story Engine](story-desk.qmd){.btn .btn-sabr-navy}
+[Explore matchup edges](matchups.qmd){.btn .btn-outline-sabr}
 [Open the performance race room](races.qmd){.btn .btn-primary}
 [Open the complete History Desk](history.qmd){.btn .btn-metallic}
 :::

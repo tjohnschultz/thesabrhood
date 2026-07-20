@@ -30,6 +30,10 @@ required_data <- c(
   ,"manager-hook-model.csv"
   ,"manager-hook-scenarios.csv"
   ,"bullpen-matchup-selector.csv"
+  ,"hitter-matchup-edges.csv"
+  ,"pitcher-matchup-edges.csv"
+  ,"signature-pitch-board.csv"
+  ,"daily-story-queue.csv"
 )
 
 required_fragments <- c(
@@ -46,6 +50,9 @@ required_fragments <- c(
   ,"history-desk.html"
   ,"home-team-pulse.html"
   ,"league-races.html"
+  ,"story-desk.html"
+  ,"home-story-desk.html"
+  ,"matchup-edges.html"
 )
 
 for (name in required_data) {
@@ -126,7 +133,7 @@ if (file.exists(re24_path)) {
 
 if (check_rendered) {
   required_pages <- c(
-    "index.html", "today.html", "races.html", "players.html", "teams.html", "history.html", "pitch-lab.html",
+    "index.html", "today.html", "races.html", "story-desk.html", "matchups.html", "players.html", "teams.html", "history.html", "pitch-lab.html",
     "projections.html", "newsletter.html", "blog.html", "broadcast.html",
     "methodology.html", "glossary.html", "about.html", "404.html"
   )

@@ -5,6 +5,8 @@ project:
     - index.qmd
     - today.qmd
     - races.qmd
+    - story-desk.qmd
+    - matchups.qmd
     - players.qmd
     - teams.qmd
     - history.qmd
@@ -48,14 +50,20 @@ website:
         text: Today
       - href: races.qmd
         text: Races
-      - href: players.qmd
-        text: Players
-      - href: teams.qmd
-        text: Teams
-      - href: history.qmd
-        text: History
-      - href: pitch-lab.qmd
-        text: Pitch Lab
+      - text: Intelligence
+        menu:
+          - href: story-desk.qmd
+            text: Story Engine
+          - href: players.qmd
+            text: Players
+          - href: teams.qmd
+            text: Teams
+          - href: matchups.qmd
+            text: Matchups
+          - href: pitch-lab.qmd
+            text: Pitch Lab
+          - href: history.qmd
+            text: History
       - href: projections.qmd
         text: Projections
       - href: newsletter.qmd

@@ -1,0 +1,14 @@
+---
+title: "Matchup Edges"
+description: "Qualified hitter and pitcher handedness splits with transparent sample context."
+---
+
+::: {.page-intro .matchup-intro}
+<span class="eyebrow">Matchup intelligence</span>
+
+# The same player is not the same matchup
+
+Find the largest qualified performance changes against left- and right-handed opponents, then use pitch shape, command, and game context to explain why.
+:::
+
+{{< include includes/matchup-edges.html >}}
