@@ -1,43 +1,45 @@
-::: {.sabr-hero}
-# Welcome to the SABRhood
+---
+title: "The SABRhood"
+description: "MLB analysis for fans, journalists, and broadcasters."
+---
 
-Welcome to the 'hood! Join us to learn more about the trends and #'s below the surface that control where the game is heading.
+::: {.home-hero}
+::: {.home-hero__copy}
+<span class="hero-kicker">Baseball intelligence for the whole neighborhood</span>
 
-[Read Articles](blog.qmd){.btn .btn-metallic}
-[Explore Leaderboards](leaderboards.qmd){.btn .btn-primary}
-[Stat Glossary](glossary.qmd){.btn .btn-outline-light}
+# See the game before the box score explains it.
+
+The SABRhood combines pitch-level research, daily signals, simulation, history, and journalistic reporting for fans and broadcasters.
+
+[Open today’s signal desk](today.qmd){.btn .btn-primary}
+[Explore the Pitch Lab](pitch-lab.qmd){.btn .btn-ghost}
 :::
 
-::: {.sabr-grid}
-
-::: {.sabr-card}
-<span class="sabr-pill">Articles</span>
-
-## Get schooled on the numbers behind the game.
-
-Player/team trends, prospects, and season expectations.
-
-[Read Articles](blog.qmd){.btn .btn-primary}
+::: {.home-hero__rail}
+<div class="hero-rail__label">Built for</div>
+<div class="hero-rail__item"><strong>Fans</strong><span>Understand what changed and why it matters.</span></div>
+<div class="hero-rail__item"><strong>Broadcasters</strong><span>Arrive with evidence, context, and the next question.</span></div>
+<div class="hero-rail__item"><strong>Journalists</strong><span>Move from a lead to reproducible research.</span></div>
+:::
 :::
 
-::: {.sabr-card}
-<span class="sabr-pill">Leaderboards</span>
+{{< include includes/home-snapshot.html >}}
 
-## Sort though our niche league leaders.
+::: {.feature-band}
+::: {.feature-band__copy}
+<span class="eyebrow">Research, not decoration</span>
 
-Custom leaderboards that make you say, "Huh".
+## Every chart should answer a baseball question
 
-[View Leaderboards](leaderboards.qmd){.btn .btn-sabr-navy}
+Our products connect outcomes to pitch traits, sequence, handedness, workload, game state, and historical context. Methods and sample reliability travel with the number.
 :::
 
-::: {.sabr-card}
-<span class="sabr-pill">Glossary</span>
-
-## Even Manny Machado can understand our stats.
-
-Explanations for custom and universal baseball stats.
-
-[Open Glossary](glossary.qmd){.btn .btn-metallic}
+::: {.feature-band__links}
+[Player intelligence](players.qmd){.feature-link}
+[Team pulse](teams.qmd){.feature-link}
+[Daily newsletter](newsletter.qmd){.feature-link}
+[Research archive](blog.qmd){.feature-link}
+[Broadcast services](broadcast.qmd){.feature-link}
+[Read the methodology](methodology.qmd){.feature-link}
 :::
-
 :::

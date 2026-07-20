@@ -1,0 +1,14 @@
+---
+title: "Today"
+description: "The daily MLB signal desk from The SABRhood."
+---
+
+::: {.page-intro}
+<span class="eyebrow">The daily desk</span>
+
+# Today in the SABRhood
+
+The strongest changes, matchups, and historical notes surfaced by our analytical engine—then reviewed with a journalist’s eye.
+:::
+
+{{< include includes/today-dashboard.html >}}

@@ -1,0 +1,14 @@
+---
+title: "Pitch Lab"
+description: "MLB pitch arsenals, movement, discipline, and sequencing."
+---
+
+::: {.page-intro}
+<span class="eyebrow">Pitch design, translated</span>
+
+# How an arsenal creates the result
+
+Velocity and movement matter. So do location, the previous pitch, the hitter’s handedness, and the count.
+:::
+
+{{< include includes/pitch-lab.html >}}

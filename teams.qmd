@@ -1,0 +1,14 @@
+---
+title: "Teams"
+description: "Current organization-level form signals across MLB."
+---
+
+::: {.page-intro}
+<span class="eyebrow">League monitor</span>
+
+# Team pulse
+
+A fast view of which organizations have the largest concentration of improving and cooling player signals.
+:::
+
+{{< include includes/team-pulse.html >}}

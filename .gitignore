@@ -28,3 +28,4 @@ data/newsletter_data/derived/
 data/aps_indy.rds
 data/mlb25_tbs.rds
 /.quarto/
+.localappdata/

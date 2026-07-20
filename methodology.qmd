@@ -1,0 +1,32 @@
+---
+title: "Methodology"
+description: "How The SABRhood defines, validates, and communicates its baseball metrics."
+---
+
+::: {.page-intro}
+<span class="eyebrow">Open methods</span>
+
+# Trust the number because you can inspect it
+
+Every published product has a defined grain, information cutoff, sample threshold, and method label.
+:::
+
+{{< include includes/methodology-data.html >}}
+
+## Core rules
+
+1. Raw play-by-play remains outside the public website.
+2. The site receives compact derived products with one documented row grain.
+3. Pregame analysis never uses information from later in the game.
+4. Estimated and proxy statistics are labeled as such.
+5. Small samples receive reliability fields instead of false certainty.
+6. Automated story candidates remain subject to editorial review.
+
+## Current analytical layers
+
+- Canonical pitch, plate-appearance, batted-ball, and pitcher-appearance views.
+- Empirical 24-state run expectancy and linear run value.
+- Hitter and pitcher results, contact quality, and platoon splits.
+- Pitch shape, discipline, and within-plate-appearance sequencing.
+- Recent performance compared with a non-overlapping earlier baseline.
+- Bullpen workload availability and exploratory pitcher-hook modeling.

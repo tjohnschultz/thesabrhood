@@ -1,0 +1,44 @@
+---
+title: "Projections"
+description: "The SABRhood daily simulation laboratory."
+---
+
+::: {.page-intro .page-intro--dark}
+<span class="eyebrow">Simulation laboratory</span>
+
+# From starting lineups to the final bullpen decision
+
+The rebuilt model will simulate the full game state rather than stopping when the starters leave.
+:::
+
+::: {.roadmap-grid}
+::: {.roadmap-card .is-complete}
+<span class="roadmap-step">01</span>
+
+## Starter matchup engine
+
+Validated event probabilities, explicit lineups, reproducible seeds, and compact outputs.
+:::
+
+::: {.roadmap-card .is-active}
+<span class="roadmap-step">02</span>
+
+## Bullpen entry
+
+Hook probability, recent workload, pitcher handedness, batter side, and leverage-aware reliever selection.
+:::
+
+::: {.roadmap-card}
+<span class="roadmap-step">03</span>
+
+## Calibration
+
+Backtests, uncertainty bands, park and opponent adjustments, and documented model versions.
+:::
+:::
+
+::: {.method-callout}
+Daily public projections will appear here only after time-based backtesting and calibration checks pass. This page intentionally does not present experimental probabilities as betting advice.
+:::
+
+{{< include includes/projections-model.html >}}

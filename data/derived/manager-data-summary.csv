@@ -1,0 +1,5 @@
+"dataset","rows","method"
+"manager_pitching_decisions",80928,"canonical_completed_pa_v1"
+"observed_pitcher_hooks",6914,"next_pitcher_changed_v1"
+"hook_model_training_rows",78794,"sabrhood_pooled_hook_logit_v1"
+"hook_model_validation_rows",16844,"sabrhood_hook_time_holdout_v1"

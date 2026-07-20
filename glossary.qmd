@@ -1,63 +1,66 @@
 ---
 title: "Glossary"
-format: html
+description: "Plain-language definitions for the metrics used across The SABRhood."
 ---
 
-```{=html}
-<style>
-  body {
-    background-color: #508ae6; /* A light blue, for example */
-    font-family: 'Roboto', sans-serif;
-  }
-</style>
-```
+::: {.page-intro}
+<span class="eyebrow">Speak baseball, not spreadsheet</span>
 
-Stat Glossary: \
+# The SABRhood glossary
 
-O-Swing% / Chase%: The percent of swings that a batter takes/ pitcher induces that are on pitches outside of the strike zone.
+Every metric should make the game easier to understand. These definitions explain what our numbers measure, how to read them, and where caution is warranted.
+:::
 
+## Hitting and plate discipline
 
-## Major League Baseball Stat Quantiles: 2025\
+**OPS** — On-base percentage plus slugging percentage. It is a compact measure of reaching base and hitting for power, but it does not adjust for park or league context.
 
-```{r}
-#| message: false
-#| warning: false
-#| echo: false
+**Estimated wOBA** — A weighted estimate of offensive value per plate appearance. Unlike OPS, it gives different outcomes values closer to their actual run impact. It is labeled as an estimate because this pipeline uses a transparent, internally calculated version.
 
-library(tidyverse); library(here); library(kableExtra); library(knitr); source(here("R", "metrics.R")); dl_path <- "C:\\Users\\Owner\\Downloads\\R Baseball\\saberhood_webpage\\data"
+**Chase rate (O-Swing%)** — The share of pitches outside the strike zone at which a hitter swings. For pitchers, it measures how often they induce those swings.
 
-quants_ps <- readRDS(here("data", "quants_ps.rds"))
-quants_bbe <- readRDS(here("data", "quants_bbe.rds"))
-quants_disc <- readRDS(here("data", "quants_disc.rds"))
+**Whiff rate** — Swinging strikes divided by total swings. This is different from strikeout rate because it describes individual pitches rather than completed plate appearances.
 
-quants_ps <- quants_ps %>% 
-  mutate(across(where(is.numeric), round, 2))
-quants_disc <- quants_disc %>%
-  mutate(across(where(is.numeric), round, 2))
-quants_bbe <- quants_bbe %>%
-  mutate(across(where(is.numeric), round, 2))
+**Hard-hit rate** — The share of batted balls hit at 95 mph or harder.
 
-kbl_quants_ps <- kbl(quants_ps, col.names = c("Pitch Type", "Velo", "IVB", "HB", "Spin", "VAA", "HAA"), caption = "Pitch Quantiles for Pitch Summaries") %>% 
-  kable_styling(full_width = T, bootstrap_options = "striped") %>% 
-  row_spec(c(0, 1:5, 11:15, 21:25, 31:35, 41:45, 51:55, 61:65), bold = T, background = "#eb8396") %>% 
-  row_spec(c(6:10, 16:20, 26:30, 36:40, 46:50, 56:60), bold = T, background = "#abeb83") %>% 
-  row_spec(odd_nums(1:nrow(quants_ps)), color = "#525454") %>% 
-  row_spec(even_nums(1:nrow(quants_ps)), color = "#495154")
-kbl_quants_bbe <- kbl(quants_bbe, col.names = c("Pitch Type", "Hard Hit %", "Barrel %", "EV", "LA"), caption = "Pitch Quantiles for Batted Ball Events") %>% 
-  kable_styling(full_width = T, bootstrap_options = "striped") %>% 
-  row_spec(c(0, 1:5, 11:15, 21:25, 31:35, 41:45, 51:55), bold = T, background = "#ebb083") %>% 
-  row_spec(c(6:10, 16:20, 26:30, 36:40, 46:50), bold = T, background = "#83cfeb") %>% 
-  row_spec(odd_nums(1:nrow(quants_bbe)), color = "#525454") %>% 
-  row_spec(even_nums(1:nrow(quants_bbe)), color = "#495154")
-kbl_quants_disc <- kbl(quants_disc, col.names = c("Pitch Type", "Swing %", "Whiff %", "Contact %", "Zone %", "Chase %", "Zone Swing %", "Outside Zone Contact %", "In Zone Contact %"), caption = "Pitch Quantiles for Plate Discipline") %>% 
-  kable_styling(full_width = T, bootstrap_options = "striped") %>% 
-  row_spec(c(0, 1:5, 11:15, 21:25, 31:35, 41:45, 51:55, 61:65), bold = T, background = "#b7c2e8") %>% 
-  row_spec(c(6:10, 16:20, 26:30, 36:40, 46:50, 56:60), bold = T, background = "#ebeb83") %>% 
-  row_spec(odd_nums(1:nrow(quants_disc)), color = "#525454") %>% 
-  row_spec(even_nums(1:nrow(quants_disc)), color = "#495154")
+**Barrel proxy** — A clearly labeled approximation of ideal exit-velocity and launch-angle contact. It should not be presented as MLB's official Barrel classification.
 
-#kables(list(kbl_quants_disc, kbl_quants_bbe, kbl_quants_ps))
-kbl_quants_ps
-  kbl_quants_bbe
-kbl_quants_disc
-```
+## Pitch shape and arsenal
+
+**Induced vertical break (IVB)** — How much a pitch resists gravity relative to a spinless trajectory. It describes movement, not the pitch's final height at the plate.
+
+**Horizontal break (HB)** — The pitch's horizontal movement, usually expressed in inches. Interpretation depends on pitcher handedness and the coordinate convention used by the source.
+
+**Vertical approach angle (VAA)** — The vertical angle at which the pitch crosses the front of home plate. A flatter fastball can play differently at the top of the zone.
+
+**Horizontal approach angle (HAA)** — The horizontal angle at which the pitch reaches the plate.
+
+**Usage rate** — A pitch type's share of all pitches thrown by that pitcher in the selected sample.
+
+**Sequence change** — Whether the current pitch type differs from the immediately preceding pitch in the plate appearance.
+
+**Location separation** — The distance between consecutive pitch locations as they cross the plate. It describes how much a pitcher moves the hitter's visual target.
+
+## Run and game context
+
+**RE24** — The expected runs remaining in an inning for each combination of outs and occupied bases. There are 24 possible base-out states.
+
+**Run value** — The change in expected runs caused by an event, including any runs that scored. Positive and negative signs are always documented from the perspective shown on the page.
+
+**Leverage** — The importance of a game situation based on how much the possible outcomes can change win probability. Our first public products use labeled leverage proxies until a full win-expectancy model is validated.
+
+## SABRhood signals
+
+**Form score** — A 0–100 cohort-relative signal comparing a player's recent window with a non-overlapping prior baseline. It is descriptive, not a rest-of-season projection.
+
+**Story score** — An editorial ranking aid that combines statistical magnitude, recency, historical interest, and sample confidence. It identifies candidates for reporting; it does not publish claims without review.
+
+**Reliability** — A sample-size indicator attached to a metric. Higher reliability means the estimate rests on more opportunities, not that future performance is certain.
+
+**Bullpen availability** — An estimate built from recent appearances, pitches, rest, role, and handedness. It models who is plausibly available; it does not claim knowledge of a manager's private plan.
+
+**Manager pitcher likelihood** — A planned decision model for ranking likely relief options given inning, score, base state, batter handedness, recent workload, role, and matchup quality.
+
+::: {.method-callout}
+Definitions will evolve alongside the model documentation. For formulas, thresholds, and data provenance, see the [methodology page](methodology.qmd).
+:::

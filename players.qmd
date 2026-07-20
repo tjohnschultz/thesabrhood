@@ -1,0 +1,14 @@
+---
+title: "Players"
+description: "MLB hitter and pitcher leaderboards with context and reliability."
+---
+
+::: {.page-intro}
+<span class="eyebrow">Player intelligence</span>
+
+# Performance with context
+
+Season results, quality of contact, run value, and sample reliability in one reporting layer.
+:::
+
+{{< include includes/player-leaders.html >}}

@@ -1,0 +1,8 @@
+"dataset","grain","rows","source_through"
+"raw_pbp","provider event row",349969,"2026-06-14"
+"pitch_view","pitch",314584,"2026-06-14"
+"plate_appearance_view","plate appearance",80928,"2026-06-14"
+"batted_ball_view","batted-ball plate appearance",54714,"2026-06-14"
+"pitcher_appearance_view","pitcher-game appearance",9048,"2026-06-14"
+"pitcher_registry","pitcher as of date",688,"2026-06-14"
+"bullpen_availability","pitcher pregame date",505,"2026-06-14"
