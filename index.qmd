@@ -25,6 +25,10 @@ The SABRhood combines pitch-level research, daily signals, simulation, history, 
 
 {{< include includes/home-snapshot.html >}}
 
+{{< include includes/home-research.html >}}
+
+{{< include includes/home-team-pulse.html >}}
+
 ::: {.feature-band}
 ::: {.feature-band__copy}
 <span class="eyebrow">Research, not decoration</span>
@@ -37,6 +41,7 @@ Our products connect outcomes to pitch traits, sequence, handedness, workload, g
 ::: {.feature-band__links}
 [Player intelligence](players.qmd){.feature-link}
 [Team pulse](teams.qmd){.feature-link}
+[History desk](history.qmd){.feature-link}
 [Daily newsletter](newsletter.qmd){.feature-link}
 [Research archive](blog.qmd){.feature-link}
 [Broadcast services](broadcast.qmd){.feature-link}

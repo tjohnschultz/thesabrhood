@@ -53,7 +53,9 @@ Every metric should make the game easier to understand. These definitions explai
 
 **Form score** — A 0–100 cohort-relative signal comparing a player's recent window with a non-overlapping prior baseline. It is descriptive, not a rest-of-season projection.
 
-**Story score** — An editorial ranking aid that combines statistical magnitude, recency, historical interest, and sample confidence. It identifies candidates for reporting; it does not publish claims without review.
+**Story score** — An editorial ranking aid combining magnitude, rarity, timeliness, relevance, recognition, historical importance, broadcast value, novelty, and confidence when those fields are available. It identifies candidates for reporting; it does not publish claims without review.
+
+**Career significance score** — A transparent editorial prominence score built from career totals, Hall of Fame status, awards, All-Star selections, longevity, postseason volume, and record standing. It helps recognizable or historically important players rise in a story queue. It is not WAR.
 
 **Reliability** — A sample-size indicator attached to a metric. Higher reliability means the estimate rests on more opportunities, not that future performance is certain.
 

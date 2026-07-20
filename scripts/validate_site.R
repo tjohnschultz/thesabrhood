@@ -11,6 +11,8 @@ fail <- function(message) {
 required_data <- c(
   "data-contract-summary.csv",
   "historical-anniversary-notes.csv",
+  "historical-milestone-notes.csv",
+  "historical-player-profiles.csv",
   "hitter-performance-summary.csv",
   "pitcher-performance-summary.csv",
   "pitch-type-summary.csv",
@@ -32,6 +34,10 @@ required_fragments <- c(
   "team-pulse.html",
   "methodology-data.html"
   ,"projections-model.html"
+  ,"article-listing.html"
+  ,"home-research.html"
+  ,"history-desk.html"
+  ,"home-team-pulse.html"
 )
 
 for (name in required_data) {
@@ -112,7 +118,7 @@ if (file.exists(re24_path)) {
 
 if (check_rendered) {
   required_pages <- c(
-    "index.html", "today.html", "players.html", "teams.html", "pitch-lab.html",
+    "index.html", "today.html", "players.html", "teams.html", "history.html", "pitch-lab.html",
     "projections.html", "newsletter.html", "blog.html", "broadcast.html",
     "methodology.html", "glossary.html", "about.html", "404.html"
   )

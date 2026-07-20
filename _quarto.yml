@@ -6,6 +6,7 @@ project:
     - today.qmd
     - players.qmd
     - teams.qmd
+    - history.qmd
     - pitch-lab.qmd
     - projections.qmd
     - newsletter.qmd
@@ -48,6 +49,8 @@ website:
         text: Players
       - href: teams.qmd
         text: Teams
+      - href: history.qmd
+        text: History
       - href: pitch-lab.qmd
         text: Pitch Lab
       - href: projections.qmd
@@ -68,6 +71,8 @@ website:
         text: Methodology
       - href: glossary.qmd
         text: Glossary
+      - href: history.qmd
+        text: History Desk
     right:
       - href: "https://x.com/thesabrhood"
         text: "@thesabrhood"

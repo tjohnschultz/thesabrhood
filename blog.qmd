@@ -1,74 +1,18 @@
 ---
-title: "Research"
+title: "Articles"
 description: "Original MLB reporting and analysis from The SABRhood."
 ---
 
-::: {.page-intro}
-<span class="eyebrow">Original reporting</span>
+::: {.articles-mast}
+<span class="eyebrow">Original reporting from the neighborhood</span>
 
-# Research and features
+# Articles and research
 
-Long-form baseball analysis grounded in reproducible data work. Each story starts with a question about the game and ends with evidence readers can follow.
+Long-form baseball stories grounded in pitch data, player development, game context, and the questions worth asking next.
 :::
 
-::: {.service-grid}
-::: {.service-card}
-<span class="eyebrow">June 29, 2026</span>
+{{< include includes/article-listing.html >}}
 
-## Caleb Durbin is Digging Deep
-
-There is a heat wave in Boston, centralized entirely in Caleb Durbin's bat.
-
-[Read the story →](posts/durbin_article.html)
-:::
-
-::: {.service-card}
-<span class="eyebrow">June 10, 2026</span>
-
-## Breaking Down Bello
-
-A pitch-level look at Brayan Bello's arsenal, results, and changing approach.
-
-[Read the story →](posts/bello_article_final.html)
-:::
-
-::: {.service-card}
-<span class="eyebrow">May 12, 2026</span>
-
-## A.J. Ewing Gets the Call
-
-What the data said when one of Boston's prospects reached the majors.
-
-[Read the story →](posts/A.J%20Ewing%20Gets%20the%20Call.html)
-:::
-
-::: {.service-card}
-<span class="eyebrow">April 21, 2026</span>
-
-## Series Rundown: Tigers at Red Sox
-
-A research-driven recap of the matchups and turning points at Fenway Park.
-
-[Read the story →](posts/Series%20Recap%20Tigers%20Sox.html)
-:::
-
-::: {.service-card}
-<span class="eyebrow">March 26, 2026</span>
-
-## The Halos Need a Hail Mary
-
-José Soriano's arsenal and the risk embedded in the Angels' rotation.
-
-[Read the story →](posts/sorianopreseason26.html)
-:::
-
-::: {.service-card}
-<span class="eyebrow">February 26, 2026</span>
-
-## Ceddanne's New Groove
-
-How Ceddanne Rafaela's swing decisions and batted-ball profile were changing.
-
-[Read the story →](posts/ceddannesnewgroove.html)
-:::
+::: {.method-callout}
+The research archive is being migrated into the new reusable data system one article at a time. Existing published stories remain available throughout the rebuild.
 :::

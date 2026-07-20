@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://thesabrhood.com/methodology.html</loc>
-    <lastmod>2026-07-20T07:03:21.048Z</lastmod>
+    <loc>https://thesabrhood.com/index.html</loc>
+    <lastmod>2026-07-20T15:21:35.950Z</lastmod>
+  </url>
+  <url>
+    <loc>https://thesabrhood.com/blog.html</loc>
+    <lastmod>2026-07-20T15:18:49.089Z</lastmod>
   </url>
   <url>
     <loc>https://thesabrhood.com/projections.html</loc>
     <lastmod>2026-07-20T07:17:51.797Z</lastmod>
   </url>
   <url>
-    <loc>https://thesabrhood.com/teams.html</loc>
-    <lastmod>2026-07-20T07:03:18.043Z</lastmod>
+    <loc>https://thesabrhood.com/history.html</loc>
+    <lastmod>2026-07-20T15:18:50.602Z</lastmod>
   </url>
   <url>
-    <loc>https://thesabrhood.com/today.html</loc>
-    <lastmod>2026-07-20T07:03:14.786Z</lastmod>
+    <loc>https://thesabrhood.com/players.html</loc>
+    <lastmod>2026-07-20T07:03:16.311Z</lastmod>
   </url>
   <url>
     <loc>https://thesabrhood.com/about.html</loc>
@@ -25,24 +29,20 @@
     <lastmod>2026-07-20T07:03:24.147Z</lastmod>
   </url>
   <url>
-    <loc>https://thesabrhood.com/blog.html</loc>
-    <lastmod>2026-07-20T07:12:15.834Z</lastmod>
-  </url>
-  <url>
     <loc>https://thesabrhood.com/glossary.html</loc>
-    <lastmod>2026-07-20T07:08:42.874Z</lastmod>
+    <lastmod>2026-07-20T15:24:19.733Z</lastmod>
   </url>
   <url>
     <loc>https://thesabrhood.com/leaderboards.html</loc>
     <lastmod>2026-07-20T07:08:51.124Z</lastmod>
   </url>
   <url>
-    <loc>https://thesabrhood.com/index.html</loc>
-    <lastmod>2026-07-20T07:03:25.658Z</lastmod>
+    <loc>https://thesabrhood.com/today.html</loc>
+    <lastmod>2026-07-20T15:19:00.163Z</lastmod>
   </url>
   <url>
-    <loc>https://thesabrhood.com/players.html</loc>
-    <lastmod>2026-07-20T07:03:16.311Z</lastmod>
+    <loc>https://thesabrhood.com/teams.html</loc>
+    <lastmod>2026-07-20T07:03:18.043Z</lastmod>
   </url>
   <url>
     <loc>https://thesabrhood.com/pitch-lab.html</loc>
@@ -51,5 +51,9 @@
   <url>
     <loc>https://thesabrhood.com/newsletter.html</loc>
     <lastmod>2026-07-20T07:04:41.169Z</lastmod>
+  </url>
+  <url>
+    <loc>https://thesabrhood.com/methodology.html</loc>
+    <lastmod>2026-07-20T15:24:18.333Z</lastmod>
   </url>
 </urlset>

@@ -30,3 +30,16 @@ Every published product has a defined grain, information cutoff, sample threshol
 - Pitch shape, discipline, and within-plate-appearance sequencing.
 - Recent performance compared with a non-overlapping earlier baseline.
 - Bullpen workload availability and exploratory pitcher-hook modeling.
+- Historical career profiles built from Lahman career totals, Hall of Fame voting,
+  awards, All-Star selections, postseason volume, longevity, and record standing.
+- Recognition-aware anniversary, milestone, and career-record story candidates.
+
+## Historical recognition model
+
+The career-significance score exists to improve editorial ordering. It is not a
+replacement for WAR and should never be cited as a value statistic. Hall of Fame
+status, major awards, All-Star selections, career volume, longevity, postseason
+volume, and top-ten career ranks contribute to the current version.
+
+Lahman does not include WAR. A future WAR layer must arrive as a separately
+sourced, versioned table and will remain visibly labeled by source and definition.

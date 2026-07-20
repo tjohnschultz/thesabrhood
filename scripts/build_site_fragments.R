@@ -48,6 +48,7 @@ fmt_dec <- function(value, digits = 3L) {
 fmt_score <- function(value) {
   ifelse(is.finite(num(value)), format(round(num(value), 1L), nsmall = 1L), "—")
 }
+fmt_yes_no <- function(value) ifelse(as.logical(value), "Yes", "No")
 
 write_fragment <- function(name, lines) {
   writeLines(enc2utf8(lines), file.path(include_dir, name), useBytes = TRUE)
@@ -98,6 +99,86 @@ render_table <- function(data, columns, labels, formatters = list(), table_class
   )
 }
 
+frontmatter_value <- function(lines, key, default = "") {
+  hit <- grep(paste0("^", key, ":"), lines, value = TRUE)
+  if (!length(hit)) return(default)
+  value <- trimws(sub(paste0("^", key, ":"), "", hit[[1L]]))
+  gsub('^\"|\"$', "", value)
+}
+
+article_descriptions <- c(
+  "durbin_article" = "There is a heat wave in Boston, centralized entirely in Caleb Durbin's bat.",
+  "bello_article_final" = "A pitch-level look at Brayan Bello's arsenal, results, and changing approach.",
+  "A.J Ewing Gets the Call" = "Can an early-season call-up change the direction of a club searching for a spark?",
+  "Series Recap Tigers Sox" = "A game-by-game research rundown of the matchups and turning points at Fenway Park.",
+  "CleanPig" = "Garrett Crochet has not had his usual filth. The pitch traits show what changed.",
+  "sorianopreseason26" = "Jose Soriano's arsenal and the risk embedded in the Angels' rotation.",
+  "ceddannesnewgroove" = "How Ceddanne Rafaela's swing decisions and batted-ball profile were changing."
+)
+article_categories <- c(
+  "durbin_article" = "Red Sox | Hitting",
+  "bello_article_final" = "Red Sox | Pitching",
+  "A.J Ewing Gets the Call" = "Prospects | Call-up",
+  "Series Recap Tigers Sox" = "Red Sox | Series",
+  "CleanPig" = "Red Sox | Pitching",
+  "sorianopreseason26" = "Angels | Pitching",
+  "ceddannesnewgroove" = "Red Sox | Hitting"
+)
+article_fallback_images <- c(
+  "CleanPig" = "images/crochet.png",
+  "Series Recap Tigers Sox" = "images/SABRHOODpng.png",
+  "sorianopreseason26" = "images/Soriano.jpg"
+)
+
+build_article_index <- function() {
+  paths <- list.files(file.path(site_root, "posts"), pattern = "\\.qmd$", full.names = TRUE)
+  paths <- paths[basename(paths) != "fla 2025 v 2026 article.qmd"]
+  rows <- lapply(paths, function(path) {
+    lines <- readLines(path, warn = FALSE, encoding = "UTF-8")
+    closing <- which(lines == "---")
+    front <- if (length(closing) >= 2L) lines[seq.int(2L, closing[[2L]] - 1L)] else lines
+    stem <- tools::file_path_sans_ext(basename(path))
+    image_path <- frontmatter_value(front, "image", article_fallback_images[[stem]])
+    image_path <- sub("^\\.\\./", "", image_path)
+    if (!nzchar(image_path) || !file.exists(file.path(site_root, image_path))) {
+      image_path <- article_fallback_images[[stem]]
+    }
+    if (is.null(image_path) || !nzchar(image_path) || !file.exists(file.path(site_root, image_path))) {
+      image_path <- "images/thesabrhood2clean.png"
+    }
+    description <- frontmatter_value(front, "description", article_descriptions[[stem]])
+    if (is.null(description) || !nzchar(description)) description <- "Original baseball research from The SABRhood."
+    category <- article_categories[[stem]]
+    if (is.null(category)) category <- "Research"
+    data.frame(
+      stem = stem,
+      title = frontmatter_value(front, "title", stem),
+      date = as.Date(frontmatter_value(front, "date", "1900-01-01")),
+      description = description,
+      category = category,
+      image = image_path,
+      href = paste0("posts/", utils::URLencode(stem, reserved = TRUE), ".html"),
+      stringsAsFactors = FALSE
+    )
+  })
+  output <- do.call(rbind, rows)
+  output[order(output$date, decreasing = TRUE), , drop = FALSE]
+}
+
+article_card <- function(article, featured = FALSE) {
+  class_name <- if (isTRUE(featured)) "article-feature" else "article-card"
+  paste0(
+    '<article class="', class_name, '"><a class="article-card__image" href="', html_escape(article$href), '">',
+    '<img src="', html_escape(article$image), '" alt="Artwork for ', html_escape(article$title), '" loading="lazy"></a>',
+    '<div class="article-card__copy"><span class="article-card__category">', html_escape(article$category), '</span>',
+    '<h2><a href="', html_escape(article$href), '">', html_escape(article$title), '</a></h2>',
+    '<p>', html_escape(article$description), '</p>',
+    '<div class="article-card__meta"><time datetime="', html_escape(as.character(article$date)), '">',
+    html_escape(format(article$date, "%B %d, %Y")), '</time><a href="', html_escape(article$href), '">Read story <span aria-hidden="true">&rarr;</span></a></div>',
+    '</div></article>'
+  )
+}
+
 hitters <- read_product("hitter-performance-summary.csv")
 pitchers <- read_product("pitcher-performance-summary.csv")
 hitter_form <- read_product("hitter-recent-form.csv")
@@ -106,11 +187,14 @@ hitter_platoon <- read_product("hitter-platoon-summary.csv")
 pitcher_platoon <- read_product("pitcher-platoon-summary.csv")
 pitch_types <- read_product("pitch-type-summary.csv")
 historical <- read_product("historical-anniversary-notes.csv")
+historical_milestones <- read_product("historical-milestone-notes.csv")
+historical_profiles <- read_product("historical-player-profiles.csv")
 re24 <- read_product("run-expectancy-24.csv")
 bullpen <- read_product("bullpen-availability.csv")
 manager <- read_product("manager-data-summary.csv")
 hook_validation <- read_product("manager-hook-validation-metrics.csv")
 hook_calibration <- read_product("manager-hook-calibration.csv")
+articles <- build_article_index()
 
 updated_date <- max(as.Date(hitters$last_game), na.rm = TRUE)
 updated_label <- format(updated_date, "%B %d, %Y")
@@ -152,6 +236,69 @@ write_fragment("home-snapshot.html", c(
   paste0('<div class="data-card-grid">', paste0(home_cards, collapse = ""), '</div>'),
   '<section class="section-heading section-heading--tight"><span class="eyebrow">Signal desk</span><h2>Three stories worth your attention</h2></section>',
   paste0('<div class="signal-grid">', paste0(home_signals, collapse = ""), '</div>')
+))
+
+write_fragment("article-listing.html", c(
+  '<section class="article-desk">',
+  article_card(articles[1, , drop = FALSE], featured = TRUE),
+  '<div class="article-grid">',
+  vapply(seq.int(2L, nrow(articles)), function(index) article_card(articles[index, , drop = FALSE]), character(1)),
+  '</div></section>'
+))
+
+write_fragment("home-research.html", c(
+  '<section class="section-heading"><span class="eyebrow">From the research desk</span><h2>Stories built from the numbers</h2><p>Original reporting, pitch studies, player development, and series analysis.</p></section>',
+  '<div class="article-grid article-grid--home">',
+  vapply(seq_len(min(3L, nrow(articles))), function(index) article_card(articles[index, , drop = FALSE]), character(1)),
+  '</div>',
+  '<div class="section-action"><a class="btn btn-metallic" href="blog.html">Open the full article archive</a></div>'
+))
+
+icon_profiles <- historical_profiles[order(-num(historical_profiles$career_significance_score)), ]
+icon_profiles <- icon_profiles[seq_len(min(15L, nrow(icon_profiles))), ]
+milestone_spotlights <- historical_milestones[!duplicated(historical_milestones$subject_id), ]
+milestone_spotlights <- milestone_spotlights[seq_len(min(8L, nrow(milestone_spotlights))), ]
+anniversary_spotlights <- historical[seq_len(min(8L, nrow(historical))), ]
+
+anniversary_cards <- vapply(seq_len(nrow(anniversary_spotlights)), function(index) {
+  player_card(
+    paste(anniversary_spotlights$recognition_tier[[index]], "anniversary"),
+    anniversary_spotlights$subject_name[[index]],
+    paste(anniversary_spotlights$years_ago[[index]], "years ago"),
+    anniversary_spotlights$headline[[index]],
+    anniversary_spotlights$career_summary[[index]],
+    fmt_score(anniversary_spotlights$story_score[[index]])
+  )
+}, character(1))
+
+milestone_cards <- vapply(seq_len(nrow(milestone_spotlights)), function(index) {
+  player_card(
+    paste(milestone_spotlights$recognition_tier[[index]], "career"),
+    milestone_spotlights$subject_name[[index]],
+    if (isTRUE(milestone_spotlights$record_flag[[index]])) paste("Career rank", fmt_int(milestone_spotlights$career_rank[[index]])) else "Career milestone",
+    milestone_spotlights$headline[[index]],
+    milestone_spotlights$body[[index]],
+    fmt_score(milestone_spotlights$story_score[[index]])
+  )
+}, character(1))
+
+write_fragment("history-desk.html", c(
+  '<div class="history-scoreboard">',
+  stat_card("Career profiles", "Recognizable players", fmt_int(nrow(historical_profiles)), "Historical careers above the public significance threshold.", "navy"),
+  stat_card("Recognition", "Icons", fmt_int(sum(historical_profiles$recognition_tier == "icon")), "Hall of Famers, record holders, and historically dominant careers.", "red"),
+  stat_card("Story inventory", "Milestone notes", fmt_int(nrow(historical_milestones)), "Career clubs and top-ten leaderboard context.", "steel"),
+  stat_card("Today", "Anniversary candidates", fmt_int(nrow(historical)), "Debuts and final appearances ranked for editorial review.", "navy"),
+  '</div>',
+  '<section class="section-heading"><span class="eyebrow">On this date</span><h2>The recognizable names rise first</h2><p>Career significance, awards, Hall of Fame status, record standing, and broadcast value now influence the daily queue.</p></section>',
+  '<div class="signal-grid signal-grid--four">', anniversary_cards, '</div>',
+  '<section class="section-heading"><span class="eyebrow">Milestone vault</span><h2>Career clubs and record context</h2><p>Evergreen research candidates built from Lahman career totals. True WAR remains a separate future input.</p></section>',
+  '<div class="signal-grid signal-grid--four">', milestone_cards, '</div>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Career prominence</span><h2>Historical icons in the recognition model</h2></div>',
+  render_table(icon_profiles, c("player_name", "recognition_tier", "career_significance_score", "career_H", "career_HR", "career_W", "career_SO_pitch", "allstar_selections", "hof_inducted"),
+    c("Player", "Tier", "Score", "Hits", "HR", "Wins", "Pitching SO", "All-Star", "Hall of Fame"),
+    list(career_significance_score = fmt_score, career_H = fmt_int, career_HR = fmt_int, career_W = fmt_int, career_SO_pitch = fmt_int, allstar_selections = fmt_int, hof_inducted = fmt_yes_no)),
+  '</section>',
+  '<div class="method-callout"><strong>Recognition is context, not a verdict:</strong> the score exists to rank story candidates for broadcasters and editors. Lahman does not supply WAR, so the current version never presents its prominence score as WAR.</div>'
 ))
 
 today_hitter_cards <- vapply(seq_len(min(4L, nrow(top_hitter_form))), function(i) {
@@ -294,12 +441,33 @@ team_pulse <- do.call(rbind, lapply(names(team_split), function(team_name) {
   )
 }))
 team_pulse <- team_pulse[order(-team_pulse$average_form), ][1:min(30L, nrow(team_pulse)), ]
+team_pulse_cards <- vapply(seq_len(min(6L, nrow(team_pulse))), function(index) {
+  player_card(
+    paste("League pulse #", index),
+    team_pulse$team[[index]],
+    paste("Top driver:", team_pulse$top_signal[[index]]),
+    paste(fmt_int(team_pulse$surging[[index]]), "surging player signals"),
+    paste(fmt_int(team_pulse$cooling[[index]]), "cooling signals | average form", fmt_score(team_pulse$average_form[[index]])),
+    fmt_score(team_pulse$average_form[[index]])
+  )
+}, character(1))
 write_fragment("team-pulse.html", c(
+  '<section class="section-heading"><span class="eyebrow">Team spotlights</span><h2>Who is driving the league pulse?</h2><p>The six strongest team-level concentrations, with the top individual signal attached.</p></section>',
+  '<div class="signal-grid">', team_pulse_cards, '</div>',
   '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Organization pulse</span><h2>Which clubs have the strongest current signals?</h2><p>Average recent-form score across qualifying hitters and pitchers. This is a roster-signal board, not a projected standings table.</p></div>',
   render_table(team_pulse, c("team", "average_form", "surging", "cooling", "top_signal"),
     c("Team", "Avg. form", "Surging", "Cooling", "Top signal"),
     list(average_form = fmt_score, surging = fmt_int, cooling = fmt_int)),
   '</section>'
+))
+write_fragment("home-team-pulse.html", c(
+  '<section class="section-heading"><span class="eyebrow">Around the league</span><h2>The clubs carrying the most surge signals</h2><p>Recent player movement aggregated into a team-level reporting lead.</p></section>',
+  '<section class="dashboard-block home-pulse-board">',
+  render_table(utils::head(team_pulse, 8L), c("team", "average_form", "surging", "cooling", "top_signal"),
+    c("Team", "Avg. form", "Surging", "Cooling", "Top driver"),
+    list(average_form = fmt_score, surging = fmt_int, cooling = fmt_int)),
+  '</section>',
+  '<div class="section-action"><a class="btn btn-metallic" href="teams.html">See all 30 team signals</a></div>'
 ))
 
 re_empty <- re24[re24$outs_before == 0 & re24$base_state_before == 0, ]
