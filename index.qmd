@@ -27,6 +27,8 @@ The SABRhood combines pitch-level research, daily signals, simulation, history, 
 
 {{< include includes/home-story-desk.html >}}
 
+{{< include includes/home-player-change.html >}}
+
 {{< include includes/home-research.html >}}
 
 {{< include includes/home-team-pulse.html >}}
@@ -42,6 +44,7 @@ Our products connect outcomes to pitch traits, sequence, handedness, workload, g
 
 ::: {.feature-band__links}
 [Player intelligence](players.qmd){.feature-link}
+[Player Change Engine](player-change-engine.qmd){.feature-link}
 [Performance races](races.qmd){.feature-link}
 [Story Engine](story-desk.qmd){.feature-link}
 [Matchup edges](matchups.qmd){.feature-link}

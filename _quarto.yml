@@ -8,6 +8,7 @@ project:
     - story-desk.qmd
     - matchups.qmd
     - players.qmd
+    - player-change-engine.qmd
     - teams.qmd
     - team-dossiers.qmd
     - team-dossiers/*.qmd
@@ -16,6 +17,7 @@ project:
     - projections.qmd
     - newsletter.qmd
     - blog.qmd
+    - posts/*.qmd
     - broadcast.qmd
     - methodology.qmd
     - glossary.qmd
@@ -28,6 +30,7 @@ project:
     - data/newsletter_data/newsletter_today.rds
     - data/derived/**
     - data/derived/README.md
+    - listings.json
 
 website:
   title: "The SABRhood"
@@ -58,6 +61,8 @@ website:
             text: Story Engine
           - href: players.qmd
             text: Players
+          - href: player-change-engine.qmd
+            text: Player Change Engine
           - href: teams.qmd
             text: Teams
           - href: team-dossiers.qmd

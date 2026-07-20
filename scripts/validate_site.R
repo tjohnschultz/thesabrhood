@@ -35,6 +35,8 @@ required_data <- c(
   ,"signature-pitch-board.csv"
   ,"daily-story-queue.csv"
   ,"team-broadcast-notes.csv"
+  ,"hitter-change-profiles.csv"
+  ,"pitcher-change-profiles.csv"
 )
 
 required_fragments <- c(
@@ -55,6 +57,8 @@ required_fragments <- c(
   ,"home-story-desk.html"
   ,"matchup-edges.html"
   ,"team-dossier-index.html"
+  ,"home-player-change.html"
+  ,"player-change-cards.html"
 )
 
 for (name in required_data) {
@@ -135,7 +139,7 @@ if (file.exists(re24_path)) {
 
 if (check_rendered) {
   required_pages <- c(
-    "index.html", "today.html", "races.html", "story-desk.html", "matchups.html", "players.html", "teams.html", "team-dossiers.html", "history.html", "pitch-lab.html",
+    "index.html", "today.html", "races.html", "story-desk.html", "matchups.html", "players.html", "player-change-engine.html", "teams.html", "team-dossiers.html", "history.html", "pitch-lab.html",
     "projections.html", "newsletter.html", "blog.html", "broadcast.html",
     "methodology.html", "glossary.html", "about.html", "404.html"
   )
@@ -153,10 +157,7 @@ if (check_rendered) {
   }
   required_legacy_assets <- c(
     "site_libs/kePrint-0.0.1/kePrint.js",
-    "site_libs/lightable-0.0.1/lightable.css",
-    "site_libs/quarto-listing/list.min.js",
-    "site_libs/quarto-listing/quarto-listing.js",
-    "site_libs/quarto-nav/headroom.min.js"
+    "site_libs/lightable-0.0.1/lightable.css"
   )
   for (name in required_legacy_assets) {
     if (!file.exists(file.path(site_root, "docs", name))) {

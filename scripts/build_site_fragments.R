@@ -48,6 +48,16 @@ fmt_dec <- function(value, digits = 3L) {
 fmt_score <- function(value) {
   ifelse(is.finite(num(value)), format(round(num(value), 1L), nsmall = 1L), "—")
 }
+fmt_z <- function(value) {
+  value <- num(value)
+  ifelse(is.finite(value), paste0(ifelse(value > 0, "+", ""), format(round(value, 1L), nsmall = 1L), " SD"), "—")
+}
+fmt_ordinal <- function(value) {
+  value <- round(num(value))
+  remainder_100 <- value %% 100
+  suffix <- ifelse(remainder_100 %in% 11:13, "th", ifelse(value %% 10 == 1, "st", ifelse(value %% 10 == 2, "nd", ifelse(value %% 10 == 3, "rd", "th"))))
+  paste0(value, suffix)
+}
 fmt_yes_no <- function(value) ifelse(as.logical(value), "Yes", "No")
 
 write_fragment <- function(name, lines) {
@@ -95,6 +105,99 @@ player_card <- function(kicker, name, team, headline, detail, score = NULL) {
     '<p><strong>', html_escape(headline), '</strong></p>',
     '<p class="muted">', html_escape(detail), '</p>',
     '</article>'
+  )
+}
+
+context_metric_labels <- c(
+  ops = "OPS", woba_estimate = "Est. wOBA", strikeout_rate = "Strikeout rate",
+  walk_rate = "Walk rate", hard_hit_rate = "Hard-hit rate", run_value_per_pa = "Run value / PA"
+)
+
+context_metric_label <- function(metric, perspective = "batter") {
+  if (perspective != "pitcher") return(context_metric_labels[[metric]])
+  pitcher_labels <- c(
+    ops = "OPS allowed", woba_estimate = "Est. wOBA allowed", strikeout_rate = "Strikeout rate",
+    walk_rate = "Walk rate allowed", hard_hit_rate = "Hard-hit rate allowed", run_value_per_pa = "Run value allowed / PA"
+  )
+  pitcher_labels[[metric]]
+}
+
+fmt_context_metric <- function(metric, value) {
+  if (metric %in% c("strikeout_rate", "walk_rate", "hard_hit_rate")) fmt_rate(value) else fmt_dec(value)
+}
+
+percentile_ruler <- function(label, percentile, detail = "") {
+  position <- pmax(pmin(num(percentile), 100), 0)
+  paste0(
+    '<div class="percentile-ruler"><div class="percentile-ruler__label"><span>', html_escape(label),
+    '</span><strong>', html_escape(fmt_ordinal(percentile)), '</strong></div>',
+    '<div class="percentile-ruler__track" role="img" aria-label="',
+    html_escape(paste(label, fmt_int(percentile), "MLB percentile")), '">',
+    '<span style="width:', format(round(position, 1), nsmall = 1), '%"></span>',
+    '<i style="left:', format(round(position, 1), nsmall = 1), '%"></i></div>',
+    if (nzchar(detail)) paste0('<small>', html_escape(detail), '</small>') else '', '</div>'
+  )
+}
+
+change_z_row <- function(row, metric) {
+  z <- num(row[[paste0(metric, "_change_z")]][[1L]])
+  width <- pmin(50, 50 * abs(z) / 4)
+  direction <- if (z >= 0) "positive" else "negative"
+  position_style <- if (z >= 0) "left:50%" else "right:50%"
+  recent <- row[[paste0("recent_", metric)]][[1L]]
+  baseline <- row[[paste0("baseline_", metric)]][[1L]]
+  label <- context_metric_label(metric, row$perspective[[1L]])
+  paste0(
+    '<div class="change-z-row"><div class="change-z-row__label"><span>', html_escape(label),
+    '</span><strong>', html_escape(fmt_z(z)), '</strong></div>',
+    '<div class="change-z-track" role="img" aria-label="',
+    html_escape(paste(label, fmt_z(z), "recent", fmt_context_metric(metric, recent), "baseline", fmt_context_metric(metric, baseline))), '">',
+    '<span class="change-z-zero"></span><span class="change-z-fill is-', direction, '" style="', position_style,
+    ';width:', format(round(width, 1), nsmall = 1), '%"></span></div>',
+    '<small>Recent ', html_escape(fmt_context_metric(metric, recent)), ' <span aria-hidden="true">vs</span> baseline ',
+    html_escape(fmt_context_metric(metric, baseline)), '</small></div>'
+  )
+}
+
+player_context_card <- function(row, compact = FALSE) {
+  perspective <- row$perspective[[1L]]
+  role <- if (perspective == "pitcher") "Pitcher change profile" else "Hitter change profile"
+  metrics <- names(context_metric_labels)
+  percentile_metrics <- if (isTRUE(compact)) c("ops", "woba_estimate", "hard_hit_rate") else metrics
+  percentile_html <- vapply(percentile_metrics, function(metric) {
+    percentile_ruler(
+      context_metric_label(metric, perspective),
+      row[[paste0("season_", metric, "_percentile")]][[1L]],
+      fmt_context_metric(metric, row[[paste0("season_", metric)]][[1L]])
+    )
+  }, character(1))
+  change_metrics <- if (isTRUE(compact)) row$dominant_change_stat[[1L]] else metrics
+  change_html <- vapply(change_metrics, function(metric) change_z_row(row, metric), character(1))
+  direction_class <- paste0("is-", row$dominant_change_direction[[1L]])
+  sample_noun <- if (perspective == "pitcher") "BF" else "PA"
+  paste0(
+    '<article class="player-context-card', if (compact) ' player-context-card--compact' else '', '">',
+    '<header class="player-context-card__head"><div><span class="eyebrow">', html_escape(role), '</span><h3>',
+    html_escape(row$player_name[[1L]]), '</h3><p>', html_escape(row$team[[1L]]), ' | ',
+    html_escape(row$hand[[1L]]), if (perspective == "pitcher") 'HP' else 'HB', '</p></div>',
+    '<span class="signal-score" aria-label="Context signal score ', html_escape(fmt_score(row$change_signal_score[[1L]])), '">',
+    html_escape(fmt_score(row$change_signal_score[[1L]])), '</span></header>',
+    '<div class="player-context-strip"><span><small>Season ', sample_noun, '</small><strong>', html_escape(fmt_int(row$season_pa[[1L]])),
+    '</strong></span><span><small>OPS', if (perspective == "pitcher") ' allowed' else '', '</small><strong>', html_escape(fmt_dec(row$season_ops[[1L]])),
+    '</strong></span><span><small>Est. wOBA', if (perspective == "pitcher") ' allowed' else '', '</small><strong>', html_escape(fmt_dec(row$season_woba_estimate[[1L]])),
+    '</strong></span><span><small>Sample</small><strong>', html_escape(row$season_sample_label[[1L]]), '</strong></span></div>',
+    '<div class="change-banner ', direction_class, '"><span>Biggest change</span><strong>',
+    html_escape(row$dominant_change_label[[1L]]), ' ', html_escape(fmt_z(row$dominant_change_z[[1L]])),
+    '</strong><p>', html_escape(row$change_context[[1L]]), '</p></div>',
+    '<div class="player-context-card__body"><section><div class="context-subhead"><span>Season context</span><small>MLB percentile</small></div>',
+    '<div class="percentile-stack">', paste0(percentile_html, collapse = ""), '</div>',
+    '<div class="percentile-axis" aria-hidden="true"><span>0</span><span>League midpoint</span><span>100</span></div></section>',
+    '<section><div class="context-subhead"><span>What changed</span><small>Recent vs earlier season</small></div>',
+    '<div class="change-z-stack">', paste0(change_html, collapse = ""), '</div>',
+    '<div class="change-z-axis" aria-hidden="true"><span>Cooling</span><span>0 SD</span><span>Improving</span></div></section></div>',
+    '<footer class="player-context-card__note"><strong>Broadcast read:</strong> ', html_escape(row$change_context[[1L]]),
+    ' Recent sample: ', html_escape(fmt_int(row$recent_pa[[1L]])), ' ', sample_noun,
+    '; prior sample: ', html_escape(fmt_int(row$baseline_pa[[1L]])), ' ', sample_noun, '.</footer></article>'
   )
 }
 
@@ -263,6 +366,8 @@ hitter_matchups <- read_product("hitter-matchup-edges.csv")
 pitcher_matchups <- read_product("pitcher-matchup-edges.csv")
 signature_pitches <- read_product("signature-pitch-board.csv")
 team_broadcast_notes <- read_product("team-broadcast-notes.csv")
+hitter_changes <- read_product("hitter-change-profiles.csv")
+pitcher_changes <- read_product("pitcher-change-profiles.csv")
 re24 <- read_product("run-expectancy-24.csv")
 bullpen <- read_product("bullpen-availability.csv")
 manager <- read_product("manager-data-summary.csv")
@@ -278,6 +383,15 @@ updated_label <- format(updated_date, "%B %d, %Y")
 
 top_hitter_form <- hitter_form[order(-num(hitter_form$form_score), -num(hitter_form$recent_pa)), ][1:6, ]
 top_pitcher_form <- pitcher_form[order(-num(pitcher_form$form_score), -num(pitcher_form$recent_pa)), ][1:6, ]
+all_changes <- rbind(hitter_changes, pitcher_changes)
+all_changes <- all_changes[order(-num(all_changes$change_signal_score), -num(all_changes$dominant_change_abs_z)), , drop = FALSE]
+change_spotlights <- do.call(rbind, lapply(c("batter", "pitcher"), function(perspective) {
+  do.call(rbind, lapply(c("improving", "declining"), function(direction) {
+    rows <- all_changes[all_changes$perspective == perspective & all_changes$dominant_change_direction == direction, , drop = FALSE]
+    utils::head(rows, 2L)
+  }))
+}))
+change_spotlights <- change_spotlights[order(-num(change_spotlights$change_signal_score)), , drop = FALSE]
 ops_leaders <- hitters[order(-num(hitters$ops), -num(hitters$pa)), ][1:10, ]
 woba_leaders <- hitters[order(-num(hitters$woba_estimate), -num(hitters$pa)), ][1:10, ]
 pitcher_suppressors <- pitchers[order(num(pitchers$ops), -num(pitchers$pa)), ][1:10, ]
@@ -319,6 +433,15 @@ write_fragment("home-snapshot.html", c(
   paste0('<div class="data-card-grid">', paste0(home_cards, collapse = ""), '</div>'),
   '<section class="section-heading section-heading--tight"><span class="eyebrow">Signal desk</span><h2>Three stories worth your attention</h2></section>',
   paste0('<div class="signal-grid">', paste0(home_signals, collapse = ""), '</div>')
+))
+
+home_change_cards <- vapply(seq_len(min(4L, nrow(change_spotlights))), function(index) {
+  player_context_card(change_spotlights[index, , drop = FALSE], compact = TRUE)
+}, character(1))
+write_fragment("home-player-change.html", c(
+  '<section class="section-heading"><span class="eyebrow">Change Engine</span><h2>The number moved. Here is the context.</h2><p>Every signal pairs a recent-versus-prior z-score with the player\'s full-season MLB percentile, so a hot stretch is never mistaken for an elite season.</p></section>',
+  '<div class="player-context-grid player-context-grid--compact">', home_change_cards, '</div>',
+  '<div class="section-action"><a class="btn btn-metallic" href="player-change-engine.html">Open the full Player Change Engine</a></div>'
 ))
 
 write_fragment("article-listing.html", c(
@@ -522,8 +645,8 @@ write_fragment("league-races.html", c(
   '</section>'
 ))
 
-newsletter_hitter <- top_hitter_form[1, ]
-newsletter_pitcher <- top_pitcher_form[1, ]
+newsletter_hitter <- change_spotlights[change_spotlights$perspective == "batter" & change_spotlights$dominant_change_direction == "improving", , drop = FALSE][1L, ]
+newsletter_pitcher <- change_spotlights[change_spotlights$perspective == "pitcher" & change_spotlights$dominant_change_direction == "improving", , drop = FALSE][1L, ]
 newsletter_history <- historical[1:min(5L, nrow(historical)), ]
 newsletter_history_list <- paste0(
   '<li><strong>', html_escape(newsletter_history$subject_name), '</strong><span>',
@@ -549,8 +672,8 @@ write_fragment("newsletter-daily.html", c(
     html_escape(fmt_dec(newsletter_hitter$recent_ops[[1]])), ' OPS across ', html_escape(fmt_int(newsletter_hitter$recent_pa[[1]])),
     ' recent plate appearances, compared with ', html_escape(fmt_dec(newsletter_hitter$baseline_ops[[1]])), ' before the current window.</p>'),
   paste0('<div class="evidence-row"><span><small>Form score</small><strong>', html_escape(fmt_score(newsletter_hitter$form_score[[1]])),
-    '</strong></span><span><small>OPS change</small><strong>', html_escape(fmt_dec(newsletter_hitter$ops_delta[[1]])),
-    '</strong></span><span><small>Confidence</small><strong>', html_escape(fmt_dec(newsletter_hitter$form_score_confidence[[1]])), '</strong></span></div>'),
+    '</strong></span><span><small>Biggest shift</small><strong>', html_escape(fmt_z(newsletter_hitter$dominant_change_z[[1]])),
+    '</strong></span><span><small>Season context</small><strong>', html_escape(paste0(fmt_ordinal(newsletter_hitter$dominant_season_percentile[[1]]), " pct.")), '</strong></span></div>'),
   '<p class="method-note">The recent window and prior baseline do not overlap. Form score is a cohort-relative signal, not a rest-of-season projection.</p></section>',
   '<section class="newsletter-story"><span class="eyebrow">Run prevention</span>',
   paste0('<h2>', html_escape(newsletter_pitcher$player_name[[1]]), ' has changed the quality of contact</h2>'),
@@ -558,8 +681,9 @@ write_fragment("newsletter-daily.html", c(
     html_escape(fmt_dec(newsletter_pitcher$recent_ops[[1]])), ' OPS in the recent window. The prior baseline was ',
     html_escape(fmt_dec(newsletter_pitcher$baseline_ops[[1]])), '.</p>'),
   paste0('<div class="evidence-row"><span><small>Recent BF</small><strong>', html_escape(fmt_int(newsletter_pitcher$recent_pa[[1]])),
-    '</strong></span><span><small>RV/PA change</small><strong>', html_escape(fmt_dec(newsletter_pitcher$run_value_per_pa_delta[[1]])),
-    '</strong></span><span><small>Form score</small><strong>', html_escape(fmt_score(newsletter_pitcher$form_score[[1]])), '</strong></span></div>'),
+    '</strong></span><span><small>Biggest shift</small><strong>', html_escape(fmt_z(newsletter_pitcher$dominant_change_z[[1]])),
+    '</strong></span><span><small>Season context</small><strong>', html_escape(paste0(fmt_ordinal(newsletter_pitcher$dominant_season_percentile[[1]]), " pct.")), '</strong></span></div>'),
+  paste0('<p class="method-note"><strong>Context read:</strong> ', html_escape(newsletter_pitcher$change_context[[1]]), '</p>'),
   '</section>',
   '</main><aside class="newsletter-side">',
   '<section class="newsletter-note"><span class="eyebrow">On this date</span><h2>History queue</h2><ul class="history-list">',
@@ -579,6 +703,22 @@ write_fragment("newsletter-daily.html", c(
   '<a href="pitch-lab.html">Inspect the Pitch Lab <span>→</span></a>',
   '<a href="methodology.html">Audit the methods <span>→</span></a>',
   '</section></aside></div>'
+))
+
+change_profile_cards <- vapply(seq_len(nrow(change_spotlights)), function(index) {
+  player_context_card(change_spotlights[index, , drop = FALSE], compact = FALSE)
+}, character(1))
+change_board <- utils::head(all_changes, 30L)
+write_fragment("player-change-cards.html", c(
+  '<div class="change-method-strip"><strong>Two lenses, one read</strong><span><b>Change z-score</b> compares each player\'s recent shift with the MLB cohort. <b>Season percentile</b> compares the player\'s full-season level with league peers.</span></div>',
+  '<section class="section-heading"><span class="eyebrow">Balanced change radar</span><h2>Eight players whose underlying conversation moved</h2><p>The board deliberately includes hitters, pitchers, improvements, and declines. Signal priority rewards unusual movement while accounting for recent-sample reliability.</p></section>',
+  '<div class="player-context-grid">', change_profile_cards, '</div>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">League change board</span><h2>The 30 strongest context signals</h2><p>The selected stat is the largest absolute direction-aware z-score across OPS, estimated wOBA, strikeout rate, walk rate, hard-hit rate, and run value per plate appearance.</p></div>',
+  render_table(change_board, c("player_name", "team", "perspective", "dominant_change_label", "dominant_change_z", "dominant_season_percentile", "recent_pa", "baseline_pa", "change_signal_score"),
+    c("Player", "Team", "Role", "Biggest change", "Change z", "Season pct.", "Recent", "Prior", "Signal"),
+    list(dominant_change_z = fmt_z, dominant_season_percentile = fmt_ordinal, recent_pa = fmt_int, baseline_pa = fmt_int, change_signal_score = fmt_score), "data-table change-board-table"),
+  '</section>',
+  '<div class="method-callout"><strong>Interpretation boundary:</strong> a +2 SD change means the direction of movement is unusual among qualified peers; it does not mean the player is two standard deviations above league quality. Season percentiles answer the quality question separately. Neither is a projection.</div>'
 ))
 
 write_fragment("player-leaders.html", c(
@@ -731,17 +871,6 @@ write_fragment("team-dossier-index.html", c(
   '<div class="method-callout"><strong>Dossier status:</strong> these are automated research foundations through June 14, 2026. Editorial notes, roster confirmation, and opponent-specific context are the next layer before broadcast use.</div>'
 ))
 
-form_card_for_team <- function(row) {
-  role_label <- if (row$perspective[[1L]] == "pitcher") "Pitcher form" else "Hitter form"
-  metric_label <- if (row$perspective[[1L]] == "pitcher") "recent OPS allowed" else "recent OPS"
-  player_card(
-    role_label, row$player_name[[1L]], row$team[[1L]],
-    paste(fmt_dec(row$recent_ops[[1L]]), metric_label),
-    paste("Prior", fmt_dec(row$baseline_ops[[1L]]), "| change", fmt_dec(row$ops_delta[[1L]])),
-    fmt_score(row$form_score[[1L]])
-  )
-}
-
 team_names <- as.character(team_intelligence$team)
 for (index in seq_along(team_names)) {
   team <- team_names[[index]]
@@ -751,8 +880,8 @@ for (index in seq_along(team_names)) {
   team_hitters <- team_hitters[order(-num(team_hitters$woba_estimate), -num(team_hitters$pa)), , drop = FALSE]
   team_pitchers <- pitchers[pitchers$team == team, , drop = FALSE]
   team_pitchers <- team_pitchers[order(num(team_pitchers$woba_estimate), -num(team_pitchers$pa)), , drop = FALSE]
-  team_form <- rbind(hitter_form[hitter_form$team == team, , drop = FALSE], pitcher_form[pitcher_form$team == team, , drop = FALSE])
-  team_form <- team_form[order(-num(team_form$form_score), -num(team_form$recent_pa)), , drop = FALSE]
+  team_changes <- all_changes[all_changes$team == team, , drop = FALSE]
+  team_changes <- team_changes[order(-num(team_changes$change_signal_score), -num(team_changes$dominant_change_abs_z)), , drop = FALSE]
   team_pitches <- signature_pitches[signature_pitches$team == team, , drop = FALSE]
   team_pitches <- team_pitches[order(num(team_pitches$pitch_quality_rank)), , drop = FALSE]
   team_matchups <- rbind(hitter_matchups[hitter_matchups$team == team, , drop = FALSE], pitcher_matchups[pitcher_matchups$team == team, , drop = FALSE])
@@ -778,8 +907,8 @@ for (index in seq_along(team_names)) {
     '</small><h3>', html_escape(team_notes$headline), '</h3><p>', html_escape(team_notes$evidence), '</p></div></li>',
     collapse = ""
   )
-  form_cards <- if (nrow(team_form)) {
-    vapply(seq_len(min(4L, nrow(team_form))), function(row_index) form_card_for_team(team_form[row_index, , drop = FALSE]), character(1))
+  form_cards <- if (nrow(team_changes)) {
+    vapply(seq_len(min(2L, nrow(team_changes))), function(row_index) player_context_card(team_changes[row_index, , drop = FALSE], compact = FALSE), character(1))
   } else character()
   pitch_cards <- if (nrow(team_pitches)) {
     vapply(seq_len(min(2L, nrow(team_pitches))), function(row_index) pitch_identity_card(team_pitches[row_index, , drop = FALSE]), character(1))
@@ -799,8 +928,8 @@ for (index in seq_along(team_names)) {
     rank_meter("Bullpen readiness", team_row$bullpen_rank[[1L]], paste("Current state", team_row$bullpen_health[[1L]])),
     '</section>',
     '<section class="broadcast-three"><div class="section-heading section-heading--tight"><span class="eyebrow">Broadcast three</span><h2>Three notes to take on air</h2><p>Short leads with an evidence trail, ready for verification and expansion.</p></div><ol>', notes_html, '</ol></section>',
-    '<section class="section-heading"><span class="eyebrow">Current movement</span><h2>The players changing the team conversation</h2></section>',
-    if (length(form_cards)) paste0('<div class="signal-grid signal-grid--four">', paste0(form_cards, collapse = ""), '</div>') else '<div class="method-callout">No players met both recent and baseline form thresholds.</div>',
+    '<section class="section-heading"><span class="eyebrow">Why it changed</span><h2>Player movement with league context attached</h2><p>The recent-window shift and the full-season league standing are separate, so a surge never floats free of the player\'s actual level.</p></section>',
+    if (length(form_cards)) paste0('<div class="player-context-grid player-context-grid--dossier">', paste0(form_cards, collapse = ""), '</div>') else '<div class="method-callout">No players met both recent and baseline form thresholds.</div>',
     '<section class="dossier-split-grid"><div class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Offense</span><h2>Leading hitter profiles</h2></div>',
     if (nrow(team_hitters)) render_table(utils::head(team_hitters, 5L), c("player_name", "pa", "ops", "woba_estimate", "hard_hit_rate", "strikeout_rate", "walk_rate"), c("Hitter", "PA", "OPS", "wOBA est.", "Hard-hit", "K%", "BB%"), list(pa = fmt_int, ops = fmt_dec, woba_estimate = fmt_dec, hard_hit_rate = fmt_rate, strikeout_rate = fmt_rate, walk_rate = fmt_rate)) else '<p>No qualified hitters in the current build.</p>',
     '</div><div class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Run prevention</span><h2>Leading pitcher profiles</h2></div>',

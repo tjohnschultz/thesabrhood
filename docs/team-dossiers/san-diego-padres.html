@@ -136,6 +136,10 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
  <span class="dropdown-text">Players</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../player-change-engine.html">
+ <span class="dropdown-text">Player Change Engine</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../teams.html">
  <span class="dropdown-text">Teams</span></a>
   </li>  
@@ -326,79 +330,326 @@ Quality score 91.4; usage 55.9%.
 </ol>
 </section>
 <section class="section-heading">
-<span class="eyebrow">Current movement</span>
+<span class="eyebrow">Why it changed</span>
 <h2 class="anchored">
-The players changing the team conversation
+Player movement with league context attached
 </h2>
-</section>
-<div class="signal-grid signal-grid--four">
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Pitcher form</span><span class="signal-score" aria-label="Signal score 73.6">73.6</span>
-</div>
-<h3 class="anchored">
-David Morgan
-</h3>
-<p class="player-signal__team">
-San Diego Padres
-</p>
 <p>
-<strong>0.578 recent OPS allowed</strong>
+The recent-window shift and the full-season league standing are separate, so a surge never floats free of the player’s actual level.
 </p>
-<p class="muted">
-Prior 0.958 | change -0.380
+</section>
+<div class="player-context-grid player-context-grid--dossier">
+<article class="player-context-card">
+<header class="player-context-card__head">
+<div>
+<span class="eyebrow">Pitcher change profile</span>
+<h3 class="anchored">
+Bradgley Rodriguez
+</h3>
+<p>
+San Diego Padres | RHP
 </p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Hitter form</span><span class="signal-score" aria-label="Signal score 72.8">72.8</span>
 </div>
+<span class="signal-score" aria-label="Context signal score 37.3">37.3</span>
+</header>
+<div class="player-context-strip">
+<span><small>Season BF</small><strong>140</strong></span><span><small>OPS allowed</small><strong>0.602</strong></span><span><small>Est. wOBA allowed</small><strong>0.264</strong></span><span><small>Sample</small><strong>moderate</strong></span>
+</div>
+<div class="change-banner is-declining">
+<span>Biggest change</span><strong>hard-hit rate allowed -2.5 SD</strong>
+<p>
+Hard-hit rate allowed is the largest recent shift: declining by 2.5 standard deviations versus the MLB change pattern. Season level: 87th percentile.
+</p>
+</div>
+<div class="player-context-card__body">
+<section>
+<div class="context-subhead">
+<span>Season context</span><small>MLB percentile</small>
+</div>
+<div class="percentile-stack">
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>OPS allowed</span><strong>83rd</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="OPS allowed 83 MLB percentile">
+<span style="width:83.0%"></span><i style="left:83.0%"></i>
+</div>
+<small>0.602</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Est. wOBA allowed</span><strong>85th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Est. wOBA allowed 85 MLB percentile">
+<span style="width:85.0%"></span><i style="left:85.0%"></i>
+</div>
+<small>0.264</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Strikeout rate</span><strong>49th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Strikeout rate 49 MLB percentile">
+<span style="width:49.0%"></span><i style="left:49.0%"></i>
+</div>
+<small>22.1%</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Walk rate allowed</span><strong>46th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Walk rate allowed 46 MLB percentile">
+<span style="width:46.0%"></span><i style="left:46.0%"></i>
+</div>
+<small>8.6%</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Hard-hit rate allowed</span><strong>87th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Hard-hit rate allowed 87 MLB percentile">
+<span style="width:87.0%"></span><i style="left:87.0%"></i>
+</div>
+<small>32.0%</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Run value allowed / PA</span><strong>60th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Run value allowed / PA 60 MLB percentile">
+<span style="width:60.0%"></span><i style="left:60.0%"></i>
+</div>
+<small>-0.020</small>
+</div>
+</div>
+<div class="percentile-axis" aria-hidden="true">
+<span>0</span><span>League midpoint</span><span>100</span>
+</div>
+</section>
+<section>
+<div class="context-subhead">
+<span>What changed</span><small>Recent vs earlier season</small>
+</div>
+<div class="change-z-stack">
+<div class="change-z-row">
+<div class="change-z-row__label">
+<span>OPS allowed</span><strong>-1.3 SD</strong>
+</div>
+<div class="change-z-track" role="img" aria-label="OPS allowed -1.3 SD recent 0.969 baseline 0.521">
+<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:16.2%"></span>
+</div>
+<small>Recent 0.969 <span aria-hidden="true">vs</span> baseline 0.521</small>
+</div>
+<div class="change-z-row">
+<div class="change-z-row__label">
+<span>Est. wOBA allowed</span><strong>-1.4 SD</strong>
+</div>
+<div class="change-z-track" role="img" aria-label="Est. wOBA allowed -1.4 SD recent 0.414 baseline 0.229">
+<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:17.7%"></span>
+</div>
+<small>Recent 0.414 <span aria-hidden="true">vs</span> baseline 0.229</small>
+</div>
+<div class="change-z-row">
+<div class="change-z-row__label">
+<span>Strikeout rate</span><strong>-0.5 SD</strong>
+</div>
+<div class="change-z-track" role="img" aria-label="Strikeout rate -0.5 SD recent 18.5% baseline 23.0%">
+<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:6.6%"></span>
+</div>
+<small>Recent 18.5% <span aria-hidden="true">vs</span> baseline 23.0%</small>
+</div>
+<div class="change-z-row">
+<div class="change-z-row__label">
+<span>Walk rate allowed</span><strong>-1.4 SD</strong>
+</div>
+<div class="change-z-track" role="img" aria-label="Walk rate allowed -1.4 SD recent 14.8% baseline 7.1%">
+<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:18.1%"></span>
+</div>
+<small>Recent 14.8% <span aria-hidden="true">vs</span> baseline 7.1%</small>
+</div>
+<div class="change-z-row">
+<div class="change-z-row__label">
+<span>Hard-hit rate allowed</span><strong>-2.5 SD</strong>
+</div>
+<div class="change-z-track" role="img" aria-label="Hard-hit rate allowed -2.5 SD recent 55.6% baseline 26.6%">
+<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:30.8%"></span>
+</div>
+<small>Recent 55.6% <span aria-hidden="true">vs</span> baseline 26.6%</small>
+</div>
+<div class="change-z-row">
+<div class="change-z-row__label">
+<span>Run value allowed / PA</span><strong>-0.3 SD</strong>
+</div>
+<div class="change-z-track" role="img" aria-label="Run value allowed / PA -0.3 SD recent 0.025 baseline -0.031">
+<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:4.1%"></span>
+</div>
+<small>Recent 0.025 <span aria-hidden="true">vs</span> baseline -0.031</small>
+</div>
+</div>
+<div class="change-z-axis" aria-hidden="true">
+<span>Cooling</span><span>0 SD</span><span>Improving</span>
+</div>
+</section>
+</div>
+<footer class="player-context-card__note">
+<strong>Broadcast read:</strong> Hard-hit rate allowed is the largest recent shift: declining by 2.5 standard deviations versus the MLB change pattern. Season level: 87th percentile. Recent sample: 27 BF; prior sample: 113 BF.
+</footer>
+</article>
+<article class="player-context-card">
+<header class="player-context-card__head">
+<div>
+<span class="eyebrow">Hitter change profile</span>
 <h3 class="anchored">
 Freddy Fermin
 </h3>
-<p class="player-signal__team">
-San Diego Padres
-</p>
 <p>
-<strong>0.894 recent OPS</strong>
+San Diego Padres | RHB
 </p>
-<p class="muted">
-Prior 0.410 | change 0.484
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Pitcher form</span><span class="signal-score" aria-label="Signal score 60.5">60.5</span>
 </div>
-<h3 class="anchored">
-Wandy Peralta
-</h3>
-<p class="player-signal__team">
-San Diego Padres
-</p>
-<p>
-<strong>0.525 recent OPS allowed</strong>
-</p>
-<p class="muted">
-Prior 0.762 | change -0.237
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Hitter form</span><span class="signal-score" aria-label="Signal score 57.3">57.3</span>
+<span class="signal-score" aria-label="Context signal score 36.1">36.1</span>
+</header>
+<div class="player-context-strip">
+<span><small>Season PA</small><strong>142</strong></span><span><small>OPS</small><strong>0.505</strong></span><span><small>Est. wOBA</small><strong>0.230</strong></span><span><small>Sample</small><strong>moderate</strong></span>
 </div>
-<h3 class="anchored">
-Fernando Tatis Jr.
-</h3>
-<p class="player-signal__team">
-San Diego Padres
-</p>
+<div class="change-banner is-improving">
+<span>Biggest change</span><strong>run value per PA +2.4 SD</strong>
 <p>
-<strong>0.856 recent OPS</strong>
+Run value per PA is the largest recent shift: improving by 2.4 standard deviations versus the MLB change pattern. Season level: 0th percentile.
 </p>
-<p class="muted">
-Prior 0.655 | change 0.201
-</p>
+</div>
+<div class="player-context-card__body">
+<section>
+<div class="context-subhead">
+<span>Season context</span><small>MLB percentile</small>
+</div>
+<div class="percentile-stack">
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>OPS</span><strong>1st</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="OPS 1 MLB percentile">
+<span style="width:1.0%"></span><i style="left:1.0%"></i>
+</div>
+<small>0.505</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Est. wOBA</span><strong>0th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Est. wOBA 0 MLB percentile">
+<span style="width:0.0%"></span><i style="left:0.0%"></i>
+</div>
+<small>0.230</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Strikeout rate</span><strong>54th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Strikeout rate 54 MLB percentile">
+<span style="width:54.0%"></span><i style="left:54.0%"></i>
+</div>
+<small>20.4%</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Walk rate</span><strong>61st</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Walk rate 61 MLB percentile">
+<span style="width:61.0%"></span><i style="left:61.0%"></i>
+</div>
+<small>9.9%</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Hard-hit rate</span><strong>5th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Hard-hit rate 5 MLB percentile">
+<span style="width:5.0%"></span><i style="left:5.0%"></i>
+</div>
+<small>25.8%</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Run value / PA</span><strong>0th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Run value / PA 0 MLB percentile">
+<span style="width:0.0%"></span><i style="left:0.0%"></i>
+</div>
+<small>-0.085</small>
+</div>
+</div>
+<div class="percentile-axis" aria-hidden="true">
+<span>0</span><span>League midpoint</span><span>100</span>
+</div>
+</section>
+<section>
+<div class="context-subhead">
+<span>What changed</span><small>Recent vs earlier season</small>
+</div>
+<div class="change-z-stack">
+<div class="change-z-row">
+<div class="change-z-row__label">
+<span>OPS</span><strong>+1.9 SD</strong>
+</div>
+<div class="change-z-track" role="img" aria-label="OPS +1.9 SD recent 0.894 baseline 0.410">
+<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:24.0%"></span>
+</div>
+<small>Recent 0.894 <span aria-hidden="true">vs</span> baseline 0.410</small>
+</div>
+<div class="change-z-row">
+<div class="change-z-row__label">
+<span>Est. wOBA</span><strong>+1.7 SD</strong>
+</div>
+<div class="change-z-track" role="img" aria-label="Est. wOBA +1.7 SD recent 0.367 baseline 0.198">
+<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:21.6%"></span>
+</div>
+<small>Recent 0.367 <span aria-hidden="true">vs</span> baseline 0.198</small>
+</div>
+<div class="change-z-row">
+<div class="change-z-row__label">
+<span>Strikeout rate</span><strong>+1.1 SD</strong>
+</div>
+<div class="change-z-track" role="img" aria-label="Strikeout rate +1.1 SD recent 14.3% baseline 21.9%">
+<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:13.7%"></span>
+</div>
+<small>Recent 14.3% <span aria-hidden="true">vs</span> baseline 21.9%</small>
+</div>
+<div class="change-z-row">
+<div class="change-z-row__label">
+<span>Walk rate</span><strong>-0.5 SD</strong>
+</div>
+<div class="change-z-track" role="img" aria-label="Walk rate -0.5 SD recent 7.1% baseline 10.5%">
+<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:6.3%"></span>
+</div>
+<small>Recent 7.1% <span aria-hidden="true">vs</span> baseline 10.5%</small>
+</div>
+<div class="change-z-row">
+<div class="change-z-row__label">
+<span>Hard-hit rate</span><strong>+0.2 SD</strong>
+</div>
+<div class="change-z-track" role="img" aria-label="Hard-hit rate +0.2 SD recent 27.3% baseline 25.3%">
+<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:2.0%"></span>
+</div>
+<small>Recent 27.3% <span aria-hidden="true">vs</span> baseline 25.3%</small>
+</div>
+<div class="change-z-row">
+<div class="change-z-row__label">
+<span>Run value / PA</span><strong>+2.4 SD</strong>
+</div>
+<div class="change-z-track" role="img" aria-label="Run value / PA +2.4 SD recent 0.092 baseline -0.128">
+<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:29.6%"></span>
+</div>
+<small>Recent 0.092 <span aria-hidden="true">vs</span> baseline -0.128</small>
+</div>
+</div>
+<div class="change-z-axis" aria-hidden="true">
+<span>Cooling</span><span>0 SD</span><span>Improving</span>
+</div>
+</section>
+</div>
+<footer class="player-context-card__note">
+<strong>Broadcast read:</strong> Run value per PA is the largest recent shift: improving by 2.4 standard deviations versus the MLB change pattern. Season level: 0th percentile. Recent sample: 28 PA; prior sample: 114 PA.
+</footer>
 </article>
 </div>
 <section class="dossier-split-grid">

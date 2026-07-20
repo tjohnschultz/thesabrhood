@@ -140,6 +140,10 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
  <span class="dropdown-text">Players</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./player-change-engine.html">
+ <span class="dropdown-text">Player Change Engine</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./teams.html">
  <span class="dropdown-text">Teams</span></a>
   </li>  
@@ -292,6 +296,7 @@ Estimated from the same season-level state table.
 <li>Hitter and pitcher results, contact quality, and platoon splits.</li>
 <li>Pitch shape, discipline, and within-plate-appearance sequencing.</li>
 <li>Recent performance compared with a non-overlapping earlier baseline.</li>
+<li>Six direction-aware player change z-scores paired with six full-season MLB percentiles. Positive change always means improvement from the player’s perspective; lower results allowed therefore count as better for pitchers.</li>
 <li>Bullpen workload availability and exploratory pitcher-hook modeling.</li>
 <li>Historical career profiles built from Lahman career totals, Hall of Fame voting, awards, All-Star selections, postseason volume, longevity, and record standing.</li>
 <li>Recognition-aware anniversary, milestone, and career-record story candidates.</li>
@@ -301,6 +306,11 @@ Estimated from the same season-level state table.
 <h2 class="anchored" data-anchor-id="historical-recognition-model">Historical recognition model</h2>
 <p>The career-significance score exists to improve editorial ordering. It is not a replacement for WAR and should never be cited as a value statistic. Hall of Fame status, major awards, All-Star selections, career volume, longevity, postseason volume, and top-ten career ranks contribute to the current version.</p>
 <p>Lahman does not include WAR. A future WAR layer must arrive as a separately sourced, versioned table and will remain visibly labeled by source and definition.</p>
+</section>
+<section id="player-change-engine" class="level2">
+<h2 class="anchored" data-anchor-id="player-change-engine">Player Change Engine</h2>
+<p>For each qualified player, the current build compares a 14-day window with the non-overlapping portion of the season that came before it. OPS, estimated wOBA, strikeout rate, walk rate, hard-hit rate, and run value per plate appearance are each converted to a z-score across the appropriate hitter or pitcher cohort. The largest absolute z-score becomes the selected change, while the card still shows all six so the selection can be audited.</p>
+<p>Season percentiles are calculated separately. They describe the player’s full season level among the same perspective cohort and prevent an unusual short-term change from being confused with elite overall performance. The context signal weights the size of the selected change by recent-sample reliability; it remains a reporting-priority score, not a projection.</p>
 
 
 </section>
