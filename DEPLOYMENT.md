@@ -1,20 +1,24 @@
 # Deployment gates for thesabrhood.com
 
-The rebuild is intentionally separated from the live site. Deployment should
-happen only after these seven gates are complete.
+The rebuild remains intentionally separated from the live site. The site
+foundation and derived-data boundary are complete. Six major gates remain
+before a trustworthy public launch.
 
-## 1. Review the local build
+## 1. Finish product and editorial polish
 
-- Open `docs/index.html` or run `quarto preview`.
-- Review mobile and desktop layouts, language, links, and the retained research
-  archive.
-- Decide whether the branch is ready to merge.
+- Review the information hierarchy, repeated language, card density, and the
+  visual relationship between editorial stories and analytical tools.
+- Finish mobile and desktop layouts, the retained research archive, and clear
+  freshness labels on every time-sensitive product.
+- Decide which prototype modules belong in the initial public release.
 
-## 2. Confirm repository settings
+## 2. Connect and calibrate the daily projection model
 
-- Confirm `tjohnschultz/thesabrhood` is the one production repository.
-- Enable Actions with read access to repository contents.
-- Keep the preview workflow non-deploying until the data refresh is stable.
+- Fit starter, lineup, park, weather, and active-bullpen effects into the score
+  model rather than displaying them beside demonstration probabilities.
+- Run rolling out-of-time backtests, establish calibration thresholds, archive
+  model versions, and review the largest misses.
+- Keep betting-adjacent outputs private until these checks pass.
 
 ## 3. Choose private data storage
 
@@ -23,7 +27,7 @@ private source for the scheduled job, such as a private release asset, private
 cloud object storage, or a separate private data repository. Add only narrowly
 scoped read credentials as GitHub Actions secrets.
 
-## 4. Activate daily analytics refresh
+## 4. Activate and observe the daily analytics refresh
 
 The production job will:
 
@@ -35,21 +39,19 @@ The production job will:
 6. render Quarto; and
 7. retain the prior successful site when any check fails.
 
-## 5. Complete projection calibration
+Run this on a staging branch long enough to observe late lineups, postponements,
+transactions, upstream failures, and recovery behavior.
 
-The first manager hook model now has an out-of-time validation report. Before
-public probabilities or betting-adjacent features launch, add full-game
-backtests, calibration thresholds, park/opponent context, bullpen replacement
-logic, and model-version archiving.
+## 5. Approve a release candidate
 
-## 6. Approve a release candidate
-
-- Confirm the displayed data date and sample labels.
-- Test keyboard navigation, contrast, tables, and narrow screens.
+- Confirm displayed dates, sample labels, source language, and research caveats.
+- Test keyboard navigation, contrast, tables, links, and narrow screens.
 - Check page weight, search, analytics, social metadata, and the 404 page.
 - Confirm no raw data, credentials, or local filesystem paths are published.
+- Complete the editorial, privacy, terms, and business-contact copy needed for
+  a professional public product.
 
-## 7. Enable GitHub Pages and the custom domain
+## 6. Enable GitHub Pages and the custom domain
 
 After explicit approval, add the deploy job, configure GitHub Pages to use its
 artifact, verify `CNAME`, and confirm DNS and HTTPS for `thesabrhood.com`. Keep a
@@ -57,6 +59,7 @@ copy of the last known-good `docs` artifact for rollback.
 
 ## Current state
 
-Gates 1–2 have a working local/CI foundation but still require owner review.
-The data boundary for Gate 3 is implemented locally, not hosted. Gate 5 is in
-progress. No live deployment action has been created.
+The local product foundation, package boundary, compact derived-data mirror,
+and non-deploying preview workflow are working. Gate 1 is active. The daily
+input contract needed for Gate 2 is connected, but model effects and
+calibration are not complete. No live deployment action has been created.

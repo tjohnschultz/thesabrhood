@@ -606,6 +606,105 @@ live_input_board <- function(games) {
   )
 }
 
+game_time_label <- function(value) {
+  parsed <- as.POSIXct(value, format = "%Y-%m-%dT%H:%M:%OSZ", tz = "UTC")
+  if (is.na(parsed)) return("Time pending")
+  paste0(trimws(format(parsed, "%l:%M %p", tz = "America/New_York")), " ET")
+}
+
+best_lineup_change <- function(game_id, team_name) {
+  lineup <- daily_batting_orders[
+    as.character(daily_batting_orders$game_id) == as.character(game_id) &
+      daily_batting_orders$team_name == team_name,
+    , drop = FALSE
+  ]
+  if (!nrow(lineup)) return(NULL)
+  candidates <- hitter_changes[
+    as.character(hitter_changes$player_id) %in% as.character(lineup$player_id),
+    , drop = FALSE
+  ]
+  if (!nrow(candidates)) return(NULL)
+  candidates <- candidates[order(-num(candidates$change_signal_score), -num(candidates$dominant_change_abs_z)), , drop = FALSE]
+  candidates[1L, , drop = FALSE]
+}
+
+starter_change <- function(starter_id) {
+  candidates <- pitcher_changes[as.character(pitcher_changes$player_id) == as.character(starter_id), , drop = FALSE]
+  if (!nrow(candidates)) return(NULL)
+  candidates[order(-num(candidates$change_signal_score)), , drop = FALSE][1L, , drop = FALSE]
+}
+
+team_game_context <- function(team_name) {
+  row <- team_intelligence[team_intelligence$team == team_name, , drop = FALSE]
+  if (!nrow(row)) return(NULL)
+  row[1L, , drop = FALSE]
+}
+
+top_active_bullpen_option <- function(team_name) {
+  candidates <- bullpen_matchups[bullpen_matchups$team == team_name & as.logical(bullpen_matchups$active_roster_verified), , drop = FALSE]
+  if (!nrow(candidates)) return(NULL)
+  candidates <- candidates[order(-num(candidates$selection_score), num(candidates$selection_rank)), , drop = FALSE]
+  candidates <- candidates[!duplicated(candidates$pitcher_id), , drop = FALSE]
+  candidates[1L, , drop = FALSE]
+}
+
+compact_change_signal <- function(row, fallback) {
+  if (is.null(row) || !nrow(row)) return(paste0('<p class="slate-signal is-muted">', html_escape(fallback), '</p>'))
+  paste0(
+    '<p class="slate-signal"><strong>', html_escape(row$player_name[[1L]]), '</strong><span>',
+    html_escape(row$dominant_change_label[[1L]]), ' ', html_escape(fmt_z(row$dominant_change_z[[1L]])),
+    ' &middot; ', html_escape(row$dominant_change_direction[[1L]]), ' &middot; ',
+    html_escape(fmt_ordinal(row$dominant_season_percentile[[1L]])), ' season percentile</span></p>'
+  )
+}
+
+slate_team_block <- function(team_name, starter_name, starter_id, game_id) {
+  team_row <- team_game_context(team_name)
+  bullpen_row <- top_active_bullpen_option(team_name)
+  lineup_signal <- best_lineup_change(game_id, team_name)
+  starter_signal <- starter_change(starter_id)
+  team_index <- if (is.null(team_row)) "Team index pending" else paste0("#", fmt_int(team_row$team_index_rank[[1L]]), " team index")
+  bullpen_copy <- if (is.null(bullpen_row)) {
+    "No roster-qualified reliever signal"
+  } else {
+    paste0("Roster-qualified selector: ", bullpen_row$pitcher_name[[1L]], " (", bullpen_row$throws[[1L]], ")")
+  }
+  paste0(
+    '<section class="slate-team"><header><div><span>', html_escape(team_name), '</span><strong>',
+    html_escape(starter_name), '</strong></div><small>', html_escape(team_index), '</small></header>',
+    compact_change_signal(starter_signal, "Starter change sample not yet qualified."),
+    compact_change_signal(lineup_signal, "No qualified change signal in the posted order."),
+    '<p class="slate-bullpen">', html_escape(bullpen_copy), '</p></section>'
+  )
+}
+
+daily_slate_card <- function(row) {
+  ready <- isTRUE(as.logical(row$projection_ready[[1L]]))
+  status_class <- if (ready) "is-ready" else "is-conditional"
+  status_label <- if (ready) "Research inputs ready" else "Conditional inputs"
+  weather <- if (row$weather_status[[1L]] == "indoors") {
+    "Indoor environment"
+  } else {
+    paste0(
+      row$conditions[[1L]], " &middot; ", fmt_int(row$temperature_f[[1L]]), " F &middot; ",
+      fmt_dec(row$wind_mph[[1L]], 1L), " mph wind"
+    )
+  }
+  paste0(
+    '<article class="slate-brief ', status_class, '"><header><div><span class="eyebrow">',
+    html_escape(game_time_label(row$game_time_utc[[1L]])), ' &middot; ', html_escape(row$venue_name[[1L]]),
+    '</span><h3>', html_escape(row$away_team[[1L]]), ' at ', html_escape(row$home_team[[1L]]),
+    '</h3></div><span class="slate-status">', html_escape(status_label), '</span></header>',
+    '<div class="slate-brief__weather"><span>', weather, '</span><span>',
+    html_escape(paste0(row$away_lineup_status[[1L]], " / ", row$home_lineup_status[[1L]], " orders")), '</span></div>',
+    '<div class="slate-team-grid">',
+    slate_team_block(row$away_team[[1L]], row$away_starter_name[[1L]], row$away_starter_id[[1L]], row$game_id[[1L]]),
+    slate_team_block(row$home_team[[1L]], row$home_starter_name[[1L]], row$home_starter_id[[1L]], row$game_id[[1L]]),
+    '</div><footer><span>Slate snapshot ', html_escape(format(as.Date(row$game_date[[1L]]), "%B %d")),
+    '</span><span>Performance context through ', html_escape(updated_label), '</span></footer></article>'
+  )
+}
+
 projection_hook_visual <- function(path) {
   nodes <- vapply(seq_len(nrow(path)), function(index) {
     width <- pmax(3, 100 * num(path$hook_probability[[index]]))
@@ -855,8 +954,14 @@ history_cards <- vapply(seq_len(min(4L, nrow(historical))), function(i) {
     historical$headline[[i]], historical$body[[i]], fmt_score(historical$story_score[[i]])
   )
 }, character(1))
+daily_slate_cards <- vapply(seq_len(nrow(daily_game_inputs)), function(i) {
+  daily_slate_card(daily_game_inputs[i, , drop = FALSE])
+}, character(1))
 write_fragment("today-dashboard.html", c(
   paste0('<div class="update-strip"><strong>Data through ', html_escape(updated_label), '</strong><span>Method-labeled signals, not black-box claims.</span></div>'),
+  '<section class="slate-desk"><div class="section-heading section-heading--tight"><span class="eyebrow">Daily game research</span><h2>Every matchup gets an evidence-first briefing</h2><p>Probable starters, posted orders, park weather, team strength, active-roster bullpen options, and the strongest qualified change signal are assembled without pretending they are already a calibrated forecast.</p></div>',
+  '<div class="slate-desk__legend"><span class="is-ready">Complete research inputs</span><span class="is-conditional">Lineup or starter still conditional</span><span>Change context uses the displayed performance cutoff</span></div>',
+  '<div class="slate-brief-grid">', paste0(daily_slate_cards, collapse = ""), '</div></section>',
   '<section class="section-heading"><span class="eyebrow">Recent form</span><h2>Hitters changing the conversation</h2><p>Fourteen-day performance compared with a non-overlapping prior-season baseline.</p></section>',
   paste0('<div class="signal-grid signal-grid--four">', paste0(today_hitter_cards, collapse = ""), '</div>'),
   '<section class="section-heading"><span class="eyebrow">Run prevention</span><h2>Arms moving in the right direction</h2></section>',
