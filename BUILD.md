@@ -10,6 +10,11 @@ approved public-data mirror:
 
 ```powershell
 & "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/build_projection_artifacts.R
+& "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/build_pitch_trend_artifacts.R
+$env:SABRHOOD_DATE = (Get-Date -Format "yyyy-MM-dd")
+& "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/fetch_daily_baseballr_artifacts.R
+$env:SABRHOOD_SEASON = (Get-Date -Format "yyyy")
+& "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/fetch_aaa_artifacts.R
 & "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/sync_site_artifacts.R
 ```
 
@@ -52,3 +57,9 @@ artifact. It does not deploy to GitHub Pages or change `thesabrhood.com`.
 6. Generate static HTML fragments.
 7. Render and validate the Quarto site.
 8. Publish only after every earlier stage succeeds.
+
+The daily input job uses `baseballr::mlb_game_pks()`, `mlb_probables()`,
+`mlb_batting_orders()`, and `mlb_rosters(roster_type = "active")`. Park
+coordinates map each venue to an Open-Meteo hourly game window. The Triple-A
+job uses `mlb_stats(..., sport_ids = 11)` and labels its output as a performance
+watch rather than a scouting or prospect ranking.

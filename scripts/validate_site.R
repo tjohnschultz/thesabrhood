@@ -44,6 +44,16 @@ required_data <- c(
   ,"projection-input-readiness.csv"
   ,"bullpen-chain-demo.csv"
   ,"projection-hook-path.csv"
+  ,"pitch-usage-change-board.csv"
+  ,"daily-game-inputs.csv"
+  ,"daily-batting-orders.csv"
+  ,"daily-probable-starters.csv"
+  ,"active-rosters.csv"
+  ,"active-roster-bullpens.csv"
+  ,"active-roster-bullpen-selector.csv"
+  ,"daily-park-weather.csv"
+  ,"aaa-hitter-watch.csv"
+  ,"aaa-pitcher-watch.csv"
 )
 
 required_fragments <- c(
@@ -68,6 +78,7 @@ required_fragments <- c(
   ,"player-change-cards.html"
   ,"daily-projections.html"
   ,"home-projections.html"
+  ,"aaa-watch.html"
 )
 
 for (name in required_data) {
@@ -149,7 +160,7 @@ if (file.exists(re24_path)) {
 if (check_rendered) {
   required_pages <- c(
     "index.html", "today.html", "races.html", "story-desk.html", "matchups.html", "players.html", "player-change-engine.html", "teams.html", "team-dossiers.html", "history.html", "pitch-lab.html",
-    "projections.html", "newsletter.html", "blog.html", "broadcast.html",
+    "projections.html", "aaa.html", "newsletter.html", "blog.html", "broadcast.html",
     "methodology.html", "glossary.html", "about.html", "404.html"
   )
   for (name in required_pages) {

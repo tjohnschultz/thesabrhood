@@ -160,6 +160,10 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
  <span class="dropdown-text">Pitch Lab</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./aaa.html">
+ <span class="dropdown-text">Triple-A Watch</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./history.html">
  <span class="dropdown-text">History</span></a>
   </li>  
@@ -237,8 +241,642 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 </section>
 </div>
 <div class="projection-status-strip">
-<span><strong>Development interface</strong> Representative matchups, not today’s MLB schedule</span><span>20,000 simulations per game · team-strength inputs only</span>
+<span><strong>Development interface</strong> Live inputs are connected; probabilities remain a representative model demonstration</span><span>20,000 simulations per demo game · calibration pending</span>
 </div>
+<section class="live-input-section">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">Live input assembly · July 20, 2026</span>
+<h2 class="anchored">
+The model can now see the actual slate
+</h2>
+<p>
+BaseballR supplies the schedule, probable starters, posted orders, and active rosters. Park coordinates route each game to its Open-Meteo window. These inputs are staged beside the demonstration model, not yet used to publish probabilities.
+</p>
+</div>
+<div class="method-grid">
+<article class="data-card data-card--navy">
+<span class="eyebrow">Schedule</span>
+<h3 class="anchored">
+MLB games
+</h3>
+<div class="data-card__value">
+15
+</div>
+<p>
+Game IDs, teams, first pitch, venue, and status.
+</p>
+</article>
+<article class="data-card data-card--red">
+<span class="eyebrow">Posted orders</span>
+<h3 class="anchored">
+Complete games
+</h3>
+<div class="data-card__value">
+13/15
+</div>
+<p>
+234 confirmed batting-order rows.
+</p>
+</article>
+<article class="data-card data-card--steel">
+<span class="eyebrow">Active roster gate</span>
+<h3 class="anchored">
+Verified players
+</h3>
+<div class="data-card__value">
+779
+</div>
+<p>
+225 workload-qualified bullpen rows remain after the roster join.
+</p>
+</article>
+<article class="data-card data-card--navy">
+<span class="eyebrow">Park weather</span>
+<h3 class="anchored">
+Resolved games
+</h3>
+<div class="data-card__value">
+15/15
+</div>
+<p>
+15 of 15 park environments resolved
+</p>
+</article>
+</div>
+<section class="dashboard-block">
+<div class="table-scroll">
+<table class="data-table">
+<thead>
+<tr>
+<th>
+Away
+</th>
+<th>
+Home
+</th>
+<th>
+Away starter
+</th>
+<th>
+Home starter
+</th>
+<th>
+Away order
+</th>
+<th>
+Home order
+</th>
+<th>
+Park weather
+</th>
+<th>
+Temp
+</th>
+<th>
+Wind
+</th>
+<th>
+Rain
+</th>
+<th>
+Input state
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Minnesota Twins
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+Joe Ryan
+</td>
+<td>
+Tanner Bibee
+</td>
+<td>
+confirmed
+</td>
+<td>
+confirmed
+</td>
+<td>
+Cleveland, Ohio
+</td>
+<td>
+62 F
+</td>
+<td>
+3.8 mph
+</td>
+<td>
+0%
+</td>
+<td>
+ready
+</td>
+</tr>
+<tr>
+<td>
+Pittsburgh Pirates
+</td>
+<td>
+New York Yankees
+</td>
+<td>
+Braxton Ashcraft
+</td>
+<td>
+Ryan Weathers
+</td>
+<td>
+confirmed
+</td>
+<td>
+confirmed
+</td>
+<td>
+Bronx, New York
+</td>
+<td>
+65 F
+</td>
+<td>
+3.1 mph
+</td>
+<td>
+0%
+</td>
+<td>
+ready
+</td>
+</tr>
+<tr>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+Nick Martinez
+</td>
+<td>
+Dylan Cease
+</td>
+<td>
+confirmed
+</td>
+<td>
+confirmed
+</td>
+<td>
+Toronto, Ontario
+</td>
+<td>
+60 F
+</td>
+<td>
+4.3 mph
+</td>
+<td>
+0%
+</td>
+<td>
+ready
+</td>
+</tr>
+<tr>
+<td>
+Baltimore Orioles
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Shane Baz
+</td>
+<td>
+Payton Tolle
+</td>
+<td>
+confirmed
+</td>
+<td>
+confirmed
+</td>
+<td>
+Boston, Massachusetts
+</td>
+<td>
+62 F
+</td>
+<td>
+3.9 mph
+</td>
+<td>
+0%
+</td>
+<td>
+ready
+</td>
+</tr>
+<tr>
+<td>
+Los Angeles Dodgers
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+Emmet Sheehan
+</td>
+<td>
+Cristopher Sánchez
+</td>
+<td>
+confirmed
+</td>
+<td>
+confirmed
+</td>
+<td>
+Philadelphia, Pennsylvania
+</td>
+<td>
+65 F
+</td>
+<td>
+3.6 mph
+</td>
+<td>
+0%
+</td>
+<td>
+ready
+</td>
+</tr>
+<tr>
+<td>
+San Diego Padres
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+JP Sears
+</td>
+<td>
+Bryce Elder
+</td>
+<td>
+confirmed
+</td>
+<td>
+confirmed
+</td>
+<td>
+Atlanta, Georgia
+</td>
+<td>
+74 F
+</td>
+<td>
+2.3 mph
+</td>
+<td>
+1%
+</td>
+<td>
+ready
+</td>
+</tr>
+<tr>
+<td>
+San Francisco Giants
+</td>
+<td>
+Kansas City Royals
+</td>
+<td>
+Trevor McDonald
+</td>
+<td>
+Michael Wacha
+</td>
+<td>
+confirmed
+</td>
+<td>
+confirmed
+</td>
+<td>
+Kansas City, Missouri
+</td>
+<td>
+78 F
+</td>
+<td>
+4.7 mph
+</td>
+<td>
+1%
+</td>
+<td>
+ready
+</td>
+</tr>
+<tr>
+<td>
+New York Mets
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+Freddy Peralta
+</td>
+<td>
+Jacob Misiorowski
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Milwaukee, Wisconsin
+</td>
+<td>
+63 F
+</td>
+<td>
+2.3 mph
+</td>
+<td>
+0%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+Detroit Tigers
+</td>
+<td>
+Chicago Cubs
+</td>
+<td>
+Jack Flaherty
+</td>
+<td>
+Jameson Taillon
+</td>
+<td>
+confirmed
+</td>
+<td>
+confirmed
+</td>
+<td>
+Chicago, Illinois
+</td>
+<td>
+66 F
+</td>
+<td>
+3.9 mph
+</td>
+<td>
+0%
+</td>
+<td>
+ready
+</td>
+</tr>
+<tr>
+<td>
+Chicago White Sox
+</td>
+<td>
+Texas Rangers
+</td>
+<td>
+Erick Fedde
+</td>
+<td>
+Jacob deGrom
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Arlington, Texas
+</td>
+<td>
+84 F
+</td>
+<td>
+7.0 mph
+</td>
+<td>
+0%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+Miami Marlins
+</td>
+<td>
+Houston Astros
+</td>
+<td>
+Janson Junk
+</td>
+<td>
+Ronel Blanco
+</td>
+<td>
+confirmed
+</td>
+<td>
+confirmed
+</td>
+<td>
+Houston, Texas
+</td>
+<td>
+79 F
+</td>
+<td>
+4.7 mph
+</td>
+<td>
+0%
+</td>
+<td>
+ready
+</td>
+</tr>
+<tr>
+<td>
+Washington Nationals
+</td>
+<td>
+Colorado Rockies
+</td>
+<td>
+Andrew Alvarez
+</td>
+<td>
+Kyle Freeland
+</td>
+<td>
+confirmed
+</td>
+<td>
+confirmed
+</td>
+<td>
+Denver, Colorado
+</td>
+<td>
+76 F
+</td>
+<td>
+5.1 mph
+</td>
+<td>
+0%
+</td>
+<td>
+ready
+</td>
+</tr>
+<tr>
+<td>
+Athletics
+</td>
+<td>
+Arizona Diamondbacks
+</td>
+<td>
+Jeffrey Springs
+</td>
+<td>
+Mitch Bratt
+</td>
+<td>
+confirmed
+</td>
+<td>
+confirmed
+</td>
+<td>
+Phoenix, Arizona
+</td>
+<td>
+94 F
+</td>
+<td>
+1.7 mph
+</td>
+<td>
+4%
+</td>
+<td>
+ready
+</td>
+</tr>
+<tr>
+<td>
+Cincinnati Reds
+</td>
+<td>
+Seattle Mariners
+</td>
+<td>
+Andrew Abbott
+</td>
+<td>
+George Kirby
+</td>
+<td>
+confirmed
+</td>
+<td>
+confirmed
+</td>
+<td>
+Seattle, Washington
+</td>
+<td>
+59 F
+</td>
+<td>
+3.7 mph
+</td>
+<td>
+0%
+</td>
+<td>
+ready
+</td>
+</tr>
+<tr>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Los Angeles Angels
+</td>
+<td>
+Kyle Leahy
+</td>
+<td>
+José Soriano
+</td>
+<td>
+confirmed
+</td>
+<td>
+confirmed
+</td>
+<td>
+Anaheim, California
+</td>
+<td>
+70 F
+</td>
+<td>
+3.5 mph
+</td>
+<td>
+0%
+</td>
+<td>
+ready
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<div class="method-callout">
+<strong>Current boundary:</strong> a resolved input row is not the same as a validated forecast. The score model still needs starter, lineup, park, and reliever effects fitted and tested out of time.
+</div>
+</section>
 <section class="section-heading">
 <span class="eyebrow">Daily projection board</span>
 <h2 class="anchored">
@@ -492,14 +1130,14 @@ The closest matchup on the representative slate shows how uncertainty, bullpen c
 <div>
 <span class="eyebrow">Publication gate</span>
 <h2 class="anchored">
-Why this remains a development forecast
+Why the demonstration probabilities remain separate
 </h2>
 <p>
-Every game must pass the same six-part input contract. Missing information is exposed instead of silently replaced by a confident-looking number.
+Every modeled game must pass the same six-part input contract. The live slate above is assembled; the representative probability rows below have not yet been rebuilt from those inputs.
 </p>
 </div>
 <div class="projection-readiness__score">
-<strong>33.3%</strong><span>demo inputs complete</span>
+<strong>33.3%</strong><span>demo probability inputs complete</span>
 </div>
 </div>
 <div class="projection-input-grid">
@@ -509,7 +1147,7 @@ Every game must pass the same six-part input contract. Missing information is ex
 Demo slate shell
 </h3>
 <p>
-Representative teams and date are present; authoritative schedule is not connected.
+Representative teams and date are present; this demonstration row is not joined to the live schedule above.
 </p>
 </article>
 <article class="projection-input-gate is-missing">
@@ -554,7 +1192,7 @@ Roof and weather context are still missing.
 Active rosters
 </h3>
 <p>
-Recent-appearance eligibility remains a proxy, not an active-roster feed.
+The active-roster feed is connected beside the model, but this demonstration row still uses its older proxy.
 </p>
 </article>
 </div>
@@ -654,7 +1292,7 @@ Ryan Yarbrough <small>LHP</small>
 Availability 100.0% · matchup 100.0% · planned 12 pitches
 </p>
 <footer>
-Alternatives: Yovanny Cruz | Paul Blackburn
+Alternatives: Paul Blackburn
 </footer>
 </div>
 </li>
@@ -664,16 +1302,16 @@ Alternatives: Yovanny Cruz | Paul Blackburn
 </div>
 <div class="bullpen-chain-step__body">
 <header>
-<span>Setup pocket · vs RHB</span><strong>82.2</strong>
+<span>Setup pocket · vs RHB</span><strong>80.4</strong>
 </header>
 <h3 class="anchored">
-Yovanny Cruz <small>RHP</small>
+Paul Blackburn <small>RHP</small>
 </h3>
 <p>
 Availability 100.0% · matchup 70.0% · planned 12 pitches
 </p>
 <footer>
-Alternatives: Paul Blackburn | Ryan Yarbrough
+Alternatives: Ryan Yarbrough
 </footer>
 </div>
 </li>
@@ -683,16 +1321,16 @@ Alternatives: Paul Blackburn | Ryan Yarbrough
 </div>
 <div class="bullpen-chain-step__body">
 <header>
-<span>Finish pocket · vs RHB</span><strong>78.9</strong>
+<span>Finish pocket · vs RHB</span><strong>68.2</strong>
 </header>
 <h3 class="anchored">
 Paul Blackburn <small>RHP</small>
 </h3>
 <p>
-Availability 100.0% · matchup 70.0% · planned 12 pitches
+Availability 72.5% · matchup 70.0% · planned 12 pitches
 </p>
 <footer>
-Alternatives: Yovanny Cruz | Ryan Yarbrough
+Alternatives: Ryan Yarbrough
 </footer>
 </div>
 </li>
@@ -715,16 +1353,16 @@ Milwaukee Brewers bullpen path
 </div>
 <div class="bullpen-chain-step__body">
 <header>
-<span>Bridge pocket · vs LHB</span><strong>94.0</strong>
+<span>Bridge pocket · vs LHB</span><strong>77.3</strong>
 </header>
 <h3 class="anchored">
-DL Hall <small>LHP</small>
+Grant Anderson <small>RHP</small>
 </h3>
 <p>
-Availability 100.0% · matchup 100.0% · planned 12 pitches
+Availability 100.0% · matchup 35.0% · planned 12 pitches
 </p>
 <footer>
-Alternatives: Brian Fitzpatrick | Drew Rom
+Alternatives: Craig Yoho
 </footer>
 </div>
 </li>
@@ -734,16 +1372,16 @@ Alternatives: Brian Fitzpatrick | Drew Rom
 </div>
 <div class="bullpen-chain-step__body">
 <header>
-<span>Setup pocket · vs RHB</span><strong>83.4</strong>
+<span>Setup pocket · vs RHB</span><strong>82.2</strong>
 </header>
 <h3 class="anchored">
-Grant Anderson <small>RHP</small>
+Craig Yoho <small>RHP</small>
 </h3>
 <p>
 Availability 100.0% · matchup 70.0% · planned 12 pitches
 </p>
 <footer>
-Alternatives: Craig Yoho | Carlos Rodriguez
+Alternatives: Grant Anderson
 </footer>
 </div>
 </li>
@@ -753,16 +1391,16 @@ Alternatives: Craig Yoho | Carlos Rodriguez
 </div>
 <div class="bullpen-chain-step__body">
 <header>
-<span>Finish pocket · vs LHB</span><strong>87.0</strong>
+<span>Finish pocket · vs LHB</span><strong>64.5</strong>
 </header>
 <h3 class="anchored">
-Brian Fitzpatrick <small>LHP</small>
+Grant Anderson <small>RHP</small>
 </h3>
 <p>
-Availability 100.0% · matchup 100.0% · planned 12 pitches
+Availability 72.5% · matchup 35.0% · planned 12 pitches
 </p>
 <footer>
-Alternatives: DL Hall | Drew Rom
+Alternatives: Craig Yoho
 </footer>
 </div>
 </li>
@@ -770,7 +1408,7 @@ Alternatives: DL Hall | Drew Rom
 </article>
 </div>
 <div class="method-callout">
-<strong>Selector score, not probability:</strong> the displayed score transparently combines availability, role fit, performance, handedness, and leverage. Active rosters and confirmed batting order remain required before operational use.
+<strong>Selector score, not probability:</strong> the displayed score transparently combines active-roster eligibility, availability, role fit, performance, handedness, and leverage. A confirmed batting order and same-day transaction check remain required before operational use.
 </div>
 </section>
 <section class="dashboard-block">
@@ -1024,7 +1662,7 @@ What this demonstration does — and does not — know
 </h2>
 </div>
 <div class="projection-model-grid">
-<span><small>Included now</small><strong>Team offense, run prevention, form, bullpen readiness, home field</strong></span><span><small>Next inputs</small><strong>Probable starters, confirmed lineups, platoons, park, weather, reliever chain</strong></span><span><small>Publication gate</small><strong>Time-based calibration and daily input-completeness checks</strong></span>
+<span><small>Included in demo probabilities</small><strong>Team offense, run prevention, form, bullpen readiness, home field</strong></span><span><small>Connected beside the model</small><strong>Probable starters, confirmed lineups, active rosters, parks, game-window weather</strong></span><span><small>Publication gate</small><strong>Fit input effects, time-based calibration, archive versions, and audit misses</strong></span>
 </div>
 </section>
 <div class="method-callout">
@@ -1047,16 +1685,16 @@ What this demonstration does — and does not — know
 </div>
 <div class="roadmap-card is-active">
 <p><span class="roadmap-step">02</span></p>
-<section id="game-input-assembly" class="level2">
-<h2 class="anchored" data-anchor-id="game-input-assembly">Game input assembly</h2>
-<p>Schedule, probable starters, projected or confirmed lineups, handedness, park, weather, and roster gates.</p>
+<section id="game-input-assembly-connected" class="level2">
+<h2 class="anchored" data-anchor-id="game-input-assembly-connected">Game input assembly connected</h2>
+<p>BaseballR schedule, probable starters, posted batting orders, active rosters, park coordinates, and Open-Meteo game windows now populate the daily contract. Their model effects are the next step.</p>
 </section>
 </div>
 <div class="roadmap-card is-active">
 <p><span class="roadmap-step">03</span></p>
 <section id="bullpen-chain-prototype" class="level2">
 <h2 class="anchored" data-anchor-id="bullpen-chain-prototype">Bullpen chain prototype</h2>
-<p>The scenario planner now carries hook probability, workload, leverage, batter handedness, alternatives, and reliever choice across the final three innings. Confirmed lineups and active rosters are the next gate.</p>
+<p>The scenario planner carries hook probability, workload, leverage, batter handedness, alternatives, and reliever choice across the final three innings. The active-roster gate now removes ineligible bullpen candidates.</p>
 </section>
 </div>
 <div class="roadmap-card">
@@ -1643,35 +2281,6 @@ reliever
 </tr>
 <tr>
 <td>
-L
-</td>
-<td>
-3
-</td>
-<td>
-Alec Gamboa
-</td>
-<td>
-L
-</td>
-<td>
-reliever
-</td>
-<td>
-100.0%
-</td>
-<td>
-50.0%
-</td>
-<td>
-100.0%
-</td>
-<td>
-87.5
-</td>
-</tr>
-<tr>
-<td>
 R
 </td>
 <td>
@@ -1697,35 +2306,6 @@ reliever
 </td>
 <td>
 84.1
-</td>
-</tr>
-<tr>
-<td>
-R
-</td>
-<td>
-2
-</td>
-<td>
-Zack Kelly
-</td>
-<td>
-R
-</td>
-<td>
-reliever
-</td>
-<td>
-100.0%
-</td>
-<td>
-50.0%
-</td>
-<td>
-70.0%
-</td>
-<td>
-81.5
 </td>
 </tr>
 <tr>
@@ -1762,7 +2342,7 @@ reliever
 </div>
 </section>
 <div class="method-callout">
-<strong>Roster limitation:</strong> the current selector uses a recent-appearance eligibility proxy because an authoritative active-roster feed is not yet connected. It is a research lead, not a live recommendation.
+<strong>Roster gate connected:</strong> candidates now must appear on the BaseballR active roster and survive the pregame workload screen. The selector remains a research lead, not a live recommendation.
 </div>
 <section class="dashboard-block">
 <div class="section-heading section-heading--tight">

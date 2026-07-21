@@ -1,0 +1,14 @@
+---
+title: "Triple-A Watch"
+description: "A compact Triple-A prospect-age and standout performance desk."
+---
+
+::: {.page-intro}
+<span class="eyebrow">The next level down</span>
+
+# Who is forcing the next question in Triple-A?
+
+The Triple-A watch is a small reporting board for young players and unusual production. It surfaces leads without pretending a public stat line is a complete scouting report.
+:::
+
+{{< include includes/aaa-watch.html >}}

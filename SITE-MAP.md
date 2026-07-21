@@ -19,6 +19,7 @@ flowchart TD
   Today --> Matchups[Matchup edges]
   Players --> PitchLab[Pitch and sequence lab]
   Matchups --> PitchLab
+  PitchLab --> AAA[Triple-A Watch / age and performance radar]
   Teams --> TeamPages[Thirty team dossiers]
   TeamPages --> BroadcastThree[Broadcast Three / on-air notes]
   Races --> Forecasts[Projections and simulations]
@@ -34,7 +35,10 @@ flowchart TD
   AnalyticsLab --> PlayerSearch[Player and team search]
   AnalyticsLab --> ChartBuilder[Chart and spotlight builder]
   AnalyticsLab --> Downloads[Images, tables, and research exports]
-  Data[Automated MLB data pipeline] --> Today
+  Data[Automated MLB data pipeline] --> LiveInputs[Schedule / starters / orders / active rosters / weather]
+  LiveInputs --> Today
+  LiveInputs --> Forecasts
+  Data --> AAA
   Data --> Newsletter
   Data --> Forecasts
   Data --> PacketStudio
@@ -43,7 +47,7 @@ flowchart TD
 
 ## Product boundaries
 
-- Public editorial: home, Today, races, players, Player Change Engine, teams, history, Pitch Lab,
+- Public editorial: home, Today, races, players, Player Change Engine, teams, history, Pitch Lab, Triple-A Watch,
   Matchup Edges, Story Engine, daily simulation center, newsletter, research, and selected
   packet examples.
 - Private production: analytics lab, packet studio, editorial queue, and data

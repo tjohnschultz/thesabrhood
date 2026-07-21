@@ -33,9 +33,9 @@ Complete-game draws, win splits, score intervals, close-game likelihood, and rep
 ::: {.roadmap-card .is-active}
 <span class="roadmap-step">02</span>
 
-## Game input assembly
+## Game input assembly connected
 
-Schedule, probable starters, projected or confirmed lineups, handedness, park, weather, and roster gates.
+BaseballR schedule, probable starters, posted batting orders, active rosters, park coordinates, and Open-Meteo game windows now populate the daily contract. Their model effects are the next step.
 :::
 
 ::: {.roadmap-card .is-active}
@@ -43,7 +43,7 @@ Schedule, probable starters, projected or confirmed lineups, handedness, park, w
 
 ## Bullpen chain prototype
 
-The scenario planner now carries hook probability, workload, leverage, batter handedness, alternatives, and reliever choice across the final three innings. Confirmed lineups and active rosters are the next gate.
+The scenario planner carries hook probability, workload, leverage, batter handedness, alternatives, and reliever choice across the final three innings. The active-roster gate now removes ineligible bullpen candidates.
 :::
 
 ::: {.roadmap-card}

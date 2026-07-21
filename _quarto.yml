@@ -14,6 +14,7 @@ project:
     - team-dossiers/*.qmd
     - history.qmd
     - pitch-lab.qmd
+    - aaa.qmd
     - projections.qmd
     - newsletter.qmd
     - blog.qmd
@@ -71,6 +72,8 @@ website:
             text: Matchups
           - href: pitch-lab.qmd
             text: Pitch Lab
+          - href: aaa.qmd
+            text: Triple-A Watch
           - href: history.qmd
             text: History
       - href: projections.qmd
