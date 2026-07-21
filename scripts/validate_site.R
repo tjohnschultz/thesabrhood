@@ -59,6 +59,9 @@ required_data <- c(
   ,"award-race-board.csv"
   ,"graphics-feed-manifest.csv"
   ,"daily-player-probabilities.csv"
+  ,"rolling-league-pitch-usage.csv"
+  ,"rolling-league-production.csv"
+  ,"insane-baseball-awards.csv"
 )
 
 required_fragments <- c(
@@ -87,6 +90,8 @@ required_fragments <- c(
   ,"graphics-feed.html"
   ,"newsletter-graphics.html"
   ,"league-leaderboards.html"
+  ,"league-trends.html"
+  ,"insane-awards.html"
 )
 
 for (name in required_data) {
@@ -167,7 +172,7 @@ if (file.exists(re24_path)) {
 
 if (check_rendered) {
   required_pages <- c(
-    "index.html", "today.html", "races.html", "story-desk.html", "matchups.html", "players.html", "player-change-engine.html", "teams.html", "team-dossiers.html", "history.html", "pitch-lab.html",
+    "index.html", "today.html", "races.html", "insane-awards.html", "league-trends.html", "story-desk.html", "matchups.html", "players.html", "player-change-engine.html", "teams.html", "team-dossiers.html", "history.html", "pitch-lab.html",
     "projections.html", "aaa.html", "newsletter.html", "graphics-feed.html", "leaderboards.html", "blog.html", "broadcast.html",
     "methodology.html", "glossary.html", "about.html", "404.html"
   )

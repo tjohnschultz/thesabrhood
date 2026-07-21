@@ -3475,6 +3475,122 @@ a.btn-metallic:hover {
 .leaderboard-player small { color: var(--sabr-muted); font-size: 0.66rem; }
 .leaderboard-value { color: var(--sabr-red-dark); font-weight: 900; font-variant-numeric: tabular-nums; }
 
+.leaderboard-card__footer {
+  min-height: 4.7rem;
+  padding: 0.78rem 0.9rem;
+  color: var(--sabr-muted);
+  background: #f7f4ed;
+  border-top: var(--sabr-rule);
+  font-size: 0.66rem;
+  line-height: 1.45;
+}
+
+.award-lane-grid .leaderboard-card,
+.team-leaderboard-grid .leaderboard-card { min-width: 0; }
+
+.team-leaderboard-grid {
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.leaderboard-card--award header .eyebrow::before,
+.team-leaderboard-grid .eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 1.15rem;
+  height: 0.18rem;
+  margin: 0 0.42rem 0.16rem 0;
+  background: var(--sabr-red);
+}
+
+/* League movement desk */
+.league-trend-summary {
+  width: min(100% - 2rem, var(--sabr-page-width));
+  margin: clamp(2rem, 5vw, 4rem) auto 1.2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--sabr-paper);
+  border-top: 7px solid var(--sabr-red);
+  box-shadow: var(--sabr-shadow);
+}
+
+.league-trend-summary h2 { margin: 0.35rem 0 0.65rem; font-size: clamp(1.65rem, 3vw, 2.65rem); line-height: 1.02; }
+.league-trend-summary p { max-width: 700px; margin: 0; color: var(--sabr-muted); }
+.league-trend-summary ol { margin: 0; padding: 0; list-style: none; border-top: 3px solid var(--sabr-navy); }
+
+.league-trend-summary li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.1rem 0.8rem;
+  padding: 0.62rem 0;
+  border-bottom: var(--sabr-rule);
+}
+
+.league-trend-summary li span { color: var(--sabr-navy); font-weight: 850; }
+.league-trend-summary li strong { color: var(--sabr-red-dark); font-variant-numeric: tabular-nums; }
+.league-trend-summary li small { grid-column: 1 / -1; color: var(--sabr-muted); font-size: 0.66rem; }
+.league-trend-graphics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* Insane Baseball Awards: editorial system with controlled street-poster accents */
+.insane-intro {
+  position: relative;
+  overflow: hidden;
+  border-bottom-color: #f0c04a;
+}
+
+.insane-intro::after {
+  content: "ODDLY SPECIFIC";
+  position: absolute;
+  right: clamp(-2.5rem, 1vw, 1rem);
+  bottom: 0.45rem;
+  padding: 0.22rem 0.65rem;
+  color: rgba(255, 255, 255, 0.14);
+  border: 3px solid rgba(255, 255, 255, 0.12);
+  font-size: clamp(1.35rem, 4vw, 3.25rem);
+  font-weight: 950;
+  letter-spacing: 0.05em;
+  transform: rotate(-4deg);
+}
+
+.insane-awards-masthead {
+  width: min(100% - 2rem, var(--sabr-page-width));
+  margin: clamp(2rem, 5vw, 4rem) auto 1.2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(240px, 0.6fr);
+  gap: 1.5rem;
+  align-items: end;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  background: var(--sabr-paper);
+  border: var(--sabr-rule);
+  border-top: 8px solid var(--sabr-red);
+  box-shadow: 10px 10px 0 rgba(12, 35, 64, 0.09);
+}
+
+.insane-awards-masthead h2 { margin: 0.3rem 0 0.55rem; font-size: clamp(1.7rem, 3vw, 2.75rem); line-height: 1; }
+.insane-awards-masthead p { margin: 0; color: var(--sabr-muted); }
+.insane-awards-masthead > div:last-child { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.25rem 0.65rem; align-items: baseline; }
+.insane-awards-masthead > div:last-child strong { color: var(--sabr-red); font-size: 2.2rem; line-height: 1; }
+.insane-awards-masthead > div:last-child span { color: var(--sabr-navy); font-size: 0.72rem; font-weight: 850; text-transform: uppercase; letter-spacing: 0.05em; }
+.insane-awards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.insane-award-card { position: relative; }
+.insane-award-card.is-featured { border-top: 6px solid #e0a91d; box-shadow: 9px 9px 0 rgba(189, 48, 57, 0.11); }
+.insane-award-card.is-featured::before {
+  content: "FEATURED RACE";
+  position: absolute;
+  z-index: 2;
+  top: 0.72rem;
+  right: -0.7rem;
+  padding: 0.22rem 0.65rem;
+  color: var(--sabr-navy);
+  background: #f0c04a;
+  font-size: 0.58rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  transform: rotate(3deg);
+}
+
 /* Editorial queue replaces the raw leads table */
 .editorial-shortlist {
   width: min(100% - 2rem, var(--sabr-page-width));
@@ -3539,6 +3655,7 @@ a.btn-metallic:hover {
 
 @media (max-width: 980px) {
   .leaderboard-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .league-trend-summary { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 680px) {
@@ -3555,6 +3672,10 @@ a.btn-metallic:hover {
   .editorial-shortlist { width: min(100% - 1rem, var(--sabr-page-width)); }
   .leaderboard-grid,
   .race-graphics-grid { grid-template-columns: 1fr; }
+  .league-trend-graphics,
+  .insane-awards-grid { grid-template-columns: 1fr; }
+  .insane-awards-masthead { grid-template-columns: 1fr; }
+  .insane-intro::after { display: none; }
   .leaderboard-note,
   .graphics-feed-method { grid-template-columns: 1fr; }
   .editorial-shortlist li { grid-template-columns: 2.5rem minmax(0, 1fr); }

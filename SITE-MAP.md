@@ -10,6 +10,7 @@ flowchart TD
   Home --> Leaders[Traditional MLB leaderboards]
   Home --> StoryDesk[Story Engine / assignment queue]
   Home --> Races[League races]
+  Races --> Insane[Insane Baseball Awards / rotating oddities]
   Home --> Research[Research stories]
   Home --> Newsletter[Daily newsletter]
   Home --> Projections[Daily simulation center]
@@ -42,6 +43,9 @@ flowchart TD
   Data --> AAA
   Data --> Awards[FanGraphs award performance room]
   Awards --> Races
+  Data --> LeagueTrends[Rolling league pitch and production trends]
+  LeagueTrends --> Graphics
+  LeagueTrends --> Newsletter
   Data --> Movers[Change and league-separation selectors]
   Movers --> Graphics[Downloadable player / pitch / team graphics feed]
   Graphics --> Newsletter
@@ -53,7 +57,7 @@ flowchart TD
 
 ## Product boundaries
 
-- Public editorial: home, Today, traditional leaderboards, races, players, Player Change Engine, teams, history, Pitch Lab, Triple-A Watch,
+- Public editorial: home, Today, traditional leaderboards, award races, Insane Baseball Awards, rolling league trends, players, Player Change Engine, teams, history, Pitch Lab, Triple-A Watch,
   Matchup Edges, Story Engine, daily simulation center, newsletter, research, and selected
   packet examples.
 - Private production: analytics lab, packet studio, editorial queue, and data

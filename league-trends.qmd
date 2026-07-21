@@ -1,0 +1,15 @@
+---
+title: "League Trends"
+description: "Rolling MLB pitch usage and production trends from The SABRhood league movement desk."
+---
+
+::: {.page-intro .page-intro--dark .league-trends-intro}
+<span class="eyebrow">League movement desk</span>
+
+# Watch baseball change shape
+
+Rolling pitch choices and production rates reveal the league-wide adjustments
+that one-day leaderboards cannot show.
+:::
+
+{{< include includes/league-trends.html >}}

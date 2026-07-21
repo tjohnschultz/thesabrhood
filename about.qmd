@@ -29,29 +29,21 @@ The public site is an MLB data and reporting hub. The broader project also suppo
 :::
 :::
 
-## Tyler Schultz
+::: {.feature-band}
+::: {.feature-band__copy}
+## The Staff
 
 Tyler Schultz is a sports researcher, writer, and graduate student at the University of Florida College of Journalism and Communications. He earned a bachelor's degree in Sport Management with a minor in Statistics from the University of Florida and serves as a lead sports researcher for WRUF, the university's sports radio station.
 
 His work sits at the intersection of statistical computing and sports journalism: building reliable research systems, finding original stories in data, and delivering the result in a form that works on air.
 
 ![](images/Headshot2Final.png){fig-align="left" width="214" fig-alt="Portrait of Tyler Schultz"}
-
-Follow [@thesabrhood on X](https://x.com/thesabrhood) for new analysis and project updates.
-
-## What this platform is becoming
-
-::: {.service-grid}
-::: {.service-card}
-### Daily intelligence
-Automatically refreshed signals, leaderboards, historical notes, and a concise editorial briefing.
 :::
-::: {.service-card}
-### Broadcast research
-Portable HTML and PDF game packets shaped for the questions broadcasters need to answer quickly.
+
+::: {.feature-band__links}
+[Follow the Sabrhood on X!](https://x.com/thesabrhood){.feature-link}
+
+[Follow Tyler Schultz on X!](https://x.com/tjohnschultz){.feature-link}
 :::
-::: {.service-card}
-### Analytics Lab
-Private interactive tools for player searches, matchup studies, chart exports, and custom breakdowns.
 :::
 :::

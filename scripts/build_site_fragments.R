@@ -403,6 +403,9 @@ fangraphs_pitchers <- read_product("fangraphs-season-pitchers.csv")
 award_races <- read_product("award-race-board.csv")
 graphics_manifest <- read_product("graphics-feed-manifest.csv")
 player_probabilities <- read_product("daily-player-probabilities.csv")
+rolling_pitch_usage <- read_product("rolling-league-pitch-usage.csv")
+rolling_production <- read_product("rolling-league-production.csv")
+insane_awards <- read_product("insane-baseball-awards.csv")
 articles <- build_article_index()
 
 updated_date <- max(as.Date(hitters$last_game), na.rm = TRUE)
@@ -744,7 +747,7 @@ graphics_feed_card <- function(row, compact = FALSE) {
   )
 }
 
-leaderboard_card <- function(data, title, value_col, formatter = fmt_int, subtitle = NULL, lower_is_better = FALSE, limit = 5L) {
+leaderboard_card <- function(data, title, value_col, formatter = fmt_int, subtitle = NULL, lower_is_better = FALSE, limit = 5L, eyebrow = "League leaders") {
   values <- num(data[[value_col]])
   keep <- is.finite(values)
   data <- data[keep, , drop = FALSE]
@@ -761,9 +764,29 @@ leaderboard_card <- function(data, title, value_col, formatter = fmt_int, subtit
     )
   }, character(1))
   paste0(
-    '<article class="leaderboard-card"><header><span class="eyebrow">League leaders</span><h3>', html_escape(title),
+    '<article class="leaderboard-card"><header><span class="eyebrow">', html_escape(eyebrow), '</span><h3>', html_escape(title),
     '</h3>', if (!is.null(subtitle)) paste0('<p>', html_escape(subtitle), '</p>') else '',
     '</header><ol>', paste0(rows, collapse = ""), '</ol></article>'
+  )
+}
+
+ranked_board_card <- function(data, title, subtitle, value_col, formatter = fmt_score, limit = 5L, footer = NULL, extra_class = "") {
+  data <- data[order(num(data$rank)), , drop = FALSE]
+  data <- utils::head(data, limit)
+  if (!nrow(data)) return("")
+  rows <- vapply(seq_len(nrow(data)), function(index) {
+    value <- data[[value_col]][[index]]
+    paste0(
+      '<li><span class="leaderboard-rank">', html_escape(fmt_int(data$rank[[index]])),
+      '</span><span class="leaderboard-player"><strong>', html_escape(data$player_name[[index]]),
+      '</strong><small>', html_escape(data$team[[index]]), if ("role" %in% names(data)) paste0(' &middot; ', html_escape(data$role[[index]])) else '',
+      '</small></span><span class="leaderboard-value">', html_escape(formatter(value)), '</span></li>'
+    )
+  }, character(1))
+  paste0(
+    '<article class="leaderboard-card ', html_escape(extra_class), '"><header><span class="eyebrow">Ranked race</span><h3>',
+    html_escape(title), '</h3><p>', html_escape(subtitle), '</p></header><ol>', paste0(rows, collapse = ""), '</ol>',
+    if (!is.null(footer)) paste0('<footer class="leaderboard-card__footer">', html_escape(footer), '</footer>') else '', '</article>'
   )
 }
 
@@ -1053,7 +1076,17 @@ prevention_top <- prevention_race[seq_len(min(12L, nrow(prevention_race))), ]
 award_keys <- expand.grid(award = c("MVP", "Cy Young", "ROTY watch"), league = c("AL", "NL"), stringsAsFactors = FALSE)
 award_cards <- vapply(seq_len(nrow(award_keys)), function(index) {
   key <- award_keys[index, , drop = FALSE]
-  award_lane_card(award_races[award_races$award == key$award & award_races$league == key$league, , drop = FALSE])
+  rows <- award_races[award_races$award == key$award & award_races$league == key$league, , drop = FALSE]
+  label <- if (key$award == "ROTY watch") "Rookie of the Year watch" else key$award
+  subtitle <- if (key$award == "ROTY watch") "Role-balanced hitter and pitcher score" else "Transparent season performance score"
+  footer <- if (key$award == "ROTY watch") {
+    "Hitters: WAR 40, wRC+ 25, offense 15, PA 10, defense 5, baserunning 5. Pitchers: WAR 40, ERA 20, FIP 15, K-BB 15, IP 10."
+  } else if (key$award == "MVP") {
+    "WAR, hitting quality, offense, defense, volume, baserunning, and WPA."
+  } else {
+    "WAR, ERA, FIP, K-BB rate, innings, and WHIP."
+  }
+  ranked_board_card(rows, paste(key$league, label), subtitle, "award_score", fmt_score, 5L, footer, "leaderboard-card--award")
 }, character(1))
 offense_race_cards <- vapply(seq_len(min(3L, nrow(offense_top))), function(index) {
   player_card(
@@ -1076,7 +1109,7 @@ prevention_race_cards <- vapply(seq_len(min(3L, nrow(prevention_top))), function
 write_fragment("league-races.html", c(
   '<section class="award-race-room"><div class="section-heading section-heading--tight"><span class="eyebrow">FanGraphs season award room</span><h2>MVP, Cy Young, and the provisional rookie pool</h2><p>WAR, rate quality, volume, offense, defense, baserunning, run prevention, and command are translated into league-specific performance scores. The ingredients remain visible and the result is not presented as a ballot forecast.</p></div>',
   '<div class="award-lane-grid">', paste0(award_cards, collapse = ""), '</div>',
-  '<div class="award-method-strip"><span><strong>MVP</strong> WAR 35 &middot; wRC+ 20 &middot; offense 15 &middot; defense 10 &middot; PA 10 &middot; running/WPA 10</span><span><strong>Cy Young</strong> WAR 25 &middot; ERA 20 &middot; FIP 15 &middot; K-BB 15 &middot; IP 15 &middot; WHIP 10</span><span><strong>ROTY</strong> Current performance after a prior-season AB/IP screen; official MLB service days still require verification</span></div>',
+  '<div class="award-method-strip"><span><strong>MVP</strong> WAR 35 &middot; wRC+ 20 &middot; offense 15 &middot; defense 10 &middot; PA 10 &middot; running/WPA 10</span><span><strong>Cy Young</strong> WAR 25 &middot; ERA 20 &middot; FIP 15 &middot; K-BB 15 &middot; IP 15 &middot; WHIP 10</span><span><strong>ROTY</strong> Hitters and pitchers now receive separate role-native weights before joining one race; official service days still require verification</span></div>',
   '<div class="race-graphics-grid"><figure><img src="images/graphics-feed/al-mvp-race.png" alt="American League MVP performance ladder"><figcaption>AL MVP performance ladder</figcaption></figure><figure><img src="images/graphics-feed/nl-mvp-race.png" alt="National League MVP performance ladder"><figcaption>NL MVP performance ladder</figcaption></figure><figure><img src="images/graphics-feed/al-cy-young-race.png" alt="American League Cy Young performance ladder"><figcaption>AL Cy Young performance ladder</figcaption></figure><figure><img src="images/graphics-feed/nl-cy-young-race.png" alt="National League Cy Young performance ladder"><figcaption>NL Cy Young performance ladder</figcaption></figure></div></section>',
   '<div class="race-disclaimer"><strong>Two complementary lenses.</strong><span>The FanGraphs award room above includes season value and defensive components. The PBP-derived boards below isolate offensive production and run prevention without claiming to predict a ballot.</span></div>',
   '<section class="section-heading"><span class="eyebrow">The offensive race</span><h2>Who has built the strongest hitting case?</h2><p>Estimated wOBA, OPS, run value per plate appearance, contact quality, and sample reliability form the transparent composite.</p></section>',
@@ -1278,6 +1311,52 @@ write_fragment("aaa-watch.html", c(
   '<div class="method-callout"><strong>Prospect boundary:</strong> this is a performance watch, not an industry prospect list. Scouting grades, defensive evaluation, injury context, and organizational information must be added before a player is described as a ranked prospect.</div>'
 ))
 
+insane_award_ids <- unique(as.character(insane_awards$award_id))
+insane_award_summary <- do.call(rbind, lapply(insane_award_ids, function(award_id) {
+  insane_awards[insane_awards$award_id == award_id, , drop = FALSE][1L, , drop = FALSE]
+}))
+insane_award_summary <- insane_award_summary[order(-num(insane_award_summary$showcase_score)), , drop = FALSE]
+insane_cards <- vapply(seq_len(nrow(insane_award_summary)), function(index) {
+  summary_row <- insane_award_summary[index, , drop = FALSE]
+  rows <- insane_awards[insane_awards$award_id == summary_row$award_id[[1L]], , drop = FALSE]
+  footer <- paste0(summary_row$formula[[1L]], " | Leader separation ", fmt_dec(summary_row$leader_separation_z[[1L]], 2L),
+    " SD | Race closeness ", fmt_score(summary_row$race_closeness[[1L]]), "/100 | ", summary_row$eligibility[[1L]])
+  ranked_board_card(rows, summary_row$award_name[[1L]], summary_row$description[[1L]], "display_value", identity, 5L, footer,
+    if (as.logical(summary_row$featured[[1L]])) "insane-award-card is-featured" else "insane-award-card")
+}, character(1))
+write_fragment("insane-awards.html", c(
+  '<section class="insane-awards-masthead"><div><span class="eyebrow">The SABRhood originals</span><h2>Baseball deserves awards for the wonderfully specific</h2><p>Every candidate board begins with an explainable formula or an unusual game context. The rotating showcase favors races with a leader far from the field, a tight fight at the top, or both.</p></div><div><strong>',
+  html_escape(fmt_int(nrow(insane_award_summary))), '</strong><span>candidate awards</span><strong>',
+  html_escape(fmt_int(sum(as.logical(insane_award_summary$featured)))), '</strong><span>featured this cycle</span></div></section>',
+  '<div class="leaderboard-grid insane-awards-grid">', insane_cards, '</div>',
+  '<div class="graphics-feed-method"><strong>Rotation rule</strong><span>Showcase score is 55% leader separation from the eligible field and 45% closeness between first and second. That lets a dominant oddity and a genuinely dramatic race both earn the front page.</span></div>'
+))
+
+league_trend_graphics <- graphics_manifest[graphics_manifest$page_group == "League trends", , drop = FALSE]
+league_trend_cards <- if (nrow(league_trend_graphics)) vapply(seq_len(nrow(league_trend_graphics)), function(index) {
+  graphics_feed_card(league_trend_graphics[index, , drop = FALSE])
+}, character(1)) else character()
+latest_pitch_date <- max(as.Date(rolling_pitch_usage$date), na.rm = TRUE)
+comparison_date <- max(as.Date(rolling_pitch_usage$date)[as.Date(rolling_pitch_usage$date) <= latest_pitch_date - 28], na.rm = TRUE)
+latest_pitch <- rolling_pitch_usage[as.Date(rolling_pitch_usage$date) == latest_pitch_date, , drop = FALSE]
+prior_pitch <- rolling_pitch_usage[as.Date(rolling_pitch_usage$date) == comparison_date, c("pitch_type", "usage_rate_rolling"), drop = FALSE]
+names(prior_pitch)[[2L]] <- "prior_usage"
+pitch_movement <- merge(latest_pitch, prior_pitch, by = "pitch_type", all.x = TRUE)
+pitch_movement$usage_change <- num(pitch_movement$usage_rate_rolling) - num(pitch_movement$prior_usage)
+pitch_movement <- pitch_movement[order(-abs(pitch_movement$usage_change)), , drop = FALSE]
+pitch_movement <- utils::head(pitch_movement, 5L)
+pitch_movement_rows <- vapply(seq_len(nrow(pitch_movement)), function(index) {
+  paste0('<li><span>', html_escape(pitch_movement$pitch_name[[index]]), '</span><strong>',
+    html_escape(paste0(ifelse(pitch_movement$usage_change[[index]] > 0, "+", ""), fmt_dec(100 * pitch_movement$usage_change[[index]], 1L), " pp")),
+    '</strong><small>versus 28 days earlier</small></li>')
+}, character(1))
+write_fragment("league-trends.html", c(
+  '<section class="league-trend-summary"><div><span class="eyebrow">League movement desk</span><h2>What MLB is becoming, one rolling window at a time</h2><p>Fourteen-day windows soften one-night noise while keeping the movement close enough to the field to become a story.</p></div><ol>',
+  pitch_movement_rows, '</ol></section>',
+  '<div class="graphics-feed-grid league-trend-graphics">', league_trend_cards, '</div>',
+  '<div class="graphics-feed-method"><strong>Trend boundary</strong><span>These are descriptive league rates through ', html_escape(format(latest_pitch_date, "%B %d, %Y")), '. Schedule mix, weather, park distribution, and rule changes can move the league line; the graphic identifies the question before the reporting explains it.</span></div>'
+))
+
 graphics_manifest <- graphics_manifest[order(num(graphics_manifest$display_order)), , drop = FALSE]
 graphics_cards <- vapply(seq_len(nrow(graphics_manifest)), function(index) {
   graphics_feed_card(graphics_manifest[index, , drop = FALSE])
@@ -1476,6 +1555,8 @@ for (index in seq_along(team_names)) {
   team_hitters <- team_hitters[order(-num(team_hitters$woba_estimate), -num(team_hitters$pa)), , drop = FALSE]
   team_pitchers <- pitchers[pitchers$team == team, , drop = FALSE]
   team_pitchers <- team_pitchers[order(num(team_pitchers$woba_estimate), -num(team_pitchers$pa)), , drop = FALSE]
+  qualified_team_hitters <- team_hitters[num(team_hitters$pa) >= 30, , drop = FALSE]
+  qualified_team_pitchers <- team_pitchers[num(team_pitchers$pa) >= 30, , drop = FALSE]
   team_changes <- all_changes[all_changes$team == team, , drop = FALSE]
   team_changes <- team_changes[order(-num(team_changes$change_signal_score), -num(team_changes$dominant_change_abs_z)), , drop = FALSE]
   team_pitches <- signature_pitches[signature_pitches$team == team, , drop = FALSE]
@@ -1526,11 +1607,15 @@ for (index in seq_along(team_names)) {
     '<section class="broadcast-three"><div class="section-heading section-heading--tight"><span class="eyebrow">Broadcast three</span><h2>Three notes to take on air</h2><p>Short leads with an evidence trail, ready for verification and expansion.</p></div><ol>', notes_html, '</ol></section>',
     '<section class="section-heading"><span class="eyebrow">Why it changed</span><h2>Player movement with league context attached</h2><p>The recent-window shift and the full-season league standing are separate, so a surge never floats free of the player\'s actual level.</p></section>',
     if (length(form_cards)) paste0('<div class="player-context-grid player-context-grid--dossier">', paste0(form_cards, collapse = ""), '</div>') else '<div class="method-callout">No players met both recent and baseline form thresholds.</div>',
-    '<section class="dossier-split-grid"><div class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Offense</span><h2>Leading hitter profiles</h2></div>',
-    if (nrow(team_hitters)) render_table(utils::head(team_hitters, 5L), c("player_name", "pa", "ops", "woba_estimate", "hard_hit_rate", "strikeout_rate", "walk_rate"), c("Hitter", "PA", "OPS", "wOBA est.", "Hard-hit", "K%", "BB%"), list(pa = fmt_int, ops = fmt_dec, woba_estimate = fmt_dec, hard_hit_rate = fmt_rate, strikeout_rate = fmt_rate, walk_rate = fmt_rate)) else '<p>No qualified hitters in the current build.</p>',
-    '</div><div class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Run prevention</span><h2>Leading pitcher profiles</h2></div>',
-    if (nrow(team_pitchers)) render_table(utils::head(team_pitchers, 5L), c("player_name", "pa", "ops", "woba_estimate", "strikeout_rate", "hard_hit_rate"), c("Pitcher", "BF", "OPS allowed", "wOBA est.", "K%", "Hard-hit"), list(pa = fmt_int, ops = fmt_dec, woba_estimate = fmt_dec, strikeout_rate = fmt_rate, hard_hit_rate = fmt_rate)) else '<p>No qualified pitchers in the current build.</p>',
-    '</div></section>',
+    '<section class="section-heading"><span class="eyebrow">Team highs</span><h2>The category leaders inside this clubhouse</h2><p>Separate boards keep familiar counting stats beside rate production. Rate boards require at least 30 plate appearances or batters faced in the current data snapshot.</p></section>',
+    '<div class="leaderboard-grid team-leaderboard-grid">',
+    leaderboard_card(qualified_team_hitters, "Batting average", "batting_average", fmt_dec, "Best qualified contact results", FALSE, 5L, "Club offense"),
+    leaderboard_card(team_hitters, "Home runs", "home_runs", fmt_int, "The club power board", FALSE, 5L, "Club offense"),
+    leaderboard_card(qualified_team_hitters, "OPS", "ops", fmt_dec, "On-base and slugging production", FALSE, 5L, "Club offense"),
+    leaderboard_card(team_pitchers, "Strikeouts", "strikeouts", fmt_int, "Total batters finished by strikeout", FALSE, 5L, "Club pitching"),
+    leaderboard_card(qualified_team_pitchers, "Strikeout rate", "strikeout_rate", fmt_rate, "Strikeouts per batter faced", FALSE, 5L, "Club pitching"),
+    leaderboard_card(qualified_team_pitchers, "Lowest OPS allowed", "ops", fmt_dec, "Qualified opponent production", TRUE, 5L, "Club pitching"),
+    '</div>',
     '<section class="section-heading"><span class="eyebrow">Pitch identity</span><h2>The arsenal signatures worth knowing</h2></section>',
     if (length(pitch_cards)) paste0('<div class="pitch-identity-grid pitch-identity-grid--compact">', paste0(pitch_cards, collapse = ""), '</div>') else '<div class="method-callout">No pitch types met the signature-pitch thresholds.</div>',
     '<section class="section-heading"><span class="eyebrow">Matchup intelligence</span><h2>The largest qualified handedness edges</h2></section>',

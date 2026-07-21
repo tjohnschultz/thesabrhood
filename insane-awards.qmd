@@ -1,0 +1,15 @@
+---
+title: "Insane Baseball Awards"
+description: "The SABRhood's original, data-selected awards for baseball's strangest and most specific skills."
+---
+
+::: {.page-intro .page-intro--dark .insane-intro}
+<span class="eyebrow">The SABRhood originals</span>
+
+# Baseball's wonderfully specific trophies
+
+Unusual skills, count-level dominance, strange player profiles, and races too
+interesting to leave buried in a spreadsheet.
+:::
+
+{{< include includes/insane-awards.html >}}

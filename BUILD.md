@@ -17,6 +17,7 @@ $env:SABRHOOD_SEASON = (Get-Date -Format "yyyy")
 & "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/fetch_aaa_artifacts.R
 & "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/fetch_fangraphs_season_source.R
 & "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/build_fangraphs_award_artifacts.R
+& "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/build_league_trend_award_artifacts.R
 & "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/build_graphics_feed_artifacts.R
 & "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/build_player_projection_artifacts.R
 & "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/sync_site_artifacts.R
@@ -55,12 +56,13 @@ artifact. It does not deploy to GitHub Pages or change `thesabrhood.com`.
 1. Update the private pitch-by-pitch store.
 2. Run the package artifact targets.
 3. Assemble each game input contract and run the daily score simulations.
-4. Validate data grains, dates, row counts, method versions, and projection
+4. Build league trend windows and the rotating Insane Baseball Awards candidate pool.
+5. Validate data grains, dates, row counts, method versions, and projection
    input completeness.
-5. Copy only approved derived CSV products into `data/derived`.
-6. Generate static HTML fragments.
-7. Render and validate the Quarto site.
-8. Publish only after every earlier stage succeeds.
+6. Copy only approved derived CSV products into `data/derived`.
+7. Generate static HTML fragments.
+8. Render and validate the Quarto site.
+9. Publish only after every earlier stage succeeds.
 
 The daily input job uses `baseballr::mlb_game_pks()`, `mlb_probables()`,
 `mlb_batting_orders()`, and `mlb_rosters(roster_type = "active")`. Park

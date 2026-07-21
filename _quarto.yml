@@ -5,6 +5,8 @@ project:
     - index.qmd
     - today.qmd
     - races.qmd
+    - insane-awards.qmd
+    - league-trends.qmd
     - story-desk.qmd
     - matchups.qmd
     - players.qmd
@@ -57,8 +59,12 @@ website:
         text: Today
       - href: leaderboards.qmd
         text: Leaders
-      - href: races.qmd
-        text: Races
+      - text: Awards
+        menu:
+          - href: races.qmd
+            text: MLB Award Races
+          - href: insane-awards.qmd
+            text: Insane Baseball Awards
       - text: Intelligence
         menu:
           - href: story-desk.qmd
@@ -79,6 +85,8 @@ website:
             text: Triple-A Watch
           - href: history.qmd
             text: History
+          - href: league-trends.qmd
+            text: League Trends
       - href: projections.qmd
         text: Projections
       - href: newsletter.qmd
