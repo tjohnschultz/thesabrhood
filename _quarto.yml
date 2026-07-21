@@ -55,6 +55,8 @@ website:
         text: Home
       - href: today.qmd
         text: Today
+      - href: leaderboards.qmd
+        text: Leaders
       - href: races.qmd
         text: Races
       - text: Intelligence
@@ -105,13 +107,6 @@ website:
   search:
     location: navbar
     type: overlay
-  announcement:
-    icon: info-circle
-    dismissable: true
-    content: "Rebuild preview: analytical snapshot through June 14, 2026. Public probabilities remain in validation."
-    type: primary
-    position: below-navbar
-
 format:
   html:
     theme: cosmo

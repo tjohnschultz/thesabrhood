@@ -86,6 +86,7 @@ required_fragments <- c(
   ,"aaa-watch.html"
   ,"graphics-feed.html"
   ,"newsletter-graphics.html"
+  ,"league-leaderboards.html"
 )
 
 for (name in required_data) {
@@ -167,7 +168,7 @@ if (file.exists(re24_path)) {
 if (check_rendered) {
   required_pages <- c(
     "index.html", "today.html", "races.html", "story-desk.html", "matchups.html", "players.html", "player-change-engine.html", "teams.html", "team-dossiers.html", "history.html", "pitch-lab.html",
-    "projections.html", "aaa.html", "newsletter.html", "graphics-feed.html", "blog.html", "broadcast.html",
+    "projections.html", "aaa.html", "newsletter.html", "graphics-feed.html", "leaderboards.html", "blog.html", "broadcast.html",
     "methodology.html", "glossary.html", "about.html", "404.html"
   )
   for (name in required_pages) {

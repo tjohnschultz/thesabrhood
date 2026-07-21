@@ -744,6 +744,29 @@ graphics_feed_card <- function(row, compact = FALSE) {
   )
 }
 
+leaderboard_card <- function(data, title, value_col, formatter = fmt_int, subtitle = NULL, lower_is_better = FALSE, limit = 5L) {
+  values <- num(data[[value_col]])
+  keep <- is.finite(values)
+  data <- data[keep, , drop = FALSE]
+  values <- values[keep]
+  order_index <- if (isTRUE(lower_is_better)) order(values) else order(-values)
+  data <- data[order_index, , drop = FALSE]
+  data <- utils::head(data, limit)
+  if (!nrow(data)) return("")
+  rows <- vapply(seq_len(nrow(data)), function(index) {
+    paste0(
+      '<li><span class="leaderboard-rank">', index, '</span><span class="leaderboard-player"><strong>',
+      html_escape(data$player_name[[index]]), '</strong><small>', html_escape(data$team[[index]]),
+      '</small></span><span class="leaderboard-value">', html_escape(formatter(data[[value_col]][[index]])), '</span></li>'
+    )
+  }, character(1))
+  paste0(
+    '<article class="leaderboard-card"><header><span class="eyebrow">League leaders</span><h3>', html_escape(title),
+    '</h3>', if (!is.null(subtitle)) paste0('<p>', html_escape(subtitle), '</p>') else '',
+    '</header><ol>', paste0(rows, collapse = ""), '</ol></article>'
+  )
+}
+
 player_probability_leaderboard <- function(metric_id, title, description) {
   rows <- player_probabilities[player_probabilities$metric_id == metric_id, , drop = FALSE]
   rows <- rows[order(num(rows$metric_rank)), , drop = FALSE]
@@ -839,9 +862,7 @@ home_signals <- c(
   )
 )
 write_fragment("home-snapshot.html", c(
-  '<section class="section-heading"><span class="eyebrow">Live analytical snapshot</span><h2>What the numbers are saying</h2><p>Compact, auditable products generated from the SABRhood analytics engine.</p></section>',
-  paste0('<div class="data-card-grid">', paste0(home_cards, collapse = ""), '</div>'),
-  '<section class="section-heading section-heading--tight"><span class="eyebrow">Signal desk</span><h2>Three stories worth your attention</h2></section>',
+  '<section class="section-heading"><span class="eyebrow">League pulse</span><h2>Four stories worth your attention</h2><p>The strongest movement, milestone, and history signals in the current league snapshot.</p></section>',
   paste0('<div class="signal-grid">', paste0(home_signals, collapse = ""), '</div>')
 ))
 
@@ -892,11 +913,15 @@ write_fragment("story-desk.html", c(
   '<div class="update-strip"><strong>Eight reporting lanes</strong><span>One leading candidate from each analytical category prevents a single metric from owning the news cycle.</span></div>',
   '<section class="section-heading"><span class="eyebrow">Editor\'s lineup</span><h2>The stories the data desk would assign today</h2><p>Form, races, milestones, history, team movement, and pitch identity compete inside their own lanes before the daily lineup is assembled.</p></section>',
   '<div class="signal-grid signal-grid--four">', story_cards, '</div>',
-  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Shortlist</span><h2>The next 16 reporting leads</h2><p>Scores order research attention. Publication still requires editorial review and source verification.</p></div>',
-  render_table(utils::head(story_shortlist, 16L), c("queue_rank", "lane_label", "subject", "team", "headline", "story_score", "confidence"),
-    c("Queue", "Lane", "Subject", "Team", "Reporting lead", "Score", "Confidence"),
-    list(queue_rank = fmt_int, story_score = fmt_score, confidence = fmt_rate), "data-table story-queue-table"),
-  '</section>',
+  '<section class="editorial-shortlist"><div class="section-heading section-heading--tight"><span class="eyebrow">Next assignments</span><h2>Eight more leads for the newsroom</h2><p>A cleaner editorial queue: the idea, the supporting evidence, and the score that moved it forward.</p></div><ol>',
+  vapply(seq_len(min(8L, nrow(story_shortlist))), function(index) {
+    row <- story_shortlist[index, , drop = FALSE]
+    paste0('<li><span class="editorial-shortlist__rank">', html_escape(fmt_int(row$queue_rank[[1L]])),
+      '</span><div><small>', html_escape(row$lane_label[[1L]]), ' &middot; ', html_escape(row$team[[1L]]),
+      '</small><h3>', html_escape(row$headline[[1L]]), '</h3><p>', html_escape(row$evidence[[1L]]),
+      '</p></div><strong>', html_escape(fmt_score(row$story_score[[1L]])), '</strong></li>')
+  }, character(1)),
+  '</ol></section>',
   '<div class="method-callout"><strong>Why this matters:</strong> the Story Engine is the bridge between statistical detection and journalism. It creates an assignment queue, not automated finished prose.</div>'
 ))
 write_fragment("home-story-desk.html", c(
@@ -1052,7 +1077,7 @@ write_fragment("league-races.html", c(
   '<section class="award-race-room"><div class="section-heading section-heading--tight"><span class="eyebrow">FanGraphs season award room</span><h2>MVP, Cy Young, and the provisional rookie pool</h2><p>WAR, rate quality, volume, offense, defense, baserunning, run prevention, and command are translated into league-specific performance scores. The ingredients remain visible and the result is not presented as a ballot forecast.</p></div>',
   '<div class="award-lane-grid">', paste0(award_cards, collapse = ""), '</div>',
   '<div class="award-method-strip"><span><strong>MVP</strong> WAR 35 &middot; wRC+ 20 &middot; offense 15 &middot; defense 10 &middot; PA 10 &middot; running/WPA 10</span><span><strong>Cy Young</strong> WAR 25 &middot; ERA 20 &middot; FIP 15 &middot; K-BB 15 &middot; IP 15 &middot; WHIP 10</span><span><strong>ROTY</strong> Current performance after a prior-season AB/IP screen; official MLB service days still require verification</span></div>',
-  '<div class="section-action"><a class="btn btn-sabr-navy" href="graphics-feed.html">Open the award graphics feed</a></div></section>',
+  '<div class="race-graphics-grid"><figure><img src="images/graphics-feed/al-mvp-race.png" alt="American League MVP performance ladder"><figcaption>AL MVP performance ladder</figcaption></figure><figure><img src="images/graphics-feed/nl-mvp-race.png" alt="National League MVP performance ladder"><figcaption>NL MVP performance ladder</figcaption></figure><figure><img src="images/graphics-feed/al-cy-young-race.png" alt="American League Cy Young performance ladder"><figcaption>AL Cy Young performance ladder</figcaption></figure><figure><img src="images/graphics-feed/nl-cy-young-race.png" alt="National League Cy Young performance ladder"><figcaption>NL Cy Young performance ladder</figcaption></figure></div></section>',
   '<div class="race-disclaimer"><strong>Two complementary lenses.</strong><span>The FanGraphs award room above includes season value and defensive components. The PBP-derived boards below isolate offensive production and run prevention without claiming to predict a ballot.</span></div>',
   '<section class="section-heading"><span class="eyebrow">The offensive race</span><h2>Who has built the strongest hitting case?</h2><p>Estimated wOBA, OPS, run value per plate appearance, contact quality, and sample reliability form the transparent composite.</p></section>',
   '<div class="signal-grid">', offense_race_cards, '</div>',
@@ -1267,7 +1292,7 @@ graphics_group_sections <- vapply(graphics_groups, function(group_name) {
   )
 }, character(1))
 write_fragment("graphics-feed.html", c(
-  '<section class="graphics-feed-hero"><div><span class="eyebrow">The SABRhood visual desk</span><h2>Publication-ready graphics with the evidence attached</h2><p>The WRUF feed concept now has an MLB counterpart: a validated manifest, organized collections, downloadable files, coverage notes, and a direct path from analytical product to reporting asset.</p></div><div class="graphics-feed-hero__stats"><span><strong>',
+  '<section class="graphics-feed-hero"><div><span class="eyebrow">The SABRhood visual desk</span><h2>The league&rsquo;s biggest changes, turned into pictures</h2><p>This feed does not repeat the award races. It selects players, pitches, and teams that moved farthest from an earlier baseline or separated most clearly from the league mean.</p></div><div class="graphics-feed-hero__stats"><span><strong>',
   html_escape(fmt_int(nrow(graphics_manifest))), '</strong><small>rendered graphics</small></span><span><strong>',
   html_escape(fmt_int(length(graphics_groups))), '</strong><small>organized collections</small></span><span><strong>PNG</strong><small>current download format</small></span></div></section>',
   '<nav class="graphics-feed-jump" aria-label="Graphics feed collections">',
@@ -1275,10 +1300,10 @@ write_fragment("graphics-feed.html", c(
   vapply(seq_along(graphics_groups), function(index) {
     sub('<section class="graphics-feed-group">', paste0('<section id="', slugify(graphics_groups[[index]]), '" class="graphics-feed-group">'), graphics_group_sections[[index]], fixed = TRUE)
   }, character(1)),
-  '<div class="method-callout"><strong>Visual Revolution expansion:</strong> these first assets translate the percentile-and-context grammar into publication graphics. Pitch movement, rolling pitch mix, spray direction, player stat blocks, team quadrants, and projection distributions are the next collections.</div>'
+  '<div class="graphics-feed-method"><strong>How a graphic earns a place here</strong><span>Recent change is ranked by standardized movement against the MLB change distribution. Season separation is shown with league percentiles. Team graphics compare clubs on shared scales. Every visual keeps its sample and interpretation boundary attached.</span></div>'
 ))
 
-newsletter_graphics <- graphics_manifest[graphics_manifest$featured | graphics_manifest$display_order %in% c(3, 5), , drop = FALSE]
+newsletter_graphics <- utils::head(graphics_manifest[graphics_manifest$featured, , drop = FALSE], 3L)
 newsletter_graphic_cards <- vapply(seq_len(nrow(newsletter_graphics)), function(index) {
   graphics_feed_card(newsletter_graphics[index, , drop = FALSE], compact = TRUE)
 }, character(1))
@@ -1286,6 +1311,40 @@ write_fragment("newsletter-graphics.html", c(
   '<section class="newsletter-visual-edition"><div class="section-heading section-heading--tight"><span class="eyebrow">Visual edition</span><h2>Three graphics to carry into the conversation</h2><p>The newsletter selects a few explanatory graphics rather than repeating the complete daily slate. Each one is downloadable for reporting, social publishing, or broadcast prep.</p></div>',
   '<div class="graphics-feed-grid graphics-feed-grid--newsletter">', paste0(newsletter_graphic_cards, collapse = ""), '</div>',
   '<div class="section-action"><a class="btn btn-sabr-navy" href="graphics-feed.html">Browse the full graphics feed</a></div></section>'
+))
+
+qualified_hitters <- fangraphs_hitters[num(fangraphs_hitters$pa) >= 250, , drop = FALSE]
+qualified_pitchers <- fangraphs_pitchers[num(fangraphs_pitchers$innings_outs) >= 240, , drop = FALSE]
+hitter_boards <- c(
+  leaderboard_card(qualified_hitters, "Batting average", "avg", fmt_dec, "Minimum 250 PA"),
+  leaderboard_card(qualified_hitters, "On-base percentage", "obp", fmt_dec, "Minimum 250 PA"),
+  leaderboard_card(qualified_hitters, "Slugging percentage", "slg", fmt_dec, "Minimum 250 PA"),
+  leaderboard_card(fangraphs_hitters, "Home runs", "home_runs", fmt_int, "Season total"),
+  leaderboard_card(fangraphs_hitters, "Runs batted in", "rbi", fmt_int, "Season total"),
+  leaderboard_card(fangraphs_hitters, "Runs scored", "runs", fmt_int, "Season total"),
+  leaderboard_card(fangraphs_hitters, "Hits", "hits", fmt_int, "Season total"),
+  leaderboard_card(fangraphs_hitters, "Doubles", "doubles", fmt_int, "Season total"),
+  leaderboard_card(fangraphs_hitters, "Triples", "triples", fmt_int, "Season total"),
+  leaderboard_card(fangraphs_hitters, "Stolen bases", "stolen_bases", fmt_int, "Season total"),
+  leaderboard_card(fangraphs_hitters, "Walks", "walks", fmt_int, "Season total"),
+  leaderboard_card(fangraphs_hitters, "Strikeouts", "strikeouts", fmt_int, "Season total")
+)
+pitcher_boards <- c(
+  leaderboard_card(qualified_pitchers, "Earned run average", "era", function(x) fmt_dec(x, 2L), "Minimum 80 IP", TRUE),
+  leaderboard_card(qualified_pitchers, "WHIP", "whip", function(x) fmt_dec(x, 2L), "Minimum 80 IP", TRUE),
+  leaderboard_card(fangraphs_pitchers, "Innings pitched", "innings_display", function(x) fmt_dec(x, 1L), "Season total"),
+  leaderboard_card(fangraphs_pitchers, "Strikeouts", "strikeouts", fmt_int, "Season total"),
+  leaderboard_card(fangraphs_pitchers, "Wins", "wins", fmt_int, "Season total"),
+  leaderboard_card(fangraphs_pitchers, "Saves", "saves", fmt_int, "Season total"),
+  leaderboard_card(qualified_pitchers, "K minus BB rate", "k_minus_bb_rate", fmt_rate, "Minimum 80 IP"),
+  leaderboard_card(fangraphs_pitchers, "Pitching WAR", "war", function(x) fmt_dec(x, 1L), "Season value")
+)
+write_fragment("league-leaderboards.html", c(
+  '<div class="leaderboard-note"><strong>Baseball&rsquo;s familiar counting stats belong beside the advanced numbers.</strong><span>Rate boards require 250 PA or 80 IP in this snapshot; counting-stat boards rank season totals.</span></div>',
+  '<section class="section-heading"><span class="eyebrow">Hitting</span><h2>Traditional offense, quickly scanned</h2><p>League leaders in the statistics fans hear every night, presented with the compact WRUF leaderboard rhythm.</p></section>',
+  '<div class="leaderboard-grid">', hitter_boards, '</div>',
+  '<section class="section-heading"><span class="eyebrow">Pitching</span><h2>Workload, results, and bat-missing</h2><p>Traditional pitching lines are paired with K-BB rate and WAR so results retain useful context.</p></section>',
+  '<div class="leaderboard-grid">', pitcher_boards, '</div>'
 ))
 
 write_fragment("home-projections.html", c(

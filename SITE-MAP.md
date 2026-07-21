@@ -7,6 +7,7 @@ reviewable outputs into those public surfaces.
 ```mermaid
 flowchart TD
   Home[Home / latest intelligence] --> Today[Today / signal desk]
+  Home --> Leaders[Traditional MLB leaderboards]
   Home --> StoryDesk[Story Engine / assignment queue]
   Home --> Races[League races]
   Home --> Research[Research stories]
@@ -40,7 +41,9 @@ flowchart TD
   LiveInputs --> Forecasts
   Data --> AAA
   Data --> Awards[FanGraphs award performance room]
-  Awards --> Graphics[Downloadable graphics feed]
+  Awards --> Races
+  Data --> Movers[Change and league-separation selectors]
+  Movers --> Graphics[Downloadable player / pitch / team graphics feed]
   Graphics --> Newsletter
   Data --> Newsletter
   Data --> Forecasts
@@ -50,7 +53,7 @@ flowchart TD
 
 ## Product boundaries
 
-- Public editorial: home, Today, races, players, Player Change Engine, teams, history, Pitch Lab, Triple-A Watch,
+- Public editorial: home, Today, traditional leaderboards, races, players, Player Change Engine, teams, history, Pitch Lab, Triple-A Watch,
   Matchup Edges, Story Engine, daily simulation center, newsletter, research, and selected
   packet examples.
 - Private production: analytics lab, packet studio, editorial queue, and data

@@ -1,15 +1,16 @@
 ---
 title: "Graphics Feed"
-description: "Downloadable MLB analysis graphics from The SABRhood visual desk."
+description: "Downloadable MLB player, pitch, and team change graphics from The SABRhood visual desk."
 ---
 
 ::: {.page-intro .page-intro--dark}
 <span class="eyebrow">Visual analysis library</span>
 
-# See the league, then take the graphic with you
+# The biggest baseball changes, made visible
 
-A growing collection of evidence-first MLB visuals designed for articles,
-newsletters, social publishing, video, and broadcaster research.
+Players moving furthest from their earlier baseline, pitches changing shape or
+usage, and teams separating from the league mean—selected by data and presented
+for articles, newsletters, video, social publishing, and broadcast research.
 :::
 
 {{< include includes/graphics-feed.html >}}

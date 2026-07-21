@@ -1,12 +1,16 @@
 ---
-title: "Leaderboards have moved"
-description: "The SABRhood player leaderboards now live in the Player Desk."
+title: "MLB Leaderboards"
+description: "Traditional and contextual MLB season leaders from The SABRhood."
 ---
 
 ::: {.page-intro}
-<span class="eyebrow">New data hub</span>
+<span class="eyebrow">The league at a glance</span>
 
-# Player leaderboards have moved
+# Who leads baseball right now?
 
-The rebuilt [Player Desk](players.qmd) combines performance boards, recent-form signals, quality-of-contact measures, and pitcher suppression in one place.
+The familiar numbers still matter. Scan batting average, slugging, home runs,
+doubles, triples, strikeouts, ERA, saves, and more—then move into the Player
+Desk when you want the underlying quality and change context.
 :::
+
+{{< include includes/league-leaderboards.html >}}
