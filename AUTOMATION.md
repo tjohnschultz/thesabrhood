@@ -14,6 +14,11 @@ change detection. They produce compact CSVs for the site; the committed preview
 workflow consumes those products but does not yet run the private package or
 write refreshed data back to the repository.
 
+The season layer also pulls compact FanGraphs hitter and pitcher leaderboards
+through BaseballR. Wide source tables stay in the private cache; only selected
+season columns, transparent award-watch scores, and the validated graphics
+manifest enter the public mirror.
+
 ## Production workflow contract
 
 A scheduled production workflow should be added only after private data storage

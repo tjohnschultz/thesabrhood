@@ -15,6 +15,10 @@ $env:SABRHOOD_DATE = (Get-Date -Format "yyyy-MM-dd")
 & "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/fetch_daily_baseballr_artifacts.R
 $env:SABRHOOD_SEASON = (Get-Date -Format "yyyy")
 & "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/fetch_aaa_artifacts.R
+& "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/fetch_fangraphs_season_source.R
+& "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/build_fangraphs_award_artifacts.R
+& "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/build_graphics_feed_artifacts.R
+& "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/build_player_projection_artifacts.R
 & "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" scripts/sync_site_artifacts.R
 ```
 

@@ -8,7 +8,7 @@ description: "The daily MLB signal desk from The SABRhood."
 
 # Today in the SABRhood
 
-The strongest changes, matchups, and historical notes surfaced by our analytical engine—then reviewed with a journalist’s eye.
+The schedule-first research desk: what is happening tonight, who is expected to play, and which matchup signals deserve follow-up.
 :::
 
 {{< include includes/today-dashboard.html >}}

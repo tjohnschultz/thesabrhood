@@ -39,6 +39,9 @@ flowchart TD
   LiveInputs --> Today
   LiveInputs --> Forecasts
   Data --> AAA
+  Data --> Awards[FanGraphs award performance room]
+  Awards --> Graphics[Downloadable graphics feed]
+  Graphics --> Newsletter
   Data --> Newsletter
   Data --> Forecasts
   Data --> PacketStudio

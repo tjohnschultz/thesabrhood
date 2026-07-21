@@ -8,10 +8,12 @@ description: "The SABRhood Daily MLB analytical briefing."
 
 # Your morning briefing from beneath the surface
 
-The strongest analytical signals in a fast, navigable edition designed for fans, journalists, and broadcasters.
+An editorial edition that chooses a lead, explains why it matters, and packages a small set of reusable graphics instead of repeating the complete daily slate.
 :::
 
 {{< include includes/newsletter-daily.html >}}
+
+{{< include includes/newsletter-graphics.html >}}
 
 ::: {.newsletter-signup}
 ::: {.newsletter-signup__copy}

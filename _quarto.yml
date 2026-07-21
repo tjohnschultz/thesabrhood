@@ -17,6 +17,7 @@ project:
     - aaa.qmd
     - projections.qmd
     - newsletter.qmd
+    - graphics-feed.qmd
     - blog.qmd
     - posts/*.qmd
     - broadcast.qmd
@@ -80,6 +81,8 @@ website:
         text: Projections
       - href: newsletter.qmd
         text: Newsletter
+      - href: graphics-feed.qmd
+        text: Graphics
       - href: blog.qmd
         text: Research
       - href: broadcast.qmd
