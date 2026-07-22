@@ -1,0 +1,2 @@
+"game_date","games","games_with_confirmed_lineups","games_with_matched_starters","games_with_weather","active_roster_bullpen_model","bullpen_usage_current","bullpen_usage_age_days","empirical_park_factors","chronological_calibration_complete","publication_approved","publication_status","model_version","generated_at_utc"
+2026-07-22,17,0,16,17,TRUE,FALSE,2,FALSE,FALSE,FALSE,"development only; chronological calibration, current PBP usage, and empirical park factors required","scheduled_game_simulator_development_v1","2026-07-22 05:02:58 UTC"

@@ -2,17 +2,35 @@
 
 ## What is automated now
 
+The production workflow in `.github/workflows/daily-data-refresh.yml` runs on
+GitHub Actions each morning at 12:00 UTC and can also be started manually. It
+runs `scripts/update_pbp.R`, whose `update_pbp()` function incrementally adds
+only final games through the prior completed date. Raw events are stored under
+`.private-data/` in the private Actions cache, are ignored by Git, and never
+enter `data/` or `docs/`. If that cache expires, the job rebuilds the completed
+regular-season history from the MLB Stats API.
+
+The same job refreshes FanGraphs season tables, bullpen availability, the
+current schedule, probable starters, posted batting orders, active rosters, and
+Open-Meteo park forecasts. Team simulations can run before lineups post. Player
+simulations wait for a current complete batting order, and the site displays a
+lineup-pending state instead of relabeling yesterday's player board.
+
+After acquisition, the workflow updates the derived-data manifest, regenerates
+the Quarto fragments, validates and renders the site, then commits only compact
+derived products, fragments, and rendered pages to `main`. A failed acquisition
+or validation produces no public commit.
+
 The branch workflow in `.github/workflows/site-preview.yml` regenerates all
 static fragments, validates approved data files and checksums, renders Quarto,
 validates required pages, and uploads a preview artifact. It has no deployment
 permission.
 
-The local acquisition layer now has executable jobs for the daily MLB schedule,
+The repository acquisition layer now has executable jobs for the daily MLB schedule,
 probable starters, posted batting orders, active rosters, active-roster bullpen
 filtering, ballpark weather, Triple-A performance lines, and five-game pitch-mix
-change detection. They produce compact CSVs for the site; the committed preview
-workflow consumes those products but does not yet run the private package or
-write refreshed data back to the repository.
+change detection. The reusable package source lives in `packages/sabrhoodR`, so
+GitHub Actions installs the same functions used during local development.
 
 The season layer also pulls compact FanGraphs hitter and pitcher leaderboards
 through BaseballR. Wide source tables stay in the private cache; only selected
@@ -21,8 +39,11 @@ manifest enter the public mirror.
 
 ## Production workflow contract
 
-A scheduled production workflow should be added only after private data storage
-is chosen. It needs four independently failing stages:
+The scheduled workflow implements the acquisition, simulation, and static
+publishing spine. GitHub Actions cache is replaceable rather than the sole
+permanent archive: a missing cache triggers a completed-game rebuild. Long-term
+model snapshots should still move to durable private storage before commercial
+launch. Its independently failing stages are:
 
 | Stage | Input | Output | Failure behavior |
 |---|---|---|---|

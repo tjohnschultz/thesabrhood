@@ -1,0 +1,28 @@
+Package: sabrhoodR
+Title: Private Baseball Analytics Tools for The SABRhood
+Version: 0.0.0.9000
+Authors@R:
+    person("T. John", "Schultz", email = "tjohnschultz@users.noreply.github.com",
+           role = c("aut", "cre"))
+Author: T. John Schultz [aut, cre]
+Maintainer: T. John Schultz <tjohnschultz@users.noreply.github.com>
+Description: Private, reusable functions for MLB data preparation, custom
+    metrics, simulations, visualizations, editorial products, and broadcast
+    research created for The SABRhood.
+License: file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends:
+    R (>= 4.2.0)
+Imports:
+    dplyr,
+    rlang,
+    tibble,
+    withr
+Suggests:
+    baseballr,
+    jsonlite,
+    Lahman,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

@@ -29,3 +29,6 @@ data/aps_indy.rds
 data/mlb25_tbs.rds
 /.quarto/
 .localappdata/
+.private-data/
+packages/sabrhoodR.Rcheck/
+packages/sabrhoodR_*.tar.gz

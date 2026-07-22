@@ -423,10 +423,12 @@ hook_validation <- read_product("manager-hook-validation-metrics.csv")
 hook_calibration <- read_product("manager-hook-calibration.csv")
 hook_scenarios <- read_product("manager-hook-scenarios.csv")
 bullpen_matchups <- read_product("active-roster-bullpen-selector.csv")
-daily_projections <- read_product("daily-projection-demo.csv")
-projection_margins <- read_product("daily-projection-margin.csv")
-projection_scorelines <- read_product("daily-projection-scorelines.csv")
-projection_drivers <- read_product("daily-projection-drivers.csv")
+daily_projections <- read_product("daily-projections-live.csv")
+projection_margins <- read_product("daily-projection-margin-live.csv")
+projection_scorelines <- read_product("daily-projection-scorelines-live.csv")
+projection_drivers <- read_product("daily-projection-drivers-live.csv")
+projection_components <- read_product("daily-projection-components-live.csv")
+projection_publication <- read_product("projection-publication-readiness.csv")
 projection_inputs <- read_product("projection-input-readiness.csv")
 bullpen_chains <- read_product("bullpen-chain-demo.csv")
 projection_hook_path <- read_product("projection-hook-path.csv")
@@ -442,8 +444,20 @@ aaa_pitchers <- read_product("aaa-pitcher-watch.csv")
 fangraphs_hitters <- read_product("fangraphs-season-hitters.csv")
 fangraphs_pitchers <- read_product("fangraphs-season-pitchers.csv")
 award_races <- read_product("award-race-board.csv")
+award_race_history <- read_product("award-race-history.csv")
+award_race_display <- read_product("award-race-display.csv")
+award_race_events <- read_product("award-race-events.csv")
+award_race_current <- read_product("award-race-current-leaders.csv")
 graphics_manifest <- read_product("graphics-feed-manifest.csv")
 player_probabilities <- read_product("daily-player-probabilities.csv")
+player_simulations <- read_product("daily-player-simulations.csv")
+player_simulation_model <- read_product("daily-player-simulation-model-card.csv")
+game_backtest_metrics <- read_product("game-projection-backtest-metrics.csv")
+game_backtest_calibration <- read_product("game-projection-calibration.csv")
+game_score_model_card <- read_product("game-score-model-card.csv")
+projection_ledger_status <- read_product("projection-ledger-status.csv")
+projection_feedback_metrics <- read_product("projection-feedback-metrics.csv")
+projection_feedback_ledger <- read_product("projection-feedback-ledger.csv")
 rolling_pitch_usage <- read_product("rolling-league-pitch-usage.csv")
 rolling_production <- read_product("rolling-league-production.csv")
 insane_awards <- read_product("insane-baseball-awards.csv")
@@ -487,7 +501,6 @@ arsenal_whiffs <- pitch_types[num(pitch_types$swings) >= 50, ]
 arsenal_whiffs <- arsenal_whiffs[order(-num(arsenal_whiffs$whiff_rate), -num(arsenal_whiffs$pitches)), ][1:10, ]
 daily_projections <- daily_projections[order(num(daily_projections$display_order)), , drop = FALSE]
 feature_projection <- daily_projections[as.logical(daily_projections$feature_game), , drop = FALSE][1L, ]
-feature_projection_input <- projection_inputs[projection_inputs$game_id == feature_projection$game_id[[1L]], , drop = FALSE][1L, ]
 daily_game_inputs <- daily_game_inputs[order(daily_game_inputs$game_time_utc), , drop = FALSE]
 weather_index <- match(daily_game_inputs$game_id, daily_park_weather$game_id)
 daily_game_inputs$temperature_f <- daily_park_weather$temperature_f[weather_index]
@@ -514,7 +527,7 @@ projection_game_card <- function(row) {
   home_width <- round(100 * num(row$home_win_probability[[1L]]), 1L)
   paste0(
     '<article class="projection-game-card"><header><span class="eyebrow">Game ', html_escape(fmt_int(row$display_order[[1L]])),
-    ' &middot; team baseline</span><span class="projection-lean">', html_escape(projection_lean(row$winner_probability[[1L]])), '</span></header>',
+    ' &middot; scheduled slate</span><span class="projection-lean">', html_escape(projection_lean(row$winner_probability[[1L]])), '</span></header>',
     '<div class="projection-team-row"><span><small>Away</small><strong>', html_escape(row$away_team[[1L]]),
     '</strong></span><b>', html_escape(fmt_rate(row$away_win_probability[[1L]])), '</b></div>',
     '<div class="projection-team-row"><span><small>Home</small><strong>', html_escape(row$home_team[[1L]]),
@@ -527,7 +540,8 @@ projection_game_card <- function(row) {
     html_escape(fmt_dec(row$mean_total_runs[[1L]], 1L)), '</strong></span><span><small>One-run game</small><strong>',
     html_escape(fmt_rate(row$one_run_probability[[1L]])), '</strong></span></div>',
     '<footer><strong>', html_escape(row$projected_winner[[1L]]), ' ', html_escape(fmt_rate(row$winner_probability[[1L]])),
-    '</strong><span>20,000 draws &middot; starters/lineups pending</span></footer></article>'
+    '</strong><span>', html_escape(fmt_int(row$simulations[[1L]])), ' draws &middot; ',
+    html_escape(row$lineup_status[[1L]]), ' orders &middot; ', html_escape(row$starter_status[[1L]]), ' starters</span></footer></article>'
   )
 }
 
@@ -559,7 +573,7 @@ projection_feature <- function(row) {
   paste0(
     '<section class="projection-feature"><div class="projection-feature__head"><div><span class="eyebrow">Feature simulation &middot; ',
     html_escape(fmt_int(row$simulations[[1L]])), ' draws</span><h2>', html_escape(row$away_team[[1L]]),
-    ' at ', html_escape(row$home_team[[1L]]), '</h2><p>The closest matchup on the representative slate shows how uncertainty, bullpen context, and competing team strengths will be reported.</p></div>',
+    ' at ', html_escape(row$home_team[[1L]]), '</h2><p>The closest matchup on today&rsquo;s scheduled slate shows the current score distribution, model drivers, and honest input limitations.</p></div>',
     '<div class="projection-feature__call"><small>Model lean</small><strong>', html_escape(row$projected_winner[[1L]]),
     '</strong><span>', html_escape(fmt_rate(row$winner_probability[[1L]])), '</span></div></div>',
     '<div class="projection-matchup-score"><div><span>', html_escape(row$away_team[[1L]]), '</span><strong>',
@@ -614,6 +628,74 @@ projection_input_board <- function(row) {
   )
 }
 
+projection_publication_board <- function(row) {
+  gates <- data.frame(
+    label = c("Scheduled games", "Posted lineups", "Probable starters", "Active bullpens", "Current PBP usage", "Park factors", "Chronological calibration"),
+    value = c(
+      paste0(fmt_int(row$games[[1L]]), " games"),
+      paste0(fmt_int(row$games_with_confirmed_lineups[[1L]]), "/", fmt_int(row$games[[1L]]), " confirmed"),
+      paste0(fmt_int(row$games_with_matched_starters[[1L]]), "/", fmt_int(row$games[[1L]]), " matched"),
+      if (as.logical(row$active_roster_bullpen_model[[1L]])) "Roster verified" else "Missing",
+      if (as.logical(row$bullpen_usage_current[[1L]])) "Current" else paste0(fmt_int(row$bullpen_usage_age_days[[1L]]), " days old"),
+      if (as.logical(row$empirical_park_factors[[1L]])) "Modeled" else "Neutral placeholder",
+      if (as.logical(row$chronological_calibration_complete[[1L]])) "Passed" else "Not yet passed"
+    ),
+    ready = c(
+      num(row$games[[1L]]) > 0,
+      num(row$games_with_confirmed_lineups[[1L]]) == num(row$games[[1L]]),
+      num(row$games_with_matched_starters[[1L]]) == num(row$games[[1L]]),
+      as.logical(row$active_roster_bullpen_model[[1L]]),
+      as.logical(row$bullpen_usage_current[[1L]]),
+      as.logical(row$empirical_park_factors[[1L]]),
+      as.logical(row$chronological_calibration_complete[[1L]])
+    ),
+    stringsAsFactors = FALSE
+  )
+  gate_html <- vapply(seq_len(nrow(gates)), function(index) {
+    paste0(
+      '<article class="projection-input-gate ', if (gates$ready[[index]]) 'is-ready' else 'is-missing', '">',
+      '<span>', if (gates$ready[[index]]) 'Ready' else 'Open gate', '</span><h3>', html_escape(gates$label[[index]]),
+      '</h3><p>', html_escape(gates$value[[index]]), '</p></article>'
+    )
+  }, character(1))
+  readiness_fraction <- mean(gates$ready)
+  paste0(
+    '<section class="projection-readiness"><div class="projection-readiness__head"><div><span class="eyebrow">Publication gate &middot; ',
+    html_escape(format(as.Date(row$game_date[[1L]]), "%B %d, %Y")), '</span><h2>The scheduled-game engine is running behind a calibration wall</h2>',
+    '<p>The page can now simulate today&rsquo;s actual games. Development probabilities stay clearly labeled until current PBP workload, empirical park effects, and a chronological backtest pass.</p></div>',
+    '<div class="projection-readiness__score"><strong>', html_escape(fmt_rate(readiness_fraction)),
+    '</strong><span>activation gates closed</span></div></div><div class="projection-input-grid">',
+    paste0(gate_html, collapse = ''), '</div></section>'
+  )
+}
+
+projection_feedback_room <- function(metrics, model_card, ledger) {
+  approved <- isTRUE(as.logical(metrics$deployment_approved[[1L]]))
+  status <- if (approved) "Shadow-mode eligible" else "Withheld by holdout gate"
+  fit_summary <- if (approved) {
+    "The fitted score layer learned from prior-only rolling team production, then faced a completely later block of games. It improved the raw score scale and narrowly beat the simple home-team Brier baseline, earning shadow-mode evaluation without overwriting the public board."
+  } else {
+    "The fitted score layer learned from prior-only rolling team production, then faced a completely later block of games. It improved the raw score scale, but it did not beat the simple home-team Brier baseline, so the live board was not overwritten."
+  }
+  remaining <- pmax(0, 300 - num(ledger$eligible_unique_games[[1L]]))
+  paste0(
+    '<section class="projection-feedback-room"><div class="section-heading section-heading--tight"><span class="eyebrow">Model fitting &middot; no-lookahead evaluation</span>',
+    '<h2>Real outcomes change the model only after they earn the right</h2><p>', html_escape(fit_summary), '</p></div>',
+    '<div class="projection-diagnostic-layout"><figure><img src="images/graphics-feed/projection-calibration-curve.png" alt="Calibration curve comparing historical predicted home-win probability with observed home-win rate"><figcaption>Points show non-empty probability bins; labels are holdout game counts. The dashed line is perfect calibration.</figcaption></figure>',
+    '<div class="projection-diagnostic-stats">',
+    stat_card("Holdout", "Later games only", fmt_int(metrics$observations[[1L]]), paste("Training ended", format(as.Date(metrics$training_end[[1L]]), "%B %d")), "navy"),
+    stat_card("Win probability", "Brier score", fmt_dec(metrics$brier_score[[1L]], 3L), paste("Naive home baseline", fmt_dec(metrics$naive_home_brier[[1L]], 3L), "-", status), "red"),
+    stat_card("Run expectation", "Team-runs MAE", fmt_dec(metrics$mean_absolute_team_runs[[1L]], 2L), paste("Raw scale", fmt_dec(metrics$raw_mean_absolute_team_runs[[1L]], 2L), "before fitting"), "steel"),
+    stat_card("Live feedback", "Eligible forecasts", fmt_int(ledger$eligible_unique_games[[1L]]), paste(fmt_int(remaining), "more game forecasts before live probability calibration"), "navy"),
+    '</div></div>',
+    '<div class="projection-feedback-steps"><article><span>01</span><h3>Freeze before first pitch</h3><p>Every game and player-event probability is archived with its inputs and model version. Late builds are permanently excluded.</p></article>',
+    '<article><span>02</span><h3>Settle against final PBP</h3><p>Team scores, winners, hitter events, and starter strikeouts are joined by exact game and MLBAM player IDs.</p></article>',
+    '<article><span>03</span><h3>Diagnose the misses</h3><p>Brier score, log loss, run MAE, calibration bins, and player-event residuals reveal whether the model is too aggressive or too conservative.</p></article>',
+    '<article><span>04</span><h3>Refit in chronological blocks</h3><p>Only coefficients that improve later unseen games enter shadow mode; public probabilities require a second approval gate.</p></article></div>',
+    '<div class="method-callout"><strong>Why today does not count:</strong> the first ledger snapshot was taken after first pitch, so all 15 games were correctly marked late and excluded. The automated daily job will archive future boards before games begin.</div></section>'
+  )
+}
+
 pitch_usage_change_card <- function(row) {
   baseline_width <- pmax(2, pmin(100, 100 * num(row$baseline_usage[[1L]])))
   recent_width <- pmax(2, pmin(100, 100 * num(row$recent_usage[[1L]])))
@@ -658,7 +740,7 @@ live_input_board <- function(games) {
   paste0(
     '<section class="live-input-section"><div class="section-heading section-heading--tight"><span class="eyebrow">Live input assembly &middot; ',
     html_escape(format(as.Date(games$game_date[[1L]]), "%B %d, %Y")), '</span><h2>The model can now see the actual slate</h2>',
-    '<p>BaseballR supplies the schedule, probable starters, posted orders, and active rosters. Park coordinates route each game to its Open-Meteo window. These inputs are staged beside the demonstration model, not yet used to publish probabilities.</p></div>',
+    '<p>BaseballR supplies the schedule, probable starters, posted orders, and active rosters. Park coordinates route each game to its Open-Meteo window, and the development simulator now consumes the resulting game rows.</p></div>',
     '<div class="method-grid">',
     stat_card("Schedule", "MLB games", fmt_int(nrow(games)), "Game IDs, teams, first pitch, venue, and status.", "navy"),
     stat_card("Posted orders", "Complete games", paste0(lineup_games, "/", nrow(games)), paste(fmt_int(nrow(daily_batting_orders)), "confirmed batting-order rows."), "red"),
@@ -668,7 +750,7 @@ live_input_board <- function(games) {
     render_table(games, c("away_team", "home_team", "away_starter_name", "home_starter_name", "away_lineup_status", "home_lineup_status", "weather_location", "temperature_f", "wind_mph", "precipitation_probability", "readiness_label"),
       c("Away", "Home", "Away starter", "Home starter", "Away order", "Home order", "Park weather", "Temp", "Wind", "Rain", "Input state"),
       list(temperature_f = function(x) ifelse(is.finite(num(x)), paste0(fmt_int(x), " F"), "Indoor"), wind_mph = function(x) ifelse(is.finite(num(x)), paste0(fmt_dec(x, 1L), " mph"), "-"), precipitation_probability = function(x) ifelse(is.finite(num(x)), paste0(fmt_int(x), "%"), "-"))),
-    '</section><div class="method-callout"><strong>Current boundary:</strong> a resolved input row is not the same as a validated forecast. The score model still needs starter, lineup, park, and reliever effects fitted and tested out of time.</div></section>'
+    '</section><div class="method-callout"><strong>Current boundary:</strong> a resolved input row is not the same as a validated forecast. Starter, lineup, active-roster bullpen, and temperature effects now enter the score model; park factors, fresh reliever workload, and out-of-time calibration remain open gates.</div></section>'
   )
 }
 
@@ -849,15 +931,15 @@ ranked_board_card <- function(data, title, subtitle, value_col, formatter = fmt_
 }
 
 player_probability_leaderboard <- function(metric_id, title, description) {
-  rows <- player_probabilities[player_probabilities$metric_id == metric_id, , drop = FALSE]
+  rows <- player_simulations[player_simulations$metric_id == metric_id, , drop = FALSE]
   rows <- rows[order(num(rows$metric_rank)), , drop = FALSE]
   rows <- utils::head(rows, 10L)
   paste0(
-    '<section class="player-prob-board"><header><span class="eyebrow">Development baseline</span><h3>',
+    '<section class="player-prob-board"><header><span class="eyebrow">Starter + bullpen Monte Carlo</span><h3>',
     html_escape(title), '</h3><p>', html_escape(description), '</p></header>',
-    render_table(rows, c("metric_rank", "player_name", "team", "probability", "evidence"),
-      c("Rank", "Player", "Team", "Probability", "Season evidence"),
-      list(metric_rank = fmt_int, probability = fmt_rate), "data-table data-table--compact"),
+    render_table(rows, c("metric_rank", "player_name", "team", "opponent", "probability", "expected_value"),
+      c("Rank", "Player", "Team", "Opponent", "Probability", "Mean"),
+      list(metric_rank = fmt_int, probability = fmt_rate, expected_value = function(x) fmt_dec(x, 2L)), "data-table data-table--compact"),
     '</section>'
   )
 }
@@ -1166,11 +1248,33 @@ prevention_race_cards <- vapply(seq_len(min(3L, nrow(prevention_top))), function
     fmt_score(prevention_top$race_score[[index]])
   )
 }, character(1))
+race_timeline_cards <- vapply(c("AL", "NL"), function(league_name) {
+  current <- award_race_current[award_race_current$league == league_name, , drop = FALSE]
+  current <- current[order(num(current$race_rank)), , drop = FALSE]
+  leader <- current[1L, , drop = FALSE]
+  runner <- current[2L, , drop = FALSE]
+  gap <- num(leader$race_rating[[1L]]) - num(runner$race_rating[[1L]])
+  risers <- award_race_events[award_race_events$league == league_name & award_race_events$event_type == "fastest_riser", , drop = FALSE]
+  risers <- risers[order(as.Date(risers$checkpoint_date), decreasing = TRUE), , drop = FALSE]
+  changes <- award_race_events[award_race_events$league == league_name & award_race_events$event_type == "new_leader", , drop = FALSE]
+  changes <- changes[order(as.Date(changes$checkpoint_date), decreasing = TRUE), , drop = FALSE]
+  change_note <- if (nrow(changes)) paste("Last lead change", format(as.Date(changes$checkpoint_date[[1L]]), "%B %d")) else "No recorded lead change after the first checkpoint"
+  paste0(
+    '<article class="race-timeline-card"><header><span class="eyebrow">', league_name,
+    ' season path</span><strong>', html_escape(fmt_dec(leader$race_rating[[1L]], 1L)), '</strong></header><h3>',
+    html_escape(leader$player_name[[1L]]), ' leads</h3><p>', html_escape(fmt_dec(gap, 1L)),
+    ' points ahead of ', html_escape(runner$player_name[[1L]]), '.</p><footer><span>',
+    html_escape(change_note), '</span><span>Latest fastest riser: ',
+    html_escape(if (nrow(risers)) risers$player_name[[1L]] else "none"), '</span></footer></article>'
+  )
+}, character(1))
 write_fragment("league-races.html", c(
   '<section class="award-race-room"><div class="section-heading section-heading--tight"><span class="eyebrow">FanGraphs season award room</span><h2>MVP, Cy Young, Reliever of the Year, and the provisional rookie pool</h2><p>WAR, counting production, rate quality, volume, leverage, defense, baserunning, run prevention, and command are translated into league-specific performance scores. Hitting and pitching WAR are combined by player ID so two-way value remains intact. The result is not presented as a ballot forecast.</p></div>',
   '<div class="award-lane-grid">', paste0(award_cards, collapse = ""), '</div>',
   '<div class="award-method-strip"><span><strong>MVP</strong> Combined WAR 30 &middot; wRC+ 18 &middot; HR 12 &middot; RBI/runs 15 &middot; offense 10 &middot; defense/PA/WPA 15</span><span><strong>Cy Young</strong> WAR 25 &middot; ERA 20 &middot; FIP 15 &middot; K-BB 15 &middot; IP 15 &middot; WHIP 10</span><span><strong>Reliever</strong> WAR 25 &middot; ERA 20 &middot; FIP/K-BB 30 &middot; WPA 10 &middot; saves 10 &middot; IP 5</span><span><strong>ROTY</strong> Hitters and pitchers receive separate role-native weights before joining one race; official service days still require verification</span></div>',
-  '<div class="race-graphics-grid"><figure><img src="images/graphics-feed/al-mvp-race.png" alt="American League MVP performance ladder"><figcaption>AL MVP performance ladder</figcaption></figure><figure><img src="images/graphics-feed/nl-mvp-race.png" alt="National League MVP performance ladder"><figcaption>NL MVP performance ladder</figcaption></figure><figure><img src="images/graphics-feed/al-cy-young-race.png" alt="American League Cy Young performance ladder"><figcaption>AL Cy Young performance ladder</figcaption></figure><figure><img src="images/graphics-feed/nl-cy-young-race.png" alt="National League Cy Young performance ladder"><figcaption>NL Cy Young performance ladder</figcaption></figure><figure><img src="images/graphics-feed/al-reliever-race.png" alt="American League reliever performance ladder"><figcaption>AL Reliever of the Year performance ladder</figcaption></figure><figure><img src="images/graphics-feed/nl-reliever-race.png" alt="National League reliever performance ladder"><figcaption>NL Reliever of the Year performance ladder</figcaption></figure></div></section>',
+  '<section class="award-history-room"><div class="section-heading section-heading--tight"><span class="eyebrow">Seventeen date-bounded checkpoints</span><h2>How the MVP races reached today</h2><p>The current top eight are traced backward through weekly cumulative FanGraphs pulls. Each point is recalculated with only the statistics available through that checkpoint, with stronger playing-time reliability shrinkage early in the season.</p></div><div class="race-timeline-summary">', race_timeline_cards, '</div>',
+  '<div class="race-graphics-grid race-graphics-grid--timelines"><figure><img src="images/graphics-feed/al-mvp-race.png" alt="American League MVP season-to-date Race Rating timeline for the current top eight"><figcaption>AL MVP season-to-date timeline</figcaption></figure><figure><img src="images/graphics-feed/nl-mvp-race.png" alt="National League MVP season-to-date Race Rating timeline for the current top eight"><figcaption>NL MVP season-to-date timeline</figcaption></figure></div></section>',
+  '<div class="race-graphics-grid"><figure><img src="images/graphics-feed/al-cy-young-race.png" alt="American League Cy Young performance ladder"><figcaption>AL Cy Young performance ladder</figcaption></figure><figure><img src="images/graphics-feed/nl-cy-young-race.png" alt="National League Cy Young performance ladder"><figcaption>NL Cy Young performance ladder</figcaption></figure><figure><img src="images/graphics-feed/al-reliever-race.png" alt="American League reliever performance ladder"><figcaption>AL Reliever of the Year performance ladder</figcaption></figure><figure><img src="images/graphics-feed/nl-reliever-race.png" alt="National League reliever performance ladder"><figcaption>NL Reliever of the Year performance ladder</figcaption></figure></div></section>',
   '<div class="race-disclaimer"><strong>Two complementary lenses.</strong><span>The FanGraphs award room above includes season value and defensive components. The PBP-derived boards below isolate offensive production and run prevention without claiming to predict a ballot.</span></div>',
   '<section class="section-heading"><span class="eyebrow">The offensive race</span><h2>Who has built the strongest hitting case?</h2><p>Estimated wOBA, OPS, run value per plate appearance, contact quality, and sample reliability form the transparent composite.</p></section>',
   '<div class="signal-grid">', offense_race_cards, '</div>',
@@ -1230,14 +1334,14 @@ write_fragment("newsletter-daily.html", c(
   '</section>',
   paste0('<section class="newsletter-story"><span class="eyebrow">Simulation center preview</span><h2>',
     html_escape(feature_projection$away_team[[1L]]), ' at ', html_escape(feature_projection$home_team[[1L]]),
-    ' profiles as a ', html_escape(projection_lean(feature_projection$winner_probability[[1L]])), '</h2><p>The demonstration score layer gives ',
+    ' profiles as a ', html_escape(projection_lean(feature_projection$winner_probability[[1L]])), '</h2><p>The scheduled-game development model gives ',
     html_escape(feature_projection$projected_winner[[1L]]), ' a ', html_escape(fmt_rate(feature_projection$winner_probability[[1L]])),
     ' win share, with a ', html_escape(fmt_dec(feature_projection$mean_total_runs[[1L]], 1L)),
     '-run mean total and a ', html_escape(fmt_rate(feature_projection$one_run_probability[[1L]])),
     ' chance of a one-run result.</p><div class="evidence-row"><span><small>Away mean</small><strong>',
     html_escape(fmt_dec(feature_projection$away_mean_runs[[1L]], 1L)), '</strong></span><span><small>Home mean</small><strong>',
     html_escape(fmt_dec(feature_projection$home_mean_runs[[1L]], 1L)), '</strong></span><span><small>Extras</small><strong>',
-    html_escape(fmt_rate(feature_projection$extra_innings_probability[[1L]])), '</strong></span></div><p class="method-note">Representative matchup only; starters, lineups, park, and weather are not connected yet. <a href="projections.html">Open the simulation center.</a></p></section>'),
+    html_escape(fmt_rate(feature_projection$extra_innings_probability[[1L]])), '</strong></span></div><p class="method-note">Today&rsquo;s inputs are connected; calibration and final publication approval are still pending. <a href="projections.html">Open the simulation center.</a></p></section>'),
   '</main><aside class="newsletter-side">',
   '<section class="newsletter-note"><span class="eyebrow">On this date</span><h2>History queue</h2><ul class="history-list">',
   newsletter_history_list,
@@ -1334,32 +1438,48 @@ write_fragment("pitch-lab.html", c(
 projection_cards <- vapply(seq_len(nrow(daily_projections)), function(index) {
   projection_game_card(daily_projections[index, , drop = FALSE])
 }, character(1))
-player_probability_boards <- c(
-  player_probability_leaderboard("batter_hr_1plus", "Home-run probability leaders", "Posted hitters ranked by the probability of at least one home run from their season HR rate and a 4.2-PA baseline."),
-  player_probability_leaderboard("batter_hit_1plus", "Hit probability leaders", "Posted hitters ranked by the probability of at least one hit from their season hit rate."),
-  player_probability_leaderboard("batter_tb_2plus", "Two-plus total-base leaders", "A compound event-rate baseline using singles and extra-base hits from the season line."),
-  player_probability_leaderboard("pitcher_k_5plus", "Five-plus strikeout leaders", "Probable starters ranked from season strikeout rate and expected batters faced."),
-  player_probability_leaderboard("pitcher_k_7plus", "Seven-plus strikeout leaders", "The higher strikeout threshold reveals which starters retain the strongest upper-tail baseline.")
-)
+slate_date <- as.Date(daily_game_inputs$game_date[[1L]])
+player_model_date <- suppressWarnings(as.Date(player_simulation_model$game_date[[1L]]))
+player_board_current <- nrow(player_simulations) > 0L && !is.na(player_model_date) && identical(player_model_date, slate_date)
+if (player_board_current) {
+  player_probability_boards <- c(
+    player_probability_leaderboard("batter_hr_1plus", "Home-run probability leaders", "Full-game hitter draws include posted batting-order opportunity, the probable starter, the active-roster bullpen quality layer, and the run environment."),
+    player_probability_leaderboard("batter_hit_1plus", "Hit probability leaders", "Each hitter continues through the same batting order when the simulation moves from the starter phase to the bullpen."),
+    player_probability_leaderboard("batter_xbh_1plus", "Extra-base-hit probability leaders", "Doubles, triples, and home runs are simulated as mutually exclusive plate-appearance outcomes."),
+    player_probability_leaderboard("batter_tb_2plus", "Two-plus total-base leaders", "The total-base board preserves each simulated event mix instead of treating every hit as equivalent."),
+    player_probability_leaderboard("pitcher_k_5plus", "Five-plus strikeout leaders", "Probable starters draw a game-specific batters-faced distribution against the posted opposing order."),
+    player_probability_leaderboard("pitcher_k_7plus", "Seven-plus strikeout leaders", "The upper-tail board responds to starter workload, the opposing order, and both pitcher and hitter strikeout rates.")
+  )
+  player_projection_section <- paste0(
+    '<section class="player-probability-room"><div class="section-heading section-heading--tight"><span class="eyebrow">Player simulation board &middot; ', html_escape(fmt_int(player_simulation_model$simulations_per_lineup[[1L]])), ' draws per lineup</span><h2>Player outcomes now live inside the game simulation</h2><p>Confirmed orders are simulated through two continuous phases: the probable starter, then the opposing active-roster bullpen. The same draws produce full-game hitter lines and starter strikeout distributions.</p></div><div class="player-probability-grid">',
+    paste0(player_probability_boards, collapse = ''),
+    '</div><div class="method-callout"><strong>Development boundary:</strong> opponent quality, batting-order slot, starter workload, aggregate bullpen quality, and temperature now enter the Monte Carlo layer. Handedness, specific reliever entry, empirical park effects, injuries, and event-by-event calibration remain open gates.</div></section>'
+  )
+} else {
+  player_projection_section <- paste0(
+    '<section class="player-probability-room"><div class="section-heading section-heading--tight"><span class="eyebrow">Player simulation board &middot; lineup gate</span><h2>Player probabilities wait for posted batting orders</h2><p>The team slate can update in the morning, but hitter and starter-event boards are withheld until current-date orders provide real batting-order opportunity. Yesterday&rsquo;s player board is never relabeled as today&rsquo;s.</p></div><div class="method-callout"><strong>Current state:</strong> ',
+    html_escape(fmt_int(nrow(daily_batting_orders))), ' posted batting-order rows are available for ', html_escape(format(slate_date, "%B %d")), '.</div></section>'
+  )
+}
 write_fragment("daily-projections.html", c(
-  '<div class="projection-status-strip"><span><strong>Score layer v2</strong> Live inputs are connected; probabilities remain a representative model demonstration</span><span>20,000 simulations per demo game &middot; FanGraphs roster value added &middot; calibration pending</span></div>',
+  '<div class="projection-status-strip"><span><strong>Scheduled-game simulator v1</strong> Today&rsquo;s slate is running in development mode</span><span>20,000 simulations per game &middot; actual starters, posted orders, active rosters, and weather &middot; calibration pending</span></div>',
   live_input_board(daily_game_inputs),
-  '<section class="player-probability-room"><div class="section-heading section-heading--tight"><span class="eyebrow">Player performance board</span><h2>Only the strongest daily probabilities make the page</h2><p>Posted batting orders and probable starters are joined to FanGraphs season rates. The leaderboards provide the compact format requested for home runs, hits, total bases, and pitcher strikeouts.</p></div><div class="player-probability-grid">',
-  player_probability_boards,
-  '</div><div class="method-callout"><strong>Development boundary:</strong> these are transparent season-rate baselines, not calibrated player props. Opponent quality, handedness, park, weather, batting-order slot, pitch count, and uncertainty still need to enter the fitted model.</div></section>',
-  '<section class="section-heading"><span class="eyebrow">Daily projection board</span><h2>The whole slate in one scan</h2><p>When the automated run finishes, each game card will show the win split, score center, uncertainty, close-game chance, and input status before a reader opens the deeper matchup view.</p></section>',
+  player_projection_section,
+  '<section class="section-heading"><span class="eyebrow">Development projection board</span><h2>The actual slate in one scan</h2><p>Each game card now comes from today&rsquo;s schedule and shows the simulated win split, score center, uncertainty, close-game chance, and input status. These are pre-calibration research outputs, not public betting forecasts.</p></section>',
   '<div class="projection-slate-grid">', projection_cards, '</div>',
   projection_feature(feature_projection),
-  projection_input_board(feature_projection_input),
+  projection_publication_board(projection_publication),
+  projection_feedback_room(game_backtest_metrics, game_score_model_card, projection_feedback_ledger),
   projection_hook_visual(projection_hook_path),
   bullpen_chain_visual(bullpen_chains),
-  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Slate table</span><h2>Every game, every uncertainty signal</h2><p>The published version will replace this representative slate after schedule, probable pitcher, confirmed lineup, park, and weather gates pass.</p></div>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Slate table</span><h2>Every game, every uncertainty signal</h2><p>The live development run is shown here. Public release remains blocked until calibration and the remaining data-quality gates pass.</p></div>',
   render_table(daily_projections, c("away_team", "home_team", "away_win_probability", "home_win_probability", "away_mean_runs", "home_mean_runs", "mean_total_runs", "one_run_probability", "extra_innings_probability", "projected_winner"),
     c("Away", "Home", "Away win", "Home win", "Away runs", "Home runs", "Total", "One-run", "Extras", "Model lean"),
     list(away_win_probability = fmt_rate, home_win_probability = fmt_rate, away_mean_runs = function(x) fmt_dec(x, 1L), home_mean_runs = function(x) fmt_dec(x, 1L), mean_total_runs = function(x) fmt_dec(x, 1L), one_run_probability = fmt_rate, extra_innings_probability = fmt_rate)),
   '</section>',
-  '<section class="projection-model-card"><div><span class="eyebrow">Model card &middot; score layer v2</span><h2>What this demonstration does &mdash; and does not &mdash; know</h2></div><div class="projection-model-grid"><span><small>Included in demo probabilities</small><strong>Team offense, run prevention, form, bullpen readiness, home field, and capped FanGraphs hitting/pitching WAR adjustments</strong></span><span><small>Connected beside the model</small><strong>Probable starters, confirmed lineups, active rosters, parks, game-window weather</strong></span><span><small>Publication gate</small><strong>Fit starter, lineup, park, weather, and reliever effects; validate out of time; archive versions and audit misses</strong></span></div></section>',
-  '<div class="method-callout"><strong>Interpretation boundary:</strong> these matchups are an interface demonstration generated from the June 14 PBP team snapshot plus the current FanGraphs season-value layer. The probabilities are real Monte Carlo outputs from an uncalibrated score model, but they are not today&rsquo;s schedule, betting advice, or public forecasts.</div>'
+  '<section class="projection-model-card"><div><span class="eyebrow">Model card &middot; scheduled-game simulator v1</span><h2>What the first live model knows</h2></div><div class="projection-model-grid"><span><small>Included in probabilities</small><strong>Posted-lineup wRC+, probable-starter FIP/xFIP/ERA blend and workload, active-roster bullpen quality, temperature, home field, and Monte Carlo score uncertainty</strong></span><span><small>Connected but gated</small><strong>Reliever workload enters only when the PBP usage snapshot is current; neutral park factors remain visible rather than silently assumed to be fitted</strong></span><span><small>Publication gate</small><strong>Backfill historical pregame inputs, fit coefficients without future leakage, calibrate probabilities, archive versions, and audit misses</strong></span></div></section>',
+  '<section class="projection-activation"><div class="section-heading section-heading--tight"><span class="eyebrow">From prototype to daily forecast</span><h2>Three of four activation stages are now underway</h2><p>The scheduled slate and player simulations now feed a permanent pregame ledger. The expanded chronological benchmark has reached shadow-mode eligibility; the next work is accumulating clean live forecasts and adding richer prior-only features.</p></div><ol><li class="is-built"><span>01</span><div><small>Built</small><h3>Acquisition spine</h3><p>Incremental PBP cache, FanGraphs refreshes, weekly award checkpoints, schedule, starters, lineups, rosters, and weather.</p></div></li><li class="is-built"><span>02</span><div><small>Built in development</small><h3>Team + player simulator</h3><p>Actual games now run through lineup, starter, active-bullpen, weather, home-field, team-score, hitter-event, and starter-strikeout layers.</p></div></li><li class="is-next"><span>03</span><div><small>Shadow mode</small><h3>Chronological calibration</h3><p>The latest later-game holdout narrowly clears its declared baseline. Future pregame snapshots will test score, win, home-run, hit, total-base, and strikeout probabilities before any public promotion.</p></div></li><li><span>04</span><div><small>Publication</small><h3>Automated approved board</h3><p>Only model versions that repeat their advantage on clean live forecasts can replace development probabilities or supply newsletter excerpts.</p></div></li></ol></section>',
+  '<div class="method-callout"><strong>Interpretation boundary:</strong> these are today&rsquo;s scheduled matchups and real Monte Carlo outputs, but the probability model is still uncalibrated. Treat the page as a research prototype, not betting advice or a public forecast.</div>'
 ))
 
 aaa_hitter_cards <- vapply(seq_len(min(6L, nrow(aaa_young_hitters))), function(index) aaa_watch_card(aaa_young_hitters[index, , drop = FALSE], "hitter"), character(1))

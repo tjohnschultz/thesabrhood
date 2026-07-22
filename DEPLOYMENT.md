@@ -20,12 +20,14 @@ before a trustworthy public launch.
   model versions, and review the largest misses.
 - Keep betting-adjacent outputs private until these checks pass.
 
-## 3. Choose private data storage
+## 3. Harden private data storage
 
-The raw PBP cannot live in the public site repository. Select one durable
-private source for the scheduled job, such as a private release asset, private
-cloud object storage, or a separate private data repository. Add only narrowly
-scoped read credentials as GitHub Actions secrets.
+Raw PBP does not live in the public site repository. The scheduled prototype
+uses a private GitHub Actions cache and can rebuild from completed MLB games if
+that cache expires. Before commercial launch, select a durable private archive
+for raw snapshots and fitted model objects, such as private cloud object storage
+or a separate private data repository. Add only narrowly scoped credentials as
+GitHub Actions secrets.
 
 ## 4. Activate and observe the daily analytics refresh
 
@@ -59,7 +61,9 @@ copy of the last known-good `docs` artifact for rollback.
 
 ## Current state
 
-The local product foundation, package boundary, compact derived-data mirror,
-and non-deploying preview workflow are working. Gate 1 is active. The daily
-input contract needed for Gate 2 is connected, but model effects and
-calibration are not complete. No live deployment action has been created.
+The product foundation, repository-contained package, compact derived-data
+mirror, scheduled daily refresh, and non-deploying preview workflow are
+working. The daily refresh can update the existing `docs` output through
+commits to `main`; model effects and calibration are still not approved as a
+public betting product. GitHub Pages and custom-domain configuration remain the
+explicit final deployment gate.

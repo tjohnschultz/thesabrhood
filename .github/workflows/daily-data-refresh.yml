@@ -1,0 +1,145 @@
+name: Daily MLB data refresh
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+    inputs:
+      pbp_end:
+        description: "Last completed PBP date (YYYY-MM-DD); defaults to yesterday"
+        required: false
+        type: string
+      slate_date:
+        description: "Game-information date (YYYY-MM-DD); defaults to today"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sabrhood-daily-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      SABRHOOD_PBP_END: ${{ inputs.pbp_end }}
+      SABRHOOD_DATE: ${{ inputs.slate_date }}
+      SABRHOOD_N_SIMS: "20000"
+      SABRHOOD_PLAYER_N_SIMS: "2000"
+
+    steps:
+      - name: Check out site repository
+        uses: actions/checkout@v4
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Restore private acquisition cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .private-data/pbp
+          key: sabrhood-pbp-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            sabrhood-pbp-${{ runner.os }}-
+
+      - name: Install R dependencies and SABRhood package
+        shell: bash
+        run: |
+          Rscript -e 'install.packages(c("baseballr", "jsonlite", "dplyr", "rlang", "tibble", "withr", "ggplot2", "knitr", "rmarkdown"), repos = "https://cloud.r-project.org")'
+          R CMD INSTALL packages/sabrhoodR
+
+      - name: Update completed-game PBP
+        shell: bash
+        run: |
+          if [ -z "$SABRHOOD_PBP_END" ]; then unset SABRHOOD_PBP_END; fi
+          Rscript scripts/update_pbp.R
+
+      - name: Save resumable PBP cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .private-data/pbp
+          key: sabrhood-pbp-${{ runner.os }}-${{ github.run_id }}
+
+      - name: Refresh FanGraphs season tables
+        shell: bash
+        run: |
+          Rscript scripts/refresh_fangraphs_season.R
+          Rscript scripts/build_fangraphs_products.R
+
+      - name: Rebuild bullpen availability
+        run: Rscript scripts/build_daily_bullpen_availability.R
+
+      - name: Pull today's games, starters, orders, rosters, and weather
+        id: slate
+        shell: bash
+        run: |
+          if [ -z "$SABRHOOD_DATE" ]; then unset SABRHOOD_DATE; fi
+          Rscript scripts/pull_daily_game_info.R
+          if [ -f .private-data/no-slate ]; then
+            echo "has_slate=false" >> "$GITHUB_OUTPUT"
+            echo "has_lineups=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_slate=true" >> "$GITHUB_OUTPUT"
+            lineup_rows=$(Rscript -e 'x <- read.csv("data/derived/daily-batting-orders.csv", check.names = FALSE); cat(nrow(x))')
+            if [ "$lineup_rows" -ge 9 ]; then
+              echo "has_lineups=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "has_lineups=false" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+
+      - name: Build daily team projections
+        if: steps.slate.outputs.has_slate == 'true'
+        run: Rscript scripts/build_daily_team_simulations.R
+
+      - name: Build lineup-dependent player projections
+        if: steps.slate.outputs.has_lineups == 'true'
+        shell: bash
+        run: |
+          Rscript scripts/build_daily_player_probabilities.R
+          Rscript scripts/build_daily_player_simulations.R
+
+      - name: Update derived-data manifest
+        run: Rscript scripts/update_derived_manifest.R
+
+      - name: Generate and validate site source
+        if: steps.slate.outputs.has_slate == 'true'
+        shell: bash
+        run: |
+          Rscript scripts/build_site_fragments.R
+          Rscript scripts/validate_site.R
+
+      - name: Render Quarto site
+        if: steps.slate.outputs.has_slate == 'true'
+        run: quarto render --no-clean
+
+      - name: Restore article assets and validate render
+        if: steps.slate.outputs.has_slate == 'true'
+        shell: bash
+        run: |
+          Rscript scripts/restore_legacy_assets.R
+          Rscript scripts/validate_site.R --rendered
+
+      - name: Commit approved derived products and rendered pages
+        if: success() && github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/derived includes docs
+          if git diff --cached --quiet; then
+            echo "No public data changes to commit."
+          else
+            git commit -m "data: refresh MLB products [skip ci]"
+            git push
+          fi

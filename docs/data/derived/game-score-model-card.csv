@@ -1,0 +1,2 @@
+"model_version","source_start","source_end","training_end","training_team_games","validation_team_games","validation_games","upstream_features","fitted_layer","leakage_rule","deployment_approved","publication_status","pbp_source"
+"pregame_rolling_score_calibrator_v1",2026-04-04,2026-07-20,2026-06-26,2202,564,282,"14-game prior-only team scoring; 14-game prior-only opponent run prevention; home indicator","poisson_log_scale_home_calibrator_v1","every rolling feature excludes the game being predicted",TRUE,"eligible for shadow-mode application","pbp-2026-current.rds"

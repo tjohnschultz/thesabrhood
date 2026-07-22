@@ -41,6 +41,29 @@ required_data <- c(
   ,"daily-projection-margin.csv"
   ,"daily-projection-scorelines.csv"
   ,"daily-projection-drivers.csv"
+  ,"daily-projections-live.csv"
+  ,"daily-projection-margin-live.csv"
+  ,"daily-projection-scorelines-live.csv"
+  ,"daily-projection-drivers-live.csv"
+  ,"daily-projection-components-live.csv"
+  ,"projection-publication-readiness.csv"
+  ,"daily-batter-simulation-summary.csv"
+  ,"daily-starter-simulation-summary.csv"
+  ,"daily-lineup-simulation-summary.csv"
+  ,"daily-player-simulations.csv"
+  ,"daily-player-simulation-skips.csv"
+  ,"daily-player-simulation-model-card.csv"
+  ,"game-projection-backtest.csv"
+  ,"game-projection-backtest-metrics.csv"
+  ,"game-projection-calibration.csv"
+  ,"game-score-calibrator-coefficients.csv"
+  ,"game-winner-model-coefficients.csv"
+  ,"game-score-model-card.csv"
+  ,"projection-ledger-status.csv"
+  ,"projection-feedback-metrics.csv"
+  ,"projection-feedback-calibration.csv"
+  ,"player-projection-feedback-metrics.csv"
+  ,"projection-feedback-ledger.csv"
   ,"projection-input-readiness.csv"
   ,"bullpen-chain-demo.csv"
   ,"projection-hook-path.csv"
@@ -66,6 +89,10 @@ required_data <- c(
   ,"hitter-discipline-profiles.csv"
   ,"arsenal-spotlights.csv"
   ,"pull-rate-leader-batted-balls.csv"
+  ,"award-race-history.csv"
+  ,"award-race-display.csv"
+  ,"award-race-events.csv"
+  ,"award-race-current-leaders.csv"
 )
 
 required_fragments <- c(
@@ -110,7 +137,7 @@ for (name in required_data) {
   )
   if (inherits(product, "error")) {
     fail(paste("Unreadable derived data product:", name))
-  } else if (nrow(product) < 1L) {
+  } else if (nrow(product) < 1L && !name %in% c("daily-batting-orders.csv")) {
     fail(paste("Empty derived data product:", name))
   }
 }
