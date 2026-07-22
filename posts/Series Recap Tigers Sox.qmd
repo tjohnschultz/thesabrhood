@@ -9,6 +9,8 @@ format:
     toc-depth: 2
 ---
 
+:::: {.article-shell}
+
 ```{=html}
 <style>
   body {
@@ -218,3 +220,5 @@ In the bottom of the second, the Red Sox had action on the basepaths while facin
 In the seventh inning, the Sox had the bases loaded with Marcelo Mayer set to face Tyler Holton. This was only going to be Mayer’s sixth at-bat v. a LHP in 2026, as Alex Cora still protects him. Unsurprisingly, Cora called in Ceddannne Rafaela from the bench to face the lefty with a righty of his own. Rafaela had the second-highest BA(.368) against LHP on the Sox, only behind Narvaez’s .500 mark. Down to two strikes, Rafaela was able to poke a fairball down the first base line to score two, giving the Sox a 5-3 lead. Rafaela was able to advance to second when Caleb Durbin was thrown out at home and advanced to third on a wild pitch. The other lefty-killer, Carlos Narvaez, delivered in the next at-bat, driving in Rafaela for a 6-3 lead.
 
 The Sox took a commanding 8-3 lead into the ninth with Ryan Watson on the rubber. But he sputtered, allowing a run to score before being replaced by Aroldis Chapman with runners on 1st and 3rd. Chapman allowed a two-run double from Riley Greene before closing the door. He recorded one strikeout, leaving him behind only 1 behind Goose Gossage for second in career strikeouts as a reliever.
+
+::::

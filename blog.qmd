@@ -1,12 +1,11 @@
 ---
 title: "Articles"
-description: "Original MLB reporting and analysis from The SABRhood."
 ---
 
 ::: {.articles-mast}
 <span class="eyebrow">Original reporting from the neighborhood</span>
 
-# Articles and research
+# The Blog
 
 Long-form baseball stories grounded in pitch data, player development, game context, and the questions worth asking next.
 :::

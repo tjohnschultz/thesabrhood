@@ -10,6 +10,8 @@ format:
 image: "../images/bello_head.png"
 ---
 
+:::: {.article-shell}
+
 ## Brayan Bello has been sent down to AAA, what is the cause for his disastrous season and will he contribute in Boston in 2026?
 ```{=html}
 <style> 
@@ -423,3 +425,5 @@ ggplot(rolling_bello, aes(x = game_date, y = `Swing%`)) +
 ```
 
 I will keep an eye on Bello’s usage of his cutter and sinker while down on the farm.
+
+::::

@@ -11,6 +11,8 @@ format:
 image: "../images/ajewinghead.png"
 ---
 
+:::: {.article-shell}
+
 ```{=html}
 <style>
  /* THE OUTER BOX (The whole page background) */
@@ -145,3 +147,5 @@ A.J. Ewing starts his career off in a comfortable spot, facing off against the r
 ```{=html}
 <div class="substack-post-embed"><p lang="en">A.J. Ewing Gets the Call by The SabrHood</p><p>Can this early-season call-up boost morale in Queens?</p><a data-post-link href="https://thesabrhood.substack.com/p/aj-ewing-gets-the-call">Read on Substack</a></div><script async src="https://substack.com/embedjs/embed.js" charset="utf-8"></script>
 ```
+
+::::

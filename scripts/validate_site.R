@@ -62,6 +62,10 @@ required_data <- c(
   ,"rolling-league-pitch-usage.csv"
   ,"rolling-league-production.csv"
   ,"insane-baseball-awards.csv"
+  ,"team-positional-war.csv"
+  ,"hitter-discipline-profiles.csv"
+  ,"arsenal-spotlights.csv"
+  ,"pull-rate-leader-batted-balls.csv"
 )
 
 required_fragments <- c(
