@@ -66,7 +66,16 @@ fmt_ordinal <- function(value) {
 }
 fmt_yes_no <- function(value) ifelse(as.logical(value), "Yes", "No")
 
+graphics_cache_token <- ""
 write_fragment <- function(name, lines) {
+  if (nzchar(graphics_cache_token)) {
+    lines <- gsub(
+      "(images/graphics-feed/[^\\\"'?[:space:]]+[.]png)(?![?])",
+      paste0("\\1?v=", graphics_cache_token),
+      lines,
+      perl = TRUE
+    )
+  }
   writeLines(enc2utf8(lines), file.path(include_dir, name), useBytes = TRUE)
 }
 
@@ -439,6 +448,7 @@ daily_probables <- read_product("daily-probable-starters.csv")
 active_rosters <- read_product("active-rosters.csv")
 active_roster_bullpens <- read_product("active-roster-bullpens.csv")
 daily_park_weather <- read_product("daily-park-weather.csv")
+daily_slate_status <- read_product("daily-slate-status.csv")
 aaa_hitters <- read_product("aaa-hitter-watch.csv")
 aaa_pitchers <- read_product("aaa-pitcher-watch.csv")
 fangraphs_hitters <- read_product("fangraphs-season-hitters.csv")
@@ -449,6 +459,11 @@ award_race_display <- read_product("award-race-display.csv")
 award_race_events <- read_product("award-race-events.csv")
 award_race_current <- read_product("award-race-current-leaders.csv")
 graphics_manifest <- read_product("graphics-feed-manifest.csv")
+graphics_cache_token <- gsub(
+  "[^0-9]",
+  "",
+  as.character(max(graphics_manifest$source_acquired_at_utc, na.rm = TRUE))
+)
 player_probabilities <- read_product("daily-player-probabilities.csv")
 player_simulations <- read_product("daily-player-simulations.csv")
 player_simulation_model <- read_product("daily-player-simulation-model-card.csv")
@@ -482,6 +497,11 @@ team_full_to_abbr <- c(
 
 updated_date <- max(as.Date(hitters$last_game), na.rm = TRUE)
 updated_label <- format(updated_date, "%B %d, %Y")
+slate_report_date <- suppressWarnings(as.Date(daily_slate_status$report_date[[1L]]))
+site_reference_date <- as.Date(Sys.getenv("SABRHOOD_DATE", unset = as.character(Sys.Date())))
+is_off_day <- nrow(daily_slate_status) > 0L &&
+  identical(as.character(daily_slate_status$slate_state[[1L]]), "no_games_scheduled") &&
+  !is.na(slate_report_date) && identical(slate_report_date, site_reference_date)
 
 top_hitter_form <- hitter_form[order(-num(hitter_form$form_score), -num(hitter_form$recent_pa)), ][1:6, ]
 top_pitcher_form <- pitcher_form[order(-num(pitcher_form$form_score), -num(pitcher_form$recent_pa)), ][1:6, ]
@@ -1195,9 +1215,13 @@ history_cards <- vapply(seq_len(min(4L, nrow(historical))), function(i) {
     historical$headline[[i]], historical$body[[i]], fmt_score(historical$story_score[[i]])
   )
 }, character(1))
-daily_slate_cards <- vapply(seq_len(nrow(daily_game_inputs)), function(i) {
-  daily_slate_card(daily_game_inputs[i, , drop = FALSE])
-}, character(1))
+daily_slate_cards <- if (is_off_day) {
+  paste0('<article class="method-callout"><strong>No MLB games are scheduled for ', html_escape(format(slate_report_date, "%B %d")), '.</strong> The daily intelligence, history, leaderboards, and graphics are still refreshed; the last game slate is not presented as current.</article>')
+} else {
+  vapply(seq_len(nrow(daily_game_inputs)), function(i) {
+    daily_slate_card(daily_game_inputs[i, , drop = FALSE])
+  }, character(1))
+}
 write_fragment("today-dashboard.html", c(
   paste0('<div class="update-strip"><strong>Data through ', html_escape(updated_label), '</strong><span>Method-labeled signals, not black-box claims.</span></div>'),
   '<section class="slate-desk"><div class="section-heading section-heading--tight"><span class="eyebrow">Daily game research</span><h2>Every matchup gets an evidence-first briefing</h2><p>Probable starters, posted orders, park weather, team strength, active-roster bullpen options, and the strongest qualified change signal are assembled without pretending they are already a calibrated forecast.</p></div>',
@@ -1306,6 +1330,20 @@ newsletter_radar_list <- paste0(
   html_escape(newsletter_radar$headline), '</span></li>',
   collapse = ""
 )
+newsletter_projection_story <- if (is_off_day) {
+  paste0('<section class="newsletter-story"><span class="eyebrow">Simulation center</span><h2>No MLB games are scheduled today</h2><p>The daily reporting engines still refreshed, but the simulation board is resting with the league. Yesterday&rsquo;s probabilities are never relabeled as a new slate.</p><p class="method-note"><a href="projections.html">Open the simulation center methodology and feedback room.</a></p></section>')
+} else {
+  paste0('<section class="newsletter-story"><span class="eyebrow">Simulation center preview</span><h2>',
+    html_escape(feature_projection$away_team[[1L]]), ' at ', html_escape(feature_projection$home_team[[1L]]),
+    ' profiles as a ', html_escape(projection_lean(feature_projection$winner_probability[[1L]])), '</h2><p>The scheduled-game development model gives ',
+    html_escape(feature_projection$projected_winner[[1L]]), ' a ', html_escape(fmt_rate(feature_projection$winner_probability[[1L]])),
+    ' win share, with a ', html_escape(fmt_dec(feature_projection$mean_total_runs[[1L]], 1L)),
+    '-run mean total and a ', html_escape(fmt_rate(feature_projection$one_run_probability[[1L]])),
+    ' chance of a one-run result.</p><div class="evidence-row"><span><small>Away mean</small><strong>',
+    html_escape(fmt_dec(feature_projection$away_mean_runs[[1L]], 1L)), '</strong></span><span><small>Home mean</small><strong>',
+    html_escape(fmt_dec(feature_projection$home_mean_runs[[1L]], 1L)), '</strong></span><span><small>Extras</small><strong>',
+    html_escape(fmt_rate(feature_projection$extra_innings_probability[[1L]])), '</strong></span></div><p class="method-note">Today&rsquo;s inputs are connected; calibration and final publication approval are still pending. <a href="projections.html">Open the simulation center.</a></p></section>')
+}
 write_fragment("newsletter-daily.html", c(
   paste0(
     '<section class="newsletter-mast"><div><span class="eyebrow">Daily edition &middot; ', html_escape(updated_label),
@@ -1332,16 +1370,7 @@ write_fragment("newsletter-daily.html", c(
     '</strong></span><span><small>Season context</small><strong>', html_escape(paste0(fmt_ordinal(newsletter_pitcher$dominant_season_percentile[[1]]), " pct.")), '</strong></span></div>'),
   paste0('<p class="method-note"><strong>Context read:</strong> ', html_escape(newsletter_pitcher$change_context[[1]]), '</p>'),
   '</section>',
-  paste0('<section class="newsletter-story"><span class="eyebrow">Simulation center preview</span><h2>',
-    html_escape(feature_projection$away_team[[1L]]), ' at ', html_escape(feature_projection$home_team[[1L]]),
-    ' profiles as a ', html_escape(projection_lean(feature_projection$winner_probability[[1L]])), '</h2><p>The scheduled-game development model gives ',
-    html_escape(feature_projection$projected_winner[[1L]]), ' a ', html_escape(fmt_rate(feature_projection$winner_probability[[1L]])),
-    ' win share, with a ', html_escape(fmt_dec(feature_projection$mean_total_runs[[1L]], 1L)),
-    '-run mean total and a ', html_escape(fmt_rate(feature_projection$one_run_probability[[1L]])),
-    ' chance of a one-run result.</p><div class="evidence-row"><span><small>Away mean</small><strong>',
-    html_escape(fmt_dec(feature_projection$away_mean_runs[[1L]], 1L)), '</strong></span><span><small>Home mean</small><strong>',
-    html_escape(fmt_dec(feature_projection$home_mean_runs[[1L]], 1L)), '</strong></span><span><small>Extras</small><strong>',
-    html_escape(fmt_rate(feature_projection$extra_innings_probability[[1L]])), '</strong></span></div><p class="method-note">Today&rsquo;s inputs are connected; calibration and final publication approval are still pending. <a href="projections.html">Open the simulation center.</a></p></section>'),
+  newsletter_projection_story,
   '</main><aside class="newsletter-side">',
   '<section class="newsletter-note"><span class="eyebrow">On this date</span><h2>History queue</h2><ul class="history-list">',
   newsletter_history_list,
@@ -1461,7 +1490,14 @@ if (player_board_current) {
     html_escape(fmt_int(nrow(daily_batting_orders))), ' posted batting-order rows are available for ', html_escape(format(slate_date, "%B %d")), '.</div></section>'
   )
 }
-write_fragment("daily-projections.html", c(
+if (is_off_day) {
+  write_fragment("daily-projections.html", c(
+    paste0('<div class="projection-status-strip"><span><strong>MLB off-day</strong> No games are scheduled for ', html_escape(format(slate_report_date, "%B %d, %Y")), '.</span><span>The reporting and model-feedback engines still refreshed today.</span></div>'),
+    '<section class="section-heading"><span class="eyebrow">Simulation center</span><h2>The board rests when the league rests</h2><p>No probabilities are published without a current scheduled slate. Explore the model card, accumulated feedback, and calibration record below.</p></section>',
+    projection_feedback_room(game_backtest_metrics, game_score_model_card, projection_feedback_ledger),
+    '<div class="method-callout"><strong>Publication rule:</strong> the previous game board is retained in the data archive but never presented as today&rsquo;s forecast.</div>'
+  ))
+} else write_fragment("daily-projections.html", c(
   '<div class="projection-status-strip"><span><strong>Scheduled-game simulator v1</strong> Today&rsquo;s slate is running in development mode</span><span>20,000 simulations per game &middot; actual starters, posted orders, active rosters, and weather &middot; calibration pending</span></div>',
   live_input_board(daily_game_inputs),
   player_projection_section,
@@ -1630,11 +1666,16 @@ write_fragment("league-leaderboards.html", c(
   '<div class="leaderboard-grid">', pitcher_boards, '</div>'
 ))
 
-write_fragment("home-projections.html", c(
-  '<section class="section-heading"><span class="eyebrow">Simulation center preview</span><h2>Probabilities with the uncertainty left in</h2><p>The future daily board will report a lean, a score range, and the factors behind the number &mdash; never a naked percentage.</p></section>',
-  '<div class="projection-slate-grid projection-slate-grid--home">', projection_cards[seq_len(min(3L, length(projection_cards)))], '</div>',
-  '<div class="section-action"><a class="btn btn-metallic" href="projections.html">Preview the complete projection board</a></div>'
-))
+if (is_off_day) {
+  write_fragment("home-projections.html", c(
+    '<section class="section-heading"><span class="eyebrow">Simulation center preview</span><h2>No MLB games are scheduled today</h2><p>The model board pauses on league off-days; daily intelligence and the feedback ledger continue to update.</p></section>',
+    '<div class="section-action"><a class="btn btn-metallic" href="projections.html">Explore the simulation center</a></div>'
+  ))
+} else write_fragment("home-projections.html", c(
+    '<section class="section-heading"><span class="eyebrow">Simulation center preview</span><h2>Probabilities with the uncertainty left in</h2><p>The future daily board will report a lean, a score range, and the factors behind the number &mdash; never a naked percentage.</p></section>',
+    '<div class="projection-slate-grid projection-slate-grid--home">', projection_cards[seq_len(min(3L, length(projection_cards)))], '</div>',
+    '<div class="section-action"><a class="btn btn-metallic" href="projections.html">Preview the complete projection board</a></div>'
+  ))
 
 factor_labels <- c(
   pitches_over_60 = "Workload beyond 60 pitches",

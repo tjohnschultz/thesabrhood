@@ -1,2 +1,2 @@
 "snapshots","archived_game_rows","eligible_unique_games","settled_games","archived_player_rows","eligible_unique_player_rows","settled_player_rows","next_action","leakage_rule"
-1,15,0,0,1120,0,0,"archive 300 more eligible game forecasts before fitting live probability calibration","late snapshots excluded; first eligible snapshot wins; model versions evaluated separately"
+0,0,0,0,0,0,0,"archive the first eligible pregame forecast","late snapshots excluded; first eligible snapshot wins; model versions evaluated separately"

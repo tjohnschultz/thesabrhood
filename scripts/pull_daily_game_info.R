@@ -12,6 +12,21 @@ if (is.na(target_date)) stop("SABRHOOD_DATE must use YYYY-MM-DD.", call. = FALSE
 season_year <- as.integer(format(target_date, "%Y"))
 no_slate_marker <- file.path(workspace, ".private-data", "no-slate")
 if (file.exists(no_slate_marker)) unlink(no_slate_marker)
+slate_status_path <- file.path(output_dir, "daily-slate-status.csv")
+write_slate_status <- function(state, game_count) {
+  utils::write.csv(
+    data.frame(
+      report_date = as.character(target_date),
+      slate_state = state,
+      game_count = as.integer(game_count),
+      generated_at_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
+      stringsAsFactors = FALSE
+    ),
+    slate_status_path,
+    row.names = FALSE,
+    na = ""
+  )
+}
 
 bind_safely <- function(items) {
   items <- items[vapply(items, function(x) is.data.frame(x) && nrow(x) > 0L, logical(1))]
@@ -24,6 +39,7 @@ schedule <- baseballr::mlb_game_pks(as.character(target_date), level_ids = 1)
 if (!is.data.frame(schedule) || !nrow(schedule)) {
   dir.create(dirname(no_slate_marker), recursive = TRUE, showWarnings = FALSE)
   file.create(no_slate_marker)
+  write_slate_status("no_games_scheduled", 0L)
   cat("No MLB slate returned for", as.character(target_date), "; preserving the last published board.\n")
   quit(save = "no", status = 0L)
 }
@@ -177,4 +193,5 @@ utils::write.csv(active_rosters, file.path(output_dir, "active-rosters.csv"), ro
 utils::write.csv(active_bullpens, file.path(output_dir, "active-roster-bullpens.csv"), row.names = FALSE, na = "")
 utils::write.csv(active_bullpen_selector, file.path(output_dir, "active-roster-bullpen-selector.csv"), row.names = FALSE, na = "")
 utils::write.csv(weather, file.path(output_dir, "daily-park-weather.csv"), row.names = FALSE, na = "")
+write_slate_status("games_scheduled", nrow(games))
 cat("Built", nrow(games), "daily games,", nrow(inputs$lineups), "posted lineup rows,", nrow(active_rosters), "active roster rows,", nrow(active_bullpens), "verified bullpen rows, and", nrow(active_bullpen_selector), "roster-gated selector rows.\n")

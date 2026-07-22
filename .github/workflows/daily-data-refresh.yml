@@ -43,18 +43,19 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Restore private acquisition cache
+      - name: Restore private pipeline cache
         uses: actions/cache/restore@v5
         with:
-          path: .private-data/pbp
-          key: sabrhood-pbp-${{ runner.os }}-${{ github.run_id }}
+          path: .private-data
+          key: sabrhood-private-${{ runner.os }}-${{ github.run_id }}
           restore-keys: |
+            sabrhood-private-${{ runner.os }}-
             sabrhood-pbp-${{ runner.os }}-
 
       - name: Install R dependencies and SABRhood package
         shell: bash
         run: |
-          Rscript -e 'install.packages(c("remotes", "jsonlite", "dplyr", "rlang", "tibble", "withr", "ggplot2", "knitr", "rmarkdown"), repos = "https://cloud.r-project.org")'
+          Rscript -e 'install.packages(c("remotes", "jsonlite", "dplyr", "rlang", "tibble", "withr", "ggplot2", "knitr", "rmarkdown", "Lahman"), repos = "https://cloud.r-project.org")'
           Rscript -e 'remotes::install_url("https://github.com/BillPetti/baseballr/archive/refs/tags/v1.6.0.tar.gz", dependencies = NA, upgrade = "never")'
           Rscript -e 'stopifnot(requireNamespace("baseballr", quietly = TRUE)); message("Installed baseballr ", packageVersion("baseballr"))'
           R CMD INSTALL packages/sabrhoodR
@@ -65,21 +66,29 @@ jobs:
           if [ -z "$SABRHOOD_PBP_END" ]; then unset SABRHOOD_PBP_END; fi
           Rscript scripts/update_pbp.R
 
-      - name: Save resumable PBP cache
-        if: always()
-        uses: actions/cache/save@v5
-        with:
-          path: .private-data/pbp
-          key: sabrhood-pbp-${{ runner.os }}-${{ github.run_id }}
+      - name: Settle prior projection snapshots
+        run: Rscript scripts/settle_projection_ledger.R
+
+      - name: Rebuild all PBP-derived analytics
+        run: Rscript scripts/build_pbp_products.R
 
       - name: Refresh FanGraphs season tables
+        continue-on-error: true
         shell: bash
         run: |
           Rscript scripts/refresh_fangraphs_season.R
           Rscript scripts/build_fangraphs_products.R
 
-      - name: Rebuild bullpen availability
-        run: Rscript scripts/build_daily_bullpen_availability.R
+      - name: Rebuild history, milestone, and editorial engines
+        shell: bash
+        run: |
+          if [ -z "$SABRHOOD_DATE" ]; then unset SABRHOOD_DATE; fi
+          Rscript scripts/build_history_products.R
+          Rscript scripts/build_editorial_products.R
+
+      - name: Refresh Triple-A watch
+        continue-on-error: true
+        run: Rscript scripts/refresh_aaa.R
 
       - name: Pull today's games, starters, orders, rosters, and weather
         id: slate
@@ -111,26 +120,40 @@ jobs:
           Rscript scripts/build_daily_player_probabilities.R
           Rscript scripts/build_daily_player_simulations.R
 
+      - name: Archive eligible pregame predictions
+        if: steps.slate.outputs.has_slate == 'true'
+        run: Rscript scripts/archive_projection_snapshot.R
+
+      - name: Rebuild branded graphics feed
+        run: Rscript scripts/build_graphics_feed.R
+
+      - name: Enforce public-product freshness
+        run: Rscript scripts/build_refresh_health.R
+
       - name: Update derived-data manifest
         run: Rscript scripts/update_derived_manifest.R
 
       - name: Generate and validate site source
-        if: steps.slate.outputs.has_slate == 'true'
         shell: bash
         run: |
           Rscript scripts/build_site_fragments.R
           Rscript scripts/validate_site.R
 
       - name: Render Quarto site
-        if: steps.slate.outputs.has_slate == 'true'
         run: quarto render --no-clean
 
       - name: Restore article assets and validate render
-        if: steps.slate.outputs.has_slate == 'true'
         shell: bash
         run: |
           Rscript scripts/restore_legacy_assets.R
           Rscript scripts/validate_site.R --rendered
+
+      - name: Save private pipeline cache
+        if: always()
+        uses: actions/cache/save@v5
+        with:
+          path: .private-data
+          key: sabrhood-private-${{ runner.os }}-${{ github.run_id }}
 
       - name: Commit approved derived products and rendered pages
         if: success() && github.ref == 'refs/heads/main'
@@ -138,7 +161,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/derived includes docs
+          git add data/derived images/graphics-feed includes docs
           if git diff --cached --quiet; then
             echo "No public data changes to commit."
           else

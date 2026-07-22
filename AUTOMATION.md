@@ -10,11 +10,21 @@ only final games through the prior completed date. Raw events are stored under
 enter `data/` or `docs/`. If that cache expires, the job rebuilds the completed
 regular-season history from the MLB Stats API.
 
-The same job refreshes FanGraphs season tables, bullpen availability, the
-current schedule, probable starters, any already-posted batting orders, active
-rosters, and Open-Meteo park forecasts. Team simulations can run before lineups
-post. Player simulations wait for a current complete batting order, and the site
-displays a lineup-pending state instead of relabeling yesterday's player board.
+The same job rebuilds the complete public intelligence layer from the PBP cache:
+player summaries, splits, recent form, change z-scores, pitch identities,
+discipline, rolling league trends, unusual awards, manager hooks, run expectancy,
+matchups, team intelligence, stories, milestones, and broadcast notes. It also
+refreshes FanGraphs, Triple-A, the daily slate, rosters, bullpens, park weather,
+simulations, and branded graphics.
+
+On a league off-day, the workflow records an explicit current-date
+`no_games_scheduled` slate status, refreshes the non-game intelligence, and
+publishes an off-day presentation. It never relabels the previous slate or its
+probabilities as current.
+
+Team simulations can run before lineups post. Player simulations wait for a
+current complete batting order. Every eligible pregame build is archived
+privately, and completed-game PBP settles those forecasts the following morning.
 
 The separate `.github/workflows/lineup-refresh.yml` workflow checks every 30
 minutes from 10:00 a.m. through 10:30 p.m. Eastern during daylight-saving time,
@@ -22,7 +32,8 @@ from March through November.
 It exits before installing data dependencies unless a current-date game is
 within four hours of first pitch (or began less than 20 minutes ago). During an
 active game wave it refreshes only probable starters and posted batting orders,
-then rebuilds team and available player projections. It deliberately does not
+then rebuilds team and available player projections and archives the freshest
+eligible snapshot. It deliberately does not
 repeat the PBP, FanGraphs, roster, bullpen-workload, or full weather acquisition
 jobs. The four-hour gate captures orders that post earlier than the usual
 90-minute window, and repeated checks can capture subsequent lineup changes.
@@ -32,10 +43,12 @@ separately labeled projected-lineup model is built, missing orders keep the
 player board gated while the team model uses its documented season-level
 fallbacks.
 
-After acquisition, the workflow updates the derived-data manifest, regenerates
-the Quarto fragments, validates and renders the site, then commits only compact
-derived products, fragments, and rendered pages to `main`. A failed acquisition
-or validation produces no public commit.
+The weekly intelligence workflow rebuilds cumulative FanGraphs award checkpoints
+and race timelines each Sunday. The daily workflow writes `refresh-health.csv`,
+which compares every public group with its declared daily or weekly cadence.
+Only after that gate passes does it update checksums, regenerate fragments,
+validate, render, and commit compact products, graphics, fragments, and pages.
+A failed acquisition or validation produces no public commit.
 
 The branch workflow in `.github/workflows/site-preview.yml` regenerates all
 static fragments, validates approved data files and checksums, renders Quarto,
@@ -50,11 +63,10 @@ New or substantially revised articles should be rendered deliberately when
 their analysis inputs are available, reviewed, and then committed with the
 resulting HTML; the daily data workflows do not rerun editorial notebooks.
 
-The repository acquisition layer now has executable jobs for the daily MLB schedule,
-probable starters, posted batting orders, active rosters, active-roster bullpen
-filtering, ballpark weather, Triple-A performance lines, and five-game pitch-mix
-change detection. The reusable package source lives in `packages/sabrhoodR`, so
-GitHub Actions installs the same functions used during local development.
+The private cache carries replaceable PBP, FanGraphs checkpoint, and projection
+ledger state together. Only compact derived products are committed. The reusable
+package source lives in `packages/sabrhoodR`, so Actions installs the same
+functions used during local development.
 
 The season layer also pulls compact FanGraphs hitter and pitcher leaderboards
 through BaseballR. Wide source tables stay in the private cache; only selected

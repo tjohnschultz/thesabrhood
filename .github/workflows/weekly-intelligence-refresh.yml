@@ -1,0 +1,95 @@
+name: Weekly MLB intelligence refresh
+
+on:
+  schedule:
+    - cron: "30 13 * 3-11 0"
+  workflow_dispatch:
+    inputs:
+      history_end:
+        description: "Last FanGraphs checkpoint date (YYYY-MM-DD); defaults to yesterday"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sabrhood-daily-data
+  cancel-in-progress: false
+
+jobs:
+  refresh-intelligence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      SABRHOOD_HISTORY_END: ${{ inputs.history_end }}
+
+    steps:
+      - name: Check out site repository
+        uses: actions/checkout@v5
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Restore private pipeline cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .private-data
+          key: sabrhood-private-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            sabrhood-private-${{ runner.os }}-
+            sabrhood-pbp-${{ runner.os }}-
+
+      - name: Install R dependencies and SABRhood package
+        shell: bash
+        run: |
+          Rscript -e 'install.packages(c("remotes", "jsonlite", "dplyr", "rlang", "tibble", "withr", "ggplot2", "knitr", "rmarkdown", "Lahman"), repos = "https://cloud.r-project.org")'
+          Rscript -e 'remotes::install_url("https://github.com/BillPetti/baseballr/archive/refs/tags/v1.6.0.tar.gz", dependencies = NA, upgrade = "never")'
+          Rscript -e 'stopifnot(requireNamespace("baseballr", quietly = TRUE)); message("Installed baseballr ", packageVersion("baseballr"))'
+          R CMD INSTALL packages/sabrhoodR
+
+      - name: Refresh current FanGraphs tables and weekly award history
+        shell: bash
+        run: |
+          if [ -z "$SABRHOOD_HISTORY_END" ]; then unset SABRHOOD_HISTORY_END; fi
+          Rscript scripts/refresh_fangraphs_season.R
+          Rscript scripts/build_fangraphs_products.R
+          Rscript scripts/refresh_award_history.R
+
+      - name: Rebuild graphics and site
+        shell: bash
+        run: |
+          Rscript scripts/build_graphics_feed.R
+          Rscript scripts/build_refresh_health.R
+          Rscript scripts/update_derived_manifest.R
+          Rscript scripts/build_site_fragments.R
+          Rscript scripts/validate_site.R
+          quarto render --no-clean
+          Rscript scripts/restore_legacy_assets.R
+          Rscript scripts/validate_site.R --rendered
+
+      - name: Save private pipeline cache
+        if: always()
+        uses: actions/cache/save@v5
+        with:
+          path: .private-data
+          key: sabrhood-private-${{ runner.os }}-${{ github.run_id }}
+
+      - name: Commit refreshed intelligence products and pages
+        if: success() && github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/derived images/graphics-feed includes docs
+          if git diff --cached --quiet; then
+            echo "No weekly intelligence changes to publish."
+          else
+            git commit -m "data: refresh weekly MLB intelligence [skip ci]"
+            git push
+          fi
