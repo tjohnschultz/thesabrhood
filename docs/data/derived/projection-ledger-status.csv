@@ -1,2 +1,2 @@
 "snapshot_id","snapshot_date","snapshots_archived","game_rows_archived","player_rows_archived","eligible_game_rows","eligible_player_rows","current_snapshot_games","current_snapshot_player_rows","current_snapshot_eligible_games","calibration_minimum_games","calibration_rule"
-"20260721-234703","2026-07-21",1,15,1120,0,0,15,1120,0,300,"first eligible pregame snapshot per game and model version; late builds never enter evaluation"
+"20260722-210513","2026-07-22",1,17,1736,9,840,17,1736,9,300,"first eligible pregame snapshot per game and model version; late builds never enter evaluation"
