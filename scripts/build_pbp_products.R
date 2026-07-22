@@ -27,9 +27,78 @@ cat("Reading private completed-game PBP cache...\n")
 pbp <- readRDS(pbp_path)
 date_column <- if ("game_date" %in% names(pbp)) "game_date" else "game_date_date"
 source_through <- max(as.Date(pbp[[date_column]]), na.rm = TRUE)
-cat("Building canonical pitch and appearance views through", as.character(source_through), "...\n")
-pitches <- build_pitch_view(pbp)
+if (identical(date_column, "game_date_date")) {
+  pbp$game_date <- pbp[[date_column]]
+  date_column <- "game_date"
+}
+
+# The Stats API cache is intentionally wide so the private archive remains
+# useful for future research. The public refresh needs only the columns used by
+# build_pitch_view(). Dropping the other source columns before filtering pitch
+# rows prevents the GitHub runner from holding two copies of the full wide
+# table while the canonical pitch tibble is allocated.
+pitch_source_columns <- c(
+  "isPitch", "is_pitch", "game_pk", "gamePk", "game_date", "gameDate",
+  "about.halfInning", "half_inning", "about.isTopInning", "is_top_inning",
+  "about.atBatIndex", "atBatIndex", "pitchNumber", "pitch_number", "playId", "play_id",
+  "about.inning", "inning", "batting_team", "battingTeam", "fielding_team", "fieldingTeam",
+  "home_team", "homeTeam", "away_team", "awayTeam",
+  "matchup.pitcher.id", "pitcher_id", "matchup.pitcher.fullName", "pitcher_name",
+  "matchup.pitchHand.code", "pitcher_hand", "matchup.batter.id", "batter_id",
+  "matchup.batter.fullName", "batter_name", "matchup.batSide.code", "batter_side",
+  "count.balls.start", "balls_before", "count.strikes.start", "strikes_before",
+  "count.outs.start", "outs_before", "count.balls.end", "balls_after",
+  "count.strikes.end", "strikes_after", "count.outs.end", "outs_after",
+  "matchup.postOnFirst.id", "runner_on_first_id", "matchup.postOnSecond.id", "runner_on_second_id",
+  "matchup.postOnThird.id", "runner_on_third_id", "result.eventType", "details.eventType", "event_type",
+  "result.event", "details.event", "event", "details.description", "result.description", "description",
+  "details.type.code", "pitch_type", "details.type.description", "pitch_name",
+  "details.call.code", "call_code", "details.call.description", "call_description",
+  "details.isInPlay", "is_in_play", "details.isStrike", "is_strike", "details.isBall", "is_ball",
+  "last.pitch.of.ab", "last_pitch_of_ab", "pitchData.startSpeed", "release_speed",
+  "pitchData.endSpeed", "end_speed", "pitchData.zone", "zone",
+  "pitchData.strikeZoneTop", "strike_zone_top", "pitchData.strikeZoneBottom", "strike_zone_bottom",
+  "pitchData.extension", "extension", "pitchData.coordinates.pX", "plate_x",
+  "pitchData.coordinates.pZ", "plate_z", "pitchData.coordinates.x0", "release_x",
+  "pitchData.coordinates.z0", "release_z", "pitchData.breaks.breakHorizontal", "horizontal_break",
+  "pitchData.breaks.breakVerticalInduced", "induced_vertical_break", "pitchData.breaks.spinRate", "spin_rate",
+  "hitData.launchSpeed", "launch_speed", "hitData.launchAngle", "launch_angle",
+  "hitData.totalDistance", "hit_distance", "hitData.location", "hit_location",
+  "hitData.coordinates.coordX", "hit_coord_x", "hitData.coordinates.coordY", "hit_coord_y",
+  "hitData.trajectory", "trajectory", "battingOrder", "batting_order", "result.rbi", "runs_batted_in",
+  "details.homeScore", "home_score_current", "details.awayScore", "away_score_current",
+  "result.homeScore", "home_score", "result.awayScore", "away_score"
+)
+keep_columns <- names(pbp) %in% pitch_source_columns
+raw_column_count <- ncol(pbp)
+pbp <- pbp[, keep_columns, drop = FALSE]
+invisible(gc())
+
+pitch_flag_column <- if ("isPitch" %in% names(pbp)) "isPitch" else "is_pitch"
+pitch_flag <- pbp[[pitch_flag_column]]
+if (!is.logical(pitch_flag)) {
+  pitch_flag <- tolower(as.character(pitch_flag)) %in% c("true", "t", "1", "yes", "y")
+}
+pbp <- pbp[pitch_flag %in% TRUE, , drop = FALSE]
+invisible(gc())
+cat(
+  "Building canonical pitch and appearance views through", as.character(source_through),
+  "from", format(nrow(pbp), big.mark = ","), "pitch rows and",
+  ncol(pbp), "of", raw_column_count, "raw columns...\n"
+)
+pitch_month <- format(as.Date(pbp[[date_column]]), "%Y-%m")
+chunk_rows <- split(seq_len(nrow(pbp)), pitch_month, drop = TRUE)
+pitch_chunks <- lapply(names(chunk_rows), function(month) {
+  rows <- chunk_rows[[month]]
+  cat("  canonicalizing", month, "(", format(length(rows), big.mark = ","), "rows )\n")
+  chunk <- build_pitch_view(pbp[rows, , drop = FALSE])
+  chunk$source_row <- rows[chunk$source_row]
+  chunk
+})
 rm(pbp)
+invisible(gc())
+pitches <- dplyr::bind_rows(pitch_chunks)
+rm(pitch_chunks, chunk_rows)
 invisible(gc())
 
 pitch_type_summary <- summarize_pitch_types(pitches, minimum_pitches = 100L)
@@ -46,6 +115,8 @@ bullpen_availability <- build_bullpen_availability(
   pitcher_registry,
   as_of_date = source_through
 )
+rm(appearances)
+invisible(gc())
 
 plate_appearances <- build_plate_appearance_view(pitches)
 run_expectancy <- build_run_expectancy_table(plate_appearances)
@@ -130,6 +201,8 @@ manager_summary <- data.frame(
   generated_at_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
   stringsAsFactors = FALSE
 )
+rm(manager_decisions, pitcher_registry)
+invisible(gc())
 
 cat("Building league movement, discipline and unusual-award products...\n")
 league_trends <- build_rolling_league_trends(pitches, plate_appearances, rolling_days = 14L)
