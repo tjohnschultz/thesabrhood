@@ -21,8 +21,10 @@ completed_schedule <- function(date) {
   games <- payload$dates[[1L]]$games
   if (!is.list(games) || !length(games)) return(data.frame())
   rows <- lapply(games, function(game) {
-    is_final <- identical(as.character(game$status$abstractGameState), "Final") ||
-      identical(as.character(game$status$codedGameState), "F")
+    coded_state <- as.character(game$status$codedGameState)
+    detailed_state <- as.character(game$status$detailedState)
+    is_final <- identical(coded_state, "F") ||
+      detailed_state %in% c("Final", "Game Over", "Completed Early")
     if (!is_final) return(data.frame())
     data.frame(
       game_pk = as.character(game$gamePk),
@@ -106,6 +108,18 @@ dedupe_pbp <- function(data) {
   output
 }
 
+normalize_pbp_storage_types <- function(data) {
+  if (!is.data.frame(data) || !nrow(data)) return(data)
+  if ("game_pk" %in% names(data)) data$game_pk <- as.character(data$game_pk)
+  if ("atBatIndex" %in% names(data)) {
+    data$atBatIndex <- suppressWarnings(as.integer(as.character(data$atBatIndex)))
+  }
+  if ("pitchData.strikeZoneWidth" %in% names(data)) {
+    data$pitchData.strikeZoneWidth <- suppressWarnings(as.numeric(as.character(data$pitchData.strikeZoneWidth)))
+  }
+  data
+}
+
 update_pbp <- function(
     target_date = Sys.Date() - 1L,
     season = as.integer(format(target_date, "%Y")),
@@ -122,7 +136,7 @@ update_pbp <- function(
   dir.create(dirname(cache_path), recursive = TRUE, showWarnings = FALSE)
   game_cache_dir <- file.path(dirname(cache_path), "games")
   dir.create(game_cache_dir, recursive = TRUE, showWarnings = FALSE)
-  current <- if (file.exists(cache_path)) readRDS(cache_path) else data.frame()
+  current <- if (file.exists(cache_path)) normalize_pbp_storage_types(readRDS(cache_path)) else data.frame()
   existing_game_pks <- if (nrow(current) && "game_pk" %in% names(current)) unique(as.character(current$game_pk)) else character()
   season_start <- as.Date(Sys.getenv("SABRHOOD_SEASON_START", unset = paste0(season, "-03-20")))
   schedule_start <- if (length(existing_game_pks)) {
@@ -159,7 +173,7 @@ update_pbp <- function(
     if (nrow(game) < 100L) return(data.frame())
     game
   })
-  new_pbp <- bind_safely(acquired)
+  new_pbp <- normalize_pbp_storage_types(bind_safely(acquired))
   acquired_game_pks <- if (nrow(new_pbp)) unique(as.character(new_pbp$game_pk)) else character()
   failed_game_pks <- setdiff(missing$game_pk, acquired_game_pks)
   if (length(failed_game_pks)) {
