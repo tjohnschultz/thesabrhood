@@ -66,7 +66,16 @@ fmt_ordinal <- function(value) {
 }
 fmt_yes_no <- function(value) ifelse(as.logical(value), "Yes", "No")
 
+graphics_cache_token <- ""
 write_fragment <- function(name, lines) {
+  if (nzchar(graphics_cache_token)) {
+    lines <- gsub(
+      "(images/graphics-feed/[^\\\"'?[:space:]]+[.]png)(?![?])",
+      paste0("\\1?v=", graphics_cache_token),
+      lines,
+      perl = TRUE
+    )
+  }
   writeLines(enc2utf8(lines), file.path(include_dir, name), useBytes = TRUE)
 }
 
@@ -450,6 +459,11 @@ award_race_display <- read_product("award-race-display.csv")
 award_race_events <- read_product("award-race-events.csv")
 award_race_current <- read_product("award-race-current-leaders.csv")
 graphics_manifest <- read_product("graphics-feed-manifest.csv")
+graphics_cache_token <- gsub(
+  "[^0-9]",
+  "",
+  as.character(max(graphics_manifest$source_acquired_at_utc, na.rm = TRUE))
+)
 player_probabilities <- read_product("daily-player-probabilities.csv")
 player_simulations <- read_product("daily-player-simulations.csv")
 player_simulation_model <- read_product("daily-player-simulation-model-card.csv")
