@@ -1,0 +1,6 @@
+---
+title: "Texas Rangers Team Dossier"
+description: "Automated SABRhood research dossier for the Texas Rangers."
+---
+
+{{< include ../includes/team-dossiers/texas-rangers.html >}}

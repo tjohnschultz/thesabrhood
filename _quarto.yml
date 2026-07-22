@@ -1,37 +1,127 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - index.qmd
+    - today.qmd
+    - races.qmd
+    - insane-awards.qmd
+    - league-trends.qmd
+    - story-desk.qmd
+    - matchups.qmd
+    - players.qmd
+    - player-change-engine.qmd
+    - teams.qmd
+    - team-dossiers.qmd
+    - team-dossiers/*.qmd
+    - history.qmd
+    - pitch-lab.qmd
+    - aaa.qmd
+    - projections.qmd
+    - newsletter.qmd
+    - graphics-feed.qmd
+    - blog.qmd
+    - broadcast.qmd
+    - methodology.qmd
+    - glossary.qmd
+    - about.qmd
+    - leaderboards.qmd
+    - 404.qmd
   resources:
     - images/**
     - CNAME
     - data/newsletter_data/newsletter_today.rds
+    - data/derived/**
+    - data/derived/README.md
+    - listings.json
 
 website:
-  title: ""
-  favicon: "images/sabrlogo.png"
+  title: "The SABRhood"
+  site-url: "https://thesabrhood.com"
+  favicon: "images/new-sabr-logo.png"
+  open-graph:
+    image: "images/sabrhood-social-preview-v1.png"
+  twitter-card:
+    image: "images/sabrhood-social-preview-v1.png"
+    card-style: summary_large_image
   google-analytics: "G-GGNXXW6FWM"
   navbar:
+    pinned: true
+    collapse-below: lg
     background: "#FFFFFF"
     foreground: "#BD3039"
     logo: "images/thesabrhood2clean.png"
     left:
       - href: index.qmd
         text: Home
-      - href: blog.qmd
-        text: Articles
-      - href: newsletter.qmd
-        text: Daily Newsletter
+      - href: today.qmd
+        text: Today
       - href: leaderboards.qmd
-        text: Leaderboards
-      - href: glossary.qmd
-        text: Stat Glossary
+        text: Leaders
+      - text: Awards
+        menu:
+          - href: races.qmd
+            text: MLB Award Races
+          - href: insane-awards.qmd
+            text: Insane Baseball Awards
+      - text: Intelligence
+        menu:
+          - href: story-desk.qmd
+            text: Story Engine
+          - href: players.qmd
+            text: Players
+          - href: player-change-engine.qmd
+            text: Player Change Engine
+          - href: teams.qmd
+            text: Teams
+          - href: team-dossiers.qmd
+            text: Team Dossiers
+          - href: matchups.qmd
+            text: Matchups
+          - href: pitch-lab.qmd
+            text: Pitch Lab
+          - href: aaa.qmd
+            text: Triple-A Watch
+          - href: history.qmd
+            text: History
+          - href: league-trends.qmd
+            text: League Trends
+      - href: projections.qmd
+        text: Projections
+      - href: newsletter.qmd
+        text: Newsletter
+      - href: graphics-feed.qmd
+        text: Graphics
+      - href: blog.qmd
+        text: Research
+      - href: broadcast.qmd
+        text: Broadcast
+    right:
       - href: about.qmd
         text: About
-
-      
+  page-footer:
+    left: "© 2026 The SABRhood"
+    center:
+      - href: methodology.qmd
+        text: Methodology
+      - href: glossary.qmd
+        text: Glossary
+      - href: history.qmd
+        text: History Desk
+    right:
+      - href: "https://x.com/thesabrhood"
+        text: "@thesabrhood"
+  search:
+    location: navbar
+    type: overlay
 format:
   html:
     theme: cosmo
     css: styles.css
     page-layout: full
     smooth-scroll: true
+    anchor-sections: true
+    link-external-newwindow: true
+    include-in-header:
+      text: |
+        <meta name="theme-color" content="#0C2340">

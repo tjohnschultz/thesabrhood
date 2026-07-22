@@ -1,0 +1,6 @@
+---
+title: "Los Angeles Dodgers Team Dossier"
+description: "Automated SABRhood research dossier for the Los Angeles Dodgers."
+---
+
+{{< include ../includes/team-dossiers/los-angeles-dodgers.html >}}

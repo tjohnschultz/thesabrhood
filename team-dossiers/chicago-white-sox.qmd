@@ -1,0 +1,6 @@
+---
+title: "Chicago White Sox Team Dossier"
+description: "Automated SABRhood research dossier for the Chicago White Sox."
+---
+
+{{< include ../includes/team-dossiers/chicago-white-sox.html >}}

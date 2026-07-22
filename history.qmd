@@ -1,0 +1,14 @@
+---
+title: "History"
+description: "Career milestones, record context, and daily baseball anniversaries."
+---
+
+::: {.page-intro .history-intro}
+<span class="eyebrow">The history desk</span>
+
+# Baseball history with a reason to care
+
+Daily anniversaries are ranked by the career behind the date—so Hall of Famers, record holders, stars, and meaningful franchise figures rise above the noise.
+:::
+
+{{< include includes/history-desk.html >}}

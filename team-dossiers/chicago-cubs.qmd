@@ -1,0 +1,6 @@
+---
+title: "Chicago Cubs Team Dossier"
+description: "Automated SABRhood research dossier for the Chicago Cubs."
+---
+
+{{< include ../includes/team-dossiers/chicago-cubs.html >}}

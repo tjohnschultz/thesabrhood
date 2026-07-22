@@ -1,0 +1,6 @@
+---
+title: "Colorado Rockies Team Dossier"
+description: "Automated SABRhood research dossier for the Colorado Rockies."
+---
+
+{{< include ../includes/team-dossiers/colorado-rockies.html >}}

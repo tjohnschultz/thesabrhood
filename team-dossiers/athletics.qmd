@@ -1,0 +1,6 @@
+---
+title: "Athletics Team Dossier"
+description: "Automated SABRhood research dossier for the Athletics."
+---
+
+{{< include ../includes/team-dossiers/athletics.html >}}

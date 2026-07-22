@@ -1,0 +1,4 @@
+"term","estimate","std_error","model_rows","training_end","model_version"
+"(Intercept)",1.22664940828112,0.0489856335752228,2202,2026-06-26,"pregame_rolling_score_calibrator_v1"
+"log_raw_expected",0.186600972024891,0.0312748641146653,2202,2026-06-26,"pregame_rolling_score_calibrator_v1"
+"is_home",-0.00199047060101462,0.0200890152560443,2202,2026-06-26,"pregame_rolling_score_calibrator_v1"

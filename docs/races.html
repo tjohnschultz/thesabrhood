@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Transparent season-to-date MLB offensive and run-prevention race boards.">
+
+<title>Performance Races – The SABRhood</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/new-sabr-logo.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-GGNXXW6FWM"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<meta name="theme-color" content="#0C2340">
+
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Performance Races – The SABRhood">
+<meta property="og:description" content="Transparent season-to-date MLB offensive and run-prevention race boards.">
+<meta property="og:image" content="https://thesabrhood.com/images/sabrhood-social-preview-v1.png">
+<meta property="og:site_name" content="The SABRhood">
+<meta property="og:image:height" content="946">
+<meta property="og:image:width" content="1662">
+<meta name="twitter:title" content="Performance Races – The SABRhood">
+<meta name="twitter:description" content="Transparent season-to-date MLB offensive and run-prevention race boards.">
+<meta name="twitter:image" content="https://thesabrhood.com/images/sabrhood-social-preview-v1.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="946">
+<meta name="twitter:image-width" content="1662">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">The SABRhood</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./today.html"> 
+<span class="menu-text">Today</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./leaderboards.html"> 
+<span class="menu-text">Leaders</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-awards" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Awards</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-awards">    
+        <li>
+    <a class="dropdown-item" href="./races.html">
+ <span class="dropdown-text">MLB Award Races</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./insane-awards.html">
+ <span class="dropdown-text">Insane Baseball Awards</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-intelligence" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Intelligence</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-intelligence">    
+        <li>
+    <a class="dropdown-item" href="./story-desk.html">
+ <span class="dropdown-text">Story Engine</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./players.html">
+ <span class="dropdown-text">Players</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./player-change-engine.html">
+ <span class="dropdown-text">Player Change Engine</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./teams.html">
+ <span class="dropdown-text">Teams</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./team-dossiers.html">
+ <span class="dropdown-text">Team Dossiers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./matchups.html">
+ <span class="dropdown-text">Matchups</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./pitch-lab.html">
+ <span class="dropdown-text">Pitch Lab</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./aaa.html">
+ <span class="dropdown-text">Triple-A Watch</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./history.html">
+ <span class="dropdown-text">History</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./league-trends.html">
+ <span class="dropdown-text">League Trends</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./projections.html"> 
+<span class="menu-text">Projections</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./newsletter.html"> 
+<span class="menu-text">Newsletter</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./graphics-feed.html"> 
+<span class="menu-text">Graphics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./blog.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./broadcast.html"> 
+<span class="menu-text">Broadcast</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Performance Races</h1>
+</div>
+
+<div>
+  <div class="description">
+    Transparent season-to-date MLB offensive and run-prevention race boards.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="page-intro race-intro">
+<p><span class="eyebrow">League race room</span></p>
+<section id="the-strongest-cases-in-baseball" class="level1">
+<h1>The strongest cases in baseball</h1>
+<p>Follow the players building exceptional season profiles, with every ingredient visible and every limitation stated.</p>
+</section>
+</div>
+<section class="award-race-room">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">FanGraphs season award room</span>
+<h2 class="anchored">
+MVP, Cy Young, Reliever of the Year, and the provisional rookie pool
+</h2>
+<p>
+WAR, counting production, rate quality, volume, leverage, defense, baserunning, run prevention, and command are translated into league-specific performance scores. Hitting and pitching WAR are combined by player ID so two-way value remains intact. The result is not presented as a ballot forecast.
+</p>
+</div>
+<div class="award-lane-grid">
+<article class="leaderboard-card leaderboard-card--award">
+<header>
+<span class="eyebrow">Ranked race</span>
+<h3 class="anchored">
+AL MVP
+</h3>
+<p>
+Transparent season performance score
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Yordan Alvarez</strong><small>HOU · hitter</small></span><span class="leaderboard-value">94.8</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Dillon Dingler</strong><small>DET · hitter</small></span><span class="leaderboard-value">92.4</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Ben Rice</strong><small>NYY · hitter</small></span><span class="leaderboard-value">92.3</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Miguel Vargas</strong><small>CHW · hitter</small></span><span class="leaderboard-value">91.9</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Junior Caminero</strong><small>TBR · hitter</small></span><span class="leaderboard-value">91.4</span>
+</li>
+</ol>
+<footer class="leaderboard-card__footer">
+Combined hitting and pitching WAR 30, wRC+ 18, HR 12, RBI 8, runs 7, offense 10, defense 5, PA 5, WPA 5.
+</footer>
+</article>
+<article class="leaderboard-card leaderboard-card--award">
+<header>
+<span class="eyebrow">Ranked race</span>
+<h3 class="anchored">
+AL Cy Young
+</h3>
+<p>
+Transparent season performance score
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Cam Schlittler</strong><small>NYY · pitcher</small></span><span class="leaderboard-value">96.5</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Dylan Cease</strong><small>TOR · pitcher</small></span><span class="leaderboard-value">89.7</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Logan Gilbert</strong><small>SEA · pitcher</small></span><span class="leaderboard-value">86.2</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Parker Messick</strong><small>CLE · pitcher</small></span><span class="leaderboard-value">84.7</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Casey Mize</strong><small>DET · pitcher</small></span><span class="leaderboard-value">82.8</span>
+</li>
+</ol>
+<footer class="leaderboard-card__footer">
+WAR, ERA, FIP, K-BB rate, innings, and WHIP.
+</footer>
+</article>
+<article class="leaderboard-card leaderboard-card--award">
+<header>
+<span class="eyebrow">Ranked race</span>
+<h3 class="anchored">
+AL Reliever of the Year
+</h3>
+<p>
+Leverage, command, saves, and run prevention
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Louis Varland</strong><small>TOR · reliever</small></span><span class="leaderboard-value">98.8</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Jacob Latz</strong><small>TEX · reliever</small></span><span class="leaderboard-value">93.9</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Cade Smith</strong><small>CLE · reliever</small></span><span class="leaderboard-value">91.1</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Grant Taylor</strong><small>CHW · reliever</small></span><span class="leaderboard-value">86.5</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Brent Headrick</strong><small>NYY · reliever</small></span><span class="leaderboard-value">85.9</span>
+</li>
+</ol>
+<footer class="leaderboard-card__footer">
+Relievers only: WAR 25, ERA 20, FIP 15, K-BB 15, WPA 10, saves 10, innings 5.
+</footer>
+</article>
+<article class="leaderboard-card leaderboard-card--award">
+<header>
+<span class="eyebrow">Ranked race</span>
+<h3 class="anchored">
+AL Rookie of the Year watch
+</h3>
+<p>
+Role-balanced hitter and pitcher score
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Kevin McGonigle</strong><small>DET · hitter</small></span><span class="leaderboard-value">96.9</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Parker Messick</strong><small>CLE · pitcher</small></span><span class="leaderboard-value">89.1</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Payton Tolle</strong><small>BOS · pitcher</small></span><span class="leaderboard-value">86.2</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Tristan Peters</strong><small>CHW · hitter</small></span><span class="leaderboard-value">79.2</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Munetaka Murakami</strong><small>CHW · hitter</small></span><span class="leaderboard-value">77.7</span>
+</li>
+</ol>
+<footer class="leaderboard-card__footer">
+Hitters: WAR 40, wRC+ 25, offense 15, PA 10, defense 5, baserunning 5. Pitchers: WAR 40, ERA 20, FIP 15, K-BB 15, IP 10.
+</footer>
+</article>
+<article class="leaderboard-card leaderboard-card--award">
+<header>
+<span class="eyebrow">Ranked race</span>
+<h3 class="anchored">
+NL MVP
+</h3>
+<p>
+Transparent season performance score
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Pete Crow-Armstrong</strong><small>CHC · hitter</small></span><span class="leaderboard-value">96.1</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>James Wood</strong><small>WSN · hitter</small></span><span class="leaderboard-value">93.8</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Shohei Ohtani</strong><small>LAD · hitter</small></span><span class="leaderboard-value">92.1</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Matt Olson</strong><small>ATL · hitter</small></span><span class="leaderboard-value">89.1</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Brice Turang</strong><small>MIL · hitter</small></span><span class="leaderboard-value">88.2</span>
+</li>
+</ol>
+<footer class="leaderboard-card__footer">
+Combined hitting and pitching WAR 30, wRC+ 18, HR 12, RBI 8, runs 7, offense 10, defense 5, PA 5, WPA 5.
+</footer>
+</article>
+<article class="leaderboard-card leaderboard-card--award">
+<header>
+<span class="eyebrow">Ranked race</span>
+<h3 class="anchored">
+NL Cy Young
+</h3>
+<p>
+Transparent season performance score
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Jacob Misiorowski</strong><small>MIL · pitcher</small></span><span class="leaderboard-value">98.6</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Cristopher Sánchez</strong><small>PHI · pitcher</small></span><span class="leaderboard-value">92.4</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Chris Sale</strong><small>ATL · pitcher</small></span><span class="leaderboard-value">92.3</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Paul Skenes</strong><small>PIT · pitcher</small></span><span class="leaderboard-value">90.3</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Yoshinobu Yamamoto</strong><small>LAD · pitcher</small></span><span class="leaderboard-value">89.9</span>
+</li>
+</ol>
+<footer class="leaderboard-card__footer">
+WAR, ERA, FIP, K-BB rate, innings, and WHIP.
+</footer>
+</article>
+<article class="leaderboard-card leaderboard-card--award">
+<header>
+<span class="eyebrow">Ranked race</span>
+<h3 class="anchored">
+NL Reliever of the Year
+</h3>
+<p>
+Leverage, command, saves, and run prevention
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Mason Miller</strong><small>SDP · reliever</small></span><span class="leaderboard-value">97.8</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Jhoan Duran</strong><small>PHI · reliever</small></span><span class="leaderboard-value">94.2</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Tanner Scott</strong><small>LAD · reliever</small></span><span class="leaderboard-value">87.2</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Dylan Lee</strong><small>ATL · reliever</small></span><span class="leaderboard-value">87.0</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Trevor Megill</strong><small>MIL · reliever</small></span><span class="leaderboard-value">86.2</span>
+</li>
+</ol>
+<footer class="leaderboard-card__footer">
+Relievers only: WAR 25, ERA 20, FIP 15, K-BB 15, WPA 10, saves 10, innings 5.
+</footer>
+</article>
+<article class="leaderboard-card leaderboard-card--award">
+<header>
+<span class="eyebrow">Ranked race</span>
+<h3 class="anchored">
+NL Rookie of the Year watch
+</h3>
+<p>
+Role-balanced hitter and pitcher score
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Chase Burns</strong><small>CIN · pitcher</small></span><span class="leaderboard-value">93.0</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>JJ Wetherholt</strong><small>STL · hitter</small></span><span class="leaderboard-value">90.0</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Nolan McLean</strong><small>NYM · pitcher</small></span><span class="leaderboard-value">89.0</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Kyle Harrison</strong><small>MIL · pitcher</small></span><span class="leaderboard-value">86.0</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Curtis Mead</strong><small>WSN · hitter</small></span><span class="leaderboard-value">82.5</span>
+</li>
+</ol>
+<footer class="leaderboard-card__footer">
+Hitters: WAR 40, wRC+ 25, offense 15, PA 10, defense 5, baserunning 5. Pitchers: WAR 40, ERA 20, FIP 15, K-BB 15, IP 10.
+</footer>
+</article>
+</div>
+<div class="award-method-strip">
+<span><strong>MVP</strong> Combined WAR 30 · wRC+ 18 · HR 12 · RBI/runs 15 · offense 10 · defense/PA/WPA 15</span><span><strong>Cy Young</strong> WAR 25 · ERA 20 · FIP 15 · K-BB 15 · IP 15 · WHIP 10</span><span><strong>Reliever</strong> WAR 25 · ERA 20 · FIP/K-BB 30 · WPA 10 · saves 10 · IP 5</span><span><strong>ROTY</strong> Hitters and pitchers receive separate role-native weights before joining one race; official service days still require verification</span>
+</div>
+<section class="award-history-room">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">Seventeen date-bounded checkpoints</span>
+<h2 class="anchored">
+How the MVP races reached today
+</h2>
+<p>
+The current top eight are traced backward through weekly cumulative FanGraphs pulls. Each point is recalculated with only the statistics available through that checkpoint, with stronger playing-time reliability shrinkage early in the season.
+</p>
+</div>
+<div class="race-timeline-summary">
+<article class="race-timeline-card">
+<header>
+<span class="eyebrow">AL season path</span><strong>94.8</strong>
+</header>
+<h3 class="anchored">
+Yordan Alvarez leads
+</h3>
+<p>
+2.4 points ahead of Dillon Dingler.
+</p>
+<footer>
+<span>Last lead change May 03</span><span>Latest fastest riser: Ben Williamson</span>
+</footer>
+</article>
+<article class="race-timeline-card">
+<header>
+<span class="eyebrow">NL season path</span><strong>96.1</strong>
+</header>
+<h3 class="anchored">
+Pete Crow-Armstrong leads
+</h3>
+<p>
+2.3 points ahead of James Wood.
+</p>
+<footer>
+<span>No recorded lead change after the first checkpoint</span><span>Latest fastest riser: Tyler Freeman</span>
+</footer>
+</article>
+</div>
+<div class="race-graphics-grid race-graphics-grid--timelines">
+<figure class="figure">
+<img src="images/graphics-feed/al-mvp-race.png" alt="American League MVP season-to-date Race Rating timeline for the current top eight" class="figure-img">
+<figcaption>
+AL MVP season-to-date timeline
+</figcaption>
+</figure>
+<figure class="figure">
+<img src="images/graphics-feed/nl-mvp-race.png" alt="National League MVP season-to-date Race Rating timeline for the current top eight" class="figure-img">
+<figcaption>
+NL MVP season-to-date timeline
+</figcaption>
+</figure>
+</div>
+</section>
+<div class="race-graphics-grid">
+<figure class="figure">
+<img src="images/graphics-feed/al-cy-young-race.png" alt="American League Cy Young performance ladder" class="figure-img">
+<figcaption>
+AL Cy Young performance ladder
+</figcaption>
+</figure>
+<figure class="figure">
+<img src="images/graphics-feed/nl-cy-young-race.png" alt="National League Cy Young performance ladder" class="figure-img">
+<figcaption>
+NL Cy Young performance ladder
+</figcaption>
+</figure>
+<figure class="figure">
+<img src="images/graphics-feed/al-reliever-race.png" alt="American League reliever performance ladder" class="figure-img">
+<figcaption>
+AL Reliever of the Year performance ladder
+</figcaption>
+</figure>
+<figure class="figure">
+<img src="images/graphics-feed/nl-reliever-race.png" alt="National League reliever performance ladder" class="figure-img">
+<figcaption>
+NL Reliever of the Year performance ladder
+</figcaption>
+</figure>
+</div>
+</section>
+<div class="race-disclaimer">
+<strong>Two complementary lenses.</strong><span>The FanGraphs award room above includes season value and defensive components. The PBP-derived boards below isolate offensive production and run prevention without claiming to predict a ballot.</span>
+</div>
+<section class="section-heading">
+<span class="eyebrow">The offensive race</span>
+<h2 class="anchored">
+Who has built the strongest hitting case?
+</h2>
+<p>
+Estimated wOBA, OPS, run value per plate appearance, contact quality, and sample reliability form the transparent composite.
+</p>
+</section>
+<div class="signal-grid">
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">Offense # 1</span><span class="signal-score" aria-label="Signal score 95.8">95.8</span>
+</div>
+<h3 class="anchored">
+Yordan Alvarez
+</h3>
+<p class="player-signal__team">
+Houston Astros
+</p>
+<p>
+<strong>1.072 OPS | 0.446 estimated wOBA</strong>
+</p>
+<p class="muted">
+304 PA | 52.6% hard-hit rate
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">Offense # 2</span><span class="signal-score" aria-label="Signal score 95.6">95.6</span>
+</div>
+<h3 class="anchored">
+Nick Kurtz
+</h3>
+<p class="player-signal__team">
+Athletics
+</p>
+<p>
+<strong>0.957 OPS | 0.409 estimated wOBA</strong>
+</p>
+<p class="muted">
+314 PA | 57.1% hard-hit rate
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">Offense # 3</span><span class="signal-score" aria-label="Signal score 95.3">95.3</span>
+</div>
+<h3 class="anchored">
+James Wood
+</h3>
+<p class="player-signal__team">
+Washington Nationals
+</p>
+<p>
+<strong>0.957 OPS | 0.405 estimated wOBA</strong>
+</p>
+<p class="muted">
+333 PA | 58.3% hard-hit rate
+</p>
+</article>
+</div>
+<section class="dashboard-block">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">Offensive board</span>
+<h2 class="anchored">
+Top 12 season performances
+</h2>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+PA
+</th>
+<th>
+OPS
+</th>
+<th>
+wOBA est.
+</th>
+<th>
+Hard-hit
+</th>
+<th>
+RV/PA
+</th>
+<th>
+Score
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Yordan Alvarez
+</td>
+<td>
+Houston Astros
+</td>
+<td>
+304
+</td>
+<td>
+1.072
+</td>
+<td>
+0.446
+</td>
+<td>
+52.6%
+</td>
+<td>
+0.115
+</td>
+<td>
+95.8
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Nick Kurtz
+</td>
+<td>
+Athletics
+</td>
+<td>
+314
+</td>
+<td>
+0.957
+</td>
+<td>
+0.409
+</td>
+<td>
+57.1%
+</td>
+<td>
+0.108
+</td>
+<td>
+95.6
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+James Wood
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+333
+</td>
+<td>
+0.957
+</td>
+<td>
+0.405
+</td>
+<td>
+58.3%
+</td>
+<td>
+0.092
+</td>
+<td>
+95.3
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Shohei Ohtani
+</td>
+<td>
+Los Angeles Dodgers
+</td>
+<td>
+302
+</td>
+<td>
+0.962
+</td>
+<td>
+0.408
+</td>
+<td>
+53.8%
+</td>
+<td>
+0.095
+</td>
+<td>
+95.2
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Ben Rice
+</td>
+<td>
+New York Yankees
+</td>
+<td>
+278
+</td>
+<td>
+0.984
+</td>
+<td>
+0.410
+</td>
+<td>
+48.3%
+</td>
+<td>
+0.098
+</td>
+<td>
+94.2
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Munetaka Murakami
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+243
+</td>
+<td>
+0.930
+</td>
+<td>
+0.391
+</td>
+<td>
+58.7%
+</td>
+<td>
+0.082
+</td>
+<td>
+92.9
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Drake Baldwin
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+216
+</td>
+<td>
+0.931
+</td>
+<td>
+0.396
+</td>
+<td>
+53.8%
+</td>
+<td>
+0.084
+</td>
+<td>
+92.9
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Kyle Schwarber
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+304
+</td>
+<td>
+0.921
+</td>
+<td>
+0.388
+</td>
+<td>
+50.3%
+</td>
+<td>
+0.059
+</td>
+<td>
+91.4
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Jackson Chourio
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+166
+</td>
+<td>
+0.936
+</td>
+<td>
+0.395
+</td>
+<td>
+48.7%
+</td>
+<td>
+0.094
+</td>
+<td>
+91.3
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Juan Soto
+</td>
+<td>
+New York Mets
+</td>
+<td>
+227
+</td>
+<td>
+0.937
+</td>
+<td>
+0.393
+</td>
+<td>
+49.7%
+</td>
+<td>
+0.055
+</td>
+<td>
+91.1
+</td>
+</tr>
+<tr>
+<td>
+11
+</td>
+<td>
+Jake Bauers
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+242
+</td>
+<td>
+0.891
+</td>
+<td>
+0.378
+</td>
+<td>
+55.3%
+</td>
+<td>
+0.090
+</td>
+<td>
+91.0
+</td>
+</tr>
+<tr>
+<td>
+12
+</td>
+<td>
+Jordan Walker
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+293
+</td>
+<td>
+0.891
+</td>
+<td>
+0.376
+</td>
+<td>
+52.3%
+</td>
+<td>
+0.067
+</td>
+<td>
+90.5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="section-heading">
+<span class="eyebrow">The run-prevention race</span>
+<h2 class="anchored">
+Which pitchers are suppressing offense most completely?
+</h2>
+<p>
+Opponent estimated wOBA and OPS lead the model, reinforced by strikeouts, contact suppression, and sample reliability.
+</p>
+</section>
+<div class="signal-grid">
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">Run prevention # 1</span><span class="signal-score" aria-label="Signal score 94.6">94.6</span>
+</div>
+<h3 class="anchored">
+Jacob Misiorowski
+</h3>
+<p class="player-signal__team">
+Milwaukee Brewers
+</p>
+<p>
+<strong>0.410 OPS allowed | 0.192 estimated wOBA</strong>
+</p>
+<p class="muted">
+329 BF | 39.8% strikeout rate
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">Run prevention # 2</span><span class="signal-score" aria-label="Signal score 93.0">93.0</span>
+</div>
+<h3 class="anchored">
+Mason Miller
+</h3>
+<p class="player-signal__team">
+San Diego Padres
+</p>
+<p>
+<strong>0.329 OPS allowed | 0.165 estimated wOBA</strong>
+</p>
+<p class="muted">
+114 BF | 51.8% strikeout rate
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">Run prevention # 3</span><span class="signal-score" aria-label="Signal score 90.2">90.2</span>
+</div>
+<h3 class="anchored">
+Dylan Lee
+</h3>
+<p class="player-signal__team">
+Atlanta Braves
+</p>
+<p>
+<strong>0.412 OPS allowed | 0.179 estimated wOBA</strong>
+</p>
+<p class="muted">
+115 BF | 34.8% strikeout rate
+</p>
+</article>
+</div>
+<section class="dashboard-block">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">Run-prevention board</span>
+<h2 class="anchored">
+Top 12 season performances
+</h2>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Pitcher
+</th>
+<th>
+Team
+</th>
+<th>
+BF
+</th>
+<th>
+OPS allowed
+</th>
+<th>
+wOBA est.
+</th>
+<th>
+K%
+</th>
+<th>
+Hard-hit
+</th>
+<th>
+Score
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Jacob Misiorowski
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+329
+</td>
+<td>
+0.410
+</td>
+<td>
+0.192
+</td>
+<td>
+39.8%
+</td>
+<td>
+31.4%
+</td>
+<td>
+94.6
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Mason Miller
+</td>
+<td>
+San Diego Padres
+</td>
+<td>
+114
+</td>
+<td>
+0.329
+</td>
+<td>
+0.165
+</td>
+<td>
+51.8%
+</td>
+<td>
+14.0%
+</td>
+<td>
+93.0
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Dylan Lee
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+115
+</td>
+<td>
+0.412
+</td>
+<td>
+0.179
+</td>
+<td>
+34.8%
+</td>
+<td>
+32.9%
+</td>
+<td>
+90.2
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Alex Vesia
+</td>
+<td>
+Los Angeles Dodgers
+</td>
+<td>
+93
+</td>
+<td>
+0.408
+</td>
+<td>
+0.200
+</td>
+<td>
+33.3%
+</td>
+<td>
+34.0%
+</td>
+<td>
+88.5
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Bryce Miller
+</td>
+<td>
+Seattle Mariners
+</td>
+<td>
+124
+</td>
+<td>
+0.506
+</td>
+<td>
+0.217
+</td>
+<td>
+29.0%
+</td>
+<td>
+27.4%
+</td>
+<td>
+88.4
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Tanner Scott
+</td>
+<td>
+Los Angeles Dodgers
+</td>
+<td>
+108
+</td>
+<td>
+0.518
+</td>
+<td>
+0.223
+</td>
+<td>
+32.4%
+</td>
+<td>
+28.6%
+</td>
+<td>
+88.3
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Rico Garcia
+</td>
+<td>
+Baltimore Orioles
+</td>
+<td>
+110
+</td>
+<td>
+0.470
+</td>
+<td>
+0.205
+</td>
+<td>
+29.1%
+</td>
+<td>
+32.8%
+</td>
+<td>
+87.5
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Louis Varland
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+145
+</td>
+<td>
+0.500
+</td>
+<td>
+0.224
+</td>
+<td>
+33.8%
+</td>
+<td>
+36.0%
+</td>
+<td>
+87.4
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Drew Rasmussen
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+282
+</td>
+<td>
+0.527
+</td>
+<td>
+0.231
+</td>
+<td>
+27.3%
+</td>
+<td>
+31.6%
+</td>
+<td>
+87.1
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Anthony Bender
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+119
+</td>
+<td>
+0.471
+</td>
+<td>
+0.220
+</td>
+<td>
+30.3%
+</td>
+<td>
+34.3%
+</td>
+<td>
+87.1
+</td>
+</tr>
+<tr>
+<td>
+11
+</td>
+<td>
+Shohei Ohtani
+</td>
+<td>
+Los Angeles Dodgers
+</td>
+<td>
+262
+</td>
+<td>
+0.473
+</td>
+<td>
+0.217
+</td>
+<td>
+27.9%
+</td>
+<td>
+36.8%
+</td>
+<td>
+86.9
+</td>
+</tr>
+<tr>
+<td>
+12
+</td>
+<td>
+Bryan Baker
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+113
+</td>
+<td>
+0.498
+</td>
+<td>
+0.227
+</td>
+<td>
+28.3%
+</td>
+<td>
+31.9%
+</td>
+<td>
+85.9
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/thesabrhood\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 The SABRhood</p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./methodology.html">
+<p>Methodology</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./glossary.html">
+<p>Glossary</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./history.html">
+<p>History Desk</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://x.com/thesabrhood">
+<p><span class="citation" data-cites="thesabrhood">@thesabrhood</span></p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

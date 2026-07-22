@@ -1,7 +1,17 @@
 ---
 title: "Articles"
-listing:
-  contents: posts
-  sort: "date desc"
-  feed: true
 ---
+
+::: {.articles-mast}
+<span class="eyebrow">Original reporting from the neighborhood</span>
+
+# The Blog
+
+Long-form baseball stories grounded in pitch data, player development, game context, and the questions worth asking next.
+:::
+
+{{< include includes/article-listing.html >}}
+
+::: {.method-callout}
+The research archive is being migrated into the new reusable data system one article at a time. Existing published stories remain available throughout the rebuild.
+:::

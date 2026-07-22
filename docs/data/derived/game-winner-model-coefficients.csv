@@ -1,0 +1,4 @@
+"term","estimate","std_error","model_rows","training_end","model_version"
+"(Intercept)",0.0970776206777603,0.0604678734341618,1101,2026-06-26,"pregame_score_plus_elo_winner_v1"
+"score_logit",0.453269679975701,0.400493011508647,1101,2026-06-26,"pregame_score_plus_elo_winner_v1"
+"elo_diff_100",0.0431601009913841,0.126594231514673,1101,2026-06-26,"pregame_score_plus_elo_winner_v1"

@@ -1,11 +1,49 @@
 ---
 title: "About"
+description: "The mission and people behind The SABRhood."
 ---
 
-The Sabrhood is a page dedicated to providing our internet neighbors with advanced stats, metrics, and insights in MLB and MiLB.
+::: {.page-intro .page-intro--dark}
+<span class="eyebrow">The analysis behind the broadcast</span>
 
-The Sabrhood's head contributor and anaylst is Tyler Schultz. Tyler is a graduate student at the University of Florida's College of Journalism and Communications after completing his B.A. in Sports Management with a minor in Statistics; also at the University of Florida. He is a lead sport researcher for the on-campus sport radio station, WRUF. 
+# Baseball research built to be understood
 
-Follow our Twitter/X \@ [thesabrhood](https://x.com/thesabrhood)!
+The SABRhood translates pitch-by-pitch data, statistical models, and baseball history into reporting that fans can enjoy and broadcasters can use.
+:::
 
-![](images/Headshot2Final.png){fig-align="center" width="214"}
+::: {.feature-band}
+::: {.feature-band__copy}
+## The mission
+
+Baseball analytics are most valuable when they sharpen the story of a game. The SABRhood combines reproducible R workflows with a journalist's eye: identify the signal, test it, put it in context, and explain why it matters.
+
+The public site is an MLB data and reporting hub. The broader project also supports custom broadcast research, game-day packets, internal analytics tools, and future subscriber products.
+:::
+
+::: {.feature-band__links}
+[Explore today's signals →](today.qmd){.feature-link}
+
+[Read the research →](blog.qmd){.feature-link}
+
+[See broadcast services →](broadcast.qmd){.feature-link}
+:::
+:::
+
+::: {.feature-band}
+::: {.feature-band__copy}
+## The Staff
+
+Tyler Schultz is a sports researcher, writer, and graduate student at the University of Florida College of Journalism and Communications. He earned a bachelor's degree in Sport Management with a minor in Statistics from the University of Florida and serves as a lead sports researcher for WRUF, the university's sports radio station.
+
+His work sits at the intersection of statistical computing and sports journalism: building reliable research systems, finding original stories in data, and delivering the result in a form that works on air.
+
+![](images/Headshot2Final.png){fig-align="left" width="214" fig-alt="Portrait of Tyler Schultz"}
+:::
+
+::: {.feature-band__links}
+[Follow the Sabrhood on X!](https://x.com/thesabrhood){.feature-link}
+
+[Follow Tyler Schultz on X!](https://x.com/tjohnschultz){.feature-link}
+:::
+:::
+:::

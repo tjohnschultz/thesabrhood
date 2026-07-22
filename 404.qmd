@@ -1,0 +1,12 @@
+---
+title: "Page not found"
+description: "Return to The SABRhood data hub."
+---
+
+::: {.page-intro .page-intro--dark}
+<span class="eyebrow">Error 404</span>
+
+# That pitch missed the zone
+
+The page may have moved during The SABRhood rebuild. Return to the [homepage](index.qmd), open [today's signal desk](today.qmd), or search the site from the navigation bar.
+:::

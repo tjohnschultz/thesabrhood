@@ -1,0 +1,35 @@
+team_abbr,team_name,venue_name,weather_location,latitude,longitude,city,state_region,country,roof_type
+ARI,Arizona Diamondbacks,Chase Field,"Phoenix, Arizona",33.4455,-112.0667,Phoenix,Arizona,USA,retractable
+ATH,Athletics,Sutter Health Park,"West Sacramento, California",38.5802,-121.5133,West Sacramento,California,USA,open
+ATL,Atlanta Braves,Truist Park,"Atlanta, Georgia",33.8908,-84.4678,Atlanta,Georgia,USA,open
+BAL,Baltimore Orioles,Oriole Park at Camden Yards,"Baltimore, Maryland",39.2840,-76.6217,Baltimore,Maryland,USA,open
+BOS,Boston Red Sox,Fenway Park,"Boston, Massachusetts",42.3467,-71.0972,Boston,Massachusetts,USA,open
+CHC,Chicago Cubs,Wrigley Field,"Chicago, Illinois",41.9484,-87.6553,Chicago,Illinois,USA,open
+CWS,Chicago White Sox,Rate Field,"Chicago, Illinois",41.8300,-87.6339,Chicago,Illinois,USA,open
+CWS,Chicago White Sox,Guaranteed Rate Field,"Chicago, Illinois",41.8300,-87.6339,Chicago,Illinois,USA,open
+CIN,Cincinnati Reds,Great American Ball Park,"Cincinnati, Ohio",39.0979,-84.5082,Cincinnati,Ohio,USA,open
+CLE,Cleveland Guardians,Progressive Field,"Cleveland, Ohio",41.4962,-81.6852,Cleveland,Ohio,USA,open
+COL,Colorado Rockies,Coors Field,"Denver, Colorado",39.7561,-104.9942,Denver,Colorado,USA,open
+DET,Detroit Tigers,Comerica Park,"Detroit, Michigan",42.3390,-83.0485,Detroit,Michigan,USA,open
+HOU,Houston Astros,Daikin Park,"Houston, Texas",29.7573,-95.3555,Houston,Texas,USA,retractable
+HOU,Houston Astros,Minute Maid Park,"Houston, Texas",29.7573,-95.3555,Houston,Texas,USA,retractable
+KC,Kansas City Royals,Kauffman Stadium,"Kansas City, Missouri",39.0517,-94.4803,Kansas City,Missouri,USA,open
+LAA,Los Angeles Angels,Angel Stadium,"Anaheim, California",33.8003,-117.8827,Anaheim,California,USA,open
+LAD,Los Angeles Dodgers,Dodger Stadium,"Los Angeles, California",34.0739,-118.2400,Los Angeles,California,USA,open
+MIA,Miami Marlins,loanDepot park,"Miami, Florida",25.7781,-80.2197,Miami,Florida,USA,retractable
+MIL,Milwaukee Brewers,American Family Field,"Milwaukee, Wisconsin",43.0280,-87.9712,Milwaukee,Wisconsin,USA,retractable
+MIN,Minnesota Twins,Target Field,"Minneapolis, Minnesota",44.9817,-93.2776,Minneapolis,Minnesota,USA,open
+NYM,New York Mets,Citi Field,"Queens, New York",40.7571,-73.8458,Queens,New York,USA,open
+NYY,New York Yankees,Yankee Stadium,"Bronx, New York",40.8296,-73.9262,Bronx,New York,USA,open
+PHI,Philadelphia Phillies,Citizens Bank Park,"Philadelphia, Pennsylvania",39.9057,-75.1665,Philadelphia,Pennsylvania,USA,open
+PIT,Pittsburgh Pirates,PNC Park,"Pittsburgh, Pennsylvania",40.4469,-80.0057,Pittsburgh,Pennsylvania,USA,open
+SD,San Diego Padres,Petco Park,"San Diego, California",32.7076,-117.1570,San Diego,California,USA,open
+SEA,Seattle Mariners,T-Mobile Park,"Seattle, Washington",47.5914,-122.3325,Seattle,Washington,USA,retractable
+SF,San Francisco Giants,Oracle Park,"San Francisco, California",37.7786,-122.3893,San Francisco,California,USA,open
+STL,St. Louis Cardinals,Busch Stadium,"St. Louis, Missouri",38.6226,-90.1928,St. Louis,Missouri,USA,open
+TB,Tampa Bay Rays,Tropicana Field,"St. Petersburg, Florida",27.7682,-82.6534,St. Petersburg,Florida,USA,fixed_dome
+TBR,Tampa Bay Rays,Tropicana Field,"St. Petersburg, Florida",27.7682,-82.6534,St. Petersburg,Florida,USA,fixed_dome
+TEX,Texas Rangers,Globe Life Field,"Arlington, Texas",32.7473,-97.0842,Arlington,Texas,USA,retractable
+TOR,Toronto Blue Jays,Rogers Centre,"Toronto, Ontario",43.6414,-79.3894,Toronto,Ontario,Canada,retractable
+WSH,Washington Nationals,Nationals Park,"Washington, District of Columbia",38.8730,-77.0074,Washington,District of Columbia,USA,open
+WAS,Washington Nationals,Nationals Park,"Washington, District of Columbia",38.8730,-77.0074,Washington,District of Columbia,USA,open

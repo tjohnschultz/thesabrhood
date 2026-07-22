@@ -1,0 +1,6 @@
+---
+title: "New York Mets Team Dossier"
+description: "Automated SABRhood research dossier for the New York Mets."
+---
+
+{{< include ../includes/team-dossiers/new-york-mets.html >}}

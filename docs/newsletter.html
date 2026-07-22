@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="The SABRhood Daily MLB analytical briefing.">
 
-<title>The SABRhood Daily</title>
+<title>Newsletter – The SABRhood</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,13 +25,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./images/sabrlogo.png" rel="icon" type="image/png">
+<link href="./images/new-sabr-logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -52,7 +52,6 @@ ul.task-list li input[type="checkbox"] {
     "/",
     "s"
   ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -77,9 +76,22 @@ gtag('js', new Date());
 gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
+<meta name="theme-color" content="#0C2340">
 
 
 <link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Newsletter – The SABRhood">
+<meta property="og:description" content="The SABRhood Daily MLB analytical briefing.">
+<meta property="og:image" content="https://thesabrhood.com/images/sabrhood-social-preview-v1.png">
+<meta property="og:site_name" content="The SABRhood">
+<meta property="og:image:height" content="946">
+<meta property="og:image:width" content="1662">
+<meta name="twitter:title" content="Newsletter – The SABRhood">
+<meta name="twitter:description" content="The SABRhood Daily MLB analytical briefing.">
+<meta name="twitter:image" content="https://thesabrhood.com/images/sabrhood-social-preview-v1.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="946">
+<meta name="twitter:image-width" content="1662">
 </head>
 
 <body class="nav-fixed">
@@ -91,6 +103,9 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">The SABRhood</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -104,21 +119,97 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
-<span class="menu-text">Articles</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./newsletter.html" aria-current="page"> 
-<span class="menu-text">Daily Newsletter</span></a>
+    <a class="nav-link" href="./today.html"> 
+<span class="menu-text">Today</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./leaderboards.html"> 
-<span class="menu-text">Leaderboards</span></a>
+<span class="menu-text">Leaders</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-awards" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Awards</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-awards">    
+        <li>
+    <a class="dropdown-item" href="./races.html">
+ <span class="dropdown-text">MLB Award Races</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./insane-awards.html">
+ <span class="dropdown-text">Insane Baseball Awards</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-intelligence" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Intelligence</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-intelligence">    
+        <li>
+    <a class="dropdown-item" href="./story-desk.html">
+ <span class="dropdown-text">Story Engine</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./players.html">
+ <span class="dropdown-text">Players</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./player-change-engine.html">
+ <span class="dropdown-text">Player Change Engine</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./teams.html">
+ <span class="dropdown-text">Teams</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./team-dossiers.html">
+ <span class="dropdown-text">Team Dossiers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./matchups.html">
+ <span class="dropdown-text">Matchups</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./pitch-lab.html">
+ <span class="dropdown-text">Pitch Lab</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./aaa.html">
+ <span class="dropdown-text">Triple-A Watch</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./history.html">
+ <span class="dropdown-text">History</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./league-trends.html">
+ <span class="dropdown-text">League Trends</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./projections.html"> 
+<span class="menu-text">Projections</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./glossary.html"> 
-<span class="menu-text">Stat Glossary</span></a>
+    <a class="nav-link active" href="./newsletter.html" aria-current="page"> 
+<span class="menu-text">Newsletter</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./graphics-feed.html"> 
+<span class="menu-text">Graphics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./blog.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./broadcast.html"> 
+<span class="menu-text">Broadcast</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
@@ -140,9 +231,14 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The SABRhood Daily</h1>
+<h1 class="title">Newsletter</h1>
 </div>
 
+<div>
+  <div class="description">
+    The SABRhood Daily MLB analytical briefing.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta column-page">
@@ -157,641 +253,219 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 </header>
 
 
-<div class="daily-paper page-columns page-full">
-<section class="daily-masthead">
-<div class="daily-meta">
-<span class="daily-chip">Sunday Edition</span><span class="daily-chip">Weekly Leaderboard Reset</span>
-</div>
-<h1>
-The SABRhood Daily
-</h1>
-<p>
-Today’s board is led by Heriberto Hernández, whose biggest movement came in SLG. On the other side, Denzer Guzman shows the sharpest negative movement in HardHit_pct.
-</p>
-</section>
-<div class="daily-grid page-columns page-full">
-<div class="daily-stack">
-<section class="daily-section daily-lead-card">
-<span class="daily-kicker">Lead Board</span>
-<h2 class="anchored">
-Weekly Leaderboard Reset: Heriberto Hernández Leads Today’s Movement Board
-</h2>
-<p>
-A daily baseball notebook generated from updated play-by-play data, leaderboards, recent form changes, pitcher usage changes, split notes, and SABRhood trend boards.
-</p>
-</section>
-<section class="daily-section">
-<span class="daily-kicker">Featured Players</span>
-<h2 class="anchored">
-Hot bat and hot arm
-</h2>
-<div class="daily-card-grid">
-<article class="daily-player-card">
-<span class="daily-kicker">Hot Bat</span>
-<h3 class="anchored">
-Heriberto Hernández leads the hitter movement board
-</h3>
-<p class="daily-subline">
-Miami Marlins • SLG movement
-</p>
-<p>
-Heriberto Hernández has one of the biggest upward movements in SLG on today’s board. His recent mark is 1.25 compared with a baseline of 0.392, good for a 3.64 z-score change across the qualified hitter pool.
-</p>
-<div class="daily-evidence-strip">
-<div class="daily-evidence-pill">
-<span>Trend</span><strong>SLG</strong>
-</div>
-<div class="daily-evidence-pill">
-<span>Signal</span><strong>3.64 z</strong>
-</div>
-<div class="daily-evidence-pill">
-<span>Recent</span><strong>1.25</strong>
-</div>
-</div>
-<p class="daily-small-note">
-Season line: 0.236 / 0.303 / 0.449 with 10 HR.
-</p>
-<a class="daily-img-link" href="#img-heriberto-hern-ndez-featured-slg-png"><img src="images/newsletter/hitter_trends/heriberto-hern-ndez_featured_slg.png" alt="Rolling trend chart for Heriberto Hernández"></a>
-<div id="img-heriberto-hern-ndez-featured-slg-png" class="daily-lightbox">
-<a class="daily-lightbox-close" href="#_">×</a><img src="images/newsletter/hitter_trends/heriberto-hern-ndez_featured_slg.png" alt="Rolling trend chart for Heriberto Hernández expanded">
-</div>
-</article>
-<article class="daily-player-card">
-<span class="daily-kicker">Hot Arm</span>
-<h3 class="anchored">
-José Fermin is trending behind Command / walks gains
-</h3>
-<p class="daily-subline">
-Los Angeles Angels • pitcher trend card
-</p>
-<p>
-José Fermin grades as the top pitcher on today’s hot board, led by BB_pct with a 3.23 z-score signal.
-</p>
-<div class="daily-evidence-strip">
-<div class="daily-evidence-pill">
-<span>K%</span><strong>27.0%</strong>
-</div>
-<div class="daily-evidence-pill">
-<span>Whiff%</span><strong>32.0%</strong>
-</div>
-<div class="daily-evidence-pill">
-<span>Best signal</span><strong>BB_pct</strong>
-</div>
-</div>
-<p>
-K% is at 27.0% recently, up from 22.0%.
-</p>
-<p>
-Whiff% is at 32.0% recently, compared with 29.0% before the window.
-</p>
-<p>
-<strong>Pitch mix:</strong> The main arsenal signal is the Sinker: usage moved from 23.1% to 37.9%, with whiff rate moving from 13.5% to 27.3%.
-</p>
-<a class="daily-img-link" href="#img-jos-fermin-featured-pitch-mix-png"><img src="images/newsletter/pitcher_trends/jos-fermin_featured_pitch_mix.png" alt="Pitch mix chart for José Fermin"></a>
-<div id="img-jos-fermin-featured-pitch-mix-png" class="daily-lightbox">
-<a class="daily-lightbox-close" href="#_">×</a><img src="images/newsletter/pitcher_trends/jos-fermin_featured_pitch_mix.png" alt="Pitch mix chart for José Fermin expanded">
-</div>
-</article>
-</div>
-</section>
-<section class="daily-section">
-<span class="daily-kicker">Pitch Lab</span>
-<h2 class="anchored">
-Pitch of the Day
-</h2>
-<div class="daily-player-card">
-<span class="daily-kicker">Fastball command riser</span>
-<h3 class="anchored">
-Pitch of the Day: Sinker
-</h3>
-<p class="daily-subline">
-José Fermin • Los Angeles Angels
-</p>
-<p>
-José Fermin’s Sinker is the clearest pitch-level hook in today’s card. Usage moved from 23.1% to 37.9%, while whiff rate moved from 13.5% to 27.3%.
-</p>
-<div class="daily-evidence-strip">
-<div class="daily-evidence-pill">
-<span>Usage</span><strong>23.1% → 37.9%</strong>
-</div>
-<div class="daily-evidence-pill">
-<span>Whiff</span><strong>13.5% → 27.3%</strong>
-</div>
-<div class="daily-evidence-pill">
-<span>Zone</span><strong>55.8% → 74.4%</strong>
-</div>
-</div>
-</div>
-</section>
-<section class="daily-section">
-<span class="daily-kicker">Split Lens</span>
-<h2 class="anchored">
-Where the profile bends
-</h2>
-<div class="daily-card-grid">
-<article class="daily-player-card">
-<span class="daily-kicker">Hitter handedness split</span>
-<h3 class="anchored">
-Heriberto Hernández
-</h3>
-<p class="daily-subline">
-vs LHP compared with vs RHP
-</p>
-<p>
-The largest handedness split is SLG, with a raw L/R gap of 0.106.
-</p>
-<div class="daily-evidence-strip">
-<div class="daily-evidence-pill">
-<span>Stat</span><strong>SLG</strong>
-</div>
-<div class="daily-evidence-pill">
-<span>Diff</span><strong>0.106</strong>
-</div>
-<div class="daily-evidence-pill">
-<span>View</span><strong>Split</strong>
-</div>
-</div>
-</article>
-<article class="daily-player-card">
-<span class="daily-kicker">Pitcher handedness split</span>
-<h3 class="anchored">
-José Fermin
-</h3>
-<p class="daily-subline">
-vs LHH compared with vs RHH
-</p>
-<p>
-The largest handedness split is OPS, with a raw L/R gap of 0.288.
-</p>
-<div class="daily-evidence-strip">
-<div class="daily-evidence-pill">
-<span>Stat</span><strong>OPS</strong>
-</div>
-<div class="daily-evidence-pill">
-<span>Diff</span><strong>0.288</strong>
-</div>
-<div class="daily-evidence-pill">
-<span>View</span><strong>Split</strong>
-</div>
-</div>
-</article>
-</div>
-</section>
-<section class="daily-section daily-chart-card">
-<span class="daily-kicker">Visual Read</span>
-<h2 class="anchored">
-Rolling OPS: Six Hottest Bats
-</h2>
-<p>
-Seven-game rolling OPS for the six strongest OPS risers on today’s movement board.
-</p>
-<a class="daily-img-link" href="#img-rolling-ops-top-movers-png"><img src="images/newsletter/charts/rolling_ops_top_movers.png" alt="Rolling OPS comparison"></a>
-<div id="img-rolling-ops-top-movers-png" class="daily-lightbox">
-<a class="daily-lightbox-close" href="#_">×</a><img src="images/newsletter/charts/rolling_ops_top_movers.png" alt="Rolling OPS comparison expanded">
-</div>
-</section>
-<section class="daily-section daily-chart-card">
-<span class="daily-kicker">Chart of the Day</span>
-<h2 class="anchored">
-Top OPS Movers
-</h2>
-<p>
-Biggest 7-day movement in OPS relative to each hitter’s earlier season baseline.
-</p>
-<a class="daily-img-link" href="#img-chart-of-day-ops-png"><img src="images/newsletter/charts/chart_of_day_ops.png" alt="Chart of the day"></a>
-<div id="img-chart-of-day-ops-png" class="daily-lightbox">
-<a class="daily-lightbox-close" href="#_">×</a><img src="images/newsletter/charts/chart_of_day_ops.png" alt="Chart of the day expanded">
-</div>
-</section>
-<section class="daily-section">
-<span class="daily-kicker">Signal Boards</span>
-<h2 class="anchored">
-Who else is moving?
-</h2>
-<div class="daily-card-grid">
-<article class="daily-player-card">
-<span class="daily-kicker">Pitcher Trends</span>
-<h3 class="anchored">
-Hot arm board
-</h3>
-<div class="daily-mini-board">
-<div class="daily-board-row">
-<span class="daily-rank">1</span>
-<div class="daily-board-main">
-<strong>José Fermin</strong><span>Team: Los Angeles Angels • Type: Command / walks • Stat: BB_pct</span>
-</div>
-<div class="daily-board-value">
-1.6
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">2</span>
-<div class="daily-board-main">
-<strong>Ryan Johnson</strong><span>Team: Los Angeles Angels • Type: Run prevention • Stat: OPS</span>
-</div>
-<div class="daily-board-value">
-1.4
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">3</span>
-<div class="daily-board-main">
-<strong>Connor Prielipp</strong><span>Team: Minnesota Twins • Type: Miss bats • Stat: Whiff_pct</span>
-</div>
-<div class="daily-board-value">
-1.3
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">4</span>
-<div class="daily-board-main">
-<strong>Tyler Alexander</strong><span>Team: Texas Rangers • Type: Strikeouts • Stat: K_pct</span>
-</div>
-<div class="daily-board-value">
-1.2
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">5</span>
-<div class="daily-board-main">
-<strong>Brandon Eisert</strong><span>Team: Chicago White Sox • Type: Command / chase • Stat: Chase_pct</span>
-</div>
-<div class="daily-board-value">
-1.1
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">6</span>
-<div class="daily-board-main">
-<strong>Jonathan Loáisiga</strong><span>Team: Arizona Diamondbacks • Type: Strikeouts • Stat: K_pct</span>
-</div>
-<div class="daily-board-value">
-0.9
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">7</span>
-<div class="daily-board-main">
-<strong>Kumar Rocker</strong><span>Team: Texas Rangers • Type: Miss bats • Stat: Whiff_pct</span>
-</div>
-<div class="daily-board-value">
-0.9
-</div>
-</div>
-</div>
-</article>
-<article class="daily-player-card">
-<span class="daily-kicker">Hitter Trends</span>
-<h3 class="anchored">
-Movement board
-</h3>
-<div class="daily-mini-board">
-<div class="daily-board-row">
-<span class="daily-rank">1</span>
-<div class="daily-board-main">
-<strong>Heriberto Hernández</strong><span>Team: Miami Marlins • Stat: SLG • Move: Riser</span>
-</div>
-<div class="daily-board-value">
-3.6
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">2</span>
-<div class="daily-board-main">
-<strong>Nolan Schanuel</strong><span>Team: Los Angeles Angels • Stat: Chase_pct • Move: Riser</span>
-</div>
-<div class="daily-board-value">
-3.5
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">3</span>
-<div class="daily-board-main">
-<strong>Austin Wells</strong><span>Team: New York Yankees • Stat: K_pct • Move: Riser</span>
-</div>
-<div class="daily-board-value">
-3.5
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">4</span>
-<div class="daily-board-main">
-<strong>Drew Millas</strong><span>Team: Washington Nationals • Stat: BB_pct • Move: Riser</span>
-</div>
-<div class="daily-board-value">
-3.3
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">5</span>
-<div class="daily-board-main">
-<strong>Matt Vierling</strong><span>Team: Detroit Tigers • Stat: Chase_pct • Move: Riser</span>
-</div>
-<div class="daily-board-value">
-3.2
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">6</span>
-<div class="daily-board-main">
-<strong>Denzer Guzman</strong><span>Team: Los Angeles Angels • Stat: HardHit_pct • Move: Faller</span>
-</div>
-<div class="daily-board-value">
--3.1
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">7</span>
-<div class="daily-board-main">
-<strong>Rafael Devers</strong><span>Team: San Francisco Giants • Stat: barrel_pct • Move: Riser</span>
-</div>
-<div class="daily-board-value">
-3.1
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">8</span>
-<div class="daily-board-main">
-<strong>Taylor Trammell</strong><span>Team: Houston Astros • Stat: barrel_pct • Move: Riser</span>
-</div>
-<div class="daily-board-value">
-3.1
-</div>
-</div>
-</div>
-</article>
-</div>
-</section>
-<section class="daily-section">
-<span class="daily-kicker">Trend Queue</span>
-<h2 class="anchored">
-Names to watch
-</h2>
-<div class="daily-card-grid">
-<article class="daily-player-card">
-<span class="daily-kicker">Hitter</span>
-<h3 class="anchored">
-Heriberto Hernández
-</h3>
-<p class="daily-subline">
-Miami Marlins • Riser SLG
-</p>
-<p>
-SLG moved by 3.64 z-score points on the hitter board.
-</p>
-</article>
-<article class="daily-player-card">
-<span class="daily-kicker">Hitter</span>
-<h3 class="anchored">
-Nolan Schanuel
-</h3>
-<p class="daily-subline">
-Los Angeles Angels • Riser Chase_pct
-</p>
-<p>
-Chase_pct moved by 3.55 z-score points on the hitter board.
-</p>
-</article>
-<article class="daily-player-card">
-<span class="daily-kicker">Hitter</span>
-<h3 class="anchored">
-Austin Wells
-</h3>
-<p class="daily-subline">
-New York Yankees • Riser K_pct
-</p>
-<p>
-K_pct moved by 3.47 z-score points on the hitter board.
-</p>
-</article>
-<article class="daily-player-card">
-<span class="daily-kicker">Pitcher</span>
-<h3 class="anchored">
-José Fermin
-</h3>
-<p class="daily-subline">
-Los Angeles Angels • Command / walks
-</p>
-<p>
-BB_pct is the top signal with a 3.23 z-score mark.
-</p>
-</article>
-<article class="daily-player-card">
-<span class="daily-kicker">Pitcher</span>
-<h3 class="anchored">
-Ryan Johnson
-</h3>
-<p class="daily-subline">
-Los Angeles Angels • Run prevention
-</p>
-<p>
-OPS is the top signal with a 2.98 z-score mark.
-</p>
-</article>
-<article class="daily-player-card">
-<span class="daily-kicker">Pitcher</span>
-<h3 class="anchored">
-Connor Prielipp
-</h3>
-<p class="daily-subline">
-Minnesota Twins • Miss bats
-</p>
-<p>
-Whiff_pct is the top signal with a 1.99 z-score mark.
-</p>
-</article>
-</div>
-</section>
-<section class="daily-section">
-<span class="daily-kicker">Method</span>
-<h2 class="anchored">
-Trend key
-</h2>
-<div class="daily-card-grid">
-<article class="daily-player-card">
-<span class="daily-kicker">Signal</span>
-<h3 class="anchored">
-Whiff Riser
-</h3>
-<p>
-A pitcher is missing more bats than his baseline.
-</p>
-</article>
-<article class="daily-player-card">
-<span class="daily-kicker">Signal</span>
-<h3 class="anchored">
-Command Riser
-</h3>
-<p>
-A pitcher is finding the zone or limiting walks more effectively.
-</p>
-</article>
-<article class="daily-player-card">
-<span class="daily-kicker">Signal</span>
-<h3 class="anchored">
-Usage Riser
-</h3>
-<p>
-A pitch is taking up more of the arsenal than usual.
-</p>
-</article>
-<article class="daily-player-card">
-<span class="daily-kicker">Signal</span>
-<h3 class="anchored">
-Fastball Command Riser
-</h3>
-<p>
-A fastball-type pitch is gaining zone presence or setting up the arsenal better.
-</p>
-</article>
-<article class="daily-player-card">
-<span class="daily-kicker">Signal</span>
-<h3 class="anchored">
-Hot Bat
-</h3>
-<p>
-A hitter has one of the strongest recent-vs-baseline offensive changes.
-</p>
-</article>
-<article class="daily-player-card">
-<span class="daily-kicker">Signal</span>
-<h3 class="anchored">
-Split Lens
-</h3>
-<p>
-A quick check for whether handedness changes the player’s profile.
-</p>
-</article>
-</div>
+<div class="page-intro">
+<p><span class="eyebrow">The SABRhood Daily</span></p>
+<section id="your-morning-briefing-from-beneath-the-surface" class="level1">
+<h1>Your morning briefing from beneath the surface</h1>
+<p>An editorial edition that chooses a lead, explains why it matters, and packages a small set of reusable graphics instead of repeating the complete daily slate.</p>
 </section>
 </div>
-<aside class="daily-stack">
-<section class="daily-section">
-<span class="daily-kicker">Last Night</span>
+<section class="newsletter-mast">
+<div>
+<span class="eyebrow">Daily edition · June 14, 2026</span>
 <h2 class="anchored">
-Top bats
+The signals changing the MLB conversation
 </h2>
-<div class="daily-mini-board">
-<div class="daily-board-row">
-<span class="daily-rank">1</span>
-<div class="daily-board-main">
-<strong>Heriberto Hernández</strong><span>Team: Miami Marlins • H: 3 • HR: 2 • TB: 10 • RBI: 2</span>
+<p>
+A compact morning briefing generated from form, contact quality, pitch data, game context, and baseball history.
+</p>
 </div>
-<div class="daily-board-value">
-34
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">2</span>
-<div class="daily-board-main">
-<strong>Drew Gilbert</strong><span>Team: San Francisco Giants • H: 4 • HR: 1 • TB: 8 • RBI: 3</span>
-</div>
-<div class="daily-board-value">
-30
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">3</span>
-<div class="daily-board-main">
-<strong>Riley Greene</strong><span>Team: Detroit Tigers • H: 3 • HR: 1 • TB: 8 • RBI: 4</span>
-</div>
-<div class="daily-board-value">
-30
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">4</span>
-<div class="daily-board-main">
-<strong>Otto Lopez</strong><span>Team: Miami Marlins • H: 3 • HR: 1 • TB: 7 • RBI: 3</span>
-</div>
-<div class="daily-board-value">
-27
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">5</span>
-<div class="daily-board-main">
-<strong>Otto Lopez</strong><span>Team: Miami Marlins • H: 3 • HR: 1 • TB: 7 • RBI: 3</span>
-</div>
-<div class="daily-board-value">
-26
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">6</span>
-<div class="daily-board-main">
-<strong>Rafael Devers</strong><span>Team: San Francisco Giants • H: 2 • HR: 2 • TB: 8 • RBI: 2</span>
-</div>
-<div class="daily-board-value">
-24
-</div>
-</div>
+<div class="newsletter-mast__stamp">
+<strong>SABR</strong><span>hood daily</span>
 </div>
 </section>
-<section class="daily-section">
-<span class="daily-kicker">Last Night</span>
+<div class="newsletter-layout page-columns page-full">
+<main class="newsletter-main">
+<section class="newsletter-story newsletter-story--lead">
+<span class="eyebrow">Lead signal</span>
 <h2 class="anchored">
-Top arms
+Jake Bauers is forcing a new baseline
 </h2>
-<div class="daily-mini-board">
-<div class="daily-board-row">
-<span class="daily-rank">1</span>
-<div class="daily-board-main">
-<strong>Eury Pérez</strong><span>Team: Miami Marlins • IP: 7.0 • K: 8 • Whiffs: 12</span>
+<p class="newsletter-deck">
+The Milwaukee Brewers hitter carries a 1.127 OPS across 49 recent plate appearances, compared with 0.839 before the current window.
+</p>
+<div class="evidence-row">
+<span><small>Form score</small><strong>69.1</strong></span><span><small>Biggest shift</small><strong>+4.2 SD</strong></span><span><small>Season context</small><strong>84th pct.</strong></span>
 </div>
-<div class="daily-board-value">
-72
+<p class="method-note">
+The recent window and prior baseline do not overlap. Form score is a cohort-relative signal, not a rest-of-season projection.
+</p>
+</section>
+<section class="newsletter-story">
+<span class="eyebrow">Run prevention</span>
+<h2 class="anchored">
+Drew Rasmussen has changed the quality of contact
+</h2>
+<p>
+The Tampa Bay Rays pitcher has allowed a 0.177 OPS in the recent window. The prior baseline was 0.597.
+</p>
+<div class="evidence-row">
+<span><small>Recent BF</small><strong>46</strong></span><span><small>Biggest shift</small><strong>+3.0 SD</strong></span><span><small>Season context</small><strong>83rd pct.</strong></span>
 </div>
+<p class="method-note">
+<strong>Context read:</strong> Strikeout rate is the largest recent shift: improving by 3.0 standard deviations versus the MLB change pattern. Season level: 83rd percentile.
+</p>
+</section>
+<section class="newsletter-story">
+<span class="eyebrow">Simulation center preview</span>
+<h2 class="anchored">
+Miami Marlins at Houston Astros profiles as a Near toss-up
+</h2>
+<p>
+The scheduled-game development model gives Houston Astros a 51.6% win share, with a 9.1-run mean total and a 35.8% chance of a one-run result.
+</p>
+<div class="evidence-row">
+<span><small>Away mean</small><strong>4.5</strong></span><span><small>Home mean</small><strong>4.6</strong></span><span><small>Extras</small><strong>13.7%</strong></span>
 </div>
-<div class="daily-board-row">
-<span class="daily-rank">2</span>
-<div class="daily-board-main">
-<strong>Joe Ryan</strong><span>Team: Minnesota Twins • IP: 7.0 • K: 9 • Whiffs: 17</span>
-</div>
-<div class="daily-board-value">
-66.5
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">3</span>
-<div class="daily-board-main">
-<strong>Yoshinobu Yamamoto</strong><span>Team: Los Angeles Dodgers • IP: 7.0 • K: 10 • Whiffs: 14</span>
-</div>
-<div class="daily-board-value">
-66
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">4</span>
-<div class="daily-board-main">
-<strong>Jesús Luzardo</strong><span>Team: Philadelphia Phillies • IP: 6.0 • K: 9 • Whiffs: 19</span>
-</div>
-<div class="daily-board-value">
-59.5
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">5</span>
-<div class="daily-board-main">
-<strong>Sandy Alcantara</strong><span>Team: Miami Marlins • IP: 8.0 • K: 8 • Whiffs: 10</span>
-</div>
-<div class="daily-board-value">
-56
-</div>
-</div>
-<div class="daily-board-row">
-<span class="daily-rank">6</span>
-<div class="daily-board-main">
-<strong>Emerson Hancock</strong><span>Team: Seattle Mariners • IP: 7.0 • K: 5 • Whiffs: 14</span>
-</div>
-<div class="daily-board-value">
-53
-</div>
-</div>
-</div>
+<p class="method-note">
+Today’s inputs are connected; calibration and final publication approval are still pending. <a href="projections.html">Open the simulation center.</a>
+</p>
+</section>
+</main>
+<aside class="newsletter-side">
+<section class="newsletter-note">
+<span class="eyebrow">On this date</span>
+<h2 class="anchored">
+History queue
+</h2>
+<ul class="history-list">
+<li>
+<strong>Jesse Haines</strong><span>Jesse Haines: 108 years since MLB debut</span>
+</li>
+<li>
+<strong>Rogers Hornsby</strong><span>Rogers Hornsby: 89 years since final MLB appearance</span>
+</li>
+<li>
+<strong>Jim Bunning</strong><span>Jim Bunning: 71 years since MLB debut</span>
+</li>
+<li>
+<strong>Tommy Bridges</strong><span>Tommy Bridges: 80 years since final MLB appearance</span>
+</li>
+<li>
+<strong>Vida Blue</strong><span>Vida Blue: 57 years since MLB debut</span>
+</li>
+</ul>
+<p class="method-note">
+Candidates are ranked automatically and intended for editorial review.
+</p>
+</section>
+<section class="newsletter-note">
+<span class="eyebrow">Editor’s radar</span>
+<h2 class="anchored">
+Five different reporting lanes
+</h2>
+<ul class="history-list">
+<li>
+<strong>On this date: Jesse Haines</strong><span>Jesse Haines: 108 years since MLB debut</span>
+</li>
+<li>
+<strong>Offensive race: Yordan Alvarez</strong><span>Yordan Alvarez is building one of baseball’s strongest offensive cases</span>
+</li>
+<li>
+<strong>Run prevention: Jacob Misiorowski</strong><span>Jacob Misiorowski is suppressing offense at an elite rate</span>
+</li>
+<li>
+<strong>Pitch identity: Cristopher Sánchez</strong><span>Cristopher Sánchez’s Changeup: 86.7 mph, 43.0% whiffs</span>
+</li>
+<li>
+<strong>Milestone: Freddie Freeman</strong><span>Freddie Freeman reached 2,500 career hits</span>
+</li>
+</ul>
+<p class="method-note">
+The queue deliberately selects across categories instead of simply taking the five highest raw scores.
+</p>
+</section>
+<section class="newsletter-note">
+<span class="eyebrow">Race and milestone watch</span>
+<h2 class="anchored">
+Yordan Alvarez leads the offensive board
+</h2>
+<p>
+Yordan Alvarez carries a 1.072 OPS and a 95.8 descriptive race score.
+</p>
+<p>
+<strong>Freddie Freeman:</strong> Freddie Freeman reached 2,500 career hits.
+</p>
+<p class="method-note">
+The race score describes current statistical quality; it is not an award forecast.
+</p>
+</section>
+<section class="newsletter-note newsletter-note--dark">
+<span class="eyebrow">Today’s reading list</span>
+<h2 class="anchored">
+Go deeper
+</h2>
+<a href="today.html">Open the signal desk <span>→</span></a> <a href="pitch-lab.html">Inspect the Pitch Lab <span>→</span></a> <a href="methodology.html">Audit the methods <span>→</span></a>
 </section>
 </aside>
 </div>
+<section class="newsletter-visual-edition">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">Visual edition</span>
+<h2 class="anchored">
+Three graphics to carry into the conversation
+</h2>
+<p>
+The newsletter selects a few explanatory graphics rather than repeating the complete daily slate. Each one is downloadable for reporting, social publishing, or broadcast prep.
+</p>
+</div>
+<div class="graphics-feed-grid graphics-feed-grid--newsletter">
+<figure class="graphics-card graphics-card--compact figure">
+<a class="graphics-card__image" href="images/graphics-feed/league-pitch-usage-trends.png"><img src="images/graphics-feed/league-pitch-usage-trends.png" alt="Small-multiple line charts showing rolling MLB pitch-type usage." loading="lazy" class="figure-img"></a>
+<figcaption>
+<span class="eyebrow">League trends</span>
+<h3 class="anchored">
+League Pitch Usage Trends
+</h3>
+<p>
+Fourteen-day rolling pitch-type usage reveals how MLB’s collective arsenal is changing.
+</p>
+<div>
+<small>Fourteen-day rolling league pitch usage through the current PBP date.</small><a href="images/graphics-feed/league-pitch-usage-trends.png" download="league-pitch-usage-trends.png">Download PNG</a>
+</div>
+</figcaption>
+</figure>
+<figure class="graphics-card graphics-card--compact figure">
+<a class="graphics-card__image" href="images/graphics-feed/league-production-trends.png"><img src="images/graphics-feed/league-production-trends.png" alt="Small-multiple line charts showing indexed rolling MLB production rates." loading="lazy" class="figure-img"></a>
+<figcaption>
+<span class="eyebrow">League trends</span>
+<h3 class="anchored">
+League Production Trends
+</h3>
+<p>
+League production rates show when the run environment, contact, and plate discipline are moving together.
+</p>
+<div>
+<small>Fourteen-day rolling league production through the current PBP date.</small><a href="images/graphics-feed/league-production-trends.png" download="league-production-trends.png">Download PNG</a>
+</div>
+</figcaption>
+</figure>
+<figure class="graphics-card graphics-card--compact figure">
+<a class="graphics-card__image" href="images/graphics-feed/mlb-positional-war-map.png"><img src="images/graphics-feed/mlb-positional-war-map.png" alt="Heatmap ranking every MLB team by FanGraphs WAR at each primary position." loading="lazy" class="figure-img"></a>
+<figcaption>
+<span class="eyebrow">Team identity</span>
+<h3 class="anchored">
+MLB Positional WAR Map
+</h3>
+<p>
+Every team and primary position ranked by FanGraphs WAR to expose roster strengths and needs.
+</p>
+<div>
+<small>Current FanGraphs season WAR aggregated by primary listed position.</small><a href="images/graphics-feed/mlb-positional-war-map.png" download="mlb-positional-war-map.png">Download PNG</a>
+</div>
+</figcaption>
+</figure>
+</div>
+<div class="section-action">
+<a class="btn btn-sabr-navy" href="graphics-feed.html">Browse the full graphics feed</a>
+</div>
+</section>
+<div class="newsletter-signup">
+<section id="email-delivery-is-coming" class="level2 newsletter-signup__copy">
+<h2 class="anchored" data-anchor-id="email-delivery-is-coming">Email delivery is coming</h2>
+<p>The automated web edition is the first release. Subscriber delivery and the premium archive will be added after the publishing pipeline is proven reliable.</p>
+</section>
+<p><a href="./methodology.html" class="btn btn-sabr-navy">Read the methodology</a></p>
 </div>
 
 
@@ -889,7 +563,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/thesabrhood\.com");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -903,6 +577,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1218,6 +897,41 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 The SABRhood</p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./methodology.html">
+<p>Methodology</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./glossary.html">
+<p>Glossary</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./history.html">
+<p>History Desk</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://x.com/thesabrhood">
+<p><span class="citation" data-cites="thesabrhood">@thesabrhood</span></p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

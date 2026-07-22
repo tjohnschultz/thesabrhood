@@ -1,0 +1,6 @@
+---
+title: "New York Yankees Team Dossier"
+description: "Automated SABRhood research dossier for the New York Yankees."
+---
+
+{{< include ../includes/team-dossiers/new-york-yankees.html >}}

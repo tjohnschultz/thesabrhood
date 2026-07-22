@@ -1,0 +1,14 @@
+---
+title: "Team Dossiers"
+description: "Thirty MLB team research rooms built for fans, journalists, and broadcasters."
+---
+
+::: {.page-intro .team-directory-intro}
+<span class="eyebrow">League research directory</span>
+
+# Thirty teams, one repeatable research standard
+
+Open a club dossier to see the team fingerprint, strongest player movement, leading pitch identities, matchup edges, bullpen options, and three broadcaster-ready research notes.
+:::
+
+{{< include includes/team-dossier-index.html >}}

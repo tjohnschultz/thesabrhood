@@ -1,0 +1,34 @@
+---
+title: "Broadcast"
+description: "Research and game-day intelligence for baseball broadcasters."
+---
+
+::: {.page-intro}
+<span class="eyebrow">Broadcast research</span>
+
+# A better question in the booth starts with better preparation
+
+The SABRhood turns pitch-level analysis, form, matchups, history, and game context into navigable game-day research.
+:::
+
+::: {.service-grid}
+::: {.service-card}
+## Game packets
+
+Offline HTML and PDF research packets tailored to a matchup, probable pitchers, and manually confirmed lineups.
+:::
+
+::: {.service-card}
+## Team intelligence hubs
+
+Daily dashboards for broadcasters and producers, built around one club without losing league context.
+:::
+
+::: {.service-card}
+## Custom research
+
+Player spotlights, pitch-mix changes, historical notes, and broadcast-ready evidence for a specific series or story.
+:::
+:::
+
+The packet generator and private journalist analytics lab are currently in development. Selected portfolio packets will be published here after broadcaster approval.

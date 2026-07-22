@@ -1,0 +1,6 @@
+---
+title: "Tampa Bay Rays Team Dossier"
+description: "Automated SABRhood research dossier for the Tampa Bay Rays."
+---
+
+{{< include ../includes/team-dossiers/tampa-bay-rays.html >}}

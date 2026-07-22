@@ -1,0 +1,48 @@
+name: Validate Quarto site
+
+on:
+  pull_request:
+  push:
+    branches-ignore:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Generate static data fragments
+        run: Rscript scripts/build_site_fragments.R
+
+      - name: Validate source products
+        run: Rscript scripts/validate_site.R
+
+      - name: Render site
+        run: quarto render --no-clean
+
+      - name: Restore legacy article assets
+        run: Rscript scripts/restore_legacy_assets.R
+
+      - name: Validate rendered pages
+        run: Rscript scripts/validate_site.R --rendered
+
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesabrhood-site-preview
+          path: docs
+          if-no-files-found: error

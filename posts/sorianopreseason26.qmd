@@ -10,6 +10,8 @@ format:
     toc-depth: 2
 ---
 
+:::: {.article-shell}
+
 ```{=html}
 <style>
   body {
@@ -48,7 +50,7 @@ His arsenal looked strong in spring training, as he added velocity to both his s
 #| message: false
 #| warning: false
 #| echo: false
-library(tidyverse); library(here); library(kableExtra); source(here("R", "metrics.R")); dl_path <- "C:\\Users\\Owner\\Downloads\\R Baseball\\saberhood_webpage\\data"
+library(tidyverse); library(here); library(kableExtra); source(here("R", "metrics.R")); dl_path <- here("data")
 
 #soriano <- mlb_pbp_2025 %>% 
 # filter(matchup.pitcher.fullName == "José Soriano" & isPitch == TRUE)
@@ -150,3 +152,5 @@ kable(rj1, col.names = c('Stat', 'Percent', 'Percentile'), align = 'c', caption 
 ```
 
 Maybe the Angels’ fate does not rest in the hands of God after all. If the question marks surrounding Grayson Rodriguez and Ryan Johnson turn into check marks, the Angels’ starting five could be trending upward in 2026. Soriano, meanwhile, should once again be effective with his power sinker, keeping the ball on the ground.
+
+::::

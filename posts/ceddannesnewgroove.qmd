@@ -10,6 +10,8 @@ format:
     toc-depth: 2
 ---
 
+:::: {.article-shell}
+
 ```{=html}
 <style>
   body {
@@ -179,3 +181,5 @@ model <- lm(BB. ~ O.Swing...sc., data = cln_bb_oswing)
 
 #paste("Rafaela's 2026 predicted BB%, with a 5% decrease in outside zone swings:", round(as.numeric(predict(object = model, newdata = data.frame(O.Swing...sc. = .38), type = "response")), 2))
 ```
+
+::::

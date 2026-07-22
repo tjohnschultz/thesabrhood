@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Traditional and contextual MLB season leaders from The SABRhood.">
 
-<title>Leaderboards</title>
+<title>MLB Leaderboards – The SABRhood</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,13 +25,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./images/sabrlogo.png" rel="icon" type="image/png">
+<link href="./images/new-sabr-logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -52,7 +52,6 @@ ul.task-list li input[type="checkbox"] {
     "/",
     "s"
   ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -77,13 +76,22 @@ gtag('js', new Date());
 gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
+<meta name="theme-color" content="#0C2340">
 
 
 <link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="MLB Leaderboards – The SABRhood">
+<meta property="og:description" content="Traditional and contextual MLB season leaders from The SABRhood.">
+<meta property="og:image" content="https://thesabrhood.com/images/sabrhood-social-preview-v1.png">
+<meta property="og:site_name" content="The SABRhood">
+<meta property="og:image:height" content="946">
+<meta property="og:image:width" content="1662">
+<meta name="twitter:title" content="MLB Leaderboards – The SABRhood">
+<meta name="twitter:description" content="Traditional and contextual MLB season leaders from The SABRhood.">
+<meta name="twitter:image" content="https://thesabrhood.com/images/sabrhood-social-preview-v1.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="946">
+<meta name="twitter:image-width" content="1662">
 </head>
 
 <body class="nav-fixed">
@@ -95,6 +103,9 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">The SABRhood</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -108,21 +119,97 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
-<span class="menu-text">Articles</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./newsletter.html"> 
-<span class="menu-text">Daily Newsletter</span></a>
+    <a class="nav-link" href="./today.html"> 
+<span class="menu-text">Today</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./leaderboards.html" aria-current="page"> 
-<span class="menu-text">Leaderboards</span></a>
+<span class="menu-text">Leaders</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-awards" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Awards</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-awards">    
+        <li>
+    <a class="dropdown-item" href="./races.html">
+ <span class="dropdown-text">MLB Award Races</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./insane-awards.html">
+ <span class="dropdown-text">Insane Baseball Awards</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-intelligence" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Intelligence</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-intelligence">    
+        <li>
+    <a class="dropdown-item" href="./story-desk.html">
+ <span class="dropdown-text">Story Engine</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./players.html">
+ <span class="dropdown-text">Players</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./player-change-engine.html">
+ <span class="dropdown-text">Player Change Engine</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./teams.html">
+ <span class="dropdown-text">Teams</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./team-dossiers.html">
+ <span class="dropdown-text">Team Dossiers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./matchups.html">
+ <span class="dropdown-text">Matchups</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./pitch-lab.html">
+ <span class="dropdown-text">Pitch Lab</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./aaa.html">
+ <span class="dropdown-text">Triple-A Watch</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./history.html">
+ <span class="dropdown-text">History</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./league-trends.html">
+ <span class="dropdown-text">League Trends</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./projections.html"> 
+<span class="menu-text">Projections</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./glossary.html"> 
-<span class="menu-text">Stat Glossary</span></a>
+    <a class="nav-link" href="./newsletter.html"> 
+<span class="menu-text">Newsletter</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./graphics-feed.html"> 
+<span class="menu-text">Graphics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./blog.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./broadcast.html"> 
+<span class="menu-text">Broadcast</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
@@ -144,10 +231,14 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Leaderboards</h1>
-<p class="subtitle lead">Updated stats from July 05, 2026</p>
+<h1 class="title">MLB Leaderboards</h1>
 </div>
 
+<div>
+  <div class="description">
+    Traditional and contextual MLB season leaders from The SABRhood.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta column-page">
@@ -162,668 +253,600 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 </header>
 
 
-<style>
-  body {
-    background-color: #0C2340; /* A light blue, for example */
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  main.content {
-  background: rgba(255, 255, 255, 0.92);
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  max-width: 900px;     /* controls how wide the text block is */
-  margin: 2rem auto;    /* centers the rectangle */
-}
-</style>
-<section id="batter-season-long-leaders" class="level2">
-<h2 class="anchored" data-anchor-id="batter-season-long-leaders">Batter Season-Long Leaders</h2>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
-<caption>Home Run Leaders</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">Rank</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Player</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">HR</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">1</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 0, 0, 255) !important;">Munetaka Murakami</span></td>
-<td style="text-align: center; font-weight: bold;">11</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">2</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 45, 98, 255) !important;">Yordan Alvarez</span></td>
-<td style="text-align: center; font-weight: bold;">11</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">3</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(171, 0, 3, 255) !important;">James Wood</span></td>
-<td style="text-align: center; font-weight: bold;">10</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">4</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 48, 135, 255) !important;">Aaron Judge</span></td>
-<td style="text-align: center; font-weight: bold;">9</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">5</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 48, 135, 255) !important;">Ben Rice</span></td>
-<td style="text-align: center; font-weight: bold;">9</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-<div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
-<caption>OPS Leaders</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">Rank</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Player</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">OPS</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">1</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 48, 135, 255) !important;">Ben Rice</span></td>
-<td style="text-align: center; font-weight: bold;">1.207</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">2</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 45, 98, 255) !important;">Yordan Alvarez</span></td>
-<td style="text-align: center; font-weight: bold;">1.19</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">3</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(51, 51, 102, 255) !important;">Mickey Moniak</span></td>
-<td style="text-align: center; font-weight: bold;">1.05</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">4</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 90, 156, 255) !important;">Max Muncy</span></td>
-<td style="text-align: center; font-weight: bold;">1.027</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">5</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(198, 1, 31, 255) !important;">Sal Stewart</span></td>
-<td style="text-align: center; font-weight: bold;">1.024</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">6</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(167, 25, 48, 255) !important;">Ildemaro Vargas</span></td>
-<td style="text-align: center; font-weight: bold;">1.013</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">7</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(68, 68, 68, 255) !important;">Daniel Schneemann</span></td>
-<td style="text-align: center; font-weight: bold;">0.989</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">8</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(206, 17, 65, 255) !important;">Matt Olson</span></td>
-<td style="text-align: center; font-weight: bold;">0.973</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">9</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 0, 0, 255) !important;">Munetaka Murakami</span></td>
-<td style="text-align: center; font-weight: bold;">0.97</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">10</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(171, 0, 3, 255) !important;">James Wood</span></td>
-<td style="text-align: center; font-weight: bold;">0.961</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-<div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
-<caption>Whiff% Leaders</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">Rank</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Player</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Whiff%</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">1</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(255, 102, 0, 255) !important;">Liam Hicks</span></td>
-<td style="text-align: center; font-weight: bold;">4%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">2</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(253, 90, 30, 255) !important;">Luis Arraez</span></td>
-<td style="text-align: center; font-weight: bold;">6%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">3</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(68, 68, 68, 255) !important;">Steven Kwan</span></td>
-<td style="text-align: center; font-weight: bold;">6%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">4</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(9, 44, 92, 255) !important;">Chandler Simpson</span></td>
-<td style="text-align: center; font-weight: bold;">7%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">5</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(167, 25, 48, 255) !important;">Geraldo Perdomo</span></td>
-<td style="text-align: center; font-weight: bold;">9%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">6</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(204, 52, 51, 255) !important;">Nico Hoerner</span></td>
-<td style="text-align: center; font-weight: bold;">9%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">7</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(255, 102, 0, 255) !important;">Jakob Marsee</span></td>
-<td style="text-align: center; font-weight: bold;">11%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">8</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(253, 90, 30, 255) !important;">Jung Hoo Lee</span></td>
-<td style="text-align: center; font-weight: bold;">11%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">9</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(10, 35, 81, 255) !important;">Sal Frelick</span></td>
-<td style="text-align: center; font-weight: bold;">11%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">10</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(9, 44, 92, 255) !important;">Yandy Díaz</span></td>
-<td style="text-align: center; font-weight: bold;">11%</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-<div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
-<caption>Barrel% Leaders</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">Rank</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Player</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Barrel%</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">1</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 48, 135, 255) !important;">Ben Rice</span></td>
-<td style="text-align: center; font-weight: bold;">16%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">2</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 0, 0, 255) !important;">Munetaka Murakami</span></td>
-<td style="text-align: center; font-weight: bold;">16%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">3</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(204, 52, 51, 255) !important;">Ian Happ</span></td>
-<td style="text-align: center; font-weight: bold;">14%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">4</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(40, 72, 152, 255) !important;">Kyle Schwarber</span></td>
-<td style="text-align: center; font-weight: bold;">14%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">5</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 48, 135, 255) !important;">Aaron Judge</span></td>
-<td style="text-align: center; font-weight: bold;">13%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">6</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 0, 0, 255) !important;">Colson Montgomery</span></td>
-<td style="text-align: center; font-weight: bold;">13%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">7</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(196, 30, 58, 255) !important;">Jordan Walker</span></td>
-<td style="text-align: center; font-weight: bold;">13%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">8</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(186, 0, 33, 255) !important;">Mike Trout</span></td>
-<td style="text-align: center; font-weight: bold;">13%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">9</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 45, 98, 255) !important;">Yordan Alvarez</span></td>
-<td style="text-align: center; font-weight: bold;">13%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">10</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(171, 0, 3, 255) !important;">James Wood</span></td>
-<td style="text-align: center; font-weight: bold;">12%</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-<div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
-<caption>Full FB% Leaders</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">Rank</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Player</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Pull FB%</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">1</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 0, 0, 255) !important;">Andrew Benintendi</span></td>
-<td style="text-align: center; font-weight: bold;">22%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">2</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(12, 44, 86, 255) !important;">Cal Raleigh</span></td>
-<td style="text-align: center; font-weight: bold;">17%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">3</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(51, 51, 102, 255) !important;">Mickey Moniak</span></td>
-<td style="text-align: center; font-weight: bold;">16%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">4</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 70, 135, 255) !important;">Carter Jensen</span></td>
-<td style="text-align: center; font-weight: bold;">15%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">5</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(253, 90, 30, 255) !important;">Casey Schmitt</span></td>
-<td style="text-align: center; font-weight: bold;">15%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">6</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 43, 92, 255) !important;">Josh Bell</span></td>
-<td style="text-align: center; font-weight: bold;">15%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">7</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 45, 98, 255) !important;">Yordan Alvarez</span></td>
-<td style="text-align: center; font-weight: bold;">15%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">8</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 43, 92, 255) !important;">Brooks Lee</span></td>
-<td style="text-align: center; font-weight: bold;">14%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">9</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(223, 70, 1, 255) !important;">Gunnar Henderson</span></td>
-<td style="text-align: center; font-weight: bold;">14%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">10</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(204, 52, 51, 255) !important;">Ian Happ</span></td>
-<td style="text-align: center; font-weight: bold;">14%</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-<div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
-<caption>SO Leaders</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">Rank</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Player</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">SO</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">1</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(255, 102, 0, 255) !important;">Owen Caissie</span></td>
-<td style="text-align: center; font-weight: bold;">42%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">2</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(10, 35, 81, 255) !important;">Garrett Mitchell</span></td>
-<td style="text-align: center; font-weight: bold;">39%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">3</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(12, 44, 86, 255) !important;">Luke Raley</span></td>
-<td style="text-align: center; font-weight: bold;">38%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">4</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 43, 92, 255) !important;">Matt Wallner</span></td>
-<td style="text-align: center; font-weight: bold;">38%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">5</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(51, 51, 102, 255) !important;">Hunter Goodman</span></td>
-<td style="text-align: center; font-weight: bold;">37%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">6</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 0, 0, 255) !important;">Andrew Benintendi</span></td>
-<td style="text-align: center; font-weight: bold;">36%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">7</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(12, 44, 86, 255) !important;">Kerry Carpenter</span></td>
-<td style="text-align: center; font-weight: bold;">36%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">8</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(68, 68, 68, 255) !important;">Max Muncy</span></td>
-<td style="text-align: center; font-weight: bold;">36%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">9</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(51, 51, 102, 255) !important;">Willi Castro</span></td>
-<td style="text-align: center; font-weight: bold;">36%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">10</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(51, 51, 102, 255) !important;">Brenton Doyle</span></td>
-<td style="text-align: center; font-weight: bold;">35%</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-<div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
-<caption>BB Leaders</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">Rank</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Player</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">BB</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">1</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 43, 92, 255) !important;">Austin Martin</span></td>
-<td style="text-align: center; font-weight: bold;">24%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">2</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(68, 68, 68, 255) !important;">Nick Kurtz</span></td>
-<td style="text-align: center; font-weight: bold;">24%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">3</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(186, 0, 33, 255) !important;">Mike Trout</span></td>
-<td style="text-align: center; font-weight: bold;">23%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">4</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(10, 35, 81, 255) !important;">Garrett Mitchell</span></td>
-<td style="text-align: center; font-weight: bold;">20%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">5</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(171, 0, 3, 255) !important;">James Wood</span></td>
-<td style="text-align: center; font-weight: bold;">20%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">6</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 48, 135, 255) !important;">Trent Grisham</span></td>
-<td style="text-align: center; font-weight: bold;">20%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">7</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 48, 135, 255) !important;">Austin Wells</span></td>
-<td style="text-align: center; font-weight: bold;">19%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">8</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(10, 35, 81, 255) !important;">Brice Turang</span></td>
-<td style="text-align: center; font-weight: bold;">19%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">9</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(10, 35, 81, 255) !important;">Gary Sánchez</span></td>
-<td style="text-align: center; font-weight: bold;">19%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">10</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 0, 0, 255) !important;">Munetaka Murakami</span></td>
-<td style="text-align: center; font-weight: bold;">19%</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
+<div class="page-intro">
+<p><span class="eyebrow">The league at a glance</span></p>
+<section id="who-leads-baseball-right-now" class="level1">
+<h1>Who leads baseball right now?</h1>
+<p>The familiar numbers still matter. Scan batting average, slugging, home runs, doubles, triples, strikeouts, ERA, saves, and more—then move into the Player Desk when you want the underlying quality and change context.</p>
 </section>
-<section id="pitcher-season-long-leaders" class="level2">
-<h2 class="anchored" data-anchor-id="pitcher-season-long-leaders">Pitcher Season-Long Leaders</h2>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
-<caption>SO Leaders</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">Rank</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Player</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">SO</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">1</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(19, 74, 142, 255) !important;">Jeff Hoffman</span></td>
-<td style="text-align: center; font-weight: bold;">42%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">2</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(253, 184, 39, 255) !important;">Mason Montgomery</span></td>
-<td style="text-align: center; font-weight: bold;">41%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">3</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(19, 74, 142, 255) !important;">Dylan Cease</span></td>
-<td style="text-align: center; font-weight: bold;">40%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">4</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(19, 74, 142, 255) !important;">Louis Varland</span></td>
-<td style="text-align: center; font-weight: bold;">40%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">5</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(204, 52, 51, 255) !important;">Matthew Boyd</span></td>
-<td style="text-align: center; font-weight: bold;">39%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">6</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(10, 35, 81, 255) !important;">Aaron Ashby</span></td>
-<td style="text-align: center; font-weight: bold;">38%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">7</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(253, 184, 39, 255) !important;">Gregory Soto</span></td>
-<td style="text-align: center; font-weight: bold;">38%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">8</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(10, 35, 81, 255) !important;">Jacob Misiorowski</span></td>
-<td style="text-align: center; font-weight: bold;">37%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">9</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 0, 0, 255) !important;">Grant Taylor</span></td>
-<td style="text-align: center; font-weight: bold;">36%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">10</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 45, 98, 255) !important;">Nick Pivetta</span></td>
-<td style="text-align: center; font-weight: bold;">36%</td>
-</tr>
-</tbody>
-</table>
-
-
 </div>
-<div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
-<caption>BB Leaders</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">Rank</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Player</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">BB</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">1</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(196, 30, 58, 255) !important;">Riley O'Brien</span></td>
-<td style="text-align: center; font-weight: bold;">2%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">2</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(167, 25, 48, 255) !important;">Taylor Clarke</span></td>
-<td style="text-align: center; font-weight: bold;">2%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">3</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 48, 135, 255) !important;">Cam Schlittler</span></td>
-<td style="text-align: center; font-weight: bold;">3%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">4</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(68, 68, 68, 255) !important;">Matt Festa</span></td>
-<td style="text-align: center; font-weight: bold;">3%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">5</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(255, 89, 16, 255) !important;">Tobias Myers</span></td>
-<td style="text-align: center; font-weight: bold;">3%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">6</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(12, 44, 86, 255) !important;">Bryan Woo</span></td>
-<td style="text-align: center; font-weight: bold;">4%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">7</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(9, 44, 92, 255) !important;">Drew Rasmussen</span></td>
-<td style="text-align: center; font-weight: bold;">4%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">8</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(12, 44, 86, 255) !important;">Emerson Hancock</span></td>
-<td style="text-align: center; font-weight: bold;">4%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">9</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(10, 35, 81, 255) !important;">Jake Woodford</span></td>
-<td style="text-align: center; font-weight: bold;">4%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">10</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(167, 25, 48, 255) !important;">Jonathan Loáisiga</span></td>
-<td style="text-align: center; font-weight: bold;">4%</td>
-</tr>
-</tbody>
-</table>
-
-
+<div class="leaderboard-note">
+<strong>Baseball’s familiar counting stats belong beside the advanced numbers.</strong><span>Rate boards require 250 PA or 80 IP in this snapshot; counting-stat boards rank season totals.</span>
 </div>
-<div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
-<caption>Total SO Leaders</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">Rank</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Player</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">SO</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">1</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(10, 35, 81, 255) !important;">Jacob Misiorowski</span></td>
-<td style="text-align: center; font-weight: bold;">51</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">2</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(19, 74, 142, 255) !important;">Dylan Cease</span></td>
-<td style="text-align: center; font-weight: bold;">44</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">3</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(68, 68, 68, 255) !important;">Gavin Williams</span></td>
-<td style="text-align: center; font-weight: bold;">44</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">4</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(186, 0, 33, 255) !important;">José Soriano</span></td>
-<td style="text-align: center; font-weight: bold;">43</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">5</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(40, 72, 152, 255) !important;">Cristopher Sánchez</span></td>
-<td style="text-align: center; font-weight: bold;">42</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">6</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(192, 17, 31, 255) !important;">MacKenzie Gore</span></td>
-<td style="text-align: center; font-weight: bold;">42</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">7</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 48, 135, 255) !important;">Cam Schlittler</span></td>
-<td style="text-align: center; font-weight: bold;">41</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">8</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(0, 48, 135, 255) !important;">Ryan Weathers</span></td>
-<td style="text-align: center; font-weight: bold;">40</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">9</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(19, 74, 142, 255) !important;">Kevin Gausman</span></td>
-<td style="text-align: center; font-weight: bold;">38</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">10</td>
-<td style="text-align: left;"><span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(255, 89, 16, 255) !important;">Nolan McLean</span></td>
-<td style="text-align: center; font-weight: bold;">38</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-
-
+<section class="section-heading">
+<span class="eyebrow">Hitting</span>
+<h2 class="anchored">
+Traditional offense, quickly scanned
+</h2>
+<p>
+League leaders in the statistics fans hear every night, presented with the compact WRUF leaderboard rhythm.
+</p>
 </section>
+<div class="leaderboard-grid">
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Batting average
+</h3>
+<p>
+Minimum 250 PA
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Otto Lopez</strong><small>MIA</small></span><span class="leaderboard-value">0.335</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Yordan Alvarez</strong><small>HOU</small></span><span class="leaderboard-value">0.324</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Luis Arraez</strong><small>SFG</small></span><span class="leaderboard-value">0.323</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Yandy Díaz</strong><small>TBR</small></span><span class="leaderboard-value">0.312</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Nick Gonzales</strong><small>PIT</small></span><span class="leaderboard-value">0.309</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+On-base percentage
+</h3>
+<p>
+Minimum 250 PA
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Yordan Alvarez</strong><small>HOU</small></span><span class="leaderboard-value">0.432</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Juan Soto</strong><small>NYM</small></span><span class="leaderboard-value">0.407</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Nick Kurtz</strong><small>ATH</small></span><span class="leaderboard-value">0.405</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>James Wood</strong><small>WSN</small></span><span class="leaderboard-value">0.401</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Bryan Reynolds</strong><small>PIT</small></span><span class="leaderboard-value">0.399</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Slugging percentage
+</h3>
+<p>
+Minimum 250 PA
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Yordan Alvarez</strong><small>HOU</small></span><span class="leaderboard-value">0.651</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Ben Rice</strong><small>NYY</small></span><span class="leaderboard-value">0.594</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Byron Buxton</strong><small>MIN</small></span><span class="leaderboard-value">0.576</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Junior Caminero</strong><small>TBR</small></span><span class="leaderboard-value">0.558</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Willson Contreras</strong><small>BOS</small></span><span class="leaderboard-value">0.557</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Home runs
+</h3>
+<p>
+Season total
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Yordan Alvarez</strong><small>HOU</small></span><span class="leaderboard-value">33</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Kyle Schwarber</strong><small>PHI</small></span><span class="leaderboard-value">33</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Hunter Goodman</strong><small>COL</small></span><span class="leaderboard-value">30</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Junior Caminero</strong><small>TBR</small></span><span class="leaderboard-value">29</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Ben Rice</strong><small>NYY</small></span><span class="leaderboard-value">29</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Runs batted in
+</h3>
+<p>
+Season total
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Jordan Walker</strong><small>STL</small></span><span class="leaderboard-value">76</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Yordan Alvarez</strong><small>HOU</small></span><span class="leaderboard-value">75</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>CJ Abrams</strong><small>WSN</small></span><span class="leaderboard-value">72</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Sal Stewart</strong><small>CIN</small></span><span class="leaderboard-value">70</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Alec Burleson</strong><small>STL</small></span><span class="leaderboard-value">69</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Runs scored
+</h3>
+<p>
+Season total
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>James Wood</strong><small>WSN</small></span><span class="leaderboard-value">93</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Bryan Reynolds</strong><small>PIT</small></span><span class="leaderboard-value">71</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Zach Neto</strong><small>LAA</small></span><span class="leaderboard-value">69</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Brice Turang</strong><small>MIL</small></span><span class="leaderboard-value">68</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Miguel Vargas</strong><small>CHW</small></span><span class="leaderboard-value">68</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Hits
+</h3>
+<p>
+Season total
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Otto Lopez</strong><small>MIA</small></span><span class="leaderboard-value">130</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Luis Arraez</strong><small>SFG</small></span><span class="leaderboard-value">122</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Yordan Alvarez</strong><small>HOU</small></span><span class="leaderboard-value">118</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Yandy Díaz</strong><small>TBR</small></span><span class="leaderboard-value">114</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Ernie Clement</strong><small>TOR</small></span><span class="leaderboard-value">111</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Doubles
+</h3>
+<p>
+Season total
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Otto Lopez</strong><small>MIA</small></span><span class="leaderboard-value">27</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Ceddanne Rafaela</strong><small>BOS</small></span><span class="leaderboard-value">25</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Matt Olson</strong><small>ATL</small></span><span class="leaderboard-value">25</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Rafael Devers</strong><small>SFG</small></span><span class="leaderboard-value">25</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Brice Turang</strong><small>MIL</small></span><span class="leaderboard-value">24</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Triples
+</h3>
+<p>
+Season total
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Corbin Carroll</strong><small>ARI</small></span><span class="leaderboard-value">10</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Luis Arraez</strong><small>SFG</small></span><span class="leaderboard-value">7</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Otto Lopez</strong><small>MIA</small></span><span class="leaderboard-value">6</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Xavier Edwards</strong><small>MIA</small></span><span class="leaderboard-value">6</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Jake McCarthy</strong><small>COL</small></span><span class="leaderboard-value">6</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Stolen bases
+</h3>
+<p>
+Season total
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Nasim Nuñez</strong><small>WSN</small></span><span class="leaderboard-value">37</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Bobby Witt Jr.</strong><small>KCR</small></span><span class="leaderboard-value">30</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Jazz Chisholm Jr.</strong><small>NYY</small></span><span class="leaderboard-value">26</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Pete Crow-Armstrong</strong><small>CHC</small></span><span class="leaderboard-value">25</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Fernando Tatis Jr.</strong><small>SDP</small></span><span class="leaderboard-value">25</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Walks
+</h3>
+<p>
+Season total
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>James Wood</strong><small>WSN</small></span><span class="leaderboard-value">81</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Taylor Ward</strong><small>BAL</small></span><span class="leaderboard-value">79</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Nick Kurtz</strong><small>ATH</small></span><span class="leaderboard-value">76</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Mike Trout</strong><small>LAA</small></span><span class="leaderboard-value">70</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Yordan Alvarez</strong><small>HOU</small></span><span class="leaderboard-value">66</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Strikeouts
+</h3>
+<p>
+Season total
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Kyle Schwarber</strong><small>PHI</small></span><span class="leaderboard-value">150</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>James Wood</strong><small>WSN</small></span><span class="leaderboard-value">139</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Zach Neto</strong><small>LAA</small></span><span class="leaderboard-value">138</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Nick Kurtz</strong><small>ATH</small></span><span class="leaderboard-value">130</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Colson Montgomery</strong><small>CHW</small></span><span class="leaderboard-value">129</span>
+</li>
+</ol>
+</article>
+</div>
+<section class="section-heading">
+<span class="eyebrow">Pitching</span>
+<h2 class="anchored">
+Workload, results, and bat-missing
+</h2>
+<p>
+Traditional pitching lines are paired with K-BB rate and WAR so results retain useful context.
+</p>
+</section>
+<div class="leaderboard-grid">
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Earned run average
+</h3>
+<p>
+Minimum 80 IP
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Jacob Misiorowski</strong><small>MIL</small></span><span class="leaderboard-value">1.57</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Shohei Ohtani</strong><small>LAD</small></span><span class="leaderboard-value">1.79</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Chris Sale</strong><small>ATL</small></span><span class="leaderboard-value">2.06</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Zack Wheeler</strong><small>PHI</small></span><span class="leaderboard-value">2.13</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Cam Schlittler</strong><small>NYY</small></span><span class="leaderboard-value">2.20</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+WHIP
+</h3>
+<p>
+Minimum 80 IP
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Jacob Misiorowski</strong><small>MIL</small></span><span class="leaderboard-value">0.77</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Yoshinobu Yamamoto</strong><small>LAD</small></span><span class="leaderboard-value">0.88</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Zack Wheeler</strong><small>PHI</small></span><span class="leaderboard-value">0.89</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Tarik Skubal</strong><small>DET</small></span><span class="leaderboard-value">0.93</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Shohei Ohtani</strong><small>LAD</small></span><span class="leaderboard-value">0.95</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Innings pitched
+</h3>
+<p>
+Season total
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Sandy Alcantara</strong><small>MIA</small></span><span class="leaderboard-value">136.2</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Cristopher Sánchez</strong><small>PHI</small></span><span class="leaderboard-value">132.2</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Michael Wacha</strong><small>KCR</small></span><span class="leaderboard-value">125.1</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Cam Schlittler</strong><small>NYY</small></span><span class="leaderboard-value">123.0</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Logan Gilbert</strong><small>SEA</small></span><span class="leaderboard-value">120.0</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Strikeouts
+</h3>
+<p>
+Season total
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Jacob Misiorowski</strong><small>MIL</small></span><span class="leaderboard-value">173</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Dylan Cease</strong><small>TOR</small></span><span class="leaderboard-value">155</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Cristopher Sánchez</strong><small>PHI</small></span><span class="leaderboard-value">151</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Cam Schlittler</strong><small>NYY</small></span><span class="leaderboard-value">145</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Gavin Williams</strong><small>CLE</small></span><span class="leaderboard-value">145</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Wins
+</h3>
+<p>
+Season total
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Cristopher Sánchez</strong><small>PHI</small></span><span class="leaderboard-value">12</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Sonny Gray</strong><small>BOS</small></span><span class="leaderboard-value">12</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Aaron Ashby</strong><small>MIL</small></span><span class="leaderboard-value">12</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Chase Burns</strong><small>CIN</small></span><span class="leaderboard-value">11</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Foster Griffin</strong><small>WSN</small></span><span class="leaderboard-value">11</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Saves
+</h3>
+<p>
+Season total
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Cade Smith</strong><small>CLE</small></span><span class="leaderboard-value">28</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Mason Miller</strong><small>SDP</small></span><span class="leaderboard-value">25</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Bryan Baker</strong><small>TBR</small></span><span class="leaderboard-value">25</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Riley O’Brien</strong><small>STL</small></span><span class="leaderboard-value">25</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Jhoan Duran</strong><small>PHI</small></span><span class="leaderboard-value">24</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+K minus BB rate
+</h3>
+<p>
+Minimum 80 IP
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Jacob Misiorowski</strong><small>MIL</small></span><span class="leaderboard-value">33.0%</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Tarik Skubal</strong><small>DET</small></span><span class="leaderboard-value">27.1%</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Dylan Cease</strong><small>TOR</small></span><span class="leaderboard-value">25.8%</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Cam Schlittler</strong><small>NYY</small></span><span class="leaderboard-value">24.5%</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Jacob deGrom</strong><small>TEX</small></span><span class="leaderboard-value">24.5%</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">League leaders</span>
+<h3 class="anchored">
+Pitching WAR
+</h3>
+<p>
+Season value
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Jacob Misiorowski</strong><small>MIL</small></span><span class="leaderboard-value">4.6</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Cristopher Sánchez</strong><small>PHI</small></span><span class="leaderboard-value">4.2</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Cam Schlittler</strong><small>NYY</small></span><span class="leaderboard-value">3.8</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Dylan Cease</strong><small>TOR</small></span><span class="leaderboard-value">3.7</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Paul Skenes</strong><small>PIT</small></span><span class="leaderboard-value">3.5</span>
+</li>
+</ol>
+</article>
+</div>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -918,7 +941,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/thesabrhood\.com");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -932,6 +955,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1247,6 +1275,41 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 The SABRhood</p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./methodology.html">
+<p>Methodology</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./glossary.html">
+<p>Glossary</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./history.html">
+<p>History Desk</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://x.com/thesabrhood">
+<p><span class="citation" data-cites="thesabrhood">@thesabrhood</span></p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

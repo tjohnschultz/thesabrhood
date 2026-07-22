@@ -1,0 +1,3905 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Projections – The SABRhood</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/new-sabr-logo.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-GGNXXW6FWM"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<meta name="theme-color" content="#0C2340">
+
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Projections – The SABRhood">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://thesabrhood.com/images/sabrhood-social-preview-v1.png">
+<meta property="og:site_name" content="The SABRhood">
+<meta property="og:image:height" content="946">
+<meta property="og:image:width" content="1662">
+<meta name="twitter:title" content="Projections – The SABRhood">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://thesabrhood.com/images/sabrhood-social-preview-v1.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="946">
+<meta name="twitter:image-width" content="1662">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">The SABRhood</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./today.html"> 
+<span class="menu-text">Today</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./leaderboards.html"> 
+<span class="menu-text">Leaders</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-awards" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Awards</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-awards">    
+        <li>
+    <a class="dropdown-item" href="./races.html">
+ <span class="dropdown-text">MLB Award Races</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./insane-awards.html">
+ <span class="dropdown-text">Insane Baseball Awards</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-intelligence" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Intelligence</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-intelligence">    
+        <li>
+    <a class="dropdown-item" href="./story-desk.html">
+ <span class="dropdown-text">Story Engine</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./players.html">
+ <span class="dropdown-text">Players</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./player-change-engine.html">
+ <span class="dropdown-text">Player Change Engine</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./teams.html">
+ <span class="dropdown-text">Teams</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./team-dossiers.html">
+ <span class="dropdown-text">Team Dossiers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./matchups.html">
+ <span class="dropdown-text">Matchups</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./pitch-lab.html">
+ <span class="dropdown-text">Pitch Lab</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./aaa.html">
+ <span class="dropdown-text">Triple-A Watch</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./history.html">
+ <span class="dropdown-text">History</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./league-trends.html">
+ <span class="dropdown-text">League Trends</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="./projections.html" aria-current="page"> 
+<span class="menu-text">Projections</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./newsletter.html"> 
+<span class="menu-text">Newsletter</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./graphics-feed.html"> 
+<span class="menu-text">Graphics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./blog.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./broadcast.html"> 
+<span class="menu-text">Broadcast</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Projections</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="page-intro page-intro--dark">
+<p><span class="eyebrow">Daily simulation center</span></p>
+<section id="a-forecast-is-a-range-of-game-stories-not-one-final-score" class="level1">
+<h1>A forecast is a range of game stories, not one final score</h1>
+<p>The production page will turn confirmed game inputs into transparent win probabilities, score ranges, matchup drivers, bullpen effects, and player opportunities, with uncertainty visible everywhere.</p>
+</section>
+</div>
+<div class="projection-status-strip">
+<span><strong>Scheduled-game simulator v1</strong> Today’s slate is running in development mode</span><span>20,000 simulations per game · actual starters, posted orders, active rosters, and weather · calibration pending</span>
+</div>
+<section class="live-input-section">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">Live input assembly · July 22, 2026</span>
+<h2 class="anchored">
+The model can now see the actual slate
+</h2>
+<p>
+BaseballR supplies the schedule, probable starters, posted orders, and active rosters. Park coordinates route each game to its Open-Meteo window, and the development simulator now consumes the resulting game rows.
+</p>
+</div>
+<div class="method-grid">
+<article class="data-card data-card--navy">
+<span class="eyebrow">Schedule</span>
+<h3 class="anchored">
+MLB games
+</h3>
+<div class="data-card__value">
+17
+</div>
+<p>
+Game IDs, teams, first pitch, venue, and status.
+</p>
+</article>
+<article class="data-card data-card--red">
+<span class="eyebrow">Posted orders</span>
+<h3 class="anchored">
+Complete games
+</h3>
+<div class="data-card__value">
+0/17
+</div>
+<p>
+0 confirmed batting-order rows.
+</p>
+</article>
+<article class="data-card data-card--steel">
+<span class="eyebrow">Active roster gate</span>
+<h3 class="anchored">
+Verified players
+</h3>
+<div class="data-card__value">
+780
+</div>
+<p>
+244 workload-qualified bullpen rows remain after the roster join.
+</p>
+</article>
+<article class="data-card data-card--navy">
+<span class="eyebrow">Park weather</span>
+<h3 class="anchored">
+Resolved games
+</h3>
+<div class="data-card__value">
+17/17
+</div>
+<p>
+17 of 17 park environments resolved
+</p>
+</article>
+</div>
+<section class="dashboard-block">
+<div class="table-scroll">
+<table class="data-table">
+<thead>
+<tr>
+<th>
+Away
+</th>
+<th>
+Home
+</th>
+<th>
+Away starter
+</th>
+<th>
+Home starter
+</th>
+<th>
+Away order
+</th>
+<th>
+Home order
+</th>
+<th>
+Park weather
+</th>
+<th>
+Temp
+</th>
+<th>
+Wind
+</th>
+<th>
+Rain
+</th>
+<th>
+Input state
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Pittsburgh Pirates
+</td>
+<td>
+New York Yankees
+</td>
+<td>
+Mitch Keller
+</td>
+<td>
+Gerrit Cole
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Bronx, New York
+</td>
+<td>
+72 F
+</td>
+<td>
+8.7 mph
+</td>
+<td>
+18%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+Baltimore Orioles
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Dean Kremer
+</td>
+<td>
+Jake Bennett
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Boston, Massachusetts
+</td>
+<td>
+72 F
+</td>
+<td>
+7.5 mph
+</td>
+<td>
+17%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+San Francisco Giants
+</td>
+<td>
+Kansas City Royals
+</td>
+<td>
+Landen Roupp
+</td>
+<td>
+Seth Lugo
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Kansas City, Missouri
+</td>
+<td>
+71 F
+</td>
+<td>
+5.5 mph
+</td>
+<td>
+1%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+New York Mets
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+Christian Scott
+</td>
+<td>
+Logan Henderson
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Milwaukee, Wisconsin
+</td>
+<td>
+60 F
+</td>
+<td>
+5.1 mph
+</td>
+<td>
+0%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+Washington Nationals
+</td>
+<td>
+Colorado Rockies
+</td>
+<td>
+Cade Cavalli
+</td>
+<td>
+Gabriel Hughes
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Denver, Colorado
+</td>
+<td>
+71 F
+</td>
+<td>
+4.8 mph
+</td>
+<td>
+9%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+Athletics
+</td>
+<td>
+Arizona Diamondbacks
+</td>
+<td>
+Gage Jump
+</td>
+<td>
+Merrill Kelly
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Phoenix, Arizona
+</td>
+<td>
+85 F
+</td>
+<td>
+4.0 mph
+</td>
+<td>
+12%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+Cincinnati Reds
+</td>
+<td>
+Seattle Mariners
+</td>
+<td>
+Brady Singer
+</td>
+<td>
+Emerson Hancock
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Seattle, Washington
+</td>
+<td>
+67 F
+</td>
+<td>
+2.7 mph
+</td>
+<td>
+0%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Los Angeles Angels
+</td>
+<td>
+Hunter Dobbins
+</td>
+<td>
+Reid Detmers
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Anaheim, California
+</td>
+<td>
+73 F
+</td>
+<td>
+2.7 mph
+</td>
+<td>
+1%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+Minnesota Twins
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+Bailey Ober
+</td>
+<td>
+Slade Cecconi
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Cleveland, Ohio
+</td>
+<td>
+67 F
+</td>
+<td>
+12.1 mph
+</td>
+<td>
+40%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+Los Angeles Dodgers
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+Eric Lauer
+</td>
+<td>
+Aaron Nola
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Philadelphia, Pennsylvania
+</td>
+<td>
+73 F
+</td>
+<td>
+7.7 mph
+</td>
+<td>
+61%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+Pittsburgh Pirates
+</td>
+<td>
+New York Yankees
+</td>
+<td>
+Bubba Chandler
+</td>
+<td>
+Max Fried
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Bronx, New York
+</td>
+<td>
+72 F
+</td>
+<td>
+8.7 mph
+</td>
+<td>
+18%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+Griffin Jax
+</td>
+<td>
+Braydon Fisher
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Toronto, Ontario
+</td>
+<td>
+61 F
+</td>
+<td>
+8.9 mph
+</td>
+<td>
+0%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+Baltimore Orioles
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Kyle Bradish
+</td>
+<td>
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Boston, Massachusetts
+</td>
+<td>
+72 F
+</td>
+<td>
+7.5 mph
+</td>
+<td>
+17%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+San Diego Padres
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+Michael King
+</td>
+<td>
+Martín Pérez
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Atlanta, Georgia
+</td>
+<td>
+75 F
+</td>
+<td>
+4.5 mph
+</td>
+<td>
+1%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+Chicago White Sox
+</td>
+<td>
+Texas Rangers
+</td>
+<td>
+Anthony Kay
+</td>
+<td>
+Tyler Alexander
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Arlington, Texas
+</td>
+<td>
+89 F
+</td>
+<td>
+2.6 mph
+</td>
+<td>
+0%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+Detroit Tigers
+</td>
+<td>
+Chicago Cubs
+</td>
+<td>
+Keider Montero
+</td>
+<td>
+Colin Rea
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Chicago, Illinois
+</td>
+<td>
+63 F
+</td>
+<td>
+10.2 mph
+</td>
+<td>
+7%
+</td>
+<td>
+conditional
+</td>
+</tr>
+<tr>
+<td>
+Miami Marlins
+</td>
+<td>
+Houston Astros
+</td>
+<td>
+Sandy Alcantara
+</td>
+<td>
+Peter Lambert
+</td>
+<td>
+missing
+</td>
+<td>
+missing
+</td>
+<td>
+Houston, Texas
+</td>
+<td>
+80 F
+</td>
+<td>
+4.7 mph
+</td>
+<td>
+0%
+</td>
+<td>
+conditional
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<div class="method-callout">
+<strong>Current boundary:</strong> a resolved input row is not the same as a validated forecast. Starter, lineup, active-roster bullpen, and temperature effects now enter the score model; park factors, fresh reliever workload, and out-of-time calibration remain open gates.
+</div>
+</section>
+<section class="player-probability-room">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">Player simulation board · lineup gate</span>
+<h2 class="anchored">
+Player probabilities wait for posted batting orders
+</h2>
+<p>
+The team slate can update in the morning, but hitter and starter-event boards are withheld until current-date orders provide real batting-order opportunity. Yesterday’s player board is never relabeled as today’s.
+</p>
+</div>
+<div class="method-callout">
+<strong>Current state:</strong> 0 posted batting-order rows are available for July 22.
+</div>
+</section>
+<section class="section-heading">
+<span class="eyebrow">Development projection board</span>
+<h2 class="anchored">
+The actual slate in one scan
+</h2>
+<p>
+Each game card now comes from today’s schedule and shows the simulated win split, score center, uncertainty, close-game chance, and input status. These are pre-calibration research outputs, not public betting forecasts.
+</p>
+</section>
+<div class="projection-slate-grid">
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 1 · scheduled slate</span><span class="projection-lean">Narrow lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Pittsburgh Pirates</strong></span><b>42.0%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>New York Yankees</strong></span><b>58.0%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Pittsburgh Pirates 42.0% New York Yankees 58.0%">
+<span class="is-away" style="width:42%"></span><span class="is-home" style="width:58%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>4.6 – 5.2</strong></span><span><small>Model total</small><strong>9.7</strong></span><span><small>One-run game</small><strong>34.1%</strong></span>
+</div>
+<footer>
+<strong>New York Yankees 58.0%</strong><span>20,000 draws · conditional orders · matched starters</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 2 · scheduled slate</span><span class="projection-lean">Clear lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Baltimore Orioles</strong></span><b>37.2%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Boston Red Sox</strong></span><b>62.8%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Baltimore Orioles 37.2% Boston Red Sox 62.8%">
+<span class="is-away" style="width:37.2%"></span><span class="is-home" style="width:62.8%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>3.7 – 4.6</strong></span><span><small>Model total</small><strong>8.3</strong></span><span><small>One-run game</small><strong>35.5%</strong></span>
+</div>
+<footer>
+<strong>Boston Red Sox 62.8%</strong><span>20,000 draws · conditional orders · matched starters</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 3 · scheduled slate</span><span class="projection-lean">Clear lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>San Francisco Giants</strong></span><b>64.6%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Kansas City Royals</strong></span><b>35.4%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="San Francisco Giants 64.6% Kansas City Royals 35.4%">
+<span class="is-away" style="width:64.6%"></span><span class="is-home" style="width:35.4%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>5.1 – 3.9</strong></span><span><small>Model total</small><strong>9.0</strong></span><span><small>One-run game</small><strong>33.8%</strong></span>
+</div>
+<footer>
+<strong>San Francisco Giants 64.6%</strong><span>20,000 draws · conditional orders · matched starters</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 4 · scheduled slate</span><span class="projection-lean">Clear lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>New York Mets</strong></span><b>35.1%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Milwaukee Brewers</strong></span><b>64.9%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="New York Mets 35.1% Milwaukee Brewers 64.9%">
+<span class="is-away" style="width:35.1%"></span><span class="is-home" style="width:64.9%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>3.2 – 4.3</strong></span><span><small>Model total</small><strong>7.5</strong></span><span><small>One-run game</small><strong>36.9%</strong></span>
+</div>
+<footer>
+<strong>Milwaukee Brewers 64.9%</strong><span>20,000 draws · conditional orders · matched starters</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 5 · scheduled slate</span><span class="projection-lean">Near toss-up</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Washington Nationals</strong></span><b>47.0%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Colorado Rockies</strong></span><b>53.0%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Washington Nationals 47.0% Colorado Rockies 53.0%">
+<span class="is-away" style="width:47%"></span><span class="is-home" style="width:53%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>3.9 – 4.1</strong></span><span><small>Model total</small><strong>8.0</strong></span><span><small>One-run game</small><strong>38.6%</strong></span>
+</div>
+<footer>
+<strong>Colorado Rockies 53.0%</strong><span>20,000 draws · conditional orders · matched starters</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 6 · scheduled slate</span><span class="projection-lean">Clear lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Athletics</strong></span><b>69.8%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Arizona Diamondbacks</strong></span><b>30.2%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Athletics 69.8% Arizona Diamondbacks 30.2%">
+<span class="is-away" style="width:69.8%"></span><span class="is-home" style="width:30.2%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>5.5 – 3.9</strong></span><span><small>Model total</small><strong>9.4</strong></span><span><small>One-run game</small><strong>31.4%</strong></span>
+</div>
+<footer>
+<strong>Athletics 69.8%</strong><span>20,000 draws · conditional orders · matched starters</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 7 · scheduled slate</span><span class="projection-lean">Clear lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Cincinnati Reds</strong></span><b>28.5%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Seattle Mariners</strong></span><b>71.5%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Cincinnati Reds 28.5% Seattle Mariners 71.5%">
+<span class="is-away" style="width:28.5%"></span><span class="is-home" style="width:71.5%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>3.6 – 5.2</strong></span><span><small>Model total</small><strong>8.8</strong></span><span><small>One-run game</small><strong>32.0%</strong></span>
+</div>
+<footer>
+<strong>Seattle Mariners 71.5%</strong><span>20,000 draws · conditional orders · matched starters</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 8 · scheduled slate</span><span class="projection-lean">Narrow lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>St.&nbsp;Louis Cardinals</strong></span><b>43.5%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Los Angeles Angels</strong></span><b>56.5%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="St. Louis Cardinals 43.5% Los Angeles Angels 56.5%">
+<span class="is-away" style="width:43.5%"></span><span class="is-home" style="width:56.5%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>3.9 – 4.3</strong></span><span><small>Model total</small><strong>8.2</strong></span><span><small>One-run game</small><strong>37.9%</strong></span>
+</div>
+<footer>
+<strong>Los Angeles Angels 56.5%</strong><span>20,000 draws · conditional orders · matched starters</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 9 · scheduled slate</span><span class="projection-lean">Near toss-up</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Minnesota Twins</strong></span><b>48.2%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Cleveland Guardians</strong></span><b>51.8%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Minnesota Twins 48.2% Cleveland Guardians 51.8%">
+<span class="is-away" style="width:48.2%"></span><span class="is-home" style="width:51.8%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>4.5 – 4.6</strong></span><span><small>Model total</small><strong>9.1</strong></span><span><small>One-run game</small><strong>35.4%</strong></span>
+</div>
+<footer>
+<strong>Cleveland Guardians 51.8%</strong><span>20,000 draws · conditional orders · matched starters</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 10 · scheduled slate</span><span class="projection-lean">Clear lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Los Angeles Dodgers</strong></span><b>68.7%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Philadelphia Phillies</strong></span><b>31.4%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Los Angeles Dodgers 68.7% Philadelphia Phillies 31.4%">
+<span class="is-away" style="width:68.7%"></span><span class="is-home" style="width:31.4%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>5.2 – 3.7</strong></span><span><small>Model total</small><strong>8.9</strong></span><span><small>One-run game</small><strong>32.9%</strong></span>
+</div>
+<footer>
+<strong>Los Angeles Dodgers 68.7%</strong><span>20,000 draws · conditional orders · fallback starters</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 11 · scheduled slate</span><span class="projection-lean">Clear lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Pittsburgh Pirates</strong></span><b>33.4%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>New York Yankees</strong></span><b>66.6%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Pittsburgh Pirates 33.4% New York Yankees 66.6%">
+<span class="is-away" style="width:33.4%"></span><span class="is-home" style="width:66.6%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>4.0 – 5.3</strong></span><span><small>Model total</small><strong>9.2</strong></span><span><small>One-run game</small><strong>32.7%</strong></span>
+</div>
+<footer>
+<strong>New York Yankees 66.6%</strong><span>20,000 draws · conditional orders · matched starters</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 12 · scheduled slate</span><span class="projection-lean">Near toss-up</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Tampa Bay Rays</strong></span><b>53.5%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Toronto Blue Jays</strong></span><b>46.5%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Tampa Bay Rays 53.5% Toronto Blue Jays 46.5%">
+<span class="is-away" style="width:53.5%"></span><span class="is-home" style="width:46.5%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>4.3 – 4.0</strong></span><span><small>Model total</small><strong>8.3</strong></span><span><small>One-run game</small><strong>37.1%</strong></span>
+</div>
+<footer>
+<strong>Tampa Bay Rays 53.5%</strong><span>20,000 draws · conditional orders · matched starters</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 13 · scheduled slate</span><span class="projection-lean">Narrow lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Baltimore Orioles</strong></span><b>54.1%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Boston Red Sox</strong></span><b>45.9%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Baltimore Orioles 54.1% Boston Red Sox 45.9%">
+<span class="is-away" style="width:54.1%"></span><span class="is-home" style="width:45.9%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>4.3 – 4.0</strong></span><span><small>Model total</small><strong>8.4</strong></span><span><small>One-run game</small><strong>37.0%</strong></span>
+</div>
+<footer>
+<strong>Baltimore Orioles 54.1%</strong><span>20,000 draws · conditional orders · matched starters</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 14 · scheduled slate</span><span class="projection-lean">Narrow lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>San Diego Padres</strong></span><b>43.3%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Atlanta Braves</strong></span><b>56.7%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="San Diego Padres 43.3% Atlanta Braves 56.7%">
+<span class="is-away" style="width:43.3%"></span><span class="is-home" style="width:56.7%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>3.9 – 4.4</strong></span><span><small>Model total</small><strong>8.2</strong></span><span><small>One-run game</small><strong>36.5%</strong></span>
+</div>
+<footer>
+<strong>Atlanta Braves 56.7%</strong><span>20,000 draws · conditional orders · matched starters</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 15 · scheduled slate</span><span class="projection-lean">Clear lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Chicago White Sox</strong></span><b>35.0%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Texas Rangers</strong></span><b>65.0%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Chicago White Sox 35.0% Texas Rangers 65.0%">
+<span class="is-away" style="width:35%"></span><span class="is-home" style="width:65%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>3.8 – 5.0</strong></span><span><small>Model total</small><strong>8.8</strong></span><span><small>One-run game</small><strong>34.3%</strong></span>
+</div>
+<footer>
+<strong>Texas Rangers 65.0%</strong><span>20,000 draws · conditional orders · matched starters</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 16 · scheduled slate</span><span class="projection-lean">Narrow lean</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Detroit Tigers</strong></span><b>54.4%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Chicago Cubs</strong></span><b>45.6%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Detroit Tigers 54.4% Chicago Cubs 45.6%">
+<span class="is-away" style="width:54.4%"></span><span class="is-home" style="width:45.6%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>5.0 – 4.7</strong></span><span><small>Model total</small><strong>9.7</strong></span><span><small>One-run game</small><strong>34.4%</strong></span>
+</div>
+<footer>
+<strong>Detroit Tigers 54.4%</strong><span>20,000 draws · conditional orders · matched starters</span>
+</footer>
+</article>
+<article class="projection-game-card">
+<header>
+<span class="eyebrow">Game 17 · scheduled slate</span><span class="projection-lean">Near toss-up</span>
+</header>
+<div class="projection-team-row">
+<span><small>Away</small><strong>Miami Marlins</strong></span><b>48.4%</b>
+</div>
+<div class="projection-team-row">
+<span><small>Home</small><strong>Houston Astros</strong></span><b>51.6%</b>
+</div>
+<div class="projection-win-track" role="img" aria-label="Miami Marlins 48.4% Houston Astros 51.6%">
+<span class="is-away" style="width:48.4%"></span><span class="is-home" style="width:51.6%"></span>
+</div>
+<div class="projection-score-strip">
+<span><small>Mean score</small><strong>4.5 – 4.6</strong></span><span><small>Model total</small><strong>9.1</strong></span><span><small>One-run game</small><strong>35.8%</strong></span>
+</div>
+<footer>
+<strong>Houston Astros 51.6%</strong><span>20,000 draws · conditional orders · matched starters</span>
+</footer>
+</article>
+</div>
+<section class="projection-feature">
+<div class="projection-feature__head">
+<div>
+<span class="eyebrow">Feature simulation · 20,000 draws</span>
+<h2 class="anchored">
+Miami Marlins at Houston Astros
+</h2>
+<p>
+The closest matchup on today’s scheduled slate shows the current score distribution, model drivers, and honest input limitations.
+</p>
+</div>
+<div class="projection-feature__call">
+<small>Model lean</small><strong>Houston Astros</strong><span>51.6%</span>
+</div>
+</div>
+<div class="projection-matchup-score">
+<div>
+<span>Miami Marlins</span><strong>4.5</strong><small>80% range 2–7</small>
+</div>
+<i aria-hidden="true">at</i>
+<div>
+<span>Houston Astros</span><strong>4.6</strong><small>80% range 2–7</small>
+</div>
+</div>
+<div class="projection-feature__grid">
+<section>
+<div class="context-subhead">
+<span>Winning-margin distribution</span><small>Away ← outcome → Home</small>
+</div>
+<div class="margin-distribution">
+<div class="margin-row">
+<span>Away by 5+</span>
+<div class="margin-row__track">
+<i style="width:33.0%"></i>
+</div>
+<strong>6.0%</strong>
+</div>
+<div class="margin-row">
+<span>Away by 3-4</span>
+<div class="margin-row__track">
+<i style="width:72.2%"></i>
+</div>
+<strong>13.2%</strong>
+</div>
+<div class="margin-row">
+<span>Away by 2</span>
+<div class="margin-row__track">
+<i style="width:63.8%"></i>
+</div>
+<strong>11.7%</strong>
+</div>
+<div class="margin-row">
+<span>Away by 1</span>
+<div class="margin-row__track">
+<i style="width:95.1%"></i>
+</div>
+<strong>17.4%</strong>
+</div>
+<div class="margin-row">
+<span>Home by 1</span>
+<div class="margin-row__track">
+<i style="width:100.0%"></i>
+</div>
+<strong>18.3%</strong>
+</div>
+<div class="margin-row">
+<span>Home by 2</span>
+<div class="margin-row__track">
+<i style="width:67.3%"></i>
+</div>
+<strong>12.3%</strong>
+</div>
+<div class="margin-row">
+<span>Home by 3-4</span>
+<div class="margin-row__track">
+<i style="width:76.2%"></i>
+</div>
+<strong>14.0%</strong>
+</div>
+<div class="margin-row">
+<span>Home by 5+</span>
+<div class="margin-row__track">
+<i style="width:37.6%"></i>
+</div>
+<strong>6.9%</strong>
+</div>
+</div>
+</section>
+<section>
+<div class="context-subhead">
+<span>Why the model lands here</span><small>League ranks</small>
+</div>
+<ol class="projection-driver-list">
+<li>
+<span>Posted-lineup offense</span><strong>Houston Astros</strong><small>102 vs 103 blended wRC+</small>
+</li>
+<li>
+<span>Probable starter</span><strong>Miami Marlins</strong><small>Sandy Alcantara 3.94 vs Peter Lambert 3.97 run estimator</small>
+</li>
+<li>
+<span>Active-roster bullpen</span><strong>Houston Astros</strong><small>4.11 vs 4.09 roster-weighted FIP blend</small>
+</li>
+<li>
+<span>Park and weather</span><strong>Run environment</strong><small>80 F temperature adjustment; park factor 1</small>
+</li>
+</ol>
+</section>
+</div>
+<div class="projection-outcome-grid">
+<span><small>Mean total</small><strong>9.1</strong><em>80% range 5–13</em></span><span><small>One-run game</small><strong>35.8%</strong><em>Close-game likelihood</em></span><span><small>Extras</small><strong>13.7%</strong><em>Regulation tie rate</em></span><span><small>Bullpen effect</small><strong>-0.9 pts</strong><em>Home win probability subtracts</em></span>
+</div>
+<div class="projection-scorelines">
+<div class="context-subhead">
+<span>Most common exact scores</span><small>Away – home</small>
+</div>
+<div>
+<span><small>#1 exact score</small><strong>4 – 5</strong><em>4.6%</em></span><span><small>#2 exact score</small><strong>5 – 4</strong><em>4.4%</em></span><span><small>#3 exact score</small><strong>3 – 4</strong><em>4.2%</em></span><span><small>#4 exact score</small><strong>4 – 3</strong><em>4.0%</em></span><span><small>#5 exact score</small><strong>5 – 6</strong><em>3.2%</em></span>
+</div>
+</div>
+</section>
+<section class="projection-readiness">
+<div class="projection-readiness__head">
+<div>
+<span class="eyebrow">Publication gate · July 22, 2026</span>
+<h2 class="anchored">
+The scheduled-game engine is running behind a calibration wall
+</h2>
+<p>
+The page can now simulate today’s actual games. Development probabilities stay clearly labeled until current PBP workload, empirical park effects, and a chronological backtest pass.
+</p>
+</div>
+<div class="projection-readiness__score">
+<strong>28.6%</strong><span>activation gates closed</span>
+</div>
+</div>
+<div class="projection-input-grid">
+<article class="projection-input-gate is-ready">
+<span>Ready</span>
+<h3 class="anchored">
+Scheduled games
+</h3>
+<p>
+17 games
+</p>
+</article>
+<article class="projection-input-gate is-missing">
+<span>Open gate</span>
+<h3 class="anchored">
+Posted lineups
+</h3>
+<p>
+0/17 confirmed
+</p>
+</article>
+<article class="projection-input-gate is-missing">
+<span>Open gate</span>
+<h3 class="anchored">
+Probable starters
+</h3>
+<p>
+16/17 matched
+</p>
+</article>
+<article class="projection-input-gate is-ready">
+<span>Ready</span>
+<h3 class="anchored">
+Active bullpens
+</h3>
+<p>
+Roster verified
+</p>
+</article>
+<article class="projection-input-gate is-missing">
+<span>Open gate</span>
+<h3 class="anchored">
+Current PBP usage
+</h3>
+<p>
+2 days old
+</p>
+</article>
+<article class="projection-input-gate is-missing">
+<span>Open gate</span>
+<h3 class="anchored">
+Park factors
+</h3>
+<p>
+Neutral placeholder
+</p>
+</article>
+<article class="projection-input-gate is-missing">
+<span>Open gate</span>
+<h3 class="anchored">
+Chronological calibration
+</h3>
+<p>
+Not yet passed
+</p>
+</article>
+</div>
+</section>
+<section class="projection-feedback-room">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">Model fitting · no-lookahead evaluation</span>
+<h2 class="anchored">
+Real outcomes change the model only after they earn the right
+</h2>
+<p>
+The fitted score layer learned from prior-only rolling team production, then faced a completely later block of games. It improved the raw score scale and narrowly beat the simple home-team Brier baseline, earning shadow-mode evaluation without overwriting the public board.
+</p>
+</div>
+<div class="projection-diagnostic-layout">
+<figure class="figure">
+<img src="images/graphics-feed/projection-calibration-curve.png" alt="Calibration curve comparing historical predicted home-win probability with observed home-win rate" class="figure-img">
+<figcaption>
+Points show non-empty probability bins; labels are holdout game counts. The dashed line is perfect calibration.
+</figcaption>
+</figure>
+<div class="projection-diagnostic-stats">
+<article class="data-card data-card--navy">
+<span class="eyebrow">Holdout</span>
+<h3 class="anchored">
+Later games only
+</h3>
+<div class="data-card__value">
+282
+</div>
+<p>
+Training ended June 26
+</p>
+</article>
+<article class="data-card data-card--red">
+<span class="eyebrow">Win probability</span>
+<h3 class="anchored">
+Brier score
+</h3>
+<div class="data-card__value">
+0.249
+</div>
+<p>
+Naive home baseline 0.251 - Shadow-mode eligible
+</p>
+</article>
+<article class="data-card data-card--steel">
+<span class="eyebrow">Run expectation</span>
+<h3 class="anchored">
+Team-runs MAE
+</h3>
+<div class="data-card__value">
+2.63
+</div>
+<p>
+Raw scale 2.93 before fitting
+</p>
+</article>
+<article class="data-card data-card--navy">
+<span class="eyebrow">Live feedback</span>
+<h3 class="anchored">
+Eligible forecasts
+</h3>
+<div class="data-card__value">
+0
+</div>
+<p>
+300 more game forecasts before live probability calibration
+</p>
+</article>
+</div>
+</div>
+<div class="projection-feedback-steps">
+<article>
+<span>01</span>
+<h3 class="anchored">
+Freeze before first pitch
+</h3>
+<p>
+Every game and player-event probability is archived with its inputs and model version. Late builds are permanently excluded.
+</p>
+</article>
+<article>
+<span>02</span>
+<h3 class="anchored">
+Settle against final PBP
+</h3>
+<p>
+Team scores, winners, hitter events, and starter strikeouts are joined by exact game and MLBAM player IDs.
+</p>
+</article>
+<article>
+<span>03</span>
+<h3 class="anchored">
+Diagnose the misses
+</h3>
+<p>
+Brier score, log loss, run MAE, calibration bins, and player-event residuals reveal whether the model is too aggressive or too conservative.
+</p>
+</article>
+<article>
+<span>04</span>
+<h3 class="anchored">
+Refit in chronological blocks
+</h3>
+<p>
+Only coefficients that improve later unseen games enter shadow mode; public probabilities require a second approval gate.
+</p>
+</article>
+</div>
+<div class="method-callout">
+<strong>Why today does not count:</strong> the first ledger snapshot was taken after first pitch, so all 15 games were correctly marked late and excluded. The automated daily job will archive future boards before games begin.
+</div>
+</section>
+<section class="hook-path-section">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">Starter decision path</span>
+<h2 class="anchored">
+The handoff becomes part of every game simulation
+</h2>
+<p>
+A fixed tied-game workload path shows when the pooled hook model begins shifting probability toward the bullpen.
+</p>
+</div>
+<div class="hook-path">
+<article class="hook-path-node">
+<header>
+<span>Inning 5</span><strong>4.0%</strong>
+</header>
+<h3 class="anchored">
+Hold the starter
+</h3>
+<p>
+72 pitches · 19 BF · 2x through
+</p>
+<div class="hook-path-track" role="img" aria-label="Hook probability 4.0%">
+<i style="width:4.0%"></i>
+</div>
+</article>
+<article class="hook-path-node">
+<header>
+<span>Inning 6</span><strong>32.0%</strong>
+</header>
+<h3 class="anchored">
+First major decision
+</h3>
+<p>
+88 pitches · 24 BF · 3x through
+</p>
+<div class="hook-path-track" role="img" aria-label="Hook probability 32.0%">
+<i style="width:32.0%"></i>
+</div>
+</article>
+<article class="hook-path-node">
+<header>
+<span>Inning 7</span><strong>83.9%</strong>
+</header>
+<h3 class="anchored">
+Bullpen strongly enters
+</h3>
+<p>
+105 pitches · 28 BF · 3x through
+</p>
+<div class="hook-path-track" role="img" aria-label="Hook probability 83.9%">
+<i style="width:83.9%"></i>
+</div>
+</article>
+</div>
+<p class="method-note">
+Descriptive pooled-model scenarios, not causal manager tendencies or a forecast for a named starter.
+</p>
+</section>
+<section class="bullpen-chain-section">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">Reliever chain planner</span>
+<h2 class="anchored">
+Handedness, leverage, and fatigue change the next arm
+</h2>
+<p>
+Once a starter exits, each three-batter pocket reranks the available bullpen and carries planned workload into the next decision.
+</p>
+</div>
+<div class="bullpen-chain-grid">
+<article class="bullpen-chain">
+<header>
+<div>
+<span class="eyebrow">Defending Milwaukee Brewers</span>
+<h3 class="anchored">
+New York Yankees bullpen path
+</h3>
+</div>
+<span>Scenario</span>
+</header>
+<ol>
+<li>
+<div class="bullpen-chain-step__inning">
+<span>7</span><small>inning</small>
+</div>
+<div class="bullpen-chain-step__body">
+<header>
+<span>Bridge pocket · vs LHB</span><strong>91.8</strong>
+</header>
+<h3 class="anchored">
+Ryan Yarbrough <small>LHP</small>
+</h3>
+<p>
+Availability 100.0% · matchup 100.0% · planned 12 pitches
+</p>
+<footer>
+Alternatives: Paul Blackburn
+</footer>
+</div>
+</li>
+<li>
+<div class="bullpen-chain-step__inning">
+<span>8</span><small>inning</small>
+</div>
+<div class="bullpen-chain-step__body">
+<header>
+<span>Setup pocket · vs RHB</span><strong>80.4</strong>
+</header>
+<h3 class="anchored">
+Paul Blackburn <small>RHP</small>
+</h3>
+<p>
+Availability 100.0% · matchup 70.0% · planned 12 pitches
+</p>
+<footer>
+Alternatives: Ryan Yarbrough
+</footer>
+</div>
+</li>
+<li>
+<div class="bullpen-chain-step__inning">
+<span>9</span><small>inning</small>
+</div>
+<div class="bullpen-chain-step__body">
+<header>
+<span>Finish pocket · vs RHB</span><strong>68.2</strong>
+</header>
+<h3 class="anchored">
+Paul Blackburn <small>RHP</small>
+</h3>
+<p>
+Availability 72.5% · matchup 70.0% · planned 12 pitches
+</p>
+<footer>
+Alternatives: Ryan Yarbrough
+</footer>
+</div>
+</li>
+</ol>
+</article>
+<article class="bullpen-chain">
+<header>
+<div>
+<span class="eyebrow">Defending New York Yankees</span>
+<h3 class="anchored">
+Milwaukee Brewers bullpen path
+</h3>
+</div>
+<span>Scenario</span>
+</header>
+<ol>
+<li>
+<div class="bullpen-chain-step__inning">
+<span>7</span><small>inning</small>
+</div>
+<div class="bullpen-chain-step__body">
+<header>
+<span>Bridge pocket · vs LHB</span><strong>77.3</strong>
+</header>
+<h3 class="anchored">
+Grant Anderson <small>RHP</small>
+</h3>
+<p>
+Availability 100.0% · matchup 35.0% · planned 12 pitches
+</p>
+<footer>
+Alternatives: Craig Yoho
+</footer>
+</div>
+</li>
+<li>
+<div class="bullpen-chain-step__inning">
+<span>8</span><small>inning</small>
+</div>
+<div class="bullpen-chain-step__body">
+<header>
+<span>Setup pocket · vs RHB</span><strong>82.2</strong>
+</header>
+<h3 class="anchored">
+Craig Yoho <small>RHP</small>
+</h3>
+<p>
+Availability 100.0% · matchup 70.0% · planned 12 pitches
+</p>
+<footer>
+Alternatives: Grant Anderson
+</footer>
+</div>
+</li>
+<li>
+<div class="bullpen-chain-step__inning">
+<span>9</span><small>inning</small>
+</div>
+<div class="bullpen-chain-step__body">
+<header>
+<span>Finish pocket · vs LHB</span><strong>64.5</strong>
+</header>
+<h3 class="anchored">
+Grant Anderson <small>RHP</small>
+</h3>
+<p>
+Availability 72.5% · matchup 35.0% · planned 12 pitches
+</p>
+<footer>
+Alternatives: Craig Yoho
+</footer>
+</div>
+</li>
+</ol>
+</article>
+</div>
+<div class="method-callout">
+<strong>Selector score, not probability:</strong> the displayed score transparently combines active-roster eligibility, availability, role fit, performance, handedness, and leverage. A confirmed batting order and same-day transaction check remain required before operational use.
+</div>
+</section>
+<section class="dashboard-block">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">Slate table</span>
+<h2 class="anchored">
+Every game, every uncertainty signal
+</h2>
+<p>
+The live development run is shown here. Public release remains blocked until calibration and the remaining data-quality gates pass.
+</p>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+<thead>
+<tr>
+<th>
+Away
+</th>
+<th>
+Home
+</th>
+<th>
+Away win
+</th>
+<th>
+Home win
+</th>
+<th>
+Away runs
+</th>
+<th>
+Home runs
+</th>
+<th>
+Total
+</th>
+<th>
+One-run
+</th>
+<th>
+Extras
+</th>
+<th>
+Model lean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Pittsburgh Pirates
+</td>
+<td>
+New York Yankees
+</td>
+<td>
+42.0%
+</td>
+<td>
+58.0%
+</td>
+<td>
+4.6
+</td>
+<td>
+5.2
+</td>
+<td>
+9.7
+</td>
+<td>
+34.1%
+</td>
+<td>
+13.0%
+</td>
+<td>
+New York Yankees
+</td>
+</tr>
+<tr>
+<td>
+Baltimore Orioles
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+37.2%
+</td>
+<td>
+62.8%
+</td>
+<td>
+3.7
+</td>
+<td>
+4.6
+</td>
+<td>
+8.3
+</td>
+<td>
+35.5%
+</td>
+<td>
+13.4%
+</td>
+<td>
+Boston Red Sox
+</td>
+</tr>
+<tr>
+<td>
+San Francisco Giants
+</td>
+<td>
+Kansas City Royals
+</td>
+<td>
+64.6%
+</td>
+<td>
+35.4%
+</td>
+<td>
+5.1
+</td>
+<td>
+3.9
+</td>
+<td>
+9.0
+</td>
+<td>
+33.8%
+</td>
+<td>
+13.0%
+</td>
+<td>
+San Francisco Giants
+</td>
+</tr>
+<tr>
+<td>
+New York Mets
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+35.1%
+</td>
+<td>
+64.9%
+</td>
+<td>
+3.2
+</td>
+<td>
+4.3
+</td>
+<td>
+7.5
+</td>
+<td>
+36.9%
+</td>
+<td>
+14.3%
+</td>
+<td>
+Milwaukee Brewers
+</td>
+</tr>
+<tr>
+<td>
+Washington Nationals
+</td>
+<td>
+Colorado Rockies
+</td>
+<td>
+47.0%
+</td>
+<td>
+53.0%
+</td>
+<td>
+3.9
+</td>
+<td>
+4.1
+</td>
+<td>
+8.0
+</td>
+<td>
+38.6%
+</td>
+<td>
+14.7%
+</td>
+<td>
+Colorado Rockies
+</td>
+</tr>
+<tr>
+<td>
+Athletics
+</td>
+<td>
+Arizona Diamondbacks
+</td>
+<td>
+69.8%
+</td>
+<td>
+30.2%
+</td>
+<td>
+5.5
+</td>
+<td>
+3.9
+</td>
+<td>
+9.4
+</td>
+<td>
+31.4%
+</td>
+<td>
+11.7%
+</td>
+<td>
+Athletics
+</td>
+</tr>
+<tr>
+<td>
+Cincinnati Reds
+</td>
+<td>
+Seattle Mariners
+</td>
+<td>
+28.5%
+</td>
+<td>
+71.5%
+</td>
+<td>
+3.6
+</td>
+<td>
+5.2
+</td>
+<td>
+8.8
+</td>
+<td>
+32.0%
+</td>
+<td>
+12.2%
+</td>
+<td>
+Seattle Mariners
+</td>
+</tr>
+<tr>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Los Angeles Angels
+</td>
+<td>
+43.5%
+</td>
+<td>
+56.5%
+</td>
+<td>
+3.9
+</td>
+<td>
+4.3
+</td>
+<td>
+8.2
+</td>
+<td>
+37.9%
+</td>
+<td>
+14.5%
+</td>
+<td>
+Los Angeles Angels
+</td>
+</tr>
+<tr>
+<td>
+Minnesota Twins
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+48.2%
+</td>
+<td>
+51.8%
+</td>
+<td>
+4.5
+</td>
+<td>
+4.6
+</td>
+<td>
+9.1
+</td>
+<td>
+35.4%
+</td>
+<td>
+13.2%
+</td>
+<td>
+Cleveland Guardians
+</td>
+</tr>
+<tr>
+<td>
+Los Angeles Dodgers
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+68.7%
+</td>
+<td>
+31.4%
+</td>
+<td>
+5.2
+</td>
+<td>
+3.7
+</td>
+<td>
+8.9
+</td>
+<td>
+32.9%
+</td>
+<td>
+11.9%
+</td>
+<td>
+Los Angeles Dodgers
+</td>
+</tr>
+<tr>
+<td>
+Pittsburgh Pirates
+</td>
+<td>
+New York Yankees
+</td>
+<td>
+33.4%
+</td>
+<td>
+66.6%
+</td>
+<td>
+4.0
+</td>
+<td>
+5.3
+</td>
+<td>
+9.2
+</td>
+<td>
+32.7%
+</td>
+<td>
+12.5%
+</td>
+<td>
+New York Yankees
+</td>
+</tr>
+<tr>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+53.5%
+</td>
+<td>
+46.5%
+</td>
+<td>
+4.3
+</td>
+<td>
+4.0
+</td>
+<td>
+8.3
+</td>
+<td>
+37.1%
+</td>
+<td>
+14.1%
+</td>
+<td>
+Tampa Bay Rays
+</td>
+</tr>
+<tr>
+<td>
+Baltimore Orioles
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+54.1%
+</td>
+<td>
+45.9%
+</td>
+<td>
+4.3
+</td>
+<td>
+4.0
+</td>
+<td>
+8.4
+</td>
+<td>
+37.0%
+</td>
+<td>
+14.0%
+</td>
+<td>
+Baltimore Orioles
+</td>
+</tr>
+<tr>
+<td>
+San Diego Padres
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+43.3%
+</td>
+<td>
+56.7%
+</td>
+<td>
+3.9
+</td>
+<td>
+4.4
+</td>
+<td>
+8.2
+</td>
+<td>
+36.5%
+</td>
+<td>
+14.0%
+</td>
+<td>
+Atlanta Braves
+</td>
+</tr>
+<tr>
+<td>
+Chicago White Sox
+</td>
+<td>
+Texas Rangers
+</td>
+<td>
+35.0%
+</td>
+<td>
+65.0%
+</td>
+<td>
+3.8
+</td>
+<td>
+5.0
+</td>
+<td>
+8.8
+</td>
+<td>
+34.3%
+</td>
+<td>
+13.0%
+</td>
+<td>
+Texas Rangers
+</td>
+</tr>
+<tr>
+<td>
+Detroit Tigers
+</td>
+<td>
+Chicago Cubs
+</td>
+<td>
+54.4%
+</td>
+<td>
+45.6%
+</td>
+<td>
+5.0
+</td>
+<td>
+4.7
+</td>
+<td>
+9.7
+</td>
+<td>
+34.4%
+</td>
+<td>
+12.6%
+</td>
+<td>
+Detroit Tigers
+</td>
+</tr>
+<tr>
+<td>
+Miami Marlins
+</td>
+<td>
+Houston Astros
+</td>
+<td>
+48.4%
+</td>
+<td>
+51.6%
+</td>
+<td>
+4.5
+</td>
+<td>
+4.6
+</td>
+<td>
+9.1
+</td>
+<td>
+35.8%
+</td>
+<td>
+13.7%
+</td>
+<td>
+Houston Astros
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="projection-model-card">
+<div>
+<span class="eyebrow">Model card · scheduled-game simulator v1</span>
+<h2 class="anchored">
+What the first live model knows
+</h2>
+</div>
+<div class="projection-model-grid">
+<span><small>Included in probabilities</small><strong>Posted-lineup wRC+, probable-starter FIP/xFIP/ERA blend and workload, active-roster bullpen quality, temperature, home field, and Monte Carlo score uncertainty</strong></span><span><small>Connected but gated</small><strong>Reliever workload enters only when the PBP usage snapshot is current; neutral park factors remain visible rather than silently assumed to be fitted</strong></span><span><small>Publication gate</small><strong>Backfill historical pregame inputs, fit coefficients without future leakage, calibrate probabilities, archive versions, and audit misses</strong></span>
+</div>
+</section>
+<section class="projection-activation">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">From prototype to daily forecast</span>
+<h2 class="anchored">
+Three of four activation stages are now underway
+</h2>
+<p>
+The scheduled slate and player simulations now feed a permanent pregame ledger. The expanded chronological benchmark has reached shadow-mode eligibility; the next work is accumulating clean live forecasts and adding richer prior-only features.
+</p>
+</div>
+<ol>
+<li class="is-built">
+<span>01</span>
+<div>
+<small>Built</small>
+<h3 class="anchored">
+Acquisition spine
+</h3>
+<p>
+Incremental PBP cache, FanGraphs refreshes, weekly award checkpoints, schedule, starters, lineups, rosters, and weather.
+</p>
+</div>
+</li>
+<li class="is-built">
+<span>02</span>
+<div>
+<small>Built in development</small>
+<h3 class="anchored">
+Team + player simulator
+</h3>
+<p>
+Actual games now run through lineup, starter, active-bullpen, weather, home-field, team-score, hitter-event, and starter-strikeout layers.
+</p>
+</div>
+</li>
+<li class="is-next">
+<span>03</span>
+<div>
+<small>Shadow mode</small>
+<h3 class="anchored">
+Chronological calibration
+</h3>
+<p>
+The latest later-game holdout narrowly clears its declared baseline. Future pregame snapshots will test score, win, home-run, hit, total-base, and strikeout probabilities before any public promotion.
+</p>
+</div>
+</li>
+<li>
+<span>04</span>
+<div>
+<small>Publication</small>
+<h3 class="anchored">
+Automated approved board
+</h3>
+<p>
+Only model versions that repeat their advantage on clean live forecasts can replace development probabilities or supply newsletter excerpts.
+</p>
+</div>
+</li>
+</ol>
+</section>
+<div class="method-callout">
+<strong>Interpretation boundary:</strong> these are today’s scheduled matchups and real Monte Carlo outputs, but the probability model is still uncalibrated. Treat the page as a research prototype, not betting advice or a public forecast.
+</div>
+<div class="section-heading">
+<p><span class="eyebrow">Build path</span></p>
+<section id="what-still-connects-before-these-become-daily-public-forecasts" class="level2">
+<h2 class="anchored" data-anchor-id="what-still-connects-before-these-become-daily-public-forecasts">What still connects before these become daily public forecasts</h2>
+<p>The score layer now has a complete output contract. The next work is improving what enters it and proving that the probabilities remain calibrated on games the model has not seen.</p>
+</section>
+</div>
+<div class="roadmap-grid">
+<div class="roadmap-card is-complete">
+<p><span class="roadmap-step">01</span></p>
+<section id="score-distribution-layer" class="level2">
+<h2 class="anchored" data-anchor-id="score-distribution-layer">Score distribution layer</h2>
+<p>Complete-game draws, win splits, score intervals, close-game likelihood, and reproducible seeds.</p>
+</section>
+</div>
+<div class="roadmap-card is-active">
+<p><span class="roadmap-step">02</span></p>
+<section id="game-input-assembly-connected" class="level2">
+<h2 class="anchored" data-anchor-id="game-input-assembly-connected">Game input assembly connected</h2>
+<p>BaseballR schedule, probable starters, posted batting orders, active rosters, park coordinates, and Open-Meteo game windows now populate the daily contract. Their model effects are the next step.</p>
+</section>
+</div>
+<div class="roadmap-card is-active">
+<p><span class="roadmap-step">03</span></p>
+<section id="bullpen-chain-prototype" class="level2">
+<h2 class="anchored" data-anchor-id="bullpen-chain-prototype">Bullpen chain prototype</h2>
+<p>The scenario planner carries hook probability, workload, leverage, batter handedness, alternatives, and reliever choice across the final three innings. The active-roster gate now removes ineligible bullpen candidates.</p>
+</section>
+</div>
+<div class="roadmap-card">
+<p><span class="roadmap-step">04</span></p>
+<section id="calibration-and-archive" class="level2">
+<h2 class="anchored" data-anchor-id="calibration-and-archive">Calibration and archive</h2>
+<p>Rolling backtests, probability calibration, model-version tracking, misses review, and a searchable projection archive.</p>
+</section>
+</div>
+</div>
+<div class="method-callout">
+<p>Daily public projections will appear here only after time-based backtesting and calibration checks pass. This page intentionally does not present experimental probabilities as betting advice.</p>
+</div>
+<section class="section-heading">
+<span class="eyebrow">Manager decision model</span>
+<h2 class="anchored">
+The first bullpen-entry layer is now measurable
+</h2>
+<p>
+The pooled hook model is evaluated on later game dates that were not used for fitting. These are development diagnostics, not production probabilities.
+</p>
+</section>
+<div class="data-card-grid">
+<article class="data-card data-card--navy">
+<span class="eyebrow">Out-of-time holdout</span>
+<h3 class="anchored">
+Validation rows
+</h3>
+<div class="data-card__value">
+16,844
+</div>
+<p>
+Training through 2026-05-28
+</p>
+</article>
+<article class="data-card data-card--red">
+<span class="eyebrow">Discrimination</span>
+<h3 class="anchored">
+ROC AUC
+</h3>
+<div class="data-card__value">
+0.804
+</div>
+<p>
+Higher means pulled and retained decisions are ranked more distinctly.
+</p>
+</article>
+<article class="data-card data-card--steel">
+<span class="eyebrow">Probability error</span>
+<h3 class="anchored">
+Brier score
+</h3>
+<div class="data-card__value">
+0.072
+</div>
+<p>
+Lower is better; calibration still requires improvement before publishing forecasts.
+</p>
+</article>
+<article class="data-card data-card--navy">
+<span class="eyebrow">Observed vs predicted</span>
+<h3 class="anchored">
+Hook rate
+</h3>
+<div class="data-card__value">
+8.9% / 9.2%
+</div>
+<p>
+Observed first, mean prediction second.
+</p>
+</article>
+</div>
+<section class="section-heading">
+<span class="eyebrow">Situation ladder</span>
+<h2 class="anchored">
+How workload changes the decision environment
+</h2>
+<p>
+Representative tied-game contexts scored through the pooled model. These fixed scenarios isolate the shape of the model, not a specific manager.
+</p>
+</section>
+<div class="signal-grid">
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">higher hook likelihood</span><span class="signal-score" aria-label="Signal score 83.9">83.9</span>
+</div>
+<h3 class="anchored">
+Starter, deep workload
+</h3>
+<p class="player-signal__team">
+7 inning | tied game
+</p>
+<p>
+<strong>83.9% modeled hook probability</strong>
+</p>
+<p class="muted">
+105 pitches | 28 batters faced
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">higher hook likelihood</span><span class="signal-score" aria-label="Signal score 32.0">32.0</span>
+</div>
+<h3 class="anchored">
+Starter, third time through
+</h3>
+<p class="player-signal__team">
+6 inning | tied game
+</p>
+<p>
+<strong>32.0% modeled hook probability</strong>
+</p>
+<p class="muted">
+88 pitches | 24 batters faced
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">middle hook likelihood</span><span class="signal-score" aria-label="Signal score 18.1">18.1</span>
+</div>
+<h3 class="anchored">
+Reliever, first pocket
+</h3>
+<p class="player-signal__team">
+7 inning | tied game
+</p>
+<p>
+<strong>18.1% modeled hook probability</strong>
+</p>
+<p class="muted">
+12 pitches | 3 batters faced
+</p>
+</article>
+</div>
+<section class="dashboard-block">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">Hook scenario board</span>
+<h2 class="anchored">
+Starter and reliever decision points
+</h2>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Situation
+</th>
+<th>
+Role
+</th>
+<th>
+Inn.
+</th>
+<th>
+Pitches
+</th>
+<th>
+BF
+</th>
+<th>
+TTO
+</th>
+<th>
+Hook prob.
+</th>
+<th>
+Relative
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Starter, deep workload
+</td>
+<td>
+starter
+</td>
+<td>
+7
+</td>
+<td>
+105
+</td>
+<td>
+28
+</td>
+<td>
+3
+</td>
+<td>
+83.9%
+</td>
+<td>
+higher
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Starter, third time through
+</td>
+<td>
+starter
+</td>
+<td>
+6
+</td>
+<td>
+88
+</td>
+<td>
+24
+</td>
+<td>
+3
+</td>
+<td>
+32.0%
+</td>
+<td>
+higher
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Reliever, first pocket
+</td>
+<td>
+reliever
+</td>
+<td>
+7
+</td>
+<td>
+12
+</td>
+<td>
+3
+</td>
+<td>
+1
+</td>
+<td>
+18.1%
+</td>
+<td>
+middle
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Reliever, extended outing
+</td>
+<td>
+reliever
+</td>
+<td>
+8
+</td>
+<td>
+30
+</td>
+<td>
+8
+</td>
+<td>
+1
+</td>
+<td>
+17.3%
+</td>
+<td>
+middle
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Starter, middle innings
+</td>
+<td>
+starter
+</td>
+<td>
+5
+</td>
+<td>
+72
+</td>
+<td>
+19
+</td>
+<td>
+2
+</td>
+<td>
+4.0%
+</td>
+<td>
+lower
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Starter, early workload
+</td>
+<td>
+starter
+</td>
+<td>
+3
+</td>
+<td>
+45
+</td>
+<td>
+12
+</td>
+<td>
+2
+</td>
+<td>
+0.9%
+</td>
+<td>
+lower
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="dashboard-block">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">What moves the model</span>
+<h2 class="anchored">
+Observed manager-decision factors
+</h2>
+<p>
+Coefficient direction is descriptive. Correlated game situations mean these are not isolated causal effects.
+</p>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+<thead>
+<tr>
+<th>
+Factor
+</th>
+<th>
+Coefficient
+</th>
+<th>
+Association
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Workload beyond 60 pitches
+</td>
+<td>
+2.29
+</td>
+<td>
+Higher modeled likelihood
+</td>
+</tr>
+<tr>
+<td>
+Reliever role
+</td>
+<td>
+1.68
+</td>
+<td>
+Higher modeled likelihood
+</td>
+</tr>
+<tr>
+<td>
+Starter role
+</td>
+<td>
+-1.56
+</td>
+<td>
+Lower modeled likelihood
+</td>
+</tr>
+<tr>
+<td>
+Batters faced beyond 18
+</td>
+<td>
+1.16
+</td>
+<td>
+Higher modeled likelihood
+</td>
+</tr>
+<tr>
+<td>
+Adverse plate-appearance result
+</td>
+<td>
+-0.79
+</td>
+<td>
+Lower modeled likelihood
+</td>
+</tr>
+<tr>
+<td>
+Later inning
+</td>
+<td>
+-0.16
+</td>
+<td>
+Lower modeled likelihood
+</td>
+</tr>
+<tr>
+<td>
+Score within two runs
+</td>
+<td>
+0.16
+</td>
+<td>
+Higher modeled likelihood
+</td>
+</tr>
+<tr>
+<td>
+Team trailing by four-plus
+</td>
+<td>
+-0.09
+</td>
+<td>
+Lower modeled likelihood
+</td>
+</tr>
+<tr>
+<td>
+Third time through order
+</td>
+<td>
+-0.04
+</td>
+<td>
+Lower modeled likelihood
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="section-heading">
+<span class="eyebrow">Bullpen matchup selector</span>
+<h2 class="anchored">
+A Boston proof of concept for the broadcast workflow
+</h2>
+<p>
+Left- and right-handed matchup pockets combine recent availability, pitcher role, exact MLBAM identity, handedness, and current results allowed.
+</p>
+</section>
+<section class="dashboard-block">
+<div class="table-scroll">
+<table class="data-table">
+<thead>
+<tr>
+<th>
+Next batter
+</th>
+<th>
+Rank
+</th>
+<th>
+Reliever
+</th>
+<th>
+Throws
+</th>
+<th>
+Role
+</th>
+<th>
+Available
+</th>
+<th>
+Performance
+</th>
+<th>
+Matchup
+</th>
+<th>
+Selector
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+L
+</td>
+<td>
+1
+</td>
+<td>
+Jovani Morán
+</td>
+<td>
+L
+</td>
+<td>
+reliever
+</td>
+<td>
+100.0%
+</td>
+<td>
+72.0%
+</td>
+<td>
+100.0%
+</td>
+<td>
+93.0
+</td>
+</tr>
+<tr>
+<td>
+L
+</td>
+<td>
+2
+</td>
+<td>
+Aroldis Chapman
+</td>
+<td>
+L
+</td>
+<td>
+reliever
+</td>
+<td>
+91.7%
+</td>
+<td>
+65.8%
+</td>
+<td>
+100.0%
+</td>
+<td>
+88.1
+</td>
+</tr>
+<tr>
+<td>
+R
+</td>
+<td>
+1
+</td>
+<td>
+Garrett Whitlock
+</td>
+<td>
+R
+</td>
+<td>
+reliever
+</td>
+<td>
+93.9%
+</td>
+<td>
+70.3%
+</td>
+<td>
+70.0%
+</td>
+<td>
+84.1
+</td>
+</tr>
+<tr>
+<td>
+R
+</td>
+<td>
+3
+</td>
+<td>
+Jovani Morán
+</td>
+<td>
+L
+</td>
+<td>
+reliever
+</td>
+<td>
+100.0%
+</td>
+<td>
+72.0%
+</td>
+<td>
+40.0%
+</td>
+<td>
+81.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<div class="method-callout">
+<strong>Roster gate connected:</strong> candidates now must appear on the BaseballR active roster and survive the pregame workload screen. The selector remains a research lead, not a live recommendation.
+</div>
+<section class="dashboard-block">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">Calibration audit</span>
+<h2 class="anchored">
+Predicted probability against observed decisions
+</h2>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+<thead>
+<tr>
+<th>
+Bin
+</th>
+<th>
+Rows
+</th>
+<th>
+Min predicted
+</th>
+<th>
+Max predicted
+</th>
+<th>
+Mean predicted
+</th>
+<th>
+Observed hook rate
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+1,684
+</td>
+<td>
+0.3%
+</td>
+<td>
+0.4%
+</td>
+<td>
+0.4%
+</td>
+<td>
+0.5%
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+1,684
+</td>
+<td>
+0.4%
+</td>
+<td>
+0.9%
+</td>
+<td>
+0.7%
+</td>
+<td>
+0.5%
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+1,685
+</td>
+<td>
+0.9%
+</td>
+<td>
+0.9%
+</td>
+<td>
+0.9%
+</td>
+<td>
+0.1%
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+1,684
+</td>
+<td>
+0.9%
+</td>
+<td>
+1.7%
+</td>
+<td>
+1.0%
+</td>
+<td>
+0.9%
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+1,685
+</td>
+<td>
+1.7%
+</td>
+<td>
+7.1%
+</td>
+<td>
+4.6%
+</td>
+<td>
+4.3%
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+1,684
+</td>
+<td>
+7.1%
+</td>
+<td>
+9.1%
+</td>
+<td>
+8.2%
+</td>
+<td>
+8.7%
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+1,684
+</td>
+<td>
+9.1%
+</td>
+<td>
+14.6%
+</td>
+<td>
+12.2%
+</td>
+<td>
+9.5%
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+1,685
+</td>
+<td>
+14.6%
+</td>
+<td>
+16.9%
+</td>
+<td>
+15.8%
+</td>
+<td>
+18.2%
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+1,684
+</td>
+<td>
+16.9%
+</td>
+<td>
+19.3%
+</td>
+<td>
+18.0%
+</td>
+<td>
+22.4%
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+1,685
+</td>
+<td>
+19.3%
+</td>
+<td>
+95.2%
+</td>
+<td>
+30.4%
+</td>
+<td>
+23.9%
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/thesabrhood\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 The SABRhood</p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./methodology.html">
+<p>Methodology</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./glossary.html">
+<p>Glossary</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./history.html">
+<p>History Desk</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://x.com/thesabrhood">
+<p><span class="citation" data-cites="thesabrhood">@thesabrhood</span></p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

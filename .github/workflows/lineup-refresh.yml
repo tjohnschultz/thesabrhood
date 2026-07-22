@@ -1,0 +1,104 @@
+name: Intraday MLB lineup refresh
+
+on:
+  schedule:
+    - cron: "*/30 14-23 * 3-11 *"
+    - cron: "*/30 0-2 * 3-11 *"
+  workflow_dispatch:
+    inputs:
+      slate_date:
+        description: "Lineup date (YYYY-MM-DD); defaults to the New York date"
+        required: false
+        type: string
+      force:
+        description: "Run even when no game is inside the four-hour window"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sabrhood-daily-data
+  cancel-in-progress: false
+
+jobs:
+  refresh-lineups:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      SABRHOOD_DATE: ${{ inputs.slate_date }}
+      SABRHOOD_N_SIMS: "20000"
+      SABRHOOD_PLAYER_N_SIMS: "2000"
+
+    steps:
+      - name: Check out site repository
+        uses: actions/checkout@v5
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Check for an approaching game wave
+        id: gate
+        shell: bash
+        run: Rscript scripts/lineup_refresh_gate.R >> "$GITHUB_OUTPUT"
+
+      - name: Set up Quarto
+        if: steps.gate.outputs.active_window == 'true' || inputs.force == true
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Install lineup-refresh dependencies
+        if: steps.gate.outputs.active_window == 'true' || inputs.force == true
+        shell: bash
+        run: |
+          Rscript -e 'install.packages(c("baseballr", "dplyr", "rlang", "tibble", "withr", "ggplot2", "knitr", "rmarkdown"), repos = "https://cloud.r-project.org")'
+          R CMD INSTALL packages/sabrhoodR
+
+      - name: Refresh posted orders and probable starters
+        if: steps.gate.outputs.active_window == 'true' || inputs.force == true
+        id: lineups
+        shell: bash
+        run: |
+          if [ -z "$SABRHOOD_DATE" ]; then export SABRHOOD_DATE="${{ steps.gate.outputs.slate_date }}"; fi
+          Rscript scripts/refresh_daily_lineups.R
+          lineup_rows=$(Rscript -e 'x <- read.csv("data/derived/daily-batting-orders.csv", check.names = FALSE); cat(nrow(x))')
+          if [ "$lineup_rows" -ge 9 ]; then echo "has_lineups=true" >> "$GITHUB_OUTPUT"; else echo "has_lineups=false" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Rebuild team projections with the freshest orders
+        if: steps.gate.outputs.active_window == 'true' || inputs.force == true
+        run: Rscript scripts/build_daily_team_simulations.R
+
+      - name: Rebuild lineup-dependent player projections
+        if: steps.lineups.outputs.has_lineups == 'true'
+        shell: bash
+        run: |
+          Rscript scripts/build_daily_player_probabilities.R
+          Rscript scripts/build_daily_player_simulations.R
+
+      - name: Regenerate, validate, and render the site
+        if: steps.gate.outputs.active_window == 'true' || inputs.force == true
+        shell: bash
+        run: |
+          Rscript scripts/update_derived_manifest.R
+          Rscript scripts/build_site_fragments.R
+          Rscript scripts/validate_site.R
+          quarto render --no-clean
+          Rscript scripts/restore_legacy_assets.R
+          Rscript scripts/validate_site.R --rendered
+
+      - name: Commit refreshed projections and pages
+        if: success() && github.ref == 'refs/heads/main' && (steps.gate.outputs.active_window == 'true' || inputs.force == true)
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/derived includes docs
+          if git diff --cached --quiet; then
+            echo "No lineup changes to publish."
+          else
+            git commit -m "data: refresh posted MLB lineups [skip ci]"
+            git push
+          fi

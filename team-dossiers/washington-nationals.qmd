@@ -1,0 +1,6 @@
+---
+title: "Washington Nationals Team Dossier"
+description: "Automated SABRhood research dossier for the Washington Nationals."
+---
+
+{{< include ../includes/team-dossiers/washington-nationals.html >}}

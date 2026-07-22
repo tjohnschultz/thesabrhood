@@ -1,0 +1,18 @@
+---
+title: "Teams"
+description: "A 30-team view combining offensive quality, run prevention, recent form, and bullpen readiness."
+---
+
+::: {.page-intro}
+<span class="eyebrow">League monitor</span>
+
+# Team pulse
+
+A league-wide intelligence board connecting season quality, current movement, bullpen state, and each club's strongest reporting lead.
+:::
+
+{{< include includes/team-pulse.html >}}
+
+::: {.section-action}
+[Open the 30-team dossier directory](team-dossiers.qmd){.btn .btn-metallic}
+:::

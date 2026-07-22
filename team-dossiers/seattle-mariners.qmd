@@ -1,0 +1,6 @@
+---
+title: "Seattle Mariners Team Dossier"
+description: "Automated SABRhood research dossier for the Seattle Mariners."
+---
+
+{{< include ../includes/team-dossiers/seattle-mariners.html >}}

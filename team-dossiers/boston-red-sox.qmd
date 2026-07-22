@@ -1,0 +1,6 @@
+---
+title: "Boston Red Sox Team Dossier"
+description: "Automated SABRhood research dossier for the Boston Red Sox."
+---
+
+{{< include ../includes/team-dossiers/boston-red-sox.html >}}

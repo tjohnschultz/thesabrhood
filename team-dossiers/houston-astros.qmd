@@ -1,0 +1,6 @@
+---
+title: "Houston Astros Team Dossier"
+description: "Automated SABRhood research dossier for the Houston Astros."
+---
+
+{{< include ../includes/team-dossiers/houston-astros.html >}}

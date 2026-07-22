@@ -1,0 +1,61 @@
+---
+title: "Projections"
+---
+
+::: {.page-intro .page-intro--dark}
+<span class="eyebrow">Daily simulation center</span>
+
+# A forecast is a range of game stories, not one final score
+
+The production page will turn confirmed game inputs into transparent win probabilities, score ranges, matchup drivers, bullpen effects, and player opportunities, with uncertainty visible everywhere.
+:::
+
+{{< include includes/daily-projections.html >}}
+
+::: {.section-heading}
+<span class="eyebrow">Build path</span>
+
+## What still connects before these become daily public forecasts
+
+The score layer now has a complete output contract. The next work is improving what enters it and proving that the probabilities remain calibrated on games the model has not seen.
+:::
+
+::: {.roadmap-grid}
+::: {.roadmap-card .is-complete}
+<span class="roadmap-step">01</span>
+
+## Score distribution layer
+
+Complete-game draws, win splits, score intervals, close-game likelihood, and reproducible seeds.
+:::
+
+::: {.roadmap-card .is-active}
+<span class="roadmap-step">02</span>
+
+## Game input assembly connected
+
+BaseballR schedule, probable starters, posted batting orders, active rosters, park coordinates, and Open-Meteo game windows now populate the daily contract. Their model effects are the next step.
+:::
+
+::: {.roadmap-card .is-active}
+<span class="roadmap-step">03</span>
+
+## Bullpen chain prototype
+
+The scenario planner carries hook probability, workload, leverage, batter handedness, alternatives, and reliever choice across the final three innings. The active-roster gate now removes ineligible bullpen candidates.
+:::
+
+::: {.roadmap-card}
+<span class="roadmap-step">04</span>
+
+## Calibration and archive
+
+Rolling backtests, probability calibration, model-version tracking, misses review, and a searchable projection archive.
+:::
+:::
+
+::: {.method-callout}
+Daily public projections will appear here only after time-based backtesting and calibration checks pass. This page intentionally does not present experimental probabilities as betting advice.
+:::
+
+{{< include includes/projections-model.html >}}
