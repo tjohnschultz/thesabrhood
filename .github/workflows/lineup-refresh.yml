@@ -50,6 +50,16 @@ jobs:
         if: steps.gate.outputs.active_window == 'true' || inputs.force == true
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Restore private projection ledger
+        if: steps.gate.outputs.active_window == 'true' || inputs.force == true
+        uses: actions/cache/restore@v5
+        with:
+          path: .private-data
+          key: sabrhood-private-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            sabrhood-private-${{ runner.os }}-
+            sabrhood-pbp-${{ runner.os }}-
+
       - name: Install lineup-refresh dependencies
         if: steps.gate.outputs.active_window == 'true' || inputs.force == true
         shell: bash
@@ -65,6 +75,7 @@ jobs:
         shell: bash
         run: |
           if [ -z "$SABRHOOD_DATE" ]; then export SABRHOOD_DATE="${{ steps.gate.outputs.slate_date }}"; fi
+          echo "SABRHOOD_DATE=$SABRHOOD_DATE" >> "$GITHUB_ENV"
           Rscript scripts/refresh_daily_lineups.R
           lineup_rows=$(Rscript -e 'x <- read.csv("data/derived/daily-batting-orders.csv", check.names = FALSE); cat(nrow(x))')
           if [ "$lineup_rows" -ge 9 ]; then echo "has_lineups=true" >> "$GITHUB_OUTPUT"; else echo "has_lineups=false" >> "$GITHUB_OUTPUT"; fi
@@ -80,16 +91,28 @@ jobs:
           Rscript scripts/build_daily_player_probabilities.R
           Rscript scripts/build_daily_player_simulations.R
 
+      - name: Archive the freshest eligible pregame predictions
+        if: steps.gate.outputs.active_window == 'true' || inputs.force == true
+        run: Rscript scripts/archive_projection_snapshot.R
+
       - name: Regenerate, validate, and render the site
         if: steps.gate.outputs.active_window == 'true' || inputs.force == true
         shell: bash
         run: |
+          Rscript scripts/build_refresh_health.R
           Rscript scripts/update_derived_manifest.R
           Rscript scripts/build_site_fragments.R
           Rscript scripts/validate_site.R
           quarto render --no-clean
           Rscript scripts/restore_legacy_assets.R
           Rscript scripts/validate_site.R --rendered
+
+      - name: Save private projection ledger
+        if: always() && (steps.gate.outputs.active_window == 'true' || inputs.force == true)
+        uses: actions/cache/save@v5
+        with:
+          path: .private-data
+          key: sabrhood-private-${{ runner.os }}-${{ github.run_id }}
 
       - name: Commit refreshed projections and pages
         if: success() && github.ref == 'refs/heads/main' && (steps.gate.outputs.active_window == 'true' || inputs.force == true)

@@ -1,558 +1,558 @@
-"pitcher_id","pitcher_name","team","throws","last_appearance","pitches_last_1d","pitches_last_3d","pitches_last_7d","appearances_last_3d","consecutive_days_used","days_rest","pitcher_role","role_confidence","availability_score","availability_status","availability_method","as_of_date"
-"543510","James McCann","Arizona Diamondbacks","R",2026-04-30,0,0,0,0,0,82,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"545121","Ildemaro Vargas","Arizona Diamondbacks","R",2026-06-20,0,0,0,0,0,31,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669704","Kade Strowd","Arizona Diamondbacks","R",2026-06-05,0,0,0,0,0,46,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"680728","Adrian Del Castillo","Arizona Diamondbacks","R",2026-06-05,0,0,0,0,0,46,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"688497","Taylor Rashi","Arizona Diamondbacks","R",2026-04-13,0,0,0,0,0,99,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"694851","Andrew Hoffmann","Arizona Diamondbacks","R",2026-04-28,0,0,0,0,0,84,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"700270","Yilber Díaz","Arizona Diamondbacks","R",2026-06-20,0,0,0,0,0,31,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"666661","Juan Morillo","Arizona Diamondbacks","R",2026-07-19,0,12,36,1,0,2,"reliever",1,0.933333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"623149","Paul Sewald","Arizona Diamondbacks","R",2026-07-18,0,15,32,1,0,3,"reliever",1,0.916666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664199","Taylor Clarke","Arizona Diamondbacks","R",2026-07-19,0,15,30,1,0,2,"reliever",1,0.916666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"657044","Ryan Thompson","Arizona Diamondbacks","R",2026-07-19,0,23,23,2,0,2,"reliever",1,0.872222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"686753","Drey Jameson","Arizona Diamondbacks","R",2026-07-19,0,42,42,1,0,2,"reliever",0.55,0.766666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"691769","Philip Abner","Arizona Diamondbacks","L",2026-07-19,0,46,46,1,0,2,"reliever",0.25,0.744444444444444,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"694297","Brandon Pfaadt","Arizona Diamondbacks","R",2026-07-18,0,87,87,1,0,3,"hybrid",0.15,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"805299","Brandyn Garcia","Arizona Diamondbacks","L",2026-07-20,10,12,20,2,1,1,"reliever",1,0.646666666666667,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"642528","Jonathan Loáisiga","Arizona Diamondbacks","R",2026-07-20,10,25,25,2,1,1,"reliever",1,0.574444444444444,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"686228","Juan Burgos","Arizona Diamondbacks","R",2026-07-20,18,18,18,1,1,1,"reliever",0.1,0.48,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"656464","Kevin Ginkel","Arizona Diamondbacks","R",2026-07-20,25,43,51,2,1,1,"reliever",1,0.224444444444444,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"547184","Michael Kelly","Athletics","R",2026-05-31,0,0,0,0,0,51,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"605130","Scott Barlow","Athletics","R",2026-06-20,0,0,0,0,0,31,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"621139","Brooks Kriske","Athletics","R",2026-05-12,0,0,0,0,0,70,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"666126","Carlos Cortes","Athletics","L",2026-07-17,0,0,23,0,0,4,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"678022","Jack Perkins","Athletics","R",2026-07-09,0,0,0,0,0,12,"hybrid",0.44,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"683155","Joey Estes","Athletics","R",2026-06-13,0,0,0,0,0,38,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"686930","Mason Barnett","Athletics","R",2026-07-10,0,0,0,0,0,11,"reliever",0.65,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"686993","Justin Sterner","Athletics","R",2026-07-17,0,0,30,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"695034","Kade Morris","Athletics","R",2026-07-04,0,0,0,0,0,17,"bulk",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"814305","Yunior Tur","Athletics","R",2026-07-17,0,0,47,0,0,4,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"665660","Elvis Alvarado","Athletics","R",2026-07-19,0,21,21,1,0,2,"reliever",1,0.883333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664129","Geoff Hartlieb","Athletics","R",2026-07-19,0,24,24,1,0,2,"reliever",0.3,0.866666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"643410","Mark Leiter Jr.","Athletics","R",2026-07-18,0,31,31,1,0,3,"reliever",1,0.827777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669620","Brady Basso","Athletics","L",2026-07-19,0,33,45,1,0,2,"reliever",0.35,0.816666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"660761","José Suarez","Athletics","L",2026-07-20,12,12,32,1,1,1,"reliever",0.882,0.613333333333333,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"663687","Hogan Harris","Athletics","L",2026-07-20,26,37,37,2,1,1,"reliever",1,0.241111111111111,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"665622","Luis Medina","Athletics","R",2026-07-20,36,48,48,2,1,1,"reliever",0.941,0.0133333333333334,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"471911","Carlos Carrasco","Atlanta Braves","R",2026-07-05,0,0,0,0,0,16,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"606303","Joel Payamps","Atlanta Braves","R",2026-04-30,0,0,0,0,0,82,"reliever",0.6,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"607481","Aaron Bummer","Atlanta Braves","L",2026-05-18,0,0,0,0,0,64,"reliever",0.95,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"622761","Jorge Mateo","Atlanta Braves","R",2026-07-07,0,0,0,0,0,14,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"625643","Reynaldo López","Atlanta Braves","R",2026-07-11,0,0,0,0,0,10,"hybrid",0.13,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"641656","Ian Hamilton","Atlanta Braves","R",2026-07-02,0,0,0,0,0,19,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"663158","Robert Suarez","Atlanta Braves","R",2026-06-19,0,0,0,0,0,32,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"671162","Connor Thomas","Atlanta Braves","L",2026-07-07,0,0,0,0,0,14,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"675916","James Karinchak","Atlanta Braves","R",2026-07-09,0,0,0,0,0,12,"reliever",0.45,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"683627","Anthony Molina","Atlanta Braves","R",2026-06-16,0,0,0,0,0,35,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"691548","Rolddy Muñoz","Atlanta Braves","R",2026-04-13,0,0,0,0,0,99,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"628452","Raisel Iglesias","Atlanta Braves","R",2026-07-19,0,16,16,2,0,2,"reliever",1,0.911111111111111,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"641755","Tyler Kinley","Atlanta Braves","R",2026-07-18,0,16,16,1,0,3,"reliever",1,0.911111111111111,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"702275","JR Ritchie","Atlanta Braves","R",2026-07-18,0,22,22,1,0,3,"hybrid",0.05,0.877777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"800311","Didier Fuentes","Atlanta Braves","R",2026-07-19,0,27,27,2,0,2,"reliever",0.939,0.85,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"689266","Dylan Dodd","Atlanta Braves","L",2026-07-19,0,36,36,2,0,2,"reliever",1,0.8,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669276","Dylan Lee","Atlanta Braves","L",2026-07-19,0,45,45,2,0,2,"reliever",1,0.75,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"702566","Owen Murphy","Atlanta Braves","R",2026-07-18,0,49,49,1,0,3,"hybrid",0.05,0.727777777777778,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"664849","Danny Young","Atlanta Braves","L",2026-07-20,13,32,32,2,1,1,"reliever",0.25,0.485555555555556,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"682989","Victor Mederos","Atlanta Braves","R",2026-07-20,29,29,63,1,1,1,"reliever",0.25,0.235555555555556,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"544150","Albert Suárez","Baltimore Orioles","R",2026-07-08,0,0,0,0,0,13,"reliever",0.8,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"608650","Dietrich Enns","Baltimore Orioles","L",2026-05-25,0,0,0,0,0,57,"reliever",0.65,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"621107","Zach Eflin","Baltimore Orioles","R",2026-03-31,0,0,0,0,0,112,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"642215","Weston Wilson","Baltimore Orioles","R",2026-05-18,0,0,0,0,0,64,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664744","Jose Espada","Baltimore Orioles","R",2026-04-30,0,0,0,0,0,82,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664854","Ryan Helsley","Baltimore Orioles","R",2026-06-27,0,0,0,0,0,24,"reliever",0.85,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669211","Keegan Akin","Baltimore Orioles","L",2026-06-27,0,0,0,0,0,24,"reliever",0.833,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"671382","Cameron Foster","Baltimore Orioles","R",2026-05-18,0,0,0,0,0,64,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"675919","Nick Raquet","Baltimore Orioles","L",2026-07-07,0,0,0,0,0,14,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"677020","Josh Walker","Baltimore Orioles","L",2026-06-30,0,0,0,0,0,21,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"682274","Yaramil Hiraldo","Baltimore Orioles","R",2026-03-31,0,0,0,0,0,112,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"687721","Cameron Weston","Baltimore Orioles","R",2026-05-28,0,0,0,0,0,54,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"689296","Anthony Nunez","Baltimore Orioles","R",2026-07-17,0,0,36,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676742","Cam Sanders","Baltimore Orioles","R",2026-07-18,0,9,23,1,0,3,"reliever",0.55,0.95,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"552640","Andrew Kittredge","Baltimore Orioles","R",2026-07-18,0,10,26,1,0,3,"reliever",1,0.944444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664991","Grant Wolfram","Baltimore Orioles","L",2026-07-19,0,12,27,1,0,2,"reliever",1,0.933333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"670329","Rico Garcia","Baltimore Orioles","R",2026-07-19,0,26,26,2,0,2,"reliever",1,0.855555555555556,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"666974","Yennier Cano","Baltimore Orioles","R",2026-07-20,10,20,20,2,1,1,"reliever",1,0.602222222222222,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"669330","Tyler Wells","Baltimore Orioles","R",2026-07-20,21,35,64,2,1,1,"reliever",1,0.335555555555556,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"543056","Danny Coulombe","Boston Red Sox","L",2026-07-11,0,0,0,0,0,10,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"592454","Tommy Kahnle","Boston Red Sox","R",2026-06-30,0,0,0,0,0,21,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"670912","Johan Oviedo","Boston Red Sox","R",2026-03-30,0,0,0,0,0,113,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"677161","Zack Kelly","Boston Red Sox","R",2026-05-19,0,0,0,0,0,63,"reliever",0.85,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681252","Jack Anderson","Boston Red Sox","R",2026-04-21,0,0,0,0,0,91,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"686580","Justin Slaten","Boston Red Sox","R",2026-07-17,0,0,12,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"686747","Joe La Sorsa","Boston Red Sox","L",2026-06-07,0,0,0,0,0,44,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"687941","Alec Gamboa","Boston Red Sox","L",2026-07-04,0,0,0,0,0,17,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"700413","Tyler Uberstine","Boston Red Sox","R",2026-04-05,0,0,0,0,0,107,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"701719","Tyler Samaniego","Boston Red Sox","L",2026-06-02,0,0,0,0,0,49,"reliever",0.9,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669711","Greg Weissert","Boston Red Sox","R",2026-07-19,0,12,19,1,0,2,"reliever",1,0.933333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"663558","Jovani Morán","Boston Red Sox","L",2026-07-19,0,15,26,1,0,2,"reliever",0.778,0.916666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"670245","Ryan Watson","Boston Red Sox","R",2026-07-19,0,42,42,2,0,2,"reliever",1,0.766666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676477","Garrett Whitlock","Boston Red Sox","R",2026-07-20,11,19,31,2,1,1,"reliever",1,0.591111111111111,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"594027","Tyron Guerrero","Boston Red Sox","R",2026-07-20,19,19,32,1,1,1,"reliever",1,0.457777777777778,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"547973","Aroldis Chapman","Boston Red Sox","L",2026-07-20,22,42,55,2,1,1,"reliever",1,0.28,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"571948","Hoby Milner","Chicago Cubs","L",2026-06-25,0,0,0,0,0,26,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"592826","Vince Velasquez","Chicago Cubs","R",2026-06-27,0,0,0,0,0,24,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"605441","Yacksel Ríos","Chicago Cubs","R",2026-04-26,0,0,0,0,0,86,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"608348","Carson Kelly","Chicago Cubs","R",2026-06-05,0,0,0,0,0,46,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"621389","Ty Blach","Chicago Cubs","L",2026-05-18,0,0,0,0,0,64,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"640451","Hunter Harvey","Chicago Cubs","R",2026-04-08,0,0,0,0,0,104,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"656686","Corbin Martin","Chicago Cubs","R",2026-05-06,0,0,0,0,0,76,"reliever",0.35,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"663765","Jake Woodford","Chicago Cubs","R",2026-07-10,0,0,0,0,0,11,"reliever",0.85,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676962","Ben Brown","Chicago Cubs","R",2026-06-19,0,0,0,0,0,32,"hybrid",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681151","Jayden Murray","Chicago Cubs","R",2026-06-26,0,0,0,0,0,25,"reliever",0.5,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681432","Luke Little","Chicago Cubs","L",2026-04-15,0,0,0,0,0,97,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681799","Ethan Roberts","Chicago Cubs","R",2026-06-28,0,0,0,0,0,23,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"694037","Daniel Palencia","Chicago Cubs","R",2026-06-15,0,0,0,0,0,36,"reliever",0.95,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"696136","Jordan Wicks","Chicago Cubs","L",2026-07-01,0,0,0,0,0,20,"hybrid",0,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"702303","Riley Martin","Chicago Cubs","L",2026-04-23,0,0,0,0,0,89,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"519141","Drew Pomeranz","Chicago Cubs","L",2026-07-19,0,20,41,1,0,2,"reliever",1,0.888888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664208","Phil Maton","Chicago Cubs","R",2026-07-19,0,23,23,1,0,2,"reliever",1,0.872222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"663423","Trent Thornton","Chicago Cubs","R",2026-07-20,4,14,14,2,1,1,"reliever",1,0.735555555555556,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"573204","Caleb Thielbar","Chicago Cubs","L",2026-07-20,5,20,20,2,1,1,"reliever",1,0.685555555555556,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"668970","Gavin Hollowell","Chicago Cubs","R",2026-07-20,12,12,20,1,1,1,"reliever",0.5,0.613333333333333,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"657097","Jacob Webb","Chicago Cubs","R",2026-07-20,15,32,32,2,1,1,"reliever",1,0.452222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"621053","Tyler Ferguson","Chicago Cubs","R",2026-07-20,20,20,27,1,1,1,"reliever",0.6,0.435555555555556,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"669020","Ryan Rolison","Chicago Cubs","L",2026-07-20,20,20,35,1,1,1,"reliever",0.882,0.435555555555556,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"665871","Javier Assad","Chicago Cubs","R",2026-07-20,26,26,26,1,1,1,"hybrid",0,0.302222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"608371","Lucas Sims","Chicago White Sox","R",2026-04-22,0,0,0,0,0,90,"reliever",0.45,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"624512","Reese McGuire","Chicago White Sox","R",2026-04-15,0,0,0,0,0,97,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"656457","Tyler Gilbert","Chicago White Sox","L",2026-06-09,0,0,0,0,0,42,"hybrid",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"673929","Jordan Leasure","Chicago White Sox","R",2026-05-28,0,0,0,0,0,54,"reliever",0.8,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"674370","Osvaldo Bido","Chicago White Sox","R",2026-05-06,0,0,0,0,0,76,"reliever",0.55,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"680951","Doug Nikhazy","Chicago White Sox","L",2026-04-17,0,0,0,0,0,95,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"682668","Luisangel Acuña","Chicago White Sox","R",2026-06-16,0,0,0,0,0,35,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"686563","Jonathan Cannon","Chicago White Sox","R",2026-04-12,0,0,0,0,0,100,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"697812","Joe Rock","Chicago White Sox","L",2026-06-24,0,0,0,0,0,27,"bulk",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"699151","Jedixson Paez","Chicago White Sox","R",2026-03-31,0,0,0,0,0,112,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"699823","Tyler Davis","Chicago White Sox","R",2026-07-10,0,0,0,0,0,11,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"701474","Duncan Davitt","Chicago White Sox","R",2026-04-10,0,0,0,0,0,102,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"805326","Tyler Schweitzer","Chicago White Sox","L",2026-07-17,0,0,54,0,0,4,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"691799","Grant Taylor","Chicago White Sox","R",2026-07-19,0,9,9,1,0,2,"reliever",0.784,0.95,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"663542","Bryan Hudson","Chicago White Sox","L",2026-07-19,0,15,15,1,0,2,"reliever",0.721,0.916666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669684","Chris Murphy","Chicago White Sox","L",2026-07-20,15,15,15,1,1,1,"reliever",0.818,0.546666666666667,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"622554","Seranthony Domínguez","Chicago White Sox","R",2026-07-20,17,17,19,1,1,1,"reliever",1,0.502222222222222,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"670950","Trevor Richards","Chicago White Sox","R",2026-07-20,18,18,54,1,1,1,"reliever",1,0.48,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"663855","Jordan Hicks","Chicago White Sox","R",2026-07-20,19,27,27,2,1,1,"reliever",1,0.413333333333333,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"656794","Sean Newcomb","Chicago White Sox","L",2026-07-20,20,35,35,2,1,1,"reliever",0.946,0.352222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"607200","Erick Fedde","Chicago White Sox","R",2026-07-20,64,64,64,1,1,1,"hybrid",0,0,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"605335","Brandon Leibrandt","Cincinnati Reds","L",2026-06-01,0,0,0,0,0,50,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"622088","Tejay Antone","Cincinnati Reds","R",2026-07-17,0,0,11,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"624431","Jose Trevino","Cincinnati Reds","R",2026-05-08,0,0,0,0,0,74,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"628708","Yunior Marte","Cincinnati Reds","R",2026-05-29,0,0,0,0,0,53,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"663574","Tony Santillan","Cincinnati Reds","R",2026-06-22,0,0,0,0,0,29,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664731","P.J. Higgins","Cincinnati Reds","R",2026-04-10,0,0,0,0,0,102,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"668933","Graham Ashcraft","Cincinnati Reds","R",2026-05-25,0,0,0,0,0,57,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"680689","Lyon Richardson","Cincinnati Reds","R",2026-06-01,0,0,0,0,0,50,"hybrid",0,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"682825","Luis Mey","Cincinnati Reds","R",2026-06-05,0,0,0,0,0,46,"reliever",0.35,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"683175","Connor Phillips","Cincinnati Reds","R",2026-05-22,0,0,0,0,0,60,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"683742","Jose Franco","Cincinnati Reds","R",2026-05-22,0,0,0,0,0,60,"reliever",0.45,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"685112","Zach McCambley","Cincinnati Reds","R",2026-06-28,0,0,0,0,0,23,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"687209","Zach Maxwell","Cincinnati Reds","R",2026-06-19,0,0,0,0,0,32,"reliever",0.5,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"693312","Kyle Nicolas","Cincinnati Reds","R",2026-04-24,0,0,0,0,0,88,"reliever",0.35,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"656271","Brock Burke","Cincinnati Reds","L",2026-07-19,0,9,28,1,0,2,"reliever",1,0.95,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"641941","Emilio Pagán","Cincinnati Reds","R",2026-07-19,0,22,22,1,0,2,"reliever",0.95,0.877777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"670062","Julian Garcia","Cincinnati Reds","R",2026-07-18,0,32,32,1,0,3,"reliever",0.45,0.822222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"594580","Sam Moll","Cincinnati Reds","L",2026-07-19,0,37,37,2,0,2,"reliever",1,0.794444444444445,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"695534","Chase Petty","Cincinnati Reds","R",2026-07-20,13,13,13,1,1,1,"reliever",0.4,0.591111111111111,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"657571","Caleb Ferguson","Cincinnati Reds","L",2026-07-20,12,30,30,2,1,1,"reliever",1,0.513333333333333,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"572955","Pierce Johnson","Cincinnati Reds","R",2026-07-20,16,31,31,2,1,1,"reliever",1,0.441111111111111,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"595978","Austin Hedges","Cleveland Guardians","R",2026-06-07,0,0,0,0,0,44,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"641401","Connor Brogdon","Cleveland Guardians","R",2026-05-07,0,0,0,0,0,75,"reliever",0.75,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"663465","Kolby Allard","Cleveland Guardians","L",2026-04-12,0,0,0,0,0,100,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676051","Codi Heuer","Cleveland Guardians","R",2026-07-17,0,0,18,0,0,4,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"682120","Tim Herrin","Cleveland Guardians","L",2026-07-08,0,0,0,0,0,13,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"682982","Daniel Espino","Cleveland Guardians","R",2026-07-02,0,0,0,0,0,19,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"688883","Peyton Pallette","Cleveland Guardians","R",2026-05-23,0,0,0,0,0,59,"reliever",0.8,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681870","Erik Sabrowski","Cleveland Guardians","L",2026-07-18,0,10,10,1,0,3,"reliever",1,0.944444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"671922","Cade Smith","Cleveland Guardians","R",2026-07-18,0,13,13,1,0,3,"reliever",1,0.927777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"683769","Hunter Gaddis","Cleveland Guardians","R",2026-07-19,0,13,13,1,0,2,"reliever",1,0.927777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"680916","Franco Aleman","Cleveland Guardians","R",2026-07-19,0,36,36,2,0,2,"reliever",0.45,0.8,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"702021","Will Dion","Cleveland Guardians","L",2026-07-19,0,45,45,2,0,2,"reliever",0.4,0.75,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"671106","Logan Allen","Cleveland Guardians","L",2026-07-18,0,81,81,1,0,3,"hybrid",0,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"670059","Colin Holderman","Cleveland Guardians","R",2026-07-20,14,29,29,2,1,1,"reliever",1,0.485555555555556,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"542888","Shawn Armstrong","Cleveland Guardians","R",2026-07-20,19,29,29,2,1,1,"reliever",1,0.402222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"670036","Matt Festa","Cleveland Guardians","R",2026-07-20,24,24,52,1,1,1,"reliever",1,0.346666666666667,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"605154","John Brebbia","Colorado Rockies","R",2026-06-30,0,0,0,0,0,21,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"623474","Jimmy Herget","Colorado Rockies","R",2026-07-17,0,0,14,0,0,4,"reliever",0.778,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"624522","Keegan Thompson","Colorado Rockies","R",2026-06-07,0,0,0,0,0,44,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664954","Brett Sullivan","Colorado Rockies","R",2026-06-30,0,0,0,0,0,21,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669298","TJ Shook","Colorado Rockies","R",2026-07-09,0,0,0,0,0,12,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"671111","Sammy Peralta","Colorado Rockies","L",2026-06-11,0,0,0,0,0,40,"hybrid",0,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676105","Jeff Criswell","Colorado Rockies","R",2026-07-17,0,0,30,0,0,4,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"677955","Jaden Hill","Colorado Rockies","R",2026-06-20,0,0,0,0,0,31,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"678020","Seth Halvorsen","Colorado Rockies","R",2026-06-30,0,0,0,0,0,21,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"678368","Valente Bellozo","Colorado Rockies","R",2026-04-12,0,0,0,0,0,100,"bulk",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"680604","Blas Castaño","Colorado Rockies","R",2026-06-16,0,0,0,0,0,35,"reliever",0.5,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"682769","Eiberson Castellano","Colorado Rockies","R",2026-06-14,0,0,0,0,0,37,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"700327","Welinton Herrera","Colorado Rockies","L",2026-05-29,0,0,0,0,0,53,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"801403","Chase Dollander","Colorado Rockies","R",2026-05-14,0,0,0,0,0,68,"bulk",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"688642","Zach Agnos","Colorado Rockies","R",2026-07-18,0,9,9,1,0,3,"reliever",0.846,0.95,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"605447","Jordan Romano","Colorado Rockies","R",2026-07-19,0,12,12,1,0,2,"reliever",0.85,0.933333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"657514","Brennan Bernardino","Colorado Rockies","L",2026-07-18,0,17,17,1,0,3,"reliever",0.917,0.905555555555556,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"685299","Tanner Gordon","Colorado Rockies","R",2026-07-19,0,66,66,1,0,2,"bulk",0.15,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"675848","Juan Mejia","Colorado Rockies","R",2026-07-20,12,28,28,2,1,1,"reliever",0.951,0.524444444444444,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"680767","Victor Vodnik","Colorado Rockies","R",2026-07-20,18,18,30,1,1,1,"reliever",1,0.48,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"622608","Antonio Senzatela","Colorado Rockies","R",2026-07-20,19,19,19,1,1,1,"reliever",1,0.457777777777778,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"434378","Justin Verlander","Detroit Tigers","R",2026-03-30,0,0,0,0,0,113,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"572143","Burch Smith","Detroit Tigers","R",2026-05-21,0,0,0,0,0,61,"reliever",0.55,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"646241","Enmanuel De Jesus","Detroit Tigers","L",2026-06-26,0,0,0,0,0,25,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"668670","Jake Rogers","Detroit Tigers","R",2026-05-12,0,0,0,0,0,70,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676428","Brant Hurter","Detroit Tigers","L",2026-05-22,0,0,0,0,0,60,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676568","Ricky Vanasco","Detroit Tigers","R",2026-05-28,0,0,0,0,0,54,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676684","Will Vest","Detroit Tigers","R",2026-06-27,0,0,0,0,0,24,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"680744","Ty Madden","Detroit Tigers","R",2026-06-12,0,0,0,0,0,39,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"689225","Beau Brieske","Detroit Tigers","R",2026-07-12,0,0,0,0,0,9,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"623454","Drew Anderson","Detroit Tigers","R",2026-07-19,0,32,32,1,0,2,"reliever",0.886,0.822222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669724","Brenan Hanifee","Detroit Tigers","R",2026-07-19,0,38,38,2,0,2,"reliever",0.65,0.788888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"621097","Jacob Waguespack","Detroit Tigers","R",2026-07-20,15,38,38,2,1,1,"reliever",0.55,0.418888888888889,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"663947","Tyler Holton","Detroit Tigers","L",2026-07-20,13,33,33,2,2,1,"reliever",0.905,0.36,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"640448","Kyle Finnegan","Detroit Tigers","R",2026-07-20,26,28,28,2,1,1,"reliever",1,0.291111111111111,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"805427","Drew Sommers","Detroit Tigers","L",2026-07-20,29,29,29,1,1,1,"reliever",0.9,0.235555555555556,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"445276","Kenley Jansen","Detroit Tigers","R",2026-07-20,28,47,47,2,2,1,"reliever",1,0.0322222222222222,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"641585","J.P. France","Houston Astros","R",2026-04-17,0,0,0,0,0,95,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"656986","Bennett Sousa","Houston Astros","L",2026-05-04,0,0,0,0,0,78,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"663878","Nate Pearson","Houston Astros","R",2026-07-08,0,0,0,0,0,13,"reliever",0.8,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"663967","César Salazar","Houston Astros","R",2026-05-06,0,0,0,0,0,76,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669920","Jason Alexander","Houston Astros","R",2026-05-26,0,0,0,0,0,56,"hybrid",0,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"675989","Cody Bolton","Houston Astros","R",2026-05-17,0,0,0,0,0,65,"hybrid",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676467","Colton Gordon","Houston Astros","L",2026-04-24,0,0,0,0,0,88,"hybrid",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676694","Jake Meyers","Houston Astros","L",2026-06-26,0,0,0,0,0,25,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"680802","Ryan Weiss","Houston Astros","R",2026-05-04,0,0,0,0,0,78,"bulk",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"682610","Roddery Muñoz","Houston Astros","R",2026-04-03,0,0,0,0,0,109,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"685005","Christian Roa","Houston Astros","R",2026-04-16,0,0,0,0,0,96,"reliever",0.35,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"695001","Alimber Santa","Houston Astros","R",2026-07-08,0,0,0,0,0,13,"reliever",0.5,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"699044","Miguel Ullola","Houston Astros","R",2026-07-01,0,0,0,0,0,20,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"701121","Logan VanWey","Houston Astros","R",2026-06-23,0,0,0,0,0,28,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"687911","Bryan King","Houston Astros","L",2026-07-19,0,14,31,1,0,2,"reliever",1,0.922222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664299","Cristian Javier","Houston Astros","R",2026-07-19,0,20,20,1,0,2,"hybrid",0.05,0.888888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"805123","AJ Blubaugh","Houston Astros","R",2026-07-18,0,40,40,1,0,3,"reliever",1,0.777777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"678906","Kai-Wei Teng","Houston Astros","R",2026-07-19,0,46,46,1,0,2,"hybrid",0.167,0.744444444444444,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"623352","Josh Hader","Houston Astros","L",2026-07-20,16,29,29,2,1,1,"reliever",1,0.452222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"595345","Steven Okert","Houston Astros","L",2026-07-20,19,33,49,2,1,1,"reliever",0.959,0.38,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"660853","Enyel De Los Santos","Houston Astros","R",2026-07-20,22,47,59,2,1,1,"reliever",1,0.252222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"650556","Bryan Abreu","Houston Astros","R",2026-07-20,28,43,43,2,1,1,"reliever",1,0.174444444444444,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"669854","Ronel Blanco","Houston Astros","R",2026-07-20,86,86,86,1,1,1,"unknown",0.05,0,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"608032","Carlos Estévez","Kansas City Royals","R",2026-03-28,0,0,0,0,0,115,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"621016","Jose Cuas","Kansas City Royals","R",2026-07-09,0,0,0,0,0,12,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"657756","Connor Seabold","Kansas City Royals","R",2026-06-30,0,0,0,0,0,21,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"663559","Bailey Falter","Kansas City Royals","L",2026-05-26,0,0,0,0,0,56,"hybrid",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"670167","John Schreiber","Kansas City Royals","R",2026-07-17,0,0,12,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"672021","Eric Cerantola","Kansas City Royals","R",2026-06-30,0,0,0,0,0,21,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"679883","Luinder Avila","Kansas City Royals","R",2026-07-10,0,0,0,0,0,11,"hybrid",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"683232","Nick Mears","Kansas City Royals","R",2026-05-27,0,0,0,0,0,55,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"687765","Mitch Spence","Kansas City Royals","R",2026-06-26,0,0,0,0,0,25,"bulk",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"696131","Mason Black","Kansas City Royals","R",2026-06-18,0,0,0,0,0,33,"reliever",0.6,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669212","Eli Morgan","Kansas City Royals","R",2026-07-18,0,10,10,1,0,3,"reliever",0.8,0.944444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"621381","Matt Strahm","Kansas City Royals","L",2026-07-19,0,19,19,1,0,2,"reliever",1,0.894444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"668674","Lucas Erceg","Kansas City Royals","R",2026-07-19,0,26,50,1,0,2,"reliever",1,0.855555555555556,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"686475","Tyler Tolbert","Kansas City Royals","R",2026-07-19,0,37,37,1,0,2,"reliever",0.25,0.794444444444445,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"694360","Beck Way","Kansas City Royals","R",2026-07-19,0,51,51,2,0,2,"reliever",0.9,0.716666666666667,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"677976","Randy Dobnak","Kansas City Royals","R",2026-07-18,0,96,96,1,0,3,"bulk",0.05,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"674444","Steven Cruz","Kansas City Royals","R",2026-07-20,10,12,26,2,1,1,"reliever",0.875,0.646666666666667,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"656638","Alex Lange","Kansas City Royals","R",2026-07-20,19,19,31,1,1,1,"reliever",1,0.457777777777778,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"663738","Daniel Lynch IV","Kansas City Royals","L",2026-07-20,15,41,41,2,1,1,"reliever",1,0.402222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"489446","Kirby Yates","Los Angeles Angels","R",2026-07-17,0,0,20,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"624428","Adam Frazier","Los Angeles Angels","R",2026-05-16,0,0,0,0,0,66,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"641312","Shaun Anderson","Los Angeles Angels","R",2026-04-25,0,0,0,0,0,87,"reliever",0.45,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"642048","Tayler Saucedo","Los Angeles Angels","L",2026-07-07,0,0,0,0,0,14,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664192","Joey Lucchesi","Los Angeles Angels","L",2026-04-28,0,0,0,0,0,84,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"666201","Alek Manoah","Los Angeles Angels","R",2026-05-16,0,0,0,0,0,66,"bulk",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"680704","Nick Sandlin","Los Angeles Angels","R",2026-05-03,0,0,0,0,0,79,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"695049","Brett Kerry","Los Angeles Angels","R",2026-06-17,0,0,0,0,0,34,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"815083","Mitch Farris","Los Angeles Angels","L",2026-07-11,0,0,0,0,0,10,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"696147","Sam Bachman","Los Angeles Angels","R",2026-07-19,0,6,29,1,0,2,"reliever",1,0.966666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681217","Chase Silseth","Los Angeles Angels","R",2026-07-19,0,14,14,1,0,2,"reliever",1,0.922222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"666171","Ryan Zeferjahn","Los Angeles Angels","R",2026-07-19,0,15,27,1,0,2,"reliever",1,0.916666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"608718","Brent Suter","Los Angeles Angels","L",2026-07-18,0,39,39,1,0,3,"reliever",0.889,0.783333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"696519","Samy Natera Jr.","Los Angeles Angels","L",2026-07-20,13,26,29,2,2,1,"reliever",0.75,0.398888888888889,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"820862","José Fermin","Los Angeles Angels","R",2026-07-20,21,50,50,2,1,1,"reliever",1,0.252222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"500743","Miguel Rojas","Los Angeles Dodgers","R",2026-06-27,0,0,0,0,0,24,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"595014","Blake Treinen","Los Angeles Dodgers","R",2026-06-19,0,0,0,0,0,32,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"605483","Blake Snell","Los Angeles Dodgers","L",2026-05-09,0,0,0,0,0,73,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"621242","Edwin Díaz","Los Angeles Dodgers","R",2026-04-19,0,0,0,0,0,93,"reliever",0.35,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"642546","Jonathan Hernández","Los Angeles Dodgers","R",2026-06-29,0,0,0,0,0,22,"reliever",0.6,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"656212","Charlie Barnes","Los Angeles Dodgers","L",2026-07-01,0,0,0,0,0,20,"bulk",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"656945","Tanner Scott","Los Angeles Dodgers","L",2026-07-17,0,0,11,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"670090","Wyatt Mills","Los Angeles Dodgers","R",2026-06-30,0,0,0,0,0,21,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"671109","Jake Eder","Los Angeles Dodgers","L",2026-05-02,0,0,0,0,0,80,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676508","Ben Casparius","Los Angeles Dodgers","R",2026-04-12,0,0,0,0,0,100,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"694646","Chayce McDermott","Los Angeles Dodgers","R",2026-06-21,0,0,0,0,0,30,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"801434","Paul Gervase","Los Angeles Dodgers","R",2026-07-05,0,0,0,0,0,16,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676263","Jack Dreyer","Los Angeles Dodgers","L",2026-07-19,0,17,38,1,0,2,"reliever",0.95,0.905555555555556,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"683618","Edgardo Henriquez","Los Angeles Dodgers","R",2026-07-19,0,21,21,1,0,2,"reliever",1,0.883333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"592779","Brock Stewart","Los Angeles Dodgers","R",2026-07-19,0,22,22,1,0,2,"reliever",0.55,0.877777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"623465","Evan Phillips","Los Angeles Dodgers","R",2026-07-19,0,24,24,1,0,2,"reliever",0.25,0.866666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"694361","Will Klein","Los Angeles Dodgers","R",2026-07-19,0,24,24,1,0,2,"reliever",0.818,0.866666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669165","Kyle Hurt","Los Angeles Dodgers","R",2026-07-19,0,29,29,1,0,2,"reliever",0.939,0.838888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681911","Alex Vesia","Los Angeles Dodgers","L",2026-07-20,12,22,34,2,2,1,"reliever",1,0.437777777777778,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"689017","Landon Knack","Los Angeles Dodgers","R",2026-07-20,30,30,30,1,1,1,"bulk",0.1,0.213333333333333,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"663969","Tyler Phillips","Miami Marlins","R",2026-07-12,0,0,0,0,0,9,"hybrid",0.231,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"667463","John King","Miami Marlins","L",2026-07-07,0,0,0,0,0,14,"reliever",0.95,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669622","Anthony Bender","Miami Marlins","R",2026-06-27,0,0,0,0,0,24,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"677053","Andrew Nardi","Miami Marlins","L",2026-05-27,0,0,0,0,0,55,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"687531","William Kempner","Miami Marlins","R",2026-07-11,0,0,0,0,0,10,"reliever",0.45,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"687985","Josh White","Miami Marlins","R",2026-05-31,0,0,0,0,0,51,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"691594","Javier Sanoja","Miami Marlins","R",2026-07-02,0,0,0,0,0,19,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"694350","Zach Brzykcy","Miami Marlins","R",2026-06-30,0,0,0,0,0,21,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"694795","Josh Ekness","Miami Marlins","R",2026-05-13,0,0,0,0,0,69,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"702281","Robby Snelling","Miami Marlins","L",2026-05-08,0,0,0,0,0,74,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"656848","Michael Petersen","Miami Marlins","R",2026-07-19,0,18,39,1,0,2,"reliever",1,0.9,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664126","Pete Fairbanks","Miami Marlins","R",2026-07-19,0,19,43,1,0,2,"reliever",0.939,0.894444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676604","Tyler Zuber","Miami Marlins","R",2026-07-18,0,22,22,1,0,3,"reliever",0.8,0.877777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676534","Calvin Faucher","Miami Marlins","R",2026-07-18,0,31,45,1,0,3,"reliever",1,0.827777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"687473","Ryan Gusto","Miami Marlins","R",2026-07-18,0,38,38,1,0,3,"hybrid",0.05,0.788888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"806188","Cade Gibson","Miami Marlins","L",2026-07-19,0,40,40,2,0,2,"reliever",1,0.777777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669199","Lake Bachar","Miami Marlins","R",2026-07-20,14,14,34,1,1,1,"reliever",0.765,0.568888888888889,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"690978","Dax Fulton","Miami Marlins","L",2026-07-20,45,45,45,1,1,1,"reliever",0.2,0.03,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"657649","Jared Koenig","Milwaukee Brewers","L",2026-07-12,0,0,0,0,0,9,"reliever",0.45,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"668831","Garrett Stallings","Milwaukee Brewers","R",2026-07-08,0,0,0,0,0,13,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"668834","Easton McGee","Milwaukee Brewers","R",2026-05-01,0,0,0,0,0,81,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669060","Bryse Wilson","Milwaukee Brewers","R",2026-07-12,0,0,0,0,0,9,"bulk",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669084","DL Hall","Milwaukee Brewers","L",2026-06-04,0,0,0,0,0,47,"reliever",0.917,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669270","Joel Kuhnel","Milwaukee Brewers","R",2026-07-02,0,0,0,0,0,19,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"672582","Angel Zerpa","Milwaukee Brewers","L",2026-04-25,0,0,0,0,0,87,"reliever",0.6,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"680723","Drew Rom","Milwaukee Brewers","L",2026-07-05,0,0,0,0,0,16,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"692230","Carlos Rodriguez","Milwaukee Brewers","R",2026-05-30,0,0,0,0,0,52,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"702153","Brian Fitzpatrick","Milwaukee Brewers","L",2026-06-05,0,0,0,0,0,46,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"656730","Trevor Megill","Milwaukee Brewers","R",2026-07-18,0,13,24,1,0,3,"reliever",1,0.927777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"682842","Abner Uribe","Milwaukee Brewers","R",2026-07-18,0,17,28,1,0,3,"reliever",1,0.905555555555556,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676879","Aaron Ashby","Milwaukee Brewers","L",2026-07-19,0,18,35,1,0,2,"reliever",0.957,0.9,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"694477","Chad Patrick","Milwaukee Brewers","R",2026-07-19,0,34,55,1,0,2,"reliever",0.625,0.811111111111111,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"675660","Shane Drohan","Milwaukee Brewers","L",2026-07-18,0,90,90,1,0,3,"hybrid",0,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"684974","Craig Yoho","Milwaukee Brewers","R",2026-07-20,17,35,47,2,1,1,"reliever",0.6,0.402222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"681982","Grant Anderson","Milwaukee Brewers","R",2026-07-20,16,24,24,2,2,1,"reliever",1,0.36,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"472610","Luis García","Minnesota Twins","R",2026-05-17,0,0,0,0,0,65,"reliever",0.75,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"573124","Taylor Rogers","Minnesota Twins","L",2026-07-17,0,0,2,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"606115","Orlando Arcia","Minnesota Twins","R",2026-05-27,0,0,0,0,0,55,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"607455","Anthony Banda","Minnesota Twins","L",2026-06-28,0,0,0,0,0,23,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"608723","Austin Voth","Minnesota Twins","R",2026-06-23,0,0,0,0,0,28,"bulk",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"623437","Justin Topa","Minnesota Twins","R",2026-05-18,0,0,0,0,0,64,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"663485","Cole Sands","Minnesota Twins","R",2026-04-28,0,0,0,0,0,84,"reliever",0.6,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"670183","Garrett Acton","Minnesota Twins","R",2026-04-25,0,0,0,0,0,87,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"672782","Yoendrys Gómez","Minnesota Twins","R",2026-07-17,0,0,22,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"679358","Eric Orze","Minnesota Twins","R",2026-07-08,0,0,0,0,0,13,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"689520","Cody Laweryson","Minnesota Twins","R",2026-07-01,0,0,0,0,0,20,"reliever",0.75,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"694397","Marco Raya","Minnesota Twins","R",2026-07-04,0,0,0,0,0,17,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"702193","Andrew Morris","Minnesota Twins","R",2026-07-17,0,0,14,0,0,4,"reliever",0.889,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"804619","John Klein","Minnesota Twins","R",2026-05-30,0,0,0,0,0,52,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"696070","Kendry Rojas","Minnesota Twins","L",2026-07-18,0,18,18,1,0,3,"hybrid",0.15,0.9,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"702474","Mike Paredes","Minnesota Twins","R",2026-07-18,0,40,40,1,0,3,"hybrid",0.05,0.777777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"701519","Travis Adams","Minnesota Twins","R",2026-07-19,0,45,45,1,0,2,"reliever",0.95,0.75,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"656577","Alex Jackson","Minnesota Twins","R",2026-07-20,11,11,11,1,1,1,"reliever",0.1,0.635555555555556,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"681892","Kody Funderburk","Minnesota Twins","L",2026-07-20,16,30,30,2,2,1,"reliever",1,0.326666666666667,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"808970","Woo-Suk Go","Minnesota Twins","R",2026-07-20,24,47,47,2,2,1,"reliever",0.2,0.0988888888888889,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"667297","Tommy Nance","Minnesota Twins","R",2026-07-20,36,36,61,1,1,1,"reliever",1,0.08,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"548384","Brooks Raley","New York Mets","L",2026-07-16,0,0,7,0,0,5,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"596133","Luke Weaver","New York Mets","R",2026-07-16,0,0,9,0,0,5,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"605218","Carl Edwards Jr.","New York Mets","R",2026-04-29,0,0,0,0,0,83,"bulk",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"620443","Luis Torrens","New York Mets","R",2026-07-04,0,0,0,0,0,17,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"642207","Devin Williams","New York Mets","R",2026-07-16,0,0,13,0,0,5,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"650960","Daniel Duarte","New York Mets","R",2026-06-14,0,0,0,0,0,37,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"668964","Tobias Myers","New York Mets","R",2026-07-11,0,0,0,0,0,10,"reliever",0.769,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"670097","Zack Short","New York Mets","R",2026-06-20,0,0,0,0,0,31,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"670871","Guillo Zuñiga","New York Mets","R",2026-07-06,0,0,0,0,0,15,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676910","Matt Seelinger","New York Mets","R",2026-07-07,0,0,0,0,0,14,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"680702","Joey Gerber","New York Mets","R",2026-07-04,0,0,0,0,0,17,"reliever",0.35,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681810","Austin Warren","New York Mets","R",2026-07-07,0,0,0,0,0,14,"reliever",0.846,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"702752","Jonathan Pintaro","New York Mets","R",2026-06-22,0,0,0,0,0,29,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"804636","Jonah Tong","New York Mets","R",2026-06-02,0,0,0,0,0,49,"bulk",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"621345","A.J. Minter","New York Mets","L",2026-07-19,0,14,14,1,0,2,"reliever",1,0.922222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"672335","Cionel Pérez","New York Mets","L",2026-07-19,0,18,18,1,0,2,"reliever",0.875,0.9,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"623211","Huascar Brazobán","New York Mets","R",2026-07-19,0,22,34,1,0,2,"reliever",0.707,0.877777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"673540","Kodai Senga","New York Mets","R",2026-07-18,0,39,39,1,0,3,"hybrid",0.1,0.783333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"640455","Sean Manaea","New York Mets","L",2026-07-18,0,99,99,1,0,3,"bulk",0.333,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"675540","Xzavion Curry","New York Mets","R",2026-07-20,47,72,72,2,1,1,"reliever",0.2,0,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"660787","Yerry De los Santos","New York Yankees","R",2026-06-29,0,0,0,0,0,22,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"665645","Kervin Castro","New York Yankees","R",2026-05-08,0,0,0,0,0,74,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"672442","Yovanny Cruz","New York Yankees","R",2026-06-30,0,0,0,0,0,21,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"680474","Max Schuemann","New York Yankees","R",2026-06-20,0,0,0,0,0,31,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"694341","Brendan Beck","New York Yankees","R",2026-07-04,0,0,0,0,0,17,"hybrid",0,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"621112","Paul Blackburn","New York Yankees","R",2026-07-19,0,25,35,1,0,2,"reliever",0.882,0.861111111111111,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"666808","Camilo Doval","New York Yankees","R",2026-07-18,0,31,31,1,0,3,"reliever",1,0.827777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"670280","David Bednar","New York Yankees","R",2026-07-19,0,32,32,1,0,2,"reliever",1,0.822222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"656234","Jake Bird","New York Yankees","R",2026-07-18,0,34,34,1,0,3,"reliever",1,0.811111111111111,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"642232","Ryan Yarbrough","New York Yankees","L",2026-07-19,0,36,36,1,0,2,"reliever",0.92,0.8,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"657612","Tim Hill","New York Yankees","L",2026-07-20,11,34,34,2,1,1,"reliever",1,0.507777777777778,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"683409","Angel Chivilli","New York Yankees","R",2026-07-20,15,35,35,2,1,1,"reliever",0.4,0.435555555555556,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"687396","Brent Headrick","New York Yankees","L",2026-07-20,12,34,45,2,2,1,"reliever",1,0.371111111111111,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"518585","Fernando Cruz","New York Yankees","R",2026-07-20,17,33,56,2,2,1,"reliever",1,0.293333333333333,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"596117","Garrett Stubbs","Philadelphia Phillies","R",2026-07-10,0,0,0,0,0,11,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"621383","Tanner Banks","Philadelphia Phillies","L",2026-07-08,0,0,0,0,0,13,"reliever",0.929,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"641745","Brad Keller","Philadelphia Phillies","R",2026-07-08,0,0,0,0,0,13,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"642152","Lou Trivino III","Philadelphia Phillies","R",2026-07-06,0,0,0,0,0,15,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"647315","Zach Pop","Philadelphia Phillies","R",2026-04-12,0,0,0,0,0,100,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664238","Dylan Moore","Philadelphia Phillies","R",2026-04-15,0,0,0,0,0,97,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676510","Nolan Hoffman","Philadelphia Phillies","R",2026-05-31,0,0,0,0,0,51,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"679775","Kyle Backhus","Philadelphia Phillies","L",2026-07-06,0,0,0,0,0,15,"reliever",0.75,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"641835","Tim Mayza","Philadelphia Phillies","L",2026-07-19,0,22,22,1,0,2,"reliever",0.842,0.877777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"686751","Seth Johnson","Philadelphia Phillies","R",2026-07-19,0,31,58,1,0,2,"reliever",0.65,0.827777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676661","Max Lazar","Philadelphia Phillies","R",2026-07-19,0,42,42,1,0,2,"reliever",0.3,0.766666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"660604","Alan Rangel","Philadelphia Phillies","R",2026-07-19,0,91,91,1,0,2,"hybrid",0,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"680742","Jonathan Bowlan","Philadelphia Phillies","R",2026-07-20,10,10,24,1,1,1,"reliever",1,0.657777777777778,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"661395","Jhoan Duran","Philadelphia Phillies","R",2026-07-20,3,25,25,2,2,1,"reliever",1,0.571111111111111,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"621237","José Alvarado","Philadelphia Phillies","L",2026-07-20,11,27,27,2,1,1,"reliever",1,0.546666666666667,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"689147","Orion Kerkering","Philadelphia Phillies","R",2026-07-20,19,30,30,2,1,1,"reliever",1,0.396666666666667,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"663767","Chase Shugart","Philadelphia Phillies","R",2026-07-20,18,47,47,2,1,1,"reliever",1,0.318888888888889,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"606965","Chris Devenski","Pittsburgh Pirates","R",2026-05-02,0,0,0,0,0,80,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664353","José Urquidy","Pittsburgh Pirates","R",2026-04-13,0,0,0,0,0,99,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669387","Carmen Mlodzinski","Pittsburgh Pirates","R",2026-07-17,0,0,41,0,0,4,"bulk",0.143,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676702","Hunter Stratton","Pittsburgh Pirates","R",2026-07-09,0,0,0,0,0,12,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681895","Evan Sisk","Pittsburgh Pirates","L",2026-06-29,0,0,0,0,0,22,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"682995","Hunter Barco","Pittsburgh Pirates","L",2026-04-28,0,0,0,0,0,84,"bulk",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"682997","Tyler Callihan","Pittsburgh Pirates","R",2026-07-03,0,0,0,0,0,18,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"684049","Brandan Bidois","Pittsburgh Pirates","R",2026-06-30,0,0,0,0,0,21,"reliever",0.75,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"699008","Antwone Kelly","Pittsburgh Pirates","R",2026-07-12,0,0,0,0,0,9,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676755","Isaac Mattson","Pittsburgh Pirates","R",2026-07-19,0,13,33,1,0,2,"reliever",1,0.927777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"670990","Yohan Ramírez","Pittsburgh Pirates","R",2026-07-18,0,14,14,1,0,3,"reliever",1,0.922222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"642397","Gregory Soto","Pittsburgh Pirates","L",2026-07-18,0,19,19,1,0,3,"reliever",1,0.894444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"682254","Mason Montgomery","Pittsburgh Pirates","L",2026-07-19,0,28,28,2,0,2,"reliever",0.75,0.844444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"694753","Khristian Curtis","Pittsburgh Pirates","R",2026-07-18,0,68,68,1,0,3,"unknown",0.05,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"642701","Dennis Santana","Pittsburgh Pirates","R",2026-07-20,10,19,19,2,1,1,"reliever",1,0.607777777777778,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"685126","Brandon Eisert","Pittsburgh Pirates","L",2026-07-20,15,37,37,2,1,1,"reliever",0.724,0.424444444444445,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"696062","Wilber Dotel","Pittsburgh Pirates","R",2026-07-20,56,56,56,1,1,1,"reliever",0.5,0,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"592094","Jason Adam","San Diego Padres","R",2026-06-29,0,0,0,0,0,22,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"660710","Rodolfo Durán","San Diego Padres","R",2026-07-01,0,0,0,0,0,20,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669093","Jeremiah Estrada","San Diego Padres","R",2026-06-02,0,0,0,0,0,49,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"670970","Adrian Morejon","San Diego Padres","L",2026-07-17,0,0,23,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"688158","David Morgan","San Diego Padres","R",2026-06-27,0,0,0,0,0,24,"reliever",0.9,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"689690","Alek Jacob","San Diego Padres","R",2026-07-06,0,0,0,0,0,15,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"695243","Mason Miller","San Diego Padres","R",2026-07-17,0,0,16,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"666745","Jhony Brito","San Diego Padres","R",2026-07-18,0,11,11,1,0,3,"reliever",0.15,0.938888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676760","Ron Marinaccio","San Diego Padres","R",2026-07-18,0,13,13,1,0,3,"reliever",1,0.927777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"673513","Yuki Matsui","San Diego Padres","L",2026-07-19,0,19,19,1,0,2,"reliever",1,0.894444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"663362","Matt Waldron","San Diego Padres","R",2026-07-18,0,27,27,1,0,3,"bulk",0.1,0.85,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"699134","Bradgley Rodriguez","San Diego Padres","R",2026-07-20,17,17,37,1,1,1,"reliever",0.85,0.502222222222222,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"606996","Kyle Hart","San Diego Padres","L",2026-07-20,20,20,34,1,1,1,"reliever",0.92,0.435555555555556,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"593974","Wandy Peralta","San Diego Padres","L",2026-07-20,22,32,32,2,2,1,"reliever",0.814,0.215555555555556,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"621366","Ryan Borucki","San Francisco Giants","L",2026-05-30,0,0,0,0,0,52,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"657424","Matt Gage","San Francisco Giants","L",2026-07-03,0,0,0,0,0,18,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"663941","Tristan Beck","San Francisco Giants","R",2026-06-20,0,0,0,0,0,31,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"665665","Reiver Sanmartin","San Francisco Giants","L",2026-06-13,0,0,0,0,0,38,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"666619","Gregory Santos","San Francisco Giants","R",2026-05-09,0,0,0,0,0,73,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"666711","Joel Peguero","San Francisco Giants","R",2026-05-31,0,0,0,0,0,51,"reliever",0.55,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"671083","Buddy Kennedy","San Francisco Giants","R",2026-06-01,0,0,0,0,0,50,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676130","José Buttó","San Francisco Giants","R",2026-04-01,0,0,0,0,0,111,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676254","Ryan Walker","San Francisco Giants","R",2026-07-08,0,0,0,0,0,13,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"678576","Wilkin Ramos","San Francisco Giants","R",2026-06-04,0,0,0,0,0,47,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"683766","Christian Koss","San Francisco Giants","R",2026-05-09,0,0,0,0,0,73,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"693313","Carson Seymour","San Francisco Giants","R",2026-06-10,0,0,0,0,0,41,"bulk",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"694918","Blade Tidwell","San Francisco Giants","R",2026-04-28,0,0,0,0,0,84,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"702352","Spencer Bivens","San Francisco Giants","R",2026-07-08,0,0,0,0,0,13,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676775","Keaton Winn","San Francisco Giants","R",2026-07-18,0,10,10,1,0,3,"reliever",1,0.944444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669062","Erik Miller","San Francisco Giants","L",2026-07-18,0,12,12,1,0,3,"reliever",1,0.933333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"656529","Sam Hentges","San Francisco Giants","L",2026-07-19,0,22,22,2,0,2,"reliever",1,0.877777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"668873","Caleb Kilian","San Francisco Giants","R",2026-07-20,7,7,29,1,1,1,"reliever",1,0.724444444444444,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"681916","Dylan Smith","San Francisco Giants","R",2026-07-20,6,16,16,2,1,1,"reliever",0.85,0.691111111111111,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"671345","Jason Foley","San Francisco Giants","R",2026-07-20,9,9,24,1,1,1,"reliever",0.1,0.68,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"664141","JT Brubaker","San Francisco Giants","R",2026-07-20,38,38,38,1,1,1,"reliever",1,0.0688888888888889,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"666374","Matt Brash","Seattle Mariners","R",2026-06-08,0,0,0,0,0,43,"reliever",0.95,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681006","Josh Simpson","Seattle Mariners","L",2026-06-28,0,0,0,0,0,23,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681867","Cooper Criswell","Seattle Mariners","R",2026-06-08,0,0,0,0,0,43,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"682445","Domingo Gonzalez","Seattle Mariners","R",2026-06-10,0,0,0,0,0,41,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"695380","Alex Hoppe","Seattle Mariners","R",2026-06-25,0,0,0,0,0,26,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"678606","José A. Ferrer","Seattle Mariners","L",2026-07-18,0,16,30,1,0,3,"reliever",1,0.911111111111111,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"662253","Andrés Muñoz","Seattle Mariners","R",2026-07-19,0,18,18,2,0,2,"reliever",1,0.9,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"642100","Gabe Speier","Seattle Mariners","L",2026-07-19,0,25,25,2,0,2,"reliever",1,0.861111111111111,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"660825","Eduard Bazardo","Seattle Mariners","R",2026-07-19,0,33,33,2,0,2,"reliever",1,0.816666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"621074","Michael Rucker","Seattle Mariners","R",2026-07-20,12,12,32,1,1,1,"reliever",0.75,0.613333333333333,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"689546","Nick Davila","Seattle Mariners","R",2026-07-20,14,14,39,1,1,1,"reliever",0.95,0.568888888888889,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"677961","Cole Wilcox","Seattle Mariners","R",2026-07-20,21,21,32,1,1,1,"reliever",0.8,0.413333333333333,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"663494","Bryan Torres","St. Louis Cardinals","R",2026-07-07,0,0,0,0,0,14,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"668941","JoJo Romero","St. Louis Cardinals","L",2026-07-12,0,0,0,0,0,9,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669145","Bruce Zimmermann","St. Louis Cardinals","L",2026-05-05,0,0,0,0,0,77,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681676","Ryan Fernandez","St. Louis Cardinals","R",2026-07-06,0,0,0,0,0,15,"reliever",0.55,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"690155","Matt Pushard","St. Louis Cardinals","R",2026-05-30,0,0,0,0,0,52,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"691008","Max Rajcic","St. Louis Cardinals","R",2026-07-03,0,0,0,0,0,18,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"694363","Jared Shuster","St. Louis Cardinals","L",2026-07-07,0,0,0,0,0,14,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"802408","Brycen Mautz","St. Louis Cardinals","L",2026-05-25,0,0,0,0,0,57,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"694335","Matt Svanson","St. Louis Cardinals","R",2026-07-18,0,9,9,1,0,3,"reliever",0.947,0.95,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"703725","Luis Gastelum","St. Louis Cardinals","R",2026-07-19,0,20,38,1,0,2,"reliever",0.25,0.888888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"677865","Justin Bruihl","St. Louis Cardinals","L",2026-07-18,0,21,21,1,0,3,"reliever",1,0.883333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"700669","Gordon Graceffo","St. Louis Cardinals","R",2026-07-19,0,35,35,2,0,2,"reliever",1,0.805555555555556,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676617","Riley O'Brien","St. Louis Cardinals","R",2026-07-20,21,21,37,1,1,1,"reliever",1,0.413333333333333,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"592773","Ryne Stanek","St. Louis Cardinals","R",2026-07-20,13,31,31,2,2,1,"reliever",1,0.371111111111111,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"666277","George Soriano","St. Louis Cardinals","R",2026-07-20,14,30,44,2,2,1,"reliever",1,0.36,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"605156","Aaron Brooks","Tampa Bay Rays","R",2026-05-13,0,0,0,0,0,69,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"643377","Griffin Jax","Tampa Bay Rays","R",2026-07-11,0,0,0,0,0,10,"hybrid",0.154,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669169","Jonathan Heasley","Tampa Bay Rays","R",2026-05-27,0,0,0,0,0,55,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669438","Mason Englert","Tampa Bay Rays","R",2026-07-17,0,0,88,0,0,4,"hybrid",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669947","Jesse Scholtens","Tampa Bay Rays","R",2026-05-25,0,0,0,0,0,57,"bulk",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"675627","Michael Grove","Tampa Bay Rays","R",2026-06-27,0,0,0,0,0,24,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681806","Andrew Wantz","Tampa Bay Rays","R",2026-05-30,0,0,0,0,0,52,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"685801","Hunter Bigge","Tampa Bay Rays","R",2026-05-29,0,0,0,0,0,53,"reliever",0.9,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"686678","Chase Solesky","Tampa Bay Rays","R",2026-05-18,0,0,0,0,0,64,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"694680","Trevor Martin","Tampa Bay Rays","R",2026-06-28,0,0,0,0,0,23,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"810938","Ben Williamson","Tampa Bay Rays","R",2026-07-09,0,0,0,0,0,12,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"518886","Craig Kimbrel","Tampa Bay Rays","R",2026-07-19,0,14,34,1,0,2,"reliever",1,0.922222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"642121","Cole Sulser","Tampa Bay Rays","R",2026-07-18,0,15,30,1,0,3,"reliever",0.897,0.916666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664076","Garrett Cleavinger","Tampa Bay Rays","L",2026-07-18,0,18,18,1,0,3,"reliever",1,0.9,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"688297","Chris Roycroft","Tampa Bay Rays","R",2026-07-19,0,24,24,1,0,2,"reliever",0.6,0.866666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"687330","Kevin Kelly","Tampa Bay Rays","R",2026-07-18,0,29,29,1,0,3,"reliever",1,0.838888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"693855","Ian Seymour","Tampa Bay Rays","L",2026-07-18,0,61,61,1,0,3,"hybrid",0.588,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"592155","Cam Booser","Tampa Bay Rays","L",2026-07-20,11,23,31,2,1,1,"reliever",0.9,0.568888888888889,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"641329","Bryan Baker","Tampa Bay Rays","R",2026-07-20,16,16,16,1,1,1,"reliever",1,0.524444444444444,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"668984","Casey Legumina","Tampa Bay Rays","R",2026-07-20,13,28,28,2,1,1,"reliever",0.879,0.507777777777778,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"455119","Chris Martin","Texas Rangers","R",2026-07-11,0,0,0,0,0,10,"reliever",0.8,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"543309","Kyle Higashioka","Texas Rangers","R",2026-07-17,0,0,22,0,0,4,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"605452","Joe Ross","Texas Rangers","R",2026-06-27,0,0,0,0,0,24,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"615698","Cal Quantrill","Texas Rangers","R",2026-07-17,0,0,86,0,0,4,"hybrid",0.5,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"656222","Jalen Beeks","Texas Rangers","L",2026-06-09,0,0,0,0,0,42,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664059","Sam Haggerty","Texas Rangers","R",2026-05-25,0,0,0,0,0,57,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676395","Robert Garcia","Texas Rangers","L",2026-04-16,0,0,0,0,0,96,"reliever",0.45,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681168","Luis Curvelo","Texas Rangers","R",2026-06-12,0,0,0,0,0,39,"reliever",0.35,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"686560","Gavin Collyer","Texas Rangers","R",2026-07-17,0,0,41,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"691945","Carter Baumler","Texas Rangers","R",2026-04-04,0,0,0,0,0,108,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"692437","Winston Santos","Texas Rangers","R",2026-07-01,0,0,0,0,0,20,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"693713","Emiliano Teodo","Texas Rangers","R",2026-07-17,0,0,43,0,0,4,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"596001","Jakob Junis","Texas Rangers","R",2026-07-18,0,14,14,1,0,3,"reliever",0.938,0.922222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"656641","Jacob Latz","Texas Rangers","L",2026-07-18,0,15,15,1,0,3,"reliever",0.944,0.916666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"641302","Tyler Alexander","Texas Rangers","L",2026-07-19,0,19,19,2,0,2,"reliever",0.864,0.894444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"668390","Cole Winn","Texas Rangers","R",2026-07-19,0,19,19,1,0,2,"reliever",1,0.894444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"687239","Ben Peoples","Texas Rangers","R",2026-07-20,15,41,47,2,2,1,"reliever",0.3,0.282222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"682608","Peyton Gray","Texas Rangers","R",2026-07-20,21,30,30,2,2,1,"reliever",1,0.243333333333333,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"692030","Jose Corniell","Texas Rangers","R",2026-07-20,35,35,35,1,1,1,"bulk",0.1,0.102222222222222,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"695239","Robby Ahlstrom","Texas Rangers","L",2026-07-20,27,43,43,3,3,1,"reliever",1,0,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"573009","Joe Mantiply","Toronto Blue Jays","L",2026-05-17,0,0,0,0,0,65,"reliever",0.85,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"623168","Tyler Heineman","Toronto Blue Jays","R",2026-06-05,0,0,0,0,0,46,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664074","Cody Ponce","Toronto Blue Jays","R",2026-03-30,0,0,0,0,0,113,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664702","Myles Straw","Toronto Blue Jays","R",2026-07-04,0,0,0,0,0,17,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669310","CJ Van Eyk","Toronto Blue Jays","R",2026-07-17,0,0,37,0,0,4,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"671936","Adam Macko","Toronto Blue Jays","L",2026-07-17,0,0,22,0,0,4,"reliever",0.85,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676596","Josh Fleming","Toronto Blue Jays","L",2026-04-06,0,0,0,0,0,106,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681084","Tanner Andrews","Toronto Blue Jays","R",2026-05-26,0,0,0,0,0,56,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"684320","Yariel Rodríguez","Toronto Blue Jays","R",2026-06-05,0,0,0,0,0,46,"reliever",0.5,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"689149","Chad Dallas","Toronto Blue Jays","R",2026-07-10,0,0,0,0,0,11,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"693686","Spencer Miles","Toronto Blue Jays","R",2026-07-17,0,0,60,0,0,4,"reliever",0.704,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"695445","Chase Lee","Toronto Blue Jays","R",2026-05-24,0,0,0,0,0,58,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"696522","Hayden Juenger","Toronto Blue Jays","R",2026-06-03,0,0,0,0,0,48,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"686973","Louis Varland","Toronto Blue Jays","R",2026-07-18,0,9,9,1,0,3,"reliever",1,0.95,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681751","Lazaro Estrada","Toronto Blue Jays","R",2026-07-19,0,10,10,1,0,2,"reliever",0.2,0.944444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"643511","Tyler Rogers","Toronto Blue Jays","R",2026-07-18,0,11,11,1,0,3,"reliever",1,0.938888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"656546","Jeff Hoffman","Toronto Blue Jays","R",2026-07-18,0,14,14,1,0,3,"reliever",1,0.922222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"689254","Mason Fluharty","Toronto Blue Jays","L",2026-07-19,0,22,22,1,0,2,"reliever",0.885,0.877777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"680755","Braydon Fisher","Toronto Blue Jays","R",2026-07-20,16,23,29,2,2,1,"reliever",0.745,0.365555555555556,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"663893","Brendon Little","Toronto Blue Jays","L",2026-07-20,28,28,28,1,1,1,"reliever",0.35,0.257777777777778,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"571945","Miles Mikolas","Washington Nationals","R",2026-07-11,0,0,0,0,0,10,"bulk",0.238,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"642759","Julian Fernández","Washington Nationals","R",2026-04-23,0,0,0,0,0,89,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"663992","Richard Lovelady","Washington Nationals","L",2026-06-28,0,0,0,0,0,23,"reliever",0.697,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"664875","Justin Lawrence","Washington Nationals","R",2026-07-12,0,0,0,0,0,9,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"669371","Cole Henry","Washington Nationals","R",2026-07-06,0,0,0,0,0,15,"reliever",0.55,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"671131","Jackson Rutledge","Washington Nationals","R",2026-04-13,0,0,0,0,0,99,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"676571","PJ Poulin","Washington Nationals","L",2026-07-11,0,0,0,0,0,10,"opener",0.371,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"678868","Eddy Yean","Washington Nationals","R",2026-07-05,0,0,0,0,0,16,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"680730","Mitchell Parker","Washington Nationals","L",2026-06-28,0,0,0,0,0,23,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"681402","Gus Varland","Washington Nationals","R",2026-06-25,0,0,0,0,0,26,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"686610","Ken Waldichuk","Washington Nationals","L",2026-04-12,0,0,0,0,0,100,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"686894","Joey Wiemer","Washington Nationals","R",2026-05-14,0,0,0,0,0,68,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"687377","Orlando Ribalta","Washington Nationals","R",2026-07-11,0,0,0,0,0,10,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"687606","Paxton Schultz","Washington Nationals","R",2026-06-23,0,0,0,0,0,28,"reliever",0.92,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"687849","Zak Kent","Washington Nationals","R",2026-07-03,0,0,0,0,0,18,"reliever",0.5,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"695418","Brad Lord","Washington Nationals","R",2026-07-05,0,0,0,0,0,16,"reliever",0.926,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"701552","Andre Granillo","Washington Nationals","R",2026-05-05,0,0,0,0,0,77,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"687223","Carson Palmquist","Washington Nationals","L",2026-07-18,0,7,7,1,0,3,"hybrid",0.05,0.961111111111111,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"678391","Jorbit Vivas","Washington Nationals","R",2026-07-18,0,17,27,1,0,3,"reliever",0.15,0.905555555555556,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"690925","Clayton Beeter","Washington Nationals","R",2026-07-19,0,24,24,1,0,2,"reliever",1,0.866666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"668820","Max Kranick","Washington Nationals","R",2026-07-18,0,32,32,1,0,3,"unknown",0.05,0.822222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21
-"640454","Matt Krook","Washington Nationals","L",2026-07-20,8,8,8,1,1,1,"reliever",0.5,0.702222222222222,"monitor","sabrhood_workload_heuristic_v1",2026-07-21
-"676680","Tom Cosgrove","Washington Nationals","L",2026-07-20,10,27,27,2,2,1,"reliever",0.2,0.443333333333333,"limited","sabrhood_workload_heuristic_v1",2026-07-21
-"683000","Riley Cornelio","Washington Nationals","R",2026-07-20,29,29,76,1,1,1,"reliever",0.4,0.235555555555556,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
-"674841","Andrew Alvarez","Washington Nationals","L",2026-07-20,74,74,74,1,1,1,"hybrid",0,0,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21
+"pitcher_id","pitcher_name","team","throws","last_appearance","pitches_last_1d","pitches_last_3d","pitches_last_7d","appearances_last_3d","consecutive_days_used","days_rest","pitcher_role","role_confidence","availability_score","availability_status","availability_method","as_of_date","source_through","generated_at_utc"
+"543510","James McCann","Arizona Diamondbacks","R",2026-04-30,0,0,0,0,0,82,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"545121","Ildemaro Vargas","Arizona Diamondbacks","R",2026-06-20,0,0,0,0,0,31,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669704","Kade Strowd","Arizona Diamondbacks","R",2026-06-06,0,0,0,0,0,45,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"680728","Adrian Del Castillo","Arizona Diamondbacks","R",2026-06-06,0,0,0,0,0,45,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"688497","Taylor Rashi","Arizona Diamondbacks","R",2026-04-13,0,0,0,0,0,99,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"694851","Andrew Hoffmann","Arizona Diamondbacks","R",2026-04-28,0,0,0,0,0,84,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"700270","Yilber Díaz","Arizona Diamondbacks","R",2026-06-20,0,0,0,0,0,31,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"666661","Juan Morillo","Arizona Diamondbacks","R",2026-07-19,0,12,36,1,0,2,"reliever",1,0.933333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"623149","Paul Sewald","Arizona Diamondbacks","R",2026-07-18,0,15,32,1,0,3,"reliever",1,0.916666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664199","Taylor Clarke","Arizona Diamondbacks","R",2026-07-19,0,15,30,1,0,2,"reliever",1,0.916666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"657044","Ryan Thompson","Arizona Diamondbacks","R",2026-07-19,0,23,23,2,0,2,"reliever",1,0.872222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"686753","Drey Jameson","Arizona Diamondbacks","R",2026-07-19,0,42,42,1,0,2,"reliever",0.55,0.766666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"691769","Philip Abner","Arizona Diamondbacks","L",2026-07-19,0,46,46,1,0,2,"reliever",0.25,0.744444444444444,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"694297","Brandon Pfaadt","Arizona Diamondbacks","R",2026-07-18,0,87,87,1,0,3,"hybrid",0.15,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"805299","Brandyn Garcia","Arizona Diamondbacks","L",2026-07-20,10,12,20,2,1,1,"reliever",1,0.646666666666667,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"642528","Jonathan Loáisiga","Arizona Diamondbacks","R",2026-07-20,10,25,25,2,1,1,"reliever",1,0.574444444444444,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"686228","Juan Burgos","Arizona Diamondbacks","R",2026-07-20,18,18,18,1,1,1,"reliever",0.1,0.48,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656464","Kevin Ginkel","Arizona Diamondbacks","R",2026-07-20,25,43,51,2,1,1,"reliever",1,0.224444444444444,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"547184","Michael Kelly","Athletics","R",2026-05-31,0,0,0,0,0,51,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"605130","Scott Barlow","Athletics","R",2026-06-20,0,0,0,0,0,31,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"621139","Brooks Kriske","Athletics","R",2026-05-13,0,0,0,0,0,69,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"666126","Carlos Cortes","Athletics","L",2026-07-17,0,0,23,0,0,4,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"678022","Jack Perkins","Athletics","R",2026-07-09,0,0,0,0,0,12,"hybrid",0.44,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"683155","Joey Estes","Athletics","R",2026-06-14,0,0,0,0,0,37,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"686930","Mason Barnett","Athletics","R",2026-07-10,0,0,0,0,0,11,"reliever",0.65,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"686993","Justin Sterner","Athletics","R",2026-07-17,0,0,30,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"695034","Kade Morris","Athletics","R",2026-07-04,0,0,0,0,0,17,"bulk",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"814305","Yunior Tur","Athletics","R",2026-07-17,0,0,47,0,0,4,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"665660","Elvis Alvarado","Athletics","R",2026-07-19,0,21,21,1,0,2,"reliever",1,0.883333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664129","Geoff Hartlieb","Athletics","R",2026-07-19,0,24,24,1,0,2,"reliever",0.3,0.866666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"643410","Mark Leiter Jr.","Athletics","R",2026-07-18,0,31,31,1,0,3,"reliever",1,0.827777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669620","Brady Basso","Athletics","L",2026-07-19,0,33,45,1,0,2,"reliever",0.35,0.816666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"660761","José Suarez","Athletics","L",2026-07-20,12,12,32,1,1,1,"reliever",0.882,0.613333333333333,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663687","Hogan Harris","Athletics","L",2026-07-20,26,37,37,2,1,1,"reliever",1,0.241111111111111,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"665622","Luis Medina","Athletics","R",2026-07-20,36,48,48,2,1,1,"reliever",0.941,0.0133333333333334,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"471911","Carlos Carrasco","Atlanta Braves","R",2026-07-05,0,0,0,0,0,16,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"606303","Joel Payamps","Atlanta Braves","R",2026-04-30,0,0,0,0,0,82,"reliever",0.6,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"607481","Aaron Bummer","Atlanta Braves","L",2026-05-18,0,0,0,0,0,64,"reliever",0.95,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"622761","Jorge Mateo","Atlanta Braves","R",2026-07-07,0,0,0,0,0,14,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"625643","Reynaldo López","Atlanta Braves","R",2026-07-11,0,0,0,0,0,10,"hybrid",0.13,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"641656","Ian Hamilton","Atlanta Braves","R",2026-07-02,0,0,0,0,0,19,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663158","Robert Suarez","Atlanta Braves","R",2026-06-19,0,0,0,0,0,32,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"671162","Connor Thomas","Atlanta Braves","L",2026-07-07,0,0,0,0,0,14,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"675916","James Karinchak","Atlanta Braves","R",2026-07-09,0,0,0,0,0,12,"reliever",0.45,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"683627","Anthony Molina","Atlanta Braves","R",2026-06-16,0,0,0,0,0,35,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"691548","Rolddy Muñoz","Atlanta Braves","R",2026-04-13,0,0,0,0,0,99,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"628452","Raisel Iglesias","Atlanta Braves","R",2026-07-19,0,16,30,2,0,2,"reliever",1,0.911111111111111,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"641755","Tyler Kinley","Atlanta Braves","R",2026-07-18,0,16,16,1,0,3,"reliever",1,0.911111111111111,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"702275","JR Ritchie","Atlanta Braves","R",2026-07-18,0,22,22,1,0,3,"hybrid",0.05,0.877777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"800311","Didier Fuentes","Atlanta Braves","R",2026-07-19,0,27,27,2,0,2,"reliever",0.939,0.85,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"689266","Dylan Dodd","Atlanta Braves","L",2026-07-19,0,36,36,2,0,2,"reliever",1,0.8,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669276","Dylan Lee","Atlanta Braves","L",2026-07-19,0,45,45,2,0,2,"reliever",1,0.75,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"702566","Owen Murphy","Atlanta Braves","R",2026-07-18,0,49,49,1,0,3,"hybrid",0.05,0.727777777777778,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664849","Danny Young","Atlanta Braves","L",2026-07-20,13,32,32,2,1,1,"reliever",0.25,0.485555555555556,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"682989","Victor Mederos","Atlanta Braves","R",2026-07-20,29,29,63,1,1,1,"reliever",0.25,0.235555555555556,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"544150","Albert Suárez","Baltimore Orioles","R",2026-07-08,0,0,0,0,0,13,"reliever",0.8,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"608650","Dietrich Enns","Baltimore Orioles","L",2026-05-25,0,0,0,0,0,57,"reliever",0.65,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"621107","Zach Eflin","Baltimore Orioles","R",2026-03-31,0,0,0,0,0,112,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"642215","Weston Wilson","Baltimore Orioles","R",2026-05-18,0,0,0,0,0,64,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664744","Jose Espada","Baltimore Orioles","R",2026-04-30,0,0,0,0,0,82,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664854","Ryan Helsley","Baltimore Orioles","R",2026-06-27,0,0,0,0,0,24,"reliever",0.85,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669211","Keegan Akin","Baltimore Orioles","L",2026-06-27,0,0,0,0,0,24,"reliever",0.833,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"671382","Cameron Foster","Baltimore Orioles","R",2026-05-18,0,0,0,0,0,64,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"675919","Nick Raquet","Baltimore Orioles","L",2026-07-07,0,0,0,0,0,14,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"677020","Josh Walker","Baltimore Orioles","L",2026-06-30,0,0,0,0,0,21,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"682274","Yaramil Hiraldo","Baltimore Orioles","R",2026-03-31,0,0,0,0,0,112,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"687721","Cameron Weston","Baltimore Orioles","R",2026-05-28,0,0,0,0,0,54,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"689296","Anthony Nunez","Baltimore Orioles","R",2026-07-17,0,0,36,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676742","Cam Sanders","Baltimore Orioles","R",2026-07-18,0,9,23,1,0,3,"reliever",0.55,0.95,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"552640","Andrew Kittredge","Baltimore Orioles","R",2026-07-18,0,10,26,1,0,3,"reliever",1,0.944444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664991","Grant Wolfram","Baltimore Orioles","L",2026-07-19,0,12,27,1,0,2,"reliever",1,0.933333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"670329","Rico Garcia","Baltimore Orioles","R",2026-07-19,0,26,26,2,0,2,"reliever",1,0.855555555555556,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"666974","Yennier Cano","Baltimore Orioles","R",2026-07-20,10,20,20,2,1,1,"reliever",1,0.602222222222222,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669330","Tyler Wells","Baltimore Orioles","R",2026-07-20,21,35,64,2,1,1,"reliever",1,0.335555555555556,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"543056","Danny Coulombe","Boston Red Sox","L",2026-07-11,0,0,0,0,0,10,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"592454","Tommy Kahnle","Boston Red Sox","R",2026-06-30,0,0,0,0,0,21,"reliever",0.35,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"670912","Johan Oviedo","Boston Red Sox","R",2026-03-31,0,0,0,0,0,112,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"677161","Zack Kelly","Boston Red Sox","R",2026-05-19,0,0,0,0,0,63,"reliever",0.85,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681252","Jack Anderson","Boston Red Sox","R",2026-04-21,0,0,0,0,0,91,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"686580","Justin Slaten","Boston Red Sox","R",2026-07-17,0,0,12,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"686747","Joe La Sorsa","Boston Red Sox","L",2026-06-07,0,0,0,0,0,44,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"687941","Alec Gamboa","Boston Red Sox","L",2026-07-17,0,0,43,0,0,4,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"700413","Tyler Uberstine","Boston Red Sox","R",2026-04-05,0,0,0,0,0,107,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"701719","Tyler Samaniego","Boston Red Sox","L",2026-06-02,0,0,0,0,0,49,"reliever",0.9,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669711","Greg Weissert","Boston Red Sox","R",2026-07-19,0,12,19,1,0,2,"reliever",1,0.933333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663558","Jovani Morán","Boston Red Sox","L",2026-07-19,0,15,26,1,0,2,"reliever",0.778,0.916666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"670245","Ryan Watson","Boston Red Sox","R",2026-07-19,0,42,42,2,0,2,"reliever",1,0.766666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676477","Garrett Whitlock","Boston Red Sox","R",2026-07-20,11,19,31,2,1,1,"reliever",1,0.591111111111111,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"594027","Tyron Guerrero","Boston Red Sox","R",2026-07-20,19,19,32,1,1,1,"reliever",1,0.457777777777778,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"547973","Aroldis Chapman","Boston Red Sox","L",2026-07-20,22,42,61,2,1,1,"reliever",1,0.28,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"571948","Hoby Milner","Chicago Cubs","L",2026-06-25,0,0,0,0,0,26,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"592826","Vince Velasquez","Chicago Cubs","R",2026-06-27,0,0,0,0,0,24,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"605441","Yacksel Ríos","Chicago Cubs","R",2026-04-26,0,0,0,0,0,86,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"608348","Carson Kelly","Chicago Cubs","R",2026-06-05,0,0,0,0,0,46,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"621389","Ty Blach","Chicago Cubs","L",2026-05-18,0,0,0,0,0,64,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"640451","Hunter Harvey","Chicago Cubs","R",2026-04-08,0,0,0,0,0,104,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656686","Corbin Martin","Chicago Cubs","R",2026-05-06,0,0,0,0,0,76,"reliever",0.35,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663765","Jake Woodford","Chicago Cubs","R",2026-07-10,0,0,0,0,0,11,"reliever",0.85,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676962","Ben Brown","Chicago Cubs","R",2026-06-19,0,0,0,0,0,32,"hybrid",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681151","Jayden Murray","Chicago Cubs","R",2026-06-26,0,0,0,0,0,25,"reliever",0.5,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681432","Luke Little","Chicago Cubs","L",2026-04-15,0,0,0,0,0,97,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681799","Ethan Roberts","Chicago Cubs","R",2026-06-28,0,0,0,0,0,23,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"694037","Daniel Palencia","Chicago Cubs","R",2026-06-15,0,0,0,0,0,36,"reliever",0.95,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"696136","Jordan Wicks","Chicago Cubs","L",2026-07-01,0,0,0,0,0,20,"hybrid",0,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"702303","Riley Martin","Chicago Cubs","L",2026-04-23,0,0,0,0,0,89,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"519141","Drew Pomeranz","Chicago Cubs","L",2026-07-19,0,20,41,1,0,2,"reliever",1,0.888888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664208","Phil Maton","Chicago Cubs","R",2026-07-19,0,23,23,1,0,2,"reliever",1,0.872222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663423","Trent Thornton","Chicago Cubs","R",2026-07-20,4,14,14,2,1,1,"reliever",1,0.735555555555556,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"573204","Caleb Thielbar","Chicago Cubs","L",2026-07-20,5,20,20,2,1,1,"reliever",1,0.685555555555556,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"668970","Gavin Hollowell","Chicago Cubs","R",2026-07-20,12,12,20,1,1,1,"reliever",0.5,0.613333333333333,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"657097","Jacob Webb","Chicago Cubs","R",2026-07-20,15,32,32,2,1,1,"reliever",1,0.452222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"621053","Tyler Ferguson","Chicago Cubs","R",2026-07-20,20,20,27,1,1,1,"reliever",0.6,0.435555555555556,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669020","Ryan Rolison","Chicago Cubs","L",2026-07-20,20,20,35,1,1,1,"reliever",0.882,0.435555555555556,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"665871","Javier Assad","Chicago Cubs","R",2026-07-20,26,26,26,1,1,1,"hybrid",0,0.302222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"608371","Lucas Sims","Chicago White Sox","R",2026-04-23,0,0,0,0,0,89,"reliever",0.45,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"624512","Reese McGuire","Chicago White Sox","R",2026-04-15,0,0,0,0,0,97,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656457","Tyler Gilbert","Chicago White Sox","L",2026-06-09,0,0,0,0,0,42,"hybrid",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"673929","Jordan Leasure","Chicago White Sox","R",2026-05-28,0,0,0,0,0,54,"reliever",0.8,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"674370","Osvaldo Bido","Chicago White Sox","R",2026-05-06,0,0,0,0,0,76,"reliever",0.55,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"680951","Doug Nikhazy","Chicago White Sox","L",2026-04-18,0,0,0,0,0,94,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"682668","Luisangel Acuña","Chicago White Sox","R",2026-06-16,0,0,0,0,0,35,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"686563","Jonathan Cannon","Chicago White Sox","R",2026-04-12,0,0,0,0,0,100,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"697812","Joe Rock","Chicago White Sox","L",2026-06-24,0,0,0,0,0,27,"bulk",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"699151","Jedixson Paez","Chicago White Sox","R",2026-03-31,0,0,0,0,0,112,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"699823","Tyler Davis","Chicago White Sox","R",2026-07-10,0,0,0,0,0,11,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"701474","Duncan Davitt","Chicago White Sox","R",2026-04-10,0,0,0,0,0,102,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"805326","Tyler Schweitzer","Chicago White Sox","L",2026-07-17,0,0,54,0,0,4,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"691799","Grant Taylor","Chicago White Sox","R",2026-07-19,0,9,9,1,0,2,"reliever",0.784,0.95,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663542","Bryan Hudson","Chicago White Sox","L",2026-07-19,0,15,15,1,0,2,"reliever",0.721,0.916666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669684","Chris Murphy","Chicago White Sox","L",2026-07-20,15,15,15,1,1,1,"reliever",0.818,0.546666666666667,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"622554","Seranthony Domínguez","Chicago White Sox","R",2026-07-20,17,17,19,1,1,1,"reliever",1,0.502222222222222,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"670950","Trevor Richards","Chicago White Sox","R",2026-07-20,18,18,54,1,1,1,"reliever",1,0.48,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663855","Jordan Hicks","Chicago White Sox","R",2026-07-20,19,27,27,2,1,1,"reliever",1,0.413333333333333,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656794","Sean Newcomb","Chicago White Sox","L",2026-07-20,20,35,35,2,1,1,"reliever",0.946,0.352222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"607200","Erick Fedde","Chicago White Sox","R",2026-07-20,64,64,64,1,1,1,"hybrid",0,0,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"605335","Brandon Leibrandt","Cincinnati Reds","L",2026-06-01,0,0,0,0,0,50,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"622088","Tejay Antone","Cincinnati Reds","R",2026-07-17,0,0,11,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"624431","Jose Trevino","Cincinnati Reds","R",2026-05-08,0,0,0,0,0,74,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"628708","Yunior Marte","Cincinnati Reds","R",2026-05-29,0,0,0,0,0,53,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663574","Tony Santillan","Cincinnati Reds","R",2026-06-22,0,0,0,0,0,29,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664731","P.J. Higgins","Cincinnati Reds","R",2026-04-10,0,0,0,0,0,102,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"668933","Graham Ashcraft","Cincinnati Reds","R",2026-05-25,0,0,0,0,0,57,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"680689","Lyon Richardson","Cincinnati Reds","R",2026-06-01,0,0,0,0,0,50,"hybrid",0,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"682825","Luis Mey","Cincinnati Reds","R",2026-06-06,0,0,0,0,0,45,"reliever",0.35,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"683175","Connor Phillips","Cincinnati Reds","R",2026-05-23,0,0,0,0,0,59,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"683742","Jose Franco","Cincinnati Reds","R",2026-05-23,0,0,0,0,0,59,"reliever",0.45,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"685112","Zach McCambley","Cincinnati Reds","R",2026-06-28,0,0,0,0,0,23,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"687209","Zach Maxwell","Cincinnati Reds","R",2026-06-19,0,0,0,0,0,32,"reliever",0.5,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"693312","Kyle Nicolas","Cincinnati Reds","R",2026-04-24,0,0,0,0,0,88,"reliever",0.35,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656271","Brock Burke","Cincinnati Reds","L",2026-07-19,0,9,28,1,0,2,"reliever",1,0.95,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"641941","Emilio Pagán","Cincinnati Reds","R",2026-07-19,0,22,22,1,0,2,"reliever",0.95,0.877777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"670062","Julian Garcia","Cincinnati Reds","R",2026-07-18,0,32,32,1,0,3,"reliever",0.45,0.822222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"594580","Sam Moll","Cincinnati Reds","L",2026-07-19,0,37,37,2,0,2,"reliever",1,0.794444444444445,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"695534","Chase Petty","Cincinnati Reds","R",2026-07-20,13,13,13,1,1,1,"reliever",0.4,0.591111111111111,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"657571","Caleb Ferguson","Cincinnati Reds","L",2026-07-20,12,30,30,2,1,1,"reliever",1,0.513333333333333,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"572955","Pierce Johnson","Cincinnati Reds","R",2026-07-20,16,31,31,2,1,1,"reliever",1,0.441111111111111,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"595978","Austin Hedges","Cleveland Guardians","R",2026-06-07,0,0,0,0,0,44,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"641401","Connor Brogdon","Cleveland Guardians","R",2026-05-07,0,0,0,0,0,75,"reliever",0.75,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663465","Kolby Allard","Cleveland Guardians","L",2026-04-12,0,0,0,0,0,100,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676051","Codi Heuer","Cleveland Guardians","R",2026-07-17,0,0,18,0,0,4,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"682120","Tim Herrin","Cleveland Guardians","L",2026-07-08,0,0,0,0,0,13,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"682982","Daniel Espino","Cleveland Guardians","R",2026-07-02,0,0,0,0,0,19,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"688883","Peyton Pallette","Cleveland Guardians","R",2026-05-23,0,0,0,0,0,59,"reliever",0.8,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681870","Erik Sabrowski","Cleveland Guardians","L",2026-07-18,0,10,10,1,0,3,"reliever",1,0.944444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"671922","Cade Smith","Cleveland Guardians","R",2026-07-18,0,13,25,1,0,3,"reliever",1,0.927777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"683769","Hunter Gaddis","Cleveland Guardians","R",2026-07-19,0,13,13,1,0,2,"reliever",1,0.927777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"680916","Franco Aleman","Cleveland Guardians","R",2026-07-19,0,36,36,2,0,2,"reliever",0.45,0.8,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"702021","Will Dion","Cleveland Guardians","L",2026-07-19,0,45,45,2,0,2,"reliever",0.4,0.75,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"671106","Logan Allen","Cleveland Guardians","L",2026-07-18,0,81,81,1,0,3,"hybrid",0,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"670059","Colin Holderman","Cleveland Guardians","R",2026-07-20,14,29,29,2,1,1,"reliever",1,0.485555555555556,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"542888","Shawn Armstrong","Cleveland Guardians","R",2026-07-20,19,29,29,2,1,1,"reliever",1,0.402222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"670036","Matt Festa","Cleveland Guardians","R",2026-07-20,24,24,52,1,1,1,"reliever",1,0.346666666666667,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"605154","John Brebbia","Colorado Rockies","R",2026-06-30,0,0,0,0,0,21,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"623474","Jimmy Herget","Colorado Rockies","R",2026-07-17,0,0,14,0,0,4,"reliever",0.778,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"624522","Keegan Thompson","Colorado Rockies","R",2026-06-07,0,0,0,0,0,44,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664954","Brett Sullivan","Colorado Rockies","R",2026-06-30,0,0,0,0,0,21,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669298","TJ Shook","Colorado Rockies","R",2026-07-09,0,0,0,0,0,12,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"671111","Sammy Peralta","Colorado Rockies","L",2026-06-11,0,0,0,0,0,40,"hybrid",0,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676105","Jeff Criswell","Colorado Rockies","R",2026-07-17,0,0,30,0,0,4,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"677955","Jaden Hill","Colorado Rockies","R",2026-06-20,0,0,0,0,0,31,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"678020","Seth Halvorsen","Colorado Rockies","R",2026-06-30,0,0,0,0,0,21,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"678368","Valente Bellozo","Colorado Rockies","R",2026-04-12,0,0,0,0,0,100,"bulk",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"680604","Blas Castaño","Colorado Rockies","R",2026-06-16,0,0,0,0,0,35,"reliever",0.5,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"682769","Eiberson Castellano","Colorado Rockies","R",2026-06-14,0,0,0,0,0,37,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"700327","Welinton Herrera","Colorado Rockies","L",2026-05-30,0,0,0,0,0,52,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"801403","Chase Dollander","Colorado Rockies","R",2026-05-14,0,0,0,0,0,68,"bulk",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"688642","Zach Agnos","Colorado Rockies","R",2026-07-18,0,9,9,1,0,3,"reliever",0.846,0.95,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"605447","Jordan Romano","Colorado Rockies","R",2026-07-19,0,12,12,1,0,2,"reliever",0.85,0.933333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"657514","Brennan Bernardino","Colorado Rockies","L",2026-07-18,0,17,17,1,0,3,"reliever",0.917,0.905555555555556,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"685299","Tanner Gordon","Colorado Rockies","R",2026-07-19,0,66,66,1,0,2,"bulk",0.15,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"675848","Juan Mejia","Colorado Rockies","R",2026-07-20,12,28,28,2,1,1,"reliever",0.951,0.524444444444444,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"680767","Victor Vodnik","Colorado Rockies","R",2026-07-20,18,18,30,1,1,1,"reliever",1,0.48,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"622608","Antonio Senzatela","Colorado Rockies","R",2026-07-20,19,19,19,1,1,1,"reliever",1,0.457777777777778,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"434378","Justin Verlander","Detroit Tigers","R",2026-03-31,0,0,0,0,0,112,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"572143","Burch Smith","Detroit Tigers","R",2026-05-21,0,0,0,0,0,61,"reliever",0.55,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"646241","Enmanuel De Jesus","Detroit Tigers","L",2026-06-26,0,0,0,0,0,25,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"668670","Jake Rogers","Detroit Tigers","R",2026-05-12,0,0,0,0,0,70,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676428","Brant Hurter","Detroit Tigers","L",2026-05-22,0,0,0,0,0,60,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676568","Ricky Vanasco","Detroit Tigers","R",2026-05-28,0,0,0,0,0,54,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676684","Will Vest","Detroit Tigers","R",2026-06-27,0,0,0,0,0,24,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"680744","Ty Madden","Detroit Tigers","R",2026-06-12,0,0,0,0,0,39,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"689225","Beau Brieske","Detroit Tigers","R",2026-07-12,0,0,0,0,0,9,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"623454","Drew Anderson","Detroit Tigers","R",2026-07-19,0,32,32,1,0,2,"reliever",0.886,0.822222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669724","Brenan Hanifee","Detroit Tigers","R",2026-07-19,0,38,38,2,0,2,"reliever",0.65,0.788888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"621097","Jacob Waguespack","Detroit Tigers","R",2026-07-20,15,38,38,2,1,1,"reliever",0.55,0.418888888888889,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663947","Tyler Holton","Detroit Tigers","L",2026-07-20,13,33,33,2,2,1,"reliever",0.905,0.36,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"640448","Kyle Finnegan","Detroit Tigers","R",2026-07-20,26,28,28,2,1,1,"reliever",1,0.291111111111111,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"805427","Drew Sommers","Detroit Tigers","L",2026-07-20,29,29,29,1,1,1,"reliever",0.9,0.235555555555556,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"445276","Kenley Jansen","Detroit Tigers","R",2026-07-20,28,47,47,2,2,1,"reliever",1,0.0322222222222222,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"641585","J.P. France","Houston Astros","R",2026-04-18,0,0,0,0,0,94,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656986","Bennett Sousa","Houston Astros","L",2026-05-05,0,0,0,0,0,77,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663878","Nate Pearson","Houston Astros","R",2026-07-08,0,0,0,0,0,13,"reliever",0.8,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663967","César Salazar","Houston Astros","R",2026-05-06,0,0,0,0,0,76,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669920","Jason Alexander","Houston Astros","R",2026-05-27,0,0,0,0,0,55,"hybrid",0,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"675989","Cody Bolton","Houston Astros","R",2026-05-17,0,0,0,0,0,65,"hybrid",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676467","Colton Gordon","Houston Astros","L",2026-04-25,0,0,0,0,0,87,"hybrid",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676694","Jake Meyers","Houston Astros","L",2026-06-26,0,0,0,0,0,25,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"680802","Ryan Weiss","Houston Astros","R",2026-05-05,0,0,0,0,0,77,"bulk",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"682610","Roddery Muñoz","Houston Astros","R",2026-04-04,0,0,0,0,0,108,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"685005","Christian Roa","Houston Astros","R",2026-04-17,0,0,0,0,0,95,"reliever",0.35,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"695001","Alimber Santa","Houston Astros","R",2026-07-08,0,0,0,0,0,13,"reliever",0.5,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"699044","Miguel Ullola","Houston Astros","R",2026-07-01,0,0,0,0,0,20,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"701121","Logan VanWey","Houston Astros","R",2026-06-23,0,0,0,0,0,28,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"687911","Bryan King","Houston Astros","L",2026-07-19,0,14,31,1,0,2,"reliever",1,0.922222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664299","Cristian Javier","Houston Astros","R",2026-07-19,0,20,20,1,0,2,"hybrid",0.05,0.888888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"805123","AJ Blubaugh","Houston Astros","R",2026-07-18,0,40,40,1,0,3,"reliever",1,0.777777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"678906","Kai-Wei Teng","Houston Astros","R",2026-07-19,0,46,46,1,0,2,"hybrid",0.167,0.744444444444444,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"623352","Josh Hader","Houston Astros","L",2026-07-20,16,29,29,2,1,1,"reliever",1,0.452222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"595345","Steven Okert","Houston Astros","L",2026-07-20,19,33,49,2,1,1,"reliever",0.959,0.38,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"660853","Enyel De Los Santos","Houston Astros","R",2026-07-20,22,47,59,2,1,1,"reliever",1,0.252222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"650556","Bryan Abreu","Houston Astros","R",2026-07-20,28,43,43,2,1,1,"reliever",1,0.174444444444444,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669854","Ronel Blanco","Houston Astros","R",2026-07-20,86,86,86,1,1,1,"unknown",0.05,0,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"608032","Carlos Estévez","Kansas City Royals","R",2026-03-28,0,0,0,0,0,115,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"621016","Jose Cuas","Kansas City Royals","R",2026-07-09,0,0,0,0,0,12,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"657756","Connor Seabold","Kansas City Royals","R",2026-06-30,0,0,0,0,0,21,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663559","Bailey Falter","Kansas City Royals","L",2026-05-26,0,0,0,0,0,56,"hybrid",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"670167","John Schreiber","Kansas City Royals","R",2026-07-17,0,0,12,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"672021","Eric Cerantola","Kansas City Royals","R",2026-06-30,0,0,0,0,0,21,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"679883","Luinder Avila","Kansas City Royals","R",2026-07-10,0,0,0,0,0,11,"hybrid",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"683232","Nick Mears","Kansas City Royals","R",2026-05-27,0,0,0,0,0,55,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"687765","Mitch Spence","Kansas City Royals","R",2026-06-26,0,0,0,0,0,25,"bulk",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"696131","Mason Black","Kansas City Royals","R",2026-06-18,0,0,0,0,0,33,"reliever",0.6,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669212","Eli Morgan","Kansas City Royals","R",2026-07-18,0,10,10,1,0,3,"reliever",0.8,0.944444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"621381","Matt Strahm","Kansas City Royals","L",2026-07-19,0,19,19,1,0,2,"reliever",1,0.894444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"668674","Lucas Erceg","Kansas City Royals","R",2026-07-19,0,26,50,1,0,2,"reliever",1,0.855555555555556,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"686475","Tyler Tolbert","Kansas City Royals","R",2026-07-19,0,37,37,1,0,2,"reliever",0.25,0.794444444444445,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"694360","Beck Way","Kansas City Royals","R",2026-07-19,0,51,51,2,0,2,"reliever",0.9,0.716666666666667,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"677976","Randy Dobnak","Kansas City Royals","R",2026-07-18,0,96,96,1,0,3,"bulk",0.05,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"674444","Steven Cruz","Kansas City Royals","R",2026-07-20,10,12,26,2,1,1,"reliever",0.875,0.646666666666667,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656638","Alex Lange","Kansas City Royals","R",2026-07-20,19,19,31,1,1,1,"reliever",1,0.457777777777778,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663738","Daniel Lynch IV","Kansas City Royals","L",2026-07-20,15,41,41,2,1,1,"reliever",1,0.402222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"489446","Kirby Yates","Los Angeles Angels","R",2026-07-17,0,0,20,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"624428","Adam Frazier","Los Angeles Angels","R",2026-05-17,0,0,0,0,0,65,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"641312","Shaun Anderson","Los Angeles Angels","R",2026-04-25,0,0,0,0,0,87,"reliever",0.45,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"642048","Tayler Saucedo","Los Angeles Angels","L",2026-07-07,0,0,0,0,0,14,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664192","Joey Lucchesi","Los Angeles Angels","L",2026-04-28,0,0,0,0,0,84,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"666201","Alek Manoah","Los Angeles Angels","R",2026-05-17,0,0,0,0,0,65,"bulk",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"680704","Nick Sandlin","Los Angeles Angels","R",2026-05-03,0,0,0,0,0,79,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"695049","Brett Kerry","Los Angeles Angels","R",2026-06-17,0,0,0,0,0,34,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"815083","Mitch Farris","Los Angeles Angels","L",2026-07-11,0,0,0,0,0,10,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"696147","Sam Bachman","Los Angeles Angels","R",2026-07-19,0,6,29,1,0,2,"reliever",1,0.966666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681217","Chase Silseth","Los Angeles Angels","R",2026-07-19,0,14,14,1,0,2,"reliever",1,0.922222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"666171","Ryan Zeferjahn","Los Angeles Angels","R",2026-07-19,0,15,27,1,0,2,"reliever",1,0.916666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"608718","Brent Suter","Los Angeles Angels","L",2026-07-18,0,39,39,1,0,3,"reliever",0.889,0.783333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"696519","Samy Natera Jr.","Los Angeles Angels","L",2026-07-20,13,26,29,2,2,1,"reliever",0.75,0.398888888888889,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"820862","José Fermin","Los Angeles Angels","R",2026-07-20,21,50,50,2,1,1,"reliever",1,0.252222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"500743","Miguel Rojas","Los Angeles Dodgers","R",2026-06-27,0,0,0,0,0,24,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"595014","Blake Treinen","Los Angeles Dodgers","R",2026-06-19,0,0,0,0,0,32,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"605483","Blake Snell","Los Angeles Dodgers","L",2026-05-10,0,0,0,0,0,72,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"621242","Edwin Díaz","Los Angeles Dodgers","R",2026-04-19,0,0,0,0,0,93,"reliever",0.35,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"642546","Jonathan Hernández","Los Angeles Dodgers","R",2026-06-29,0,0,0,0,0,22,"reliever",0.6,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656212","Charlie Barnes","Los Angeles Dodgers","L",2026-07-01,0,0,0,0,0,20,"bulk",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656945","Tanner Scott","Los Angeles Dodgers","L",2026-07-17,0,0,11,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"670090","Wyatt Mills","Los Angeles Dodgers","R",2026-06-30,0,0,0,0,0,21,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"671109","Jake Eder","Los Angeles Dodgers","L",2026-05-02,0,0,0,0,0,80,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676508","Ben Casparius","Los Angeles Dodgers","R",2026-04-12,0,0,0,0,0,100,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"694646","Chayce McDermott","Los Angeles Dodgers","R",2026-06-21,0,0,0,0,0,30,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"801434","Paul Gervase","Los Angeles Dodgers","R",2026-07-05,0,0,0,0,0,16,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676263","Jack Dreyer","Los Angeles Dodgers","L",2026-07-19,0,17,38,1,0,2,"reliever",0.95,0.905555555555556,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"683618","Edgardo Henriquez","Los Angeles Dodgers","R",2026-07-19,0,21,21,1,0,2,"reliever",1,0.883333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"592779","Brock Stewart","Los Angeles Dodgers","R",2026-07-19,0,22,22,1,0,2,"reliever",0.55,0.877777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"623465","Evan Phillips","Los Angeles Dodgers","R",2026-07-19,0,24,24,1,0,2,"reliever",0.25,0.866666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"694361","Will Klein","Los Angeles Dodgers","R",2026-07-19,0,24,24,1,0,2,"reliever",0.818,0.866666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669165","Kyle Hurt","Los Angeles Dodgers","R",2026-07-19,0,29,29,1,0,2,"reliever",0.939,0.838888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681911","Alex Vesia","Los Angeles Dodgers","L",2026-07-20,12,22,34,2,2,1,"reliever",1,0.437777777777778,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"689017","Landon Knack","Los Angeles Dodgers","R",2026-07-20,30,30,30,1,1,1,"bulk",0.1,0.213333333333333,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663969","Tyler Phillips","Miami Marlins","R",2026-07-12,0,0,0,0,0,9,"hybrid",0.231,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"667463","John King","Miami Marlins","L",2026-07-07,0,0,0,0,0,14,"reliever",0.95,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669622","Anthony Bender","Miami Marlins","R",2026-06-27,0,0,0,0,0,24,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"677053","Andrew Nardi","Miami Marlins","L",2026-05-27,0,0,0,0,0,55,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"687531","William Kempner","Miami Marlins","R",2026-07-11,0,0,0,0,0,10,"reliever",0.45,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"687985","Josh White","Miami Marlins","R",2026-05-31,0,0,0,0,0,51,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"691594","Javier Sanoja","Miami Marlins","R",2026-07-02,0,0,0,0,0,19,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"694350","Zach Brzykcy","Miami Marlins","R",2026-06-30,0,0,0,0,0,21,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"694795","Josh Ekness","Miami Marlins","R",2026-05-13,0,0,0,0,0,69,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"702281","Robby Snelling","Miami Marlins","L",2026-05-08,0,0,0,0,0,74,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656848","Michael Petersen","Miami Marlins","R",2026-07-19,0,18,39,1,0,2,"reliever",1,0.9,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664126","Pete Fairbanks","Miami Marlins","R",2026-07-19,0,19,43,1,0,2,"reliever",0.939,0.894444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676604","Tyler Zuber","Miami Marlins","R",2026-07-18,0,22,22,1,0,3,"reliever",0.8,0.877777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676534","Calvin Faucher","Miami Marlins","R",2026-07-18,0,31,45,1,0,3,"reliever",1,0.827777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"687473","Ryan Gusto","Miami Marlins","R",2026-07-18,0,38,38,1,0,3,"hybrid",0.05,0.788888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"806188","Cade Gibson","Miami Marlins","L",2026-07-19,0,40,40,2,0,2,"reliever",1,0.777777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669199","Lake Bachar","Miami Marlins","R",2026-07-20,14,14,34,1,1,1,"reliever",0.765,0.568888888888889,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"690978","Dax Fulton","Miami Marlins","L",2026-07-20,45,45,45,1,1,1,"reliever",0.2,0.03,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"657649","Jared Koenig","Milwaukee Brewers","L",2026-07-12,0,0,0,0,0,9,"reliever",0.45,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"668831","Garrett Stallings","Milwaukee Brewers","R",2026-07-08,0,0,0,0,0,13,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"668834","Easton McGee","Milwaukee Brewers","R",2026-05-01,0,0,0,0,0,81,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669060","Bryse Wilson","Milwaukee Brewers","R",2026-07-12,0,0,0,0,0,9,"bulk",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669084","DL Hall","Milwaukee Brewers","L",2026-06-04,0,0,0,0,0,47,"reliever",0.917,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669270","Joel Kuhnel","Milwaukee Brewers","R",2026-07-02,0,0,0,0,0,19,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"672582","Angel Zerpa","Milwaukee Brewers","L",2026-04-25,0,0,0,0,0,87,"reliever",0.6,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"680723","Drew Rom","Milwaukee Brewers","L",2026-07-05,0,0,0,0,0,16,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"692230","Carlos Rodriguez","Milwaukee Brewers","R",2026-05-30,0,0,0,0,0,52,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"702153","Brian Fitzpatrick","Milwaukee Brewers","L",2026-06-06,0,0,0,0,0,45,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656730","Trevor Megill","Milwaukee Brewers","R",2026-07-18,0,13,24,1,0,3,"reliever",1,0.927777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"682842","Abner Uribe","Milwaukee Brewers","R",2026-07-18,0,17,28,1,0,3,"reliever",1,0.905555555555556,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676879","Aaron Ashby","Milwaukee Brewers","L",2026-07-19,0,18,35,1,0,2,"reliever",0.957,0.9,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"694477","Chad Patrick","Milwaukee Brewers","R",2026-07-19,0,34,55,1,0,2,"reliever",0.625,0.811111111111111,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"675660","Shane Drohan","Milwaukee Brewers","L",2026-07-18,0,90,90,1,0,3,"hybrid",0,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"684974","Craig Yoho","Milwaukee Brewers","R",2026-07-20,17,35,47,2,1,1,"reliever",0.6,0.402222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681982","Grant Anderson","Milwaukee Brewers","R",2026-07-20,16,24,24,2,2,1,"reliever",1,0.36,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"472610","Luis García","Minnesota Twins","R",2026-05-17,0,0,0,0,0,65,"reliever",0.75,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"573124","Taylor Rogers","Minnesota Twins","L",2026-07-17,0,0,2,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"606115","Orlando Arcia","Minnesota Twins","R",2026-05-27,0,0,0,0,0,55,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"607455","Anthony Banda","Minnesota Twins","L",2026-06-28,0,0,0,0,0,23,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"608723","Austin Voth","Minnesota Twins","R",2026-06-23,0,0,0,0,0,28,"bulk",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"623437","Justin Topa","Minnesota Twins","R",2026-05-18,0,0,0,0,0,64,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663485","Cole Sands","Minnesota Twins","R",2026-04-28,0,0,0,0,0,84,"reliever",0.6,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"670183","Garrett Acton","Minnesota Twins","R",2026-04-25,0,0,0,0,0,87,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"672782","Yoendrys Gómez","Minnesota Twins","R",2026-07-17,0,0,22,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"679358","Eric Orze","Minnesota Twins","R",2026-07-08,0,0,0,0,0,13,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"689520","Cody Laweryson","Minnesota Twins","R",2026-07-01,0,0,0,0,0,20,"reliever",0.75,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"694397","Marco Raya","Minnesota Twins","R",2026-07-04,0,0,0,0,0,17,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"702193","Andrew Morris","Minnesota Twins","R",2026-07-17,0,0,14,0,0,4,"reliever",0.889,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"804619","John Klein","Minnesota Twins","R",2026-05-30,0,0,0,0,0,52,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"696070","Kendry Rojas","Minnesota Twins","L",2026-07-18,0,18,18,1,0,3,"hybrid",0.15,0.9,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"702474","Mike Paredes","Minnesota Twins","R",2026-07-18,0,40,40,1,0,3,"hybrid",0.05,0.777777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"701519","Travis Adams","Minnesota Twins","R",2026-07-19,0,45,45,1,0,2,"reliever",0.95,0.75,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656577","Alex Jackson","Minnesota Twins","R",2026-07-20,11,11,11,1,1,1,"reliever",0.1,0.635555555555556,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681892","Kody Funderburk","Minnesota Twins","L",2026-07-20,16,30,30,2,2,1,"reliever",1,0.326666666666667,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"808970","Woo-Suk Go","Minnesota Twins","R",2026-07-20,24,47,47,2,2,1,"reliever",0.2,0.0988888888888889,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"667297","Tommy Nance","Minnesota Twins","R",2026-07-20,36,36,61,1,1,1,"reliever",1,0.08,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"548384","Brooks Raley","New York Mets","L",2026-07-16,0,0,7,0,0,5,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"596133","Luke Weaver","New York Mets","R",2026-07-16,0,0,9,0,0,5,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"605218","Carl Edwards Jr.","New York Mets","R",2026-04-29,0,0,0,0,0,83,"bulk",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"620443","Luis Torrens","New York Mets","R",2026-07-04,0,0,0,0,0,17,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"642207","Devin Williams","New York Mets","R",2026-07-16,0,0,13,0,0,5,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"650960","Daniel Duarte","New York Mets","R",2026-06-14,0,0,0,0,0,37,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"668964","Tobias Myers","New York Mets","R",2026-07-11,0,0,0,0,0,10,"reliever",0.769,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"670097","Zack Short","New York Mets","R",2026-06-20,0,0,0,0,0,31,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"670871","Guillo Zuñiga","New York Mets","R",2026-07-06,0,0,0,0,0,15,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676910","Matt Seelinger","New York Mets","R",2026-07-07,0,0,0,0,0,14,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"680702","Joey Gerber","New York Mets","R",2026-07-04,0,0,0,0,0,17,"reliever",0.35,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681810","Austin Warren","New York Mets","R",2026-07-07,0,0,0,0,0,14,"reliever",0.846,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"702752","Jonathan Pintaro","New York Mets","R",2026-06-22,0,0,0,0,0,29,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"804636","Jonah Tong","New York Mets","R",2026-06-03,0,0,0,0,0,48,"bulk",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"621345","A.J. Minter","New York Mets","L",2026-07-19,0,14,14,1,0,2,"reliever",1,0.922222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"672335","Cionel Pérez","New York Mets","L",2026-07-19,0,18,18,1,0,2,"reliever",0.875,0.9,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"623211","Huascar Brazobán","New York Mets","R",2026-07-19,0,22,34,1,0,2,"reliever",0.707,0.877777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"673540","Kodai Senga","New York Mets","R",2026-07-18,0,39,39,1,0,3,"hybrid",0.1,0.783333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"640455","Sean Manaea","New York Mets","L",2026-07-18,0,99,99,1,0,3,"bulk",0.333,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"675540","Xzavion Curry","New York Mets","R",2026-07-20,47,72,72,2,1,1,"reliever",0.2,0,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"660787","Yerry De los Santos","New York Yankees","R",2026-06-29,0,0,0,0,0,22,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"665645","Kervin Castro","New York Yankees","R",2026-05-08,0,0,0,0,0,74,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"672442","Yovanny Cruz","New York Yankees","R",2026-06-30,0,0,0,0,0,21,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"680474","Max Schuemann","New York Yankees","R",2026-06-20,0,0,0,0,0,31,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"694341","Brendan Beck","New York Yankees","R",2026-07-04,0,0,0,0,0,17,"hybrid",0,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"621112","Paul Blackburn","New York Yankees","R",2026-07-19,0,25,35,1,0,2,"reliever",0.882,0.861111111111111,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"666808","Camilo Doval","New York Yankees","R",2026-07-18,0,31,31,1,0,3,"reliever",1,0.827777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"670280","David Bednar","New York Yankees","R",2026-07-19,0,32,32,1,0,2,"reliever",1,0.822222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656234","Jake Bird","New York Yankees","R",2026-07-18,0,34,34,1,0,3,"reliever",1,0.811111111111111,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"642232","Ryan Yarbrough","New York Yankees","L",2026-07-19,0,36,36,1,0,2,"reliever",0.92,0.8,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"657612","Tim Hill","New York Yankees","L",2026-07-20,11,34,34,2,1,1,"reliever",1,0.507777777777778,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"683409","Angel Chivilli","New York Yankees","R",2026-07-20,15,35,35,2,1,1,"reliever",0.4,0.435555555555556,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"687396","Brent Headrick","New York Yankees","L",2026-07-20,12,34,45,2,2,1,"reliever",1,0.371111111111111,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"518585","Fernando Cruz","New York Yankees","R",2026-07-20,17,33,56,2,2,1,"reliever",1,0.293333333333333,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"596117","Garrett Stubbs","Philadelphia Phillies","R",2026-07-10,0,0,0,0,0,11,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"621383","Tanner Banks","Philadelphia Phillies","L",2026-07-08,0,0,0,0,0,13,"reliever",0.929,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"641745","Brad Keller","Philadelphia Phillies","R",2026-07-08,0,0,0,0,0,13,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"642152","Lou Trivino III","Philadelphia Phillies","R",2026-07-06,0,0,0,0,0,15,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"647315","Zach Pop","Philadelphia Phillies","R",2026-04-12,0,0,0,0,0,100,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664238","Dylan Moore","Philadelphia Phillies","R",2026-04-15,0,0,0,0,0,97,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676510","Nolan Hoffman","Philadelphia Phillies","R",2026-05-31,0,0,0,0,0,51,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"679775","Kyle Backhus","Philadelphia Phillies","L",2026-07-06,0,0,0,0,0,15,"reliever",0.75,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"641835","Tim Mayza","Philadelphia Phillies","L",2026-07-19,0,22,22,1,0,2,"reliever",0.842,0.877777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"686751","Seth Johnson","Philadelphia Phillies","R",2026-07-19,0,31,58,1,0,2,"reliever",0.65,0.827777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676661","Max Lazar","Philadelphia Phillies","R",2026-07-19,0,42,42,1,0,2,"reliever",0.3,0.766666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"660604","Alan Rangel","Philadelphia Phillies","R",2026-07-19,0,91,91,1,0,2,"hybrid",0,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"680742","Jonathan Bowlan","Philadelphia Phillies","R",2026-07-20,10,10,24,1,1,1,"reliever",1,0.657777777777778,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"661395","Jhoan Duran","Philadelphia Phillies","R",2026-07-20,3,25,29,2,2,1,"reliever",1,0.571111111111111,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"621237","José Alvarado","Philadelphia Phillies","L",2026-07-20,11,27,27,2,1,1,"reliever",1,0.546666666666667,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"689147","Orion Kerkering","Philadelphia Phillies","R",2026-07-20,19,30,30,2,1,1,"reliever",1,0.396666666666667,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663767","Chase Shugart","Philadelphia Phillies","R",2026-07-20,18,47,47,2,1,1,"reliever",1,0.318888888888889,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"606965","Chris Devenski","Pittsburgh Pirates","R",2026-05-02,0,0,0,0,0,80,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664353","José Urquidy","Pittsburgh Pirates","R",2026-04-13,0,0,0,0,0,99,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669387","Carmen Mlodzinski","Pittsburgh Pirates","R",2026-07-17,0,0,41,0,0,4,"bulk",0.143,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676702","Hunter Stratton","Pittsburgh Pirates","R",2026-07-09,0,0,0,0,0,12,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681895","Evan Sisk","Pittsburgh Pirates","L",2026-06-29,0,0,0,0,0,22,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"682995","Hunter Barco","Pittsburgh Pirates","L",2026-04-28,0,0,0,0,0,84,"bulk",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"682997","Tyler Callihan","Pittsburgh Pirates","R",2026-07-03,0,0,0,0,0,18,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"684049","Brandan Bidois","Pittsburgh Pirates","R",2026-06-30,0,0,0,0,0,21,"reliever",0.75,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"699008","Antwone Kelly","Pittsburgh Pirates","R",2026-07-12,0,0,0,0,0,9,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676755","Isaac Mattson","Pittsburgh Pirates","R",2026-07-19,0,13,33,1,0,2,"reliever",1,0.927777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"670990","Yohan Ramírez","Pittsburgh Pirates","R",2026-07-18,0,14,14,1,0,3,"reliever",1,0.922222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"642397","Gregory Soto","Pittsburgh Pirates","L",2026-07-18,0,19,19,1,0,3,"reliever",1,0.894444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"682254","Mason Montgomery","Pittsburgh Pirates","L",2026-07-19,0,28,28,2,0,2,"reliever",0.75,0.844444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"694753","Khristian Curtis","Pittsburgh Pirates","R",2026-07-18,0,68,68,1,0,3,"unknown",0.05,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"642701","Dennis Santana","Pittsburgh Pirates","R",2026-07-20,10,19,19,2,1,1,"reliever",1,0.607777777777778,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"685126","Brandon Eisert","Pittsburgh Pirates","L",2026-07-20,15,37,37,2,1,1,"reliever",0.724,0.424444444444445,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"696062","Wilber Dotel","Pittsburgh Pirates","R",2026-07-20,56,56,56,1,1,1,"reliever",0.5,0,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"592094","Jason Adam","San Diego Padres","R",2026-06-29,0,0,0,0,0,22,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"660710","Rodolfo Durán","San Diego Padres","R",2026-07-01,0,0,0,0,0,20,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669093","Jeremiah Estrada","San Diego Padres","R",2026-06-02,0,0,0,0,0,49,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"670970","Adrian Morejon","San Diego Padres","L",2026-07-17,0,0,23,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"688158","David Morgan","San Diego Padres","R",2026-06-27,0,0,0,0,0,24,"reliever",0.9,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"689690","Alek Jacob","San Diego Padres","R",2026-07-06,0,0,0,0,0,15,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"695243","Mason Miller","San Diego Padres","R",2026-07-17,0,0,20,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"666745","Jhony Brito","San Diego Padres","R",2026-07-18,0,11,11,1,0,3,"reliever",0.15,0.938888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676760","Ron Marinaccio","San Diego Padres","R",2026-07-18,0,13,13,1,0,3,"reliever",1,0.927777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"673513","Yuki Matsui","San Diego Padres","L",2026-07-19,0,19,19,1,0,2,"reliever",1,0.894444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663362","Matt Waldron","San Diego Padres","R",2026-07-18,0,27,27,1,0,3,"bulk",0.1,0.85,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"699134","Bradgley Rodriguez","San Diego Padres","R",2026-07-20,17,17,37,1,1,1,"reliever",0.85,0.502222222222222,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"606996","Kyle Hart","San Diego Padres","L",2026-07-20,20,20,34,1,1,1,"reliever",0.92,0.435555555555556,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"593974","Wandy Peralta","San Diego Padres","L",2026-07-20,22,32,32,2,2,1,"reliever",0.814,0.215555555555556,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"621366","Ryan Borucki","San Francisco Giants","L",2026-05-31,0,0,0,0,0,51,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"657424","Matt Gage","San Francisco Giants","L",2026-07-03,0,0,0,0,0,18,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663941","Tristan Beck","San Francisco Giants","R",2026-06-20,0,0,0,0,0,31,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"665665","Reiver Sanmartin","San Francisco Giants","L",2026-06-14,0,0,0,0,0,37,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"666619","Gregory Santos","San Francisco Giants","R",2026-05-10,0,0,0,0,0,72,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"666711","Joel Peguero","San Francisco Giants","R",2026-05-31,0,0,0,0,0,51,"reliever",0.55,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"671083","Buddy Kennedy","San Francisco Giants","R",2026-06-01,0,0,0,0,0,50,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676130","José Buttó","San Francisco Giants","R",2026-04-01,0,0,0,0,0,111,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676254","Ryan Walker","San Francisco Giants","R",2026-07-08,0,0,0,0,0,13,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"678576","Wilkin Ramos","San Francisco Giants","R",2026-06-04,0,0,0,0,0,47,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"683766","Christian Koss","San Francisco Giants","R",2026-05-10,0,0,0,0,0,72,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"693313","Carson Seymour","San Francisco Giants","R",2026-06-10,0,0,0,0,0,41,"bulk",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"694918","Blade Tidwell","San Francisco Giants","R",2026-04-28,0,0,0,0,0,84,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"702352","Spencer Bivens","San Francisco Giants","R",2026-07-08,0,0,0,0,0,13,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676775","Keaton Winn","San Francisco Giants","R",2026-07-18,0,10,10,1,0,3,"reliever",1,0.944444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669062","Erik Miller","San Francisco Giants","L",2026-07-18,0,12,12,1,0,3,"reliever",1,0.933333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656529","Sam Hentges","San Francisco Giants","L",2026-07-19,0,22,22,2,0,2,"reliever",1,0.877777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"668873","Caleb Kilian","San Francisco Giants","R",2026-07-20,7,7,29,1,1,1,"reliever",1,0.724444444444444,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681916","Dylan Smith","San Francisco Giants","R",2026-07-20,6,16,16,2,1,1,"reliever",0.85,0.691111111111111,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"671345","Jason Foley","San Francisco Giants","R",2026-07-20,9,9,24,1,1,1,"reliever",0.1,0.68,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664141","JT Brubaker","San Francisco Giants","R",2026-07-20,38,38,38,1,1,1,"reliever",1,0.0688888888888889,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"666374","Matt Brash","Seattle Mariners","R",2026-06-08,0,0,0,0,0,43,"reliever",0.95,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681006","Josh Simpson","Seattle Mariners","L",2026-06-28,0,0,0,0,0,23,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681867","Cooper Criswell","Seattle Mariners","R",2026-06-08,0,0,0,0,0,43,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"682445","Domingo Gonzalez","Seattle Mariners","R",2026-06-10,0,0,0,0,0,41,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"695380","Alex Hoppe","Seattle Mariners","R",2026-06-25,0,0,0,0,0,26,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"678606","José A. Ferrer","Seattle Mariners","L",2026-07-18,0,16,30,1,0,3,"reliever",1,0.911111111111111,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"662253","Andrés Muñoz","Seattle Mariners","R",2026-07-19,0,18,18,2,0,2,"reliever",1,0.9,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"642100","Gabe Speier","Seattle Mariners","L",2026-07-19,0,25,25,2,0,2,"reliever",1,0.861111111111111,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"660825","Eduard Bazardo","Seattle Mariners","R",2026-07-19,0,33,33,2,0,2,"reliever",1,0.816666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"621074","Michael Rucker","Seattle Mariners","R",2026-07-20,12,12,32,1,1,1,"reliever",0.75,0.613333333333333,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"689546","Nick Davila","Seattle Mariners","R",2026-07-20,14,14,39,1,1,1,"reliever",0.95,0.568888888888889,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"677961","Cole Wilcox","Seattle Mariners","R",2026-07-20,21,21,32,1,1,1,"reliever",0.8,0.413333333333333,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663494","Bryan Torres","St. Louis Cardinals","R",2026-07-07,0,0,0,0,0,14,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"668941","JoJo Romero","St. Louis Cardinals","L",2026-07-12,0,0,0,0,0,9,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669145","Bruce Zimmermann","St. Louis Cardinals","L",2026-07-07,0,0,0,0,0,14,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681676","Ryan Fernandez","St. Louis Cardinals","R",2026-07-06,0,0,0,0,0,15,"reliever",0.55,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"690155","Matt Pushard","St. Louis Cardinals","R",2026-05-30,0,0,0,0,0,52,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"691008","Max Rajcic","St. Louis Cardinals","R",2026-07-03,0,0,0,0,0,18,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"694363","Jared Shuster","St. Louis Cardinals","L",2026-07-07,0,0,0,0,0,14,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"802408","Brycen Mautz","St. Louis Cardinals","L",2026-05-25,0,0,0,0,0,57,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"694335","Matt Svanson","St. Louis Cardinals","R",2026-07-18,0,9,9,1,0,3,"reliever",0.947,0.95,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"703725","Luis Gastelum","St. Louis Cardinals","R",2026-07-19,0,20,38,1,0,2,"reliever",0.25,0.888888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"677865","Justin Bruihl","St. Louis Cardinals","L",2026-07-18,0,21,21,1,0,3,"reliever",1,0.883333333333333,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"700669","Gordon Graceffo","St. Louis Cardinals","R",2026-07-19,0,35,35,2,0,2,"reliever",1,0.805555555555556,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676617","Riley O'Brien","St. Louis Cardinals","R",2026-07-20,21,21,50,1,1,1,"reliever",1,0.413333333333333,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"592773","Ryne Stanek","St. Louis Cardinals","R",2026-07-20,13,31,31,2,2,1,"reliever",1,0.371111111111111,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"666277","George Soriano","St. Louis Cardinals","R",2026-07-20,14,30,44,2,2,1,"reliever",1,0.36,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"605156","Aaron Brooks","Tampa Bay Rays","R",2026-05-13,0,0,0,0,0,69,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"643377","Griffin Jax","Tampa Bay Rays","R",2026-07-17,0,0,85,0,0,4,"hybrid",0.154,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669169","Jonathan Heasley","Tampa Bay Rays","R",2026-05-27,0,0,0,0,0,55,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669438","Mason Englert","Tampa Bay Rays","R",2026-07-17,0,0,88,0,0,4,"hybrid",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669947","Jesse Scholtens","Tampa Bay Rays","R",2026-05-25,0,0,0,0,0,57,"bulk",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"675627","Michael Grove","Tampa Bay Rays","R",2026-06-27,0,0,0,0,0,24,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681806","Andrew Wantz","Tampa Bay Rays","R",2026-05-30,0,0,0,0,0,52,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"685801","Hunter Bigge","Tampa Bay Rays","R",2026-05-29,0,0,0,0,0,53,"reliever",0.9,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"686678","Chase Solesky","Tampa Bay Rays","R",2026-05-18,0,0,0,0,0,64,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"694680","Trevor Martin","Tampa Bay Rays","R",2026-06-28,0,0,0,0,0,23,"reliever",0.3,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"810938","Ben Williamson","Tampa Bay Rays","R",2026-07-17,0,0,16,0,0,4,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"518886","Craig Kimbrel","Tampa Bay Rays","R",2026-07-19,0,14,34,1,0,2,"reliever",1,0.922222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"642121","Cole Sulser","Tampa Bay Rays","R",2026-07-18,0,15,30,1,0,3,"reliever",0.897,0.916666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664076","Garrett Cleavinger","Tampa Bay Rays","L",2026-07-18,0,18,18,1,0,3,"reliever",1,0.9,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"688297","Chris Roycroft","Tampa Bay Rays","R",2026-07-19,0,24,63,1,0,2,"reliever",0.6,0.866666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"687330","Kevin Kelly","Tampa Bay Rays","R",2026-07-18,0,29,29,1,0,3,"reliever",1,0.838888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"693855","Ian Seymour","Tampa Bay Rays","L",2026-07-18,0,61,61,1,0,3,"hybrid",0.588,0.7,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"592155","Cam Booser","Tampa Bay Rays","L",2026-07-20,11,23,31,2,1,1,"reliever",0.9,0.568888888888889,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"641329","Bryan Baker","Tampa Bay Rays","R",2026-07-20,16,16,21,1,1,1,"reliever",1,0.524444444444444,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"668984","Casey Legumina","Tampa Bay Rays","R",2026-07-20,13,28,28,2,1,1,"reliever",0.879,0.507777777777778,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"455119","Chris Martin","Texas Rangers","R",2026-07-11,0,0,0,0,0,10,"reliever",0.8,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"543309","Kyle Higashioka","Texas Rangers","R",2026-07-17,0,0,22,0,0,4,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"605452","Joe Ross","Texas Rangers","R",2026-06-27,0,0,0,0,0,24,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"615698","Cal Quantrill","Texas Rangers","R",2026-07-17,0,0,86,0,0,4,"hybrid",0.5,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656222","Jalen Beeks","Texas Rangers","L",2026-06-09,0,0,0,0,0,42,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664059","Sam Haggerty","Texas Rangers","R",2026-05-25,0,0,0,0,0,57,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676395","Robert Garcia","Texas Rangers","L",2026-04-16,0,0,0,0,0,96,"reliever",0.45,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681168","Luis Curvelo","Texas Rangers","R",2026-06-12,0,0,0,0,0,39,"reliever",0.35,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"686560","Gavin Collyer","Texas Rangers","R",2026-07-17,0,0,41,0,0,4,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"691945","Carter Baumler","Texas Rangers","R",2026-04-04,0,0,0,0,0,108,"reliever",0.2,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"692437","Winston Santos","Texas Rangers","R",2026-07-01,0,0,0,0,0,20,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"693713","Emiliano Teodo","Texas Rangers","R",2026-07-17,0,0,43,0,0,4,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"596001","Jakob Junis","Texas Rangers","R",2026-07-18,0,14,14,1,0,3,"reliever",0.935,0.922222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656641","Jacob Latz","Texas Rangers","L",2026-07-18,0,15,21,1,0,3,"reliever",0.944,0.916666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"641302","Tyler Alexander","Texas Rangers","L",2026-07-19,0,19,19,2,0,2,"reliever",0.864,0.894444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"668390","Cole Winn","Texas Rangers","R",2026-07-19,0,19,19,1,0,2,"reliever",1,0.894444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"687239","Ben Peoples","Texas Rangers","R",2026-07-20,15,41,47,2,2,1,"reliever",0.3,0.282222222222222,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"682608","Peyton Gray","Texas Rangers","R",2026-07-20,21,30,30,2,2,1,"reliever",1,0.243333333333333,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"692030","Jose Corniell","Texas Rangers","R",2026-07-20,35,35,35,1,1,1,"bulk",0.1,0.102222222222222,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"695239","Robby Ahlstrom","Texas Rangers","L",2026-07-20,27,43,43,3,3,1,"reliever",1,0,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"573009","Joe Mantiply","Toronto Blue Jays","L",2026-05-17,0,0,0,0,0,65,"reliever",0.85,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"623168","Tyler Heineman","Toronto Blue Jays","R",2026-06-05,0,0,0,0,0,46,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664074","Cody Ponce","Toronto Blue Jays","R",2026-03-30,0,0,0,0,0,113,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664702","Myles Straw","Toronto Blue Jays","R",2026-07-04,0,0,0,0,0,17,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669310","CJ Van Eyk","Toronto Blue Jays","R",2026-07-17,0,0,37,0,0,4,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"671936","Adam Macko","Toronto Blue Jays","L",2026-07-17,0,0,22,0,0,4,"reliever",0.85,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676596","Josh Fleming","Toronto Blue Jays","L",2026-04-06,0,0,0,0,0,106,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681084","Tanner Andrews","Toronto Blue Jays","R",2026-05-26,0,0,0,0,0,56,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"684320","Yariel Rodríguez","Toronto Blue Jays","R",2026-06-05,0,0,0,0,0,46,"reliever",0.5,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"689149","Chad Dallas","Toronto Blue Jays","R",2026-07-10,0,0,0,0,0,11,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"693686","Spencer Miles","Toronto Blue Jays","R",2026-07-17,0,0,60,0,0,4,"reliever",0.704,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"695445","Chase Lee","Toronto Blue Jays","R",2026-05-24,0,0,0,0,0,58,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"696522","Hayden Juenger","Toronto Blue Jays","R",2026-06-03,0,0,0,0,0,48,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"686973","Louis Varland","Toronto Blue Jays","R",2026-07-18,0,9,20,1,0,3,"reliever",1,0.95,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681751","Lazaro Estrada","Toronto Blue Jays","R",2026-07-19,0,10,10,1,0,2,"reliever",0.2,0.944444444444444,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"643511","Tyler Rogers","Toronto Blue Jays","R",2026-07-18,0,11,11,1,0,3,"reliever",1,0.938888888888889,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"656546","Jeff Hoffman","Toronto Blue Jays","R",2026-07-18,0,14,14,1,0,3,"reliever",1,0.922222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"689254","Mason Fluharty","Toronto Blue Jays","L",2026-07-19,0,22,22,1,0,2,"reliever",0.885,0.877777777777778,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"680755","Braydon Fisher","Toronto Blue Jays","R",2026-07-20,16,23,29,2,2,1,"reliever",0.745,0.365555555555556,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663893","Brendon Little","Toronto Blue Jays","L",2026-07-20,28,28,28,1,1,1,"reliever",0.35,0.257777777777778,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"571945","Miles Mikolas","Washington Nationals","R",2026-07-11,0,0,0,0,0,10,"bulk",0.238,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"642759","Julian Fernández","Washington Nationals","R",2026-04-23,0,0,0,0,0,89,"reliever",0.15,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"663992","Richard Lovelady","Washington Nationals","L",2026-06-28,0,0,0,0,0,23,"reliever",0.697,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"664875","Justin Lawrence","Washington Nationals","R",2026-07-12,0,0,0,0,0,9,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"669371","Cole Henry","Washington Nationals","R",2026-07-06,0,0,0,0,0,15,"reliever",0.55,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"671131","Jackson Rutledge","Washington Nationals","R",2026-04-13,0,0,0,0,0,99,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676571","PJ Poulin","Washington Nationals","L",2026-07-11,0,0,0,0,0,10,"opener",0.371,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"678868","Eddy Yean","Washington Nationals","R",2026-07-05,0,0,0,0,0,16,"unknown",0.05,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"680730","Mitchell Parker","Washington Nationals","L",2026-06-28,0,0,0,0,0,23,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"681402","Gus Varland","Washington Nationals","R",2026-06-25,0,0,0,0,0,26,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"686610","Ken Waldichuk","Washington Nationals","L",2026-04-12,0,0,0,0,0,100,"reliever",0.25,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"686894","Joey Wiemer","Washington Nationals","R",2026-05-14,0,0,0,0,0,68,"reliever",0.1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"687377","Orlando Ribalta","Washington Nationals","R",2026-07-11,0,0,0,0,0,10,"reliever",1,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"687606","Paxton Schultz","Washington Nationals","R",2026-06-23,0,0,0,0,0,28,"reliever",0.92,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"687849","Zak Kent","Washington Nationals","R",2026-07-03,0,0,0,0,0,18,"reliever",0.5,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"695418","Brad Lord","Washington Nationals","R",2026-07-05,0,0,0,0,0,16,"reliever",0.926,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"701552","Andre Granillo","Washington Nationals","R",2026-05-05,0,0,0,0,0,77,"reliever",0.4,1,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"687223","Carson Palmquist","Washington Nationals","L",2026-07-18,0,7,7,1,0,3,"hybrid",0.05,0.961111111111111,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"678391","Jorbit Vivas","Washington Nationals","R",2026-07-18,0,17,27,1,0,3,"reliever",0.15,0.905555555555556,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"690925","Clayton Beeter","Washington Nationals","R",2026-07-19,0,24,24,1,0,2,"reliever",1,0.866666666666667,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"668820","Max Kranick","Washington Nationals","R",2026-07-18,0,32,32,1,0,3,"unknown",0.05,0.822222222222222,"available","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"640454","Matt Krook","Washington Nationals","L",2026-07-20,8,8,8,1,1,1,"reliever",0.5,0.702222222222222,"monitor","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"676680","Tom Cosgrove","Washington Nationals","L",2026-07-20,10,27,27,2,2,1,"reliever",0.2,0.443333333333333,"limited","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"683000","Riley Cornelio","Washington Nationals","R",2026-07-20,29,29,76,1,1,1,"reliever",0.4,0.235555555555556,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"
+"674841","Andrew Alvarez","Washington Nationals","L",2026-07-20,74,74,74,1,1,1,"hybrid",0,0,"likely_unavailable","sabrhood_workload_heuristic_v1",2026-07-21,"2026-07-21","2026-07-22 16:52:48 UTC"

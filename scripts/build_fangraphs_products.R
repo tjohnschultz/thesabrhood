@@ -10,10 +10,13 @@ compact <- standardize_fangraphs_season(snapshot$hitters, snapshot$pitchers, sea
 prior <- standardize_fangraphs_season(snapshot$prior_hitters, snapshot$prior_pitchers, season_year - 1L)
 awards <- build_award_race_boards(compact$hitters, compact$pitchers, prior$hitters, prior$pitchers)
 positional_war <- build_team_positional_war(compact$hitters, compact$pitchers)
+compact$hitters$source_acquired_at_utc <- snapshot$acquired_at_utc
+compact$pitchers$source_acquired_at_utc <- snapshot$acquired_at_utc
+positional_war$source_acquired_at_utc <- snapshot$acquired_at_utc
 awards$source_acquired_at_utc <- snapshot$acquired_at_utc
 awards$source_note <- "FanGraphs season leaderboard via BaseballR; award score is a transparent performance index, not a ballot forecast."
 
-output_dir <- file.path(workspace, "data", "derived")
+output_dir <- Sys.getenv("SABRHOOD_DERIVED_DIR", unset = file.path(workspace, "data", "derived"))
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 utils::write.csv(compact$hitters, file.path(output_dir, "fangraphs-season-hitters.csv"), row.names = FALSE, na = "")
 utils::write.csv(compact$pitchers, file.path(output_dir, "fangraphs-season-pitchers.csv"), row.names = FALSE, na = "")

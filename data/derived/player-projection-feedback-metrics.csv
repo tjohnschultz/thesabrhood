@@ -1,2 +1,2 @@
 "metric_id","metric_label","settled_predictions","mean_probability","observed_rate","brier_score","calibration_bias","calibration_status"
-"awaiting_eligible_forecasts","Player-event calibration has not started",0,,,,,"awaiting eligible settled pregame forecasts"
+"awaiting_eligible_forecasts","Player-event calibration has not started",0,,,,,"awaiting first pregame snapshot"

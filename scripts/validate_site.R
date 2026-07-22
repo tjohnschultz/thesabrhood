@@ -104,6 +104,8 @@ required_data <- c(
   ,"award-race-display.csv"
   ,"award-race-events.csv"
   ,"award-race-current-leaders.csv"
+  ,"refresh-health.csv"
+  ,"daily-slate-status.csv"
 )
 
 required_fragments <- c(
@@ -150,6 +152,21 @@ for (name in required_data) {
     fail(paste("Unreadable derived data product:", name))
   } else if (nrow(product) < 1L && !name %in% c("daily-batting-orders.csv")) {
     fail(paste("Empty derived data product:", name))
+  }
+}
+
+refresh_health_path <- file.path(site_root, "data", "derived", "refresh-health.csv")
+if (file.exists(refresh_health_path)) {
+  refresh_health <- utils::read.csv(refresh_health_path, stringsAsFactors = FALSE, check.names = FALSE)
+  required_health_columns <- c(
+    "product_group", "source_through", "expected_through", "lag_days",
+    "max_lag_days", "cadence", "status", "checked_at_utc", "reference_date"
+  )
+  if (!all(required_health_columns %in% names(refresh_health))) {
+    fail("Refresh-health report is missing required columns")
+  } else if (any(refresh_health$status != "current")) {
+    stale_groups <- refresh_health$product_group[refresh_health$status != "current"]
+    fail(paste("Stale public product groups:", paste(stale_groups, collapse = ", ")))
   }
 }
 
