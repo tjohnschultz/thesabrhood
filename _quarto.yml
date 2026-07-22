@@ -21,7 +21,6 @@ project:
     - newsletter.qmd
     - graphics-feed.qmd
     - blog.qmd
-    - posts/*.qmd
     - broadcast.qmd
     - methodology.qmd
     - glossary.qmd
@@ -39,7 +38,7 @@ project:
 website:
   title: "The SABRhood"
   site-url: "https://thesabrhood.com"
-  favicon: "images/sabrlogo.png"
+  favicon: "images/new-sabr-logo.png"
   open-graph:
     image: "images/sabrhood-social-preview-v1.png"
   twitter-card:

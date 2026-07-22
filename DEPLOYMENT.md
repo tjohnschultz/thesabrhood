@@ -59,6 +59,14 @@ After explicit approval, add the deploy job, configure GitHub Pages to use its
 artifact, verify `CNAME`, and confirm DNS and HTTPS for `thesabrhood.com`. Keep a
 copy of the last known-good `docs` artifact for rollback.
 
+Merging the rebuild pull request updates `main` in the existing repository; it
+does not erase the original site's Git history. If GitHub Pages is currently
+configured to publish `main/docs`, the rebuilt `docs` directory will become the
+live site after the merge. Before that merge, create a `legacy-site-before-rebuild`
+branch or tag at the current `main` commit and confirm the Pages source under
+**Settings > Pages**. This provides both a readable archive and a one-step
+rollback point.
+
 ## Current state
 
 The product foundation, repository-contained package, compact derived-data

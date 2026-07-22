@@ -11,10 +11,26 @@ enter `data/` or `docs/`. If that cache expires, the job rebuilds the completed
 regular-season history from the MLB Stats API.
 
 The same job refreshes FanGraphs season tables, bullpen availability, the
-current schedule, probable starters, posted batting orders, active rosters, and
-Open-Meteo park forecasts. Team simulations can run before lineups post. Player
-simulations wait for a current complete batting order, and the site displays a
-lineup-pending state instead of relabeling yesterday's player board.
+current schedule, probable starters, any already-posted batting orders, active
+rosters, and Open-Meteo park forecasts. Team simulations can run before lineups
+post. Player simulations wait for a current complete batting order, and the site
+displays a lineup-pending state instead of relabeling yesterday's player board.
+
+The separate `.github/workflows/lineup-refresh.yml` workflow checks every 30
+minutes from 10:00 a.m. through 10:30 p.m. Eastern during daylight-saving time,
+from March through November.
+It exits before installing data dependencies unless a current-date game is
+within four hours of first pitch (or began less than 20 minutes ago). During an
+active game wave it refreshes only probable starters and posted batting orders,
+then rebuilds team and available player projections. It deliberately does not
+repeat the PBP, FanGraphs, roster, bullpen-workload, or full weather acquisition
+jobs. The four-hour gate captures orders that post earlier than the usual
+90-minute window, and repeated checks can capture subsequent lineup changes.
+
+Prior-day orders are never presented as confirmed current orders. Until a
+separately labeled projected-lineup model is built, missing orders keep the
+player board gated while the team model uses its documented season-level
+fallbacks.
 
 After acquisition, the workflow updates the derived-data manifest, regenerates
 the Quarto fragments, validates and renders the site, then commits only compact
@@ -25,6 +41,14 @@ The branch workflow in `.github/workflows/site-preview.yml` regenerates all
 static fragments, validates approved data files and checksums, renders Quarto,
 validates required pages, and uploads a preview artifact. It has no deployment
 permission.
+
+The eight imported research notebooks remain checked-in, pre-rendered archive
+pages. They are excluded from unattended full-site renders because their old
+chunks depend on personal files and one-off analysis environments. The preview
+still verifies that every archive HTML page and its legacy table assets exist.
+New or substantially revised articles should be rendered deliberately when
+their analysis inputs are available, reviewed, and then committed with the
+resulting HTML; the daily data workflows do not rerun editorial notebooks.
 
 The repository acquisition layer now has executable jobs for the daily MLB schedule,
 probable starters, posted batting orders, active rosters, active-roster bullpen

@@ -50,7 +50,7 @@ His arsenal looked strong in spring training, as he added velocity to both his s
 #| message: false
 #| warning: false
 #| echo: false
-library(tidyverse); library(here); library(kableExtra); source(here("R", "metrics.R")); dl_path <- "C:\\Users\\Owner\\Downloads\\R Baseball\\saberhood_webpage\\data"
+library(tidyverse); library(here); library(kableExtra); source(here("R", "metrics.R")); dl_path <- here("data")
 
 #soriano <- mlb_pbp_2025 %>% 
 # filter(matchup.pitcher.fullName == "José Soriano" & isPitch == TRUE)

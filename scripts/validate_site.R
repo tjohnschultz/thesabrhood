@@ -8,6 +8,17 @@ fail <- function(message) {
   failures <<- c(failures, message)
 }
 
+canonical_file_md5 <- function(path) {
+  lines <- readLines(path, warn = FALSE, encoding = "UTF-8")
+  canonical <- paste0(paste(lines, collapse = "\n"), "\n")
+  temporary <- tempfile(fileext = ".csv")
+  on.exit(unlink(temporary), add = TRUE)
+  connection <- file(temporary, open = "wb")
+  writeBin(charToRaw(enc2utf8(canonical)), connection)
+  close(connection)
+  unname(tools::md5sum(temporary))
+}
+
 required_data <- c(
   "data-contract-summary.csv",
   "historical-anniversary-notes.csv",
@@ -155,7 +166,7 @@ if (!file.exists(manifest_path)) {
       product_path <- file.path(site_root, "data", "derived", manifest$file[[index]])
       if (!file.exists(product_path)) {
         fail(paste("Manifest product is missing:", manifest$file[[index]]))
-      } else if (!identical(unname(tools::md5sum(product_path)), manifest$md5[[index]])) {
+      } else if (!identical(canonical_file_md5(product_path), manifest$md5[[index]])) {
         fail(paste("Manifest checksum does not match:", manifest$file[[index]]))
       }
     }
@@ -187,7 +198,7 @@ for (path in source_files) {
   lines <- readLines(path, warn = FALSE, encoding = "UTF-8")
   joined <- paste(lines, collapse = "\n")
   relative <- substring(gsub("\\\\", "/", path), nchar(site_root) + 2L)
-  if (grepl("[A-Za-z]:[/\\\\]Users[/\\\\]", joined, perl = TRUE)) {
+  if (grepl("[A-Za-z]:(?:[/\\\\]+)Users(?:[/\\\\]+)", joined, perl = TRUE)) {
     fail(paste("Local absolute path found in:", relative))
   }
   if (grepl("<U\\+[0-9A-Fa-f]{4,6}>", joined, perl = TRUE)) {
@@ -226,6 +237,22 @@ if (check_rendered) {
   for (name in required_legacy_assets) {
     if (!file.exists(file.path(site_root, "docs", name))) {
       fail(paste("Missing legacy article asset:", name))
+    }
+  }
+  required_article_pages <- c(
+    "posts/A.J Ewing Gets the Call.html",
+    "posts/CleanPig.html",
+    "posts/Series Recap Tigers Sox.html",
+    "posts/bello_article_final.html",
+    "posts/ceddannesnewgroove.html",
+    "posts/durbin_article.html",
+    "posts/fla 2025 v 2026 article.html",
+    "posts/sorianopreseason26.html"
+  )
+  for (name in required_article_pages) {
+    path <- file.path(site_root, "docs", name)
+    if (!file.exists(path) || file.info(path)$size < 1000) {
+      fail(paste("Missing rendered research article:", name))
     }
   }
 }
