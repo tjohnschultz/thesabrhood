@@ -54,7 +54,9 @@ jobs:
       - name: Install R dependencies and SABRhood package
         shell: bash
         run: |
-          Rscript -e 'install.packages(c("baseballr", "jsonlite", "dplyr", "rlang", "tibble", "withr", "ggplot2", "knitr", "rmarkdown"), repos = "https://cloud.r-project.org")'
+          Rscript -e 'install.packages(c("remotes", "jsonlite", "dplyr", "rlang", "tibble", "withr", "ggplot2", "knitr", "rmarkdown"), repos = "https://cloud.r-project.org")'
+          Rscript -e 'remotes::install_github("BillPetti/baseballr@v1.6.0", dependencies = NA, upgrade = "never")'
+          Rscript -e 'stopifnot(requireNamespace("baseballr", quietly = TRUE)); message("Installed baseballr ", packageVersion("baseballr"))'
           R CMD INSTALL packages/sabrhoodR
 
       - name: Update completed-game PBP
