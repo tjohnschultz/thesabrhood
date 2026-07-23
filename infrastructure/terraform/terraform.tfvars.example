@@ -1,0 +1,10 @@
+# Copy to terraform.tfvars only after accounts, a budget, and a rollout review
+# exist. terraform.tfvars is ignored by Git.
+project_id             = "your-google-cloud-project"
+region                 = "us-east1"
+enable_cloud_resources = false
+enable_scheduler       = false
+publish_release        = false
+container_image        = "us-east1-docker.pkg.dev/your-google-cloud-project/sabrhood-backend/ingestion@sha256:replace-me"
+retrosheet_season      = 2025
+
