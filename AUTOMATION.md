@@ -1,5 +1,19 @@
 # Daily publishing design
 
+## Backend transition status
+
+The existing GitHub Actions schedules remain the production refresh system
+during the local-first backend evaluation. They continue to publish the current
+MLB/Statcast- and FanGraphs-derived static research products. No refresh workflow
+has been disabled or redirected.
+
+The opt-in successor foundation lives in `supabase/` and `infrastructure/`.
+It begins with Retrosheet historical ingestion, provider-neutral contracts,
+atomic database releases, pipeline health, and public/member views. Hosted
+Supabase, Cloud Run, Cloud Scheduler, and Netlify cutover occur only in the
+phases documented in `infrastructure/ROLLOUT.md`. MLB and FanGraphs are blocked
+from the new commercial serving views until permission is documented.
+
 ## What is automated now
 
 The production workflow in `.github/workflows/daily-data-refresh.yml` runs on
