@@ -36,4 +36,3 @@ gcloud secrets versions add sabrhood-database-url --data-file=-
 
 Never put the connection string in `terraform.tfvars`, Terraform state, an
 image, or source control.
-

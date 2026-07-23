@@ -91,4 +91,3 @@ validate_adapter_result <- function(result) {
 
   invisible(result)
 }
-

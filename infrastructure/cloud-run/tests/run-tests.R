@@ -29,4 +29,3 @@ stopifnot(
 )
 
 cat("Retrosheet adapter contract test passed.\n")
-

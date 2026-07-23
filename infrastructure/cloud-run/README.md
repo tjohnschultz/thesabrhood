@@ -44,4 +44,3 @@ docker run --rm sabrhood-backend help
 
 Secrets are runtime environment variables. They are never build arguments or
 image layers.
-

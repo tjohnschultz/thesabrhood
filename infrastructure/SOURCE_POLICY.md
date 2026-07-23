@@ -36,4 +36,3 @@ When permission changes, update the provider in a new migration. Include:
 - whether derived aggregates are treated differently from raw data.
 
 Do not edit a hosted row manually without a matching migration and review.
-
