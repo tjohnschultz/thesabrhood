@@ -1,0 +1,57 @@
+name: Validate backend contracts
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/backend-contracts.yml"
+      - "infrastructure/**"
+      - "supabase/**"
+      - "netlify.toml"
+  push:
+    branches-ignore:
+      - main
+    paths:
+      - ".github/workflows/backend-contracts.yml"
+      - "infrastructure/**"
+      - "supabase/**"
+      - "netlify.toml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Install adapter test dependencies
+        run: Rscript -e 'install.packages(c("digest", "jsonlite"), repos = "https://packagemanager.posit.co/cran/latest")'
+
+      - name: Parse R job sources and run offline adapter contract
+        shell: bash
+        run: |
+          Rscript -e 'files <- list.files("infrastructure/cloud-run", pattern = "[.]R$", recursive = TRUE, full.names = TRUE); invisible(lapply(files, parse))'
+          Rscript infrastructure/cloud-run/tests/run-tests.R
+
+      - name: Verify source-permission guard is present
+        shell: bash
+        run: |
+          grep -q "commercial_serving_allowed" supabase/migrations/*.sql
+          grep -q "publish_release" supabase/migrations/*.sql
+          grep -A8 "'fangraphs'" supabase/migrations/*.sql | grep -q "'pending_review'"
+          grep -A8 "'mlb'" supabase/migrations/*.sql | grep -q "'pending_review'"
+
+      - name: Confirm cloud resources remain opt-in
+        shell: bash
+        run: |
+          grep -A3 'variable "enable_cloud_resources"' infrastructure/terraform/variables.tf | grep -q "default     = false"
+          grep -A3 'variable "enable_scheduler"' infrastructure/terraform/variables.tf | grep -q "default     = false"
+          grep -A3 'variable "publish_release"' infrastructure/terraform/variables.tf | grep -q "default     = false"
