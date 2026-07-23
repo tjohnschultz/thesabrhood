@@ -1,2 +1,6 @@
 "probability_bin","bin_lower","bin_upper","observations","mean_probability","observed_rate","calibration_gap","calibration_status"
-,,,0,,,,"awaiting first pregame snapshot"
+4,0.3,0.4,3,0.308583333333333,0.666666666666667,0.358083333333333,"observed"
+5,0.4,0.5,3,0.4594,0,-0.4594,"observed"
+6,0.5,0.6,6,0.536283333333333,0.333333333333333,-0.20295,"observed"
+7,0.6,0.7,4,0.6718,0.75,0.0782,"observed"
+8,0.7,0.8,1,0.71645,0,-0.71645,"observed"

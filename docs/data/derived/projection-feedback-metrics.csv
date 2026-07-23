@@ -1,2 +1,2 @@
 "settled_games","eligible_unsettled_games","calibration_minimum_games","calibration_status","brier_score","log_loss","classification_accuracy","calibration_bias","away_runs_mae","home_runs_mae","total_runs_mae","model_version"
-0,0,300,"accumulating pregame outcomes",,,,,,,,"none eligible yet"
+17,0,300,"accumulating pregame outcomes",0.268099080294118,0.732893887312893,0.529411764705882,-0.113252941176471,1.76140294117647,2.79892647058824,3.50948823529412,"scheduled_game_simulator_development_v1"

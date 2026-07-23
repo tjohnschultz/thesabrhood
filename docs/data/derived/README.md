@@ -9,5 +9,8 @@ contract. The website generator reads these files and produces static HTML
 fragments in `includes/` so the public site can render without database access or
 private local paths.
 
-The checked-in files are a reproducible preview snapshot through June 14, 2026.
-The future daily workflow will replace them only after validation succeeds.
+The checked-in files are the last successfully validated public snapshot. The
+daily workflow rebuilds daily-cadence products from private current sources,
+while the weekly workflow refreshes cumulative award-history checkpoints.
+`refresh-health.csv` records the source-through date, expected date, cadence,
+lag, and publication status for every time-sensitive product group.
