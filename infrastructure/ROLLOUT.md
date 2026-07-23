@@ -81,4 +81,3 @@ Only after shadow operation:
    refunds, cancellation, and entitlement-revocation paths pass.
 
 There is no all-at-once data migration or deployment step.
-

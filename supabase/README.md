@@ -39,4 +39,3 @@ checks, then call `publishing.publish_release(release_id)` as `service_role`.
 The function locks the single publication pointer and switches it only after
 the source-permission and minimum-validation gates pass. Readers therefore see
 the old complete release or the new complete release, never a partial update.
-

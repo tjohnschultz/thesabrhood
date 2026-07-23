@@ -23,4 +23,3 @@ a time without disturbing the current site.
 - No existing GitHub refresh schedule is removed.
 - No MLB/Statcast or FanGraphs data is copied into the serving database.
 - No payment provider is selected and no payments are accepted.
-

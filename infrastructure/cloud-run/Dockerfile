@@ -17,4 +17,3 @@ COPY infrastructure/cloud-run /app/infrastructure/cloud-run
 
 ENTRYPOINT ["Rscript", "/app/infrastructure/cloud-run/entrypoint.R"]
 CMD ["help"]
-

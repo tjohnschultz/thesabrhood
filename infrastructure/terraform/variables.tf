@@ -50,4 +50,3 @@ variable "scheduler_cron" {
   type        = string
   default     = "15 11 1 * *"
 }
-

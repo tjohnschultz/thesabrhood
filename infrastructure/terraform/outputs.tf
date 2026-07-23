@@ -22,4 +22,3 @@ output "database_url_secret_id" {
   description = "Secret Manager secret to populate out-of-band; Terraform never stores the database URL value."
   value       = local.create_cloud_resources ? google_secret_manager_secret.database_url[0].secret_id : null
 }
-

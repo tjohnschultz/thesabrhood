@@ -7,4 +7,3 @@ enable_scheduler       = false
 publish_release        = false
 container_image        = "us-east1-docker.pkg.dev/your-google-cloud-project/sabrhood-backend/ingestion@sha256:replace-me"
 retrosheet_season      = 2025
-

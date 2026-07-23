@@ -60,4 +60,3 @@ run_retrosheet_pipeline(
   dry_run = dry_run,
   publish = publish
 )
-

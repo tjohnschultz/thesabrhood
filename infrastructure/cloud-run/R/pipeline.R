@@ -69,4 +69,3 @@ run_retrosheet_pipeline <- function(
     }
   )
 }
-

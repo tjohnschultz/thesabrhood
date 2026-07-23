@@ -20,4 +20,3 @@ database transaction. Browser clients must never write these tables.
 Before accepting payments, test duplicate and out-of-order events, trial expiry,
 failed payment, cancellation at period end, immediate refund, chargeback,
 account deletion, and manual support overrides.
-
