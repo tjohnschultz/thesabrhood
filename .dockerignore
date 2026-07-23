@@ -1,0 +1,13 @@
+.git
+.github
+.localappdata
+.private-data
+.quarto
+.Rproj.user
+data
+docs
+images
+posts
+*.rds
+*.RData
+
