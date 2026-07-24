@@ -103,7 +103,11 @@ that already exists. It downloads and verifies the remote manifest, local
 manifest, and only the selected component packages. It safely checks every
 archive path, validates every extracted file, builds a new staging directory,
 and renames that directory into place only after the restore is complete. This
-isolated behavior is the precursor to replacing the Actions cache.
+isolated behavior is the precursor to replacing the Actions cache. Restored
+paths remain repository-relative, so restoring `private_state` into `TARGET`
+places its files under `TARGET/.private-data/`. A caller that is rebuilding a
+working checkout must move that verified `.private-data/` directory into the
+repository only after restoration succeeds.
 
 `inventory` is read-only. It lists release folders through the Storage API,
 reads their small remote manifests, and reports the number of files, objects,

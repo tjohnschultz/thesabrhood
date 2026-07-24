@@ -121,10 +121,14 @@ jobs:
           SABRHOOD_SUPABASE_BUCKET: ${{ secrets.SABRHOOD_SUPABASE_BUCKET }}
         run: |
           set -euo pipefail
+          restore_root=".backend/restores/${SABRHOOD_SOURCE_RELEASE_KEY}-private"
           Rscript scripts/supabase_storage.R restore \
             "--release-key=${SABRHOOD_SOURCE_RELEASE_KEY}" \
-            "--target=.private-data" \
+            "--target=${restore_root}" \
             "--components=private_state"
+          test -d "${restore_root}/.private-data"
+          test ! -e ".private-data"
+          mv "${restore_root}/.private-data" ".private-data"
 
       - name: Stage a new immutable release
         shell: bash
@@ -132,6 +136,7 @@ jobs:
           set -euo pipefail
           Rscript scripts/backend_release.R stage \
             "--release-key=${SABRHOOD_OUTPUT_RELEASE_KEY}"
+          Rscript -e 'manifest <- jsonlite::read_json(file.path(".backend", "release-store", "releases", Sys.getenv("SABRHOOD_OUTPUT_RELEASE_KEY"), "manifest.json"), simplifyVector = TRUE); stopifnot(as.integer(manifest$components$private_state$files) > 0L)'
           Rscript scripts/supabase_storage.R plan \
             "--release-key=${SABRHOOD_OUTPUT_RELEASE_KEY}"
 
@@ -153,6 +158,8 @@ jobs:
         run: |
           set -euo pipefail
           test -d ".private-data"
+          test -d ".private-data/pbp"
+          test ! -e ".private-data/.private-data"
           test -f \
             ".backend/release-store/releases/${SABRHOOD_OUTPUT_RELEASE_KEY}/manifest.json"
 
