@@ -103,3 +103,24 @@ manifest, and only the selected component packages. It safely checks every
 archive path, validates every extracted file, builds a new staging directory,
 and renames that directory into place only after the restore is complete. This
 isolated behavior is the precursor to replacing the Actions cache.
+
+## GitHub Actions shadow restore
+
+The manual **Validate backend contracts** workflow includes a **Supabase shadow
+restore** job that proves a fresh GitHub runner can recover private pipeline
+state without relying on the Actions cache. The network job runs only for a
+manual dispatch; pushes and pull requests continue to run only the offline
+contract checks. It requires these repository secrets:
+
+- `SABRHOOD_SUPABASE_URL`
+- `SABRHOOD_SUPABASE_SECRET_KEY`
+- `SABRHOOD_SUPABASE_BUCKET`
+
+Run **Validate backend contracts** from the Actions tab and select the
+`codex/backend-overhaul` branch. The shadow job currently restores the staged
+`shadow-20260724-002` release. The workflow has read-only repository
+permissions, checks out without persisting Git credentials, restores only
+`private_state` into the ignored `.backend/restores/` directory, and verifies
+that the checkout remains clean. It does not upload an artifact, save an
+Actions cache, commit files, deploy the site, promote a release, or write
+`current.json`.
