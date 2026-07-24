@@ -115,6 +115,13 @@ and manifest-declared bytes in each staged release. An incomplete release with
 no readable remote manifest is reported as `unreadable` and is never silently
 treated as safe to delete.
 
+Scheduled uploads remain disabled until retention is implemented and explicitly
+approved. The initial retention policy must always protect the original
+recovery release, the newest complete release, any release referenced by a
+current or previous pointer, and every `unreadable` release. A future cleanup
+command must default to a dry run and list exact object paths and byte totals
+before it is allowed to call the Storage deletion API.
+
 ## GitHub Actions shadow restore
 
 The manual **Validate backend contracts** workflow includes a **Supabase shadow
