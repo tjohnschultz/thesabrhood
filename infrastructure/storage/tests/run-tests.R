@@ -268,6 +268,44 @@ stopifnot(
   verified_remote$bytes > length(large_fixture_body)
 )
 
+fake_list <- function(config, prefix, limit, offset) {
+  stopifnot(
+    identical(prefix, "releases"),
+    identical(limit, 1000L),
+    identical(offset, 0L)
+  )
+  list(
+    list(name = remote_release$release_key),
+    list(name = "incomplete-release")
+  )
+}
+release_inventory <- list_supabase_releases(
+  config = fake_config,
+  list_objects = fake_list,
+  download = fake_download
+)
+complete_inventory <- release_inventory[
+  release_inventory$release_key == remote_release$release_key,
+  ,
+  drop = FALSE
+]
+incomplete_inventory <- release_inventory[
+  release_inventory$release_key == "incomplete-release",
+  ,
+  drop = FALSE
+]
+stopifnot(
+  nrow(release_inventory) == 2L,
+  nrow(complete_inventory) == 1L,
+  complete_inventory$status == "staged",
+  complete_inventory$files == verified_remote$files,
+  complete_inventory$objects == verified_remote$objects,
+  complete_inventory$bytes == verified_remote$bytes,
+  nrow(incomplete_inventory) == 1L,
+  incomplete_inventory$status == "unreadable",
+  is.na(incomplete_inventory$bytes)
+)
+
 restore_target <- tempfile("sabrhood-restored-release-")
 restored_remote <- restore_supabase_release(
   release_key = remote_release$release_key,

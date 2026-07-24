@@ -84,6 +84,7 @@ Uploading a release and promoting it are deliberately separate:
 Rscript scripts/supabase_storage.R upload --release-key=KEY
 Rscript scripts/supabase_storage.R verify --release-key=KEY
 Rscript scripts/supabase_storage.R restore --release-key=KEY --target=PATH
+Rscript scripts/supabase_storage.R inventory
 Rscript scripts/supabase_storage.R promote --release-key=KEY
 ```
 
@@ -103,6 +104,12 @@ manifest, and only the selected component packages. It safely checks every
 archive path, validates every extracted file, builds a new staging directory,
 and renames that directory into place only after the restore is complete. This
 isolated behavior is the precursor to replacing the Actions cache.
+
+`inventory` is read-only. It lists release folders through the Storage API,
+reads their small remote manifests, and reports the number of files, objects,
+and manifest-declared bytes in each staged release. An incomplete release with
+no readable remote manifest is reported as `unreadable` and is never silently
+treated as safe to delete.
 
 ## GitHub Actions shadow restore
 
@@ -130,4 +137,5 @@ GitHub does not display the manual-run button until a workflow exists on the
 default branch. Before this workflow is merged, a bootstrap test can be
 requested by pushing to `codex/backend-overhaul` with `[supabase-shadow]` in the
 commit message. That marker is ignored on every other branch and for pull
-requests.
+requests. A read-only storage inventory can be requested with
+`[supabase-inventory]`; that marker does not run the round-trip upload.
