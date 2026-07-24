@@ -44,6 +44,7 @@ if (identical(command, "help")) {
       "  probe",
       "  plan --release-key=KEY [--store-root=PATH]",
       "  upload --release-key=KEY [--store-root=PATH]",
+      "  verify --release-key=KEY [--store-root=PATH]",
       "  promote --release-key=KEY [--store-root=PATH]",
       "",
       "Required for network commands:",
@@ -109,13 +110,53 @@ if (identical(command, "upload")) {
   quit(status = 0L)
 }
 
+verify_progress <- function(object_path, bytes, status) {
+  cat(
+    sprintf(
+      "%-8s %-8.2f MiB  %s\n",
+      tools::toTitleCase(status),
+      bytes / 1024^2,
+      object_path
+    )
+  )
+}
+
+if (identical(command, "verify")) {
+  verification <- verify_supabase_release(
+    release_key = release_key,
+    local_release_root = release_root,
+    progress = verify_progress
+  )
+  cat(
+    sprintf(
+      "Verified Supabase release %s: %d files, %d objects, %.2f MiB.\n",
+      verification$release_key,
+      verification$files,
+      verification$objects,
+      verification$bytes / 1024^2
+    )
+  )
+  quit(status = 0L)
+}
+
 if (identical(command, "promote")) {
+  verification <- verify_supabase_release(
+    release_key = release_key,
+    local_release_root = release_root,
+    progress = verify_progress
+  )
   promote_supabase_release(
     release_key = release_key,
     remote_manifest_path = paste0(
       "releases/",
       release_key,
       "/remote-manifest.json"
+    )
+  )
+  cat(
+    sprintf(
+      "Verified %d objects before promotion.\n",
+      verification$objects
     )
   )
   cat("Promoted Supabase release: ", release_key, "\n", sep = "")
