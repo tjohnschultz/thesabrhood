@@ -124,3 +124,9 @@ permissions, checks out without persisting Git credentials, restores only
 that the checkout remains clean. It does not upload an artifact, save an
 Actions cache, commit files, deploy the site, promote a release, or write
 `current.json`.
+
+GitHub does not display the manual-run button until a workflow exists on the
+default branch. Before this workflow is merged, a bootstrap test can be
+requested by pushing to `codex/backend-overhaul` with `[supabase-shadow]` in the
+commit message. That marker is ignored on every other branch and for pull
+requests.

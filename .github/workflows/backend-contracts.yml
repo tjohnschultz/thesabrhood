@@ -61,7 +61,11 @@ jobs:
 
   supabase-shadow-restore:
     name: Supabase shadow restore
-    if: github.event_name == 'workflow_dispatch'
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'push' &&
+      github.ref == 'refs/heads/codex/backend-overhaul' &&
+      contains(github.event.head_commit.message, '[supabase-shadow]'))
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
