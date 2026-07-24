@@ -32,6 +32,11 @@ by Git. Hosted Supabase Storage will later implement the same layout with
 versioned object keys. PostgreSQL will remain the authority for pipeline health,
 account data, preferences, and the atomic current-release record.
 
+The Supabase adapter splits objects larger than 40 MiB before upload. Each part
+has its own SHA-256 checksum in the remote manifest, so the current 72 MiB PBP
+snapshot can use the hosted free-tier file-size limit without changing the R
+analysis format.
+
 ## Local commands
 
 Run these from the repository root with the project's R library available:
@@ -51,3 +56,29 @@ Run the offline contract test with:
 ```powershell
 Rscript infrastructure/storage/tests/run-tests.R
 ```
+
+## Supabase connection
+
+The private bucket is named `pipeline-releases`. Network commands read
+credentials only from the process environment:
+
+- `SABRHOOD_SUPABASE_URL`: the hosted project URL.
+- `SABRHOOD_SUPABASE_SECRET_KEY`: a backend-only `sb_secret_` key.
+- `SABRHOOD_SUPABASE_BUCKET`: optional; defaults to `pipeline-releases`.
+
+The secret key must never be committed, placed in a public page, or pasted into
+logs. A safe first network operation writes one small connection-test object:
+
+```powershell
+Rscript scripts/supabase_storage.R probe
+```
+
+Uploading a release and promoting it are deliberately separate:
+
+```powershell
+Rscript scripts/supabase_storage.R upload --release-key=KEY
+Rscript scripts/supabase_storage.R promote --release-key=KEY
+```
+
+An interrupted upload cannot change `current.json` because only the explicit
+second command writes that pointer.
