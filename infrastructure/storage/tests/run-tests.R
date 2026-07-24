@@ -42,6 +42,9 @@ release <- build_local_release(
 stopifnot(
   identical(release$release_key, "test-release-1"),
   file.exists(file.path(release$path, "manifest.json")),
+  file.exists(file.path(release$path, "packages", "private_state.tar.gz")),
+  file.exists(file.path(release$path, "packages", "public_data.tar.gz")),
+  file.exists(file.path(release$path, "packages", "site.tar.gz")),
   file.exists(file.path(
     release$path,
     "components",
@@ -60,6 +63,33 @@ stopifnot(
     "should-not-publish.txt"
   )),
   !file.exists(file.path(store_root, "current.json"))
+)
+
+unpacked_private_state <- tempfile("sabrhood-unpacked-private-")
+dir.create(unpacked_private_state)
+utils::untar(
+  file.path(release$path, "packages", "private_state.tar.gz"),
+  exdir = unpacked_private_state,
+  tar = "internal"
+)
+stopifnot(
+  file.exists(file.path(
+    unpacked_private_state,
+    "components",
+    "private_state",
+    ".private-data",
+    "pbp",
+    "2026",
+    "current.rds"
+  )),
+  !file.exists(file.path(
+    unpacked_private_state,
+    "components",
+    "private_state",
+    ".private-data",
+    "lf-checkout",
+    "should-not-publish.txt"
+  ))
 )
 
 promote_local_release(store_root, "test-release-1")
@@ -98,11 +128,20 @@ remote_fixture_root <- tempfile("sabrhood-remote-release-")
 dir.create(remote_fixture_root, recursive = TRUE)
 on.exit(unlink(remote_fixture_root, recursive = TRUE, force = TRUE), add = TRUE)
 writeLines(
-  '{"release_key":"remote-test-1","status":"staged"}',
+  paste0(
+    '{"contract_version":2,"release_key":"remote-test-1",',
+    '"status":"staged","packages":[',
+    '{"component":"private_state","path":"packages/private_state.tar.gz"}]}'
+  ),
   file.path(remote_fixture_root, "manifest.json"),
   useBytes = TRUE
 )
-large_fixture <- file.path(remote_fixture_root, "large.bin")
+dir.create(file.path(remote_fixture_root, "packages"))
+large_fixture <- file.path(
+  remote_fixture_root,
+  "packages",
+  "private_state.tar.gz"
+)
 large_fixture_body <- as.raw(rep(0:255, length.out = 2500L))
 writeBin(large_fixture_body, large_fixture)
 

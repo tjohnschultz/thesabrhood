@@ -59,7 +59,7 @@ supabase_storage_upload_raw <- function(
     body,
     content_type = "application/octet-stream",
     upsert = FALSE,
-    timeout_seconds = 180L) {
+    timeout_seconds = 600L) {
   if (!requireNamespace("httr", quietly = TRUE)) {
     stop("The httr R package is required for Supabase uploads.", call. = FALSE)
   }
@@ -135,7 +135,8 @@ supabase_storage_probe <- function(
 
 release_upload_plan <- function(release_root, chunk_bytes = 40 * 1024^2) {
   release_root <- normalizePath(release_root, mustWork = TRUE)
-  if (!file.exists(file.path(release_root, "manifest.json"))) {
+  manifest_path <- file.path(release_root, "manifest.json")
+  if (!file.exists(manifest_path)) {
     stop("The staged release does not contain manifest.json.", call. = FALSE)
   }
   if (!is.numeric(chunk_bytes) || length(chunk_bytes) != 1L ||
@@ -143,14 +144,24 @@ release_upload_plan <- function(release_root, chunk_bytes = 40 * 1024^2) {
     stop("chunk_bytes must be at least 1024.", call. = FALSE)
   }
 
-  files <- list.files(
-    release_root,
-    recursive = TRUE,
-    full.names = TRUE,
-    all.files = TRUE,
-    no.. = TRUE
-  )
-  files <- files[file.exists(files) & !dir.exists(files)]
+  manifest <- jsonlite::read_json(manifest_path, simplifyVector = TRUE)
+  if (is.null(manifest$contract_version) || manifest$contract_version < 2L ||
+      is.null(manifest$packages)) {
+    stop(
+      "The staged release predates the packaged upload contract. Restage it ",
+      "with the current backend release tool.",
+      call. = FALSE
+    )
+  }
+  package_paths <- if (is.data.frame(manifest$packages)) {
+    manifest$packages$path
+  } else {
+    vapply(manifest$packages, function(package) package$path, character(1))
+  }
+  files <- c(manifest_path, file.path(release_root, package_paths))
+  if (any(!file.exists(files)) || any(dir.exists(files))) {
+    stop("One or more packaged release artifacts are missing.", call. = FALSE)
+  }
   relative <- vapply(
     files,
     release_relative_path,
@@ -173,7 +184,8 @@ upload_release_file <- function(
     file_path,
     relative_path,
     chunk_bytes = 40 * 1024^2,
-    upload = supabase_storage_upload_raw) {
+    upload = supabase_storage_upload_raw,
+    progress = NULL) {
   file_bytes <- as.numeric(file.info(file_path)$size)
   file_sha256 <- release_sha256(file_path)
   object_base <- paste0(
@@ -212,6 +224,13 @@ upload_release_file <- function(
       content_type = "application/octet-stream",
       upsert = FALSE
     )
+    if (is.function(progress)) {
+      progress(
+        object_path = object_path,
+        bytes = length(body),
+        part_number = part_number
+      )
+    }
     part_records[[part_number]] <- list(
       object_path = object_path,
       bytes = length(body),
@@ -236,7 +255,8 @@ upload_staged_release <- function(
     release_root,
     config = supabase_storage_config(),
     chunk_bytes = 40 * 1024^2,
-    upload = supabase_storage_upload_raw) {
+    upload = supabase_storage_upload_raw,
+    progress = NULL) {
   if (!requireNamespace("jsonlite", quietly = TRUE) ||
       !requireNamespace("digest", quietly = TRUE)) {
     stop("jsonlite and digest are required for release uploads.", call. = FALSE)
@@ -247,6 +267,9 @@ upload_staged_release <- function(
     file.path(release_root, "manifest.json"),
     simplifyVector = TRUE
   )
+  if (local_manifest$contract_version < 2L) {
+    stop("Release must use packaged storage contract version 2.", call. = FALSE)
+  }
   release_key <- local_manifest$release_key
   validate_release_key(release_key)
   plan <- release_upload_plan(release_root, chunk_bytes = chunk_bytes)
@@ -259,12 +282,13 @@ upload_staged_release <- function(
       file_path = plan$source[[index]],
       relative_path = plan$path[[index]],
       chunk_bytes = chunk_bytes,
-      upload = upload
+      upload = upload,
+      progress = progress
     )
   }
 
   remote_manifest <- list(
-    contract_version = 1L,
+    contract_version = 2L,
     release_key = release_key,
     uploaded_at_utc = format(Sys.time(), "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
     status = "staged",
@@ -287,6 +311,18 @@ upload_staged_release <- function(
     content_type = "application/json",
     upsert = FALSE
   )
+  if (is.function(progress)) {
+    progress(
+      object_path = remote_manifest_path,
+      bytes = length(charToRaw(jsonlite::toJSON(
+        remote_manifest,
+        auto_unbox = TRUE,
+        pretty = TRUE,
+        na = "null"
+      ))),
+      part_number = 1L
+    )
+  }
 
   list(
     release_key = release_key,

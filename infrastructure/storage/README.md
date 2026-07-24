@@ -37,6 +37,11 @@ has its own SHA-256 checksum in the remote manifest, so the current 72 MiB PBP
 snapshot can use the hosted free-tier file-size limit without changing the R
 analysis format.
 
+Before upload, each component is compressed into one `tar.gz` package. This
+reduces hundreds of small files to three component packages plus two manifests.
+The package retains the original folder layout and the local manifest retains
+per-file checksums, so restoration remains verifiable.
+
 ## Local commands
 
 Run these from the repository root with the project's R library available:

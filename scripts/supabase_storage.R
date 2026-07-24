@@ -91,7 +91,18 @@ if (identical(command, "plan")) {
 }
 
 if (identical(command, "upload")) {
-  result <- upload_staged_release(release_root)
+  result <- upload_staged_release(
+    release_root,
+    progress = function(object_path, bytes, part_number) {
+      cat(
+        sprintf(
+          "Uploaded %-8.2f MiB  %s\n",
+          bytes / 1024^2,
+          object_path
+        )
+      )
+    }
+  )
   cat("Staged Supabase release: ", result$release_key, "\n", sep = "")
   cat("Manifest: ", result$remote_manifest_path, "\n", sep = "")
   cat("The current release pointer was not changed.\n")

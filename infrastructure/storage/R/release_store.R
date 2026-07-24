@@ -1,6 +1,6 @@
 release_store_contract <- function() {
   list(
-    version = 1L,
+    version = 2L,
     components = list(
       private_state = c(
         ".private-data/pbp",
@@ -178,6 +178,40 @@ copy_release_component <- function(repository_root, destination_root, inventory)
   invisible(NULL)
 }
 
+package_release_components <- function(staging_root, component_names) {
+  packages_root <- file.path(staging_root, "packages")
+  dir.create(packages_root, recursive = TRUE, showWarnings = FALSE)
+  prior_directory <- setwd(staging_root)
+  on.exit(setwd(prior_directory), add = TRUE)
+  records <- vector("list", length(component_names))
+
+  for (index in seq_along(component_names)) {
+    component_name <- component_names[[index]]
+    package_relative <- release_normalize_path(
+      file.path("packages", paste0(component_name, ".tar.gz"))
+    )
+    utils::tar(
+      tarfile = package_relative,
+      files = release_normalize_path(file.path("components", component_name)),
+      compression = "gzip",
+      compression_level = 6L,
+      tar = "internal"
+    )
+    package_path <- file.path(staging_root, package_relative)
+    if (!file.exists(package_path)) {
+      stop("Could not package release component: ", component_name, call. = FALSE)
+    }
+    records[[index]] <- list(
+      component = component_name,
+      path = package_relative,
+      bytes = as.numeric(file.info(package_path)$size),
+      sha256 = release_sha256(package_path)
+    )
+  }
+
+  records
+}
+
 build_local_release <- function(
     repository_root,
     store_root = file.path(repository_root, ".backend", "release-store"),
@@ -231,12 +265,14 @@ build_local_release <- function(
       entries = component
     )
   })
+  packages <- package_release_components(staging_root, names(inventory))
   manifest <- list(
     contract_version = release_store_contract()$version,
     release_key = release_key,
     created_at_utc = format(Sys.time(), "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
     status = "staged",
-    components = component_summary
+    components = component_summary,
+    packages = packages
   )
   jsonlite::write_json(
     manifest,
