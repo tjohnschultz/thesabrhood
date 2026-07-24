@@ -251,3 +251,72 @@ jobs:
             cat retention-plan.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
+
+  supabase-delete-approved-incomplete:
+    name: Delete approved incomplete release
+    if: >-
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/codex/backend-overhaul' &&
+      contains(
+      github.event.head_commit.message,
+      '[supabase-delete-incomplete]'
+      )
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SABRHOOD_DELETE_RELEASE_KEY: shadow-gh-30129930066-1
+
+    steps:
+      - name: Check out repository without write credentials
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Install deletion dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::digest
+            any::httr
+            any::jsonlite
+          cache: false
+          install-pandoc: false
+          install-quarto: false
+
+      - name: Delete only the approved incomplete release
+        shell: bash
+        env:
+          SABRHOOD_SUPABASE_URL: ${{ secrets.SABRHOOD_SUPABASE_URL }}
+          SABRHOOD_SUPABASE_SECRET_KEY: ${{ secrets.SABRHOOD_SUPABASE_SECRET_KEY }}
+          SABRHOOD_SUPABASE_BUCKET: ${{ secrets.SABRHOOD_SUPABASE_BUCKET }}
+        run: |
+          set -euo pipefail
+          Rscript scripts/supabase_storage.R delete-incomplete \
+            "--release-key=${SABRHOOD_DELETE_RELEASE_KEY}" \
+            "--confirm-release-key=${SABRHOOD_DELETE_RELEASE_KEY}" \
+            | tee deletion.txt
+          Rscript scripts/supabase_storage.R inventory | tee post-delete-inventory.txt
+
+          if grep -Fq "$SABRHOOD_DELETE_RELEASE_KEY" post-delete-inventory.txt; then
+            echo "::error::The approved release still appears in inventory."
+            exit 1
+          fi
+
+          deletion_line=$(tail -n 1 deletion.txt)
+          inventory_line=$(tail -n 1 post-delete-inventory.txt)
+          echo "::notice title=Supabase cleanup::$deletion_line"
+          echo "::notice title=Post-delete inventory::$inventory_line"
+          {
+            echo "## Approved Supabase cleanup"
+            echo
+            echo '```text'
+            cat deletion.txt
+            echo
+            cat post-delete-inventory.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

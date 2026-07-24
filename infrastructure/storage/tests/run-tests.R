@@ -340,6 +340,71 @@ stopifnot(
   ] == "delete-candidate"
 )
 
+delete_request_paths <- character()
+fake_delete_request <- function(url, headers, body, timeout_seconds) {
+  stopifnot(
+    identical(
+      url,
+      "https://fixture.supabase.co/storage/v1/object/pipeline-releases"
+    ),
+    identical(headers[["apikey"]], fake_config$secret_key)
+  )
+  delete_request_paths <<- c(delete_request_paths, body$prefixes)
+  list(status = "deleted")
+}
+deleted_batch <- supabase_storage_delete_objects(
+  config = fake_config,
+  object_paths = c(
+    "releases/remote-test-1/object-a",
+    "releases/remote-test-1/object-b"
+  ),
+  request = fake_delete_request
+)
+stopifnot(
+  identical(deleted_batch, delete_request_paths),
+  length(deleted_batch) == 2L
+)
+
+wrong_confirmation <- try(
+  delete_incomplete_supabase_release(
+    release_key = remote_release$release_key,
+    confirm_release_key = "different-release",
+    config = fake_config,
+    list_objects = fake_list,
+    download = fake_download
+  ),
+  silent = TRUE
+)
+captured_deletion_paths <- character()
+fake_delete_objects <- function(config, object_paths) {
+  captured_deletion_paths <<- object_paths
+  object_paths
+}
+deleted_incomplete <- delete_incomplete_supabase_release(
+  release_key = remote_release$release_key,
+  confirm_release_key = remote_release$release_key,
+  config = fake_config,
+  list_objects = fake_list,
+  download = fake_download,
+  delete_objects = fake_delete_objects
+)
+stopifnot(
+  inherits(wrong_confirmation, "try-error"),
+  deleted_incomplete$status == "deleted",
+  deleted_incomplete$release_key == remote_release$release_key,
+  deleted_incomplete$objects == length(captured_deletion_paths),
+  paste0(
+    "releases/",
+    remote_release$release_key,
+    "/remote-manifest.json"
+  ) %in% captured_deletion_paths,
+  all(startsWith(
+    captured_deletion_paths,
+    paste0("releases/", remote_release$release_key, "/")
+  )),
+  !"current.json" %in% captured_deletion_paths
+)
+
 restore_target <- tempfile("sabrhood-restored-release-")
 restored_remote <- restore_supabase_release(
   release_key = remote_release$release_key,
