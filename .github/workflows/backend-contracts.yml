@@ -1,6 +1,6 @@
 name: Validate backend contracts
 
-on:
+"on":
   pull_request:
     paths:
       - ".github/workflows/backend-contracts.yml"
@@ -58,3 +58,75 @@ jobs:
           grep -A3 'variable "enable_cloud_resources"' infrastructure/terraform/variables.tf | grep -q "default     = false"
           grep -A3 'variable "enable_scheduler"' infrastructure/terraform/variables.tf | grep -q "default     = false"
           grep -A3 'variable "publish_release"' infrastructure/terraform/variables.tf | grep -q "default     = false"
+
+  supabase-shadow-restore:
+    name: Supabase shadow restore
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SABRHOOD_RELEASE_KEY: shadow-20260724-002
+
+    steps:
+      - name: Check out repository without write credentials
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Confirm required secrets are available
+        shell: bash
+        env:
+          SABRHOOD_SUPABASE_URL: ${{ secrets.SABRHOOD_SUPABASE_URL }}
+          SABRHOOD_SUPABASE_SECRET_KEY: ${{ secrets.SABRHOOD_SUPABASE_SECRET_KEY }}
+          SABRHOOD_SUPABASE_BUCKET: ${{ secrets.SABRHOOD_SUPABASE_BUCKET }}
+        run: |
+          set -euo pipefail
+          for variable in \
+            SABRHOOD_SUPABASE_URL \
+            SABRHOOD_SUPABASE_SECRET_KEY \
+            SABRHOOD_SUPABASE_BUCKET
+          do
+            if [ -z "${!variable:-}" ]; then
+              echo "::error::$variable is not configured for this repository."
+              exit 1
+            fi
+          done
+
+      - name: Install restore dependencies
+        run: >-
+          Rscript -e
+          'install.packages(c("digest", "httr", "jsonlite"),
+          repos = "https://packagemanager.posit.co/cran/latest")'
+
+      - name: Restore and checksum private pipeline state
+        shell: bash
+        env:
+          SABRHOOD_SUPABASE_URL: ${{ secrets.SABRHOOD_SUPABASE_URL }}
+          SABRHOOD_SUPABASE_SECRET_KEY: ${{ secrets.SABRHOOD_SUPABASE_SECRET_KEY }}
+          SABRHOOD_SUPABASE_BUCKET: ${{ secrets.SABRHOOD_SUPABASE_BUCKET }}
+        run: |
+          set -euo pipefail
+          Rscript scripts/supabase_storage.R restore \
+            "--release-key=${SABRHOOD_RELEASE_KEY}" \
+            "--target=.backend/restores/${SABRHOOD_RELEASE_KEY}-private" \
+            "--components=private_state"
+
+      - name: Confirm the restore stayed isolated
+        shell: bash
+        run: |
+          set -euo pipefail
+          restore_root=".backend/restores/${SABRHOOD_RELEASE_KEY}-private"
+          test -d "$restore_root"
+
+          file_count=$(find "$restore_root" -type f | wc -l)
+          byte_count=$(du -sb "$restore_root" | cut -f1)
+          test "$file_count" -gt 0
+          test "$byte_count" -gt 0
+
+          echo "Verified isolated restore: ${file_count} files, ${byte_count} bytes."
+          test -z "$(git status --porcelain)"
