@@ -231,6 +231,10 @@ list_supabase_releases <- function(
     config = supabase_storage_config(),
     list_objects = supabase_storage_list_raw,
     download = supabase_storage_download_raw) {
+  if (!requireNamespace("jsonlite", quietly = TRUE) ||
+      !requireNamespace("digest", quietly = TRUE)) {
+    stop("jsonlite and digest are required for release inventory.", call. = FALSE)
+  }
   release_entries <- list()
   offset <- 0L
   page_size <- 1000L
@@ -264,6 +268,10 @@ list_supabase_releases <- function(
       objects = integer(),
       bytes = numeric(),
       status = character(),
+      integrity = character(),
+      private_files = integer(),
+      public_files = integer(),
+      site_files = integer(),
       stringsAsFactors = FALSE
     ))
   }
@@ -294,8 +302,76 @@ list_supabase_releases <- function(
         objects = NA_integer_,
         bytes = NA_real_,
         status = "unreadable",
+        integrity = "unreadable",
+        private_files = NA_integer_,
+        public_files = NA_integer_,
+        site_files = NA_integer_,
         stringsAsFactors = FALSE
       ))
+    }
+    remote_paths <- vapply(
+      manifest$files,
+      function(file_record) as.character(file_record$path),
+      character(1)
+    )
+    local_record_index <- match("manifest.json", remote_paths)
+    local_manifest <- if (is.na(local_record_index)) {
+      NULL
+    } else {
+      tryCatch({
+        local_record <- manifest$files[[local_record_index]]
+        local_body <- do.call(c, lapply(local_record$parts, function(part) {
+          part_body <- download(config, part$object_path)
+          if (length(part_body) != as.numeric(part$bytes) ||
+              !identical(
+                digest::digest(
+                  part_body,
+                  algo = "sha256",
+                  serialize = FALSE
+                ),
+                part$sha256
+              )) {
+            stop("Local manifest part failed verification.", call. = FALSE)
+          }
+          part_body
+        }))
+        if (length(local_body) != as.numeric(local_record$bytes) ||
+            !identical(
+              digest::digest(
+                local_body,
+                algo = "sha256",
+                serialize = FALSE
+              ),
+              local_record$sha256
+            )) {
+          stop("Local manifest failed verification.", call. = FALSE)
+        }
+        jsonlite::fromJSON(rawToChar(local_body), simplifyVector = FALSE)
+      }, error = function(error) NULL)
+    }
+    component_names <- c("private_state", "public_data", "site")
+    component_counts <- setNames(rep(NA_integer_, 3L), component_names)
+    valid_local_manifest <- !is.null(local_manifest) &&
+      identical(local_manifest$release_key, release_key) &&
+      identical(as.integer(local_manifest$contract_version), 2L) &&
+      !is.null(local_manifest$components)
+    if (valid_local_manifest) {
+      component_counts <- vapply(component_names, function(component_name) {
+        component <- local_manifest$components[[component_name]]
+        if (is.null(component) || is.null(component$files)) {
+          0L
+        } else {
+          as.integer(component$files)
+        }
+      }, integer(1))
+    }
+    integrity <- if (!valid_local_manifest ||
+        any(is.na(component_counts))) {
+      "unreadable"
+    } else if (all(component_counts > 0L)) {
+      "complete"
+    } else {
+      "incomplete"
     }
     object_count <- sum(vapply(
       manifest$files,
@@ -313,6 +389,10 @@ list_supabase_releases <- function(
         numeric(1)
       )),
       status = as.character(manifest$status),
+      integrity = integrity,
+      private_files = component_counts[["private_state"]],
+      public_files = component_counts[["public_data"]],
+      site_files = component_counts[["site"]],
       stringsAsFactors = FALSE
     )
   })
@@ -323,6 +403,58 @@ list_supabase_releases <- function(
     inventory$uploaded_at_utc
   )
   inventory[order(order_value, decreasing = TRUE), , drop = FALSE]
+}
+
+plan_supabase_retention <- function(
+    inventory,
+    keep_complete = 2L,
+    protect = character()) {
+  required_columns <- c(
+    "release_key",
+    "uploaded_at_utc",
+    "bytes",
+    "status",
+    "integrity"
+  )
+  if (!all(required_columns %in% names(inventory))) {
+    stop("Release inventory does not satisfy the retention contract.", call. = FALSE)
+  }
+  keep_complete <- as.integer(keep_complete)
+  if (is.na(keep_complete) || keep_complete < 1L || keep_complete > 100L) {
+    stop("keep_complete must be between 1 and 100.", call. = FALSE)
+  }
+  protect <- unique(protect[nzchar(protect)])
+  if (length(protect)) {
+    invisible(lapply(protect, validate_release_key))
+  }
+
+  newest_complete <- head(
+    inventory$release_key[inventory$integrity == "complete"],
+    keep_complete
+  )
+  protected <- unique(c(protect, newest_complete))
+  action <- rep("delete-candidate", nrow(inventory))
+  reason <- rep("older unprotected staged release", nrow(inventory))
+
+  explicitly_protected <- inventory$release_key %in% protect
+  newest_protected <- inventory$release_key %in% newest_complete
+  unreadable <- inventory$integrity == "unreadable"
+  not_staged <- inventory$status != "staged"
+  action[explicitly_protected | newest_protected | unreadable | not_staged] <- "retain"
+  reason[explicitly_protected] <- "explicitly protected"
+  reason[newest_protected] <- "newest complete release"
+  reason[unreadable] <- "unreadable releases require investigation"
+  reason[not_staged] <- "non-staged status"
+
+  data.frame(
+    release_key = inventory$release_key,
+    uploaded_at_utc = inventory$uploaded_at_utc,
+    integrity = inventory$integrity,
+    mebibytes = round(inventory$bytes / 1024^2, 2L),
+    action = action,
+    reason = reason,
+    stringsAsFactors = FALSE
+  )
 }
 
 supabase_storage_probe <- function(
