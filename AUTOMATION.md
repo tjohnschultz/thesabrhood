@@ -7,12 +7,15 @@ during the local-first backend evaluation. They continue to publish the current
 MLB/Statcast- and FanGraphs-derived static research products. No refresh workflow
 has been disabled or redirected.
 
-The opt-in successor foundation lives in `supabase/` and `infrastructure/`.
-It begins with Retrosheet historical ingestion, provider-neutral contracts,
-atomic database releases, pipeline health, and public/member views. Hosted
-Supabase, Cloud Run, Cloud Scheduler, and Netlify cutover occur only in the
-phases documented in `infrastructure/ROLLOUT.md`. MLB and FanGraphs are blocked
-from the new commercial serving views until permission is documented.
+The active successor path lives in `infrastructure/storage/`. It first separates
+durable private state, validated public data, and the rendered site into an
+immutable release contract. Hosted Supabase storage and a Netlify preview are
+then introduced while GitHub Actions remains the scheduler. Cloud Run,
+Terraform, and a scheduler migration are optional later steps rather than
+proof-of-concept prerequisites. The canonical PostgreSQL and provider-neutral
+foundation remains under `supabase/` and `infrastructure/cloud-run/` for that
+later scale-up. MLB and FanGraphs remain blocked from new commercial serving
+views until permission is documented.
 
 ## What is automated now
 
