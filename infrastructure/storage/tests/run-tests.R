@@ -298,12 +298,46 @@ stopifnot(
   nrow(release_inventory) == 2L,
   nrow(complete_inventory) == 1L,
   complete_inventory$status == "staged",
+  complete_inventory$integrity == "incomplete",
   complete_inventory$files == verified_remote$files,
   complete_inventory$objects == verified_remote$objects,
   complete_inventory$bytes == verified_remote$bytes,
+  complete_inventory$private_files == 1L,
+  complete_inventory$public_files == 0L,
+  complete_inventory$site_files == 0L,
   nrow(incomplete_inventory) == 1L,
   incomplete_inventory$status == "unreadable",
+  incomplete_inventory$integrity == "unreadable",
   is.na(incomplete_inventory$bytes)
+)
+
+retention_fixture <- data.frame(
+  release_key = c("complete-new", "incomplete-old", "complete-original"),
+  uploaded_at_utc = c(
+    "2026-07-24T12:00:00Z",
+    "2026-07-24T11:00:00Z",
+    "2026-07-24T10:00:00Z"
+  ),
+  bytes = c(200, 50, 200),
+  status = rep("staged", 3L),
+  integrity = c("complete", "incomplete", "complete"),
+  stringsAsFactors = FALSE
+)
+retention_plan <- plan_supabase_retention(
+  retention_fixture,
+  keep_complete = 1L,
+  protect = "complete-original"
+)
+stopifnot(
+  retention_plan$action[
+    retention_plan$release_key == "complete-new"
+  ] == "retain",
+  retention_plan$action[
+    retention_plan$release_key == "complete-original"
+  ] == "retain",
+  retention_plan$action[
+    retention_plan$release_key == "incomplete-old"
+  ] == "delete-candidate"
 )
 
 restore_target <- tempfile("sabrhood-restored-release-")

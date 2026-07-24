@@ -43,6 +43,7 @@ if (identical(command, "help")) {
       "Commands:",
       "  probe",
       "  inventory",
+      "  retention-plan [--keep=2] [--protect=KEY,...]",
       "  plan --release-key=KEY [--store-root=PATH]",
       "  upload --release-key=KEY [--store-root=PATH]",
       "  verify --release-key=KEY [--store-root=PATH]",
@@ -74,9 +75,48 @@ if (identical(command, "inventory")) {
     readable_bytes <- sum(inventory$bytes, na.rm = TRUE)
     cat(
       sprintf(
-        "Readable staged releases: %d; manifest bytes: %.2f MiB.\n",
-        sum(inventory$status != "unreadable"),
+        paste0(
+          "Staged releases: %d; complete: %d; incomplete: %d; ",
+          "unreadable: %d; manifest bytes: %.2f MiB.\n"
+        ),
+        nrow(inventory),
+        sum(inventory$integrity == "complete"),
+        sum(inventory$integrity == "incomplete"),
+        sum(inventory$integrity == "unreadable"),
         readable_bytes / 1024^2
+      )
+    )
+  }
+  quit(status = 0L)
+}
+
+if (identical(command, "retention-plan")) {
+  keep <- options$values$keep
+  if (is.null(keep)) {
+    keep <- 2L
+  }
+  protect <- options$values$protect
+  if (is.null(protect)) {
+    protect <- character()
+  } else {
+    protect <- trimws(strsplit(protect, ",", fixed = TRUE)[[1L]])
+  }
+  inventory <- list_supabase_releases()
+  retention <- plan_supabase_retention(
+    inventory,
+    keep_complete = keep,
+    protect = protect
+  )
+  if (!nrow(retention)) {
+    cat("No staged releases were found.\n")
+  } else {
+    print(retention, row.names = FALSE)
+    candidates <- retention[retention$action == "delete-candidate", , drop = FALSE]
+    cat(
+      sprintf(
+        "Dry run only: %d candidate release(s), %.2f MiB; nothing deleted.\n",
+        nrow(candidates),
+        sum(candidates$mebibytes, na.rm = TRUE)
       )
     )
   }

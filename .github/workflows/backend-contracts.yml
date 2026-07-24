@@ -231,12 +231,23 @@ jobs:
         run: |
           set -euo pipefail
           Rscript scripts/supabase_storage.R inventory | tee inventory.txt
-          summary_line=$(tail -n 1 inventory.txt)
-          echo "::notice title=Supabase storage inventory::$summary_line"
+          Rscript scripts/supabase_storage.R retention-plan \
+            "--keep=2" \
+            "--protect=shadow-20260724-002" | tee retention-plan.txt
+          inventory_line=$(tail -n 1 inventory.txt)
+          retention_line=$(tail -n 1 retention-plan.txt)
+          echo "::notice title=Supabase storage inventory::$inventory_line"
+          echo "::notice title=Supabase retention dry run::$retention_line"
           {
             echo "## Supabase storage inventory"
             echo
             echo '```text'
             cat inventory.txt
+            echo '```'
+            echo
+            echo "## Supabase retention dry run"
+            echo
+            echo '```text'
+            cat retention-plan.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"

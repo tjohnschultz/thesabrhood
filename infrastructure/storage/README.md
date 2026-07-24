@@ -85,6 +85,7 @@ Rscript scripts/supabase_storage.R upload --release-key=KEY
 Rscript scripts/supabase_storage.R verify --release-key=KEY
 Rscript scripts/supabase_storage.R restore --release-key=KEY --target=PATH
 Rscript scripts/supabase_storage.R inventory
+Rscript scripts/supabase_storage.R retention-plan --keep=2 --protect=KEY
 Rscript scripts/supabase_storage.R promote --release-key=KEY
 ```
 
@@ -110,10 +111,16 @@ working checkout must move that verified `.private-data/` directory into the
 repository only after restoration succeeds.
 
 `inventory` is read-only. It lists release folders through the Storage API,
-reads their small remote manifests, and reports the number of files, objects,
-and manifest-declared bytes in each staged release. An incomplete release with
-no readable remote manifest is reported as `unreadable` and is never silently
-treated as safe to delete.
+reads their small remote and internal manifests, and reports the number of
+files, objects, component files, and manifest-declared bytes in each staged
+release. Missing or corrupt manifests are reported as `unreadable`. A release
+whose required component counts are zero is reported as `incomplete`.
+
+`retention-plan` is also read-only. It retains the requested number of newest
+complete releases, explicitly protected keys, unreadable releases, and anything
+whose status is not `staged`. It prints any remaining staged release as a
+`delete-candidate` with its declared size, but there is deliberately no remote
+deletion command yet.
 
 Scheduled uploads remain disabled until retention is implemented and explicitly
 approved. The initial retention policy must always protect the original
