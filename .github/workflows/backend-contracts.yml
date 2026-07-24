@@ -216,8 +216,20 @@ jobs:
           install-quarto: false
 
       - name: Inventory staged releases
+        shell: bash
         env:
           SABRHOOD_SUPABASE_URL: ${{ secrets.SABRHOOD_SUPABASE_URL }}
           SABRHOOD_SUPABASE_SECRET_KEY: ${{ secrets.SABRHOOD_SUPABASE_SECRET_KEY }}
           SABRHOOD_SUPABASE_BUCKET: ${{ secrets.SABRHOOD_SUPABASE_BUCKET }}
-        run: Rscript scripts/supabase_storage.R inventory
+        run: |
+          set -euo pipefail
+          Rscript scripts/supabase_storage.R inventory | tee inventory.txt
+          summary_line=$(tail -n 1 inventory.txt)
+          echo "::notice title=Supabase storage inventory::$summary_line"
+          {
+            echo "## Supabase storage inventory"
+            echo
+            echo '```text'
+            cat inventory.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
