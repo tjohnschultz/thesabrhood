@@ -377,8 +377,9 @@ upload_staged_release <- function(
   )
 }
 
-verify_supabase_release <- function(
+download_verified_supabase_release <- function(
     release_key,
+    output_root,
     config = supabase_storage_config(),
     local_release_root = NULL,
     download = supabase_storage_download_raw,
@@ -407,9 +408,11 @@ verify_supabase_release <- function(
   if (!is.null(local_release_root)) {
     local_release_root <- normalizePath(local_release_root, mustWork = TRUE)
   }
-  verification_root <- tempfile(paste0("sabrhood-verify-", release_key, "-"))
-  dir.create(verification_root, recursive = TRUE)
-  on.exit(unlink(verification_root, recursive = TRUE, force = TRUE), add = TRUE)
+  dir.create(output_root, recursive = TRUE, showWarnings = FALSE)
+  output_root <- normalizePath(output_root, mustWork = TRUE)
+  if (length(list.files(output_root, all.files = TRUE, no.. = TRUE))) {
+    stop("Verified-download output directory must be empty.", call. = FALSE)
+  }
   verified_bytes <- 0
   verified_objects <- 1L
 
@@ -419,43 +422,42 @@ verify_supabase_release <- function(
         startsWith(relative_path, "/")) {
       stop("Remote manifest contains an unsafe file path.", call. = FALSE)
     }
-    restored_path <- file.path(verification_root, relative_path)
+    restored_path <- file.path(output_root, relative_path)
     dir.create(dirname(restored_path), recursive = TRUE, showWarnings = FALSE)
     output <- file(restored_path, open = "wb")
-    completed <- FALSE
-    on.exit({
-      if (!completed && isOpen(output)) close(output)
-    }, add = TRUE)
-
-    for (part in file_record$parts) {
-      body <- download(config, part$object_path)
-      observed_part_sha <- digest::digest(
-        body,
-        algo = "sha256",
-        serialize = FALSE
-      )
-      if (length(body) != as.numeric(part$bytes) ||
-          !identical(observed_part_sha, part$sha256)) {
+    tryCatch(
+      {
+        for (part in file_record$parts) {
+          body <- download(config, part$object_path)
+          observed_part_sha <- digest::digest(
+            body,
+            algo = "sha256",
+            serialize = FALSE
+          )
+          if (length(body) != as.numeric(part$bytes) ||
+              !identical(observed_part_sha, part$sha256)) {
+            stop(
+              "Remote part failed checksum verification: ",
+              part$object_path,
+              call. = FALSE
+            )
+          }
+          writeBin(body, output)
+          verified_bytes <- verified_bytes + length(body)
+          verified_objects <- verified_objects + 1L
+          if (is.function(progress)) {
+            progress(
+              object_path = part$object_path,
+              bytes = length(body),
+              status = "verified"
+            )
+          }
+        }
+      },
+      finally = {
         close(output)
-        stop(
-          "Remote part failed checksum verification: ",
-          part$object_path,
-          call. = FALSE
-        )
       }
-      writeBin(body, output)
-      verified_bytes <- verified_bytes + length(body)
-      verified_objects <- verified_objects + 1L
-      if (is.function(progress)) {
-        progress(
-          object_path = part$object_path,
-          bytes = length(body),
-          status = "verified"
-        )
-      }
-    }
-    close(output)
-    completed <- TRUE
+    )
 
     observed_file_bytes <- as.numeric(file.info(restored_path)$size)
     observed_file_sha <- release_sha256(restored_path)
@@ -487,7 +489,165 @@ verify_supabase_release <- function(
     files = length(manifest$files),
     objects = verified_objects,
     bytes = verified_bytes,
-    status = "verified"
+    status = "verified",
+    manifest = manifest,
+    output_root = output_root
+  )
+}
+
+verify_supabase_release <- function(
+    release_key,
+    config = supabase_storage_config(),
+    local_release_root = NULL,
+    download = supabase_storage_download_raw,
+    progress = NULL) {
+  verification_root <- tempfile(paste0("sabrhood-verify-", release_key, "-"))
+  dir.create(verification_root, recursive = TRUE)
+  on.exit(unlink(verification_root, recursive = TRUE, force = TRUE), add = TRUE)
+
+  download_verified_supabase_release(
+    release_key = release_key,
+    output_root = verification_root,
+    config = config,
+    local_release_root = local_release_root,
+    download = download,
+    progress = progress
+  )
+}
+
+restore_supabase_release <- function(
+    release_key,
+    target_root,
+    components = "private_state",
+    config = supabase_storage_config(),
+    download = supabase_storage_download_raw,
+    progress = NULL) {
+  allowed_components <- names(release_store_contract()$components)
+  components <- unique(components)
+  invalid_components <- setdiff(components, allowed_components)
+  if (!length(components) || length(invalid_components)) {
+    stop(
+      "Restore components must be selected from: ",
+      paste(allowed_components, collapse = ", "),
+      call. = FALSE
+    )
+  }
+
+  target_root <- path.expand(target_root)
+  target_parent <- dirname(target_root)
+  dir.create(target_parent, recursive = TRUE, showWarnings = FALSE)
+  target_parent <- normalizePath(target_parent, mustWork = TRUE)
+  target_root <- file.path(target_parent, basename(target_root))
+  if (dir.exists(target_root) || file.exists(target_root)) {
+    stop("Restore target already exists: ", target_root, call. = FALSE)
+  }
+
+  download_root <- tempfile(paste0("sabrhood-download-", release_key, "-"))
+  dir.create(download_root, recursive = TRUE)
+  on.exit(unlink(download_root, recursive = TRUE, force = TRUE), add = TRUE)
+  downloaded <- download_verified_supabase_release(
+    release_key = release_key,
+    output_root = download_root,
+    config = config,
+    download = download,
+    progress = progress
+  )
+  local_manifest <- jsonlite::read_json(
+    file.path(download_root, "manifest.json"),
+    simplifyVector = FALSE
+  )
+
+  staging_target <- file.path(
+    target_parent,
+    paste0(".restore-staging-", release_key, "-", Sys.getpid())
+  )
+  if (dir.exists(staging_target) || file.exists(staging_target)) {
+    stop("Restore staging path already exists.", call. = FALSE)
+  }
+  dir.create(staging_target, recursive = TRUE)
+  restored_files <- 0L
+  restored_bytes <- 0
+  completed <- FALSE
+  on.exit({
+    if (!completed && dir.exists(staging_target)) {
+      unlink(staging_target, recursive = TRUE, force = TRUE)
+    }
+  }, add = TRUE)
+
+  for (component in components) {
+    package_path <- file.path(
+      download_root,
+      "packages",
+      paste0(component, ".tar.gz")
+    )
+    if (!file.exists(package_path)) {
+      stop("Release is missing package for component: ", component, call. = FALSE)
+    }
+    archive_entries <- release_normalize_path(utils::untar(
+      package_path,
+      list = TRUE,
+      tar = "internal"
+    ))
+    component_prefix <- paste0("components/", component, "/")
+    permitted_parents <- c("components", paste0("components/", component))
+    unsafe_entries <- archive_entries[
+      grepl("(^|/)[.][.]($|/)", archive_entries) |
+        startsWith(archive_entries, "/") |
+        !(archive_entries %in% permitted_parents |
+            startsWith(archive_entries, component_prefix))
+    ]
+    if (length(unsafe_entries)) {
+      stop("Package contains paths outside its component root.", call. = FALSE)
+    }
+
+    unpack_root <- tempfile(paste0("sabrhood-unpack-", component, "-"))
+    dir.create(unpack_root)
+    on.exit(unlink(unpack_root, recursive = TRUE, force = TRUE), add = TRUE)
+    utils::untar(
+      package_path,
+      exdir = unpack_root,
+      tar = "internal"
+    )
+    source_root <- file.path(unpack_root, "components", component)
+    expected_entries <- local_manifest$components[[component]]$entries
+    for (entry in expected_entries) {
+      relative_path <- release_normalize_path(entry$path)
+      if (grepl("(^|/)[.][.]($|/)", relative_path) ||
+          startsWith(relative_path, "/")) {
+        stop("Local manifest contains an unsafe restore path.", call. = FALSE)
+      }
+      source_path <- file.path(source_root, relative_path)
+      destination <- file.path(staging_target, relative_path)
+      if (!file.exists(source_path) ||
+          as.numeric(file.info(source_path)$size) != as.numeric(entry$bytes) ||
+          !identical(release_sha256(source_path), entry$sha256)) {
+        stop(
+          "Extracted component failed file verification: ",
+          relative_path,
+          call. = FALSE
+        )
+      }
+      dir.create(dirname(destination), recursive = TRUE, showWarnings = FALSE)
+      if (!file.copy(source_path, destination, overwrite = FALSE, copy.date = TRUE)) {
+        stop("Could not write restored file: ", relative_path, call. = FALSE)
+      }
+      restored_files <- restored_files + 1L
+      restored_bytes <- restored_bytes + as.numeric(entry$bytes)
+    }
+  }
+
+  if (!file.rename(staging_target, target_root)) {
+    stop("Could not finalize the isolated restore directory.", call. = FALSE)
+  }
+  completed <- TRUE
+  list(
+    release_key = release_key,
+    components = components,
+    files = restored_files,
+    bytes = restored_bytes,
+    target_root = target_root,
+    verified_objects = downloaded$objects,
+    status = "restored"
   )
 }
 

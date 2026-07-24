@@ -45,6 +45,7 @@ if (identical(command, "help")) {
       "  plan --release-key=KEY [--store-root=PATH]",
       "  upload --release-key=KEY [--store-root=PATH]",
       "  verify --release-key=KEY [--store-root=PATH]",
+      "  restore --release-key=KEY --target=PATH [--components=private_state]",
       "  promote --release-key=KEY [--store-root=PATH]",
       "",
       "Required for network commands:",
@@ -134,6 +135,35 @@ if (identical(command, "verify")) {
       verification$files,
       verification$objects,
       verification$bytes / 1024^2
+    )
+  )
+  quit(status = 0L)
+}
+
+if (identical(command, "restore")) {
+  target <- options$values$target
+  if (is.null(target)) {
+    stop("restore requires --target=PATH.", call. = FALSE)
+  }
+  components <- options$values$components
+  if (is.null(components)) {
+    components <- "private_state"
+  } else {
+    components <- trimws(strsplit(components, ",", fixed = TRUE)[[1L]])
+  }
+  restored <- restore_supabase_release(
+    release_key = release_key,
+    target_root = target,
+    components = components,
+    progress = verify_progress
+  )
+  cat(
+    sprintf(
+      "Restored Supabase release %s: %d files, %.2f MiB to %s.\n",
+      restored$release_key,
+      restored$files,
+      restored$bytes / 1024^2,
+      restored$target_root
     )
   )
   quit(status = 0L)

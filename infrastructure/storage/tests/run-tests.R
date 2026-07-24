@@ -127,23 +127,66 @@ cat("Local release-store contract test passed.\n")
 remote_fixture_root <- tempfile("sabrhood-remote-release-")
 dir.create(remote_fixture_root, recursive = TRUE)
 on.exit(unlink(remote_fixture_root, recursive = TRUE, force = TRUE), add = TRUE)
-writeLines(
-  paste0(
-    '{"contract_version":2,"release_key":"remote-test-1",',
-    '"status":"staged","packages":[',
-    '{"component":"private_state","path":"packages/private_state.tar.gz"}]}'
-  ),
-  file.path(remote_fixture_root, "manifest.json"),
-  useBytes = TRUE
+remote_component_relative <- ".private-data/pbp/fixture.rds"
+remote_component_path <- file.path(
+  remote_fixture_root,
+  "components",
+  "private_state",
+  remote_component_relative
 )
+dir.create(dirname(remote_component_path), recursive = TRUE)
+set.seed(42L)
+large_fixture_body <- as.raw(sample.int(256L, 5000L, replace = TRUE) - 1L)
+writeBin(large_fixture_body, remote_component_path)
 dir.create(file.path(remote_fixture_root, "packages"))
 large_fixture <- file.path(
   remote_fixture_root,
   "packages",
   "private_state.tar.gz"
 )
-large_fixture_body <- as.raw(rep(0:255, length.out = 2500L))
-writeBin(large_fixture_body, large_fixture)
+prior_directory <- setwd(remote_fixture_root)
+utils::tar(
+  "packages/private_state.tar.gz",
+  "components/private_state",
+  compression = "gzip",
+  tar = "internal"
+)
+setwd(prior_directory)
+stopifnot(as.numeric(file.info(large_fixture)$size) > 1024L)
+remote_local_manifest <- list(
+  contract_version = 2L,
+  release_key = "remote-test-1",
+  status = "staged",
+  components = list(
+    private_state = list(
+      files = 1L,
+      bytes = length(large_fixture_body),
+      entries = list(list(
+        path = remote_component_relative,
+        bytes = length(large_fixture_body),
+        sha256 = release_sha256(remote_component_path)
+      ))
+    )
+  ),
+  packages = list(list(
+    component = "private_state",
+    path = "packages/private_state.tar.gz",
+    bytes = as.numeric(file.info(large_fixture)$size),
+    sha256 = release_sha256(large_fixture)
+  ))
+)
+jsonlite::write_json(
+  remote_local_manifest,
+  file.path(remote_fixture_root, "manifest.json"),
+  auto_unbox = TRUE,
+  pretty = TRUE
+)
+large_package_body <- readBin(
+  large_fixture,
+  "raw",
+  n = as.numeric(file.info(large_fixture)$size)
+)
+expected_package_parts <- ceiling(length(large_package_body) / 1024L)
 
 uploaded_objects <- new.env(parent = emptyenv())
 fake_upload <- function(
@@ -184,8 +227,8 @@ reassembled <- do.call(
   })
 )
 stopifnot(
-  length(chunk_names) == 3L,
-  identical(reassembled, large_fixture_body),
+  length(chunk_names) == expected_package_parts,
+  identical(reassembled, large_package_body),
   remote_release$release_key == "remote-test-1",
   remote_release$remote_manifest_path %in% uploaded_names,
   all(vapply(
@@ -221,8 +264,27 @@ verified_remote <- verify_supabase_release(
 stopifnot(
   verified_remote$status == "verified",
   verified_remote$files == 2L,
-  verified_remote$objects == 5L,
-  verified_remote$bytes > 2500L
+  verified_remote$objects == expected_package_parts + 2L,
+  verified_remote$bytes > length(large_fixture_body)
+)
+
+restore_target <- tempfile("sabrhood-restored-release-")
+restored_remote <- restore_supabase_release(
+  release_key = remote_release$release_key,
+  target_root = restore_target,
+  components = "private_state",
+  config = fake_config,
+  download = fake_download
+)
+restored_component <- file.path(restore_target, remote_component_relative)
+stopifnot(
+  restored_remote$status == "restored",
+  restored_remote$files == 1L,
+  restored_remote$bytes == length(large_fixture_body),
+  identical(
+    readBin(restored_component, "raw", n = length(large_fixture_body)),
+    large_fixture_body
+  )
 )
 
 promote_supabase_release(
