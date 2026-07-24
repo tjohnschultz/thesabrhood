@@ -222,7 +222,7 @@ upload_release_file <- function(
       object_path = object_path,
       body = body,
       content_type = "application/octet-stream",
-      upsert = FALSE
+      upsert = TRUE
     )
     if (is.function(progress)) {
       progress(
@@ -309,7 +309,7 @@ upload_staged_release <- function(
       na = "null"
     )),
     content_type = "application/json",
-    upsert = FALSE
+    upsert = TRUE
   )
   if (is.function(progress)) {
     progress(

@@ -188,7 +188,25 @@ stopifnot(
   identical(reassembled, large_fixture_body),
   remote_release$release_key == "remote-test-1",
   remote_release$remote_manifest_path %in% uploaded_names,
+  all(vapply(
+    uploaded_names,
+    function(object_path) {
+      isTRUE(get(object_path, envir = uploaded_objects)$upsert)
+    },
+    logical(1)
+  )),
   !"current.json" %in% uploaded_names
+)
+
+retried_remote_release <- upload_staged_release(
+  remote_fixture_root,
+  config = fake_config,
+  chunk_bytes = 1024L,
+  upload = fake_upload
+)
+stopifnot(
+  retried_remote_release$release_key == "remote-test-1",
+  !"current.json" %in% ls(uploaded_objects)
 )
 
 promote_supabase_release(
