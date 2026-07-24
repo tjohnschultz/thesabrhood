@@ -120,7 +120,15 @@ whose required component counts are zero is reported as `incomplete`.
 complete releases, explicitly protected keys, unreadable releases, and anything
 whose status is not `staged`. It prints any remaining staged release as a
 `delete-candidate` with its declared size, but there is deliberately no remote
-deletion command yet.
+deletion during planning.
+
+`delete-incomplete` is the narrowly guarded cleanup path. It requires matching
+`--release-key` and `--confirm-release-key` values, re-runs inventory, and
+refuses unless the exact target is still `staged` and `incomplete`. Before
+calling the Storage API it derives the object list from the verified remote
+manifest and refuses any path outside the target release prefix. Storage
+deletion is permanent; this command must only be run after the exact key has
+been explicitly approved.
 
 Scheduled uploads remain disabled until retention is implemented and explicitly
 approved. The initial retention policy must always protect the original
@@ -157,3 +165,6 @@ requested by pushing to `codex/backend-overhaul` with `[supabase-shadow]` in the
 commit message. That marker is ignored on every other branch and for pull
 requests. A read-only storage inventory can be requested with
 `[supabase-inventory]`; that marker does not run the round-trip upload.
+The one-time `[supabase-delete-incomplete]` marker is additionally restricted
+in the workflow to the explicitly approved
+`shadow-gh-30129930066-1` release key.

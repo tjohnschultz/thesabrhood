@@ -44,6 +44,7 @@ if (identical(command, "help")) {
       "  probe",
       "  inventory",
       "  retention-plan [--keep=2] [--protect=KEY,...]",
+      "  delete-incomplete --release-key=KEY --confirm-release-key=KEY",
       "  plan --release-key=KEY [--store-root=PATH]",
       "  upload --release-key=KEY [--store-root=PATH]",
       "  verify --release-key=KEY [--store-root=PATH]",
@@ -120,6 +121,32 @@ if (identical(command, "retention-plan")) {
       )
     )
   }
+  quit(status = 0L)
+}
+
+if (identical(command, "delete-incomplete")) {
+  if (is.null(release_key)) {
+    stop("delete-incomplete requires --release-key=KEY.", call. = FALSE)
+  }
+  confirm_release_key <- options$values[["confirm-release-key"]]
+  if (is.null(confirm_release_key)) {
+    stop(
+      "delete-incomplete requires --confirm-release-key=KEY.",
+      call. = FALSE
+    )
+  }
+  deleted <- delete_incomplete_supabase_release(
+    release_key = release_key,
+    confirm_release_key = confirm_release_key
+  )
+  cat(
+    sprintf(
+      "Permanently deleted incomplete release %s: %d objects, %.2f MiB.\n",
+      deleted$release_key,
+      deleted$objects,
+      deleted$bytes / 1024^2
+    )
+  )
   quit(status = 0L)
 }
 

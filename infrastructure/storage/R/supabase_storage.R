@@ -457,6 +457,159 @@ plan_supabase_retention <- function(
   )
 }
 
+supabase_storage_delete_objects <- function(
+    config,
+    object_paths,
+    request = NULL,
+    batch_size = 1000L,
+    timeout_seconds = 120L) {
+  if (!requireNamespace("httr", quietly = TRUE) ||
+      !requireNamespace("jsonlite", quietly = TRUE)) {
+    stop("httr and jsonlite are required for Supabase object deletion.", call. = FALSE)
+  }
+  object_paths <- unique(release_normalize_path(object_paths))
+  if (!length(object_paths) ||
+      any(!nzchar(object_paths)) ||
+      any(startsWith(object_paths, "/")) ||
+      any(grepl("(^|/)[.][.]($|/)", object_paths))) {
+    stop("Refusing unsafe or empty Supabase deletion paths.", call. = FALSE)
+  }
+  batch_size <- as.integer(batch_size)
+  if (is.na(batch_size) || batch_size < 1L || batch_size > 1000L) {
+    stop("Deletion batch size must be between 1 and 1000.", call. = FALSE)
+  }
+
+  if (is.null(request)) {
+    request <- function(url, headers, body, timeout_seconds) {
+      httr::DELETE(
+        url,
+        httr::add_headers(.headers = headers),
+        httr::timeout(timeout_seconds),
+        body = charToRaw(jsonlite::toJSON(
+          body,
+          auto_unbox = TRUE,
+          na = "null"
+        )),
+        encode = "raw"
+      )
+    }
+  }
+  deleted <- character()
+  batches <- split(
+    object_paths,
+    ceiling(seq_along(object_paths) / batch_size)
+  )
+  for (batch in batches) {
+    response <- request(
+      url = paste0(
+        config$url,
+        "/storage/v1/object/",
+        utils::URLencode(config$bucket, reserved = TRUE)
+      ),
+      headers = c(
+        apikey = config$secret_key,
+        `Content-Type` = "application/json",
+        `cache-control` = "no-store"
+      ),
+      body = list(prefixes = unname(batch)),
+      timeout_seconds = timeout_seconds
+    )
+    if (!is.list(response) || inherits(response, "response")) {
+      status <- httr::status_code(response)
+      if (status < 200L || status >= 300L) {
+        detail <- httr::content(response, as = "text", encoding = "UTF-8")
+        if (nchar(detail) > 500L) {
+          detail <- paste0(substr(detail, 1L, 500L), "...")
+        }
+        stop(
+          "Supabase Storage deletion failed with HTTP ",
+          status,
+          if (nzchar(detail)) paste0(": ", detail) else "",
+          call. = FALSE
+        )
+      }
+    }
+    deleted <- c(deleted, batch)
+  }
+  deleted
+}
+
+delete_incomplete_supabase_release <- function(
+    release_key,
+    confirm_release_key,
+    config = supabase_storage_config(),
+    list_objects = supabase_storage_list_raw,
+    download = supabase_storage_download_raw,
+    delete_objects = supabase_storage_delete_objects) {
+  validate_release_key(release_key)
+  validate_release_key(confirm_release_key)
+  if (!identical(release_key, confirm_release_key)) {
+    stop("Deletion confirmation key does not match the release key.", call. = FALSE)
+  }
+  inventory <- list_supabase_releases(
+    config = config,
+    list_objects = list_objects,
+    download = download
+  )
+  target <- inventory[
+    inventory$release_key == release_key,
+    ,
+    drop = FALSE
+  ]
+  if (nrow(target) != 1L) {
+    stop("Deletion target is not present exactly once in inventory.", call. = FALSE)
+  }
+  if (!identical(target$status[[1L]], "staged") ||
+      !identical(target$integrity[[1L]], "incomplete")) {
+    stop(
+      "Only a staged release classified as incomplete can be deleted.",
+      call. = FALSE
+    )
+  }
+
+  remote_manifest_path <- paste0(
+    "releases/",
+    release_key,
+    "/remote-manifest.json"
+  )
+  remote_manifest <- jsonlite::fromJSON(
+    rawToChar(download(config, remote_manifest_path)),
+    simplifyVector = FALSE
+  )
+  if (!identical(remote_manifest$release_key, release_key) ||
+      !identical(as.integer(remote_manifest$contract_version), 2L) ||
+      !identical(remote_manifest$status, "staged")) {
+    stop("Deletion target failed its remote manifest checks.", call. = FALSE)
+  }
+  object_paths <- c(
+    unlist(lapply(remote_manifest$files, function(file_record) {
+      vapply(
+        file_record$parts,
+        function(part) as.character(part$object_path),
+        character(1)
+      )
+    }), use.names = FALSE),
+    remote_manifest_path
+  )
+  expected_prefix <- paste0("releases/", release_key, "/")
+  if (!length(object_paths) ||
+      any(!startsWith(object_paths, expected_prefix)) ||
+      any(grepl("(^|/)[.][.]($|/)", object_paths))) {
+    stop("Deletion manifest contains a path outside the exact release.", call. = FALSE)
+  }
+  deleted <- delete_objects(
+    config = config,
+    object_paths = object_paths
+  )
+  list(
+    release_key = release_key,
+    objects = length(deleted),
+    bytes = target$bytes[[1L]],
+    deleted_paths = deleted,
+    status = "deleted"
+  )
+}
+
 supabase_storage_probe <- function(
     config = supabase_storage_config(),
     upload = supabase_storage_upload_raw,
