@@ -41,6 +41,9 @@ jobs:
           Rscript -e 'files <- list.files("infrastructure/cloud-run", pattern = "[.]R$", recursive = TRUE, full.names = TRUE); invisible(lapply(files, parse))'
           Rscript infrastructure/cloud-run/tests/run-tests.R
 
+      - name: Run offline release-store contract
+        run: Rscript infrastructure/storage/tests/run-tests.R
+
       - name: Verify source-permission guard is present
         shell: bash
         run: |

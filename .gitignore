@@ -30,6 +30,7 @@ data/mlb25_tbs.rds
 /.quarto/
 .localappdata/
 .private-data/
+.backend/
 packages/sabrhoodR.Rcheck/
 packages/sabrhoodR_*.tar.gz
 
