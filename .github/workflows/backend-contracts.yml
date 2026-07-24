@@ -33,7 +33,7 @@ jobs:
           use-public-rspm: true
 
       - name: Install adapter test dependencies
-        run: Rscript -e 'install.packages(c("digest", "jsonlite"), repos = "https://packagemanager.posit.co/cran/latest")'
+        run: Rscript -e 'install.packages(c("digest", "httr", "jsonlite"), repos = "https://packagemanager.posit.co/cran/latest")'
 
       - name: Parse R job sources and run offline adapter contract
         shell: bash
