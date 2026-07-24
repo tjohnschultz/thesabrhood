@@ -209,6 +209,22 @@ stopifnot(
   !"current.json" %in% ls(uploaded_objects)
 )
 
+fake_download <- function(config, object_path, timeout_seconds = 600L) {
+  get(object_path, envir = uploaded_objects, inherits = FALSE)$body
+}
+verified_remote <- verify_supabase_release(
+  release_key = remote_release$release_key,
+  config = fake_config,
+  local_release_root = remote_fixture_root,
+  download = fake_download
+)
+stopifnot(
+  verified_remote$status == "verified",
+  verified_remote$files == 2L,
+  verified_remote$objects == 5L,
+  verified_remote$bytes > 2500L
+)
+
 promote_supabase_release(
   release_key = remote_release$release_key,
   remote_manifest_path = remote_release$remote_manifest_path,
@@ -218,6 +234,33 @@ promote_supabase_release(
 stopifnot(
   "current.json" %in% ls(uploaded_objects),
   isTRUE(get("current.json", envir = uploaded_objects)$upsert)
+)
+
+corrupted_object <- chunk_names[[1L]]
+original_corrupted_body <- get(
+  corrupted_object,
+  envir = uploaded_objects,
+  inherits = FALSE
+)
+corrupted_body <- original_corrupted_body
+corrupted_body$body[[1L]] <- as.raw(
+  bitwXor(as.integer(corrupted_body$body[[1L]]), 1L)
+)
+assign(corrupted_object, corrupted_body, envir = uploaded_objects)
+corrupt_verification <- try(
+  verify_supabase_release(
+    release_key = remote_release$release_key,
+    config = fake_config,
+    local_release_root = remote_fixture_root,
+    download = fake_download
+  ),
+  silent = TRUE
+)
+stopifnot(inherits(corrupt_verification, "try-error"))
+assign(
+  corrupted_object,
+  original_corrupted_body,
+  envir = uploaded_objects
 )
 
 failing_objects <- new.env(parent = emptyenv())

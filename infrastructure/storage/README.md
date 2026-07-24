@@ -82,6 +82,7 @@ Uploading a release and promoting it are deliberately separate:
 
 ```powershell
 Rscript scripts/supabase_storage.R upload --release-key=KEY
+Rscript scripts/supabase_storage.R verify --release-key=KEY
 Rscript scripts/supabase_storage.R promote --release-key=KEY
 ```
 
@@ -89,3 +90,8 @@ An interrupted upload cannot change `current.json` because only the explicit
 second command writes that pointer. Staged package objects are retryable: a
 second `upload` for the same locally immutable release replaces only those
 unpromoted objects with the same checksummed content.
+
+`verify` downloads the staged objects into temporary space, reconstructs chunked
+packages, and checks part, package, and local-release SHA-256 values. Temporary
+verification files are removed after the command. `promote` repeats this
+verification before it is allowed to update `current.json`.

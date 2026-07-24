@@ -53,6 +53,16 @@ supabase_storage_object_url <- function(config, object_path) {
   )
 }
 
+supabase_storage_download_url <- function(config, object_path) {
+  paste0(
+    config$url,
+    "/storage/v1/object/authenticated/",
+    utils::URLencode(config$bucket, reserved = TRUE),
+    "/",
+    supabase_encode_object_path(object_path)
+  )
+}
+
 supabase_storage_upload_raw <- function(
     config,
     object_path,
@@ -97,6 +107,42 @@ supabase_storage_upload_raw <- function(
   }
 
   invisible(response)
+}
+
+supabase_storage_download_raw <- function(
+    config,
+    object_path,
+    timeout_seconds = 600L) {
+  if (!requireNamespace("httr", quietly = TRUE)) {
+    stop("The httr R package is required for Supabase downloads.", call. = FALSE)
+  }
+
+  response <- httr::GET(
+    supabase_storage_download_url(config, object_path),
+    httr::add_headers(.headers = c(
+      apikey = config$secret_key,
+      `cache-control` = "no-store"
+    )),
+    httr::timeout(timeout_seconds)
+  )
+  status <- httr::status_code(response)
+  if (status < 200L || status >= 300L) {
+    detail <- httr::content(response, as = "text", encoding = "UTF-8")
+    if (nchar(detail) > 500L) {
+      detail <- paste0(substr(detail, 1L, 500L), "...")
+    }
+    stop(
+      "Could not download ",
+      object_path,
+      " from Supabase Storage (HTTP ",
+      status,
+      ")",
+      if (nzchar(detail)) paste0(": ", detail) else "",
+      call. = FALSE
+    )
+  }
+
+  httr::content(response, as = "raw")
 }
 
 supabase_storage_probe <- function(
@@ -328,6 +374,120 @@ upload_staged_release <- function(
     release_key = release_key,
     remote_manifest_path = remote_manifest_path,
     manifest = remote_manifest
+  )
+}
+
+verify_supabase_release <- function(
+    release_key,
+    config = supabase_storage_config(),
+    local_release_root = NULL,
+    download = supabase_storage_download_raw,
+    progress = NULL) {
+  if (!requireNamespace("jsonlite", quietly = TRUE) ||
+      !requireNamespace("digest", quietly = TRUE)) {
+    stop("jsonlite and digest are required for release verification.", call. = FALSE)
+  }
+  validate_release_key(release_key)
+  remote_manifest_path <- paste0(
+    "releases/",
+    release_key,
+    "/remote-manifest.json"
+  )
+  manifest_body <- download(config, remote_manifest_path)
+  manifest <- jsonlite::fromJSON(
+    rawToChar(manifest_body),
+    simplifyVector = FALSE
+  )
+  if (!identical(manifest$release_key, release_key) ||
+      !identical(as.integer(manifest$contract_version), 2L) ||
+      !identical(manifest$status, "staged")) {
+    stop("Remote release manifest failed its identity checks.", call. = FALSE)
+  }
+
+  if (!is.null(local_release_root)) {
+    local_release_root <- normalizePath(local_release_root, mustWork = TRUE)
+  }
+  verification_root <- tempfile(paste0("sabrhood-verify-", release_key, "-"))
+  dir.create(verification_root, recursive = TRUE)
+  on.exit(unlink(verification_root, recursive = TRUE, force = TRUE), add = TRUE)
+  verified_bytes <- 0
+  verified_objects <- 1L
+
+  for (file_record in manifest$files) {
+    relative_path <- release_normalize_path(file_record$path)
+    if (grepl("(^|/)[.][.]($|/)", relative_path) ||
+        startsWith(relative_path, "/")) {
+      stop("Remote manifest contains an unsafe file path.", call. = FALSE)
+    }
+    restored_path <- file.path(verification_root, relative_path)
+    dir.create(dirname(restored_path), recursive = TRUE, showWarnings = FALSE)
+    output <- file(restored_path, open = "wb")
+    completed <- FALSE
+    on.exit({
+      if (!completed && isOpen(output)) close(output)
+    }, add = TRUE)
+
+    for (part in file_record$parts) {
+      body <- download(config, part$object_path)
+      observed_part_sha <- digest::digest(
+        body,
+        algo = "sha256",
+        serialize = FALSE
+      )
+      if (length(body) != as.numeric(part$bytes) ||
+          !identical(observed_part_sha, part$sha256)) {
+        close(output)
+        stop(
+          "Remote part failed checksum verification: ",
+          part$object_path,
+          call. = FALSE
+        )
+      }
+      writeBin(body, output)
+      verified_bytes <- verified_bytes + length(body)
+      verified_objects <- verified_objects + 1L
+      if (is.function(progress)) {
+        progress(
+          object_path = part$object_path,
+          bytes = length(body),
+          status = "verified"
+        )
+      }
+    }
+    close(output)
+    completed <- TRUE
+
+    observed_file_bytes <- as.numeric(file.info(restored_path)$size)
+    observed_file_sha <- release_sha256(restored_path)
+    if (observed_file_bytes != as.numeric(file_record$bytes) ||
+        !identical(observed_file_sha, file_record$sha256)) {
+      stop(
+        "Reconstructed file failed checksum verification: ",
+        relative_path,
+        call. = FALSE
+      )
+    }
+
+    if (!is.null(local_release_root)) {
+      local_path <- file.path(local_release_root, relative_path)
+      if (!file.exists(local_path) ||
+          !identical(release_sha256(local_path), observed_file_sha)) {
+        stop(
+          "Remote file does not match the local staged release: ",
+          relative_path,
+          call. = FALSE
+        )
+      }
+    }
+  }
+
+  list(
+    release_key = release_key,
+    manifest_path = remote_manifest_path,
+    files = length(manifest$files),
+    objects = verified_objects,
+    bytes = verified_bytes,
+    status = "verified"
   )
 }
 
