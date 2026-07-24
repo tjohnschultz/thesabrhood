@@ -383,7 +383,8 @@ download_verified_supabase_release <- function(
     config = supabase_storage_config(),
     local_release_root = NULL,
     download = supabase_storage_download_raw,
-    progress = NULL) {
+    progress = NULL,
+    include_paths = NULL) {
   if (!requireNamespace("jsonlite", quietly = TRUE) ||
       !requireNamespace("digest", quietly = TRUE)) {
     stop("jsonlite and digest are required for release verification.", call. = FALSE)
@@ -415,8 +416,26 @@ download_verified_supabase_release <- function(
   }
   verified_bytes <- 0
   verified_objects <- 1L
+  file_records <- manifest$files
+  if (!is.null(include_paths)) {
+    include_paths <- unique(release_normalize_path(include_paths))
+    manifest_paths <- vapply(
+      file_records,
+      function(record) release_normalize_path(record$path),
+      character(1)
+    )
+    missing_paths <- setdiff(include_paths, manifest_paths)
+    if (length(missing_paths)) {
+      stop(
+        "Remote release does not contain requested files: ",
+        paste(missing_paths, collapse = ", "),
+        call. = FALSE
+      )
+    }
+    file_records <- file_records[manifest_paths %in% include_paths]
+  }
 
-  for (file_record in manifest$files) {
+  for (file_record in file_records) {
     relative_path <- release_normalize_path(file_record$path)
     if (grepl("(^|/)[.][.]($|/)", relative_path) ||
         startsWith(relative_path, "/")) {
@@ -486,7 +505,7 @@ download_verified_supabase_release <- function(
   list(
     release_key = release_key,
     manifest_path = remote_manifest_path,
-    files = length(manifest$files),
+    files = length(file_records),
     objects = verified_objects,
     bytes = verified_bytes,
     status = "verified",
@@ -550,7 +569,11 @@ restore_supabase_release <- function(
     output_root = download_root,
     config = config,
     download = download,
-    progress = progress
+    progress = progress,
+    include_paths = c(
+      "manifest.json",
+      paste0("packages/", components, ".tar.gz")
+    )
   )
   local_manifest <- jsonlite::read_json(
     file.path(download_root, "manifest.json"),

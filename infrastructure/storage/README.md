@@ -98,8 +98,8 @@ verification files are removed after the command. `promote` repeats this
 verification before it is allowed to update `current.json`.
 
 `restore` defaults to the `private_state` component and refuses to use a target
-that already exists. It downloads and verifies the complete release, safely
-checks every archive path, validates every extracted file, builds a new staging
-directory, and renames that directory into place only after the restore is
-complete. This isolated behavior is the precursor to replacing the Actions
-cache.
+that already exists. It downloads and verifies the remote manifest, local
+manifest, and only the selected component packages. It safely checks every
+archive path, validates every extracted file, builds a new staging directory,
+and renames that directory into place only after the restore is complete. This
+isolated behavior is the precursor to replacing the Actions cache.
