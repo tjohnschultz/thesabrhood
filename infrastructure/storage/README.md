@@ -83,6 +83,7 @@ Uploading a release and promoting it are deliberately separate:
 ```powershell
 Rscript scripts/supabase_storage.R upload --release-key=KEY
 Rscript scripts/supabase_storage.R verify --release-key=KEY
+Rscript scripts/supabase_storage.R restore --release-key=KEY --target=PATH
 Rscript scripts/supabase_storage.R promote --release-key=KEY
 ```
 
@@ -95,3 +96,10 @@ unpromoted objects with the same checksummed content.
 packages, and checks part, package, and local-release SHA-256 values. Temporary
 verification files are removed after the command. `promote` repeats this
 verification before it is allowed to update `current.json`.
+
+`restore` defaults to the `private_state` component and refuses to use a target
+that already exists. It downloads and verifies the complete release, safely
+checks every archive path, validates every extracted file, builds a new staging
+directory, and renames that directory into place only after the restore is
+complete. This isolated behavior is the precursor to replacing the Actions
+cache.
