@@ -1,6 +1,6 @@
 name: Daily MLB data refresh
 
-on:
+"on":
   schedule:
     - cron: "0 12 * * *"
   workflow_dispatch:
@@ -13,6 +13,11 @@ on:
         description: "Game-information date (YYYY-MM-DD); defaults to today"
         required: false
         type: string
+      publish_supabase_shadow:
+        description: "Stage and verify an unpromoted Supabase release"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -30,6 +35,7 @@ jobs:
       SABRHOOD_DATE: ${{ inputs.slate_date }}
       SABRHOOD_N_SIMS: "20000"
       SABRHOOD_PLAYER_N_SIMS: "2000"
+      SABRHOOD_SHADOW_RELEASE_KEY: daily-shadow-${{ github.run_id }}-${{ github.run_attempt }}
 
     steps:
       - name: Check out site repository
@@ -55,7 +61,7 @@ jobs:
       - name: Install R dependencies and SABRhood package
         shell: bash
         run: |
-          Rscript -e 'install.packages(c("remotes", "jsonlite", "dplyr", "rlang", "tibble", "withr", "ggplot2", "knitr", "rmarkdown", "Lahman"), repos = "https://cloud.r-project.org")'
+          Rscript -e 'install.packages(c("remotes", "digest", "httr", "jsonlite", "dplyr", "rlang", "tibble", "withr", "ggplot2", "knitr", "rmarkdown", "Lahman"), repos = "https://cloud.r-project.org")'
           Rscript -e 'remotes::install_url("https://github.com/BillPetti/baseballr/archive/refs/tags/v1.6.0.tar.gz", dependencies = NA, upgrade = "never")'
           Rscript -e 'stopifnot(requireNamespace("baseballr", quietly = TRUE)); message("Installed baseballr ", packageVersion("baseballr"))'
           R CMD INSTALL packages/sabrhoodR
@@ -147,6 +153,51 @@ jobs:
         run: |
           Rscript scripts/restore_legacy_assets.R
           Rscript scripts/validate_site.R --rendered
+
+      - name: Confirm Supabase shadow publication secrets
+        if: inputs.publish_supabase_shadow == true
+        shell: bash
+        env:
+          SABRHOOD_SUPABASE_URL: ${{ secrets.SABRHOOD_SUPABASE_URL }}
+          SABRHOOD_SUPABASE_SECRET_KEY: ${{ secrets.SABRHOOD_SUPABASE_SECRET_KEY }}
+          SABRHOOD_SUPABASE_BUCKET: ${{ secrets.SABRHOOD_SUPABASE_BUCKET }}
+        run: |
+          set -euo pipefail
+          for variable in \
+            SABRHOOD_SUPABASE_URL \
+            SABRHOOD_SUPABASE_SECRET_KEY \
+            SABRHOOD_SUPABASE_BUCKET
+          do
+            if [ -z "${!variable:-}" ]; then
+              echo "::error::$variable is not configured for this repository."
+              exit 1
+            fi
+          done
+
+      - name: Stage complete Supabase shadow release
+        if: inputs.publish_supabase_shadow == true
+        shell: bash
+        run: |
+          set -euo pipefail
+          Rscript scripts/backend_release.R stage \
+            "--release-key=${SABRHOOD_SHADOW_RELEASE_KEY}"
+          Rscript scripts/supabase_storage.R plan \
+            "--release-key=${SABRHOOD_SHADOW_RELEASE_KEY}"
+
+      - name: Upload and verify Supabase shadow release
+        if: inputs.publish_supabase_shadow == true
+        shell: bash
+        env:
+          SABRHOOD_SUPABASE_URL: ${{ secrets.SABRHOOD_SUPABASE_URL }}
+          SABRHOOD_SUPABASE_SECRET_KEY: ${{ secrets.SABRHOOD_SUPABASE_SECRET_KEY }}
+          SABRHOOD_SUPABASE_BUCKET: ${{ secrets.SABRHOOD_SUPABASE_BUCKET }}
+        run: |
+          set -euo pipefail
+          Rscript scripts/supabase_storage.R upload \
+            "--release-key=${SABRHOOD_SHADOW_RELEASE_KEY}"
+          Rscript scripts/supabase_storage.R verify \
+            "--release-key=${SABRHOOD_SHADOW_RELEASE_KEY}"
+          echo "Supabase shadow release verified; current.json was not changed."
 
       - name: Save private pipeline cache
         if: always()

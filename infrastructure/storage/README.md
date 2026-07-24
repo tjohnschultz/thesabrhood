@@ -137,6 +137,13 @@ current or previous pointer, and every `unreadable` release. A future cleanup
 command must default to a dry run and list exact object paths and byte totals
 before it is allowed to call the Storage deletion API.
 
+The daily refresh now exposes an opt-in `publish_supabase_shadow` manual input.
+Its default is `false`, and scheduled runs do not enable it. When explicitly
+selected, the normal refresh and render must pass first; the workflow then
+stages, uploads, and verifies a uniquely named `daily-shadow-RUN-ATTEMPT`
+release. The existing Actions cache is still restored and saved, the remote
+release is not promoted, and the site deployment behavior is unchanged.
+
 ## GitHub Actions shadow restore
 
 The manual **Validate backend contracts** workflow includes a **Supabase shadow
