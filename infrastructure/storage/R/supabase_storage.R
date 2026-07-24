@@ -145,6 +145,186 @@ supabase_storage_download_raw <- function(
   httr::content(response, as = "raw")
 }
 
+supabase_storage_list_raw <- function(
+    config,
+    prefix,
+    limit = 1000L,
+    offset = 0L,
+    request = NULL,
+    timeout_seconds = 120L) {
+  if (!requireNamespace("httr", quietly = TRUE) ||
+      !requireNamespace("jsonlite", quietly = TRUE)) {
+    stop("httr and jsonlite are required for Supabase object listing.", call. = FALSE)
+  }
+  if (!is.character(prefix) || length(prefix) != 1L ||
+      is.na(prefix) || startsWith(prefix, "/") ||
+      grepl("(^|/)[.][.]($|/)", prefix)) {
+    stop("The Supabase list prefix is invalid.", call. = FALSE)
+  }
+  limit <- as.integer(limit)
+  offset <- as.integer(offset)
+  if (is.na(limit) || limit < 1L || limit > 1000L ||
+      is.na(offset) || offset < 0L) {
+    stop("List limit and offset are invalid.", call. = FALSE)
+  }
+
+  if (is.null(request)) {
+    request <- function(url, headers, body, timeout_seconds) {
+      httr::POST(
+        url,
+        httr::add_headers(.headers = headers),
+        httr::timeout(timeout_seconds),
+        body = charToRaw(jsonlite::toJSON(
+          body,
+          auto_unbox = TRUE,
+          na = "null"
+        )),
+        encode = "raw"
+      )
+    }
+  }
+  response <- request(
+    url = paste0(
+      config$url,
+      "/storage/v1/object/list/",
+      utils::URLencode(config$bucket, reserved = TRUE)
+    ),
+    headers = c(
+      apikey = config$secret_key,
+      `Content-Type` = "application/json",
+      `cache-control` = "no-store"
+    ),
+    body = list(
+      prefix = release_normalize_path(prefix),
+      limit = limit,
+      offset = offset,
+      sortBy = list(column = "name", order = "asc")
+    ),
+    timeout_seconds = timeout_seconds
+  )
+
+  if (is.list(response) && !inherits(response, "response")) {
+    return(response)
+  }
+  status <- httr::status_code(response)
+  if (status < 200L || status >= 300L) {
+    detail <- httr::content(response, as = "text", encoding = "UTF-8")
+    if (nchar(detail) > 500L) {
+      detail <- paste0(substr(detail, 1L, 500L), "...")
+    }
+    stop(
+      "Could not list Supabase Storage objects (HTTP ",
+      status,
+      ")",
+      if (nzchar(detail)) paste0(": ", detail) else "",
+      call. = FALSE
+    )
+  }
+
+  jsonlite::fromJSON(
+    httr::content(response, as = "text", encoding = "UTF-8"),
+    simplifyVector = FALSE
+  )
+}
+
+list_supabase_releases <- function(
+    config = supabase_storage_config(),
+    list_objects = supabase_storage_list_raw,
+    download = supabase_storage_download_raw) {
+  release_entries <- list()
+  offset <- 0L
+  page_size <- 1000L
+  repeat {
+    page <- list_objects(
+      config = config,
+      prefix = "releases",
+      limit = page_size,
+      offset = offset
+    )
+    release_entries <- c(release_entries, page)
+    if (length(page) < page_size) {
+      break
+    }
+    offset <- offset + page_size
+    if (offset >= 10000L) {
+      stop("Release inventory exceeded the 10,000-entry safety limit.", call. = FALSE)
+    }
+  }
+
+  keys <- unique(vapply(release_entries, function(entry) {
+    if (is.null(entry$name)) "" else as.character(entry$name)
+  }, character(1)))
+  keys <- keys[grepl("^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$", keys)]
+  keys <- sort(keys)
+  if (!length(keys)) {
+    return(data.frame(
+      release_key = character(),
+      uploaded_at_utc = character(),
+      files = integer(),
+      objects = integer(),
+      bytes = numeric(),
+      status = character(),
+      stringsAsFactors = FALSE
+    ))
+  }
+
+  rows <- lapply(keys, function(release_key) {
+    manifest_path <- paste0(
+      "releases/",
+      release_key,
+      "/remote-manifest.json"
+    )
+    manifest <- tryCatch(
+      jsonlite::fromJSON(
+        rawToChar(download(config, manifest_path)),
+        simplifyVector = FALSE
+      ),
+      error = function(error) NULL
+    )
+    if (is.null(manifest) ||
+        !identical(manifest$release_key, release_key) ||
+        !identical(as.integer(manifest$contract_version), 2L) ||
+        is.null(manifest$uploaded_at_utc) ||
+        is.null(manifest$status) ||
+        is.null(manifest$files)) {
+      return(data.frame(
+        release_key = release_key,
+        uploaded_at_utc = NA_character_,
+        files = NA_integer_,
+        objects = NA_integer_,
+        bytes = NA_real_,
+        status = "unreadable",
+        stringsAsFactors = FALSE
+      ))
+    }
+    object_count <- sum(vapply(
+      manifest$files,
+      function(file_record) length(file_record$parts),
+      integer(1)
+    )) + 1L
+    data.frame(
+      release_key = release_key,
+      uploaded_at_utc = as.character(manifest$uploaded_at_utc),
+      files = length(manifest$files),
+      objects = object_count,
+      bytes = sum(vapply(
+        manifest$files,
+        function(file_record) as.numeric(file_record$bytes),
+        numeric(1)
+      )),
+      status = as.character(manifest$status),
+      stringsAsFactors = FALSE
+    )
+  })
+  inventory <- do.call(rbind, rows)
+  order_value <- ifelse(
+    is.na(inventory$uploaded_at_utc),
+    "",
+    inventory$uploaded_at_utc
+  )
+  inventory[order(order_value, decreasing = TRUE), , drop = FALSE]
+}
+
 supabase_storage_probe <- function(
     config = supabase_storage_config(),
     upload = supabase_storage_upload_raw,

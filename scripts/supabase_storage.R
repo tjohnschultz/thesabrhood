@@ -42,6 +42,7 @@ if (identical(command, "help")) {
       "",
       "Commands:",
       "  probe",
+      "  inventory",
       "  plan --release-key=KEY [--store-root=PATH]",
       "  upload --release-key=KEY [--store-root=PATH]",
       "  verify --release-key=KEY [--store-root=PATH]",
@@ -58,6 +59,27 @@ if (identical(command, "help")) {
     ),
     "\n"
   )
+  quit(status = 0L)
+}
+
+if (identical(command, "inventory")) {
+  inventory <- list_supabase_releases()
+  if (!nrow(inventory)) {
+    cat("No staged releases were found.\n")
+  } else {
+    display <- inventory
+    display$mebibytes <- round(display$bytes / 1024^2, 2L)
+    display$bytes <- NULL
+    print(display, row.names = FALSE)
+    readable_bytes <- sum(inventory$bytes, na.rm = TRUE)
+    cat(
+      sprintf(
+        "Readable staged releases: %d; manifest bytes: %.2f MiB.\n",
+        sum(inventory$status != "unreadable"),
+        readable_bytes / 1024^2
+      )
+    )
+  }
   quit(status = 0L)
 }
 
