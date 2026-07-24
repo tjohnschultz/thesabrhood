@@ -107,9 +107,11 @@ isolated behavior is the precursor to replacing the Actions cache.
 ## GitHub Actions shadow restore
 
 The manual **Validate backend contracts** workflow includes a **Supabase shadow
-restore** job that proves a fresh GitHub runner can recover private pipeline
-state without relying on the Actions cache. The network job runs only for a
-manual dispatch; pushes and pull requests continue to run only the offline
+round trip** job that proves a fresh GitHub runner can recover private pipeline
+state without relying on the Actions cache. It then stages, uploads, and
+checksum-verifies a new uniquely named release without promoting it. The
+network job runs only for a manual dispatch or the branch-restricted bootstrap
+marker; ordinary pushes and pull requests continue to run only the offline
 contract checks. It requires these repository secrets:
 
 - `SABRHOOD_SUPABASE_URL`
@@ -118,12 +120,11 @@ contract checks. It requires these repository secrets:
 
 Run **Validate backend contracts** from the Actions tab and select the
 `codex/backend-overhaul` branch. The shadow job currently restores the staged
-`shadow-20260724-002` release. The workflow has read-only repository
-permissions, checks out without persisting Git credentials, restores only
-`private_state` into the ignored `.backend/restores/` directory, and verifies
-that the checkout remains clean. It does not upload an artifact, save an
-Actions cache, commit files, deploy the site, promote a release, or write
-`current.json`.
+`shadow-20260724-002` release into the ignored `.private-data/` directory, then
+creates a `shadow-gh-RUN_ID-RUN_ATTEMPT` release. The workflow has read-only
+repository permissions and checks out without persisting Git credentials. It
+does not upload a GitHub artifact, save an Actions cache, commit files, deploy
+the site, promote a release, or write `current.json`.
 
 GitHub does not display the manual-run button until a workflow exists on the
 default branch. Before this workflow is merged, a bootstrap test can be

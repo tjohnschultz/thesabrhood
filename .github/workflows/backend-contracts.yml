@@ -60,16 +60,17 @@ jobs:
           grep -A3 'variable "publish_release"' infrastructure/terraform/variables.tf | grep -q "default     = false"
 
   supabase-shadow-restore:
-    name: Supabase shadow restore
+    name: Supabase shadow round trip
     if: >-
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'push' &&
       github.ref == 'refs/heads/codex/backend-overhaul' &&
       contains(github.event.head_commit.message, '[supabase-shadow]'))
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     env:
-      SABRHOOD_RELEASE_KEY: shadow-20260724-002
+      SABRHOOD_SOURCE_RELEASE_KEY: shadow-20260724-002
+      SABRHOOD_OUTPUT_RELEASE_KEY: shadow-gh-${{ github.run_id }}-${{ github.run_attempt }}
 
     steps:
       - name: Check out repository without write credentials
@@ -121,21 +122,45 @@ jobs:
         run: |
           set -euo pipefail
           Rscript scripts/supabase_storage.R restore \
-            "--release-key=${SABRHOOD_RELEASE_KEY}" \
-            "--target=.backend/restores/${SABRHOOD_RELEASE_KEY}-private" \
+            "--release-key=${SABRHOOD_SOURCE_RELEASE_KEY}" \
+            "--target=.private-data" \
             "--components=private_state"
 
-      - name: Confirm the restore stayed isolated
+      - name: Stage a new immutable release
         shell: bash
         run: |
           set -euo pipefail
-          restore_root=".backend/restores/${SABRHOOD_RELEASE_KEY}-private"
-          test -d "$restore_root"
+          Rscript scripts/backend_release.R stage \
+            "--release-key=${SABRHOOD_OUTPUT_RELEASE_KEY}"
+          Rscript scripts/supabase_storage.R plan \
+            "--release-key=${SABRHOOD_OUTPUT_RELEASE_KEY}"
 
-          file_count=$(find "$restore_root" -type f | wc -l)
-          byte_count=$(du -sb "$restore_root" | cut -f1)
+      - name: Upload and verify without promotion
+        shell: bash
+        env:
+          SABRHOOD_SUPABASE_URL: ${{ secrets.SABRHOOD_SUPABASE_URL }}
+          SABRHOOD_SUPABASE_SECRET_KEY: ${{ secrets.SABRHOOD_SUPABASE_SECRET_KEY }}
+          SABRHOOD_SUPABASE_BUCKET: ${{ secrets.SABRHOOD_SUPABASE_BUCKET }}
+        run: |
+          set -euo pipefail
+          Rscript scripts/supabase_storage.R upload \
+            "--release-key=${SABRHOOD_OUTPUT_RELEASE_KEY}"
+          Rscript scripts/supabase_storage.R verify \
+            "--release-key=${SABRHOOD_OUTPUT_RELEASE_KEY}"
+
+      - name: Confirm the round trip stayed isolated
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -d ".private-data"
+          test -f \
+            ".backend/release-store/releases/${SABRHOOD_OUTPUT_RELEASE_KEY}/manifest.json"
+
+          file_count=$(find ".private-data" -type f | wc -l)
+          byte_count=$(du -sb ".private-data" | cut -f1)
           test "$file_count" -gt 0
           test "$byte_count" -gt 0
 
-          echo "Verified isolated restore: ${file_count} files, ${byte_count} bytes."
+          echo "Verified unpromoted release: ${SABRHOOD_OUTPUT_RELEASE_KEY}"
+          echo "Recovered private state: ${file_count} files, ${byte_count} bytes."
           test -z "$(git status --porcelain)"
