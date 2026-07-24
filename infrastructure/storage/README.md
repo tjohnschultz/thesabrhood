@@ -86,4 +86,6 @@ Rscript scripts/supabase_storage.R promote --release-key=KEY
 ```
 
 An interrupted upload cannot change `current.json` because only the explicit
-second command writes that pointer.
+second command writes that pointer. Staged package objects are retryable: a
+second `upload` for the same locally immutable release replaces only those
+unpromoted objects with the same checksummed content.
