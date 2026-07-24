@@ -4,6 +4,19 @@ The Quarto site is live from `main/docs` through GitHub Pages. Daily content is
 published by GitHub Actions only after acquisition, analysis, simulation,
 freshness, source, and rendered-output checks pass.
 
+## Transition guardrail
+
+This remains the live deployment until a later, explicit cutover. The repository
+includes an inert Netlify configuration, a local release-storage contract, and
+unapplied Supabase/Google Cloud foundations. No live resource has been created
+or redirected by the repository. The active plan first moves changing pipeline
+state out of GitHub Actions cache, then lets Netlify publish the already
+validated `docs/` artifact so the existing design and research archive are
+preserved. Google Cloud is not required for this proof-of-concept phase.
+
+See `infrastructure/ROLLOUT.md` for the phased account, shadow-run, and domain
+cutover plan.
+
 ## Automated publication layers
 
 1. **Morning refresh:** completed-game PBP, full PBP analysis, FanGraphs,

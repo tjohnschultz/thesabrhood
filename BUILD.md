@@ -30,6 +30,13 @@ pregame projections near first pitch.
 
 ## Local validation
 
+For the complete plain-English local update, see
+[`LOCAL-DAILY-REFRESH.md`](LOCAL-DAILY-REFRESH.md) and run:
+
+```powershell
+.\scripts\local_daily_refresh.ps1 -OpenSite
+```
+
 From the repository root, with `sabrhoodR`, BaseballR, Lahman, and the declared
 R dependencies installed:
 

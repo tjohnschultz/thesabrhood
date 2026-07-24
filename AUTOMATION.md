@@ -1,5 +1,22 @@
 # Daily publishing design
 
+## Backend transition status
+
+The existing GitHub Actions schedules remain the production refresh system
+during the local-first backend evaluation. They continue to publish the current
+MLB/Statcast- and FanGraphs-derived static research products. No refresh workflow
+has been disabled or redirected.
+
+The active successor path lives in `infrastructure/storage/`. It first separates
+durable private state, validated public data, and the rendered site into an
+immutable release contract. Hosted Supabase storage and a Netlify preview are
+then introduced while GitHub Actions remains the scheduler. Cloud Run,
+Terraform, and a scheduler migration are optional later steps rather than
+proof-of-concept prerequisites. The canonical PostgreSQL and provider-neutral
+foundation remains under `supabase/` and `infrastructure/cloud-run/` for that
+later scale-up. MLB and FanGraphs remain blocked from new commercial serving
+views until permission is documented.
+
 ## What is automated now
 
 The production workflow in `.github/workflows/daily-data-refresh.yml` runs on

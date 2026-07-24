@@ -30,5 +30,13 @@ data/mlb25_tbs.rds
 /.quarto/
 .localappdata/
 .private-data/
+.backend/
 packages/sabrhoodR.Rcheck/
 packages/sabrhoodR_*.tar.gz
+
+# Local backend secrets and service state
+.env
+.env.*
+!.env.example
+supabase/.branches/
+supabase/.temp/
