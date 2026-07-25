@@ -55,12 +55,12 @@ build_insane_baseball_awards <- function(hitter_summary, pitcher_summary, pitche
   earth <- hitter_summary[hitter_summary$pa >= minimum_pa & is.finite(hitter_summary$average_exit_velocity) & is.finite(hitter_summary$ground_ball_rate), , drop = FALSE]
   earth$ev_pct <- .insane_percentile(earth$average_exit_velocity)
   earth$gb_pct <- .insane_percentile(earth$ground_ball_rate)
-  earth_rows <- data.frame(
-    player_id = earth$player_id, player_name = earth$player_name, team = earth$team, role = "hitter",
+  earth_rows <- if (nrow(earth)) data.frame(
+    player_id = earth$player_id, player_name = earth$player_name, team = earth$team, role = rep("hitter", nrow(earth)),
     score = 100 * (0.5 * earth$ev_pct + 0.5 * earth$gb_pct), tiebreaker = earth$average_exit_velocity,
     display_value = paste0(round(earth$average_exit_velocity, 1), " mph | ", round(100 * earth$ground_ball_rate, 1), "% GB"),
-    evidence = paste0("Exit velocity and ground-ball rate receive equal percentile weight."), stringsAsFactors = FALSE
-  )
+    evidence = rep("Exit velocity and ground-ball rate receive equal percentile weight.", nrow(earth)), stringsAsFactors = FALSE
+  ) else data.frame()
 
   terminal <- pitches[pitches$is_terminal_pitch %in% TRUE, , drop = FALSE]
   terminal <- terminal[!duplicated(paste(terminal$game_pk, terminal$at_bat_index, sep = "_")), , drop = FALSE]
@@ -79,15 +79,17 @@ build_insane_baseball_awards <- function(hitter_summary, pitcher_summary, pitche
     dplyr::summarise(player_name = .last_non_missing(.data$batter_name), team = .last_non_missing(.data$batting_team),
       split_pa = dplyr::n(), hits = sum(.data$is_hit), walks = sum(.data$is_walk), total_bases = sum(.data$total_bases), .groups = "drop") |>
     dplyr::filter(.data$split_pa >= minimum_split_pa)
-  batter_full$obp <- (batter_full$hits + batter_full$walks) / batter_full$split_pa
-  batter_full$slg_proxy <- batter_full$total_bases / pmax(batter_full$split_pa - batter_full$walks, 1)
-  batter_full$ops_proxy <- batter_full$obp + batter_full$slg_proxy
-  survivor_rows <- data.frame(
-    player_id = batter_full$batter_id, player_name = batter_full$player_name, team = batter_full$team, role = "hitter",
-    score = 100 * batter_full$ops_proxy, tiebreaker = batter_full$split_pa,
-    display_value = sprintf("%.3f OPS", batter_full$ops_proxy),
-    evidence = paste0(batter_full$hits, " hits and ", batter_full$walks, " walks in ", batter_full$split_pa, " full-count PA."), stringsAsFactors = FALSE
-  )
+  survivor_rows <- if (nrow(batter_full)) {
+    batter_full$obp <- (batter_full$hits + batter_full$walks) / batter_full$split_pa
+    batter_full$slg_proxy <- batter_full$total_bases / pmax(batter_full$split_pa - batter_full$walks, 1)
+    batter_full$ops_proxy <- batter_full$obp + batter_full$slg_proxy
+    data.frame(
+      player_id = batter_full$batter_id, player_name = batter_full$player_name, team = batter_full$team, role = rep("hitter", nrow(batter_full)),
+      score = 100 * batter_full$ops_proxy, tiebreaker = batter_full$split_pa,
+      display_value = sprintf("%.3f OPS", batter_full$ops_proxy),
+      evidence = paste0(batter_full$hits, " hits and ", batter_full$walks, " walks in ", batter_full$split_pa, " full-count PA."), stringsAsFactors = FALSE
+    )
+  } else data.frame()
 
   pitcher_full <- full |>
     dplyr::filter(!is.na(.data$pitcher_id), .data$pitcher_id != "") |>
@@ -95,13 +97,15 @@ build_insane_baseball_awards <- function(hitter_summary, pitcher_summary, pitche
     dplyr::summarise(player_name = .last_non_missing(.data$pitcher_name), team = .last_non_missing(.data$fielding_team),
       split_pa = dplyr::n(), strikeouts = sum(.data$is_strikeout), .groups = "drop") |>
     dplyr::filter(.data$split_pa >= minimum_split_pa)
-  pitcher_full$strikeout_rate <- pitcher_full$strikeouts / pitcher_full$split_pa
-  executioner_rows <- data.frame(
-    player_id = pitcher_full$pitcher_id, player_name = pitcher_full$player_name, team = pitcher_full$team, role = "pitcher",
-    score = pitcher_full$strikeouts, tiebreaker = pitcher_full$strikeout_rate,
-    display_value = paste0(pitcher_full$strikeouts, " K"),
-    evidence = paste0(round(100 * pitcher_full$strikeout_rate, 1), "% strikeout rate across ", pitcher_full$split_pa, " full-count PA."), stringsAsFactors = FALSE
-  )
+  executioner_rows <- if (nrow(pitcher_full)) {
+    pitcher_full$strikeout_rate <- pitcher_full$strikeouts / pitcher_full$split_pa
+    data.frame(
+      player_id = pitcher_full$pitcher_id, player_name = pitcher_full$player_name, team = pitcher_full$team, role = rep("pitcher", nrow(pitcher_full)),
+      score = pitcher_full$strikeouts, tiebreaker = pitcher_full$strikeout_rate,
+      display_value = paste0(pitcher_full$strikeouts, " K"),
+      evidence = paste0(round(100 * pitcher_full$strikeout_rate, 1), "% strikeout rate across ", pitcher_full$split_pa, " full-count PA."), stringsAsFactors = FALSE
+    )
+  } else data.frame()
 
   first_pitch <- terminal[terminal$pitch_in_pa == 1L, , drop = FALSE]
   ambush <- first_pitch |>
@@ -110,13 +114,15 @@ build_insane_baseball_awards <- function(hitter_summary, pitcher_summary, pitche
     dplyr::summarise(player_name = .last_non_missing(.data$batter_name), team = .last_non_missing(.data$batting_team),
       split_pa = dplyr::n(), hits = sum(.data$is_hit), home_runs = sum(.data$event_key == "home_run"), total_bases = sum(.data$total_bases), .groups = "drop") |>
     dplyr::filter(.data$split_pa >= minimum_split_pa)
-  ambush$slugging <- ambush$total_bases / ambush$split_pa
-  ambush_rows <- data.frame(
-    player_id = ambush$batter_id, player_name = ambush$player_name, team = ambush$team, role = "hitter",
-    score = 100 * ambush$slugging, tiebreaker = ambush$home_runs,
-    display_value = sprintf("%.3f SLG", ambush$slugging),
-    evidence = paste0(ambush$hits, " hits, ", ambush$home_runs, " HR in ", ambush$split_pa, " one-pitch PA."), stringsAsFactors = FALSE
-  )
+  ambush_rows <- if (nrow(ambush)) {
+    ambush$slugging <- ambush$total_bases / ambush$split_pa
+    data.frame(
+      player_id = ambush$batter_id, player_name = ambush$player_name, team = ambush$team, role = rep("hitter", nrow(ambush)),
+      score = 100 * ambush$slugging, tiebreaker = ambush$home_runs,
+      display_value = sprintf("%.3f SLG", ambush$slugging),
+      evidence = paste0(ambush$hits, " hits, ", ambush$home_runs, " HR in ", ambush$split_pa, " one-pitch PA."), stringsAsFactors = FALSE
+    )
+  } else data.frame()
 
   two_strike_keys <- unique(pitches[pitches$strikes_before >= 2L, c("game_pk", "at_bat_index"), drop = FALSE])
   two_strike <- merge(terminal, two_strike_keys, by = c("game_pk", "at_bat_index"), all = FALSE, sort = FALSE)
@@ -173,10 +179,10 @@ build_insane_baseball_awards <- function(hitter_summary, pitcher_summary, pitche
   if (all(c("walk_rate", "strikeout_rate") %in% names(hitter_summary))) {
     velvet <- hitter_summary[hitter_summary$pa >= minimum_pa & is.finite(hitter_summary$walk_rate) & is.finite(hitter_summary$strikeout_rate), , drop = FALSE]
     velvet$score_value <- 100 * (0.5 * .insane_percentile(velvet$walk_rate) + 0.5 * .insane_percentile(velvet$strikeout_rate, FALSE))
-    velvet_rows <- data.frame(player_id = velvet$player_id, player_name = velvet$player_name, team = velvet$team, role = "hitter",
+    velvet_rows <- if (nrow(velvet)) data.frame(player_id = velvet$player_id, player_name = velvet$player_name, team = velvet$team, role = rep("hitter", nrow(velvet)),
       score = velvet$score_value, tiebreaker = velvet$walk_rate - velvet$strikeout_rate,
       display_value = paste0(round(100 * velvet$walk_rate, 1), "% BB | ", round(100 * velvet$strikeout_rate, 1), "% K"),
-      evidence = "Walk-rate percentile and inverse strikeout-rate percentile receive equal weight.", stringsAsFactors = FALSE)
+      evidence = rep("Walk-rate percentile and inverse strikeout-rate percentile receive equal weight.", nrow(velvet)), stringsAsFactors = FALSE) else data.frame()
     profile_boards[["velvet"]] <- .finalize_insane_award(velvet_rows, "velvet_rope", "Velvet Rope Award",
       "Who controls the strike zone so well that pitchers rarely get an easy out?",
       "50% walk-rate percentile + 50% inverse strikeout-rate percentile", "Discipline profile", paste0("Minimum ", minimum_pa, " PA"))
@@ -184,10 +190,10 @@ build_insane_baseball_awards <- function(hitter_summary, pitcher_summary, pitche
   if (all(c("pull_rate", "fly_ball_rate") %in% names(hitter_summary))) {
     porch <- hitter_summary[hitter_summary$pa >= minimum_pa & is.finite(hitter_summary$pull_rate) & is.finite(hitter_summary$fly_ball_rate), , drop = FALSE]
     porch$score_value <- 100 * (0.5 * .insane_percentile(porch$pull_rate) + 0.5 * .insane_percentile(porch$fly_ball_rate))
-    porch_rows <- data.frame(player_id = porch$player_id, player_name = porch$player_name, team = porch$team, role = "hitter",
+    porch_rows <- if (nrow(porch)) data.frame(player_id = porch$player_id, player_name = porch$player_name, team = porch$team, role = rep("hitter", nrow(porch)),
       score = porch$score_value, tiebreaker = porch$pull_rate,
       display_value = paste0(round(100 * porch$pull_rate, 1), "% pull | ", round(100 * porch$fly_ball_rate, 1), "% FB"),
-      evidence = "Pull-rate and fly-ball-rate percentiles receive equal weight.", stringsAsFactors = FALSE)
+      evidence = rep("Pull-rate and fly-ball-rate percentiles receive equal weight.", nrow(porch)), stringsAsFactors = FALSE) else data.frame()
     profile_boards[["porch"]] <- .finalize_insane_award(porch_rows, "short_porch_architect", "Short Porch Architect",
       "Who most consistently puts airborne contact toward the pull-side seats?",
       "50% pull-rate percentile + 50% fly-ball-rate percentile", "Pulled-air-ball profile", paste0("Minimum ", minimum_pa, " PA"))

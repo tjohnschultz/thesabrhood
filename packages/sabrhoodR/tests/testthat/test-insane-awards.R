@@ -22,3 +22,28 @@ test_that("insane awards create transparent ranked boards", {
   expect_true(any(awards$featured))
   expect_true(all(awards$showcase_score >= 0 & awards$showcase_score <= 100))
 })
+
+test_that("insane awards tolerate empty split leaderboards", {
+  hitters <- data.frame(
+    player_id = c("1", "2"), player_name = c("A", "B"), team = c("X", "Y"),
+    pa = c(200, 200), average_exit_velocity = c(95, 90), ground_ball_rate = c(.60, .45)
+  )
+  pitches <- data.frame(
+    game_pk = "g1", at_bat_index = 1L, pitch_in_pa = 6L,
+    is_terminal_pitch = TRUE, balls_before = 3L, strikes_before = 2L,
+    batter_id = "1", batter_name = "Batter 1", batting_team = "X",
+    pitcher_id = "9", pitcher_name = "Pitcher 9", fielding_team = "Y",
+    event_key = "strikeout", stringsAsFactors = FALSE
+  )
+
+  awards <- build_insane_baseball_awards(
+    hitters,
+    hitters,
+    pitches,
+    minimum_pa = 100L,
+    minimum_split_pa = 15L
+  )
+
+  expect_gt(nrow(awards), 0L)
+  expect_equal(unique(awards$award_id), "earthworm_killer")
+})
