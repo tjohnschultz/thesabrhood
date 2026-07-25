@@ -1,2 +1,2 @@
 "training_rows","validation_rows","observed_hook_rate","mean_predicted_hook_rate","brier_score","log_loss","roc_auc","split_method","train_through","model_method","validation_method","source_through","generated_at_utc"
-91234,22281,0.0893137650913334,0.0920949018143795,0.0746353837328658,0.254421305806877,0.787451054493799,"game_date_holdout","2026-06-27","sabrhood_pooled_hook_logit_v1","sabrhood_hook_time_holdout_v1","2026-07-23","2026-07-24 23:36:45 UTC"
+92340,22205,0.0895744201756361,0.0917046253579436,0.0748361759355958,0.255515497872323,0.7864367122657,"game_date_holdout","2026-06-28","sabrhood_pooled_hook_logit_v1","sabrhood_hook_time_holdout_v1","2026-07-24","2026-07-25 04:05:31 UTC"
