@@ -4,6 +4,7 @@ name: Validate backend contracts
   pull_request:
     paths:
       - ".github/workflows/backend-contracts.yml"
+      - ".github/workflows/daily-data-refresh.yml"
       - "infrastructure/**"
       - "supabase/**"
       - "netlify.toml"
@@ -12,6 +13,7 @@ name: Validate backend contracts
       - main
     paths:
       - ".github/workflows/backend-contracts.yml"
+      - ".github/workflows/daily-data-refresh.yml"
       - "infrastructure/**"
       - "supabase/**"
       - "netlify.toml"
@@ -72,6 +74,14 @@ jobs:
           grep -A3 'variable "enable_cloud_resources"' infrastructure/terraform/variables.tf | grep -q "default     = false"
           grep -A3 'variable "enable_scheduler"' infrastructure/terraform/variables.tf | grep -q "default     = false"
           grep -A3 'variable "publish_release"' infrastructure/terraform/variables.tf | grep -q "default     = false"
+
+      - name: Confirm scheduled shadow publication remains gated
+        shell: bash
+        run: |
+          grep -q "vars.SABRHOOD_SCHEDULED_SHADOW_ENABLED == 'true'" .github/workflows/daily-data-refresh.yml
+          grep -q "SABRHOOD_RECOVERY_RELEASE_KEY" .github/workflows/daily-data-refresh.yml
+          grep -q "retention-plan" .github/workflows/daily-data-refresh.yml
+          ! grep -q "delete-incomplete" .github/workflows/daily-data-refresh.yml
 
   supabase-recovery-drill:
     name: Supabase full recovery drill

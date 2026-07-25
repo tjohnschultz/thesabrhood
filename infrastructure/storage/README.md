@@ -130,19 +130,29 @@ manifest and refuses any path outside the target release prefix. Storage
 deletion is permanent; this command must only be run after the exact key has
 been explicitly approved.
 
-Scheduled uploads remain disabled until retention is implemented and explicitly
-approved. The initial retention policy must always protect the original
-recovery release, the newest complete release, any release referenced by a
-current or previous pointer, and every `unreadable` release. A future cleanup
-command must default to a dry run and list exact object paths and byte totals
-before it is allowed to call the Storage deletion API.
+Scheduled uploads remain disabled unless the repository variable
+`SABRHOOD_SCHEDULED_SHADOW_ENABLED` is exactly `true`. When enabled, scheduled
+daily runs publish an immutable, unpromoted release only after the refresh,
+validation, and render succeed. Manual runs continue to use the
+`publish_supabase_shadow` checkbox independently of that repository variable.
 
-The daily refresh now exposes an opt-in `publish_supabase_shadow` manual input.
-Its default is `false`, and scheduled runs do not enable it. When explicitly
-selected, the normal refresh and render must pass first; the workflow then
-stages, uploads, and verifies a uniquely named `daily-shadow-RUN-ATTEMPT`
-release. The existing Actions cache is still restored and saved, the remote
-release is not promoted, and the site deployment behavior is unchanged.
+After every enabled upload, the workflow runs a read-only retention report. It
+keeps the newest three complete releases, protects the recovery release named
+by `SABRHOOD_RECOVERY_RELEASE_KEY` (default `shadow-20260724-002`), and reports
+all other candidates in the Actions job summary. It never deletes storage
+objects. Before deletion is automated, the policy must additionally protect
+any release referenced by a current or previous pointer and every `unreadable`
+release. Any future cleanup command must default to a dry run and list exact
+object paths and byte totals before it is allowed to call the Storage deletion
+API.
+
+The daily refresh exposes an opt-in `publish_supabase_shadow` manual input. Its
+default is `false`. When explicitly selected—or when a scheduled run is enabled
+by the repository variable—the normal refresh and render must pass first; the
+workflow then stages, uploads, and verifies a uniquely named
+`daily-shadow-RUN-ATTEMPT` release. The existing Actions cache is still restored
+and saved, the remote release is not promoted, and the site deployment behavior
+is unchanged.
 
 ## GitHub Actions shadow restore
 
