@@ -138,6 +138,11 @@ required_fragments <- c(
   ,"insane-awards.html"
 )
 
+allowed_empty_data <- c(
+  "daily-batting-orders.csv",
+  "daily-player-simulation-skips.csv"
+)
+
 for (name in required_data) {
   path <- file.path(site_root, "data", "derived", name)
   if (!file.exists(path)) {
@@ -150,7 +155,7 @@ for (name in required_data) {
   )
   if (inherits(product, "error")) {
     fail(paste("Unreadable derived data product:", name))
-  } else if (nrow(product) < 1L && !name %in% c("daily-batting-orders.csv")) {
+  } else if (nrow(product) < 1L && !name %in% allowed_empty_data) {
     fail(paste("Empty derived data product:", name))
   }
 }
