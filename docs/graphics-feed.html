@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -40,10 +43,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-94db8dc3f0a1f07eef137dfae92d2c54.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f0a6828d39eed76dd9f56b390c71b39b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -291,7 +294,7 @@ League trends
 </div>
 <div class="graphics-feed-grid">
 <figure class="graphics-card figure">
-<a class="graphics-card__image" href="images/graphics-feed/league-pitch-usage-trends.png?v=20260722165437"><img src="images/graphics-feed/league-pitch-usage-trends.png?v=20260722165437" alt="Small-multiple line charts showing rolling MLB pitch-type usage." loading="lazy" class="figure-img"></a>
+<a class="graphics-card__image" href="images/graphics-feed/league-pitch-usage-trends.png?v=20260725002117"><img src="images/graphics-feed/league-pitch-usage-trends.png?v=20260725002117" alt="Small-multiple line charts showing rolling MLB pitch-type usage." loading="lazy" class="figure-img"></a>
 <figcaption>
 <span class="eyebrow">League trends</span>
 <h3 class="anchored">
@@ -301,12 +304,12 @@ League Pitch Usage Trends
 Fourteen-day rolling pitch-type usage reveals how MLB’s collective arsenal is changing.
 </p>
 <div>
-<small>Fourteen-day rolling league pitch usage through the current PBP date.</small><a href="images/graphics-feed/league-pitch-usage-trends.png?v=20260722165437" download="league-pitch-usage-trends.png">Download PNG</a>
+<small>Fourteen-day rolling league pitch usage through the current PBP date.</small><a href="images/graphics-feed/league-pitch-usage-trends.png?v=20260725002117" download="league-pitch-usage-trends.png">Download PNG</a>
 </div>
 </figcaption>
 </figure>
 <figure class="graphics-card figure">
-<a class="graphics-card__image" href="images/graphics-feed/league-production-trends.png?v=20260722165437"><img src="images/graphics-feed/league-production-trends.png?v=20260722165437" alt="Small-multiple line charts showing indexed rolling MLB production rates." loading="lazy" class="figure-img"></a>
+<a class="graphics-card__image" href="images/graphics-feed/league-production-trends.png?v=20260725002117"><img src="images/graphics-feed/league-production-trends.png?v=20260725002117" alt="Small-multiple line charts showing indexed rolling MLB production rates." loading="lazy" class="figure-img"></a>
 <figcaption>
 <span class="eyebrow">League trends</span>
 <h3 class="anchored">
@@ -316,7 +319,7 @@ League Production Trends
 League production rates show when the run environment, contact, and plate discipline are moving together.
 </p>
 <div>
-<small>Fourteen-day rolling league production through the current PBP date.</small><a href="images/graphics-feed/league-production-trends.png?v=20260722165437" download="league-production-trends.png">Download PNG</a>
+<small>Fourteen-day rolling league production through the current PBP date.</small><a href="images/graphics-feed/league-production-trends.png?v=20260725002117" download="league-production-trends.png">Download PNG</a>
 </div>
 </figcaption>
 </figure>
@@ -331,7 +334,7 @@ Team identity
 </div>
 <div class="graphics-feed-grid">
 <figure class="graphics-card figure">
-<a class="graphics-card__image" href="images/graphics-feed/mlb-positional-war-map.png?v=20260722165437"><img src="images/graphics-feed/mlb-positional-war-map.png?v=20260722165437" alt="Heatmap ranking every MLB team by FanGraphs WAR at each primary position." loading="lazy" class="figure-img"></a>
+<a class="graphics-card__image" href="images/graphics-feed/mlb-positional-war-map.png?v=20260725002117"><img src="images/graphics-feed/mlb-positional-war-map.png?v=20260725002117" alt="Heatmap ranking every MLB team by FanGraphs WAR at each primary position." loading="lazy" class="figure-img"></a>
 <figcaption>
 <span class="eyebrow">Team identity</span>
 <h3 class="anchored">
@@ -341,12 +344,12 @@ MLB Positional WAR Map
 Every team and primary position ranked by FanGraphs WAR to expose roster strengths and needs.
 </p>
 <div>
-<small>Current FanGraphs season WAR aggregated by primary listed position.</small><a href="images/graphics-feed/mlb-positional-war-map.png?v=20260722165437" download="mlb-positional-war-map.png">Download PNG</a>
+<small>Current FanGraphs season WAR aggregated by primary listed position.</small><a href="images/graphics-feed/mlb-positional-war-map.png?v=20260725002117" download="mlb-positional-war-map.png">Download PNG</a>
 </div>
 </figcaption>
 </figure>
 <figure class="graphics-card figure">
-<a class="graphics-card__image" href="images/graphics-feed/team-identity-quadrant.png?v=20260722165437"><img src="images/graphics-feed/team-identity-quadrant.png?v=20260722165437" alt="Scatterplot positioning MLB teams by offense and run prevention." loading="lazy" class="figure-img"></a>
+<a class="graphics-card__image" href="images/graphics-feed/team-identity-quadrant.png?v=20260725002117"><img src="images/graphics-feed/team-identity-quadrant.png?v=20260725002117" alt="Scatterplot positioning MLB teams by offense and run prevention." loading="lazy" class="figure-img"></a>
 <figcaption>
 <span class="eyebrow">Team identity</span>
 <h3 class="anchored">
@@ -356,7 +359,7 @@ Team Identity Quadrant
 All 30 clubs positioned by offensive production and run prevention.
 </p>
 <div>
-<small>Full-season team summaries through the current data date.</small><a href="images/graphics-feed/team-identity-quadrant.png?v=20260722165437" download="team-identity-quadrant.png">Download PNG</a>
+<small>Full-season team summaries through the current data date.</small><a href="images/graphics-feed/team-identity-quadrant.png?v=20260725002117" download="team-identity-quadrant.png">Download PNG</a>
 </div>
 </figcaption>
 </figure>
@@ -371,7 +374,7 @@ Player profiles
 </div>
 <div class="graphics-feed-grid">
 <figure class="graphics-card figure">
-<a class="graphics-card__image" href="images/graphics-feed/hitter-discipline-frontier.png?v=20260722165437"><img src="images/graphics-feed/hitter-discipline-frontier.png?v=20260722165437" alt="Scatterplot comparing hitter chase rate with zone contact rate." loading="lazy" class="figure-img"></a>
+<a class="graphics-card__image" href="images/graphics-feed/hitter-discipline-frontier.png?v=20260725002117"><img src="images/graphics-feed/hitter-discipline-frontier.png?v=20260725002117" alt="Scatterplot comparing hitter chase rate with zone contact rate." loading="lazy" class="figure-img"></a>
 <figcaption>
 <span class="eyebrow">Player profiles</span>
 <h3 class="anchored">
@@ -381,12 +384,12 @@ Plate-Discipline Frontier
 The league’s best combinations of chase avoidance and in-zone contact.
 </p>
 <div>
-<small>Pitch-level discipline profiles with at least 300 pitches seen.</small><a href="images/graphics-feed/hitter-discipline-frontier.png?v=20260722165437" download="hitter-discipline-frontier.png">Download PNG</a>
+<small>Pitch-level discipline profiles with at least 300 pitches seen.</small><a href="images/graphics-feed/hitter-discipline-frontier.png?v=20260725002117" download="hitter-discipline-frontier.png">Download PNG</a>
 </div>
 </figcaption>
 </figure>
 <figure class="graphics-card figure">
-<a class="graphics-card__image" href="images/graphics-feed/pull-rate-leader-spray.png?v=20260722165437"><img src="images/graphics-feed/pull-rate-leader-spray.png?v=20260722165437" alt="Spray chart showing batted balls for MLB's qualified pull-rate leader." loading="lazy" class="figure-img"></a>
+<a class="graphics-card__image" href="images/graphics-feed/pull-rate-leader-spray.png?v=20260725002117"><img src="images/graphics-feed/pull-rate-leader-spray.png?v=20260725002117" alt="Spray chart showing batted balls for MLB's qualified pull-rate leader." loading="lazy" class="figure-img"></a>
 <figcaption>
 <span class="eyebrow">Player profiles</span>
 <h3 class="anchored">
@@ -396,7 +399,7 @@ Pull-Rate Leader Spray Chart
 A field-level view of the qualified hitter who produces the league’s highest pull rate.
 </p>
 <div>
-<small>Full-season batted balls for the qualified pull-rate leader.</small><a href="images/graphics-feed/pull-rate-leader-spray.png?v=20260722165437" download="pull-rate-leader-spray.png">Download PNG</a>
+<small>Full-season batted balls for the qualified pull-rate leader.</small><a href="images/graphics-feed/pull-rate-leader-spray.png?v=20260725002117" download="pull-rate-leader-spray.png">Download PNG</a>
 </div>
 </figcaption>
 </figure>
@@ -411,7 +414,7 @@ Pitch changes
 </div>
 <div class="graphics-feed-grid">
 <figure class="graphics-card figure">
-<a class="graphics-card__image" href="images/graphics-feed/arsenal-takeover-spotlights.png?v=20260722165437"><img src="images/graphics-feed/arsenal-takeover-spotlights.png?v=20260722165437" alt="Faceted movement maps showing four pitchers' full arsenals and a highlighted rising pitch." loading="lazy" class="figure-img"></a>
+<a class="graphics-card__image" href="images/graphics-feed/arsenal-takeover-spotlights.png?v=20260725002117"><img src="images/graphics-feed/arsenal-takeover-spotlights.png?v=20260725002117" alt="Faceted movement maps showing four pitchers' full arsenals and a highlighted rising pitch." loading="lazy" class="figure-img"></a>
 <figcaption>
 <span class="eyebrow">Pitch changes</span>
 <h3 class="anchored">
@@ -421,12 +424,12 @@ Arsenal Takeover Spotlights
 Full arsenal movement maps for pitchers whose rising pitch gained usage and whiffs together.
 </p>
 <div>
-<small>Recent five-game pitch changes placed inside each pitcher’s season arsenal.</small><a href="images/graphics-feed/arsenal-takeover-spotlights.png?v=20260722165437" download="arsenal-takeover-spotlights.png">Download PNG</a>
+<small>Recent five-game pitch changes placed inside each pitcher’s season arsenal.</small><a href="images/graphics-feed/arsenal-takeover-spotlights.png?v=20260725002117" download="arsenal-takeover-spotlights.png">Download PNG</a>
 </div>
 </figcaption>
 </figure>
 <figure class="graphics-card figure">
-<a class="graphics-card__image" href="images/graphics-feed/pitch-usage-movers.png?v=20260722165437"><img src="images/graphics-feed/pitch-usage-movers.png?v=20260722165437" alt="Horizontal bars showing the largest recent changes in pitch usage." loading="lazy" class="figure-img"></a>
+<a class="graphics-card__image" href="images/graphics-feed/pitch-usage-movers.png?v=20260725002117"><img src="images/graphics-feed/pitch-usage-movers.png?v=20260725002117" alt="Horizontal bars showing the largest recent changes in pitch usage." loading="lazy" class="figure-img"></a>
 <figcaption>
 <span class="eyebrow">Pitch changes</span>
 <h3 class="anchored">
@@ -436,7 +439,7 @@ Pitches Taking On New Roles
 The pitch types with the largest recent usage changes, paired with pitcher and team context.
 </p>
 <div>
-<small>Recent five-game pitch mix versus the prior-season window.</small><a href="images/graphics-feed/pitch-usage-movers.png?v=20260722165437" download="pitch-usage-movers.png">Download PNG</a>
+<small>Recent five-game pitch mix versus the prior-season window.</small><a href="images/graphics-feed/pitch-usage-movers.png?v=20260725002117" download="pitch-usage-movers.png">Download PNG</a>
 </div>
 </figcaption>
 </figure>
@@ -451,7 +454,7 @@ Player movement
 </div>
 <div class="graphics-feed-grid">
 <figure class="graphics-card figure">
-<a class="graphics-card__image" href="images/graphics-feed/hitter-change-leaders.png?v=20260722165437"><img src="images/graphics-feed/hitter-change-leaders.png?v=20260722165437" alt="Horizontal bars ranking hitters by standardized recent performance change." loading="lazy" class="figure-img"></a>
+<a class="graphics-card__image" href="images/graphics-feed/hitter-change-leaders.png?v=20260725002117"><img src="images/graphics-feed/hitter-change-leaders.png?v=20260725002117" alt="Horizontal bars ranking hitters by standardized recent performance change." loading="lazy" class="figure-img"></a>
 <figcaption>
 <span class="eyebrow">Player movement</span>
 <h3 class="anchored">
@@ -461,12 +464,12 @@ Hitters Changing Fastest
 The strongest recent hitter shifts after comparing each player with his earlier-season baseline and the league change distribution.
 </p>
 <div>
-<small>Recent versus prior performance; movement standardized against MLB.</small><a href="images/graphics-feed/hitter-change-leaders.png?v=20260722165437" download="hitter-change-leaders.png">Download PNG</a>
+<small>Recent versus prior performance; movement standardized against MLB.</small><a href="images/graphics-feed/hitter-change-leaders.png?v=20260725002117" download="hitter-change-leaders.png">Download PNG</a>
 </div>
 </figcaption>
 </figure>
 <figure class="graphics-card figure">
-<a class="graphics-card__image" href="images/graphics-feed/pitcher-change-leaders.png?v=20260722165437"><img src="images/graphics-feed/pitcher-change-leaders.png?v=20260722165437" alt="Horizontal bars ranking pitchers by standardized recent performance change." loading="lazy" class="figure-img"></a>
+<a class="graphics-card__image" href="images/graphics-feed/pitcher-change-leaders.png?v=20260725002117"><img src="images/graphics-feed/pitcher-change-leaders.png?v=20260725002117" alt="Horizontal bars ranking pitchers by standardized recent performance change." loading="lazy" class="figure-img"></a>
 <figcaption>
 <span class="eyebrow">Player movement</span>
 <h3 class="anchored">
@@ -476,7 +479,7 @@ Pitchers Changing Fastest
 The strongest recent pitcher shifts after comparing each arm with his earlier-season baseline and the league change distribution.
 </p>
 <div>
-<small>Recent versus prior performance allowed; movement standardized against MLB.</small><a href="images/graphics-feed/pitcher-change-leaders.png?v=20260722165437" download="pitcher-change-leaders.png">Download PNG</a>
+<small>Recent versus prior performance allowed; movement standardized against MLB.</small><a href="images/graphics-feed/pitcher-change-leaders.png?v=20260725002117" download="pitcher-change-leaders.png">Download PNG</a>
 </div>
 </figcaption>
 </figure>
@@ -491,7 +494,7 @@ League separation
 </div>
 <div class="graphics-feed-grid">
 <figure class="graphics-card figure">
-<a class="graphics-card__image" href="images/graphics-feed/hitter-league-separation.png?v=20260722165437"><img src="images/graphics-feed/hitter-league-separation.png?v=20260722165437" alt="Heatmap of season percentiles for hitters with the largest league separation." loading="lazy" class="figure-img"></a>
+<a class="graphics-card__image" href="images/graphics-feed/hitter-league-separation.png?v=20260725002117"><img src="images/graphics-feed/hitter-league-separation.png?v=20260725002117" alt="Heatmap of season percentiles for hitters with the largest league separation." loading="lazy" class="figure-img"></a>
 <figcaption>
 <span class="eyebrow">League separation</span>
 <h3 class="anchored">
@@ -501,12 +504,12 @@ Hitter League Separation
 Multi-stat season fingerprints for hitters furthest from the league middle.
 </p>
 <div>
-<small>Full-season pitch-by-pitch summary percentiles.</small><a href="images/graphics-feed/hitter-league-separation.png?v=20260722165437" download="hitter-league-separation.png">Download PNG</a>
+<small>Full-season pitch-by-pitch summary percentiles.</small><a href="images/graphics-feed/hitter-league-separation.png?v=20260725002117" download="hitter-league-separation.png">Download PNG</a>
 </div>
 </figcaption>
 </figure>
 <figure class="graphics-card figure">
-<a class="graphics-card__image" href="images/graphics-feed/pitcher-league-separation.png?v=20260722165437"><img src="images/graphics-feed/pitcher-league-separation.png?v=20260722165437" alt="Heatmap of season percentiles for pitchers with the largest league separation." loading="lazy" class="figure-img"></a>
+<a class="graphics-card__image" href="images/graphics-feed/pitcher-league-separation.png?v=20260725002117"><img src="images/graphics-feed/pitcher-league-separation.png?v=20260725002117" alt="Heatmap of season percentiles for pitchers with the largest league separation." loading="lazy" class="figure-img"></a>
 <figcaption>
 <span class="eyebrow">League separation</span>
 <h3 class="anchored">
@@ -516,7 +519,7 @@ Pitcher League Separation
 Multi-stat season fingerprints for pitchers furthest from the league middle.
 </p>
 <div>
-<small>Full-season pitch-by-pitch summary percentiles.</small><a href="images/graphics-feed/pitcher-league-separation.png?v=20260722165437" download="pitcher-league-separation.png">Download PNG</a>
+<small>Full-season pitch-by-pitch summary percentiles.</small><a href="images/graphics-feed/pitcher-league-separation.png?v=20260725002117" download="pitcher-league-separation.png">Download PNG</a>
 </div>
 </figcaption>
 </figure>

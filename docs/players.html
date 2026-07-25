@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -40,10 +43,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-94db8dc3f0a1f07eef137dfae92d2c54.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f0a6828d39eed76dd9f56b390c71b39b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -314,19 +317,19 @@ Esmerlyn Valdez
 Pittsburgh Pirates
 </td>
 <td>
-122
+131
 </td>
 <td>
-1.127
+1.098
 </td>
 <td>
-0.458
+0.448
 </td>
 <td>
-55.6%
+56.2%
 </td>
 <td>
-0.127
+0.112
 </td>
 </tr>
 <tr>
@@ -337,19 +340,42 @@ Yordan Alvarez
 Houston Astros
 </td>
 <td>
-428
+431
 </td>
 <td>
-1.064
+1.073
 </td>
 <td>
-0.443
+0.445
 </td>
 <td>
-52.9%
+53.2%
 </td>
 <td>
-0.114
+0.124
+</td>
+</tr>
+<tr>
+<td>
+Tommy Edman
+</td>
+<td>
+Los Angeles Dodgers
+</td>
+<td>
+100
+</td>
+<td>
+0.974
+</td>
+<td>
+0.419
+</td>
+<td>
+42.9%
+</td>
+<td>
+0.152
 </td>
 </tr>
 <tr>
@@ -360,111 +386,19 @@ Ben Rice
 New York Yankees
 </td>
 <td>
-406
+413
 </td>
 <td>
-0.954
-</td>
-<td>
-0.399
-</td>
-<td>
-48.7%
-</td>
-<td>
-0.082
-</td>
-</tr>
-<tr>
-<td>
-James Wood
-</td>
-<td>
-Washington Nationals
-</td>
-<td>
-477
-</td>
-<td>
-0.944
-</td>
-<td>
-0.398
-</td>
-<td>
-59.5%
-</td>
-<td>
-0.084
-</td>
-</tr>
-<tr>
-<td>
-Juan Soto
-</td>
-<td>
-New York Mets
-</td>
-<td>
-352
-</td>
-<td>
-0.932
+0.945
 </td>
 <td>
 0.395
 </td>
 <td>
-48.8%
+48.3%
 </td>
 <td>
-0.063
-</td>
-</tr>
-<tr>
-<td>
-Ryan Jeffers
-</td>
-<td>
-Minnesota Twins
-</td>
-<td>
-172
-</td>
-<td>
-0.931
-</td>
-<td>
-0.395
-</td>
-<td>
-41.2%
-</td>
-<td>
-0.116
-</td>
-</tr>
-<tr>
-<td>
-Junior Caminero
-</td>
-<td>
-Tampa Bay Rays
-</td>
-<td>
-440
-</td>
-<td>
-0.923
-</td>
-<td>
-0.388
-</td>
-<td>
-51.0%
-</td>
-<td>
-0.031
+0.076
 </td>
 </tr>
 <tr>
@@ -475,65 +409,134 @@ Willson Contreras
 Boston Red Sox
 </td>
 <td>
-378
+389
 </td>
 <td>
-0.918
+0.941
 </td>
 <td>
-0.390
+0.399
 </td>
 <td>
-47.4%
+46.9%
 </td>
 <td>
-0.066
-</td>
-</tr>
-<tr>
-<td>
-Griffin Conine
-</td>
-<td>
-Miami Marlins
-</td>
-<td>
-106
-</td>
-<td>
-0.912
-</td>
-<td>
-0.386
-</td>
-<td>
-55.0%
-</td>
-<td>
-0.052
+0.072
 </td>
 </tr>
 <tr>
 <td>
-Shohei Ohtani
+James Wood
 </td>
 <td>
-Los Angeles Dodgers
+Washington Nationals
 </td>
 <td>
-419
+481
 </td>
 <td>
-0.908
+0.937
+</td>
+<td>
+0.395
+</td>
+<td>
+59.3%
+</td>
+<td>
+0.079
+</td>
+</tr>
+<tr>
+<td>
+Juan Soto
+</td>
+<td>
+New York Mets
+</td>
+<td>
+350
+</td>
+<td>
+0.932
+</td>
+<td>
+0.394
+</td>
+<td>
+48.6%
+</td>
+<td>
+0.077
+</td>
+</tr>
+<tr>
+<td>
+Ryan Jeffers
+</td>
+<td>
+Minnesota Twins
+</td>
+<td>
+177
+</td>
+<td>
+0.927
+</td>
+<td>
+0.394
+</td>
+<td>
+41.3%
+</td>
+<td>
+0.107
+</td>
+</tr>
+<tr>
+<td>
+Junior Caminero
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+446
+</td>
+<td>
+0.915
 </td>
 <td>
 0.385
 </td>
 <td>
-52.9%
+51.3%
 </td>
 <td>
-0.071
+0.029
+</td>
+</tr>
+<tr>
+<td>
+Kyle Schwarber
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+437
+</td>
+<td>
+0.903
+</td>
+<td>
+0.382
+</td>
+<td>
+52.3%
+</td>
+<td>
+0.066
 </td>
 </tr>
 </tbody>
@@ -583,19 +586,19 @@ Esmerlyn Valdez
 Pittsburgh Pirates
 </td>
 <td>
-122
+131
 </td>
 <td>
-0.458
+0.448
 </td>
 <td>
-10.7%
+13.0%
 </td>
 <td>
-37.7%
+38.2%
 </td>
 <td>
-0.550
+0.567
 </td>
 </tr>
 <tr>
@@ -606,111 +609,42 @@ Yordan Alvarez
 Houston Astros
 </td>
 <td>
-428
+431
 </td>
 <td>
-0.443
+0.445
 </td>
 <td>
-11.9%
+12.1%
 </td>
 <td>
-17.5%
+17.4%
 </td>
 <td>
-0.811
-</td>
-</tr>
-<tr>
-<td>
-Ben Rice
-</td>
-<td>
-New York Yankees
-</td>
-<td>
-406
-</td>
-<td>
-0.399
-</td>
-<td>
-11.1%
-</td>
-<td>
-23.4%
-</td>
-<td>
-0.802
+0.812
 </td>
 </tr>
 <tr>
 <td>
-James Wood
+Tommy Edman
 </td>
 <td>
-Washington Nationals
+Los Angeles Dodgers
 </td>
 <td>
-477
+100
 </td>
 <td>
-0.398
+0.419
 </td>
 <td>
-15.9%
+8.0%
 </td>
 <td>
-29.8%
+18.0%
 </td>
 <td>
-0.827
-</td>
-</tr>
-<tr>
-<td>
-Ryan Jeffers
-</td>
-<td>
-Minnesota Twins
-</td>
-<td>
-172
-</td>
-<td>
-0.395
-</td>
-<td>
-15.1%
-</td>
-<td>
-15.1%
-</td>
-<td>
-0.632
-</td>
-</tr>
-<tr>
-<td>
-Juan Soto
-</td>
-<td>
-New York Mets
-</td>
-<td>
-352
-</td>
-<td>
-0.395
-</td>
-<td>
-15.3%
-</td>
-<td>
-13.9%
-</td>
-<td>
-0.779
+0.500
 </td>
 </tr>
 <tr>
@@ -721,19 +655,111 @@ Willson Contreras
 Boston Red Sox
 </td>
 <td>
-378
+389
 </td>
 <td>
-0.390
+0.399
 </td>
 <td>
-9.5%
+9.3%
 </td>
 <td>
-24.6%
+24.4%
 </td>
 <td>
-0.791
+0.796
+</td>
+</tr>
+<tr>
+<td>
+Ben Rice
+</td>
+<td>
+New York Yankees
+</td>
+<td>
+413
+</td>
+<td>
+0.395
+</td>
+<td>
+10.9%
+</td>
+<td>
+23.7%
+</td>
+<td>
+0.805
+</td>
+</tr>
+<tr>
+<td>
+James Wood
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+481
+</td>
+<td>
+0.395
+</td>
+<td>
+15.8%
+</td>
+<td>
+29.3%
+</td>
+<td>
+0.828
+</td>
+</tr>
+<tr>
+<td>
+Juan Soto
+</td>
+<td>
+New York Mets
+</td>
+<td>
+350
+</td>
+<td>
+0.394
+</td>
+<td>
+15.4%
+</td>
+<td>
+13.7%
+</td>
+<td>
+0.778
+</td>
+</tr>
+<tr>
+<td>
+Ryan Jeffers
+</td>
+<td>
+Minnesota Twins
+</td>
+<td>
+177
+</td>
+<td>
+0.394
+</td>
+<td>
+14.7%
+</td>
+<td>
+16.4%
+</td>
+<td>
+0.639
 </td>
 </tr>
 <tr>
@@ -744,42 +770,19 @@ Junior Caminero
 Tampa Bay Rays
 </td>
 <td>
-440
+446
 </td>
 <td>
-0.388
+0.385
 </td>
 <td>
-11.8%
+11.7%
 </td>
 <td>
-18.2%
+18.6%
 </td>
 <td>
-0.815
-</td>
-</tr>
-<tr>
-<td>
-Griffin Conine
-</td>
-<td>
-Miami Marlins
-</td>
-<td>
-106
-</td>
-<td>
-0.386
-</td>
-<td>
-9.4%
-</td>
-<td>
-32.1%
-</td>
-<td>
-0.515
+0.817
 </td>
 </tr>
 <tr>
@@ -790,19 +793,19 @@ Pete Crow-Armstrong
 Chicago Cubs
 </td>
 <td>
-440
+443
 </td>
 <td>
-0.386
+0.383
 </td>
 <td>
-11.4%
+11.3%
 </td>
 <td>
-25.9%
+26.2%
 </td>
 <td>
-0.815
+0.816
 </td>
 </tr>
 </tbody>
@@ -855,42 +858,19 @@ Mason Miller
 San Diego Padres
 </td>
 <td>
-160
+159
 </td>
 <td>
-0.378
+0.380
 </td>
 <td>
-0.183
+0.184
 </td>
 <td>
-49.4%
+49.1%
 </td>
 <td>
 22.7%
-</td>
-</tr>
-<tr>
-<td>
-Brandyn Garcia
-</td>
-<td>
-Arizona Diamondbacks
-</td>
-<td>
-93
-</td>
-<td>
-0.395
-</td>
-<td>
-0.189
-</td>
-<td>
-31.2%
-</td>
-<td>
-33.9%
 </td>
 </tr>
 <tr>
@@ -901,19 +881,65 @@ Jacob Latz
 Texas Rangers
 </td>
 <td>
-163
+169
 </td>
 <td>
-0.408
+0.393
 </td>
 <td>
-0.178
+0.172
 </td>
 <td>
-28.2%
+28.4%
 </td>
 <td>
-39.3%
+37.8%
+</td>
+</tr>
+<tr>
+<td>
+Brandyn Garcia
+</td>
+<td>
+Arizona Diamondbacks
+</td>
+<td>
+97
+</td>
+<td>
+0.400
+</td>
+<td>
+0.191
+</td>
+<td>
+30.9%
+</td>
+<td>
+32.2%
+</td>
+</tr>
+<tr>
+<td>
+Colin Holderman
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+154
+</td>
+<td>
+0.430
+</td>
+<td>
+0.205
+</td>
+<td>
+26.0%
+</td>
+<td>
+47.4%
 </td>
 </tr>
 <tr>
@@ -924,19 +950,19 @@ Dylan Lee
 Atlanta Braves
 </td>
 <td>
-166
+169
 </td>
 <td>
-0.444
+0.435
 </td>
 <td>
-0.195
+0.191
 </td>
 <td>
 33.7%
 </td>
 <td>
-29.4%
+30.8%
 </td>
 </tr>
 <tr>
@@ -960,29 +986,6 @@ Atlanta Braves
 </td>
 <td>
 33.0%
-</td>
-</tr>
-<tr>
-<td>
-Colin Holderman
-</td>
-<td>
-Cleveland Guardians
-</td>
-<td>
-148
-</td>
-<td>
-0.448
-</td>
-<td>
-0.213
-</td>
-<td>
-27.0%
-</td>
-<td>
-48.4%
 </td>
 </tr>
 <tr>
@@ -1033,48 +1036,48 @@ New York Mets
 </tr>
 <tr>
 <td>
-Anthony Bender
+Bryan Baker
 </td>
 <td>
-Miami Marlins
+Tampa Bay Rays
 </td>
 <td>
-139
+147
 </td>
 <td>
-0.478
+0.465
 </td>
 <td>
-0.222
+0.211
 </td>
 <td>
-29.5%
+28.6%
 </td>
 <td>
-33.3%
+32.6%
 </td>
 </tr>
 <tr>
 <td>
-Alex Vesia
+Dylan Dodd
 </td>
 <td>
-Los Angeles Dodgers
+Atlanta Braves
 </td>
 <td>
-142
+113
 </td>
 <td>
-0.481
+0.475
 </td>
 <td>
-0.229
+0.210
 </td>
 <td>
-34.5%
+30.1%
 </td>
 <td>
-35.6%
+39.4%
 </td>
 </tr>
 </tbody>
