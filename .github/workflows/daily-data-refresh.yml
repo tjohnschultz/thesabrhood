@@ -36,6 +36,9 @@ jobs:
       SABRHOOD_N_SIMS: "20000"
       SABRHOOD_PLAYER_N_SIMS: "2000"
       SABRHOOD_SHADOW_RELEASE_KEY: daily-shadow-${{ github.run_id }}-${{ github.run_attempt }}
+      SABRHOOD_PUBLISH_SHADOW: ${{ (github.event_name == 'workflow_dispatch' && inputs.publish_supabase_shadow == true) || (github.event_name == 'schedule' && vars.SABRHOOD_SCHEDULED_SHADOW_ENABLED == 'true') }}
+      SABRHOOD_RECOVERY_RELEASE_KEY: ${{ vars.SABRHOOD_RECOVERY_RELEASE_KEY || 'shadow-20260724-002' }}
+      SABRHOOD_RETENTION_KEEP: "3"
 
     steps:
       - name: Check out site repository
@@ -155,7 +158,7 @@ jobs:
           Rscript scripts/validate_site.R --rendered
 
       - name: Confirm Supabase shadow publication secrets
-        if: inputs.publish_supabase_shadow == true
+        if: env.SABRHOOD_PUBLISH_SHADOW == 'true'
         shell: bash
         env:
           SABRHOOD_SUPABASE_URL: ${{ secrets.SABRHOOD_SUPABASE_URL }}
@@ -175,7 +178,7 @@ jobs:
           done
 
       - name: Stage complete Supabase shadow release
-        if: inputs.publish_supabase_shadow == true
+        if: env.SABRHOOD_PUBLISH_SHADOW == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -185,7 +188,7 @@ jobs:
             "--release-key=${SABRHOOD_SHADOW_RELEASE_KEY}"
 
       - name: Upload and verify Supabase shadow release
-        if: inputs.publish_supabase_shadow == true
+        if: env.SABRHOOD_PUBLISH_SHADOW == 'true'
         shell: bash
         env:
           SABRHOOD_SUPABASE_URL: ${{ secrets.SABRHOOD_SUPABASE_URL }}
@@ -198,6 +201,34 @@ jobs:
           Rscript scripts/supabase_storage.R verify \
             "--release-key=${SABRHOOD_SHADOW_RELEASE_KEY}"
           echo "Supabase shadow release verified; current.json was not changed."
+
+      - name: Report Supabase shadow retention plan
+        if: env.SABRHOOD_PUBLISH_SHADOW == 'true'
+        shell: bash
+        env:
+          SABRHOOD_SUPABASE_URL: ${{ secrets.SABRHOOD_SUPABASE_URL }}
+          SABRHOOD_SUPABASE_SECRET_KEY: ${{ secrets.SABRHOOD_SUPABASE_SECRET_KEY }}
+          SABRHOOD_SUPABASE_BUCKET: ${{ secrets.SABRHOOD_SUPABASE_BUCKET }}
+        run: |
+          set -euo pipefail
+          Rscript scripts/supabase_storage.R inventory | tee inventory.txt
+          Rscript scripts/supabase_storage.R retention-plan \
+            "--keep=${SABRHOOD_RETENTION_KEEP}" \
+            "--protect=${SABRHOOD_RECOVERY_RELEASE_KEY}" | tee retention-plan.txt
+          {
+            echo "## Supabase shadow publication"
+            echo
+            echo "- Verified release: \`${SABRHOOD_SHADOW_RELEASE_KEY}\`"
+            echo "- Protected recovery release: \`${SABRHOOD_RECOVERY_RELEASE_KEY}\`"
+            echo "- Newest complete releases retained: ${SABRHOOD_RETENTION_KEEP}"
+            echo "- Deletion performed: no"
+            echo
+            echo "### Retention dry run"
+            echo
+            echo '```text'
+            cat retention-plan.txt
+            echo '```'
+          } >> "${GITHUB_STEP_SUMMARY}"
 
       - name: Save private pipeline cache
         if: always()
