@@ -5,7 +5,10 @@ name: Validate backend contracts
     paths:
       - ".github/workflows/backend-contracts.yml"
       - ".github/workflows/daily-data-refresh.yml"
+      - ".github/workflows/fangraphs-reconciliation.yml"
       - "infrastructure/**"
+      - "scripts/tests/test_fangraphs_reconciliation.R"
+      - "scripts/validate_fangraphs_reconciliation.R"
       - "supabase/**"
       - "netlify.toml"
   push:
@@ -14,7 +17,10 @@ name: Validate backend contracts
     paths:
       - ".github/workflows/backend-contracts.yml"
       - ".github/workflows/daily-data-refresh.yml"
+      - ".github/workflows/fangraphs-reconciliation.yml"
       - "infrastructure/**"
+      - "scripts/tests/test_fangraphs_reconciliation.R"
+      - "scripts/validate_fangraphs_reconciliation.R"
       - "supabase/**"
       - "netlify.toml"
   workflow_dispatch:
@@ -60,6 +66,9 @@ jobs:
       - name: Run offline release-store contract
         run: Rscript infrastructure/storage/tests/run-tests.R
 
+      - name: Run FanGraphs reconciliation contract
+        run: Rscript scripts/tests/test_fangraphs_reconciliation.R
+
       - name: Verify source-permission guard is present
         shell: bash
         run: |
@@ -82,6 +91,16 @@ jobs:
           grep -q "SABRHOOD_RECOVERY_RELEASE_KEY" .github/workflows/daily-data-refresh.yml
           grep -q "retention-plan" .github/workflows/daily-data-refresh.yml
           ! grep -q "delete-incomplete" .github/workflows/daily-data-refresh.yml
+
+      - name: Confirm provider refresh cadence remains separated
+        shell: bash
+        run: |
+          grep -A2 'cron: "0 6 [*] [*] [*]"' .github/workflows/daily-data-refresh.yml | grep -q 'timezone: "America/New_York"'
+          ! grep -q "refresh_fangraphs_season.R" .github/workflows/daily-data-refresh.yml
+          grep -A2 'cron: "45 11 [*] 3-11 [*]"' .github/workflows/fangraphs-reconciliation.yml | grep -q 'timezone: "America/New_York"'
+          grep -q "validate_fangraphs_reconciliation.R" .github/workflows/fangraphs-reconciliation.yml
+          grep -q "Update completed-game PBP" .github/workflows/daily-data-refresh.yml
+          ! grep -q "update_pbp.R" .github/workflows/fangraphs-reconciliation.yml
 
   supabase-recovery-drill:
     name: Supabase full recovery drill

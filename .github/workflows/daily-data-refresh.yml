@@ -2,7 +2,8 @@ name: Daily MLB data refresh
 
 "on":
   schedule:
-    - cron: "0 12 * * *"
+    - cron: "0 6 * * *"
+      timezone: "America/New_York"
   workflow_dispatch:
     inputs:
       pbp_end:
@@ -80,13 +81,6 @@ jobs:
 
       - name: Rebuild all PBP-derived analytics
         run: Rscript scripts/build_pbp_products.R
-
-      - name: Refresh FanGraphs season tables
-        continue-on-error: true
-        shell: bash
-        run: |
-          Rscript scripts/refresh_fangraphs_season.R
-          Rscript scripts/build_fangraphs_products.R
 
       - name: Rebuild history, milestone, and editorial engines
         shell: bash

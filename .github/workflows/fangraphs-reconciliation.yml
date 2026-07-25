@@ -1,0 +1,136 @@
+name: Late-morning FanGraphs reconciliation
+
+"on":
+  schedule:
+    - cron: "45 11 * 3-11 *"
+      timezone: "America/New_York"
+  workflow_dispatch:
+    inputs:
+      slate_date:
+        description: "Site date (YYYY-MM-DD); defaults to today in New York"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sabrhood-daily-data
+  cancel-in-progress: false
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      SABRHOOD_DATE: ${{ inputs.slate_date }}
+
+    steps:
+      - name: Check out site repository
+        uses: actions/checkout@v5
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Restore private pipeline cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .private-data
+          key: sabrhood-private-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            sabrhood-private-${{ runner.os }}-
+            sabrhood-pbp-${{ runner.os }}-
+
+      - name: Install reconciliation dependencies and SABRhood package
+        shell: bash
+        run: |
+          Rscript -e 'install.packages(c("remotes", "dplyr", "rlang", "tibble", "withr", "ggplot2", "knitr", "rmarkdown", "Lahman"), repos = "https://cloud.r-project.org")'
+          Rscript -e 'remotes::install_url("https://github.com/BillPetti/baseballr/archive/refs/tags/v1.6.0.tar.gz", dependencies = NA, upgrade = "never")'
+          Rscript -e 'stopifnot(requireNamespace("baseballr", quietly = TRUE)); message("Installed baseballr ", packageVersion("baseballr"))'
+          R CMD INSTALL packages/sabrhoodR
+
+      - name: Preserve the published FanGraphs baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .backend/fangraphs-baseline
+          cp data/derived/fangraphs-season-hitters.csv .backend/fangraphs-baseline/
+          cp data/derived/fangraphs-season-pitchers.csv .backend/fangraphs-baseline/
+
+      - name: Refresh FanGraphs source snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3
+          do
+            if Rscript scripts/refresh_fangraphs_season.R; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              echo "::warning::FanGraphs acquisition attempt ${attempt} failed; retrying in 60 seconds."
+              sleep 60
+            fi
+          done
+          echo "::error::FanGraphs acquisition failed after three attempts; the morning publication remains active."
+          exit 1
+
+      - name: Build and validate reconciled FanGraphs products
+        shell: bash
+        run: |
+          set -euo pipefail
+          Rscript scripts/build_fangraphs_products.R
+          Rscript scripts/validate_fangraphs_reconciliation.R \
+            --baseline=.backend/fangraphs-baseline
+
+      - name: Rebuild FanGraphs-dependent projections and graphics
+        shell: bash
+        run: |
+          set -euo pipefail
+          Rscript scripts/build_daily_team_simulations.R
+          lineup_rows=$(Rscript -e 'x <- read.csv("data/derived/daily-batting-orders.csv", check.names = FALSE); cat(nrow(x))')
+          if [ "$lineup_rows" -ge 9 ]; then
+            Rscript scripts/build_daily_player_probabilities.R
+            Rscript scripts/build_daily_player_simulations.R
+          else
+            echo "Posted lineups are not available yet; retaining the morning player projections."
+          fi
+          Rscript scripts/build_graphics_feed.R
+
+      - name: Refresh health metadata and render the site
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "$SABRHOOD_DATE" ]; then unset SABRHOOD_DATE; fi
+          Rscript scripts/build_refresh_health.R
+          Rscript scripts/update_derived_manifest.R
+          Rscript scripts/build_site_fragments.R
+          Rscript scripts/validate_site.R
+          quarto render --no-clean
+          Rscript scripts/restore_legacy_assets.R
+          Rscript scripts/validate_site.R --rendered
+
+      - name: Save reconciled private source cache
+        if: success()
+        uses: actions/cache/save@v5
+        with:
+          path: .private-data
+          key: sabrhood-private-${{ runner.os }}-${{ github.run_id }}
+
+      - name: Commit reconciled products and rendered pages
+        if: success() && github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/derived images/graphics-feed includes docs
+          if git diff --cached --quiet; then
+            echo "No FanGraphs-dependent public products changed."
+          else
+            git commit -m "data: reconcile FanGraphs products [skip ci]"
+            git push
+          fi
