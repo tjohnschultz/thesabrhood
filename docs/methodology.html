@@ -80,6 +80,7 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="includes/article-team-themes.css">
 <meta property="og:title" content="Methodology – The SABRhood">
 <meta property="og:description" content="How The SABRhood defines, validates, and communicates its baseball metrics.">
 <meta property="og:image" content="https://thesabrhood.com/images/sabrhood-social-preview-v1.png">
@@ -163,8 +164,8 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
  <span class="dropdown-text">Teams</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./team-dossiers.html">
- <span class="dropdown-text">Team Dossiers</span></a>
+    <a class="dropdown-item" href="./team-reports.html">
+ <span class="dropdown-text">Team reports</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./matchups.html">
@@ -325,6 +326,54 @@ Estimated from the same season-level state table.
 <li>Historical career profiles built from Lahman career totals, Hall of Fame voting, awards, All-Star selections, postseason volume, longevity, and record standing.</li>
 <li>Recognition-aware anniversary, milestone, and career-record story candidates.</li>
 </ul>
+</section>
+<section id="what-estimated-woba-means-here" class="level2">
+<h2 class="anchored" data-anchor-id="what-estimated-woba-means-here">What “estimated wOBA” means here</h2>
+<p>The current site field is a transparent results-based wOBA calculation. It applies fixed linear weights to walks, hit-by-pitches, singles, doubles, triples, and home runs, then divides by wOBA opportunities. It is not xwOBA and does not currently use the launch-speed and launch-angle expected-contact model from the earlier research scripts.</p>
+<p>That expected-contact work remains a separate future package layer. Until it is ported, validated, and versioned, the site will continue to say “estimated wOBA” rather than “expected wOBA” or “xwOBA.”</p>
+</section>
+<section id="plate-appearance-matchup-probabilities" class="level2">
+<h2 class="anchored" data-anchor-id="plate-appearance-matchup-probabilities">Plate-appearance matchup probabilities</h2>
+<p>Simulation Phase 1 assigns every confirmed batter-versus-probable-starter matchup one mutually exclusive distribution across walk, hit-by-pitch, strikeout, single, double, triple, home run, and other out.</p>
+<p>The current shadow model follows four steps:</p>
+<ol type="1">
+<li><p>Overall hitter rates are shrunk toward the MLB event distribution with a 200-plate-appearance prior.</p></li>
+<li><p>Overall pitcher rates are shrunk with a 250-batter-faced prior.</p></li>
+<li><p>The relevant hitter and pitcher handedness splits are each shrunk toward that player’s overall distribution with a 125-opportunity prior.</p></li>
+<li><p>Batter and pitcher distributions are combined event by event using multinomial log5:</p>
+<p>[ s_e = , p_{matchup,e} = ]</p></li>
+</ol>
+<p>The final normalization is important: all possible plate-appearance outcomes sum to exactly 100%. Recent form can make only a restrained, reliability-weighted adjustment to strikeout, walk, hit, and home-run components. The model also publishes the player and split sample sizes, a matchup reliability score, its input status, and its version.</p>
+<p>This layer is running in shadow mode. It will not replace the existing game probabilities until historical and forward-looking calibration demonstrate that it improves out-of-sample forecasts.</p>
+</section>
+<section id="plate-appearance-game-state-simulation" class="level2">
+<h2 class="anchored" data-anchor-id="plate-appearance-game-state-simulation">Plate-appearance game-state simulation</h2>
+<p>Simulation Phase 2 consumes the Phase 1 event distributions and plays each game one plate appearance at a time. The state carried between events is the inning and half-inning, number of outs, occupied bases, score, next lineup position, and workload of the defending probable starter. Each batting order continues from the hitter after the final out rather than restarting every inning.</p>
+<p>The probable starter remains active until a sampled batters-faced target or pitch limit is reached. The replacement distribution is an availability-weighted blend of up to six active-roster relievers, excluding the scheduled starter. Each hitter-reliever probability is rebuilt from the same player, handedness, and recent-form contract used against the starter.</p>
+<p>Runner advancement is deliberately inspectable in the first version:</p>
+<ul>
+<li>walks and hit-by-pitches use forced advancement;</li>
+<li>all runners score on home runs and triples;</li>
+<li>runners on second score on 60% of singles;</li>
+<li>runners on first reach third on 30% of singles and score on 55% of doubles;</li>
+<li>strikeouts and other outs do not advance runners;</li>
+<li>a runner begins on second in each half-inning after the ninth.</li>
+</ul>
+<p>The engine directly returns game scores, winners, one-run and extra-inning rates, starter batters faced and pitch counts, bullpen plate-appearance share, and full-game hitter distributions for hits, walks, strikeouts, home runs, extra-base hits, and total bases. The initial output remains a shadow model. That initial Phase 2 output deliberately omitted double plays, sacrifice advancement, steals, individual reliever sequence, and park-sensitive baserunning. Phase 3 adds those mechanisms below while leaving defense as an explicit future input.</p>
+</section>
+<section id="phase-3-bullpen-decisions-and-baserunning" class="level2">
+<h2 class="anchored" data-anchor-id="phase-3-bullpen-decisions-and-baserunning">Phase 3 bullpen decisions and baserunning</h2>
+<p>Phase 3 replaces the aggregate bullpen handoff with a named-reliever decision. At every pitching change, each unused active reliever receives a selection score from current availability, event-weighted performance against the next three hitters, role, inning, score margin, and leverage. Scores are converted to a probability distribution and one arm is sampled. The selected pitcher remains in the game until a sampled batters-faced workload, 30-pitch ceiling, or inning-change hook is reached. The output retains both appearance probability and the reliever’s mean selection likelihood when considered.</p>
+<p>Occupied bases now retain the responsible lineup position. This allows the simulation to credit runs, RBI, stolen bases, caught stealing, sacrifice flies, and grounded-into-double-play events to the appropriate hitter. Other outs can advance runners, score a runner from third, or become double plays through visible league-rate assumptions.</p>
+<p>The first park layer is intentionally modest. Venues are assigned transparent expansive, quirky, compact, or neutral geometry tiers. Those tiers adjust only runner advancement and steal-attempt rates; they are not presented as empirical causal park factors. An eventual multi-season venue model can replace them only after home-team, runner-speed, batted-ball, and scoring-environment effects are separated.</p>
+<p>Phase 3 calibration is chronological. The engine first needs 300 settled, pregame-eligible forecasts. The earliest 70% form the training block and the later 30% remain untouched for evaluation. A calibration layer enters shadow application only if it improves both win-probability Brier score and team-runs mean absolute error on that later block. Public promotion remains a separate decision.</p>
+</section>
+<section id="phase-4-empirical-running-game" class="level2">
+<h2 class="anchored" data-anchor-id="phase-4-empirical-running-game">Phase 4 empirical running game</h2>
+<p>Phase 4 reconstructs runner identity before and after every plate appearance in the private PBP store. The training table distinguishes scoring from second on a single, first-to-third on a single, scoring from first on a double, advancement on an out, double-play opportunities, and eligible windows for steals of second or third. Stolen-base events are matched to the runner and pitcher inside the same plate appearance.</p>
+<p>Player rates are not used raw. Every runner tendency is pulled toward the league rate with an empirical-Bayes prior, while steal success receives a separate prior because attempts are much scarcer than eligible windows. Pitcher hold profiles measure how often runners try to go, then separately retain success allowed. The daily simulator uses the probable starter’s profile when it is stable and a team-level fallback otherwise.</p>
+<p>The venue layer joins every completed game to the official MLB schedule venue. Park rates are estimated by runner-event type and shrunk toward the league before becoming bounded multipliers. These are genuine empirical inputs, but they remain descriptive: the current version has not fully separated runner mix, defense, batted-ball direction, or weather from the venue. That composition-adjusted model is the next validation step.</p>
+<p>The granular opportunity table remains private. Public products contain only league rates, shrunk runner profiles, pitcher-hold summaries, bounded park factors, and a model card. Phase 4 stays in shadow mode and inherits the same chronological publication gate as Phase 3.</p>
 </section>
 <section id="historical-recognition-model" class="level2">
 <h2 class="anchored" data-anchor-id="historical-recognition-model">Historical recognition model</h2>

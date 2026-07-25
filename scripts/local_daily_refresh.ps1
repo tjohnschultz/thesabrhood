@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-  [ValidateSet("Full", "Lineups", "Site")]
+  [ValidateSet("Full", "Lab", "Lineups", "Site")]
   [string]$Mode = "Full",
 
   [ValidatePattern("^\d{4}-\d{2}-\d{2}$")]
@@ -49,6 +49,7 @@ $env:SABRHOOD_HISTORY_END = $PbpEnd
 $env:SABRHOOD_DATE = $SlateDate
 $env:SABRHOOD_N_SIMS = if ($Fast) { "5000" } else { "20000" }
 $env:SABRHOOD_PLAYER_N_SIMS = if ($Fast) { "500" } else { "2000" }
+$env:SABRHOOD_STATE_N_SIMS = if ($Fast) { "100" } else { "250" }
 
 # The local workflow must write the same public products used by Quarto.
 foreach ($environmentName in @(
@@ -90,7 +91,15 @@ Run the one-time setup first:
 }
 
 $script:stepNumber = 0
-$script:stepTotal = if ($Mode -eq "Full") { 19 } elseif ($Mode -eq "Lineups") { 10 } else { 1 }
+$script:stepTotal = if ($Mode -eq "Full") {
+  23
+} elseif ($Mode -eq "Lab") {
+  10
+} elseif ($Mode -eq "Lineups") {
+  12
+} else {
+  1
+}
 
 function Write-Stage {
   param([string]$Label)
@@ -155,7 +164,7 @@ function Invoke-LineupRefresh {
 
   if (-not (Test-HasSlate)) {
     Write-Host "There is no MLB slate for $SlateDate. Player and team simulations are skipped." -ForegroundColor Yellow
-    $script:stepNumber += 4
+    $script:stepNumber += 6
     return
   }
 
@@ -163,11 +172,13 @@ function Invoke-LineupRefresh {
 
   $lineupRows = Get-LineupRowCount
   if ($lineupRows -ge 9) {
+    Invoke-RScript "Build batter-starter matchup event probabilities" "scripts\build_daily_matchup_probabilities.R" | Out-Null
+    Invoke-RScript "Run Phase 4 empirical-baserunning game-state simulations" "scripts\build_daily_state_simulations.R" | Out-Null
     Invoke-RScript "Recalculate player event probabilities" "scripts\build_daily_player_probabilities.R" | Out-Null
     Invoke-RScript "Rerun player simulations with posted lineups" "scripts\build_daily_player_simulations.R" | Out-Null
   } else {
     Write-Host "Only $lineupRows lineup rows are posted. Player simulations keep their last valid state." -ForegroundColor Yellow
-    $script:stepNumber += 2
+    $script:stepNumber += 4
   }
 
   Invoke-RScript "Archive eligible pregame predictions" "scripts\archive_projection_snapshot.R" | Out-Null
@@ -187,7 +198,27 @@ try {
   } else {
     Install-SabrhoodPackage
 
-    if ($Mode -eq "Lineups") {
+    if ($Mode -eq "Lab") {
+      Invoke-RScript "Download completed MLB games into the private PBP store" "scripts\update_pbp.R" | Out-Null
+      Invoke-RScript "Rebuild every PBP-derived research table and bullpen product" "scripts\build_pbp_products.R" | Out-Null
+      Invoke-RScript "Refresh the historical game-to-venue map" "scripts\fetch_historical_game_venues.R" | Out-Null
+      Invoke-RScript "Rebuild empirical baserunning, park, and pitcher-hold profiles" "scripts\build_phase4_baserunning_products.R" | Out-Null
+      Invoke-RScript "Refresh season-level FanGraphs source tables" "scripts\refresh_fangraphs_season.R" -Optional | Out-Null
+      Invoke-RScript "Rebuild season leaderboards, awards, and team WAR products" "scripts\build_fangraphs_products.R" -Optional | Out-Null
+      Invoke-RScript "Refresh today's active rosters and game information" "scripts\pull_daily_game_info.R" | Out-Null
+      $priorHealthGroups = $env:SABRHOOD_HEALTH_GROUPS
+      $env:SABRHOOD_HEALTH_GROUPS = "completed_game_pbp,pbp_analysis,fangraphs_season"
+      try {
+        Invoke-RScript "Check research-product freshness" "scripts\build_refresh_health.R" | Out-Null
+      } finally {
+        if ($null -eq $priorHealthGroups) {
+          Remove-Item "Env:SABRHOOD_HEALTH_GROUPS" -ErrorAction SilentlyContinue
+        } else {
+          $env:SABRHOOD_HEALTH_GROUPS = $priorHealthGroups
+        }
+      }
+      Invoke-RScript "Update public-data checksums and dates" "scripts\update_derived_manifest.R" | Out-Null
+    } elseif ($Mode -eq "Lineups") {
       Invoke-LineupRefresh
       Invoke-RScript "Refresh branded graphics after the lineup check" "scripts\build_graphics_feed.R" | Out-Null
       Invoke-RScript "Check public-product freshness" "scripts\build_refresh_health.R" | Out-Null
@@ -197,6 +228,8 @@ try {
       Invoke-RScript "Download completed MLB games into the private PBP store" "scripts\update_pbp.R" | Out-Null
       Invoke-RScript "Grade prior projection snapshots against actual results" "scripts\settle_projection_ledger.R" | Out-Null
       Invoke-RScript "Rebuild every PBP-derived table and bullpen product" "scripts\build_pbp_products.R" | Out-Null
+      Invoke-RScript "Refresh the historical game-to-venue map" "scripts\fetch_historical_game_venues.R" | Out-Null
+      Invoke-RScript "Rebuild empirical baserunning, park, and pitcher-hold profiles" "scripts\build_phase4_baserunning_products.R" | Out-Null
 
       Invoke-RScript "Refresh season-level FanGraphs source tables" "scripts\refresh_fangraphs_season.R" -Optional | Out-Null
       Invoke-RScript "Rebuild season leaderboards, awards, and team WAR products" "scripts\build_fangraphs_products.R" -Optional | Out-Null
@@ -211,16 +244,18 @@ try {
         Invoke-RScript "Run today's team win and scoring simulations" "scripts\build_daily_team_simulations.R" | Out-Null
         $lineupRows = Get-LineupRowCount
         if ($lineupRows -ge 9) {
+          Invoke-RScript "Build batter-starter matchup event probabilities" "scripts\build_daily_matchup_probabilities.R" | Out-Null
+          Invoke-RScript "Run Phase 4 empirical-baserunning game-state simulations" "scripts\build_daily_state_simulations.R" | Out-Null
           Invoke-RScript "Calculate today's player event probabilities" "scripts\build_daily_player_probabilities.R" | Out-Null
           Invoke-RScript "Run today's player simulations" "scripts\build_daily_player_simulations.R" | Out-Null
         } else {
           Write-Host "Only $lineupRows lineup rows are posted. Run -Mode Lineups closer to first pitch." -ForegroundColor Yellow
-          $script:stepNumber += 2
+          $script:stepNumber += 4
         }
         Invoke-RScript "Archive eligible pregame predictions" "scripts\archive_projection_snapshot.R" | Out-Null
       } else {
         Write-Host "There is no MLB slate for $SlateDate. Daily simulations are skipped." -ForegroundColor Yellow
-        $script:stepNumber += 4
+        $script:stepNumber += 6
       }
 
       Invoke-RScript "Rebuild the complete branded graphics feed" "scripts\build_graphics_feed.R" | Out-Null
@@ -231,9 +266,14 @@ try {
   }
 
   Write-Host ""
-  Write-Host "SUCCESS: the complete local site is ready." -ForegroundColor Green
-  Write-Host "Publish this folder: $siteRoot\docs"
-  Write-Host "Local homepage: $siteIndex"
+  if ($Mode -eq "Lab") {
+    Write-Host "SUCCESS: Analytics Lab data is current." -ForegroundColor Green
+    Write-Host "Private PBP and research products are ready for Shiny."
+  } else {
+    Write-Host "SUCCESS: the complete local site is ready." -ForegroundColor Green
+    Write-Host "Publish this folder: $siteRoot\docs"
+    Write-Host "Local homepage: $siteIndex"
+  }
   Write-Host "Review changed files with: git status --short"
 
   if ($OpenSite) {

@@ -12,8 +12,8 @@ project:
     - players.qmd
     - player-change-engine.qmd
     - teams.qmd
-    - team-dossiers.qmd
-    - team-dossiers/*.qmd
+    - team-reports.qmd
+    - team-reports/*.qmd
     - history.qmd
     - pitch-lab.qmd
     - aaa.qmd
@@ -21,6 +21,8 @@ project:
     - newsletter.qmd
     - graphics-feed.qmd
     - blog.qmd
+    - articles/*.qmd
+    - "!articles/_article-template.qmd"
     - broadcast.qmd
     - methodology.qmd
     - glossary.qmd
@@ -74,8 +76,8 @@ website:
             text: Player Change Engine
           - href: teams.qmd
             text: Teams
-          - href: team-dossiers.qmd
-            text: Team Dossiers
+          - href: team-reports.qmd
+            text: Team reports
           - href: matchups.qmd
             text: Matchups
           - href: pitch-lab.qmd
@@ -117,7 +119,9 @@ website:
 format:
   html:
     theme: cosmo
-    css: styles.css
+    css:
+      - styles.css
+      - includes/article-team-themes.css
     page-layout: full
     smooth-scroll: true
     anchor-sections: true

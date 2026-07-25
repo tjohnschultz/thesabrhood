@@ -18,6 +18,26 @@ career_profiles <- build_player_career_profiles(
   batting_post = Lahman::BattingPost,
   pitching_post = Lahman::PitchingPost
 )
+
+team_history_rows <- rbind(
+  Lahman::Batting[, intersect(c("playerID", "yearID", "teamID"), names(Lahman::Batting)), drop = FALSE],
+  Lahman::Pitching[, intersect(c("playerID", "yearID", "teamID"), names(Lahman::Pitching)), drop = FALSE]
+)
+team_history_rows <- unique(team_history_rows[stats::complete.cases(team_history_rows), , drop = FALSE])
+team_lookup <- unique(Lahman::Teams[, c("teamID", "yearID", "name"), drop = FALSE])
+team_key <- paste(team_history_rows$teamID, team_history_rows$yearID, sep = "\034")
+lookup_key <- paste(team_lookup$teamID, team_lookup$yearID, sep = "\034")
+team_history_rows$team_name <- team_lookup$name[match(team_key, lookup_key)]
+team_history_rows$team_name[is.na(team_history_rows$team_name)] <- team_history_rows$teamID[is.na(team_history_rows$team_name)]
+team_history_rows <- team_history_rows[order(team_history_rows$playerID, team_history_rows$yearID), , drop = FALSE]
+teams_played <- stats::aggregate(
+  team_history_rows$team_name,
+  list(playerID = team_history_rows$playerID),
+  function(value) paste(unique(value), collapse = ", ")
+)
+names(teams_played)[[2L]] <- "teams_played"
+career_profiles$teams_played <- teams_played$teams_played[match(career_profiles$playerID, teams_played$playerID)]
+
 historical <- build_historical_anniversary_notes(
   Lahman::People,
   report_date = report_date,

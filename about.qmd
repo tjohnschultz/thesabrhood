@@ -31,7 +31,6 @@ The public site is an MLB data and reporting hub. The broader project also suppo
 
 ::: {.feature-band}
 ::: {.feature-band__copy}
-## The Staff
 
 Tyler Schultz is a sports researcher, writer, and graduate student at the University of Florida College of Journalism and Communications. He earned a bachelor's degree in Sport Management with a minor in Statistics from the University of Florida and serves as a lead sports researcher for WRUF, the university's sports radio station.
 

@@ -8,7 +8,7 @@ description: "Career milestones, record context, and daily baseball anniversarie
 
 # Baseball history with a reason to care
 
-Daily anniversaries are ranked by the career behind the date—so Hall of Famers, record holders, stars, and meaningful franchise figures rise above the noise.
+Daily anniversaries balance career importance with a familiarity boost for more recent eras. The result keeps the legends while making room for names today's audience remembers seeing.
 :::
 
 {{< include includes/history-desk.html >}}

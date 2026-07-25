@@ -1,5 +1,5 @@
 ---
-title: "Player Change Engine"
+title: "Player Trend Engine"
 description: "MLB player change detection with recent-versus-prior z-scores and full-season league percentiles."
 ---
 
@@ -8,12 +8,12 @@ description: "MLB player change detection with recent-versus-prior z-scores and 
 
 # What changed—and how good is it?
 
-The Change Engine sifts six hitter and pitcher measures, finds each player’s most unusual recent movement, and keeps the full-season league context beside it.
+The Trend Engine sifts six hitter and pitcher measures, finds each player’s most unusual recent movement, and keeps the full-season league context beside it.
 :::
 
 {{< include includes/player-change-cards.html >}}
 
 ::: {.section-action}
 [Continue to season leaderboards](players.qmd){.btn .btn-metallic}
-[Compare team dossiers](team-dossiers.qmd){.btn .btn-sabr-navy}
+[Compare team reports](team-reports.qmd){.btn .btn-sabr-navy}
 :::

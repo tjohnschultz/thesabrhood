@@ -35,6 +35,7 @@ jobs:
       SABRHOOD_DATE: ${{ inputs.slate_date }}
       SABRHOOD_N_SIMS: "20000"
       SABRHOOD_PLAYER_N_SIMS: "2000"
+      SABRHOOD_STATE_N_SIMS: "250"
       SABRHOOD_SHADOW_RELEASE_KEY: daily-shadow-${{ github.run_id }}-${{ github.run_attempt }}
 
     steps:
@@ -77,6 +78,12 @@ jobs:
 
       - name: Rebuild all PBP-derived analytics
         run: Rscript scripts/build_pbp_products.R
+
+      - name: Rebuild Phase 4 baserunning and park inputs
+        shell: bash
+        run: |
+          Rscript scripts/fetch_historical_game_venues.R
+          Rscript scripts/build_phase4_baserunning_products.R
 
       - name: Refresh FanGraphs season tables
         continue-on-error: true
@@ -123,6 +130,8 @@ jobs:
         if: steps.slate.outputs.has_lineups == 'true'
         shell: bash
         run: |
+          Rscript scripts/build_daily_matchup_probabilities.R
+          Rscript scripts/build_daily_state_simulations.R
           Rscript scripts/build_daily_player_probabilities.R
           Rscript scripts/build_daily_player_simulations.R
 
@@ -152,6 +161,7 @@ jobs:
         shell: bash
         run: |
           Rscript scripts/restore_legacy_assets.R
+          Rscript scripts/normalize_legacy_articles.R
           Rscript scripts/validate_site.R --rendered
 
       - name: Confirm Supabase shadow publication secrets

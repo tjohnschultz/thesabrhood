@@ -71,6 +71,7 @@ jobs:
           Rscript scripts/validate_site.R
           quarto render --no-clean
           Rscript scripts/restore_legacy_assets.R
+          Rscript scripts/normalize_legacy_articles.R
           Rscript scripts/validate_site.R --rendered
 
       - name: Save private pipeline cache

@@ -25,6 +25,9 @@ aaa <- read_product("aaa-hitter-watch.csv")
 graphics <- read_product("graphics-feed-manifest.csv")
 games <- read_product("daily-game-inputs.csv")
 projections <- read_product("daily-projections-live.csv")
+matchup_model <- read_product("daily-matchup-event-model-card.csv")
+state_model <- read_product("daily-state-simulation-model-card.csv")
+baserunning_model <- read_product("baserunning-model-card.csv")
 slate_status <- read_product("daily-slate-status.csv")
 award_history <- read_product("award-race-history.csv")
 
@@ -32,13 +35,16 @@ status_date <- date_value(slate_status, "report_date")
 off_day <- nrow(slate_status) > 0L && identical(as.character(slate_status$slate_state[[1L]]), "no_games_scheduled") && identical(status_date, reference_date)
 slate_date <- if (off_day) status_date else date_value(games, "game_date")
 projection_date <- if (off_day) status_date else date_value(projections, "game_date")
+matchup_date <- if (off_day) status_date else date_value(matchup_model, "game_date")
+state_date <- if (off_day) status_date else date_value(state_model, "game_date")
 
 pbp_date <- date_value(pbp_status, "source_through")
 rows <- data.frame(
   product_group = c(
     "completed_game_pbp", "pbp_analysis", "editorial_story_engine", "history_engine",
     "fangraphs_season", "triple_a_watch", "graphics_feed", "daily_slate",
-    "daily_projections", "award_race_history"
+    "daily_projections", "daily_matchup_model", "daily_state_simulation",
+    "phase4_baserunning", "award_race_history"
   ),
   source_through = as.Date(c(
     pbp_date,
@@ -50,6 +56,9 @@ rows <- data.frame(
     date_value(graphics, "source_acquired_at_utc"),
     slate_date,
     projection_date,
+    matchup_date,
+    state_date,
+    date_value(baserunning_model, "source_end_date"),
     date_value(award_history, c("source_through", "checkpoint_date"))
   ), origin = "1970-01-01"),
   expected_through = as.Date(c(
@@ -62,10 +71,13 @@ rows <- data.frame(
     reference_date,
     reference_date,
     reference_date,
+    reference_date,
+    reference_date,
+    pbp_date,
     reference_date
   ), origin = "1970-01-01"),
-  max_lag_days = c(4L, 0L, 0L, 0L, 2L, 3L, 2L, 0L, 0L, 8L),
-  cadence = c("daily", "daily", "daily", "daily", "daily", "daily", "daily", "daily", "daily", "weekly"),
+  max_lag_days = c(4L, 0L, 0L, 0L, 2L, 3L, 2L, 0L, 0L, 0L, 0L, 0L, 8L),
+  cadence = c("daily", "daily", "daily", "daily", "daily", "daily", "daily", "daily", "daily", "daily", "daily", "daily", "weekly"),
   stringsAsFactors = FALSE
 )
 rows$lag_days <- as.integer(rows$expected_through - rows$source_through)
@@ -79,11 +91,31 @@ rows$reference_date <- as.character(reference_date)
 utils::write.csv(rows, file.path(derived_dir, "refresh-health.csv"), row.names = FALSE, na = "")
 
 print(rows[, c("product_group", "source_through", "expected_through", "lag_days", "max_lag_days", "status")], row.names = FALSE)
-if (any(rows$status != "current")) {
+configured_gate <- trimws(Sys.getenv("SABRHOOD_HEALTH_GROUPS", unset = ""))
+gate_groups <- if (nzchar(configured_gate)) {
+  trimws(strsplit(configured_gate, ",", fixed = TRUE)[[1L]])
+} else {
+  rows$product_group
+}
+missing_gate_groups <- setdiff(gate_groups, rows$product_group)
+if (length(missing_gate_groups)) {
   stop(
-    "Freshness gate failed for: ",
-    paste(rows$product_group[rows$status != "current"], collapse = ", "),
+    "Unknown freshness gate group(s): ",
+    paste(missing_gate_groups, collapse = ", "),
     call. = FALSE
   )
 }
-cat("All required public product groups passed the freshness gate.\n")
+gate_rows <- rows[rows$product_group %in% gate_groups, , drop = FALSE]
+if (any(gate_rows$status != "current")) {
+  stop(
+    "Freshness gate failed for: ",
+    paste(gate_rows$product_group[gate_rows$status != "current"], collapse = ", "),
+    call. = FALSE
+  )
+}
+cat(
+  "Freshness gate passed for: ",
+  paste(gate_rows$product_group, collapse = ", "),
+  ".\n",
+  sep = ""
+)

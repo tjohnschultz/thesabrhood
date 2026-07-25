@@ -20,9 +20,13 @@ games <- read_product("daily-game-inputs.csv")
 lineups <- read_product("daily-batting-orders.csv")
 hitters <- read_product("fangraphs-season-hitters.csv")
 pitchers <- read_product("fangraphs-season-pitchers.csv")
+hitter_form <- read_product("hitter-recent-form.csv")
+pitcher_form <- read_product("pitcher-recent-form.csv")
+hitter_platoon <- read_product("hitter-platoon-summary.csv")
 weather <- read_product("daily-park-weather.csv")
 active_rosters <- read_product("active-rosters.csv")
 bullpen_usage <- read_product("active-roster-bullpens.csv")
+bullpen_selector <- read_product("active-roster-bullpen-selector.csv")
 
 team_to_abbr <- c(
   "Arizona Diamondbacks" = "ARI", "Athletics" = "ATH", "Atlanta Braves" = "ATL",
@@ -47,6 +51,7 @@ games$game_id <- as.character(games$game_id)
 
 league_wrc <- weighted_mean_safe(hitters$wrc_plus, hitters$pa, 100)
 league_woba <- weighted_mean_safe(hitters$woba, hitters$pa, 0.320)
+league_pbp_woba <- weighted_mean_safe(hitter_platoon$woba_estimate, hitter_platoon$pa, league_woba)
 league_fip <- weighted_mean_safe(pitchers$fip, pitchers$innings_outs, 4.20)
 league_xfip <- weighted_mean_safe(pitchers$xfip, pitchers$innings_outs, league_fip)
 league_era <- weighted_mean_safe(pitchers$era, pitchers$innings_outs, 4.20)
@@ -100,7 +105,7 @@ usage_age_days <- if (length(usage_dates) && any(!is.na(usage_dates))) {
 }
 usage_is_current <- is.finite(usage_age_days) && usage_age_days <= 1
 
-lineup_profile <- function(game_id, team_name, team_abbr) {
+lineup_profile <- function(game_id, team_name, team_abbr, opposing_starter_hand = "U") {
   rows <- lineups[lineups$game_id == game_id & lineups$team_name == team_name, , drop = FALSE]
   team_row <- team_hitting[team_hitting$team == team_abbr, , drop = FALSE]
   team_wrc <- if (nrow(team_row)) num(team_row$wrc_plus[[1L]]) else league_wrc
@@ -111,35 +116,86 @@ lineup_profile <- function(game_id, team_name, team_abbr) {
   player_wrc <- num(hitters$wrc_plus[match_index])
   player_pa <- num(hitters$pa[match_index])
   player_wrc[!is.finite(player_wrc) | player_pa < 20] <- team_wrc
+
+  platoon_factor <- rep(1, nrow(rows))
+  opposing_starter_hand <- toupper(as.character(opposing_starter_hand)[[1L]])
+  if (opposing_starter_hand %in% c("L", "R")) {
+    split_index <- match(
+      paste(rows$player_id, opposing_starter_hand, sep = "\034"),
+      paste(hitter_platoon$player_id, hitter_platoon$opponent_hand, sep = "\034")
+    )
+    split_woba <- num(hitter_platoon$woba_estimate[split_index])
+    split_pa <- num(hitter_platoon$pa[split_index])
+    split_reliability <- pmax(pmin(split_pa / (split_pa + 100), 0.80), 0)
+    split_ratio <- split_woba / league_pbp_woba
+    valid_split <- is.finite(split_ratio) & is.finite(split_reliability)
+    platoon_factor[valid_split] <- 1 + 0.25 * split_reliability[valid_split] * (split_ratio[valid_split] - 1)
+  }
+  platoon_factor <- clamp(platoon_factor, 0.88, 1.12)
+
+  form_index <- match(rows$player_id, hitter_form$player_id)
+  recent_woba <- num(hitter_form$recent_woba_estimate[form_index])
+  baseline_woba <- num(hitter_form$baseline_woba_estimate[form_index])
+  form_confidence <- num(hitter_form$form_score_confidence[form_index])
+  form_ratio <- recent_woba / baseline_woba
+  form_factor <- rep(1, nrow(rows))
+  valid_form <- is.finite(form_ratio) & is.finite(form_confidence) & baseline_woba > 0
+  form_factor[valid_form] <- 1 + 0.18 * pmax(pmin(form_confidence[valid_form], 1), 0) * (form_ratio[valid_form] - 1)
+  form_factor <- clamp(form_factor, 0.92, 1.08)
+
+  adjusted_wrc <- player_wrc * platoon_factor * form_factor
   slot <- pmin(pmax(as.integer(rows$batting_order), 1L), 9L)
   slot_weight <- c(1.09, 1.06, 1.04, 1.02, 1.00, 0.97, 0.94, 0.91, 0.88)[slot]
-  lineup_wrc <- stats::weighted.mean(player_wrc, slot_weight, na.rm = TRUE)
-  blended <- 0.70 * lineup_wrc + 0.30 * team_wrc
+  lineup_wrc <- stats::weighted.mean(adjusted_wrc, slot_weight, na.rm = TRUE)
+  blended <- 0.75 * lineup_wrc + 0.25 * team_wrc
   list(
     wrc_plus = blended,
     count = nrow(rows),
     status = if (nrow(rows) >= 9L) "confirmed" else "partial",
-    matched = sum(!is.na(match_index))
+    matched = sum(!is.na(match_index)),
+    platoon_factor = stats::weighted.mean(platoon_factor, slot_weight, na.rm = TRUE),
+    form_factor = stats::weighted.mean(form_factor, slot_weight, na.rm = TRUE),
+    opposing_starter_hand = opposing_starter_hand
   )
 }
 
 starter_profile <- function(player_id) {
   row <- pitchers[pitchers$player_id == as.character(player_id), , drop = FALSE]
   if (!nrow(row)) {
-    return(list(name = "League-average fallback", fip = league_fip, innings = 5.0, index = league_pitching_index, matched = FALSE))
+    return(list(name = "League-average fallback", hand = "U", fip = league_fip, innings = 5.0, index = league_pitching_index, form_factor = 1, matched = FALSE))
   }
   row <- row[order(-num(row$innings_outs)), , drop = FALSE][1L, , drop = FALSE]
   composite <- 0.50 * num(row$fip[[1L]]) + 0.30 * num(row$xfip[[1L]]) + 0.20 * num(row$era[[1L]])
   if (!is.finite(composite)) composite <- league_fip
+  recent <- pitcher_form[pitcher_form$player_id == as.character(player_id), , drop = FALSE]
+  form_factor <- 1
+  if (nrow(recent)) {
+    recent_woba <- num(recent$recent_woba_estimate[[1L]])
+    baseline_woba <- num(recent$baseline_woba_estimate[[1L]])
+    form_confidence <- num(recent$form_score_confidence[[1L]])
+    if (is.finite(recent_woba) && is.finite(baseline_woba) && baseline_woba > 0 && is.finite(form_confidence)) {
+      form_factor <- 1 + 0.16 * pmax(pmin(form_confidence, 1), 0) * (recent_woba / baseline_woba - 1)
+      form_factor <- clamp(form_factor, 0.92, 1.08)
+      composite <- composite * form_factor
+    }
+  }
   starts <- num(row$starts[[1L]])
   innings <- if (is.finite(starts) && starts > 0) num(row$innings_outs[[1L]]) / 3 / starts else 5.0
   innings <- clamp(innings, 3.8, 6.5)
-  list(name = row$player_name[[1L]], fip = composite, innings = innings, index = clamp(composite / league_fip, 0.58, 1.55), matched = TRUE)
+  list(
+    name = row$player_name[[1L]],
+    hand = if ("throws" %in% names(row)) row$throws[[1L]] else "U",
+    fip = composite,
+    innings = innings,
+    index = clamp(composite / league_fip, 0.58, 1.55),
+    form_factor = form_factor,
+    matched = TRUE
+  )
 }
 
 bullpen_profile <- function(team_abbr) {
   row <- team_bullpen[team_bullpen$team == team_abbr, , drop = FALSE]
-  if (!nrow(row)) return(list(fip = league_fip, index = 1, pitchers = 0L, availability = NA_real_))
+  if (!nrow(row)) return(list(fip = league_fip, index = 1, pitchers = 0L, availability = NA_real_, selector_score = NA_real_))
   availability <- NA_real_
   if (usage_is_current) {
     full_name <- names(team_to_abbr)[match(team_abbr, team_to_abbr)]
@@ -148,8 +204,25 @@ bullpen_profile <- function(team_abbr) {
     if (!is.finite(availability)) availability <- NA_real_
   }
   availability_penalty <- if (is.finite(availability)) clamp((0.80 - availability) * 0.18, -0.025, 0.07) else 0
-  index <- clamp(num(row$bullpen_fip[[1L]]) / league_fip + availability_penalty, 0.65, 1.45)
-  list(fip = num(row$bullpen_fip[[1L]]), index = index, pitchers = as.integer(row$bullpen_pitchers[[1L]]), availability = availability)
+  full_name <- names(team_to_abbr)[match(team_abbr, team_to_abbr)]
+  selected <- bullpen_selector[
+    bullpen_selector$team == full_name &
+      num(bullpen_selector$selection_rank) <= 2 &
+      as.logical(bullpen_selector$active_roster_verified),
+    ,
+    drop = FALSE
+  ]
+  selector_score <- mean(num(selected$selection_score), na.rm = TRUE)
+  if (!is.finite(selector_score)) selector_score <- NA_real_
+  selector_factor <- if (is.finite(selector_score)) clamp(1 - (selector_score - 50) / 500, 0.94, 1.06) else 1
+  index <- clamp((num(row$bullpen_fip[[1L]]) / league_fip + availability_penalty) * selector_factor, 0.65, 1.45)
+  list(
+    fip = num(row$bullpen_fip[[1L]]),
+    index = index,
+    pitchers = as.integer(row$bullpen_pitchers[[1L]]),
+    availability = availability,
+    selector_score = selector_score
+  )
 }
 
 weather_profile <- function(game_id) {
@@ -176,10 +249,10 @@ for (index in seq_len(nrow(games))) {
   game_id <- as.character(game$game_id[[1L]])
   away_abbr <- unname(team_to_abbr[game$away_team[[1L]]])
   home_abbr <- unname(team_to_abbr[game$home_team[[1L]]])
-  away_lineup <- lineup_profile(game_id, game$away_team[[1L]], away_abbr)
-  home_lineup <- lineup_profile(game_id, game$home_team[[1L]], home_abbr)
   away_starter <- starter_profile(game$away_starter_id[[1L]])
   home_starter <- starter_profile(game$home_starter_id[[1L]])
+  away_lineup <- lineup_profile(game_id, game$away_team[[1L]], away_abbr, home_starter$hand)
+  home_lineup <- lineup_profile(game_id, game$home_team[[1L]], home_abbr, away_starter$hand)
   away_bullpen <- bullpen_profile(away_abbr)
   home_bullpen <- bullpen_profile(home_abbr)
   environment <- weather_profile(game_id)
@@ -218,7 +291,7 @@ for (index in seq_len(nrow(games))) {
   summary$bullpen_status <- if (usage_is_current) "quality_and_current_usage" else "active_roster_quality_usage_stale"
   summary$park_status <- if (grepl("placeholder", game$park_factor_note[[1L]], fixed = TRUE)) "neutral_placeholder" else "modeled"
   summary$weather_status <- game$weather_status[[1L]]
-  summary$model_version <- "scheduled_game_simulator_development_v1"
+  summary$model_version <- "scheduled_game_simulator_development_v2"
   summary$publication_status <- "development_uncalibrated"
   summary$input_status <- paste(summary$lineup_status, summary$starter_status, summary$bullpen_status, summary$park_status, sep = "; ")
 
@@ -239,18 +312,22 @@ for (index in seq_len(nrow(games))) {
   scores$score_rank <- seq_len(nrow(scores))
   score_rows[[index]] <- scores[, c("game_id", "score_rank", "away_runs", "home_runs", "simulations", "probability")]
 
-  driver_rows[[length(driver_rows) + 1L]] <- data.frame(game_id = game_id, driver_order = 1L, driver_label = "Posted-lineup offense", advantage_team = if (away_offense_index >= home_offense_index) game$away_team[[1L]] else game$home_team[[1L]], driver_detail = paste0(round(away_lineup$wrc_plus), " vs ", round(home_lineup$wrc_plus), " blended wRC+"))
-  driver_rows[[length(driver_rows) + 1L]] <- data.frame(game_id = game_id, driver_order = 2L, driver_label = "Probable starter", advantage_team = if (away_starter$index <= home_starter$index) game$away_team[[1L]] else game$home_team[[1L]], driver_detail = paste0(game$away_starter_name[[1L]], " ", round(away_starter$fip, 2), " vs ", game$home_starter_name[[1L]], " ", round(home_starter$fip, 2), " run estimator"))
-  driver_rows[[length(driver_rows) + 1L]] <- data.frame(game_id = game_id, driver_order = 3L, driver_label = "Active-roster bullpen", advantage_team = if (away_bullpen$index <= home_bullpen$index) game$away_team[[1L]] else game$home_team[[1L]], driver_detail = paste0(round(away_bullpen$fip, 2), " vs ", round(home_bullpen$fip, 2), " roster-weighted FIP blend"))
+  driver_rows[[length(driver_rows) + 1L]] <- data.frame(game_id = game_id, driver_order = 1L, driver_label = "Posted-lineup offense", advantage_team = if (away_offense_index >= home_offense_index) game$away_team[[1L]] else game$home_team[[1L]], driver_detail = paste0(round(away_lineup$wrc_plus), " vs ", round(home_lineup$wrc_plus), " blended wRC+ after platoon and recent-form adjustments"))
+  driver_rows[[length(driver_rows) + 1L]] <- data.frame(game_id = game_id, driver_order = 2L, driver_label = "Probable starter", advantage_team = if (away_starter$index <= home_starter$index) game$away_team[[1L]] else game$home_team[[1L]], driver_detail = paste0(game$away_starter_name[[1L]], " ", round(away_starter$fip, 2), " vs ", game$home_starter_name[[1L]], " ", round(home_starter$fip, 2), " form-adjusted run estimator"))
+  driver_rows[[length(driver_rows) + 1L]] <- data.frame(game_id = game_id, driver_order = 3L, driver_label = "Available bullpen", advantage_team = if (away_bullpen$index <= home_bullpen$index) game$away_team[[1L]] else game$home_team[[1L]], driver_detail = paste0(round(away_bullpen$fip, 2), " vs ", round(home_bullpen$fip, 2), " FIP blend with active reliever selector"))
   driver_rows[[length(driver_rows) + 1L]] <- data.frame(game_id = game_id, driver_order = 4L, driver_label = "Park and weather", advantage_team = "Run environment", driver_detail = paste0(environment$label, "; park factor ", round(park_factor, 3)))
 
   component_rows[[index]] <- data.frame(
     game_id = game_id, game_date = game$game_date[[1L]], away_team = game$away_team[[1L]], home_team = game$home_team[[1L]],
     away_lineup_wrc_plus = away_lineup$wrc_plus, home_lineup_wrc_plus = home_lineup$wrc_plus,
+    away_lineup_platoon_factor = away_lineup$platoon_factor, home_lineup_platoon_factor = home_lineup$platoon_factor,
+    away_lineup_form_factor = away_lineup$form_factor, home_lineup_form_factor = home_lineup$form_factor,
     away_lineup_count = away_lineup$count, home_lineup_count = home_lineup$count,
     away_starter_fip_blend = away_starter$fip, home_starter_fip_blend = home_starter$fip,
+    away_starter_form_factor = away_starter$form_factor, home_starter_form_factor = home_starter$form_factor,
     away_starter_expected_innings = away_starter$innings, home_starter_expected_innings = home_starter$innings,
     away_bullpen_fip_blend = away_bullpen$fip, home_bullpen_fip_blend = home_bullpen$fip,
+    away_bullpen_selector_score = away_bullpen$selector_score, home_bullpen_selector_score = home_bullpen$selector_score,
     away_active_relievers = away_bullpen$pitchers, home_active_relievers = home_bullpen$pitchers,
     weather_multiplier = environment$multiplier, park_factor = park_factor,
     away_expected_runs = away_expected, home_expected_runs = home_expected,
@@ -282,7 +359,7 @@ readiness <- data.frame(
   chronological_calibration_complete = FALSE,
   publication_approved = FALSE,
   publication_status = "development only; chronological calibration, current PBP usage, and empirical park factors required",
-  model_version = "scheduled_game_simulator_development_v1",
+  model_version = "scheduled_game_simulator_development_v2",
   generated_at_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
   stringsAsFactors = FALSE
 )

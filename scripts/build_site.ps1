@@ -28,6 +28,9 @@ try {
   & $rscript --vanilla scripts/restore_legacy_assets.R
   if ($LASTEXITCODE -ne 0) { throw "Legacy article asset restoration failed." }
 
+  & $rscript --vanilla scripts/normalize_legacy_articles.R
+  if ($LASTEXITCODE -ne 0) { throw "Legacy article normalization failed." }
+
   & $rscript --vanilla scripts/validate_site.R --rendered
   if ($LASTEXITCODE -ne 0) { throw "Rendered-site validation failed." }
 

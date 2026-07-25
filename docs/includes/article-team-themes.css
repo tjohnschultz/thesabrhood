@@ -1,0 +1,63 @@
+/* Generated from config/mlb-team-themes.csv. */
+.article-theme--league, .theme-league {--team-primary:#0C2340;--team-secondary:#BD3039;--team-accent:#DDEAF0;}
+.article-theme--arizona-diamondbacks, .theme-arizona-diamondbacks {--team-primary:#A71930;--team-secondary:#E3D4AD;--team-accent:#000000;}
+.article-theme--athletics, .theme-athletics {--team-primary:#003831;--team-secondary:#EFB21E;--team-accent:#FFFFFF;}
+.article-theme--atlanta-braves, .theme-atlanta-braves {--team-primary:#CE1141;--team-secondary:#13274F;--team-accent:#EAAA00;}
+.article-theme--baltimore-orioles, .theme-baltimore-orioles {--team-primary:#DF4601;--team-secondary:#000000;--team-accent:#FFFFFF;}
+.article-theme--boston-red-sox, .theme-boston-red-sox {--team-primary:#BD3039;--team-secondary:#0C2340;--team-accent:#DDEAF0;}
+.article-theme--chicago-cubs, .theme-chicago-cubs {--team-primary:#0E3386;--team-secondary:#CC3433;--team-accent:#FFFFFF;}
+.article-theme--chicago-white-sox, .theme-chicago-white-sox {--team-primary:#27251F;--team-secondary:#C4CED4;--team-accent:#FFFFFF;}
+.article-theme--cincinnati-reds, .theme-cincinnati-reds {--team-primary:#C6011F;--team-secondary:#000000;--team-accent:#FFFFFF;}
+.article-theme--cleveland-guardians, .theme-cleveland-guardians {--team-primary:#00385D;--team-secondary:#E50022;--team-accent:#FFFFFF;}
+.article-theme--colorado-rockies, .theme-colorado-rockies {--team-primary:#33006F;--team-secondary:#C4CED4;--team-accent:#000000;}
+.article-theme--detroit-tigers, .theme-detroit-tigers {--team-primary:#0C2340;--team-secondary:#FA4616;--team-accent:#FFFFFF;}
+.article-theme--houston-astros, .theme-houston-astros {--team-primary:#002D62;--team-secondary:#EB6E1F;--team-accent:#F4911E;}
+.article-theme--kansas-city-royals, .theme-kansas-city-royals {--team-primary:#004687;--team-secondary:#BD9B60;--team-accent:#FFFFFF;}
+.article-theme--los-angeles-angels, .theme-los-angeles-angels {--team-primary:#BA0021;--team-secondary:#003263;--team-accent:#C4CED4;}
+.article-theme--los-angeles-dodgers, .theme-los-angeles-dodgers {--team-primary:#005A9C;--team-secondary:#EF3E42;--team-accent:#FFFFFF;}
+.article-theme--miami-marlins, .theme-miami-marlins {--team-primary:#00A3E0;--team-secondary:#EF3340;--team-accent:#000000;}
+.article-theme--milwaukee-brewers, .theme-milwaukee-brewers {--team-primary:#12284B;--team-secondary:#FFC52F;--team-accent:#FFFFFF;}
+.article-theme--minnesota-twins, .theme-minnesota-twins {--team-primary:#002B5C;--team-secondary:#D31145;--team-accent:#B9975B;}
+.article-theme--new-york-mets, .theme-new-york-mets {--team-primary:#002D72;--team-secondary:#FF5910;--team-accent:#FFFFFF;}
+.article-theme--new-york-yankees, .theme-new-york-yankees {--team-primary:#0C2340;--team-secondary:#C4CED4;--team-accent:#FFFFFF;}
+.article-theme--philadelphia-phillies, .theme-philadelphia-phillies {--team-primary:#E81828;--team-secondary:#002D72;--team-accent:#FFFFFF;}
+.article-theme--pittsburgh-pirates, .theme-pittsburgh-pirates {--team-primary:#27251F;--team-secondary:#FDB827;--team-accent:#FFFFFF;}
+.article-theme--san-diego-padres, .theme-san-diego-padres {--team-primary:#2F241D;--team-secondary:#FFC425;--team-accent:#FFFFFF;}
+.article-theme--san-francisco-giants, .theme-san-francisco-giants {--team-primary:#FD5A1E;--team-secondary:#27251F;--team-accent:#EFD19F;}
+.article-theme--seattle-mariners, .theme-seattle-mariners {--team-primary:#0C2C56;--team-secondary:#005C5C;--team-accent:#C4CED4;}
+.article-theme--st-louis-cardinals, .theme-st-louis-cardinals {--team-primary:#C41E3A;--team-secondary:#0C2340;--team-accent:#FEDB00;}
+.article-theme--tampa-bay-rays, .theme-tampa-bay-rays {--team-primary:#092C5C;--team-secondary:#8FBCE6;--team-accent:#F5D130;}
+.article-theme--texas-rangers, .theme-texas-rangers {--team-primary:#003278;--team-secondary:#C0111F;--team-accent:#FFFFFF;}
+.article-theme--toronto-blue-jays, .theme-toronto-blue-jays {--team-primary:#134A8E;--team-secondary:#E8291C;--team-accent:#FFFFFF;}
+.article-theme--washington-nationals, .theme-washington-nationals {--team-primary:#AB0003;--team-secondary:#14225A;--team-accent:#FFFFFF;}
+body:has(.theme-league)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#BD3039 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#0C2340 12%,white),#F6F9FC 50%,color-mix(in srgb,#DDEAF0 24%,white));}
+body:has(.theme-arizona-diamondbacks)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#E3D4AD 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#A71930 12%,white),#F6F9FC 50%,color-mix(in srgb,#000000 24%,white));}
+body:has(.theme-athletics)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#EFB21E 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#003831 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-atlanta-braves)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#13274F 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#CE1141 12%,white),#F6F9FC 50%,color-mix(in srgb,#EAAA00 24%,white));}
+body:has(.theme-baltimore-orioles)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#000000 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#DF4601 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-boston-red-sox)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#0C2340 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#BD3039 12%,white),#F6F9FC 50%,color-mix(in srgb,#DDEAF0 24%,white));}
+body:has(.theme-chicago-cubs)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#CC3433 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#0E3386 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-chicago-white-sox)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#C4CED4 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#27251F 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-cincinnati-reds)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#000000 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#C6011F 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-cleveland-guardians)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#E50022 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#00385D 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-colorado-rockies)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#C4CED4 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#33006F 12%,white),#F6F9FC 50%,color-mix(in srgb,#000000 24%,white));}
+body:has(.theme-detroit-tigers)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#FA4616 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#0C2340 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-houston-astros)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#EB6E1F 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#002D62 12%,white),#F6F9FC 50%,color-mix(in srgb,#F4911E 24%,white));}
+body:has(.theme-kansas-city-royals)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#BD9B60 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#004687 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-los-angeles-angels)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#003263 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#BA0021 12%,white),#F6F9FC 50%,color-mix(in srgb,#C4CED4 24%,white));}
+body:has(.theme-los-angeles-dodgers)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#EF3E42 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#005A9C 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-miami-marlins)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#EF3340 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#00A3E0 12%,white),#F6F9FC 50%,color-mix(in srgb,#000000 24%,white));}
+body:has(.theme-milwaukee-brewers)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#FFC52F 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#12284B 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-minnesota-twins)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#D31145 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#002B5C 12%,white),#F6F9FC 50%,color-mix(in srgb,#B9975B 24%,white));}
+body:has(.theme-new-york-mets)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#FF5910 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#002D72 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-new-york-yankees)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#C4CED4 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#0C2340 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-philadelphia-phillies)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#002D72 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#E81828 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-pittsburgh-pirates)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#FDB827 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#27251F 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-san-diego-padres)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#FFC425 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#2F241D 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-san-francisco-giants)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#27251F 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#FD5A1E 12%,white),#F6F9FC 50%,color-mix(in srgb,#EFD19F 24%,white));}
+body:has(.theme-seattle-mariners)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#005C5C 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#0C2C56 12%,white),#F6F9FC 50%,color-mix(in srgb,#C4CED4 24%,white));}
+body:has(.theme-st-louis-cardinals)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#0C2340 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#C41E3A 12%,white),#F6F9FC 50%,color-mix(in srgb,#FEDB00 24%,white));}
+body:has(.theme-tampa-bay-rays)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#8FBCE6 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#092C5C 12%,white),#F6F9FC 50%,color-mix(in srgb,#F5D130 24%,white));}
+body:has(.theme-texas-rangers)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#C0111F 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#003278 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-toronto-blue-jays)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#E8291C 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#134A8E 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}
+body:has(.theme-washington-nationals)::before {background:radial-gradient(circle at 12% 8%,color-mix(in srgb,#14225A 20%,transparent),transparent 30rem),linear-gradient(180deg,color-mix(in srgb,#AB0003 12%,white),#F6F9FC 50%,color-mix(in srgb,#FFFFFF 24%,white));}

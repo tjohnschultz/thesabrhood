@@ -7,7 +7,7 @@ title: "Projections"
 
 # A forecast is a range of game stories, not one final score
 
-The production page will turn confirmed game inputs into transparent win probabilities, score ranges, matchup drivers, bullpen effects, and player opportunities, with uncertainty visible everywhere.
+The simulator turns current game inputs into transparent win probabilities, score ranges, matchup drivers, bullpen effects, and player opportunities, with uncertainty visible everywhere.
 :::
 
 {{< include includes/daily-projections.html >}}
@@ -15,9 +15,9 @@ The production page will turn confirmed game inputs into transparent win probabi
 ::: {.section-heading}
 <span class="eyebrow">Build path</span>
 
-## What still connects before these become daily public forecasts
+## What the current development model uses
 
-The score layer now has a complete output contract. The next work is improving what enters it and proving that the probabilities remain calibrated on games the model has not seen.
+Each refresh rebuilds the slate from posted information. The current version blends batting-order quality, starter handedness, platoon results, recent form, probable-starter run estimators, active-reliever quality and workload, park, weather, and home field before drawing game outcomes.
 :::
 
 ::: {.roadmap-grid}
@@ -32,30 +32,30 @@ Complete-game draws, win splits, score intervals, close-game likelihood, and rep
 ::: {.roadmap-card .is-active}
 <span class="roadmap-step">02</span>
 
-## Game input assembly connected
+## Matchup-aware inputs
 
-BaseballR schedule, probable starters, posted batting orders, active rosters, park coordinates, and Open-Meteo game windows now populate the daily contract. Their model effects are the next step.
+BaseballR schedule, probable starters, posted batting orders, active rosters, park coordinates, and Open-Meteo game windows populate the daily contract. Posted hitters now receive restrained platoon and recent-form adjustments.
+:::
+
+::: {.roadmap-card .is-complete}
+<span class="roadmap-step">03</span>
+
+## Named-reliever and runner state
+
+The engine carries named runners and relievers through innings, outs, score, batting-order continuity, workload hooks, double plays, productive outs, steals, walk-offs, extra innings, and expanded player counting stats.
 :::
 
 ::: {.roadmap-card .is-active}
-<span class="roadmap-step">03</span>
-
-## Bullpen chain prototype
-
-The scenario planner carries hook probability, workload, leverage, batter handedness, alternatives, and reliever choice across the final three innings. The active-roster gate now removes ineligible bullpen candidates.
-:::
-
-::: {.roadmap-card}
 <span class="roadmap-step">04</span>
 
-## Calibration and archive
+## Empirical baserunning and calibration
 
-Rolling backtests, probability calibration, model-version tracking, misses review, and a searchable projection archive.
+Phase 4 learns runner advancement, steal tendency, steal success, pitcher hold, and venue movement from completed games. Every input is league-shrunk and remains in shadow mode while rolling backtests, model-version tracking, misses review, and the projection archive accumulate.
 :::
 :::
 
 ::: {.method-callout}
-Daily public projections will appear here only after time-based backtesting and calibration checks pass. This page intentionally does not present experimental probabilities as betting advice.
+These are development projections rather than betting advice. The probabilities will remain visibly labeled until repeated time-based backtests and the live pregame ledger demonstrate stable calibration.
 :::
 
 {{< include includes/projections-model.html >}}

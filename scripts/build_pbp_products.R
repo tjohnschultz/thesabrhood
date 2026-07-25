@@ -213,6 +213,27 @@ insane_awards <- build_insane_baseball_awards(
   minimum_pa = 100L,
   minimum_split_pa = 15L
 )
+award_config_path <- file.path("config", "insane-awards.csv")
+if (file.exists(award_config_path)) {
+  award_config <- utils::read.csv(
+    award_config_path,
+    stringsAsFactors = FALSE,
+    check.names = FALSE,
+    encoding = "UTF-8"
+  )
+  required_award_config <- c("award_id", "award_name", "description", "formula")
+  if (!all(required_award_config %in% names(award_config))) {
+    stop("config/insane-awards.csv is missing required columns.", call. = FALSE)
+  }
+  config_index <- match(insane_awards$award_id, award_config$award_id)
+  matched_config <- !is.na(config_index)
+  for (column in c("award_name", "description", "formula")) {
+    replacement <- award_config[[column]][config_index[matched_config]]
+    use_replacement <- !is.na(replacement) & nzchar(trimws(replacement))
+    target_rows <- which(matched_config)[use_replacement]
+    insane_awards[[column]][target_rows] <- replacement[use_replacement]
+  }
+}
 discipline <- pitches |>
   dplyr::filter(!is.na(.data$batter_id), .data$batter_id != "") |>
   dplyr::group_by(.data$batter_id) |>

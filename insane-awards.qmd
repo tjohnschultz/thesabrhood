@@ -6,10 +6,9 @@ description: "The SABRhood's original, data-selected awards for baseball's stran
 ::: {.page-intro .page-intro--dark .insane-intro}
 <span class="eyebrow">The SABRhood originals</span>
 
-# Baseball's wonderfully specific trophies
+# Specially crafted leaderboards, unique to the Sabrhood
 
-Unusual skills, count-level dominance, strange player profiles, and races too
-interesting to leave buried in a spreadsheet.
+Unusual skills, count-level dominance, strange player profiles, and the category races you did not know you needed.
 :::
 
 {{< include includes/insane-awards.html >}}
