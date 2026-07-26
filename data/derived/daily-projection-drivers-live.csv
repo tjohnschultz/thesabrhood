@@ -55,7 +55,7 @@
 "823194",2,"Probable starter","Los Angeles Angels","José Soriano 3.68 vs Carson Whisenhunt 4.82 form-adjusted run estimator"
 "823194",3,"Available bullpen","San Francisco Giants","3.84 vs 3.93 FIP blend with active reliever selector"
 "823194",4,"Park and weather","Run environment","56 F temperature adjustment; park factor 1"
-"823433",1,"Posted-lineup offense","New York Yankees","105 vs 90 blended wRC+ after platoon and recent-form adjustments"
+"823433",1,"Posted-lineup offense","New York Yankees","105 vs 93 blended wRC+ after platoon and recent-form adjustments"
 "823433",2,"Probable starter","Philadelphia Phillies","Will Warren 4.06 vs Cristopher Sánchez 2.66 form-adjusted run estimator"
 "823433",3,"Available bullpen","Philadelphia Phillies","3.62 vs 3.45 FIP blend with active reliever selector"
 "823433",4,"Park and weather","Run environment","64 F temperature adjustment; park factor 1"
