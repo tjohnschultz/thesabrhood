@@ -347,8 +347,24 @@ if (check_rendered) {
       if (!grepl('class="[^"]*article-masthead[^"]*"', html, perl = TRUE)) {
         fail(paste("Research article is missing its branded masthead:", name))
       }
-      if (!grepl('class="legacy-article-nav"', html, fixed = TRUE)) {
-        fail(paste("Research article is missing archive navigation:", name))
+      if (!grepl('<header id="quarto-header"', html, fixed = TRUE)) {
+        fail(paste("Research article is missing the normal site navbar:", name))
+      }
+      if (!grepl(
+        'class="nav-link active" href="../blog.html" aria-current="page"',
+        html,
+        fixed = TRUE
+      )) {
+        fail(paste("Research article navbar does not identify Research as active:", name))
+      }
+      if (!grepl('<footer class="footer"', html, fixed = TRUE)) {
+        fail(paste("Research article is missing the normal site footer:", name))
+      }
+      if (!grepl("../images/thesabrhood2clean.png", html, fixed = TRUE)) {
+        fail(paste("Research article navbar logo path is invalid:", name))
+      }
+      if (grepl('class="legacy-article-nav"', html, fixed = TRUE)) {
+        fail(paste("Research article still contains retired archive navigation:", name))
       }
       if (!grepl('class="legacy-article-body"', html, fixed = TRUE)) {
         fail(paste("Research article is missing its responsive reading frame:", name))

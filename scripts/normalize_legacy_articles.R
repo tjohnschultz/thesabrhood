@@ -34,7 +34,12 @@ add_classes_to_tag <- function(tag, classes) {
     regmatches(tag, class_match) <- replacement
     return(tag)
   }
-  sub("^<([[:alnum:]]+)", paste0("<\\1 class=\"", paste(classes, collapse = " "), "\""), tag, perl = TRUE)
+  sub(
+    ">$",
+    paste0(' class="', paste(classes, collapse = " "), '">'),
+    tag,
+    perl = TRUE
+  )
 }
 
 add_body_classes <- function(html, classes) {
@@ -116,33 +121,82 @@ promote_article_masthead <- function(html) {
   html
 }
 
-archive_nav <- paste0(
-  '<nav class="legacy-article-nav" aria-label="Research article navigation">',
-  '<a class="legacy-article-nav__brand" href="../index.html">',
-  '<span class="legacy-article-nav__brand-name">The SABRhood</span>',
-  '<span class="legacy-article-nav__brand-section">Research archive</span>',
-  "</a>",
-  '<div class="legacy-article-nav__links">',
-  '<a href="../blog.html">All research</a>',
-  '<a href="../today.html">Today&rsquo;s desk</a>',
-  "</div>",
-  "</nav>"
-)
+extract_fragment <- function(html, pattern, label) {
+  fragment <- regmatches(html, regexpr(pattern, html, perl = TRUE))
+  if (!length(fragment) || !nzchar(fragment)) {
+    stop("Current site output is missing its ", label, ".", call. = FALSE)
+  }
+  fragment
+}
 
-upsert_archive_nav <- function(html) {
-  pattern <- '(?s)<nav class="legacy-article-nav"[^>]*>.*?</nav>'
-  if (grepl(pattern, html, perl = TRUE)) {
-    return(sub(pattern, archive_nav, html, perl = TRUE))
+rewrite_site_chrome_for_article <- function(fragment) {
+  fragment <- gsub(
+    '((?:href|src)=")[.]/',
+    "\\1../",
+    fragment,
+    perl = TRUE
+  )
+  fragment <- sub(
+    'class="nav-link active" href="../index.html" aria-current="page"',
+    'class="nav-link" href="../index.html"',
+    fragment,
+    fixed = TRUE
+  )
+  sub(
+    'class="nav-link" href="../blog.html"',
+    'class="nav-link active" href="../blog.html" aria-current="page"',
+    fragment,
+    fixed = TRUE
+  )
+}
+
+load_current_site_chrome <- function() {
+  reference_candidates <- unique(c(
+    file.path(dirname(article_root), "index.html"),
+    file.path(site_root, "docs", "index.html")
+  ))
+  reference_path <- reference_candidates[file.exists(reference_candidates)][1L]
+  if (is.na(reference_path)) {
+    stop("Rendered index.html is required to normalize archived articles.", call. = FALSE)
   }
-  if (grepl('<div id="quarto-content"', html, fixed = TRUE)) {
-    return(sub(
-      '<div id="quarto-content"',
-      paste0(archive_nav, '\n<div id="quarto-content"'),
-      html,
-      fixed = TRUE
+  reference <- paste(
+    readLines(reference_path, warn = FALSE, encoding = "UTF-8"),
+    collapse = "\n"
+  )
+  list(
+    header = rewrite_site_chrome_for_article(extract_fragment(
+      reference,
+      '(?s)<header id="quarto-header"[^>]*>.*?</header>',
+      "navbar"
+    )),
+    footer = rewrite_site_chrome_for_article(extract_fragment(
+      reference,
+      '(?s)<footer class="footer"[^>]*>.*?</footer>',
+      "footer"
     ))
+  )
+}
+
+upsert_current_site_chrome <- function(html, chrome) {
+  legacy_nav_pattern <- '(?s)<nav class="legacy-article-nav"[^>]*>.*?</nav>'
+  html <- gsub(legacy_nav_pattern, "", html, perl = TRUE)
+
+  header_pattern <- '(?s)<header id="quarto-header"[^>]*>.*?</header>'
+  if (grepl(header_pattern, html, perl = TRUE)) {
+    html <- sub(header_pattern, chrome$header, html, perl = TRUE)
+  } else {
+    body_tag <- regmatches(html, regexpr("<body[^>]*>", html, perl = TRUE))
+    if (!length(body_tag) || !nzchar(body_tag)) {
+      stop("Archived article is missing its body tag.", call. = FALSE)
+    }
+    html <- sub(body_tag, paste0(body_tag, "\n", chrome$header), html, fixed = TRUE)
   }
-  sub("<body[^>]*>", paste0("\\0\n", archive_nav), html, perl = TRUE)
+
+  footer_pattern <- '(?s)<footer class="footer"[^>]*>.*?</footer>'
+  if (grepl(footer_pattern, html, perl = TRUE)) {
+    return(sub(footer_pattern, chrome$footer, html, perl = TRUE))
+  }
+  sub("</body>", paste0(chrome$footer, "\n</body>"), html, fixed = TRUE)
 }
 
 wrap_article_body <- function(html) {
@@ -168,6 +222,7 @@ wrap_article_body <- function(html) {
 }
 
 paths <- list.files(article_root, pattern = "[.]html$", full.names = TRUE)
+site_chrome <- load_current_site_chrome()
 updated <- 0L
 
 for (path in paths) {
@@ -184,9 +239,9 @@ for (path in paths) {
   html <- promote_article_masthead(html)
   html <- add_body_classes(
     html,
-    c("article-page", "legacy-article-page", paste0("theme-", theme))
+    c("nav-fixed", "article-page", "legacy-article-page", paste0("theme-", theme))
   )
-  html <- upsert_archive_nav(html)
+  html <- upsert_current_site_chrome(html, site_chrome)
   html <- wrap_article_body(html)
 
   if (!identical(html, original)) {

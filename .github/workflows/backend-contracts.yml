@@ -6,8 +6,11 @@ name: Validate backend contracts
       - ".github/workflows/backend-contracts.yml"
       - ".github/workflows/daily-data-refresh.yml"
       - ".github/workflows/fangraphs-reconciliation.yml"
+      - ".github/workflows/lineup-refresh.yml"
       - "infrastructure/**"
       - "scripts/tests/test_fangraphs_reconciliation.R"
+      - "scripts/tests/test_lineup_refresh_gate.R"
+      - "scripts/lineup_refresh_gate.R"
       - "scripts/validate_fangraphs_reconciliation.R"
       - "supabase/**"
       - "netlify.toml"
@@ -18,8 +21,11 @@ name: Validate backend contracts
       - ".github/workflows/backend-contracts.yml"
       - ".github/workflows/daily-data-refresh.yml"
       - ".github/workflows/fangraphs-reconciliation.yml"
+      - ".github/workflows/lineup-refresh.yml"
       - "infrastructure/**"
       - "scripts/tests/test_fangraphs_reconciliation.R"
+      - "scripts/tests/test_lineup_refresh_gate.R"
+      - "scripts/lineup_refresh_gate.R"
       - "scripts/validate_fangraphs_reconciliation.R"
       - "supabase/**"
       - "netlify.toml"
@@ -69,6 +75,9 @@ jobs:
       - name: Run FanGraphs reconciliation contract
         run: Rscript scripts/tests/test_fangraphs_reconciliation.R
 
+      - name: Run lineup refresh gate contract
+        run: Rscript scripts/tests/test_lineup_refresh_gate.R
+
       - name: Verify source-permission guard is present
         shell: bash
         run: |
@@ -98,6 +107,7 @@ jobs:
           grep -A2 'cron: "0 6 [*] [*] [*]"' .github/workflows/daily-data-refresh.yml | grep -q 'timezone: "America/New_York"'
           ! grep -q "refresh_fangraphs_season.R" .github/workflows/daily-data-refresh.yml
           grep -A2 'cron: "45 11 [*] 3-11 [*]"' .github/workflows/fangraphs-reconciliation.yml | grep -q 'timezone: "America/New_York"'
+          grep -A2 'cron: "[*]/30 10-22 [*] 3-11 [*]"' .github/workflows/lineup-refresh.yml | grep -q 'timezone: "America/New_York"'
           grep -q "validate_fangraphs_reconciliation.R" .github/workflows/fangraphs-reconciliation.yml
           grep -q "Update completed-game PBP" .github/workflows/daily-data-refresh.yml
           ! grep -q "update_pbp.R" .github/workflows/fangraphs-reconciliation.yml
