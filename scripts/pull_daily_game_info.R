@@ -175,15 +175,20 @@ if (file.exists(availability_path)) {
   probable_ids <- unique(c(games$away_starter_id, games$home_starter_id))
   active_bullpens <- filter_active_roster_bullpen(availability, active_rosters, probable_ids)
 }
-selector_path <- file.path(output_dir, "bullpen-matchup-selector.csv")
-if (file.exists(selector_path) && nrow(active_bullpens)) {
-  selector <- utils::read.csv(selector_path, stringsAsFactors = FALSE, check.names = FALSE)
-  active_bullpen_selector <- selector |>
-    dplyr::mutate(pitcher_id = as.character(.data$pitcher_id)) |>
-    dplyr::filter(.data$pitcher_id %in% unique(active_bullpens$pitcher_id))
+pitcher_summary_path <- file.path(output_dir, "pitcher-performance-summary.csv")
+if (file.exists(pitcher_summary_path) && nrow(active_bullpens)) {
+  pitcher_summary <- utils::read.csv(pitcher_summary_path, stringsAsFactors = FALSE, check.names = FALSE)
+  # Rank after applying the active-roster gate. Filtering a pre-ranked top-three
+  # board can erase an entire batter side when those three pitchers are inactive.
+  active_bullpen_selector <- build_bullpen_matchup_board(
+    availability = active_bullpens,
+    pitcher_summary = pitcher_summary,
+    leverage_index = 2,
+    top_n = 3L
+  )
   active_bullpen_selector$active_roster_verified <- TRUE
   active_bullpen_selector$roster_gate_date <- as.Date(target_date)
-  active_bullpen_selector$selector_roster_method <- "baseballr_active_roster_plus_workload_selector_v1"
+  active_bullpen_selector$selector_roster_method <- "baseballr_active_roster_then_workload_selector_v2"
 }
 
 utils::write.csv(games, file.path(output_dir, "daily-game-inputs.csv"), row.names = FALSE, na = "")

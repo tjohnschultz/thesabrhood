@@ -72,7 +72,7 @@ test_that("recognition changes historical anniversary ordering", {
 
   expect_identical(notes$subject_id[[1]], "icon01")
   expect_gt(notes$story_score[[1]], notes$story_score[[2]])
-  expect_identical(unique(notes$score_method), "sabrhood_historical_story_score_v2")
+  expect_identical(unique(notes$score_method), "sabrhood_historical_story_score_recency_v3")
 })
 
 test_that("career milestone notes keep the highest achieved threshold", {

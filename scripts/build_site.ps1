@@ -1,3 +1,7 @@
+param(
+  [switch]$AllowStaleData
+)
+
 $ErrorActionPreference = "Stop"
 
 $siteRoot = Split-Path -Parent $PSScriptRoot
@@ -16,10 +20,13 @@ $env:LC_CTYPE = "C"
 
 Push-Location $siteRoot
 try {
+  $validationArgs = @("scripts/validate_site.R")
+  if ($AllowStaleData) { $validationArgs += "--allow-stale-data" }
+
   & $rscript --vanilla scripts/build_site_fragments.R
   if ($LASTEXITCODE -ne 0) { throw "Fragment generation failed." }
 
-  & $rscript --vanilla scripts/validate_site.R
+  & $rscript --vanilla @validationArgs
   if ($LASTEXITCODE -ne 0) { throw "Source validation failed." }
 
   & $quarto render --no-clean
@@ -28,7 +35,18 @@ try {
   & $rscript --vanilla scripts/restore_legacy_assets.R
   if ($LASTEXITCODE -ne 0) { throw "Legacy article asset restoration failed." }
 
-  & $rscript --vanilla scripts/validate_site.R --rendered
+  & $rscript --vanilla scripts/normalize_legacy_articles.R
+  if ($LASTEXITCODE -ne 0) { throw "Legacy article normalization failed." }
+
+  & $rscript --vanilla scripts/prune_retired_site_outputs.R
+  if ($LASTEXITCODE -ne 0) { throw "Retired-output cleanup failed." }
+
+  & $rscript --vanilla scripts/write_build_info.R
+  if ($LASTEXITCODE -ne 0) { throw "Build record generation failed." }
+
+  $renderedValidationArgs = @("scripts/validate_site.R", "--rendered")
+  if ($AllowStaleData) { $renderedValidationArgs += "--allow-stale-data" }
+  & $rscript --vanilla @renderedValidationArgs
   if ($LASTEXITCODE -ne 0) { throw "Rendered-site validation failed." }
 
   Write-Host "Site build complete: $siteRoot\docs\index.html"

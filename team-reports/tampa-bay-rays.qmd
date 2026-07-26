@@ -1,0 +1,6 @@
+---
+title: "Tampa Bay Rays Team report"
+description: "Automated SABRhood research report for the Tampa Bay Rays."
+---
+
+{{< include ../includes/team-reports/tampa-bay-rays.html >}}

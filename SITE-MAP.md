@@ -22,7 +22,7 @@ flowchart TD
   Players --> PitchLab[Pitch and sequence lab]
   Matchups --> PitchLab
   PitchLab --> AAA[Triple-A Watch / age and performance radar]
-  Teams --> TeamPages[Thirty team dossiers]
+  Teams --> TeamPages[Thirty team reports]
   TeamPages --> BroadcastThree[Broadcast Three / on-air notes]
   Races --> Forecasts[Projections and simulations]
   Forecasts --> Decisions[Manager and bullpen decisions]

@@ -1,0 +1,6 @@
+---
+title: "Chicago White Sox Team report"
+description: "Automated SABRhood research report for the Chicago White Sox."
+---
+
+{{< include ../includes/team-reports/chicago-white-sox.html >}}

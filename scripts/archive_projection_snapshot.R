@@ -21,12 +21,50 @@ player_model <- if (file.exists(file.path(output_dir, "daily-player-simulation-m
 } else {
   data.frame(publication_status = "no current player simulations", stringsAsFactors = FALSE)
 }
+matchup_predictions <- if (file.exists(file.path(output_dir, "daily-matchup-event-probabilities.csv"))) {
+  read_product("daily-matchup-event-probabilities.csv")
+} else {
+  data.frame(game_id = character(), stringsAsFactors = FALSE)
+}
+matchup_model <- if (file.exists(file.path(output_dir, "daily-matchup-event-model-card.csv"))) {
+  read_product("daily-matchup-event-model-card.csv")
+} else {
+  data.frame(publication_status = "no current matchup probabilities", stringsAsFactors = FALSE)
+}
+state_predictions <- if (file.exists(file.path(output_dir, "daily-state-simulation-games.csv"))) {
+  read_product("daily-state-simulation-games.csv")
+} else {
+  data.frame(game_id = character(), stringsAsFactors = FALSE)
+}
+state_hitters <- if (file.exists(file.path(output_dir, "daily-state-simulation-hitters.csv"))) {
+  read_product("daily-state-simulation-hitters.csv")
+} else {
+  data.frame(game_id = character(), stringsAsFactors = FALSE)
+}
+state_relievers <- if (file.exists(file.path(output_dir, "daily-state-simulation-relievers.csv"))) {
+  read_product("daily-state-simulation-relievers.csv")
+} else {
+  data.frame(game_id = character(), stringsAsFactors = FALSE)
+}
+state_model <- if (file.exists(file.path(output_dir, "daily-state-simulation-model-card.csv"))) {
+  read_product("daily-state-simulation-model-card.csv")
+} else {
+  data.frame(publication_status = "no current state simulation", stringsAsFactors = FALSE)
+}
 game_readiness <- read_product("projection-publication-readiness.csv")
 
 games$game_id <- as.character(games$game_id)
 game_predictions$game_id <- as.character(game_predictions$game_id)
 player_predictions$game_id <- as.character(player_predictions$game_id)
 player_predictions <- player_predictions[player_predictions$game_id %in% games$game_id, , drop = FALSE]
+matchup_predictions$game_id <- as.character(matchup_predictions$game_id)
+matchup_predictions <- matchup_predictions[matchup_predictions$game_id %in% games$game_id, , drop = FALSE]
+state_predictions$game_id <- as.character(state_predictions$game_id)
+state_predictions <- state_predictions[state_predictions$game_id %in% games$game_id, , drop = FALSE]
+state_hitters$game_id <- as.character(state_hitters$game_id)
+state_hitters <- state_hitters[state_hitters$game_id %in% games$game_id, , drop = FALSE]
+state_relievers$game_id <- as.character(state_relievers$game_id)
+state_relievers <- state_relievers[state_relievers$game_id %in% games$game_id, , drop = FALSE]
 game_index <- match(game_predictions$game_id, games$game_id)
 first_pitch <- as.POSIXct(games$game_time_utc[game_index], format = "%Y-%m-%dT%H:%M:%OSZ", tz = "UTC")
 archived_at_utc <- as.POSIXct(format(snapshot_time, tz = "UTC", usetz = TRUE), tz = "UTC")
@@ -48,6 +86,54 @@ if (nrow(player_predictions)) {
   player_predictions$pregame_eligible <- logical()
   player_predictions$evaluation_status <- character()
 }
+if (nrow(matchup_predictions)) {
+  matchup_game_match <- match(matchup_predictions$game_id, game_predictions$game_id)
+  matchup_predictions$snapshot_id <- snapshot_id
+  matchup_predictions$archived_at_utc <- format(snapshot_time, tz = "UTC", usetz = TRUE)
+  matchup_predictions$pregame_eligible <- game_predictions$pregame_eligible[matchup_game_match]
+  matchup_predictions$evaluation_status <- ifelse(matchup_predictions$pregame_eligible, "eligible_when_final", "late_snapshot_excluded")
+} else {
+  matchup_predictions$snapshot_id <- character()
+  matchup_predictions$archived_at_utc <- character()
+  matchup_predictions$pregame_eligible <- logical()
+  matchup_predictions$evaluation_status <- character()
+}
+if (nrow(state_predictions)) {
+  state_game_match <- match(state_predictions$game_id, game_predictions$game_id)
+  state_predictions$snapshot_id <- snapshot_id
+  state_predictions$archived_at_utc <- format(snapshot_time, tz = "UTC", usetz = TRUE)
+  state_predictions$pregame_eligible <- game_predictions$pregame_eligible[state_game_match]
+  state_predictions$evaluation_status <- ifelse(state_predictions$pregame_eligible, "eligible_when_final", "late_snapshot_excluded")
+} else {
+  state_predictions$snapshot_id <- character()
+  state_predictions$archived_at_utc <- character()
+  state_predictions$pregame_eligible <- logical()
+  state_predictions$evaluation_status <- character()
+}
+if (nrow(state_hitters)) {
+  state_hitter_match <- match(state_hitters$game_id, game_predictions$game_id)
+  state_hitters$snapshot_id <- snapshot_id
+  state_hitters$archived_at_utc <- format(snapshot_time, tz = "UTC", usetz = TRUE)
+  state_hitters$pregame_eligible <- game_predictions$pregame_eligible[state_hitter_match]
+  state_hitters$evaluation_status <- ifelse(state_hitters$pregame_eligible, "eligible_when_final", "late_snapshot_excluded")
+} else {
+  state_hitters$snapshot_id <- character()
+  state_hitters$archived_at_utc <- character()
+  state_hitters$pregame_eligible <- logical()
+  state_hitters$evaluation_status <- character()
+}
+if (nrow(state_relievers)) {
+  state_reliever_match <- match(state_relievers$game_id, game_predictions$game_id)
+  state_relievers$snapshot_id <- snapshot_id
+  state_relievers$archived_at_utc <- format(snapshot_time, tz = "UTC", usetz = TRUE)
+  state_relievers$pregame_eligible <- game_predictions$pregame_eligible[state_reliever_match]
+  state_relievers$evaluation_status <- ifelse(state_relievers$pregame_eligible, "eligible_when_final", "late_snapshot_excluded")
+} else {
+  state_relievers$snapshot_id <- character()
+  state_relievers$archived_at_utc <- character()
+  state_relievers$pregame_eligible <- logical()
+  state_relievers$evaluation_status <- character()
+}
 
 snapshot_date <- if (nrow(games)) as.character(games$game_date[[1L]]) else format(snapshot_time, "%Y-%m-%d")
 snapshot_dir <- file.path(ledger_dir, "snapshots", snapshot_date)
@@ -58,8 +144,14 @@ snapshot <- list(
   game_date = snapshot_date,
   game_predictions = game_predictions,
   player_predictions = player_predictions,
+  matchup_predictions = matchup_predictions,
+  state_predictions = state_predictions,
+  state_hitter_predictions = state_hitters,
+  state_reliever_predictions = state_relievers,
   game_inputs = games,
   player_model = player_model,
+  matchup_model = matchup_model,
+  state_model = state_model,
   game_readiness = game_readiness,
   snapshot_rule = "only predictions archived at or before first pitch are eligible for calibration"
 )
@@ -71,21 +163,38 @@ all_games <- do.call(rbind, lapply(snapshots, `[[`, "game_predictions"))
 player_items <- lapply(snapshots, `[[`, "player_predictions")
 player_items <- player_items[vapply(player_items, nrow, integer(1)) > 0L]
 all_players <- if (length(player_items)) do.call(rbind, player_items) else data.frame(pregame_eligible = logical())
+matchup_items <- lapply(snapshots, function(snapshot) snapshot$matchup_predictions)
+matchup_items <- matchup_items[vapply(matchup_items, function(item) is.data.frame(item) && nrow(item) > 0L, logical(1))]
+all_matchups <- if (length(matchup_items)) do.call(rbind, matchup_items) else data.frame(pregame_eligible = logical())
+state_items <- lapply(snapshots, function(snapshot) if (!is.null(snapshot$state_predictions)) snapshot$state_predictions else data.frame())
+state_items <- state_items[vapply(state_items, function(item) is.data.frame(item) && nrow(item) > 0L, logical(1))]
+all_state <- if (length(state_items)) dplyr::bind_rows(state_items) else data.frame(pregame_eligible = logical())
 status <- data.frame(
   snapshot_id = snapshot_id,
   snapshot_date = snapshot_date,
   snapshots_archived = length(snapshot_files),
   game_rows_archived = nrow(all_games),
   player_rows_archived = nrow(all_players),
+  matchup_rows_archived = nrow(all_matchups),
+  state_game_rows_archived = nrow(all_state),
   eligible_game_rows = sum(as.logical(all_games$pregame_eligible), na.rm = TRUE),
   eligible_player_rows = sum(as.logical(all_players$pregame_eligible), na.rm = TRUE),
+  eligible_matchup_rows = sum(as.logical(all_matchups$pregame_eligible), na.rm = TRUE),
+  eligible_state_game_rows = sum(as.logical(all_state$pregame_eligible), na.rm = TRUE),
   current_snapshot_games = nrow(game_predictions),
   current_snapshot_player_rows = nrow(player_predictions),
+  current_snapshot_matchup_rows = nrow(matchup_predictions),
+  current_snapshot_state_game_rows = nrow(state_predictions),
   current_snapshot_eligible_games = sum(game_predictions$pregame_eligible, na.rm = TRUE),
   calibration_minimum_games = 300L,
   calibration_rule = "first eligible pregame snapshot per game and model version; late builds never enter evaluation",
   stringsAsFactors = FALSE
 )
 utils::write.csv(status, file.path(output_dir, "projection-ledger-status.csv"), row.names = FALSE, na = "")
-cat("Archived", nrow(game_predictions), "game predictions and", nrow(player_predictions), "player-event probabilities in snapshot", snapshot_id, ".\n")
+cat(
+  "Archived", nrow(game_predictions), "game predictions,",
+  nrow(player_predictions), "player-event probabilities, and",
+  nrow(matchup_predictions), "batter-starter event distributions, and",
+  nrow(state_predictions), "versioned game-state forecasts in snapshot", snapshot_id, ".\n"
+)
 cat(sum(game_predictions$pregame_eligible), "games were archived before first pitch and are eligible for future calibration.\n")

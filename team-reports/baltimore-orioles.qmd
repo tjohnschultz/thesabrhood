@@ -1,0 +1,6 @@
+---
+title: "Baltimore Orioles Team report"
+description: "Automated SABRhood research report for the Baltimore Orioles."
+---
+
+{{< include ../includes/team-reports/baltimore-orioles.html >}}

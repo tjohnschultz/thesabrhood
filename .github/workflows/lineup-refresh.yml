@@ -20,7 +20,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: sabrhood-daily-data
+  group: sabrhood-main-publication
   cancel-in-progress: false
 
 jobs:
@@ -31,6 +31,7 @@ jobs:
       SABRHOOD_DATE: ${{ inputs.slate_date }}
       SABRHOOD_N_SIMS: "20000"
       SABRHOOD_PLAYER_N_SIMS: "2000"
+      SABRHOOD_STATE_N_SIMS: "250"
 
     steps:
       - name: Check out site repository
@@ -88,6 +89,8 @@ jobs:
         if: steps.lineups.outputs.has_lineups == 'true'
         shell: bash
         run: |
+          Rscript scripts/build_daily_matchup_probabilities.R
+          Rscript scripts/build_daily_state_simulations.R
           Rscript scripts/build_daily_player_probabilities.R
           Rscript scripts/build_daily_player_simulations.R
 
@@ -105,6 +108,9 @@ jobs:
           Rscript scripts/validate_site.R
           quarto render --no-clean
           Rscript scripts/restore_legacy_assets.R
+          Rscript scripts/normalize_legacy_articles.R
+          Rscript scripts/prune_retired_site_outputs.R
+          Rscript scripts/write_build_info.R
           Rscript scripts/validate_site.R --rendered
 
       - name: Save private projection ledger
@@ -124,6 +130,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No lineup changes to publish."
           else
-            git commit -m "data: refresh posted MLB lineups [skip ci]"
+            git commit -m "data: refresh posted MLB lineups"
             git push
           fi

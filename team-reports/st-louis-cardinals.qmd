@@ -1,0 +1,6 @@
+---
+title: "St. Louis Cardinals Team report"
+description: "Automated SABRhood research report for the St. Louis Cardinals."
+---
+
+{{< include ../includes/team-reports/st-louis-cardinals.html >}}

@@ -1,0 +1,6 @@
+---
+title: "New York Yankees Team report"
+description: "Automated SABRhood research report for the New York Yankees."
+---
+
+{{< include ../includes/team-reports/new-york-yankees.html >}}

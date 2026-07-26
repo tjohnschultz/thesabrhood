@@ -1,0 +1,6 @@
+---
+title: "Seattle Mariners Team report"
+description: "Automated SABRhood research report for the Seattle Mariners."
+---
+
+{{< include ../includes/team-reports/seattle-mariners.html >}}
