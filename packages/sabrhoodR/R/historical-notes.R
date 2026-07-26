@@ -32,7 +32,9 @@
       confidence = numeric(), novelty = numeric(), recognition = numeric(),
       historical_importance = numeric(), broadcast_value = numeric(),
       career_significance_score = numeric(), recognition_tier = character(),
-      career_summary = character(), story_score = numeric(), score_method = character()
+      career_summary = character(), career_final_year = integer(),
+      years_since_final_game = integer(), familiarity_recency = numeric(),
+      story_score = numeric(), score_method = character()
     ))
   }
 
@@ -61,7 +63,10 @@
     novelty = 0.80,
     career_significance_score = 0,
     recognition_tier = "unrated",
-    career_summary = ""
+    career_summary = "",
+    career_final_year = NA_integer_,
+    years_since_final_game = NA_integer_,
+    familiarity_recency = 0.35
   )
   if (!is.null(career_profiles)) {
     if (!is.data.frame(career_profiles) || !all(c("playerID", "player_name", "career_significance_score", "recognition_tier", "career_summary") %in% names(career_profiles))) {
@@ -74,6 +79,17 @@
     notes$career_significance_score[matched] <- career_profiles$career_significance_score[profile_index[matched]]
     notes$recognition_tier[matched] <- as.character(career_profiles$recognition_tier[profile_index[matched]])
     notes$career_summary[matched] <- as.character(career_profiles$career_summary[profile_index[matched]])
+    if ("finalGame" %in% names(career_profiles)) {
+      final_game <- suppressWarnings(as.Date(career_profiles$finalGame[profile_index[matched]]))
+      final_year <- suppressWarnings(as.integer(format(final_game, "%Y")))
+      report_year <- as.integer(format(report_date, "%Y"))
+      years_since_final <- pmax(report_year - final_year, 0L)
+      recency <- pmax(0.20, exp(-years_since_final / 42))
+      recency[!is.finite(recency)] <- 0.35
+      notes$career_final_year[matched] <- final_year
+      notes$years_since_final_game[matched] <- years_since_final
+      notes$familiarity_recency[matched] <- recency
+    }
     matched_years <- notes$years_ago[matched]
     matched_word <- ifelse(matched_years == 1L, "year", "years")
     notes$headline[matched] <- paste0(display_name, ": ", matched_years, " ", matched_word, " since ", event_label)
@@ -82,19 +98,20 @@
     notes$body[matched & nzchar(notes$career_summary)] <- paste(notes$body[matched & nzchar(notes$career_summary)], notes$career_summary[matched & nzchar(notes$career_summary)])
   }
   notes$recognition <- pmax(pmin(notes$career_significance_score / 100, 1), 0.08)
-  notes$historical_importance <- pmax(notes$recognition, pmin(0.35 + notes$years_ago / 125, 1))
+  notes$historical_importance <- pmax(notes$recognition, 0.35)
   notes$broadcast_value <- pmax(pmin(0.35 + 0.65 * notes$recognition, 1), 0.35)
-  notes$relevance <- pmax(notes$relevance, notes$recognition)
+  notes$relevance <- pmax(notes$relevance, 0.55 * notes$recognition + 0.45 * notes$familiarity_recency)
   notes$magnitude <- pmax(notes$magnitude, pmin(0.25 + 0.75 * notes$recognition, 1))
   notes <- score_story_candidates(
     notes,
     weights = c(
       rarity = 1.0, magnitude = 1.0, timeliness = 1.25, relevance = 1.0,
       confidence = 1.3, novelty = 0.75, recognition = 1.5,
-      historical_importance = 1.25, broadcast_value = 1.15
+      historical_importance = 1.25, broadcast_value = 1.15,
+      familiarity_recency = 1.45
     )
   )
-  notes$score_method <- "sabrhood_historical_story_score_v2"
+  notes$score_method <- "sabrhood_historical_story_score_recency_v3"
   notes
 }
 

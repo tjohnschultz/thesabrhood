@@ -1,0 +1,10 @@
+award_id,award_name,description,formula
+earthworm_killer,Earthworm Killer Award,Who combines the loudest contact with the strongest ground-ball habit?,50% exit-velocity percentile + 50% ground-ball-rate percentile
+full_count_survivor,Full Count Survivor,Who produces the most after the count reaches its final possible pitch?,On-base percentage + slugging proxy in 3-2 plate appearances
+full_count_executioner,Full Count Executioner,Which pitcher has finished the most full counts with a strikeout?,Total strikeouts in 3-2 plate appearances; rate breaks ties
+ambush_artist,Ambush Artist,Who does the most damage when the plate appearance ends on pitch one?,Slugging percentage in one-pitch plate appearances
+two_strike_escape_artist,Two-Strike Escape Artist,Who keeps producing after the pitcher reaches the doorstep?,OPS proxy in plate appearances that reached two strikes
+no_mercy,No Mercy Award,Which pitcher most often turns an 0-2 advantage into a strikeout?,Total strikeouts in plate appearances that reached 0-2; rate breaks ties
+bad_ball_bandit,Bad Ball Bandit,Who steals the most total bases from pitches outside the strike zone?,Total bases on terminal pitches outside the strike zone
+velvet_rope,Velvet Rope Award,Who controls the strike zone so well that pitchers rarely get an easy out?,50% walk-rate percentile + 50% inverse strikeout-rate percentile
+short_porch_architect,Short Porch Architect,Who most consistently puts airborne contact toward the pull-side seats?,50% pull-rate percentile + 50% fly-ball-rate percentile

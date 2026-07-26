@@ -1,5 +1,6 @@
 args <- commandArgs(trailingOnly = TRUE)
 check_rendered <- "--rendered" %in% args
+allow_stale_data <- "--allow-stale-data" %in% args
 
 site_root <- normalizePath(".", winslash = "/", mustWork = TRUE)
 failures <- character()
@@ -93,6 +94,26 @@ required_data <- c(
   ,"award-race-board.csv"
   ,"graphics-feed-manifest.csv"
   ,"daily-player-probabilities.csv"
+  ,"daily-matchup-event-probabilities.csv"
+  ,"daily-matchup-event-diagnostics.csv"
+  ,"daily-matchup-event-model-card.csv"
+  ,"daily-state-simulation-games.csv"
+  ,"daily-state-simulation-hitters.csv"
+  ,"daily-state-simulation-bullpen-inputs.csv"
+  ,"daily-state-simulation-model-card.csv"
+  ,"state-simulation-feedback-metrics.csv"
+  ,"daily-state-simulation-reliever-inputs.csv"
+  ,"daily-state-simulation-relievers.csv"
+  ,"daily-state-simulation-events.csv"
+  ,"baserunning-league-rates.csv"
+  ,"baserunning-runner-profiles.csv"
+  ,"baserunning-pitcher-hold-profiles.csv"
+  ,"baserunning-park-factors.csv"
+  ,"baserunning-model-card.csv"
+  ,"state-simulation-calibration-status.csv"
+  ,"state-reliever-feedback-metrics.csv"
+  ,"matchup-event-feedback-metrics.csv"
+  ,"matchup-event-feedback-by-event.csv"
   ,"rolling-league-pitch-usage.csv"
   ,"rolling-league-production.csv"
   ,"insane-baseball-awards.csv"
@@ -125,7 +146,7 @@ required_fragments <- c(
   ,"story-desk.html"
   ,"home-story-desk.html"
   ,"matchup-edges.html"
-  ,"team-dossier-index.html"
+  ,"team-report-index.html"
   ,"home-player-change.html"
   ,"player-change-cards.html"
   ,"daily-projections.html"
@@ -169,7 +190,7 @@ if (file.exists(refresh_health_path)) {
   )
   if (!all(required_health_columns %in% names(refresh_health))) {
     fail("Refresh-health report is missing required columns")
-  } else if (any(refresh_health$status != "current")) {
+  } else if (any(refresh_health$status != "current") && !allow_stale_data) {
     stale_groups <- refresh_health$product_group[refresh_health$status != "current"]
     fail(paste("Stale public product groups:", paste(stale_groups, collapse = ", ")))
   }
@@ -236,7 +257,7 @@ if (file.exists(re24_path)) {
 
 if (check_rendered) {
   required_pages <- c(
-    "index.html", "today.html", "races.html", "insane-awards.html", "league-trends.html", "story-desk.html", "matchups.html", "players.html", "player-change-engine.html", "teams.html", "team-dossiers.html", "history.html", "pitch-lab.html",
+    "index.html", "today.html", "races.html", "insane-awards.html", "league-trends.html", "story-desk.html", "matchups.html", "players.html", "player-change-engine.html", "teams.html", "team-reports.html", "history.html", "pitch-lab.html",
     "projections.html", "aaa.html", "newsletter.html", "graphics-feed.html", "leaderboards.html", "blog.html", "broadcast.html",
     "methodology.html", "glossary.html", "about.html", "404.html"
   )
@@ -246,11 +267,11 @@ if (check_rendered) {
       fail(paste("Missing rendered page:", name))
     }
   }
-  dossier_pages <- list.files(file.path(site_root, "docs", "team-dossiers"), pattern = "[.]html$", full.names = TRUE)
-  if (length(dossier_pages) != 30L) {
-    fail(paste("Rendered team dossier count must be 30; found", length(dossier_pages)))
-  } else if (any(file.info(dossier_pages)$size < 1000)) {
-    fail("One or more rendered team dossiers are unexpectedly small")
+  report_pages <- list.files(file.path(site_root, "docs", "team-reports"), pattern = "[.]html$", full.names = TRUE)
+  if (length(report_pages) != 30L) {
+    fail(paste("Rendered team report count must be 30; found", length(report_pages)))
+  } else if (any(file.info(report_pages)$size < 1000)) {
+    fail("One or more rendered team reports are unexpectedly small")
   }
   required_legacy_assets <- c(
     "site_libs/kePrint-0.0.1/kePrint.js",
@@ -275,7 +296,35 @@ if (check_rendered) {
     path <- file.path(site_root, "docs", name)
     if (!file.exists(path) || file.info(path)$size < 1000) {
       fail(paste("Missing rendered research article:", name))
+    } else {
+      html <- paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+      if (!grepl("../styles.css", html, fixed = TRUE)) {
+        fail(paste("Research article is missing the global stylesheet:", name))
+      }
+      if (!grepl("../includes/article-team-themes.css", html, fixed = TRUE)) {
+        fail(paste("Research article is missing the team-theme stylesheet:", name))
+      }
+      if (!grepl("../site_libs/bootstrap/bootstrap.min.css", html, fixed = TRUE)) {
+        fail(paste("Research article is missing the current Bootstrap stylesheet:", name))
+      }
+      if (!grepl('<body class="[^"]*legacy-article-page[^"]*">', html, perl = TRUE)) {
+        fail(paste("Research article was not normalized:", name))
+      }
+      if (!grepl('class="article-masthead"', html, fixed = TRUE)) {
+        fail(paste("Research article is missing its branded masthead:", name))
+      }
+      if (grepl("team-dossiers|Team Dossiers|Team dossiers", html, perl = TRUE)) {
+        fail(paste("Research article contains retired dossier terminology:", name))
+      }
     }
+  }
+  retired_outputs <- c(
+    file.path(site_root, "docs", "team-dossiers"),
+    file.path(site_root, "docs", "team-dossiers.html"),
+    file.path(site_root, "docs", "team-dossiers_files")
+  )
+  if (any(file.exists(retired_outputs) | dir.exists(retired_outputs))) {
+    fail("Retired team-dossier outputs are still present")
   }
 }
 

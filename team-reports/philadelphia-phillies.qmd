@@ -1,0 +1,6 @@
+---
+title: "Philadelphia Phillies Team report"
+description: "Automated SABRhood research report for the Philadelphia Phillies."
+---
+
+{{< include ../includes/team-reports/philadelphia-phillies.html >}}

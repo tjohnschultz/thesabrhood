@@ -15,7 +15,7 @@ Every metric should make the game easier to understand. These definitions explai
 
 **OPS** — On-base percentage plus slugging percentage. It is a compact measure of reaching base and hitting for power, but it does not adjust for park or league context.
 
-**Estimated wOBA** — A weighted estimate of offensive value per plate appearance. Unlike OPS, it gives different outcomes values closer to their actual run impact. It is labeled as an estimate because this pipeline uses a transparent, internally calculated version.
+**Estimated wOBA** — The site’s results-based, fixed-linear-weight calculation using walks, hit-by-pitches, singles, doubles, triples, and home runs. It is not xwOBA and does not yet use the separate expected-contact model based on batted-ball traits.
 
 **Chase rate (O-Swing%)** — The share of pitches outside the strike zone at which a hitter swings. For pitchers, it measures how often they induce those swings.
 

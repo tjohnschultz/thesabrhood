@@ -36,6 +36,7 @@ jobs:
       SABRHOOD_DATE: ${{ inputs.slate_date }}
       SABRHOOD_N_SIMS: "20000"
       SABRHOOD_PLAYER_N_SIMS: "2000"
+      SABRHOOD_STATE_N_SIMS: "250"
       SABRHOOD_SHADOW_RELEASE_KEY: daily-shadow-${{ github.run_id }}-${{ github.run_attempt }}
       SABRHOOD_PUBLISH_SHADOW: ${{ (github.event_name == 'workflow_dispatch' && inputs.publish_supabase_shadow == true) || (github.event_name == 'schedule' && vars.SABRHOOD_SCHEDULED_SHADOW_ENABLED == 'true') }}
       SABRHOOD_RECOVERY_RELEASE_KEY: ${{ vars.SABRHOOD_RECOVERY_RELEASE_KEY || 'shadow-20260724-002' }}
@@ -81,6 +82,12 @@ jobs:
 
       - name: Rebuild all PBP-derived analytics
         run: Rscript scripts/build_pbp_products.R
+
+      - name: Rebuild Phase 4 baserunning and park inputs
+        shell: bash
+        run: |
+          Rscript scripts/fetch_historical_game_venues.R
+          Rscript scripts/build_phase4_baserunning_products.R
 
       - name: Rebuild history, milestone, and editorial engines
         shell: bash

@@ -1,0 +1,6 @@
+---
+title: "Boston Red Sox Team report"
+description: "Automated SABRhood research report for the Boston Red Sox."
+---
+
+{{< include ../includes/team-reports/boston-red-sox.html >}}

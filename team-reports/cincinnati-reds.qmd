@@ -1,0 +1,6 @@
+---
+title: "Cincinnati Reds Team report"
+description: "Automated SABRhood research report for the Cincinnati Reds."
+---
+
+{{< include ../includes/team-reports/cincinnati-reds.html >}}

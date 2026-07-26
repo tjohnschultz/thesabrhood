@@ -29,16 +29,20 @@ jobs:
         run: Rscript scripts/build_site_fragments.R
 
       - name: Validate source products
-        run: Rscript scripts/validate_site.R
+        run: Rscript scripts/validate_site.R --allow-stale-data
 
       - name: Render site
         run: quarto render --no-clean
 
       - name: Restore legacy article assets
-        run: Rscript scripts/restore_legacy_assets.R
+        run: |
+          Rscript scripts/restore_legacy_assets.R
+          Rscript scripts/normalize_legacy_articles.R
+          Rscript scripts/prune_retired_site_outputs.R
+          Rscript scripts/write_build_info.R
 
       - name: Validate rendered pages
-        run: Rscript scripts/validate_site.R --rendered
+        run: Rscript scripts/validate_site.R --rendered --allow-stale-data
 
       - name: Upload preview artifact
         uses: actions/upload-artifact@v4

@@ -19,17 +19,40 @@ cutover plan.
 
 ## Automated publication layers
 
-1. **Morning refresh:** completed-game PBP, full PBP analysis, FanGraphs,
+1. **Frontend publication:** a push to `main` that changes Quarto pages,
+   article sources, site CSS, navigation, or static design assets automatically
+   renders and validates the complete site. The workflow commits the resulting
+   `docs/` files to `main`, which gives the connected static host a deployable
+   site without requiring a local render.
+2. **Morning refresh:** completed-game PBP, full PBP analysis, FanGraphs,
    Triple-A, history, editorial products, current slate inputs, simulations,
    graphics, fragments, and rendered pages.
    League off-days still publish current reporting, history, and graphics with
    a clearly labeled no-games simulation state.
-2. **Intraday refresh:** approaching game waves are checked every 30 minutes;
+3. **Intraday refresh:** approaching game waves are checked every 30 minutes;
    posted orders and probables trigger new simulations and prediction snapshots.
-3. **Weekly intelligence refresh:** cumulative FanGraphs award checkpoints,
+4. **Weekly intelligence refresh:** cumulative FanGraphs award checkpoints,
    race timelines, graphics, and affected pages are rebuilt every Sunday.
-4. **Projection feedback:** the first eligible pregame forecast for each game
+5. **Projection feedback:** the first eligible pregame forecast for each game
    and model version is settled against final game and player outcomes.
+
+## How to know a change is live
+
+A source edit is not live merely because it is saved locally. It passes through
+four observable states:
+
+1. `quarto render` (or `scripts/build_site.ps1`) updates the local `docs/`
+   preview.
+2. The source change is committed and merged into `main`.
+3. GitHub Actions shows **Render and publish frontend** as successful. Its
+   artifact contains the exact rendered site, and `docs/build-info.json` records
+   the source commit and render time.
+4. The connected GitHub Pages or Netlify deployment for the bot's rendered
+   commit reports **Published**. At that point the public site has the change;
+   a hard refresh bypasses an older browser copy.
+
+Supabase publication updates data releases. It does not deploy Quarto, CSS, or
+article-template changes; those always use the frontend publication workflow.
 
 ## Publication safety
 

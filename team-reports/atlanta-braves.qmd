@@ -1,0 +1,6 @@
+---
+title: "Atlanta Braves Team report"
+description: "Automated SABRhood research report for the Atlanta Braves."
+---
+
+{{< include ../includes/team-reports/atlanta-braves.html >}}

@@ -1,0 +1,6 @@
+---
+title: "Toronto Blue Jays Team report"
+description: "Automated SABRhood research report for the Toronto Blue Jays."
+---
+
+{{< include ../includes/team-reports/toronto-blue-jays.html >}}

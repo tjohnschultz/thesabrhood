@@ -4,13 +4,11 @@ description: "Traditional and contextual MLB season leaders from The SABRhood."
 ---
 
 ::: {.page-intro}
-<span class="eyebrow">The league at a glance</span>
+<span class="eyebrow">A glance around the horn</span>
 
-# Who leads baseball right now?
+# Leaders from every category
 
-The familiar numbers still matter. Scan batting average, slugging, home runs,
-doubles, triples, strikeouts, ERA, saves, and more—then move into the Player
-Desk when you want the underlying quality and change context.
+Good, ole' fashioned leaderboards. Check out the Players tab afterward to see the numbers behind the titans of baseball.
 :::
 
 {{< include includes/league-leaderboards.html >}}

@@ -1,6 +1,0 @@
----
-title: "Minnesota Twins Team Dossier"
-description: "Automated SABRhood research dossier for the Minnesota Twins."
----
-
-{{< include ../includes/team-dossiers/minnesota-twins.html >}}

@@ -1,0 +1,6 @@
+---
+title: "San Francisco Giants Team report"
+description: "Automated SABRhood research report for the San Francisco Giants."
+---
+
+{{< include ../includes/team-reports/san-francisco-giants.html >}}

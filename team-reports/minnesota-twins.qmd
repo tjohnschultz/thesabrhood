@@ -1,0 +1,6 @@
+---
+title: "Minnesota Twins Team report"
+description: "Automated SABRhood research report for the Minnesota Twins."
+---
+
+{{< include ../includes/team-reports/minnesota-twins.html >}}

@@ -1,0 +1,6 @@
+---
+title: "Kansas City Royals Team report"
+description: "Automated SABRhood research report for the Kansas City Royals."
+---
+
+{{< include ../includes/team-reports/kansas-city-royals.html >}}

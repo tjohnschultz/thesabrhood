@@ -1,0 +1,6 @@
+---
+title: "Cleveland Guardians Team report"
+description: "Automated SABRhood research report for the Cleveland Guardians."
+---
+
+{{< include ../includes/team-reports/cleveland-guardians.html >}}

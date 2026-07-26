@@ -1,0 +1,14 @@
+---
+title: "Team Reports"
+description: "Thirty MLB team research rooms built for fans, journalists, and broadcasters."
+---
+
+::: {.page-intro .team-directory-intro}
+<span class="eyebrow">League research directory</span>
+
+# Thirty teams, thirty reports
+
+Open a club report for positional strengths and needs, in-house leaders, player movement, pitch identities, matchup splits, broadcaster notes, and the best available bullpen options.
+:::
+
+{{< include includes/team-report-index.html >}}

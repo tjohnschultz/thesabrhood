@@ -1,0 +1,6 @@
+---
+title: "Detroit Tigers Team report"
+description: "Automated SABRhood research report for the Detroit Tigers."
+---
+
+{{< include ../includes/team-reports/detroit-tigers.html >}}

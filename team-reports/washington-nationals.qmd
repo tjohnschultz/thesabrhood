@@ -1,0 +1,6 @@
+---
+title: "Washington Nationals Team report"
+description: "Automated SABRhood research report for the Washington Nationals."
+---
+
+{{< include ../includes/team-reports/washington-nationals.html >}}

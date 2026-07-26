@@ -1,0 +1,6 @@
+---
+title: "Milwaukee Brewers Team report"
+description: "Automated SABRhood research report for the Milwaukee Brewers."
+---
+
+{{< include ../includes/team-reports/milwaukee-brewers.html >}}
