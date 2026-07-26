@@ -5,25 +5,23 @@ description: "MLB analysis for fans, journalists, and broadcasters."
 
 ::: {.home-hero}
 ::: {.home-hero__copy}
-<span class="hero-kicker">Baseball intelligence for the whole neighborhood</span>
+<span class="hero-kicker">Intelligence for the 'hood</span>
 
 # See the game before the box score explains it.
 
 The SABRhood combines pitch-level research, daily signals, simulation, history, and journalistic reporting for fans and broadcasters.
 
-[Open today’s signal desk](today.qmd){.btn .btn-primary}
-[Explore the Pitch Lab](pitch-lab.qmd){.btn .btn-ghost}
+[Open today’s headlines](today.qmd){.btn .btn-primary}
+[Explore today's projections](projections.qmd){.btn .btn-ghost}
 :::
 
 ::: {.home-hero__rail}
 <div class="hero-rail__label">Built for</div>
-<div class="hero-rail__item"><strong>Fans</strong><span>Understand what changed and why it matters.</span></div>
-<div class="hero-rail__item"><strong>Broadcasters</strong><span>Arrive with evidence, context, and the next question.</span></div>
-<div class="hero-rail__item"><strong>Journalists</strong><span>Move from a lead to reproducible research.</span></div>
+<div class="hero-rail__item"><strong>Fans</strong><span>Understand the game beyond the box score.</span></div>
+<div class="hero-rail__item"><strong>Broadcasters</strong><span>Build game-day prep from one research desk.</span></div>
+<div class="hero-rail__item"><strong>Journalists</strong><span>Find the next lead in the Trend Engine.</span></div>
 :::
 :::
-
-{{< include includes/home-snapshot.html >}}
 
 {{< include includes/home-story-desk.html >}}
 
@@ -37,11 +35,11 @@ The SABRhood combines pitch-level research, daily signals, simulation, history, 
 
 ::: {.feature-band}
 ::: {.feature-band__copy}
-<span class="eyebrow">Research, not decoration</span>
+<span class="eyebrow">Research catered to you</span>
 
-## Every chart should answer a baseball question
+## Here to answer all of YOUR baseball questions.
 
-Our products connect outcomes to pitch traits, sequence, handedness, workload, game state, and historical context. Methods and sample reliability travel with the number.
+Awards races, season leaders, matchup splits, daily historical notes, simulations, and reporting leads—organized around the questions baseball people actually ask.
 :::
 
 ::: {.feature-band__links}
