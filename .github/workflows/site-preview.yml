@@ -38,6 +38,8 @@ jobs:
         run: |
           Rscript scripts/restore_legacy_assets.R
           Rscript scripts/normalize_legacy_articles.R
+          Rscript scripts/prune_retired_site_outputs.R
+          Rscript scripts/write_build_info.R
 
       - name: Validate rendered pages
         run: Rscript scripts/validate_site.R --rendered

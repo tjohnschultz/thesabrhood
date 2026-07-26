@@ -1,6 +1,0 @@
----
-title: "Los Angeles Dodgers Team report"
-description: "Automated SABRhood research report for the Los Angeles Dodgers."
----
-
-{{< include ../includes/team-reports/los-angeles-dodgers.html >}}

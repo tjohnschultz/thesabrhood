@@ -1,6 +1,0 @@
----
-title: "Pittsburgh Pirates Team report"
-description: "Automated SABRhood research report for the Pittsburgh Pirates."
----
-
-{{< include ../includes/team-reports/pittsburgh-pirates.html >}}

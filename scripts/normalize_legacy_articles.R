@@ -43,6 +43,62 @@ ensure_stylesheet <- function(html, href) {
   sub("</head>", paste0(link, "\n</head>"), html, fixed = TRUE)
 }
 
+canonicalize_quarto_stylesheets <- function(html) {
+  replacements <- c(
+    'href="[^"]*(?:site_libs|libs)/bootstrap/bootstrap[^"]*[.]min[.]css"' =
+      'href="../site_libs/bootstrap/bootstrap.min.css"',
+    'href="[^"]*(?:site_libs|libs)/bootstrap/bootstrap-icons[.]css"' =
+      'href="../site_libs/bootstrap/bootstrap-icons.css"',
+    'href="[^"]*(?:site_libs|libs)/quarto-html/tippy[.]css"' =
+      'href="../site_libs/quarto-html/tippy.css"',
+    'href="[^"]*(?:site_libs|libs)/quarto-html/quarto-syntax-highlighting[^"]*[.]css"' =
+      'href="../site_libs/quarto-html/quarto-syntax-highlighting.css"'
+  )
+  for (pattern in names(replacements)) {
+    html <- gsub(pattern, replacements[[pattern]], html, perl = TRUE)
+  }
+  html
+}
+
+strip_legacy_page_styles <- function(html) {
+  matches <- gregexpr("(?s)<style[^>]*>.*?</style>", html, perl = TRUE)
+  blocks <- regmatches(html, matches)[[1L]]
+  if (!length(blocks) || identical(blocks, character(0))) return(html)
+
+  replacements <- vapply(blocks, function(block) {
+    if (grepl(
+      "body\\s*\\{|main[.]content\\s*\\{|h1[.]title|[.]quarto-title",
+      block,
+      perl = TRUE
+    )) "" else block
+  }, character(1))
+  regmatches(html, matches) <- list(replacements)
+  html
+}
+
+promote_article_masthead <- function(html) {
+  sub(
+    '<header id="title-block-header" class="quarto-title-block[^"]*">',
+    '<header class="article-masthead">',
+    html,
+    perl = TRUE
+  )
+}
+
+rewrite_retired_terms <- function(html) {
+  replacements <- c(
+    "team-dossiers.html" = "team-reports.html",
+    "team-dossiers/" = "team-reports/",
+    "Team Dossiers" = "Team reports",
+    "Team dossiers" = "Team reports",
+    "team dossiers" = "team reports"
+  )
+  for (old in names(replacements)) {
+    html <- gsub(old, replacements[[old]], html, fixed = TRUE)
+  }
+  html
+}
+
 add_archive_nav <- function(html) {
   if (grepl('class="legacy-article-nav"', html, fixed = TRUE)) return(html)
   nav <- paste0(
@@ -85,8 +141,13 @@ for (path in paths) {
   html <- paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
   original <- html
 
+  html <- canonicalize_quarto_stylesheets(html)
+  html <- ensure_stylesheet(html, "../site_libs/bootstrap/bootstrap.min.css")
   html <- ensure_stylesheet(html, "../styles.css")
   html <- ensure_stylesheet(html, "../includes/article-team-themes.css")
+  html <- strip_legacy_page_styles(html)
+  html <- promote_article_masthead(html)
+  html <- rewrite_retired_terms(html)
   html <- add_body_classes(html, c("article-page", "legacy-article-page", paste0("theme-", theme)))
   html <- add_archive_nav(html)
   html <- repair_mojibake(html)

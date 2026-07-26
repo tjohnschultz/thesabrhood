@@ -1,0 +1,87 @@
+name: Render and publish frontend
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "_quarto.yml"
+      - "*.qmd"
+      - "articles/**"
+      - "posts/**"
+      - "team-reports/**"
+      - "styles.css"
+      - "includes/**/*.css"
+      - "includes/**/*.js"
+      - "images/**"
+      - "!images/graphics-feed/**"
+      - "scripts/build_site_fragments.R"
+      - "scripts/normalize_legacy_articles.R"
+      - "scripts/prune_retired_site_outputs.R"
+      - "scripts/restore_legacy_assets.R"
+      - "scripts/validate_site.R"
+      - "scripts/write_build_info.R"
+      - ".github/workflows/publish-frontend.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sabrhood-main-publication
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Generate and validate site source
+        shell: bash
+        run: |
+          Rscript scripts/build_site_fragments.R
+          Rscript scripts/validate_site.R
+
+      - name: Render complete Quarto site
+        run: quarto render --no-clean
+
+      - name: Normalize articles and validate rendered pages
+        shell: bash
+        run: |
+          Rscript scripts/restore_legacy_assets.R
+          Rscript scripts/normalize_legacy_articles.R
+          Rscript scripts/prune_retired_site_outputs.R
+          Rscript scripts/write_build_info.R
+          Rscript scripts/validate_site.R --rendered
+
+      - name: Upload rendered-site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesabrhood-render-${{ github.sha }}
+          path: docs
+          if-no-files-found: error
+
+      - name: Commit rendered frontend
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs includes
+          if git diff --cached --quiet; then
+            echo "The rendered site already matches the source."
+          else
+            git commit -m "site: render frontend for ${GITHUB_SHA::7}"
+            git push
+          fi

@@ -1,6 +1,0 @@
----
-title: "Colorado Rockies Team report"
-description: "Automated SABRhood research report for the Colorado Rockies."
----
-
-{{< include ../includes/team-reports/colorado-rockies.html >}}

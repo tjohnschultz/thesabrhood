@@ -1,6 +1,0 @@
----
-title: "Chicago Cubs Team report"
-description: "Automated SABRhood research report for the Chicago Cubs."
----
-
-{{< include ../includes/team-reports/chicago-cubs.html >}}

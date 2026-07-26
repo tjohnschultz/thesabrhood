@@ -1,6 +1,0 @@
----
-title: "Athletics Team report"
-description: "Automated SABRhood research report for the Athletics."
----
-
-{{< include ../includes/team-reports/athletics.html >}}

@@ -1,6 +1,0 @@
----
-title: "New York Mets Team report"
-description: "Automated SABRhood research report for the New York Mets."
----
-
-{{< include ../includes/team-reports/new-york-mets.html >}}

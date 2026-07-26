@@ -152,8 +152,13 @@ function Test-HasSlate {
 }
 
 function Invoke-SiteBuild {
+  param([switch]$AllowStaleData)
   Write-Stage "Generate fragments, validate, and render the complete Quarto site"
-  & $siteBuilder
+  if ($AllowStaleData) {
+    & $siteBuilder -AllowStaleData
+  } else {
+    & $siteBuilder
+  }
   if ($LASTEXITCODE -ne 0) {
     throw "The Quarto site build failed."
   }
@@ -194,7 +199,7 @@ try {
   }
 
   if ($Mode -eq "Site") {
-    Invoke-SiteBuild
+    Invoke-SiteBuild -AllowStaleData
   } else {
     Install-SabrhoodPackage
 

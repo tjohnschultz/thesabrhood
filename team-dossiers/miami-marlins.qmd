@@ -1,6 +1,0 @@
----
-title: "Miami Marlins Team report"
-description: "Automated SABRhood research report for the Miami Marlins."
----
-
-{{< include ../includes/team-reports/miami-marlins.html >}}

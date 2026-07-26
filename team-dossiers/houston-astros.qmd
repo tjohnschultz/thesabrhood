@@ -1,6 +1,0 @@
----
-title: "Houston Astros Team report"
-description: "Automated SABRhood research report for the Houston Astros."
----
-
-{{< include ../includes/team-reports/houston-astros.html >}}

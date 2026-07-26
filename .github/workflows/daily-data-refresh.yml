@@ -23,7 +23,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: sabrhood-daily-data
+  group: sabrhood-main-publication
   cancel-in-progress: false
 
 jobs:
@@ -162,6 +162,8 @@ jobs:
         run: |
           Rscript scripts/restore_legacy_assets.R
           Rscript scripts/normalize_legacy_articles.R
+          Rscript scripts/prune_retired_site_outputs.R
+          Rscript scripts/write_build_info.R
           Rscript scripts/validate_site.R --rendered
 
       - name: Confirm Supabase shadow publication secrets
@@ -226,6 +228,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No public data changes to commit."
           else
-            git commit -m "data: refresh MLB products [skip ci]"
+            git commit -m "data: refresh MLB products"
             git push
           fi

@@ -66,6 +66,8 @@ lines <- c(
   paste0(":::: {.article-shell .theme-", theme_slug, "}"),
   paste0("[", team, " · ", topic, "]{.article-kicker}"),
   "",
+  paste0("# ", headline),
+  "",
   '<p class="article-deck">',
   "Write a short deck that tells the reader what changed and why it matters.",
   "</p>",

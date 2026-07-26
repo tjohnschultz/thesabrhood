@@ -519,7 +519,7 @@ img,
   max-width: 1040px;
 }
 
-.legacy-article-page #title-block-header {
+.legacy-article-page .article-masthead {
   max-width: 940px;
   margin: 1.4rem auto 0;
   padding: clamp(1.4rem, 4vw, 2.5rem);
@@ -532,14 +532,14 @@ img,
   box-shadow: 0 18px 46px rgba(12, 35, 64, 0.2);
 }
 
-.legacy-article-page #title-block-header .title,
-.legacy-article-page #title-block-header .quarto-title-meta-heading,
-.legacy-article-page #title-block-header .quarto-title-meta-contents,
-.legacy-article-page #title-block-header a {
+.legacy-article-page .article-masthead .title,
+.legacy-article-page .article-masthead .quarto-title-meta-heading,
+.legacy-article-page .article-masthead .quarto-title-meta-contents,
+.legacy-article-page .article-masthead a {
   color: white;
 }
 
-.legacy-article-page #title-block-header .description {
+.legacy-article-page .article-masthead .description {
   color: rgba(255, 255, 255, 0.82);
   font-size: 1.08rem;
 }
@@ -631,7 +631,7 @@ img,
     letter-spacing: -0.04em;
   }
 
-  .legacy-article-page #title-block-header {
+  .legacy-article-page .article-masthead {
     margin-top: 0.8rem;
     border-radius: 1rem;
   }
@@ -4091,27 +4091,26 @@ a.btn-metallic:hover {
 }
 /* Release polish: designed headers, consistent tables, and report decisions */
 
-/* Keep metadata for search and social cards while removing the repeated Quarto
-   description. Pages with a designed masthead also suppress the default title. */
-.quarto-title .description {
-  display: none;
-}
-
-body:has(.home-hero) #title-block-header,
-body:has(.page-intro) #title-block-header,
-body:has(.articles-mast) #title-block-header,
-body:has(.graphics-feed-hero) #title-block-header,
-body:has(.newsletter-mast) #title-block-header {
+/* Retain Quarto metadata for search and social cards without rendering its
+   automatic title/description block. Every page supplies a designed heading. */
+#title-block-header.quarto-title-block {
   display: none;
 }
 
 .hero-rail__item {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto;
   gap: 0.25rem;
 }
 
-.hero-rail__item strong,
+.hero-rail__item strong {
+  grid-row: 1;
+  display: block;
+}
+
 .hero-rail__item span {
+  grid-row: 2;
   display: block;
 }
 
@@ -4161,13 +4160,16 @@ body:has(.newsletter-mast) #title-block-header {
    visible on both the white and tinted bands. */
 .data-table tbody tr:hover,
 .data-table tbody tr:hover > *,
-.table tbody tr:hover,
-.table tbody tr:hover > * {
+.table-hover tbody tr:hover,
+.table-hover tbody tr:hover > * {
   background: #fff1f2 !important;
   color: var(--sabr-navy);
 }
 
-.data-table tbody tr {
+.data-table tbody tr,
+.data-table tbody tr > *,
+.table-hover tbody tr,
+.table-hover tbody tr > * {
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 

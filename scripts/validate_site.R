@@ -1,5 +1,6 @@
 args <- commandArgs(trailingOnly = TRUE)
 check_rendered <- "--rendered" %in% args
+allow_stale_data <- "--allow-stale-data" %in% args
 
 site_root <- normalizePath(".", winslash = "/", mustWork = TRUE)
 failures <- character()
@@ -187,7 +188,7 @@ if (file.exists(refresh_health_path)) {
   )
   if (!all(required_health_columns %in% names(refresh_health))) {
     fail("Refresh-health report is missing required columns")
-  } else if (any(refresh_health$status != "current")) {
+  } else if (any(refresh_health$status != "current") && !allow_stale_data) {
     stale_groups <- refresh_health$product_group[refresh_health$status != "current"]
     fail(paste("Stale public product groups:", paste(stale_groups, collapse = ", ")))
   }
@@ -301,10 +302,27 @@ if (check_rendered) {
       if (!grepl("../includes/article-team-themes.css", html, fixed = TRUE)) {
         fail(paste("Research article is missing the team-theme stylesheet:", name))
       }
+      if (!grepl("../site_libs/bootstrap/bootstrap.min.css", html, fixed = TRUE)) {
+        fail(paste("Research article is missing the current Bootstrap stylesheet:", name))
+      }
       if (!grepl('<body class="[^"]*legacy-article-page[^"]*">', html, perl = TRUE)) {
         fail(paste("Research article was not normalized:", name))
       }
+      if (!grepl('class="article-masthead"', html, fixed = TRUE)) {
+        fail(paste("Research article is missing its branded masthead:", name))
+      }
+      if (grepl("team-dossiers|Team Dossiers|Team dossiers", html, perl = TRUE)) {
+        fail(paste("Research article contains retired dossier terminology:", name))
+      }
     }
+  }
+  retired_outputs <- c(
+    file.path(site_root, "docs", "team-dossiers"),
+    file.path(site_root, "docs", "team-dossiers.html"),
+    file.path(site_root, "docs", "team-dossiers_files")
+  )
+  if (any(file.exists(retired_outputs) | dir.exists(retired_outputs))) {
+    fail("Retired team-dossier outputs are still present")
   }
 }
 

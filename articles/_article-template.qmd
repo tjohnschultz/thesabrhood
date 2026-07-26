@@ -16,6 +16,8 @@ format:
 :::: {.article-shell .theme-boston-red-sox}
 [Boston Red Sox · Hitting]{.article-kicker}
 
+# Replace with your headline
+
 <p class="article-deck">
 Write a short deck that tells the reader what changed and why it matters.
 </p>
