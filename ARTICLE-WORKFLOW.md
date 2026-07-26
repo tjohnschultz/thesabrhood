@@ -55,7 +55,8 @@ archived article to:
 
 - `styles.css`
 - `includes/article-team-themes.css`
-- a consistent Research archive masthead and navigation bar
+- the current site navbar and footer, with Research marked active
+- a consistent Research archive masthead
 - a responsive reading frame for prose, figures, code, and wide tables
 - the correct team palette where the team is known
 

@@ -2,8 +2,8 @@ name: Intraday MLB lineup refresh
 
 on:
   schedule:
-    - cron: "*/30 14-23 * 3-11 *"
-    - cron: "*/30 0-2 * 3-11 *"
+    - cron: "*/30 10-22 * 3-11 *"
+      timezone: "America/New_York"
   workflow_dispatch:
     inputs:
       slate_date:
