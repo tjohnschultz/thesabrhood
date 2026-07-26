@@ -1268,8 +1268,14 @@ body {
 }
 
 .feature-band h2 { color: #ffffff; }
-.feature-band__links { display: grid; gap: 0.65rem; align-content: center; }
-.feature-link { padding: 0.85rem 0; color: #ffffff; font-weight: 800; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
+.feature-band__links,
+.feature-band__links > p {
+  display: grid;
+  gap: 0.65rem;
+  align-content: center;
+  margin: 0;
+}
+.feature-link { display: block; padding: 0.85rem 0; color: #ffffff; font-weight: 800; line-height: 1.25; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
 .feature-link:hover { color: #ffabb2; }
 
 .page-intro {
