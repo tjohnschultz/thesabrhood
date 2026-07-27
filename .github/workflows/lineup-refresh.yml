@@ -2,8 +2,8 @@ name: Intraday MLB lineup refresh
 
 on:
   schedule:
-    - cron: "*/30 14-23 * 3-11 *"
-    - cron: "*/30 0-2 * 3-11 *"
+    - cron: "*/30 10-22 * 3-11 *"
+      timezone: "America/New_York"
   workflow_dispatch:
     inputs:
       slate_date:
@@ -111,11 +111,7 @@ jobs:
           Rscript scripts/build_site_fragments.R
           Rscript scripts/validate_site.R
           quarto render --no-clean
-          Rscript scripts/restore_legacy_assets.R
-          Rscript scripts/normalize_legacy_articles.R
-          Rscript scripts/prune_retired_site_outputs.R
-          Rscript scripts/write_build_info.R
-          Rscript scripts/validate_site.R --rendered
+          Rscript scripts/finalize_rendered_site.R
 
       - name: Save private projection ledger
         if: always() && (steps.gate.outputs.active_window == 'true' || inputs.force == true)

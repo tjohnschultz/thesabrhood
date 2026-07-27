@@ -20,6 +20,25 @@ canonical_file_md5 <- function(path) {
   unname(tools::md5sum(temporary))
 }
 
+read_html <- function(path) {
+  paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+}
+
+archive_article_text <- function(html) {
+  main <- regmatches(html, regexpr("(?s)<main[^>]*>.*?</main>", html, perl = TRUE))
+  if (!length(main) || !nzchar(main)) return("")
+  main <- gsub(
+    '(?s)<header[^>]*class="[^"]*article-masthead[^"]*"[^>]*>.*?</header>',
+    "",
+    main,
+    perl = TRUE
+  )
+  main <- gsub("(?s)<script[^>]*>.*?</script>", "", main, perl = TRUE)
+  main <- gsub("(?s)<style[^>]*>.*?</style>", "", main, perl = TRUE)
+  main <- gsub("<[^>]+>", " ", main, perl = TRUE)
+  trimws(gsub("\\s+", " ", main, perl = TRUE))
+}
+
 required_data <- c(
   "data-contract-summary.csv",
   "historical-anniversary-notes.csv",
@@ -302,6 +321,29 @@ if (file.exists(re24_path)) {
   if (nrow(re24) != 24L) fail("RE24 product must contain exactly 24 base-out states")
 }
 
+archive_source_root <- file.path(site_root, "legacy-assets", "posts")
+archive_snapshot_paths <- if (dir.exists(archive_source_root)) {
+  list.files(archive_source_root, pattern = "[.]html$", full.names = TRUE)
+} else {
+  character()
+}
+if (!length(archive_snapshot_paths)) {
+  fail("Canonical archive article snapshots are missing from legacy-assets/posts")
+} else {
+  qmd_stems <- tools::file_path_sans_ext(basename(list.files(
+    file.path(site_root, "posts"),
+    pattern = "[.]qmd$"
+  )))
+  snapshot_stems <- tools::file_path_sans_ext(basename(archive_snapshot_paths))
+  missing_snapshots <- setdiff(qmd_stems, snapshot_stems)
+  if (length(missing_snapshots)) {
+    fail(paste(
+      "Article sources are missing canonical HTML snapshots:",
+      paste(missing_snapshots, collapse = ", ")
+    ))
+  }
+}
+
 if (check_rendered) {
   required_pages <- c(
     "index.html", "today.html", "standings.html", "races.html", "insane-awards.html", "league-trends.html", "story-desk.html", "matchups.html", "players.html", "player-change-engine.html", "career-trajectories.html", "teams.html", "team-reports.html", "history.html", "history-match.html", "pitch-lab.html", "run-game.html",
@@ -329,22 +371,14 @@ if (check_rendered) {
       fail(paste("Missing legacy article asset:", name))
     }
   }
-  required_article_pages <- c(
-    "posts/A.J Ewing Gets the Call.html",
-    "posts/CleanPig.html",
-    "posts/Series Recap Tigers Sox.html",
-    "posts/bello_article_final.html",
-    "posts/ceddannesnewgroove.html",
-    "posts/durbin_article.html",
-    "posts/fla 2025 v 2026 article.html",
-    "posts/sorianopreseason26.html"
-  )
+  required_article_pages <- file.path("posts", basename(archive_snapshot_paths))
   for (name in required_article_pages) {
     path <- file.path(site_root, "docs", name)
+    snapshot_path <- file.path(archive_source_root, basename(name))
     if (!file.exists(path) || file.info(path)$size < 1000) {
       fail(paste("Missing rendered research article:", name))
     } else {
-      html <- paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+      html <- read_html(path)
       if (!grepl("../styles.css", html, fixed = TRUE)) {
         fail(paste("Research article is missing the global stylesheet:", name))
       }
@@ -354,14 +388,40 @@ if (check_rendered) {
       if (!grepl("../site_libs/bootstrap/bootstrap.min.css", html, fixed = TRUE)) {
         fail(paste("Research article is missing the current Bootstrap stylesheet:", name))
       }
-      if (!grepl('<body class="[^"]*legacy-article-page[^"]*">', html, perl = TRUE)) {
+      if (!grepl('<body[^>]*class="[^"]*legacy-article-page[^"]*"[^>]*>', html, perl = TRUE)) {
         fail(paste("Research article was not normalized:", name))
       }
-      if (!grepl('class="article-masthead"', html, fixed = TRUE)) {
+      if (!grepl('class="[^"]*article-masthead[^"]*"', html, perl = TRUE)) {
         fail(paste("Research article is missing its branded masthead:", name))
       }
-      if (grepl("team-dossiers|Team Dossiers|Team dossiers", html, perl = TRUE)) {
-        fail(paste("Research article contains retired dossier terminology:", name))
+      if (!grepl('<header id="quarto-header"', html, fixed = TRUE)) {
+        fail(paste("Research article is missing the normal site navbar:", name))
+      }
+      if (!grepl(
+        'class="nav-link active" href="../blog.html" aria-current="page"',
+        html,
+        fixed = TRUE
+      )) {
+        fail(paste("Research article navbar does not identify Research as active:", name))
+      }
+      if (!grepl('<footer class="footer"', html, fixed = TRUE)) {
+        fail(paste("Research article is missing the normal site footer:", name))
+      }
+      if (!grepl("../images/thesabrhood2clean.png", html, fixed = TRUE)) {
+        fail(paste("Research article navbar logo path is invalid:", name))
+      }
+      if (grepl('class="legacy-article-nav"', html, fixed = TRUE)) {
+        fail(paste("Research article still contains retired archive navigation:", name))
+      }
+      if (!grepl('class="legacy-article-body"', html, fixed = TRUE)) {
+        fail(paste("Research article is missing its responsive reading frame:", name))
+      }
+      if (grepl('(?:src|href)="[^"]*_files/libs/', html, perl = TRUE)) {
+        fail(paste("Research article still references page-local library assets:", name))
+      }
+      snapshot_html <- read_html(snapshot_path)
+      if (!identical(archive_article_text(snapshot_html), archive_article_text(html))) {
+        fail(paste("Research article body content changed during publication:", name))
       }
     }
   }

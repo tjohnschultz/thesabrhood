@@ -110,22 +110,10 @@ try {
     Write-Host "Cleared $($completedIntermediatePaths.Count) completed Quarto render artifacts."
   }
 
-  & $rscript --vanilla scripts/restore_legacy_assets.R
-  if ($LASTEXITCODE -ne 0) { throw "Legacy article asset restoration failed." }
-
-  & $rscript --vanilla scripts/normalize_legacy_articles.R
-  if ($LASTEXITCODE -ne 0) { throw "Legacy article normalization failed." }
-
-  & $rscript --vanilla scripts/prune_retired_site_outputs.R
-  if ($LASTEXITCODE -ne 0) { throw "Retired-output cleanup failed." }
-
-  & $rscript --vanilla scripts/write_build_info.R
-  if ($LASTEXITCODE -ne 0) { throw "Build record generation failed." }
-
-  $renderedValidationArgs = @("scripts/validate_site.R", "--rendered")
-  if ($AllowStaleData) { $renderedValidationArgs += "--allow-stale-data" }
-  & $rscript --vanilla @renderedValidationArgs
-  if ($LASTEXITCODE -ne 0) { throw "Rendered-site validation failed." }
+  $finalizeArgs = @("scripts/finalize_rendered_site.R")
+  if ($AllowStaleData) { $finalizeArgs += "--allow-stale-data" }
+  & $rscript --vanilla @finalizeArgs
+  if ($LASTEXITCODE -ne 0) { throw "Rendered-site finalization failed." }
 
   Write-Host "Site build complete: $siteRoot\docs\index.html"
 }

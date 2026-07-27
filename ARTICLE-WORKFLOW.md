@@ -45,14 +45,24 @@ controls the article-page palette. Both should describe the same team.
 
 ## Archived articles
 
-The original files under `posts/` remain untouched source material. The build
-now normalizes their rendered HTML after Quarto finishes, connecting every
+The original files under `posts/` remain untouched source material.
+`legacy-assets/posts/` holds immutable rendered snapshots so archived articles
+do not depend on old R packages, cached sessions, or remote data sources.
+
+Every local and GitHub build calls `scripts/finalize_rendered_site.R` after
+Quarto. That single finalization step restores the snapshots and connects every
 archived article to:
 
 - `styles.css`
 - `includes/article-team-themes.css`
-- a consistent Research archive navigation bar
+- the current site navbar and footer, with Research marked active
+- a consistent Research archive masthead
+- a responsive reading frame for prose, figures, code, and wide tables
 - the correct team palette where the team is known
 
-Do not hand-edit `docs/posts/*.html`; those changes are generated and can be
-replaced by the next build.
+The rendered validator compares the article-body text with its canonical
+snapshot and fails publication if normalization changes the article content.
+
+Do not hand-edit `docs/posts/*.html`; those files are restored and normalized
+again during the next build. Styling changes belong in `styles.css`, while
+archive chrome changes belong in `scripts/normalize_legacy_articles.R`.

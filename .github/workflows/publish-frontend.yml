@@ -9,6 +9,7 @@ on:
       - "*.qmd"
       - "articles/**"
       - "posts/**"
+      - "legacy-assets/**"
       - "team-reports/**"
       - "styles.css"
       - "includes/**/*.css"
@@ -16,6 +17,7 @@ on:
       - "images/**"
       - "!images/graphics-feed/**"
       - "scripts/build_site_fragments.R"
+      - "scripts/finalize_rendered_site.R"
       - "scripts/normalize_legacy_articles.R"
       - "scripts/prune_retired_site_outputs.R"
       - "scripts/restore_legacy_assets.R"
@@ -58,13 +60,7 @@ jobs:
         run: quarto render --no-clean
 
       - name: Normalize articles and validate rendered pages
-        shell: bash
-        run: |
-          Rscript scripts/restore_legacy_assets.R
-          Rscript scripts/normalize_legacy_articles.R
-          Rscript scripts/prune_retired_site_outputs.R
-          Rscript scripts/write_build_info.R
-          Rscript scripts/validate_site.R --rendered --allow-stale-data
+        run: Rscript scripts/finalize_rendered_site.R --allow-stale-data
 
       - name: Upload rendered-site artifact
         uses: actions/upload-artifact@v4

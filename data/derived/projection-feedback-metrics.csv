@@ -1,2 +1,2 @@
 "settled_games","eligible_unsettled_games","calibration_minimum_games","calibration_status","brier_score","log_loss","classification_accuracy","calibration_bias","away_runs_mae","home_runs_mae","total_runs_mae","model_version"
-36,0,300,"accumulating pregame outcomes",0.27300823375,0.743980485786689,0.5,-0.136769444444444,1.91733333333333,2.66058333333333,3.91696666666667,"scheduled_game_simulator_development_v1; scheduled_game_simulator_development_v2"
+51,0,300,"accumulating pregame outcomes",0.262923579460784,0.72102952222613,0.509803921568627,-0.0866205882352941,1.84191862745098,2.85454411764706,3.87232549019608,"scheduled_game_simulator_development_v1; scheduled_game_simulator_development_v2"

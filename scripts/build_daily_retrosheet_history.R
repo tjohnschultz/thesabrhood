@@ -189,7 +189,7 @@ if (nrow(daily)) {
   daily$story_score <- round(0.65 * rarity_score + 0.25 * daily$recognition_score + 0.10 * recency_score, 1)
   daily$headline <- paste0(
     daily$player_name, "'s ", daily$rarity_label, " has occurred ",
-    format(daily$occurrence_count, big.mark = ","), " times in the ",
+    format(daily$occurrence_count, big.mark = ",", trim = TRUE), " times in the ",
     history_range, " Retrosheet index"
   )
   daily <- daily[order(daily$role, -daily$story_score, daily$occurrence_count), , drop = FALSE]
