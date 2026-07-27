@@ -1,2 +1,2 @@
 "eligible_reliever_forecasts","settled_reliever_forecasts","mean_appearance_probability","observed_appearance_rate","appearance_brier_score","calibration_bias","status","model_version"
-12,0,,,,,"awaiting completed games for state-engine reliever grading","plate_appearance_state_machine_phase3_v1"
+24,24,0.725666666666667,0.416666666666667,0.387224,-0.309,"accumulating completed reliever decisions","plate_appearance_state_machine_phase4_baserunning_v1"
