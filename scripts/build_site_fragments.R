@@ -54,6 +54,14 @@ fmt_dec <- function(value, digits = 3L) {
 fmt_score <- function(value) {
   ifelse(is.finite(num(value)), format(round(num(value), 1L), nsmall = 1L), "-")
 }
+fmt_signed <- function(value, digits = 1L) {
+  value <- num(value)
+  ifelse(
+    is.finite(value),
+    paste0(ifelse(value > 0, "+", ""), format(round(value, digits), nsmall = digits)),
+    "-"
+  )
+}
 fmt_z <- function(value) {
   value <- num(value)
   ifelse(is.finite(value), paste0(ifelse(value > 0, "+", ""), format(round(value, 1L), nsmall = 1L), " SD"), "-")
@@ -155,14 +163,15 @@ arsenal_spotlight_card <- function(rows) {
     )
   }, character(1))
   paste0(
-    '<article class="arsenal-spotlight-card"><header><div><span class="eyebrow">Arsenal takeover #',
+    '<article class="arsenal-spotlight-card"><header><div><span class="eyebrow">Emerging weapon #',
     html_escape(fmt_int(rows$spotlight_rank[[1L]])), '</span><h3>', html_escape(rows$player_name[[1L]]),
     '</h3><p>', html_escape(rows$team[[1L]]), ' &middot; throws ', html_escape(rows$hand[[1L]]),
     '</p></div><strong>', html_escape(rows$featured_pitch_name[[1L]]), '</strong></header>',
     '<div class="arsenal-spotlight-card__signal"><span><small>Usage change</small><strong>+',
     html_escape(fmt_dec(rows$featured_usage_delta_pp[[1L]], 1L)), ' pts</strong></span><span><small>Whiff change</small><strong>',
     html_escape(ifelse(num(rows$featured_whiff_delta[[1L]]) > 0, "+", "")), html_escape(fmt_rate(rows$featured_whiff_delta[[1L]])),
-    '</strong></span><span><small>Current whiff</small><strong>', html_escape(fmt_rate(featured$whiff_rate[[1L]])),
+    '</strong></span><span><small>Recent pitch sample</small><strong>', html_escape(fmt_int(rows$featured_recent_pitches[[1L]])),
+    '</strong></span><span><small>Earlier pitch sample</small><strong>', html_escape(fmt_int(rows$featured_baseline_pitches[[1L]])),
     '</strong></span><span><small>Shape</small><strong>', html_escape(fmt_dec(featured$average_horizontal_break[[1L]], 1L)),
     ' HB / ', html_escape(fmt_dec(featured$average_induced_vertical_break[[1L]], 1L)), ' IVB</strong></span></div>',
     '<ol class="arsenal-mix">', paste0(arsenal_rows, collapse = ""), '</ol></article>'
@@ -475,6 +484,8 @@ hitter_platoon <- read_product("hitter-platoon-summary.csv")
 pitcher_platoon <- read_product("pitcher-platoon-summary.csv")
 pitch_types <- read_product("pitch-type-summary.csv")
 historical <- read_product("historical-anniversary-notes.csv")
+history_match_notes <- read_product("history-match-notes.csv")
+daily_retrosheet_history <- read_product("daily-retrosheet-history.csv")
 historical_milestones <- read_product("historical-milestone-notes.csv")
 historical_profiles <- read_product("historical-player-profiles.csv")
 active_milestones <- read_product("active-milestone-watch.csv")
@@ -488,6 +499,24 @@ signature_pitches <- read_product("signature-pitch-board.csv")
 team_broadcast_notes <- read_product("team-broadcast-notes.csv")
 hitter_changes <- read_product("hitter-change-profiles.csv")
 pitcher_changes <- read_product("pitcher-change-profiles.csv")
+career_trajectories <- read_product("career-trajectory-projections.csv")
+career_comparables <- read_product("career-trajectory-comparables.csv")
+career_model_card <- read_product("career-trajectory-model-card.csv")
+career_backtest <- read_product("career-trajectory-backtest-summary.csv")
+career_calibration <- read_product(
+  "career-trajectory-probability-calibration.csv"
+)
+career_holdout <- read_product("career-trajectory-holdout-validation.csv")
+career_rate_validation <- read_product(
+  "career-trajectory-rate-validation.csv"
+)
+career_weight_tuning <- read_product("career-trajectory-weight-tuning.csv")
+career_tuning_evaluation <- read_product(
+  "career-trajectory-tuning-evaluation.csv"
+)
+career_weight_profiles <- read_product(
+  "career-trajectory-weight-profiles.csv"
+)
 re24 <- read_product("run-expectancy-24.csv")
 bullpen <- read_product("bullpen-availability.csv")
 manager <- read_product("manager-data-summary.csv")
@@ -515,6 +544,17 @@ daily_park_weather <- read_product("daily-park-weather.csv")
 daily_slate_status <- read_product("daily-slate-status.csv")
 aaa_hitters <- read_product("aaa-hitter-watch.csv")
 aaa_pitchers <- read_product("aaa-pitcher-watch.csv")
+aaa_callups <- read_product("aaa-call-up-radar.csv")
+aaa_standings <- read_product("aaa-standings-current.csv")
+aaa_standings_movement <- read_product("aaa-standings-movement.csv")
+aaa_team_rankings <- read_product("aaa-team-rankings.csv")
+hitter_tracking <- read_product("hitter-tracking-totals.csv")
+pitcher_tracking <- read_product("pitcher-tracking-totals.csv")
+team_tracking <- read_product("team-tracking-totals.csv")
+mlb_standings <- read_product("mlb-standings-current.csv")
+mlb_standings_movement <- read_product("mlb-standings-movement.csv")
+newsletter_stories <- read_product("daily-newsletter-stories.csv")
+newsletter_edition <- read_product("daily-newsletter-edition.csv")
 fangraphs_hitters <- read_product("fangraphs-season-hitters.csv")
 fangraphs_pitchers <- read_product("fangraphs-season-pitchers.csv")
 award_races <- read_product("award-race-board.csv")
@@ -522,6 +562,8 @@ award_race_history <- read_product("award-race-history.csv")
 award_race_display <- read_product("award-race-display.csv")
 award_race_events <- read_product("award-race-events.csv")
 award_race_current <- read_product("award-race-current-leaders.csv")
+mvp_era_profiles <- read_product("mvp-era-stat-profiles.csv")
+mvp_modern_weights <- read_product("mvp-modern-model-weights.csv")
 graphics_manifest <- read_product("graphics-feed-manifest.csv")
 graphics_cache_token <- gsub(
   "[^0-9]",
@@ -546,6 +588,16 @@ baserunning_runners <- read_product("baserunning-runner-profiles.csv")
 baserunning_pitcher_hold <- read_product("baserunning-pitcher-hold-profiles.csv")
 baserunning_parks <- read_product("baserunning-park-factors.csv")
 baserunning_model <- read_product("baserunning-model-card.csv")
+run_game_pitchers <- read_product("run-game-pitcher-ratings.csv")
+run_game_catchers <- read_product("run-game-catcher-ratings.csv")
+run_game_runners <- read_product("run-game-runner-ratings.csv")
+run_game_counts <- read_product("run-game-count-windows.csv")
+run_game_notes <- read_product("run-game-notes.csv")
+run_game_model <- read_product("run-game-model-card.csv")
+catcher_framing <- read_product("catcher-framing-ratings.csv")
+catcher_framing_model <- read_product("catcher-framing-model-card.csv")
+abs_challenges <- read_product("abs-challenge-leaderboard.csv")
+abs_model <- read_product("abs-challenge-model-card.csv")
 game_backtest_metrics <- read_product("game-projection-backtest-metrics.csv")
 game_backtest_calibration <- read_product("game-projection-calibration.csv")
 game_score_model_card <- read_product("game-score-model-card.csv")
@@ -554,6 +606,9 @@ projection_feedback_metrics <- read_product("projection-feedback-metrics.csv")
 projection_feedback_ledger <- read_product("projection-feedback-ledger.csv")
 rolling_pitch_usage <- read_product("rolling-league-pitch-usage.csv")
 rolling_production <- read_product("rolling-league-production.csv")
+rolling_pitch_quality <- read_product("rolling-league-pitch-quality.csv")
+rolling_batted_ball <- read_product("rolling-league-batted-ball.csv")
+rolling_workload <- read_product("rolling-league-workload.csv")
 insane_awards <- read_product("insane-baseball-awards.csv")
 team_positional_war <- read_product("team-positional-war.csv")
 hitter_discipline <- read_product("hitter-discipline-profiles.csv")
@@ -1199,7 +1254,7 @@ pitcher_matchup_cards <- vapply(seq_len(nrow(pitcher_matchup_spotlights)), funct
 write_fragment("matchup-edges.html", c(
   '<section class="section-heading"><span class="eyebrow">Hitter matchup edges</span><h2>Where the damage profile changes most</h2><p>Two-sided samples only: every card requires at least 40 plate appearances against both left- and right-handed pitching.</p></section>',
   '<div class="signal-grid">', hitter_matchup_cards, '</div>',
-  '<section class="section-heading"><span class="eyebrow">Pitcher matchup edges</span><h2>Which side is each arm suppressing?</h2><p>For pitchers, the highlighted side is the opponent hand with the lower estimated wOBA allowed.</p></section>',
+  '<section class="section-heading"><span class="eyebrow">Pitcher matchup edges</span><h2>Which side does each arm handle best?</h2><p>For pitchers, the highlighted side is the opponent hand with the lower estimated wOBA allowed.</p></section>',
   '<div class="signal-grid">', pitcher_matchup_cards, '</div>',
   '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Full hitter board</span><h2>Largest qualified platoon gaps</h2></div>',
   render_table(utils::head(hitter_matchups, 20L), c("matchup_edge_rank", "player_name", "team", "pa_vs_l", "woba_vs_l", "pa_vs_r", "woba_vs_r", "woba_gap", "stronger_opponent_hand", "matchup_edge_score"),
@@ -1270,7 +1325,28 @@ hall_of_fame_card <- function(row) {
 milestone_spotlights <- historical_milestones[!duplicated(historical_milestones$subject_id), ]
 milestone_spotlights <- milestone_spotlights[seq_len(min(8L, nrow(milestone_spotlights))), ]
 anniversary_spotlights <- historical[seq_len(min(8L, nrow(historical))), ]
-active_milestone_spotlights <- active_milestones[seq_len(min(8L, nrow(active_milestones))), ]
+upcoming_milestones <- active_milestones[active_milestones$milestone_status == "approaching", , drop = FALSE]
+upcoming_milestones <- upcoming_milestones[
+  order(num(upcoming_milestones$distance_to_milestone), -num(upcoming_milestones$story_score)),
+  ,
+  drop = FALSE
+]
+upcoming_milestone_spotlights <- utils::head(upcoming_milestones, 8L)
+reached_date <- suppressWarnings(as.Date(active_milestones$reached_date))
+history_reference_dates <- c(reached_date, suppressWarnings(as.Date(historical$report_date)))
+history_reference_dates <- history_reference_dates[!is.na(history_reference_dates)]
+history_reference_date <- if (length(history_reference_dates)) max(history_reference_dates) else Sys.Date()
+recent_milestones <- active_milestones[
+  active_milestones$milestone_status == "reached_this_season" &
+    !is.na(reached_date) & reached_date >= history_reference_date - 30,
+  ,
+  drop = FALSE
+]
+recent_milestones$reached_date <- reached_date[
+  active_milestones$milestone_status == "reached_this_season" &
+    !is.na(reached_date) & reached_date >= history_reference_date - 30
+]
+recent_milestones <- recent_milestones[order(as.Date(recent_milestones$reached_date), decreasing = TRUE), , drop = FALSE]
 
 anniversary_cards <- vapply(seq_len(nrow(anniversary_spotlights)), function(index) {
   player_card(
@@ -1294,17 +1370,50 @@ milestone_cards <- vapply(seq_len(nrow(milestone_spotlights)), function(index) {
   )
 }, character(1))
 
-active_milestone_cards <- vapply(seq_len(nrow(active_milestone_spotlights)), function(index) {
-  status <- if (active_milestone_spotlights$milestone_status[[index]] == "reached_this_season") "Reached in 2026" else "Closing in"
+upcoming_milestone_cards <- vapply(seq_len(nrow(upcoming_milestone_spotlights)), function(index) {
   player_card(
-    paste(active_milestone_spotlights$role[[index]], "milestone"),
-    active_milestone_spotlights$player_name[[index]],
-    active_milestone_spotlights$team[[index]],
-    active_milestone_spotlights$headline[[index]],
-    paste(status, "| career estimate", fmt_int(active_milestone_spotlights$career_to_date_value[[index]])),
-    fmt_score(active_milestone_spotlights$story_score[[index]])
+    paste(upcoming_milestone_spotlights$role[[index]], "landmark ahead"),
+    upcoming_milestone_spotlights$player_name[[index]],
+    upcoming_milestone_spotlights$team[[index]],
+    upcoming_milestone_spotlights$headline[[index]],
+    paste("Current career estimate", fmt_int(upcoming_milestone_spotlights$career_to_date_value[[index]]),
+      "| target", fmt_int(upcoming_milestone_spotlights$milestone_target[[index]])),
+    fmt_score(upcoming_milestone_spotlights$story_score[[index]])
   )
 }, character(1))
+recent_milestone_cards <- vapply(seq_len(min(6L, nrow(recent_milestones))), function(index) {
+  player_card(
+    paste(recent_milestones$role[[index]], "recent landmark"),
+    recent_milestones$player_name[[index]],
+    recent_milestones$team[[index]],
+    recent_milestones$headline[[index]],
+    paste("Reached", format(as.Date(recent_milestones$reached_date[[index]]), "%B %d, %Y"),
+      "| current estimate", fmt_int(recent_milestones$career_to_date_value[[index]])),
+    fmt_score(recent_milestones$story_score[[index]])
+  )
+}, character(1))
+retrosheet_game_cards <- vapply(seq_len(nrow(daily_retrosheet_history)), function(index) {
+  player_card(
+    paste(daily_retrosheet_history$role[[index]], "rarity"),
+    daily_retrosheet_history$player_name[[index]],
+    paste(daily_retrosheet_history$team[[index]], "vs.", daily_retrosheet_history$opponent[[index]]),
+    daily_retrosheet_history$stat_line[[index]],
+    paste(
+      format(as.Date(daily_retrosheet_history$game_date[[index]]), "%B %d, %Y"), "|",
+      daily_retrosheet_history$rarity_label[[index]], "|",
+      fmt_int(daily_retrosheet_history$occurrence_count[[index]]), "occurrences in the indexed era"
+    ),
+    fmt_score(daily_retrosheet_history$story_score[[index]])
+  )
+}, character(1))
+retrosheet_universe <- if (
+  nrow(daily_retrosheet_history) &&
+    "history_universe" %in% names(daily_retrosheet_history)
+) {
+  as.character(daily_retrosheet_history$history_universe[[1L]])
+} else {
+  "the indexed Retrosheet regular-season universe"
+}
 
 write_fragment("history-desk.html", c(
   '<div class="history-scoreboard">',
@@ -1315,14 +1424,128 @@ write_fragment("history-desk.html", c(
   '</div>',
   '<section class="section-heading"><span class="eyebrow">On this date</span><h2>Importance meets audience memory</h2><p>Career significance still matters, but the ranking now adds a familiarity boost for players whose careers ended more recently.</p></section>',
   '<div class="signal-grid signal-grid--four">', anniversary_cards, '</div>',
-  '<section class="section-heading"><span class="eyebrow">Active milestone watch</span><h2>Career landmarks moving right now</h2><p>Prior Lahman career totals through 2025 plus current 2026 summaries surface the players who have reached or are approaching recognizable clubs.</p></section>',
-  '<div class="signal-grid signal-grid--four">', active_milestone_cards, '</div>',
+  paste0(
+    '<section class="section-heading"><span class="eyebrow">The date in box-score history</span><h2>Rare games that happened today</h2><p>Each performance must clear a defined single-game threshold, then ',
+    'the full ', html_escape(retrosheet_universe),
+    ' archive is searched to count exactly how often that threshold occurred. Rarity leads the ranking; player recognition and recency break ties.</p></section>'
+  ),
+  '<div class="signal-grid signal-grid--three history-game-grid">', retrosheet_game_cards, '</div>',
+  '<div class="method-callout"><strong>Retrosheet attribution:</strong> The information used in the rare-game desk was obtained free of charge from and is copyrighted by Retrosheet. Interested parties may contact Retrosheet at www.retrosheet.org.</div>',
+  '<section class="section-heading"><span class="eyebrow">Landmarks ahead</span><h2>What baseball should be ready to celebrate next</h2><p>Only approaching career thresholds appear here. The proximity window changes with the statistic, so ten home runs and 25 hits can both represent a meaningful near-term watch.</p></section>',
+  '<div class="signal-grid signal-grid--four">', upcoming_milestone_cards, '</div>',
+  '<section class="section-heading"><span class="eyebrow">Recently reached</span><h2>The landmark and the date it became official</h2><p>Current-season player-game lines identify the first game in which the cumulative total crossed the career threshold. The desk retains the most recent 30 days.</p></section>',
+  '<div class="signal-grid signal-grid--three">', recent_milestone_cards, '</div>',
   '<div class="method-callout"><strong>Identity note:</strong> this prototype uses unique normalized-name matching between MLBAM summaries and Lahman. Ambiguous duplicate names are rejected, and every published row carries the provisional match method.</div>',
   '<section class="section-heading"><span class="eyebrow">Milestone vault</span><h2>Career clubs and record context</h2><p>Evergreen research candidates built from Lahman career totals. True WAR remains a separate future input.</p></section>',
   '<div class="signal-grid signal-grid--four">', milestone_cards, '</div>',
   '<section class="section-heading"><span class="eyebrow">Hall of Famer spotlight</span><h2>One great career, one compact broadcast card</h2><p>The daily selection is random but weighted toward more recent eras, then the card chooses the career totals that best describe the player.</p></section>',
   hall_of_fame_card(hall_spotlight),
   '<div class="method-callout"><strong>Recognition is context, not a verdict:</strong> the anniversary score exists to order story candidates. Its new recency term models audience familiarity; it is not a claim that recent players were better.</div>'
+))
+
+history_match_notes <- history_match_notes[
+  order(num(history_match_notes$note_score), decreasing = TRUE),
+  ,
+  drop = FALSE
+]
+history_match_cards <- if (nrow(history_match_notes)) {
+  vapply(seq_len(nrow(history_match_notes)), function(index) {
+    row <- history_match_notes[index, , drop = FALSE]
+    product_label <- switch(
+      as.character(row$history_product[[1L]]),
+      hitter = "Hitter",
+      pitcher = "Pitcher",
+      team = "Team",
+      "History"
+    )
+    population_label <- if (
+      identical(as.character(row$subject_type[[1L]]), "team")
+    ) {
+      "historical team-seasons"
+    } else {
+      "historical players"
+    }
+    precedent <- if (
+      !is.na(row$prior_subject_name[[1L]]) &&
+        nzchar(as.character(row$prior_subject_name[[1L]]))
+    ) {
+      paste0(
+        "Most recent precedent: ",
+        html_escape(row$prior_subject_name[[1L]]), " (",
+        html_escape(row$prior_season[[1L]]), ")"
+      )
+    } else {
+      paste0(
+        "No prior qualifier in the verified ",
+        html_escape(row$history_start[[1L]]), "&ndash;",
+        html_escape(row$history_end[[1L]]), " search"
+      )
+    }
+    paste0(
+      '<article class="history-match-public-card is-',
+      html_escape(row$history_product[[1L]]), '">',
+      '<header><span>', html_escape(product_label), " &middot; ",
+      html_escape(row$window_label[[1L]]), '</span><small>',
+      html_escape(row$profile_label[[1L]]), '</small></header>',
+      '<h2>', html_escape(row$headline[[1L]]), '</h2>',
+      '<p>', html_escape(row$sentence[[1L]]), '</p>',
+      '<footer><span>', html_escape(fmt_int(
+        row$historical_subject_count[[1L]]
+      )), " ", html_escape(population_label), '</span><span>',
+      precedent, '</span><span>Data through ',
+      html_escape(row$source_through[[1L]]), '</span></footer></article>'
+    )
+  }, character(1))
+} else {
+  character()
+}
+history_match_body <- if (length(history_match_cards)) {
+  c(
+    '<div class="history-match-public-grid">',
+    history_match_cards,
+    '</div>'
+  )
+} else {
+  c(
+    '<article class="history-match-public-empty">',
+    '<span class="eyebrow">Editorial gate active</span>',
+    '<h2>No History Match note is public right now</h2>',
+    '<p>The engine has current research candidates, but this page publishes only claims that a SABRhood producer has approved for the website. A changed threshold or historical precedent automatically removes a prior approval until it is checked again.</p>',
+    '</article>'
+  )
+}
+history_match_source_date <- if (nrow(history_match_notes)) {
+  max(as.Date(history_match_notes$source_through), na.rm = TRUE)
+} else {
+  as.Date(NA)
+}
+write_fragment("history-match-desk.html", c(
+  '<div class="history-match-public-scoreboard">',
+  stat_card(
+    "Published", "Approved notes", fmt_int(nrow(history_match_notes)),
+    "Every live claim cleared the private editorial gate.", "navy"
+  ),
+  stat_card(
+    "Players", "Hitter and pitcher notes",
+    fmt_int(sum(history_match_notes$subject_type == "player")),
+    "Season and like-for-like rolling comparisons.", "red"
+  ),
+  stat_card(
+    "Teams", "Club notes",
+    fmt_int(sum(history_match_notes$subject_type == "team")),
+    "Offense, prevention, and two-way profiles.", "steel"
+  ),
+  stat_card(
+    "Current through", "Source date",
+    if (is.na(history_match_source_date)) "Awaiting approval" else
+      format(history_match_source_date, "%b %d"),
+    "Retrosheet history is frozen through the completed 2025 season.", "navy"
+  ),
+  '</div>',
+  '<section class="section-heading"><span class="eyebrow">Reviewed claims</span><h2>Current performance, matched at a meaningful threshold</h2><p>The engine selects interpretable two-stat profiles, searches the requested historical universe, and retains the most recent precedent. Editorial review controls which claims reach this public feed.</p></section>',
+  history_match_body,
+  '<div class="method-callout"><strong>Retrosheet attribution:</strong> The historical information used in History Match was obtained free of charge from and is copyrighted by Retrosheet. Interested parties may contact Retrosheet at www.retrosheet.org.</div>',
+  '<div class="method-callout"><strong>Publication rule:</strong> packet candidates may remain pending for producer verification, but this page accepts only website-approved claims whose stored claim fingerprint still matches the current threshold and precedent.</div>'
 ))
 
 today_hitter_cards <- vapply(seq_len(min(4L, nrow(top_hitter_form))), function(i) {
@@ -1361,7 +1584,7 @@ write_fragment("today-dashboard.html", c(
   '<div class="slate-brief-grid">', paste0(daily_slate_cards, collapse = ""), '</div></section>',
   '<section class="section-heading"><span class="eyebrow">Recent form</span><h2>Hitters changing the conversation</h2><p>Fourteen-day performance compared with a non-overlapping prior-season baseline.</p></section>',
   paste0('<div class="signal-grid signal-grid--four">', paste0(today_hitter_cards, collapse = ""), '</div>'),
-  '<section class="section-heading"><span class="eyebrow">Run prevention</span><h2>Arms moving in the right direction</h2></section>',
+  '<section class="section-heading"><span class="eyebrow">Pitching form</span><h2>Arms moving in the right direction</h2></section>',
   paste0('<div class="signal-grid signal-grid--four">', paste0(today_pitcher_cards, collapse = ""), '</div>'),
   '<section class="section-heading"><span class="eyebrow">History desk</span><h2>On this date</h2><p>Daily Lahman anniversary candidates, ranked for editorial review.</p></section>',
   paste0('<div class="signal-grid signal-grid--four">', paste0(history_cards, collapse = ""), '</div>')
@@ -1374,7 +1597,7 @@ award_cards <- vapply(seq_len(nrow(award_keys)), function(index) {
   key <- award_keys[index, , drop = FALSE]
   rows <- award_races[award_races$award == key$award & award_races$league == key$league, , drop = FALSE]
   label <- if (key$award == "ROTY watch") "Rookie of the Year watch" else key$award
-  subtitle <- if (key$award == "ROTY watch") "Role-balanced hitter and pitcher score" else if (key$award == "Reliever of the Year") "Leverage, command, saves, and run prevention" else "Transparent season performance score"
+  subtitle <- if (key$award == "ROTY watch") "Role-balanced hitter and pitcher score" else if (key$award == "Reliever of the Year") "Leverage, command, saves, and pitching performance" else "Transparent season performance score"
   footer <- if (key$award == "ROTY watch") {
     "Hitters: WAR 40, wRC+ 25, offense 15, PA 10, defense 5, baserunning 5. Pitchers: WAR 40, ERA 20, FIP 15, K-BB 15, IP 10."
   } else if (key$award == "MVP") {
@@ -1397,7 +1620,7 @@ offense_race_cards <- vapply(seq_len(min(3L, nrow(offense_top))), function(index
 }, character(1))
 prevention_race_cards <- vapply(seq_len(min(3L, nrow(prevention_top))), function(index) {
   player_card(
-    paste("Run prevention #", fmt_int(prevention_top$race_rank[[index]])),
+    paste("Pitching performance #", fmt_int(prevention_top$race_rank[[index]])),
     prevention_top$player_name[[index]], prevention_top$team[[index]],
     paste(fmt_dec(prevention_top$ops[[index]]), "OPS allowed |", fmt_dec(prevention_top$woba_estimate[[index]]), "estimated wOBA"),
     paste(fmt_int(prevention_top$pa[[index]]), "BF |", fmt_rate(prevention_top$strikeout_rate[[index]]), "strikeout rate"),
@@ -1424,14 +1647,31 @@ race_timeline_cards <- vapply(c("AL", "NL"), function(league_name) {
     html_escape(if (nrow(risers)) risers$player_name[[1L]] else "none"), '</span></footer></article>'
   )
 }, character(1))
+mvp_metric_labels <- c(
+  war = "WAR", avg = "AVG", obp = "OBP", slg = "SLG", ops = "OPS",
+  h = "Hits", hr = "HR", rbi = "RBI", r = "Runs", sb = "SB"
+)
+mvp_weight_text <- paste(
+  paste0(
+    unname(mvp_metric_labels[mvp_modern_weights$metric]),
+    " ",
+    round(100 * num(mvp_modern_weights$model_weight))
+  ),
+  collapse = " &middot; "
+)
+available_mvp_decades <- sort(unique(num(mvp_era_profiles$decade)))
+mvp_comparison_pool <- setdiff(available_mvp_decades, 2020)
+mvp_rotation_date <- max(as.Date(award_race_history$checkpoint_date), na.rm = TRUE)
+mvp_rotation_decade <- mvp_comparison_pool[(as.integer(mvp_rotation_date) %% length(mvp_comparison_pool)) + 1L]
 write_fragment("league-races.html", c(
-  '<section class="award-race-room"><div class="section-heading section-heading--tight"><span class="eyebrow">FanGraphs season award room</span><h2>MVP, Cy Young, Reliever of the Year, and the provisional rookie pool</h2><p>WAR, counting production, rate quality, volume, leverage, defense, baserunning, run prevention, and command are translated into league-specific performance scores. Hitting and pitching WAR are combined by player ID so two-way value remains intact. The result is not presented as a ballot forecast.</p></div>',
+  '<section class="award-race-room"><div class="section-heading section-heading--tight"><span class="eyebrow">FanGraphs season award room</span><h2>MVP, Cy Young, Reliever of the Year, and the provisional rookie pool</h2><p>WAR, counting production, rate quality, volume, leverage, defense, baserunning, pitching performance, and command are translated into league-specific performance scores. Hitting and pitching WAR are combined by player ID so two-way value remains intact. The result is not presented as a ballot forecast.</p></div>',
   '<div class="award-lane-grid">', paste0(award_cards, collapse = ""), '</div>',
-  '<div class="award-method-strip"><span><strong>MVP</strong> Combined WAR 30 &middot; wRC+ 18 &middot; HR 12 &middot; RBI/runs 15 &middot; offense 10 &middot; defense/PA/WPA 15</span><span><strong>Cy Young</strong> WAR 25 &middot; ERA 20 &middot; FIP 15 &middot; K-BB 15 &middot; IP 15 &middot; WHIP 10</span><span><strong>Reliever</strong> WAR 25 &middot; ERA 20 &middot; FIP/K-BB 30 &middot; WPA 10 &middot; saves 10 &middot; IP 5</span><span><strong>ROTY</strong> Hitters and pitchers receive separate role-native weights before joining one race; official service days still require verification</span></div>',
+  paste0('<div class="award-method-strip"><span><strong>MVP &middot; 2020s ballot profile</strong> ', mvp_weight_text, '</span><span><strong>Cy Young</strong> WAR 25 &middot; ERA 20 &middot; FIP 15 &middot; K-BB 15 &middot; IP 15 &middot; WHIP 10</span><span><strong>Reliever</strong> WAR 25 &middot; ERA 20 &middot; FIP/K-BB 30 &middot; WPA 10 &middot; saves 10 &middot; IP 5</span><span><strong>ROTY</strong> Hitters and pitchers receive separate role-native weights before joining one race; official service days still require verification</span></div>'),
   '<section class="award-history-room"><div class="section-heading section-heading--tight"><span class="eyebrow">Seventeen date-bounded checkpoints</span><h2>How the MVP races reached today</h2><p>The current top eight are traced backward through weekly cumulative FanGraphs pulls. Each point is recalculated with only the statistics available through that checkpoint, with stronger playing-time reliability shrinkage early in the season.</p></div><div class="race-timeline-summary">', race_timeline_cards, '</div>',
   '<div class="race-graphics-grid race-graphics-grid--timelines"><figure><img src="images/graphics-feed/al-mvp-race.png" alt="American League MVP season-to-date Race Rating timeline for the current top eight"><figcaption>AL MVP season-to-date timeline</figcaption></figure><figure><img src="images/graphics-feed/nl-mvp-race.png" alt="National League MVP season-to-date Race Rating timeline for the current top eight"><figcaption>NL MVP season-to-date timeline</figcaption></figure></div></section>',
+  paste0('<section class="mvp-era-room"><div class="section-heading section-heading--tight"><span class="eyebrow">Daily ballot-history rotation</span><h2>What the ', html_escape(fmt_int(mvp_rotation_decade)), 's rewarded, compared with today</h2><p>Every historical MVP is placed back into his own league-season distribution. The chart asks which categories MVP winners most consistently dominated in each decade, then compares that profile with winners from the 2020s.</p></div><figure class="feature-graphic feature-graphic--wide"><img src="images/graphics-feed/mvp-era-rotation.png" alt="MVP winner league percentiles by statistic for a rotating historical decade compared with the 2020s"><figcaption><strong>Ballot DNA changes with the sport.</strong> The current model uses the 2020s statistical profile, with WAR retained as a 35% modern total-value anchor because Lahman does not contain season WAR.</figcaption></figure></section>'),
   '<div class="race-graphics-grid"><figure><img src="images/graphics-feed/al-cy-young-race.png" alt="American League Cy Young performance ladder"><figcaption>AL Cy Young performance ladder</figcaption></figure><figure><img src="images/graphics-feed/nl-cy-young-race.png" alt="National League Cy Young performance ladder"><figcaption>NL Cy Young performance ladder</figcaption></figure><figure><img src="images/graphics-feed/al-reliever-race.png" alt="American League reliever performance ladder"><figcaption>AL Reliever of the Year performance ladder</figcaption></figure><figure><img src="images/graphics-feed/nl-reliever-race.png" alt="National League reliever performance ladder"><figcaption>NL Reliever of the Year performance ladder</figcaption></figure></div></section>',
-  '<div class="race-disclaimer"><strong>Two complementary lenses.</strong><span>The FanGraphs award room above includes season value and defensive components. The PBP-derived boards below isolate offensive production and run prevention without claiming to predict a ballot.</span></div>',
+  '<div class="race-disclaimer"><strong>Two complementary lenses.</strong><span>The FanGraphs award room above includes season value and defensive components. The PBP-derived boards below isolate offensive and pitching performance without claiming to predict a ballot.</span></div>',
   '<section class="section-heading"><span class="eyebrow">The offensive race</span><h2>Who has built the strongest hitting case?</h2><p>Estimated wOBA, OPS, run value per plate appearance, contact quality, and sample reliability form the transparent composite.</p></section>',
   '<div class="signal-grid">', offense_race_cards, '</div>',
   '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Offensive board</span><h2>Top 12 season performances</h2></div>',
@@ -1439,7 +1679,7 @@ write_fragment("league-races.html", c(
     c("Rank", "Player", "Team", "PA", "OPS", "wOBA est.", "Hard-hit", "RV/PA", "Score"),
     list(race_rank = fmt_int, pa = fmt_int, ops = fmt_dec, woba_estimate = fmt_dec, hard_hit_rate = fmt_rate, run_value_per_pa = fmt_dec, race_score = fmt_score)),
   '</section>',
-  '<section class="section-heading"><span class="eyebrow">The run-prevention race</span><h2>Which pitchers are suppressing offense most completely?</h2><p>Opponent estimated wOBA and OPS lead the model, reinforced by strikeouts, contact suppression, and sample reliability.</p></section>',
+  '<section class="section-heading"><span class="eyebrow">The pitching performance race</span><h2>Which pitchers are limiting opponent production most completely?</h2><p>Opponent estimated wOBA and OPS lead the model, reinforced by strikeouts, contact quality allowed, and sample reliability.</p></section>',
   '<div class="signal-grid">', prevention_race_cards, '</div>',
   '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Run-prevention board</span><h2>Top 12 season performances</h2></div>',
   render_table(prevention_top, c("race_rank", "player_name", "team", "pa", "ops", "woba_estimate", "strikeout_rate", "hard_hit_rate", "race_score"),
@@ -1448,78 +1688,66 @@ write_fragment("league-races.html", c(
   '</section>'
 ))
 
-newsletter_hitter <- change_spotlights[change_spotlights$perspective == "batter" & change_spotlights$dominant_change_direction == "improving", , drop = FALSE][1L, ]
-newsletter_pitcher <- change_spotlights[change_spotlights$perspective == "pitcher" & change_spotlights$dominant_change_direction == "improving", , drop = FALSE][1L, ]
-newsletter_history <- historical[1:min(5L, nrow(historical)), ]
-newsletter_history_list <- paste0(
-  '<li><strong>', html_escape(newsletter_history$subject_name), '</strong><span>',
-  html_escape(newsletter_history$headline), '</span></li>',
-  collapse = ""
-)
-newsletter_radar <- story_lineup[seq_len(min(5L, nrow(story_lineup))), ]
-newsletter_radar_list <- paste0(
-  '<li><strong>', html_escape(category_labels[newsletter_radar$category]), ': ', html_escape(newsletter_radar$subject), '</strong><span>',
-  html_escape(newsletter_radar$headline), '</span></li>',
-  collapse = ""
-)
-newsletter_projection_story <- if (is_off_day) {
-  paste0('<section class="newsletter-story"><span class="eyebrow">Daily Simulation center</span><h2>No MLB games are scheduled today</h2><p>The daily reporting engines still refreshed, but the simulation board is resting with the league. Yesterday&rsquo;s probabilities are never relabeled as a new slate.</p><p class="method-note"><a href="projections.html">Open the simulation center methodology and feedback room.</a></p></section>')
-} else {
-  paste0('<section class="newsletter-story"><span class="eyebrow">Simulation center preview</span><h2>',
-    html_escape(feature_projection$away_team[[1L]]), ' at ', html_escape(feature_projection$home_team[[1L]]),
-    ' profiles as a ', html_escape(projection_lean(feature_projection$winner_probability[[1L]])), '</h2><p>The scheduled-game development model gives ',
-    html_escape(feature_projection$projected_winner[[1L]]), ' a ', html_escape(fmt_rate(feature_projection$winner_probability[[1L]])),
-    ' win share, with a ', html_escape(fmt_dec(feature_projection$mean_total_runs[[1L]], 1L)),
-    '-run mean total and a ', html_escape(fmt_rate(feature_projection$one_run_probability[[1L]])),
-    ' chance of a one-run result.</p><div class="evidence-row"><span><small>Away mean</small><strong>',
-    html_escape(fmt_dec(feature_projection$away_mean_runs[[1L]], 1L)), '</strong></span><span><small>Home mean</small><strong>',
-    html_escape(fmt_dec(feature_projection$home_mean_runs[[1L]], 1L)), '</strong></span><span><small>Extras</small><strong>',
-    html_escape(fmt_rate(feature_projection$extra_innings_probability[[1L]])), '</strong></span></div><p class="method-note">Today&rsquo;s inputs are connected; calibration and final publication approval are still pending. <a href="projections.html">Open the simulation center.</a></p></section>')
-}
+newsletter_stories <- newsletter_stories[order(num(newsletter_stories$newsletter_rank)), , drop = FALSE]
+newsletter_lead <- newsletter_stories[newsletter_stories$placement == "lead", , drop = FALSE][1L, ]
+newsletter_features <- newsletter_stories[newsletter_stories$placement == "feature", , drop = FALSE]
+newsletter_briefs <- newsletter_stories[newsletter_stories$placement == "brief", , drop = FALSE]
+newsletter_feature_cards <- vapply(seq_len(nrow(newsletter_features)), function(index) {
+  row <- newsletter_features[index, , drop = FALSE]
+  paste0(
+    '<article class="newsletter-story"><span class="eyebrow">',
+    html_escape(gsub("-", " ", row$lane[[1L]])), '</span><h2>',
+    html_escape(row$headline[[1L]]), '</h2><p>', html_escape(row$deck[[1L]]),
+    '</p><div class="newsletter-evidence"><span>', html_escape(row$evidence[[1L]]),
+    '</span><strong>', html_escape(fmt_score(row$editorial_score[[1L]])),
+    '</strong></div><a class="newsletter-story__link" href="',
+    html_escape(row$page_link[[1L]]), '">Open the full board <span aria-hidden="true">&rarr;</span></a></article>'
+  )
+}, character(1))
+newsletter_brief_list <- vapply(seq_len(nrow(newsletter_briefs)), function(index) {
+  row <- newsletter_briefs[index, , drop = FALSE]
+  paste0(
+    '<li><span>', html_escape(gsub("-", " ", row$lane[[1L]])), '</span><div><strong>',
+    html_escape(row$headline[[1L]]), '</strong><small>', html_escape(row$evidence[[1L]]),
+    '</small></div><a href="', html_escape(row$page_link[[1L]]),
+    '" aria-label="Open ', html_escape(row$headline[[1L]]), '">&rarr;</a></li>'
+  )
+}, character(1))
 write_fragment("newsletter-daily.html", c(
   paste0(
-    '<section class="newsletter-mast"><div><span class="eyebrow">Daily edition &middot; ', html_escape(updated_label),
-    '</span><h2>The trends turning heads</h2><p>A compact morning briefing generated from form, contact quality, pitch data, game context, and baseball history.</p></div>',
+    '<section class="newsletter-mast"><div><span class="eyebrow">',
+    html_escape(newsletter_edition$weekday[[1L]]), ' edition &middot; ', html_escape(updated_label),
+    '</span><h2>', html_escape(newsletter_edition$theme_title[[1L]]), '</h2><p>',
+    html_escape(newsletter_edition$theme_deck[[1L]]), '</p></div>',
     '<div class="newsletter-mast__stamp"><strong>SABR</strong><span>hood daily</span></div></section>'
   ),
   '<div class="newsletter-layout"><main class="newsletter-main">',
-  '<section class="newsletter-story newsletter-story--lead"><span class="eyebrow">Biggest mover</span>',
-  paste0('<h2>', html_escape(newsletter_hitter$player_name[[1]]), ' is forcing the issue</h2>'),
-  paste0('<p class="newsletter-deck">The ', html_escape(newsletter_hitter$team[[1]]), ' hitter carries a ',
-    html_escape(fmt_dec(newsletter_hitter$recent_ops[[1]])), ' OPS across ', html_escape(fmt_int(newsletter_hitter$recent_pa[[1]])),
-    ' recent plate appearances, compared with ', html_escape(fmt_dec(newsletter_hitter$baseline_ops[[1]])), ' before the current window.</p>'),
-  paste0('<div class="evidence-row"><span><small>Form score</small><strong>', html_escape(fmt_score(newsletter_hitter$form_score[[1]])),
-    '</strong></span><span><small>Biggest shift</small><strong>', html_escape(fmt_z(newsletter_hitter$dominant_change_z[[1]])),
-    '</strong></span><span><small>Season context</small><strong>', html_escape(paste0(fmt_ordinal(newsletter_hitter$dominant_season_percentile[[1]]), " pct.")), '</strong></span></div>'),
-  '<p class="method-note">The recent window and prior baseline do not overlap. Form score is a cohort-relative signal, not a rest-of-season projection.</p></section>',
-  '<section class="newsletter-story"><span class="eyebrow">Biggest mover</span>',
-  paste0('<h2>', html_escape(newsletter_pitcher$player_name[[1]]), ' has changed the quality of contact</h2>'),
-  paste0('<p>The ', html_escape(newsletter_pitcher$team[[1]]), ' pitcher has allowed a ',
-    html_escape(fmt_dec(newsletter_pitcher$recent_ops[[1]])), ' OPS in the recent window. The prior baseline was ',
-    html_escape(fmt_dec(newsletter_pitcher$baseline_ops[[1]])), '.</p>'),
-  paste0('<div class="evidence-row"><span><small>Recent BF</small><strong>', html_escape(fmt_int(newsletter_pitcher$recent_pa[[1]])),
-    '</strong></span><span><small>Biggest shift</small><strong>', html_escape(fmt_z(newsletter_pitcher$dominant_change_z[[1]])),
-    '</strong></span><span><small>Season context</small><strong>', html_escape(paste0(fmt_ordinal(newsletter_pitcher$dominant_season_percentile[[1]]), " pct.")), '</strong></span></div>'),
-  paste0('<p class="method-note"><strong>Context read:</strong> ', html_escape(newsletter_pitcher$change_context[[1]]), '</p>'),
-  '</section>',
-  newsletter_projection_story,
+  paste0(
+    '<section class="newsletter-story newsletter-story--lead"><span class="eyebrow">',
+    html_escape(gsub("-", " ", newsletter_lead$lane[[1L]])), ' &middot; lead story</span><h1>',
+    html_escape(newsletter_lead$headline[[1L]]), '</h1><p class="newsletter-deck">',
+    html_escape(newsletter_lead$deck[[1L]]), '</p><div class="newsletter-lead-proof"><span>',
+    html_escape(newsletter_lead$evidence[[1L]]), '</span><strong>Editorial score ',
+    html_escape(fmt_score(newsletter_lead$editorial_score[[1L]])), '</strong></div><a class="btn btn-sabr-red" href="',
+    html_escape(newsletter_lead$page_link[[1L]]), '">Read the complete analysis</a></section>'
+  ),
+  newsletter_feature_cards,
   '</main><aside class="newsletter-side">',
-  '<section class="newsletter-note"><span class="eyebrow">On this date</span><h2>History queue</h2><ul class="history-list">',
-  newsletter_history_list,
-  '</ul><p class="method-note">Candidates are ranked automatically and intended for editorial review.</p></section>',
-  '<section class="newsletter-note"><span class="eyebrow">Editor\'s radar</span><h2>Five different reporting lanes</h2><ul class="history-list">',
-  newsletter_radar_list,
-  '</ul><p class="method-note">The queue deliberately selects across categories instead of simply taking the five highest raw scores.</p></section>',
-  paste0('<section class="newsletter-note"><span class="eyebrow">Race and milestone watch</span><h2>',
-    html_escape(offense_top$player_name[[1]]), ' leads the offensive board</h2><p>',
-    html_escape(offense_top$player_name[[1]]), ' carries a ', html_escape(fmt_dec(offense_top$ops[[1]])),
-    ' OPS and a ', html_escape(fmt_score(offense_top$race_score[[1]])), ' descriptive race score.</p><p><strong>',
-    html_escape(active_milestones$player_name[[1]]), ':</strong> ', html_escape(active_milestones$headline[[1]]),
-    '.</p><p class="method-note">The race score describes current statistical quality; it is not an award forecast.</p></section>'),
+  '<section class="newsletter-note newsletter-briefing"><span class="eyebrow">Morning briefing</span><h2>The rest of today&rsquo;s board</h2><ol>',
+  newsletter_brief_list,
+  '</ol><p class="method-note">The edition limits each reporting lane to two stories, then applies the day&rsquo;s rotating editorial theme.</p></section>',
+  paste0(
+    '<section class="newsletter-note newsletter-edition-card"><span class="eyebrow">Edition audit</span><h2>',
+    html_escape(fmt_int(newsletter_edition$story_count[[1L]])), ' selected stories</h2><p>',
+    html_escape(fmt_int(newsletter_edition$lane_count[[1L]])),
+    ' distinct reporting lanes are represented. Headlines and decks are assembled from published data fields and threshold-aware templates.</p><small>',
+    html_escape(newsletter_edition$newsletter_method[[1L]]), '</small></section>'
+  ),
   '<section class="newsletter-note newsletter-note--dark"><span class="eyebrow">Today&rsquo;s reading list</span><h2>Go deeper</h2>',
+  '<a href="standings.html">Track the standings <span>&rarr;</span></a>',
+  '<a href="leaderboards.html">Open tracking-data leaders <span>&rarr;</span></a>',
   '<a href="today.html">Open the signal desk <span>&rarr;</span></a>',
-  '<a href="pitch-lab.html">Inspect the Pitch Lab <span>&rarr;</span></a>',
-  '<a href="methodology.html">Audit the methods <span>&rarr;</span></a>',
+  '<a href="aaa.html">Visit Triple-A Watch <span>&rarr;</span></a>',
   '</section></aside></div>'
 ))
 
@@ -1539,6 +1767,202 @@ write_fragment("player-change-cards.html", c(
   '<div class="method-callout"><strong>Interpretation boundary:</strong> a +2 SD change means the direction of movement is unusual among qualified peers; it does not mean the player is two standard deviations above league quality. Season percentiles answer the quality question separately. Neither is a projection.</div>'
 ))
 
+career_trajectory_cards <- vapply(
+  seq_len(min(8L, nrow(career_trajectories))),
+  function(index) {
+    row <- career_trajectories[index, , drop = FALSE]
+    paste0(
+      '<article class="career-trajectory-card"><header><span>',
+      html_escape(row$team[[1L]]), ' &middot; ',
+      html_escape(fmt_int(row$career_games[[1L]])), ' career games</span><strong>',
+      html_escape(paste(
+        tools::toTitleCase(row$confidence[[1L]]),
+        "neighbor fit"
+      )),
+      '</strong></header><h3>', html_escape(row$player_name[[1L]]),
+      '</h3><p>', html_escape(row$broadcast_note[[1L]]), '</p>',
+      '<p>', html_escape(row$future_value_note[[1L]]), '</p>',
+      '<div class="career-trajectory-metrics"><span><small>Closest path</small><strong>',
+      html_escape(row$top_comparable[[1L]]),
+      '</strong></span><span><small>Projected AVG / OBP / SLG</small><strong>',
+      html_escape(paste0(
+        sub("^0", "", sprintf("%.3f", row$final_batting_average_p50[[1L]])),
+        " / ",
+        sub("^0", "", sprintf("%.3f", row$final_on_base_percentage_p50[[1L]])),
+        " / ",
+        sub("^0", "", sprintf("%.3f", row$final_slugging_percentage_p50[[1L]]))
+      )),
+      '</strong></span><span><small>Future HR / 600 PA</small><strong>',
+      html_escape(fmt_dec(
+        row$future_home_runs_per_600_pa_p50[[1L]],
+        1L
+      )),
+      '</strong></span><span><small>Future offensive value</small><strong>',
+      html_escape(paste0(
+        sprintf("%+.1f", row$future_offensive_value_p50[[1L]]),
+        " units"
+      )),
+      '</strong></span><span><small>Legacy path</small><strong>',
+      html_escape(tools::toTitleCase(row$hof_path[[1L]])),
+      '</strong></span></div></article>'
+    )
+  },
+  character(1)
+)
+career_projection_table <- utils::head(career_trajectories, 30L)
+career_projection_table$projected_rate_line <- paste0(
+  sub(
+    "^0", "",
+    sprintf("%.3f", career_projection_table$final_batting_average_p50)
+  ),
+  "/",
+  sub(
+    "^0", "",
+    sprintf("%.3f", career_projection_table$final_on_base_percentage_p50)
+  ),
+  "/",
+  sub(
+    "^0", "",
+    sprintf("%.3f", career_projection_table$final_slugging_percentage_p50)
+  )
+)
+career_backtest_overall <- career_backtest[
+  career_backtest$scope == "overall",
+  ,
+  drop = FALSE
+]
+career_holdout_500 <- career_holdout[
+  as.numeric(career_holdout$threshold_games) == 500,
+  ,
+  drop = FALSE
+]
+career_calibration_label <- if (
+  nrow(career_model_card) &&
+    identical(
+      career_model_card$calibration_status[[1L]],
+      "chronological_holdout_adopted"
+    )
+) {
+  "Probability adjustment adopted"
+} else {
+  "Raw probabilities retained"
+}
+career_tuning_baseline <- career_tuning_evaluation[
+  career_tuning_evaluation$model == "baseline",
+  ,
+  drop = FALSE
+]
+career_tuning_candidate <- career_tuning_evaluation[
+  career_tuning_evaluation$model == "checkpoint_tuned",
+  ,
+  drop = FALSE
+]
+career_tuning_bias <- career_tuning_evaluation[
+  career_tuning_evaluation$model == "active_bias_corrected",
+  ,
+  drop = FALSE
+]
+career_weight_label <- if (
+  nrow(career_model_card) &&
+    identical(
+      career_model_card$weight_tuning_status[[1L]],
+      "chronological_holdout_adopted"
+    )
+) {
+  "Checkpoint weights adopted"
+} else {
+  "Baseline weights retained"
+}
+career_bias_label <- if (
+  nrow(career_model_card) &&
+    identical(
+      career_model_card$bias_tuning_status[[1L]],
+      "chronological_holdout_adopted"
+    )
+) {
+  "Bias correction adopted"
+} else {
+  "Bias correction rejected"
+}
+write_fragment("career-trajectories.html", c(
+  '<div class="change-method-strip"><strong>Chronologically backtested comparable paths, not destiny</strong><span>The engine aligns hitters by career games and age, then compares era-indexed on-base skill, slugging, isolated power, walks, strikeouts, home-run rate, speed, and playing-time pace. Every historical test uses only careers already complete at that forecast date.</span></div>',
+  '<div class="history-scoreboard">',
+  stat_card("Backtest", "Pseudo-forecasts", fmt_int(career_backtest_overall$backtest_rows[[1L]]), "Five career checkpoints across 1995-2022 origins.", "navy"),
+  stat_card("Median forecast", "Absolute error", paste0(fmt_int(career_backtest_overall$future_games_mae[[1L]]), " games"), "Weighted mean absolute error for remaining games.", "red"),
+  stat_card("80% range", "Observed coverage", fmt_rate(career_backtest_overall$interval_80_coverage[[1L]]), "How often the realized remaining career landed inside p10-p90.", "steel"),
+  stat_card("Calibration", career_calibration_label, paste0("Brier ", fmt_dec(career_holdout_500$brier_raw[[1L]], 3L)), "Later-season holdout score for the raw 500-game probability.", "navy"),
+  stat_card("Weight profiles", career_weight_label, paste0(fmt_int(career_tuning_baseline$future_games_mae[[1L]]), " vs ", fmt_int(career_tuning_candidate$future_games_mae[[1L]]), " MAE"), "Five interpretable profiles were selected on early origins, then tested on 2013-2022.", "red"),
+  stat_card("Bias correction", career_bias_label, paste0(fmt_int(career_tuning_bias$future_games_mae[[1L]]), " game MAE"), "Training-era median corrections did not transport to the later holdout.", "steel"),
+  stat_card("Career rates", "Final OPS holdout MAE", fmt_dec(career_rate_validation$final_ops_mae[[1L]], 3L), "Terminal AVG, OBP, SLG, and OPS blend the current line with each neighbor's remaining career.", "navy"),
+  stat_card("Home-run pace", "Future HR / 600 MAE", fmt_dec(career_rate_validation$future_home_runs_per_600_pa_mae[[1L]], 1L), "The explicit rate-times-games total remains a scenario because it did not beat the direct comparable total.", "red"),
+  stat_card("Future value", "Holdout MAE", paste0(fmt_dec(career_rate_validation$future_offensive_value_mae[[1L]], 1L), " units"), "Era-adjusted offensive quality multiplied by projected playing-time volume.", "steel"),
+  stat_card("Upside", "+10 value-unit Brier", fmt_dec(career_rate_validation$upside_10_value_units_brier[[1L]], 3L), "Neighbor-weighted probability of adding at least 10 above-average offensive value units.", "navy"),
+  '</div>',
+  '<section class="section-heading"><span class="eyebrow">Career trajectory watch</span><h2>Active hitters with the strongest research-ready paths</h2><p>Every card shows what happened after similar historical checkpoints. Current players never contribute their own future, and only careers completed before the historical cutoff enter the forecast.</p></section>',
+  '<div class="career-trajectory-grid">', career_trajectory_cards, '</div>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Active hitter board</span><h2>Career ranges and survival probabilities</h2><p>The 10th, 50th, and 90th percentiles are weighted historical outcomes. The 500+ column is the backtest-checked survival probability; raw neighbor probabilities remain in use because the first calibration mapping worsened the later chronological holdout.</p></div>',
+  render_table(
+    career_projection_table,
+    c(
+      "player_name", "team", "age", "career_games", "top_comparable",
+      "future_games_p10", "future_games_p50", "future_games_p90",
+      "projected_rate_line", "future_home_runs_per_600_pa_p50",
+      "rate_linked_final_home_runs_p50",
+      "future_offensive_value_p50",
+      "upside_probability_10_value_units",
+      "hof_neighbor_share", "hof_path",
+      "probability_500_display", "confidence"
+    ),
+    c(
+      "Player", "Team", "Age", "Career G", "Closest path",
+      "More G p10", "More G p50", "More G p90",
+      "Career AVG/OBP/SLG", "Future HR/600", "Rate x games HR",
+      "Future value", "+10 upside", "HOF-neighbor share", "Legacy path",
+      "500+", "Neighbor fit"
+    ),
+    list(
+      age = function(x) fmt_dec(x, 1L),
+      career_games = fmt_int,
+      future_games_p10 = fmt_int,
+      future_games_p50 = fmt_int,
+      future_games_p90 = fmt_int,
+      future_home_runs_per_600_pa_p50 = function(x) fmt_dec(x, 1L),
+      rate_linked_final_home_runs_p50 = fmt_int,
+      future_offensive_value_p50 = function(x) fmt_dec(x, 1L),
+      upside_probability_10_value_units = fmt_rate,
+      hof_neighbor_share = fmt_rate,
+      probability_500_display = fmt_rate
+    ),
+    "data-table career-trajectory-table"
+  ),
+  '</section>',
+  paste0(
+    '<div class="method-callout"><strong>Backtested development boundary:</strong> ',
+    html_escape(fmt_int(career_backtest_overall$backtest_rows[[1L]])),
+    ' pseudo-forecasts use 1995&ndash;2022 origins and only comparables whose careers ended at least three seasons before each origin. The weighted remaining-games MAE is ',
+    html_escape(fmt_int(career_backtest_overall$future_games_mae[[1L]])),
+    ' games and the nominal 80% interval covered ',
+    html_escape(fmt_rate(career_backtest_overall$interval_80_coverage[[1L]])),
+    ' of realized outcomes. Checkpoint-specific weights improved early-origin training scores but moved later holdout MAE from ',
+    html_escape(fmt_dec(career_tuning_baseline$future_games_mae[[1L]], 1L)),
+    ' to ',
+    html_escape(fmt_dec(career_tuning_candidate$future_games_mae[[1L]], 1L)),
+    ' games, so baseline weights remain active. Training-era bias correction worsened later MAE to ',
+    html_escape(fmt_dec(career_tuning_bias$future_games_mae[[1L]], 1L)),
+    ' games and was also rejected. Future offensive value has a ',
+    html_escape(fmt_dec(career_rate_validation$future_offensive_value_mae[[1L]], 1L)),
+    '-unit later-holdout MAE, while the +10-upside probability has a ',
+    html_escape(fmt_dec(career_rate_validation$upside_10_value_units_brier[[1L]], 3L)),
+    ' Brier score. Value units equal era-adjusted offensive-index points times plate appearances divided by 600; they are not WAR. Hall of Fame lanes are the weighted share of historically eligible neighbors already inducted by that forecast year, not election probabilities. This release covers hitters and offensive career shape; defense, position, injuries, minor-league history, and true WAR are not yet similarity features. Contract details may be attached as licensed context but never affect the baseball projection.</div>'
+  )
+))
+write_fragment("home-career-trajectories.html", c(
+  '<section class="section-heading"><span class="eyebrow">Career Path Engine</span><h2>Where have careers like this gone next?</h2><p>Games, age, offensive shape, and historical survival turn today&rsquo;s player line into a range of career paths.</p></section>',
+  '<div class="career-trajectory-grid career-trajectory-grid--home">',
+  utils::head(career_trajectory_cards, 3L),
+  '</div><div class="section-action"><a class="btn btn-metallic" href="career-trajectories.html">Open the Career Path Engine</a></div>'
+))
+
 write_fragment("player-leaders.html", c(
   '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Offense</span><h2>OPS leaders</h2><p>Minimum 100 plate appearances in this build.</p></div>',
   render_table(ops_leaders, c("player_name", "team", "pa", "ops", "woba_estimate", "hard_hit_rate", "run_value_per_pa"),
@@ -1550,7 +1974,7 @@ write_fragment("player-leaders.html", c(
     c("Player", "Team", "PA", "wOBA est.", "BB%", "K%", "Reliability"),
     list(pa = fmt_int, woba_estimate = fmt_dec, walk_rate = fmt_rate, strikeout_rate = fmt_rate, pa_reliability = fmt_dec)),
   '</section>',
-  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Results allowed</span><h2>Pitcher suppression board</h2><p>Lower opponent OPS is better; minimum 75 batters faced.</p></div>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Pitching leaders</span><h2>Opponent-production board</h2><p>Lower opponent OPS is better; minimum 75 batters faced.</p></div>',
   render_table(pitcher_suppressors, c("player_name", "team", "pa", "ops", "woba_estimate", "strikeout_rate", "hard_hit_rate"),
     c("Pitcher", "Team", "BF", "OPS allowed", "wOBA est.", "K%", "Hard-hit"),
     list(pa = fmt_int, ops = fmt_dec, woba_estimate = fmt_dec, strikeout_rate = fmt_rate, hard_hit_rate = fmt_rate)),
@@ -1572,9 +1996,9 @@ write_fragment("pitch-lab.html", c(
     c("Pitcher", "Team", "Pitch", "Pitches", "Usage", "Velo", "Whiff", "Chase", "Changed from prior"),
     list(pitches = fmt_int, usage_rate = fmt_rate, average_velocity = function(x) fmt_dec(x, 1L), whiff_rate = fmt_rate, chase_rate = fmt_rate, pitch_change_rate = fmt_rate)),
   '</section>',
-  '<section class="section-heading"><span class="eyebrow">Expanded arsenal spotlights</span><h2>When a pitch earns a larger job and better results</h2><p>The detector requires the pitch to gain usage and whiffs across the recent five-game window. Every card keeps the rest of the arsenal visible so the featured pitch is analyzed as part of a complete plan.</p></section>',
+  '<section class="section-heading"><span class="eyebrow">Expanded arsenal spotlights</span><h2>When a pitch earns a larger job and better results</h2><p>An emerging weapon must gain at least three percentage points of usage, appear at least 20 times in the pitcher&rsquo;s latest five games, and improve its whiff rate versus the non-overlapping earlier-season sample. The complete arsenal stays visible because a pitch succeeds in relation to everything thrown beside it.</p></section>',
   '<div class="arsenal-spotlight-grid">', arsenal_spotlight_cards, '</div>',
-  '<figure class="feature-graphic"><img src="images/graphics-feed/arsenal-takeover-spotlights.png" alt="Pitch movement maps for four pitchers whose featured offering gained usage and whiffs"><figcaption><strong>Arsenal takeover map.</strong> Horizontal break and induced vertical break locate every pitch; the red mark identifies the offering gaining both trust and success.</figcaption></figure>',
+  '<figure class="feature-graphic"><img src="images/graphics-feed/arsenal-takeover-spotlights.png" alt="Pitch movement maps for four pitchers whose featured offering gained usage and whiffs"><figcaption><strong>Emerging-weapon map.</strong> Every panel uses the same axes centered at zero. Color identifies pitch type, point size identifies season usage, and the red outline identifies the offering gaining both trust and bat-missing success.</figcaption></figure>',
   '<section class="section-heading"><span class="eyebrow">Arsenal change detector</span><h2>The pitches whose jobs changed most</h2><p>The final five appearances are compared with the non-overlapping earlier season. Percentage-point movement is paired with a same-pitch z-score and both window sizes.</p></section>',
   '<div class="pitch-change-grid">', pitch_change_cards, '</div>',
   '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Full context board</span><h2>Usage, velocity, and shape moved together</h2><p>Large usage shifts lead the ranking; velocity, horizontal break, induced vertical break, and whiff changes show what else moved.</p></div>',
@@ -1702,7 +2126,7 @@ if (state_board_current) {
       )
   ) {
     paste(
-      "The current Phase 4 version starts a separate chronological ledger with",
+      "The current Phase 5 version starts a separate chronological ledger with",
       "its next eligible pregame archive. Prior-version status:",
       as.character(state_calibration_status$status[[1L]])
     )
@@ -1710,25 +2134,31 @@ if (state_board_current) {
     as.character(state_calibration_status$status[[1L]])
   }
   state_simulation_section <- paste0(
-    '<section class="projection-state-lab"><div class="section-heading section-heading--tight"><span class="eyebrow">Simulation Phase 4 &middot; empirical running game</span><h2>Runner identity, park movement, and pitcher hold now change each game path</h2><p>Every draw maintains inning, outs, named runners, score, batting-order position, pitcher identity, workload, and available bullpen arms. Phase 4 replaces generic running assumptions with league-shrunk player tendencies, an empirical venue layer, and pitcher-specific attempt suppression.</p></div>',
+    '<section class="projection-state-lab"><div class="section-heading section-heading--tight"><span class="eyebrow">Simulation Phase 5 &middot; learned manager hook</span><h2>The engine now decides when the starter leaves, then chooses the next arm</h2><p>Every draw maintains inning, outs, named runners, score, batting-order position, pitcher identity, workload, park and weather context, and available bullpen arms. The time-validated manager model reassesses the hook after every plate appearance using pitch count, batters faced, times through the order, inning, score, and the latest result.</p></div>',
     '<div class="method-grid">',
     stat_card("Detailed slate", "Games simulated", fmt_int(state_simulation_model$games_simulated[[1L]]), paste(fmt_int(state_simulation_model$simulations_per_game[[1L]]), "shadow draws per game"), "navy"),
     stat_card("Bullpen path", "Named arms used", fmt_dec(state_simulation_model$mean_relievers_used[[1L]], 1L), paste(fmt_rate(state_simulation_model$mean_bullpen_pa_share[[1L]]), "of plate appearances"), "steel"),
+    stat_card("Manager hook", "Later-date ROC AUC", fmt_dec(state_simulation_model$manager_hook_roc_auc[[1L]], 3L), paste(fmt_int(state_simulation_model$manager_hook_validation_rows[[1L]]), "validation decisions"), "red"),
+    stat_card("Starter workload", "Expected BF", paste0(fmt_dec(state_simulation_model$mean_away_starter_expected_bf[[1L]], 1L), " / ", fmt_dec(state_simulation_model$mean_home_starter_expected_bf[[1L]], 1L)), "Season workload blended with the five most recent starter-like appearances.", "navy"),
+    stat_card("Run environment", "Park + weather", fmt_dec(state_simulation_model$mean_run_environment_multiplier[[1L]], 3L), "Tilts on-base and extra-base event odds before the first pitch.", "steel"),
     stat_card("Ball in play", "Double plays", fmt_dec(state_simulation_model$mean_double_plays[[1L]], 2L), paste(fmt_dec(state_simulation_model$mean_productive_out_runs[[1L]], 2L), "runs per game from productive outs"), "red"),
     stat_card("Running game", "Steal attempts", fmt_dec(state_simulation_model$mean_steal_attempts[[1L]], 2L), paste(fmt_dec(state_simulation_model$mean_stolen_bases[[1L]], 2L), "successful steals per game"), "navy"),
     stat_card("Historical foundation", "Runner windows", fmt_int(baserunning_model$opportunities[[1L]]), paste(fmt_int(baserunning_model$games[[1L]]), "completed games"), "steel"),
     stat_card("Profile coverage", "Today's hitters", fmt_rate(state_simulation_model$mean_runner_profile_coverage[[1L]]), "Missing players fall back to the league prior.", "red"),
-    '</div><section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Phase 4 shadow game board</span><h3>Sequencing, parks, bullpen decisions, and runner traits shape the score</h3><p>Starter BF, bullpen share, relievers used, double plays, steals, and empirical park advancement all come from the same simulation.</p></div>',
+    '</div><section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Phase 5 shadow game board</span><h3>Workload, game state, environment, and bullpen decisions shape the score</h3><p>Starter BF, the probability of a modeled hook, bullpen share, relievers used, double plays, steals, and empirical park advancement all come from the same simulation.</p></div>',
     render_table(
       state_game_board,
-      c("away_team", "home_team", "away_win_probability", "home_win_probability", "away_mean_runs", "home_mean_runs", "one_run_probability", "away_starter_mean_bf", "home_starter_mean_bf", "mean_relievers_used", "mean_double_plays", "mean_stolen_bases", "park_baserunning_tier"),
-      c("Away", "Home", "Away win", "Home win", "Away runs", "Home runs", "One-run", "Away SP BF", "Home SP BF", "Relievers", "DP", "SB", "Park path"),
+      c("away_team", "home_team", "away_win_probability", "home_win_probability", "away_mean_runs", "home_mean_runs", "one_run_probability", "away_starter_mean_bf", "home_starter_mean_bf", "away_starter_hook_probability", "home_starter_hook_probability", "mean_relievers_used", "game_run_environment_multiplier", "mean_double_plays", "mean_stolen_bases"),
+      c("Away", "Home", "Away win", "Home win", "Away runs", "Home runs", "One-run", "Away SP BF", "Home SP BF", "Away hook", "Home hook", "Relievers", "Run env.", "DP", "SB"),
       list(
         away_win_probability = fmt_rate, home_win_probability = fmt_rate,
         away_mean_runs = function(x) fmt_dec(x, 1L), home_mean_runs = function(x) fmt_dec(x, 1L),
         one_run_probability = fmt_rate, away_starter_mean_bf = function(x) fmt_dec(x, 1L),
         home_starter_mean_bf = function(x) fmt_dec(x, 1L),
+        away_starter_hook_probability = fmt_rate,
+        home_starter_hook_probability = fmt_rate,
         mean_relievers_used = function(x) fmt_dec(x, 1L),
+        game_run_environment_multiplier = function(x) fmt_dec(x, 3L),
         mean_double_plays = function(x) fmt_dec(x, 2L),
         mean_stolen_bases = function(x) fmt_dec(x, 2L)
       )
@@ -1793,11 +2223,11 @@ if (state_board_current) {
         prob_1plus_rbi = fmt_rate, prob_1plus_sb = fmt_rate
       )
     ),
-    '</section><div class="method-callout"><strong>Chronological calibration gate:</strong> ', html_escape(calibration_message), ' Calibration requires 300 settled forecasts, fits only the earliest 70%, and must improve both win-probability Brier score and team-runs MAE on the later 30% before shadow application.</div>',
-    '<div class="method-callout"><strong>Current Phase 4 boundary:</strong> park effects are empirical and shrunk, but still descriptive rather than fully adjusted for runner mix, batted-ball direction, and defense. Catcher identity, outfielder conversion skill, errors, pinch hitters, injuries, and transaction-aware bench roles remain the next inputs.</div></section>'
+    '</section><div class="method-callout"><strong>Chronological calibration gate:</strong> ', html_escape(calibration_message), ' Phase 5 starts a new version-specific ledger. Calibration requires 300 settled forecasts, fits only the earliest 70%, and must improve both win-probability Brier score and team-runs MAE on the later 30% before shadow application.</div>',
+    '<div class="method-callout"><strong>Current Phase 5 boundary:</strong> the manager hook is a validated pooled league model, not yet a manager-specific model. Park baserunning effects are empirical and shrunk; the run environment still needs a multi-season park model and wind direction aligned to each field. Catcher identity, outfielder conversion skill, errors, pinch hitters, injuries, and transaction-aware bench roles remain future inputs.</div></section>'
   )
 } else {
-  state_simulation_section <- '<section class="projection-state-lab"><div class="method-callout"><strong>Phase 4 waiting:</strong> the detailed state engine requires two complete nine-man orders, active bullpens, current hitter-reliever probability matrices, and the daily empirical baserunning products.</div></section>'
+  state_simulation_section <- '<section class="projection-state-lab"><div class="method-callout"><strong>Phase 5 waiting:</strong> the detailed state engine requires two complete nine-man orders, active bullpens, current hitter-reliever probability matrices, current starter workload, weather, and the daily empirical baserunning products.</div></section>'
 }
 if (player_board_current) {
   player_probability_boards <- c(
@@ -1811,7 +2241,7 @@ if (player_board_current) {
   player_projection_section <- paste0(
     '<section class="player-probability-room"><div class="section-heading section-heading--tight"><span class="eyebrow">Player simulation board &middot; ', html_escape(fmt_int(player_simulation_model$simulations_per_lineup[[1L]])), ' draws per lineup</span><h2>Player outcomes now live inside the game simulation</h2><p>Confirmed orders are simulated through two continuous phases: the probable starter, then the opposing active-roster bullpen. The same draws produce full-game hitter lines and starter strikeout distributions.</p></div><div class="player-probability-grid">',
     paste0(player_probability_boards, collapse = ''),
-    '</div><div class="method-callout"><strong>Development boundary:</strong> this established player board remains the comparison model. The Phase 4 section above now adds named relievers, player-specific running tendencies, pitcher hold, productive outs, steals, and empirical park advancement; neither board will be promoted until clean pregame grading identifies which construction is better calibrated.</div></section>'
+    '</div><div class="method-callout"><strong>Development boundary:</strong> this established player board remains the comparison model. The Phase 5 section above adds a learned starter hook, recent workload, park and weather event effects, named relievers, player-specific running tendencies, pitcher hold, productive outs, steals, and empirical park advancement; neither board will be promoted until clean pregame grading identifies which construction is better calibrated.</div></section>'
   )
 } else {
   player_projection_section <- paste0(
@@ -1827,7 +2257,7 @@ if (is_off_day) {
     '<div class="method-callout"><strong>Publication rule:</strong> the previous game board is retained in the data archive but never presented as today&rsquo;s forecast.</div>'
   ))
 } else write_fragment("daily-projections.html", c(
-  '<div class="projection-status-strip"><span><strong>Scheduled-game laboratory v4</strong> Today&rsquo;s slate is running in development mode</span><span>Actual starters, posted orders, active rosters, weather, empirical runner profiles, and named bullpens &middot; calibration pending</span></div>',
+  '<div class="projection-status-strip"><span><strong>Scheduled-game laboratory v5</strong> Today&rsquo;s slate is running in development mode</span><span>Actual starters, recent workload, learned hooks, posted orders, active rosters, weather, empirical runner profiles, and named bullpens &middot; calibration pending</span></div>',
   live_input_board(daily_game_inputs),
   matchup_probability_section,
   state_simulation_section,
@@ -1844,42 +2274,138 @@ if (is_off_day) {
     c("Away", "Home", "Away win", "Home win", "Away runs", "Home runs", "Total", "One-run", "Extras", "Model lean"),
     list(away_win_probability = fmt_rate, home_win_probability = fmt_rate, away_mean_runs = function(x) fmt_dec(x, 1L), home_mean_runs = function(x) fmt_dec(x, 1L), mean_total_runs = function(x) fmt_dec(x, 1L), one_run_probability = fmt_rate, extra_innings_probability = fmt_rate)),
   '</section>',
-  '<section class="projection-model-card"><div><span class="eyebrow">Model card &middot; scheduled-game laboratory v4</span><h2>What the live and shadow models know</h2></div><div class="projection-model-grid"><span><small>Included in current probabilities</small><strong>Posted-lineup wRC+, probable-starter FIP/xFIP/ERA blend and workload, active-roster bullpen quality, temperature, home field, and Monte Carlo score uncertainty</strong></span><span><small>Phase 4 shadow evaluation</small><strong>Named runners and relievers now drive innings, outs, score, lineup continuity, hooks, player advancement, steal tendency and success, pitcher hold, empirical park movement, walk-offs, and expanded player lines</strong></span><span><small>Publication gate</small><strong>Use the earliest 70% of 300-plus settled pregame forecasts for fitting, require improvement on the later 30%, archive versions, and audit misses before any public promotion</strong></span></div></section>',
-  '<section class="projection-activation"><div class="section-heading section-heading--tight"><span class="eyebrow">From prototype to daily forecast</span><h2>Three of four activation stages are now underway</h2><p>The scheduled slate and player simulations now feed a permanent pregame ledger. Version two adds restrained platoon, recent-form, probable-starter, and available-reliever effects; the next work is proving those additions on future games.</p></div><ol><li class="is-built"><span>01</span><div><small>Built</small><h3>Acquisition spine</h3><p>Incremental PBP cache, FanGraphs refreshes, weekly award checkpoints, schedule, starters, lineups, rosters, and weather.</p></div></li><li class="is-built"><span>02</span><div><small>Built in development</small><h3>Matchup-aware simulator</h3><p>Current games run through batting-order quality, starter hand and form, hitter platoon and form, available bullpen strength, weather, park, home field, team score, hitter events, and starter strikeouts.</p></div></li><li class="is-next"><span>03</span><div><small>Shadow mode</small><h3>Chronological calibration</h3><p>Future pregame snapshots will test score, win, home-run, hit, total-base, and strikeout probabilities before any public promotion.</p></div></li><li><span>04</span><div><small>Publication</small><h3>Automated approved board</h3><p>Only model versions that repeat their advantage on clean live forecasts can replace development probabilities or supply newsletter excerpts.</p></div></li></ol></section>',
+  '<section class="projection-model-card"><div><span class="eyebrow">Model card &middot; scheduled-game laboratory v5</span><h2>What the live and shadow models know</h2></div><div class="projection-model-grid"><span><small>Included in current probabilities</small><strong>Posted-lineup wRC+, season and contact-quality form, probable-starter FIP/xFIP/ERA blend plus recent workload, active-roster bullpen quality, temperature, home field, and Monte Carlo score uncertainty</strong></span><span><small>Phase 5 shadow evaluation</small><strong>A time-validated manager hook now controls starter removal before named relievers take over. Named runners drive advancement, steals, pitcher hold, empirical park movement, walk-offs, and expanded player lines.</strong></span><span><small>Publication gate</small><strong>Use the earliest 70% of 300-plus settled version-matched pregame forecasts for fitting, require improvement on the later 30%, archive versions, and audit misses before any public promotion</strong></span></div></section>',
+  '<section class="projection-activation"><div class="section-heading section-heading--tight"><span class="eyebrow">From prototype to daily forecast</span><h2>Three of four activation stages are now underway</h2><p>The scheduled slate and player simulations feed a permanent pregame ledger. Version five adds recent starter workload, contact-quality context, a validated manager hook, named bullpen choices, and environment-aware plate appearances; the next work is proving that full construction on future games.</p></div><ol><li class="is-built"><span>01</span><div><small>Built</small><h3>Acquisition spine</h3><p>Incremental PBP cache, FanGraphs refreshes, weekly award checkpoints, schedule, starters, lineups, rosters, and weather.</p></div></li><li class="is-built"><span>02</span><div><small>Built in development</small><h3>Matchup-aware simulator</h3><p>Current games run through batting-order quality, starter hand and form, hitter platoon and contact quality, learned starter hooks, available bullpen strength, weather, park, home field, team score, hitter events, and starter strikeouts.</p></div></li><li class="is-next"><span>03</span><div><small>Shadow mode</small><h3>Chronological calibration</h3><p>Future version-matched pregame snapshots will test score, win, home-run, hit, total-base, and strikeout probabilities before any public promotion.</p></div></li><li><span>04</span><div><small>Publication</small><h3>Automated approved board</h3><p>Only model versions that repeat their advantage on clean live forecasts can replace development probabilities or supply newsletter excerpts.</p></div></li></ol></section>',
   '<div class="method-callout"><strong>Interpretation boundary:</strong> these are today&rsquo;s scheduled matchups and real Monte Carlo outputs, but the probability model is still uncalibrated. Treat the page as a research prototype, not betting advice or a public forecast.</div>'
 ))
 
-aaa_hitter_cards <- vapply(seq_len(min(6L, nrow(aaa_young_hitters))), function(index) aaa_watch_card(aaa_young_hitters[index, , drop = FALSE], "hitter"), character(1))
-aaa_pitcher_cards <- vapply(seq_len(min(6L, nrow(aaa_young_pitchers))), function(index) aaa_watch_card(aaa_young_pitchers[index, , drop = FALSE], "pitcher"), character(1))
+standings_movers <- mlb_standings_movement[
+  order(-abs(num(mlb_standings_movement$movement_score))),
+  ,
+  drop = FALSE
+]
+standings_mover_cards <- vapply(seq_len(min(6L, nrow(standings_movers))), function(index) {
+  row <- standings_movers[index, , drop = FALSE]
+  direction <- if (num(row$movement_score[[1L]]) > 0) "up" else if (num(row$movement_score[[1L]]) < 0) "down" else "steady"
+  paste0(
+    '<article class="standings-mover standings-mover--', direction, '"><header><span>',
+    html_escape(row$division_label[[1L]]), '</span><strong>',
+    html_escape(fmt_signed(row$movement_score[[1L]], 1L)), '</strong></header><h3>',
+    html_escape(row$team[[1L]]), '</h3><p>', html_escape(fmt_int(row$wins[[1L]])),
+    '&ndash;', html_escape(fmt_int(row$losses[[1L]])), ' &middot; ',
+    html_escape(fmt_signed(row$run_differential[[1L]], 0L)), ' run differential</p><footer><span>',
+    html_escape(fmt_signed(row$division_rank_change[[1L]], 0L)), ' division places</span><span>',
+    html_escape(fmt_signed(row$games_back_change[[1L]], 1L)), ' games gained</span></footer></article>'
+  )
+}, character(1))
+division_order <- c("AL East", "AL Central", "AL West", "NL East", "NL Central", "NL West")
+division_tables <- vapply(division_order, function(division_name) {
+  rows <- mlb_standings_movement[mlb_standings_movement$division_label == division_name, , drop = FALSE]
+  rows <- rows[order(num(rows$division_rank)), , drop = FALSE]
+  paste0(
+    '<section class="standings-division"><header><span class="eyebrow">Division board</span><h2>',
+    html_escape(division_name), '</h2></header>',
+    render_table(
+      rows,
+      c("division_rank", "team", "wins", "losses", "winning_percentage", "games_back", "run_differential", "division_rank_change", "games_back_change", "streak_code"),
+      c("#", "Club", "W", "L", "Pct.", "GB", "Run diff.", "Rank move", "Games gained", "Streak"),
+      list(
+        division_rank = fmt_int, wins = fmt_int, losses = fmt_int,
+        winning_percentage = fmt_dec, games_back = function(x) fmt_dec(x, 1L),
+        run_differential = function(x) fmt_signed(x, 0L),
+        division_rank_change = function(x) fmt_signed(x, 0L),
+        games_back_change = function(x) fmt_signed(x, 1L)
+      ),
+      "data-table data-table--compact standings-table"
+    ),
+    '</section>'
+  )
+}, character(1))
+write_fragment("standings-desk.html", c(
+  '<section class="standings-mast"><div><span class="eyebrow">Standings movement desk</span><h2>The table tells you where they are. Movement tells you how they got there.</h2><p>Every division is paired with a seven-day change layer built from rank, games back, winning percentage, and run differential.</p></div><div class="standings-mast__key"><span><i class="is-up"></i>Gaining ground</span><span><i class="is-down"></i>Losing ground</span><small>Through ',
+  html_escape(format(max(as.Date(mlb_standings$source_through)), "%B %d, %Y")), '</small></div></section>',
+  '<section class="section-heading"><span class="eyebrow">Seven-day pressure board</span><h2>The largest standings moves</h2><p>The score is descriptive, and a positive result always means movement toward first place.</p></section>',
+  '<div class="standings-mover-grid">', standings_mover_cards, '</div>',
+  '<div class="standings-division-grid">', division_tables, '</div>',
+  '<div class="method-callout"><strong>Movement method:</strong> division-rank gains and games gained receive the clearest weight, with changes in winning percentage and run differential supplying context. Ties and MLB tiebreaker rules are displayed as provided by the standings source.</div>'
+))
+
+aaa_callup_spotlights <- utils::head(aaa_callups[order(num(aaa_callups$callup_rank)), , drop = FALSE], 8L)
+aaa_callup_cards <- vapply(seq_len(nrow(aaa_callup_spotlights)), function(index) {
+  row <- aaa_callup_spotlights[index, , drop = FALSE]
+  paste0(
+    '<article class="callup-card"><header><span class="eyebrow">Call-Up Radar #',
+    html_escape(fmt_int(row$callup_rank[[1L]])), '</span><strong>',
+    html_escape(fmt_score(row$callup_score[[1L]])), '</strong></header><h3>',
+    html_escape(row$player_name[[1L]]), '</h3><p>', html_escape(row$team[[1L]]),
+    ' &rarr; ', html_escape(row$mlb_team[[1L]]), ' &middot; age ', html_escape(fmt_int(row$age[[1L]])),
+    '</p><div class="callup-card__components">',
+    percentile_ruler("Triple-A production", row$performance_score[[1L]], "35% of score"),
+    percentile_ruler("Age at level", row$age_score[[1L]], "30% of score"),
+    percentile_ruler("Triple-A experience", row$experience_score[[1L]], "15% of score"),
+    percentile_ruler("Parent-club need", row$mlb_need_percentile[[1L]], paste(row$mlb_need_label[[1L]], "\u00b7 20% of score")),
+    '</div><footer>', html_escape(row$callup_reason[[1L]]), '</footer></article>'
+  )
+}, character(1))
 aaa_leaderboards <- c(
   leaderboard_card(aaa_hitters, "OPS", "ops", fmt_dec, "Overall on-base plus slugging", FALSE, 5L, "Triple-A hitters"),
   leaderboard_card(aaa_hitters, "Home runs", "home_runs", fmt_int, "Qualified power totals", FALSE, 5L, "Triple-A hitters"),
   leaderboard_card(aaa_hitters, "Walk rate", "walk_rate", fmt_rate, "Patience and zone control", FALSE, 5L, "Triple-A hitters"),
   leaderboard_card(aaa_hitters, "Lowest strikeout rate", "strikeout_rate", fmt_rate, "Qualified contact discipline", TRUE, 5L, "Triple-A hitters"),
-  leaderboard_card(aaa_pitchers, "Lowest ERA", "era", function(x) fmt_dec(x, 2L), "Qualified run prevention", TRUE, 5L, "Triple-A pitchers"),
+  leaderboard_card(aaa_pitchers, "Lowest ERA", "era", function(x) fmt_dec(x, 2L), "Qualified pitching results", TRUE, 5L, "Triple-A pitchers"),
   leaderboard_card(aaa_pitchers, "K-BB rate", "k_minus_bb_rate", fmt_rate, "Bat missing minus free passes", FALSE, 5L, "Triple-A pitchers"),
   leaderboard_card(aaa_pitchers, "Strikeout rate", "strikeout_rate", fmt_rate, "Strikeouts per estimated batter faced", FALSE, 5L, "Triple-A pitchers"),
   leaderboard_card(aaa_pitchers, "Lowest WHIP", "whip", function(x) fmt_dec(x, 2L), "Traffic allowed per inning", TRUE, 5L, "Triple-A pitchers")
 )
+aaa_team_leaders <- aaa_team_rankings[order(num(aaa_team_rankings$team_rank)), , drop = FALSE]
+aaa_team_leader_cards <- vapply(seq_len(min(6L, nrow(aaa_team_leaders))), function(index) {
+  row <- aaa_team_leaders[index, , drop = FALSE]
+  paste0(
+    '<article class="aaa-team-card"><header><span>#', html_escape(fmt_int(row$team_rank[[1L]])),
+    ' Triple-A</span><strong>', html_escape(fmt_score(row$team_strength_score[[1L]])),
+    '</strong></header><h3>', html_escape(row$full_team[[1L]]), '</h3><p>',
+    html_escape(fmt_int(row$wins[[1L]])), '&ndash;', html_escape(fmt_int(row$losses[[1L]])),
+    ' &middot; ', html_escape(fmt_signed(row$run_differential[[1L]], 0L)),
+    ' run differential</p><div><span><small>Hitter pool</small><strong>',
+    html_escape(fmt_score(row$hitter_talent_score[[1L]])), '</strong></span><span><small>Pitcher pool</small><strong>',
+    html_escape(fmt_score(row$pitcher_talent_score[[1L]])), '</strong></span><span><small>7-day state</small><strong>',
+    html_escape(tools::toTitleCase(row$movement_label[[1L]])), '</strong></span></div></article>'
+  )
+}, character(1))
+aaa_league_tables <- vapply(c("International League", "Pacific Coast League"), function(league_name) {
+  rows <- aaa_team_rankings[aaa_team_rankings$league_label == league_name, , drop = FALSE]
+  rows <- rows[order(-num(rows$winning_percentage), -num(rows$run_differential)), , drop = FALSE]
+  paste0(
+    '<section class="aaa-standings-board"><header><span class="eyebrow">Triple-A standings</span><h2>',
+    html_escape(league_name), '</h2></header>',
+    render_table(
+      rows,
+      c("full_team", "wins", "losses", "winning_percentage", "run_differential", "team_rank", "movement_label"),
+      c("Club", "W", "L", "Pct.", "Run diff.", "Power rank", "7-day state"),
+      list(
+        wins = fmt_int, losses = fmt_int, winning_percentage = fmt_dec,
+        run_differential = function(x) fmt_signed(x, 0L), team_rank = fmt_int
+      ),
+      "data-table data-table--compact standings-table"
+    ),
+    '</section>'
+  )
+}, character(1))
 write_fragment("aaa-watch.html", c(
-  '<section class="aaa-scoreboard"><div><span class="eyebrow">Triple-A performance watch</span><h2>A narrow minor-league desk with an MLB purpose</h2><p>This page tracks age-qualified performers and statistical standouts from BaseballR&rsquo;s Triple-A season feed. It is intentionally smaller than the MLB hub.</p></div><div class="aaa-scoreboard__stats"><span><strong>', html_escape(fmt_int(nrow(aaa_hitters))), '</strong><small>qualified hitters</small></span><span><strong>', html_escape(fmt_int(nrow(aaa_pitchers))), '</strong><small>qualified pitchers</small></span><span><strong>24</strong><small>young-player age line</small></span></div></section>',
+  '<section class="aaa-scoreboard"><div><span class="eyebrow">Triple-A performance watch</span><h2>A narrow minor-league desk with an MLB purpose</h2><p>The leaderboard identifies production. The Call-Up Radar asks the next question: does age, Triple-A experience, and a parent club&rsquo;s weakness create a plausible opening?</p></div><div class="aaa-scoreboard__stats"><span><strong>', html_escape(fmt_int(nrow(aaa_hitters))), '</strong><small>qualified hitters</small></span><span><strong>', html_escape(fmt_int(nrow(aaa_pitchers))), '</strong><small>qualified pitchers</small></span><span><strong>28</strong><small>public radar age cap</small></span></div></section>',
   '<section class="section-heading"><span class="eyebrow">Prospect-pool homepage</span><h2>The quickest read on who is separating</h2><p>Familiar production, plate discipline, bat-missing ability, and age context are kept in separate boards so one composite never hides the reason a player surfaced.</p></section>',
   '<div class="leaderboard-grid aaa-leaderboard-grid">', aaa_leaderboards, '</div>',
-  '<section class="section-heading"><span class="eyebrow">Young hitter radar</span><h2>Production worth a closer look</h2><p>OPS, plate discipline, power, and speed shape the performance score. Age qualifies the player for this lens; it does not create a prospect ranking.</p></section>',
-  '<div class="player-context-grid">', aaa_hitter_cards, '</div>',
-  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Hitter board</span><h2>Age-24-and-under Triple-A standouts</h2></div>',
-  render_table(utils::head(aaa_young_hitters, 20L), c("watch_rank", "player_name", "age", "team", "position", "pa", "avg", "obp", "slg", "ops", "home_runs", "stolen_bases", "walk_rate", "strikeout_rate", "performance_score"),
-    c("Overall", "Player", "Age", "Club", "Pos.", "PA", "AVG", "OBP", "SLG", "OPS", "HR", "SB", "BB%", "K%", "Score"),
-    list(watch_rank = fmt_int, age = fmt_int, pa = fmt_int, avg = fmt_dec, obp = fmt_dec, slg = fmt_dec, ops = fmt_dec, home_runs = fmt_int, stolen_bases = fmt_int, walk_rate = fmt_rate, strikeout_rate = fmt_rate, performance_score = fmt_score)),
+  '<section class="section-heading"><span class="eyebrow">Organizational power board</span><h2>Which Triple-A clubs combine winning and promotable talent?</h2><p>The ranking weights record 35%, run differential 20%, the top five qualified hitter performances 20%, the top five pitcher performances 20%, and the young/readiness pipeline 5%.</p></section>',
+  '<div class="aaa-team-grid">', aaa_team_leader_cards, '</div>',
+  '<div class="aaa-standings-grid">', aaa_league_tables, '</div>',
+  '<section class="section-heading"><span class="eyebrow">Call-Up Radar</span><h2>Who has performance, timing, and an organizational opening?</h2><p>The model weights Triple-A production 35%, age 30%, experience 15%, and parent-club positional need 20%. A strong score is a reporting lead, not a transaction probability.</p></section>',
+  '<div class="callup-grid">', aaa_callup_cards, '</div>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Complete readiness board</span><h2>Every component remains visible</h2><p>Players older than 28 are excluded from the public radar. Pitchers are mapped to starting or relief need from their Triple-A start share; hitters are mapped by listed position.</p></div>',
+  render_table(utils::head(aaa_callups, 25L), c("callup_rank", "player_name", "role", "age", "team", "mlb_team", "need_position", "performance_score", "age_score", "experience_score", "mlb_need_percentile", "callup_score"),
+    c("Rank", "Player", "Role", "Age", "Triple-A club", "Parent club", "Need", "Production", "Age", "Experience", "MLB need", "Radar"),
+    list(callup_rank = fmt_int, age = fmt_int, performance_score = fmt_score, age_score = fmt_score, experience_score = fmt_score, mlb_need_percentile = fmt_score, callup_score = fmt_score)),
   '</section>',
-  '<section class="section-heading"><span class="eyebrow">Young pitcher radar</span><h2>Run prevention with bat-missing context</h2><p>ERA and WHIP share the page with K-BB rate so one result column never carries the whole evaluation.</p></section>',
-  '<div class="player-context-grid">', aaa_pitcher_cards, '</div>',
-  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Pitcher board</span><h2>Age-24-and-under Triple-A standouts</h2></div>',
-  render_table(utils::head(aaa_young_pitchers, 20L), c("watch_rank", "player_name", "age", "team", "innings", "era", "whip", "strikeout_rate", "walk_rate", "k_minus_bb_rate", "performance_score"),
-    c("Overall", "Pitcher", "Age", "Club", "IP", "ERA", "WHIP", "K%", "BB%", "K-BB%", "Score"),
-    list(watch_rank = fmt_int, age = fmt_int, innings = function(x) fmt_dec(x, 1L), era = function(x) fmt_dec(x, 2L), whip = function(x) fmt_dec(x, 2L), strikeout_rate = fmt_rate, walk_rate = fmt_rate, k_minus_bb_rate = fmt_rate, performance_score = fmt_score)),
-  '</section>',
-  '<div class="method-callout"><strong>Prospect boundary:</strong> this is a performance watch, not an industry prospect list. The current BaseballR Triple-A season feed supports BB%, K%, HR, OPS, ERA, WHIP, and K-BB%; pitch-level chase, zone-contact, exit velocity, launch angle, scouting grades, defense, and injury context must be acquired before the deeper BBE and discipline profile is published.</div>'
+  '<div class="method-callout"><strong>Model boundary:</strong> Call-Up Radar is not yet trained on historical promotions. Options, 40-man status, injuries, service-time strategy, scouting grades, defensive fit, and multiple seasons of minor-league development will be added before it can become a calibrated predictor.</div>'
 ))
 
 insane_award_ids <- unique(as.character(insane_awards$award_id))
@@ -1965,6 +2491,34 @@ write_fragment("newsletter-graphics.html", c(
 
 qualified_hitters <- fangraphs_hitters[num(fangraphs_hitters$pa) >= 250, , drop = FALSE]
 qualified_pitchers <- fangraphs_pitchers[num(fangraphs_pitchers$innings_outs) >= 240, , drop = FALSE]
+qualified_contact_tracking <- hitter_tracking[num(hitter_tracking$tracked_batted_balls) >= 100, , drop = FALSE]
+qualified_pitch_tracking <- pitcher_tracking[num(pitcher_tracking$tracked_pitches) >= 500, , drop = FALSE]
+qualified_contact_allowed <- pitcher_tracking[num(pitcher_tracking$tracked_batted_balls_allowed) >= 100, , drop = FALSE]
+qualified_pitch_shapes <- pitch_types[num(pitch_types$pitches) >= 250, , drop = FALSE]
+qualified_pitch_shapes$player_name <- paste(qualified_pitch_shapes$player_name, qualified_pitch_shapes$pitch_name, sep = " | ")
+team_tracking_board <- team_tracking
+team_tracking_board$player_name <- team_tracking_board$team
+team_tracking_board$team <- "MLB club total"
+tracking_hitter_boards <- c(
+  leaderboard_card(hitter_tracking, "100+ mph batted balls", "batted_balls_100_plus", fmt_int, "Season total from tracked contact", FALSE, 5L, "Contact tracking"),
+  leaderboard_card(qualified_contact_tracking, "100+ mph contact rate", "batted_balls_100_plus_rate", fmt_rate, "Minimum 100 tracked batted balls", FALSE, 5L, "Contact tracking"),
+  leaderboard_card(qualified_contact_tracking, "Maximum exit velocity", "max_exit_velocity", function(x) paste0(fmt_dec(x, 1L), " mph"), "Hardest tracked batted ball", FALSE, 5L, "Contact tracking"),
+  leaderboard_card(qualified_contact_tracking, "Average exit velocity", "average_exit_velocity", function(x) paste0(fmt_dec(x, 1L), " mph"), "Minimum 100 tracked batted balls", FALSE, 5L, "Contact tracking")
+)
+tracking_pitcher_boards <- c(
+  leaderboard_card(pitcher_tracking, "Pitches at 100+ mph", "pitches_100_plus", fmt_int, "Season total across every pitch type", FALSE, 5L, "Pitch tracking"),
+  leaderboard_card(qualified_pitch_tracking, "100+ mph pitch rate", "pitches_100_plus_rate", fmt_rate, "Minimum 500 tracked pitches", FALSE, 5L, "Pitch tracking"),
+  leaderboard_card(pitcher_tracking, "Maximum pitch velocity", "max_velocity", function(x) paste0(fmt_dec(x, 1L), " mph"), "Hardest tracked pitch", FALSE, 5L, "Pitch tracking"),
+  leaderboard_card(qualified_contact_allowed, "Lowest 100+ contact rate allowed", "batted_balls_100_plus_allowed_rate", fmt_rate, "Minimum 100 tracked batted balls allowed", TRUE, 5L, "Contact allowed"),
+  leaderboard_card(qualified_pitch_shapes, "Pitch-type velocity", "average_velocity", function(x) paste0(fmt_dec(x, 1L), " mph"), "Pitch-type line, minimum 250 pitches", FALSE, 5L, "Pitch shape"),
+  leaderboard_card(qualified_pitch_shapes, "Pitch-type whiff rate", "whiff_rate", fmt_rate, "Minimum 250 pitches", FALSE, 5L, "Pitch shape")
+)
+tracking_team_boards <- c(
+  leaderboard_card(team_tracking_board, "Team 100+ mph contact", "batted_balls_100_plus", fmt_int, "Batted-ball total", FALSE, 5L, "Club tracking"),
+  leaderboard_card(team_tracking_board, "Team 100+ mph contact rate", "batted_balls_100_plus_rate", fmt_rate, "Share of tracked contact", FALSE, 5L, "Club tracking"),
+  leaderboard_card(team_tracking_board, "Team 100+ mph pitches", "pitches_100_plus", fmt_int, "Pitch total", FALSE, 5L, "Club tracking"),
+  leaderboard_card(team_tracking_board, "Lowest 100+ contact allowed", "batted_balls_100_plus_allowed_rate", fmt_rate, "Share of tracked contact allowed", TRUE, 5L, "Club tracking")
+)
 hitter_boards <- c(
   leaderboard_card(qualified_hitters, "Batting average", "avg", fmt_dec, "Minimum 250 PA"),
   leaderboard_card(qualified_hitters, "On-base percentage", "obp", fmt_dec, "Minimum 250 PA"),
@@ -1990,8 +2544,14 @@ pitcher_boards <- c(
   leaderboard_card(fangraphs_pitchers, "Pitching WAR", "war", function(x) fmt_dec(x, 1L), "Season value")
 )
 write_fragment("league-leaderboards.html", c(
-  '<div class="leaderboard-note"><strong>Baseball&rsquo;s familiar counting stats belong beside the advanced numbers.</strong><span>Rate boards require 250 PA or 80 IP in this snapshot; counting-stat boards rank season totals.</span></div>',
-  '<section class="section-heading"><span class="eyebrow">Hitting</span><h2>Traditional league leaderboards.</p></section>',
+  '<div class="leaderboard-note"><strong>Tracked events now sit beside baseball&rsquo;s familiar totals.</strong><span>A 100+ mph count measures volume; the paired rate measures how often the event occurs when tracking is available. MLBAM release speed and launch speed are used directly.</span></div>',
+  '<section class="section-heading"><span class="eyebrow">Contact tracking</span><h2>The loudest contact in the league</h2><p>Counts reward repeated impact. Rate and average boards require at least 100 tracked batted balls.</p></section>',
+  '<div class="leaderboard-grid leaderboard-grid--tracking">', tracking_hitter_boards, '</div>',
+  '<section class="section-heading"><span class="eyebrow">Pitch tracking</span><h2>Triple digits, pitch shape, and contact allowed</h2><p>100+ mph pitch totals combine every pitch type. Pitch-shape boards retain their own minimum samples.</p></section>',
+  '<div class="leaderboard-grid leaderboard-grid--tracking">', tracking_pitcher_boards, '</div>',
+  '<section class="section-heading"><span class="eyebrow">Team tracking</span><h2>Which clubs create and withstand the most force?</h2><p>The same measures are aggregated to the team level so club pages and the league board tell the same story.</p></section>',
+  '<div class="leaderboard-grid leaderboard-grid--tracking">', tracking_team_boards, '</div>',
+  '<section class="section-heading"><span class="eyebrow">Hitting</span><h2>Traditional league leaderboards</h2><p>Rate boards require 250 PA; counting-stat boards rank season totals.</p></section>',
   '<div class="leaderboard-grid">', hitter_boards, '</div>',
   '<section class="section-heading"><span class="eyebrow">Pitching</span><h2>Workload, results, and whiffs</h2><p>Traditional pitching lines paired with some of the new.</p></section>',
   '<div class="leaderboard-grid">', pitcher_boards, '</div>'
@@ -2073,28 +2633,28 @@ team_pulse_cards <- vapply(seq_len(min(6L, nrow(team_intelligence))), function(i
   player_card(
     paste("Team intelligence #", fmt_int(team_intelligence$team_index_rank[[index]])),
     team_intelligence$team[[index]],
-    paste("Top driver:", team_intelligence$top_signal[[index]]),
-    paste("Offense #", fmt_int(team_intelligence$offense_rank[[index]]), "| run prevention #", fmt_int(team_intelligence$run_prevention_rank[[index]])),
+    paste("Recent riser:", team_intelligence$recent_riser[[index]]),
+    paste("Run generation #", fmt_int(team_intelligence$offense_rank[[index]]), "| pitching #", fmt_int(team_intelligence$pitching_rank[[index]])),
     paste(fmt_int(team_intelligence$surging_signals[[index]]), "surging | bullpen", team_intelligence$bullpen_health[[index]]),
     fmt_score(team_intelligence$team_index[[index]])
   )
 }, character(1))
 write_fragment("team-pulse.html", c(
-  '<section class="section-heading"><span class="eyebrow">Team reports</span><h2>Who has the most complete analytical profile?</h2><p>Offense, run prevention, recent player form, and bullpen readiness now travel together instead of living in separate tables.</p></section>',
+  '<section class="section-heading"><span class="eyebrow">Team reports</span><h2>Who has the most complete analytical profile?</h2><p>The core index balances a broad Run Generation Score and Pitching Score. Recent player form and bullpen condition travel beside it as separate, visible context.</p></section>',
   '<div class="signal-grid">', team_pulse_cards, '</div>',
   '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Full league board</span><h2>Thirty-team intelligence index</h2><p>This is a descriptive reporting index, not a standings projection. Component ranks make each placement auditable.</p></div>',
-  render_table(team_intelligence, c("team_index_rank", "team", "team_index", "offense_rank", "run_prevention_rank", "form_rank", "bullpen_rank", "surging_signals", "cooling_signals", "bullpen_health", "top_signal"),
-    c("Rank", "Team", "Index", "Offense", "Run prev.", "Form", "Bullpen", "Surging", "Cooling", "Pen state", "Top signal"),
-    list(team_index_rank = fmt_int, team_index = fmt_score, offense_rank = fmt_int, run_prevention_rank = fmt_int, form_rank = fmt_int, bullpen_rank = fmt_int, surging_signals = fmt_int, cooling_signals = fmt_int)),
+  render_table(team_intelligence, c("team_index_rank", "team", "team_index", "run_generation_score", "pitching_score", "offense_rank", "pitching_rank", "form_rank", "bullpen_rank", "bullpen_available_share", "bullpen_unavailable_share", "bullpen_health", "recent_riser"),
+    c("Rank", "Team", "Index", "Run gen.", "Pitching", "Run rank", "Pitch rank", "Form", "Bullpen", "Available", "Limited/out", "Pen state", "Recent riser"),
+    list(team_index_rank = fmt_int, team_index = fmt_score, run_generation_score = fmt_score, pitching_score = fmt_score, offense_rank = fmt_int, pitching_rank = fmt_int, form_rank = fmt_int, bullpen_rank = fmt_int, bullpen_available_share = fmt_rate, bullpen_unavailable_share = fmt_rate)),
   '</section>',
-  '<div class="method-callout"><strong>How to read it:</strong> offense and run prevention each carry 35% of the index, recent form carries 20%, and bullpen readiness carries 10%. The visible ranks expose why a club moves.</div>'
+  '<div class="method-callout"><strong>How to read it:</strong> Run Generation combines estimated wOBA, OPS, walk rate, strikeout avoidance, and hard-hit rate. Pitching Score combines opponent wOBA, opponent OPS, strikeouts, walk avoidance, and hard-hit rate allowed. The team index weights those two broad scores equally; form and bullpen state remain separate context.</div>'
 ))
 write_fragment("home-team-pulse.html", c(
   '<section class="section-heading"><span class="eyebrow">Around the league</span><h2>Complete team reports</h2><p>Taking you to every clubhouse around the league.</p></section>',
   '<section class="dashboard-block home-pulse-board">',
-  render_table(utils::head(team_intelligence, 8L), c("team_index_rank", "team", "team_index", "offense_rank", "run_prevention_rank", "surging_signals", "bullpen_health", "top_signal"),
-    c("Rank", "Team", "Index", "Offense", "Run prev.", "Surging", "Pen", "Top driver"),
-    list(team_index_rank = fmt_int, team_index = fmt_score, offense_rank = fmt_int, run_prevention_rank = fmt_int, surging_signals = fmt_int)),
+  render_table(utils::head(team_intelligence, 8L), c("team_index_rank", "team", "team_index", "run_generation_score", "pitching_score", "surging_signals", "bullpen_health", "recent_riser"),
+    c("Rank", "Team", "Index", "Run gen.", "Pitching", "Risers", "Pen", "Recent riser"),
+    list(team_index_rank = fmt_int, team_index = fmt_score, run_generation_score = fmt_score, pitching_score = fmt_score, surging_signals = fmt_int)),
   '</section>',
   '<div class="section-action"><a class="btn btn-metallic" href="teams.html">Open all 30 team reports</a></div>'
 ))
@@ -2111,8 +2671,8 @@ team_report_links <- vapply(seq_len(nrow(team_intelligence)), function(index) {
     '<a class="team-report-link" href="team-reports/', html_escape(slug), '.html">',
     '<span class="team-report-link__rank">#', html_escape(fmt_int(team_intelligence$team_index_rank[[index]])), '</span>',
     '<span><strong>', html_escape(team), '</strong><small>Index ', html_escape(fmt_score(team_intelligence$team_index[[index]])),
-    ' | offense #', html_escape(fmt_int(team_intelligence$offense_rank[[index]])),
-    ' | run prevention #', html_escape(fmt_int(team_intelligence$run_prevention_rank[[index]])), '</small></span>',
+    ' | run generation #', html_escape(fmt_int(team_intelligence$offense_rank[[index]])),
+    ' | pitching #', html_escape(fmt_int(team_intelligence$pitching_rank[[index]])), '</small></span>',
     '<span aria-hidden="true">&rarr;</span></a>'
   )
 }, character(1))
@@ -2167,6 +2727,18 @@ for (index in seq_along(team_names)) {
   team_pitchers <- team_pitchers[order(num(team_pitchers$woba_estimate), -num(team_pitchers$pa)), , drop = FALSE]
   qualified_team_hitters <- team_hitters[num(team_hitters$pa) >= 30, , drop = FALSE]
   qualified_team_pitchers <- team_pitchers[num(team_pitchers$pa) >= 30, , drop = FALSE]
+  team_hitter_tracking <- hitter_tracking[hitter_tracking$team == team, , drop = FALSE]
+  team_pitcher_tracking <- pitcher_tracking[pitcher_tracking$team == team, , drop = FALSE]
+  qualified_team_contact_tracking <- team_hitter_tracking[
+    num(team_hitter_tracking$tracked_batted_balls) >= 30,
+    ,
+    drop = FALSE
+  ]
+  qualified_team_pitch_tracking <- team_pitcher_tracking[
+    num(team_pitcher_tracking$tracked_pitches) >= 100,
+    ,
+    drop = FALSE
+  ]
   team_changes <- all_changes[all_changes$team == team, , drop = FALSE]
   team_changes <- team_changes[order(-num(team_changes$change_signal_score), -num(team_changes$dominant_change_abs_z)), , drop = FALSE]
   team_pitches <- signature_pitches[signature_pitches$team == team, , drop = FALSE]
@@ -2226,9 +2798,9 @@ for (index in seq_along(team_names)) {
     '<section class="team-report-hero"><div><span class="eyebrow">SABRhood team report</span><h1>', html_escape(team), '</h1><p>', html_escape(team_row$team_story[[1L]]), '</p></div>',
     '<div class="team-report-hero__score"><small>League intelligence</small><strong>#', html_escape(fmt_int(team_row$team_index_rank[[1L]])), '</strong><span>', html_escape(fmt_score(team_row$team_index[[1L]])), ' index</span></div></section>',
     '<section class="team-fingerprint" aria-label="Team component ranks">',
-    rank_meter("Offensive quality", team_row$offense_rank[[1L]], paste("Weighted estimated wOBA", fmt_dec(team_row$offense_woba[[1L]]))),
-    rank_meter("Run prevention", team_row$run_prevention_rank[[1L]], paste("Opponent estimated wOBA", fmt_dec(team_row$opponent_woba[[1L]]))),
-    rank_meter("Recent form", team_row$form_rank[[1L]], paste(fmt_int(team_row$surging_signals[[1L]]), "surging signals")),
+    rank_meter("Run generation", team_row$offense_rank[[1L]], paste("Composite score", fmt_score(team_row$run_generation_score[[1L]]))),
+    rank_meter("Pitching", team_row$pitching_rank[[1L]], paste("Composite score", fmt_score(team_row$pitching_score[[1L]]))),
+    rank_meter("Recent form", team_row$form_rank[[1L]], paste(fmt_int(team_row$surging_signals[[1L]]), "recent risers")),
     rank_meter("Bullpen readiness", team_row$bullpen_rank[[1L]], paste("Current state", team_row$bullpen_health[[1L]])),
     '</section>',
     '<section class="section-heading"><span class="eyebrow">Roster construction</span><h2>Where this club creates, and loses, WAR</h2><p>Players are split by position and total WAR is calculated; the green border indicates a club is top-ten in positional WAR, the red border indicates a bottom-ten club.</p></section>',
@@ -2237,8 +2809,12 @@ for (index in seq_along(team_names)) {
     '<section class="broadcast-three"><div class="section-heading section-heading--tight"><span class="eyebrow">Broadcast three</span><h2>Water cooler notes</h2><p>Three concise, evidence-linked notes to start a broadcast conversation.</p></div><ol>', notes_html, '</ol></section>',
     '<section class="section-heading"><span class="eyebrow">Why it changed</span><h2>Player movement with league context attached</h2><p>The recent-window shift and the full-season league standing are separate, so a surge never floats free of the player\'s actual level.</p></section>',
     if (length(form_cards)) paste0('<div class="player-context-grid player-context-grid--report">', paste0(form_cards, collapse = ""), '</div>') else '<div class="method-callout">No players met both recent and baseline form thresholds.</div>',
-    '<section class="section-heading"><span class="eyebrow">Team highs</span><h2>The category leaders inside this clubhouse</h2><p>Separate boards keep familiar counting stats beside rate production. Rate boards require at least 30 plate appearances or batters faced in the current data snapshot.</p></section>',
+    '<section class="section-heading"><span class="eyebrow">Team highs</span><h2>The category leaders inside this clubhouse</h2><p>Familiar production now sits beside tracked force: 100+ mph contact and pitches are shown as both totals and opportunity rates.</p></section>',
     '<div class="leaderboard-grid team-leaderboard-grid">',
+    leaderboard_card(team_hitter_tracking, "100+ mph batted balls", "batted_balls_100_plus", fmt_int, "Tracked-contact season total", FALSE, 5L, "Club contact"),
+    leaderboard_card(qualified_team_contact_tracking, "100+ mph contact rate", "batted_balls_100_plus_rate", fmt_rate, "Minimum 30 tracked batted balls", FALSE, 5L, "Club contact"),
+    leaderboard_card(team_pitcher_tracking, "Pitches at 100+ mph", "pitches_100_plus", fmt_int, "Across every pitch type", FALSE, 5L, "Club velocity"),
+    leaderboard_card(qualified_team_pitch_tracking, "100+ mph pitch rate", "pitches_100_plus_rate", fmt_rate, "Minimum 100 tracked pitches", FALSE, 5L, "Club velocity"),
     leaderboard_card(qualified_team_hitters, "Batting average", "batting_average", fmt_dec, "Best qualified contact results", FALSE, 5L, "Club offense"),
     leaderboard_card(team_hitters, "Home runs", "home_runs", fmt_int, "The club power board", FALSE, 5L, "Club offense"),
     leaderboard_card(qualified_team_hitters, "OPS", "ops", fmt_dec, "On-base and slugging production", FALSE, 5L, "Club offense"),
@@ -2280,6 +2856,182 @@ write_fragment("methodology-data.html", c(
   stat_card("Run environment", "Loaded, 0 outs", fmt_dec(re_loaded$expected_runs[[1]]), "Estimated from the same season-level state table.", "red"),
   '</div>',
   '<div class="method-callout"><strong>Interpretation rule:</strong> fixed-weight wOBA is labeled as an estimate, barrel classification is labeled as a proxy, and the pressure measure is labeled as a leverage proxy. These fields are designed for transparent reporting, not to impersonate proprietary or official metrics.</div>'
+))
+
+qualified_run_game_pitchers <- run_game_pitchers[
+  num(run_game_pitchers$eligible_pitches) >= 100,
+  ,
+  drop = FALSE
+]
+qualified_run_game_pitchers <- qualified_run_game_pitchers[
+  order(num(qualified_run_game_pitchers$stealing_runs_saved), decreasing = TRUE),
+  ,
+  drop = FALSE
+]
+qualified_run_game_catchers <- run_game_catchers[
+  num(run_game_catchers$eligible_pitches) >= 500,
+  ,
+  drop = FALSE
+]
+qualified_run_game_catchers <- qualified_run_game_catchers[
+  order(num(qualified_run_game_catchers$stealing_runs_saved), decreasing = TRUE),
+  ,
+  drop = FALSE
+]
+qualified_run_game_runners <- run_game_runners[
+  num(run_game_runners$attempts) >= 3,
+  ,
+  drop = FALSE
+]
+qualified_run_game_runners <- qualified_run_game_runners[
+  order(num(qualified_run_game_runners$stealing_runs), decreasing = TRUE),
+  ,
+  drop = FALSE
+]
+qualified_framers <- catcher_framing[
+  num(catcher_framing$called_pitches) >= 1000,
+  ,
+  drop = FALSE
+]
+qualified_framers <- qualified_framers[
+  order(num(qualified_framers$framing_runs_estimate), decreasing = TRUE),
+  ,
+  drop = FALSE
+]
+qualified_abs <- abs_challenges[
+  abs_challenges$challenge_type != "team-summary" &
+    num(abs_challenges$challenge_opportunities) >= 100,
+  ,
+  drop = FALSE
+]
+qualified_abs <- qualified_abs[
+  order(num(qualified_abs$runs_vs_expected), decreasing = TRUE),
+  ,
+  drop = FALSE
+]
+best_run_windows <- run_game_notes[
+  run_game_notes$note_type == "best_count_to_run" &
+    num(run_game_notes$reliability) >= 0.25,
+  ,
+  drop = FALSE
+]
+best_run_windows <- best_run_windows[
+  order(num(best_run_windows$run_window_index), decreasing = TRUE),
+  ,
+  drop = FALSE
+]
+best_run_windows$target_label <- ifelse(
+  num(best_run_windows$target_base) == 3,
+  "Third",
+  "Second"
+)
+
+write_fragment("run-game.html", c(
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight">',
+  '<span class="eyebrow">Run Game Engine v1</span><h2>The next 90 feet, separated into its parts</h2>',
+  '<p>Pitcher hold, catcher throwing, runner selection, pitch-count windows, called-pitch framing, and ABS challenge value are scored independently. Low samples are pulled toward league average.</p></div>',
+  '<div class="method-grid">',
+  stat_card("Pitch windows", "Eligible", fmt_int(run_game_model$eligible_pitches[[1L]]), "Runner on first or second with the next base open.", "navy"),
+  stat_card("Run attempts", "Modeled", fmt_int(run_game_model$attempts[[1L]]), "Stolen-base and caught-stealing actions attached to the preceding pitch.", "red"),
+  stat_card("Catcher ID", "Coverage", fmt_rate(run_game_model$catcher_coverage[[1L]]), "Official lineup and defensive-substitution assignment coverage.", "steel"),
+  stat_card("ABS board", "Rows", fmt_int(nrow(abs_challenges)), "Official Baseball Savant challenge leaderboard rows standardized.", "navy"),
+  '</div></section>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Pitcher control</span>',
+  '<h2>Best adjusted pitcher holds</h2><p>Lower attempt and success-allowed indexes are better; runs saved combines both stages.</p></div>',
+  render_table(
+    utils::head(qualified_run_game_pitchers, 15L),
+    c("player_name", "team", "eligible_pitches", "attempt_index", "success_allowed_index", "stealing_runs_saved", "reliability"),
+    c("Pitcher", "Team", "Eligible", "Attempt index", "Success allowed", "Runs saved", "Reliability"),
+    list(
+      eligible_pitches = fmt_int,
+      attempt_index = function(value) fmt_dec(value, 0L),
+      success_allowed_index = function(value) fmt_dec(value, 0L),
+      stealing_runs_saved = function(value) fmt_signed(value, 2L),
+      reliability = fmt_rate
+    ),
+    "data-table run-game-table"
+  ),
+  '</section>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Battery separation</span>',
+  '<h2>Catcher throwing and called-pitch framing</h2><p>The throwing board adjusts for pitchers and runners faced. The framing board estimates extra called strikes from location and context.</p></div>',
+  '<div class="run-game-board-grid"><div><h3>Throwing value</h3>',
+  render_table(
+    utils::head(qualified_run_game_catchers, 12L),
+    c("player_name", "team", "eligible_pitches", "attempt_index", "success_allowed_index", "stealing_runs_saved"),
+    c("Catcher", "Team", "Eligible", "Attempt", "Success allowed", "Runs saved"),
+    list(
+      eligible_pitches = fmt_int,
+      attempt_index = function(value) fmt_dec(value, 0L),
+      success_allowed_index = function(value) fmt_dec(value, 0L),
+      stealing_runs_saved = function(value) fmt_signed(value, 2L)
+    ),
+    "data-table run-game-table"
+  ),
+  '</div><div><h3>Framing development score</h3>',
+  render_table(
+    utils::head(qualified_framers, 12L),
+    c("catcher_name", "team", "called_pitches", "extra_strikes", "framing_runs_estimate", "framing_score", "reliability"),
+    c("Catcher", "Team", "Called pitches", "Extra strikes", "Runs*", "Score*", "Reliability"),
+    list(
+      called_pitches = fmt_int,
+      extra_strikes = function(value) fmt_signed(value, 1L),
+      framing_runs_estimate = function(value) fmt_signed(value, 2L),
+      framing_score = function(value) fmt_dec(value, 1L),
+      reliability = fmt_rate
+    ),
+    "data-table run-game-table"
+  ),
+  '</div></div></section>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Runner decision quality</span>',
+  '<h2>Best adjusted runners</h2><p>Aggression and success are estimated separately, then combined into stealing run value.</p></div>',
+  render_table(
+    utils::head(qualified_run_game_runners, 15L),
+    c("player_name", "team", "attempts", "adjusted_attempt_rate", "adjusted_success_rate", "successes_above_expected", "stealing_runs", "reliability"),
+    c("Runner", "Team", "Attempts", "Adj. attempt", "Adj. success", "Successes vs exp.", "Stealing runs", "Reliability"),
+    list(
+      attempts = fmt_int,
+      adjusted_attempt_rate = fmt_rate,
+      adjusted_success_rate = fmt_rate,
+      successes_above_expected = function(value) fmt_signed(value, 2L),
+      stealing_runs = function(value) fmt_signed(value, 2L),
+      reliability = fmt_rate
+    ),
+    "data-table run-game-table"
+  ),
+  '</section>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">When to go</span>',
+  '<h2>Pitcher-specific count windows</h2><p>Projected offspeed and breaking-ball mix, plate flight time, disengagements, and observed running behavior shape the index. This is a scouting prompt, not a green light by itself.</p></div>',
+  render_table(
+    utils::head(best_run_windows, 15L),
+    c("pitcher_name", "fielding_team", "target_label", "count_key", "eligible_pitches", "run_window_index", "reliability", "note"),
+    c("Pitcher", "Team", "Target", "Count", "Eligible", "Window index", "Reliability", "Research note"),
+    list(
+      eligible_pitches = fmt_int,
+      run_window_index = function(value) fmt_dec(value, 0L),
+      reliability = fmt_rate
+    ),
+    "data-table run-game-table"
+  ),
+  '</section>',
+  '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">ABS challenge intelligence</span>',
+  '<h2>Official challenge value leaderboard</h2><p>Batter, catcher, and pitcher roles are shown together. Runs vs. expected compares observed challenge value with the official opportunity model.</p></div>',
+  render_table(
+    utils::head(qualified_abs, 18L),
+    c("player_name", "team", "challenge_type", "challenge_opportunities", "challenges", "overturn_rate", "overturns_vs_expected", "runs_vs_expected", "reliability"),
+    c("Player", "Team", "Role", "Opportunities", "Challenges", "Overturn rate", "Overturns vs exp.", "Runs vs exp.", "Reliability"),
+    list(
+      challenge_opportunities = fmt_int,
+      challenges = fmt_int,
+      overturn_rate = fmt_rate,
+      overturns_vs_expected = function(value) fmt_signed(value, 2L),
+      runs_vs_expected = function(value) fmt_signed(value, 2L),
+      reliability = fmt_rate
+    ),
+    "data-table run-game-table"
+  ),
+  '</section>',
+  '<div class="method-callout"><strong>Development status:</strong> catcher stints are reconstructed from official lineups and defensive substitutions; inferred assignments remain reliability-weighted. Framing runs and framing score are SABRhood development estimates, not official Statcast framing. ABS data comes from the official Baseball Savant leaderboard. Data through ',
+  html_escape(run_game_model$source_through[[1L]]), '.</div>'
 ))
 
 cat("Generated site fragments in", include_dir, "\n")

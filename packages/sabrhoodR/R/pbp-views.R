@@ -96,6 +96,14 @@ build_pitch_view <- function(pbp) {
     description = as.character(.column_or_default(raw, c("details.description", "result.description", "description"))),
     pitch_type = as.character(.column_or_default(raw, c("details.type.code", "pitch_type"))),
     pitch_name = as.character(.column_or_default(raw, c("details.type.description", "pitch_name"))),
+    plate_time = .numeric_value(.column_or_default(raw, c("pitchData.plateTime", "plate_time"))),
+    runner_going = .logical_value(.column_or_default(raw, c("details.runnerGoing", "runner_going"), FALSE)),
+    disengagement_count = .integer_value(.column_or_default(
+      raw,
+      c("details.disengagementNum", "disengagement_count"),
+      0L
+    )),
+    umpire_id = as.character(.column_or_default(raw, c("umpire.id", "umpire_id"))),
     call_code = as.character(.column_or_default(raw, c("details.call.code", "call_code"))),
     call_description = as.character(.column_or_default(raw, c("details.call.description", "call_description"))),
     is_in_play = .logical_value(.column_or_default(raw, c("details.isInPlay", "is_in_play"), FALSE)),

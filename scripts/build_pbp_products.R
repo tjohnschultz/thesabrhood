@@ -115,13 +115,40 @@ bullpen_availability <- build_bullpen_availability(
   pitcher_registry,
   as_of_date = source_through
 )
-rm(appearances)
-invisible(gc())
 
 plate_appearances <- build_plate_appearance_view(pitches)
 run_expectancy <- build_run_expectancy_table(plate_appearances)
 plate_appearances <- add_run_expectancy(plate_appearances, run_expectancy)
 plate_appearances <- add_game_context(plate_appearances)
+tracking_leaders <- build_tracking_event_leaderboards(pitches, plate_appearances)
+
+# Compact player-game ledgers let the history desk date an in-season landmark
+# without publishing the underlying pitch-level archive.
+hitter_game_lines <- plate_appearances |>
+  dplyr::group_by(.data$game_pk, .data$game_date, .data$batter_id) |>
+  dplyr::summarise(
+    player_name = dplyr::last(.data$batter_name),
+    team = dplyr::last(.data$batting_team),
+    hits = sum(.data$is_hit, na.rm = TRUE),
+    home_runs = sum(.data$is_home_run, na.rm = TRUE),
+    doubles = sum(.data$event_key == "double", na.rm = TRUE),
+    rbi = sum(.data$runs_batted_in, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  dplyr::rename(player_id = .data$batter_id)
+
+pitcher_game_lines <- appearances |>
+  dplyr::transmute(
+    game_pk = .data$game_pk,
+    game_date = .data$game_date,
+    player_id = .data$pitcher_id,
+    player_name = .data$pitcher_name,
+    team = .data$fielding_team,
+    strikeouts = .data$strikeouts,
+    innings_outs = .data$outs_recorded
+  )
+rm(appearances)
+invisible(gc())
 
 hitters <- summarize_hitters(plate_appearances, minimum_pa = 100L)
 pitchers <- summarize_pitchers(plate_appearances, minimum_pa = 75L)
@@ -241,17 +268,19 @@ discipline <- pitches |>
     player_name = dplyr::last(.data$batter_name),
     team = dplyr::last(.data$batting_team),
     pitches = dplyr::n(),
-    swings = sum(.data$is_swing),
-    whiffs = sum(.data$is_whiff),
-    out_of_zone_pitches = sum(.data$is_out_of_zone),
-    chases = sum(.data$is_chase),
-    zone_swings = sum(.data$is_zone_swing),
-    zone_contact = sum(.data$is_zone_contact),
+    swings = sum(.data$is_swing, na.rm = TRUE),
+    whiffs = sum(.data$is_whiff, na.rm = TRUE),
+    zone_pitches = sum(.data$is_zone, na.rm = TRUE),
+    out_of_zone_pitches = sum(.data$is_out_of_zone, na.rm = TRUE),
+    chases = sum(.data$is_chase, na.rm = TRUE),
+    zone_swings = sum(.data$is_zone_swing, na.rm = TRUE),
+    zone_contact = sum(.data$is_zone_contact, na.rm = TRUE),
     .groups = "drop"
   ) |>
   dplyr::filter(.data$pitches >= 300) |>
   dplyr::mutate(
     swing_rate = .data$swings / .data$pitches,
+    zone_rate = .data$zone_pitches / .data$pitches,
     whiff_rate = .data$whiffs / pmax(.data$swings, 1),
     chase_rate = .data$chases / pmax(.data$out_of_zone_pitches, 1),
     zone_contact_rate = .data$zone_contact / pmax(.data$zone_swings, 1),
@@ -265,8 +294,58 @@ discipline <- pitches |>
   dplyr::arrange(dplyr::desc(.data$discipline_score))
 discipline$discipline_rank <- seq_len(nrow(discipline))
 
+pitcher_discipline <- pitches |>
+  dplyr::filter(!is.na(.data$pitcher_id), .data$pitcher_id != "") |>
+  dplyr::group_by(.data$pitcher_id) |>
+  dplyr::summarise(
+    player_name = dplyr::last(.data$pitcher_name),
+    team = dplyr::last(.data$fielding_team),
+    pitches = dplyr::n(),
+    swings = sum(.data$is_swing, na.rm = TRUE),
+    whiffs = sum(.data$is_whiff, na.rm = TRUE),
+    zone_pitches = sum(.data$is_zone, na.rm = TRUE),
+    out_of_zone_pitches = sum(.data$is_out_of_zone, na.rm = TRUE),
+    chases = sum(.data$is_chase, na.rm = TRUE),
+    zone_swings = sum(.data$is_zone_swing, na.rm = TRUE),
+    zone_contact = sum(.data$is_zone_contact, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  dplyr::filter(.data$pitches >= 300) |>
+  dplyr::mutate(
+    swing_rate = .data$swings / .data$pitches,
+    zone_rate = .data$zone_pitches / .data$pitches,
+    whiff_rate = .data$whiffs / pmax(.data$swings, 1),
+    chase_rate = .data$chases / pmax(.data$out_of_zone_pitches, 1),
+    zone_contact_rate = .data$zone_contact / pmax(.data$zone_swings, 1),
+    discipline_method = "pitch_level_pitcher_discipline_profile_v1"
+  )
+
+hitters <- dplyr::left_join(
+  hitters,
+  discipline |>
+    dplyr::transmute(
+      player_id = as.character(.data$batter_id),
+      discipline_pitches = .data$pitches,
+      swing_rate = .data$swing_rate,
+      zone_rate = .data$zone_rate
+    ),
+  by = "player_id"
+)
+pitchers <- dplyr::left_join(
+  pitchers,
+  pitcher_discipline |>
+    dplyr::transmute(
+      player_id = as.character(.data$pitcher_id),
+      discipline_pitches = .data$pitches,
+      swing_rate = .data$swing_rate,
+      zone_rate = .data$zone_rate
+    ),
+  by = "player_id"
+)
+
 spotlight_candidates <- pitch_usage_changes[
-  is.finite(pitch_usage_changes$usage_delta_pp) & pitch_usage_changes$usage_delta_pp > 0 &
+  is.finite(pitch_usage_changes$usage_delta_pp) & pitch_usage_changes$usage_delta_pp >= 3 &
+    pitch_usage_changes$recent_pitches >= 20 &
     is.finite(pitch_usage_changes$whiff_delta) & pitch_usage_changes$whiff_delta > 0,
   ,
   drop = FALSE
@@ -294,8 +373,13 @@ arsenal_spotlights <- do.call(rbind, lapply(seq_len(nrow(spotlight_candidates)),
   arsenal$featured_pitch_name <- candidate$pitch_name[[1L]]
   arsenal$featured_usage_delta_pp <- candidate$usage_delta_pp[[1L]]
   arsenal$featured_whiff_delta <- candidate$whiff_delta[[1L]]
+  arsenal$featured_recent_pitches <- candidate$recent_pitches[[1L]]
+  arsenal$featured_baseline_pitches <- candidate$baseline_pitches[[1L]]
+  arsenal$featured_recent_whiff_rate <- candidate$recent_whiff_rate[[1L]]
+  arsenal$featured_baseline_whiff_rate <- candidate$baseline_whiff_rate[[1L]]
+  arsenal$featured_recent_games <- 5L
   arsenal$spotlight_score <- candidate$spotlight_score[[1L]]
-  arsenal$spotlight_method <- "usage_gain_plus_pitch_success_v1"
+  arsenal$spotlight_method <- "five_game_usage_gain_plus_whiff_improvement_v2"
   arsenal
 }))
 
@@ -323,6 +407,11 @@ write_product(hitter_platoon, "hitter-platoon-summary.csv")
 write_product(pitcher_platoon, "pitcher-platoon-summary.csv")
 write_product(hitter_form, "hitter-recent-form.csv")
 write_product(pitcher_form, "pitcher-recent-form.csv")
+write_product(tracking_leaders$hitters, "hitter-tracking-totals.csv")
+write_product(tracking_leaders$pitchers, "pitcher-tracking-totals.csv")
+write_product(tracking_leaders$teams, "team-tracking-totals.csv")
+write_product(hitter_game_lines, "current-season-hitter-game-lines.csv")
+write_product(pitcher_game_lines, "current-season-pitcher-game-lines.csv")
 write_product(utils::head(hook_examples, 250L), "manager-hook-examples.csv")
 write_product(hook_coefficients, "manager-hook-model.csv")
 write_product(hook_validation$metrics, "manager-hook-validation-metrics.csv")
@@ -331,8 +420,12 @@ write_product(hook_scenarios, "manager-hook-scenarios.csv")
 write_product(manager_summary, "manager-data-summary.csv")
 write_product(league_trends$pitch_usage, "rolling-league-pitch-usage.csv")
 write_product(league_trends$production, "rolling-league-production.csv")
+write_product(league_trends$pitch_quality, "rolling-league-pitch-quality.csv")
+write_product(league_trends$batted_ball, "rolling-league-batted-ball.csv")
+write_product(league_trends$workload, "rolling-league-workload.csv")
 write_product(insane_awards, "insane-baseball-awards.csv")
 write_product(discipline, "hitter-discipline-profiles.csv")
+write_product(pitcher_discipline, "pitcher-discipline-profiles.csv")
 write_product(arsenal_spotlights, "arsenal-spotlights.csv")
 write_product(pull_spray, "pull-rate-leader-batted-balls.csv")
 

@@ -64,6 +64,6 @@ test_that("team intelligence combines components and writes a reporting lead", {
   teams <- summarize_team_intelligence(hitters, pitchers, hitter_form, pitcher_form, bullpen)
   expect_identical(teams$team[[1]], "A")
   expect_equal(teams$offense_rank[teams$team == "A"], 1)
-  expect_match(teams$team_story[teams$team == "A"], "1st in offensive quality")
-  expect_identical(teams$bullpen_health[teams$team == "B"], "taxed")
+  expect_match(teams$team_story[teams$team == "A"], "1st in run generation")
+  expect_identical(teams$bullpen_health[teams$team == "B"], "emergency")
 })

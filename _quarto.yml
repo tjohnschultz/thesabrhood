@@ -4,6 +4,7 @@ project:
   render:
     - index.qmd
     - today.qmd
+    - standings.qmd
     - races.qmd
     - insane-awards.qmd
     - league-trends.qmd
@@ -11,11 +12,43 @@ project:
     - matchups.qmd
     - players.qmd
     - player-change-engine.qmd
+    - career-trajectories.qmd
     - teams.qmd
     - team-reports.qmd
-    - team-reports/*.qmd
+    - team-reports/arizona-diamondbacks.qmd
+    - team-reports/athletics.qmd
+    - team-reports/atlanta-braves.qmd
+    - team-reports/baltimore-orioles.qmd
+    - team-reports/boston-red-sox.qmd
+    - team-reports/chicago-cubs.qmd
+    - team-reports/chicago-white-sox.qmd
+    - team-reports/cincinnati-reds.qmd
+    - team-reports/cleveland-guardians.qmd
+    - team-reports/colorado-rockies.qmd
+    - team-reports/detroit-tigers.qmd
+    - team-reports/houston-astros.qmd
+    - team-reports/kansas-city-royals.qmd
+    - team-reports/los-angeles-angels.qmd
+    - team-reports/los-angeles-dodgers.qmd
+    - team-reports/miami-marlins.qmd
+    - team-reports/milwaukee-brewers.qmd
+    - team-reports/minnesota-twins.qmd
+    - team-reports/new-york-mets.qmd
+    - team-reports/new-york-yankees.qmd
+    - team-reports/philadelphia-phillies.qmd
+    - team-reports/pittsburgh-pirates.qmd
+    - team-reports/san-diego-padres.qmd
+    - team-reports/san-francisco-giants.qmd
+    - team-reports/seattle-mariners.qmd
+    - team-reports/st-louis-cardinals.qmd
+    - team-reports/tampa-bay-rays.qmd
+    - team-reports/texas-rangers.qmd
+    - team-reports/toronto-blue-jays.qmd
+    - team-reports/washington-nationals.qmd
     - history.qmd
+    - history-match.qmd
     - pitch-lab.qmd
+    - run-game.qmd
     - aaa.qmd
     - projections.qmd
     - newsletter.qmd
@@ -42,9 +75,9 @@ website:
   site-url: "https://thesabrhood.com"
   favicon: "images/new-sabr-logo.png"
   open-graph:
-    image: "images/sabrhood-social-preview-v1.png"
+    image: "/images/sabrhood-social-preview-v1.png"
   twitter-card:
-    image: "images/sabrhood-social-preview-v1.png"
+    image: "/images/sabrhood-social-preview-v1.png"
     card-style: summary_large_image
   google-analytics: "G-GGNXXW6FWM"
   navbar:
@@ -58,6 +91,8 @@ website:
         text: Home
       - href: today.qmd
         text: Today
+      - href: standings.qmd
+        text: Standings
       - href: leaderboards.qmd
         text: Leaders
       - text: Awards
@@ -74,6 +109,8 @@ website:
             text: Players
           - href: player-change-engine.qmd
             text: Player Change Engine
+          - href: career-trajectories.qmd
+            text: Career Path Engine
           - href: teams.qmd
             text: Teams
           - href: team-reports.qmd
@@ -82,10 +119,14 @@ website:
             text: Matchups
           - href: pitch-lab.qmd
             text: Pitch Lab
+          - href: run-game.qmd
+            text: Run Game
           - href: aaa.qmd
             text: Triple-A Watch
           - href: history.qmd
             text: History
+          - href: history-match.qmd
+            text: History Match
           - href: league-trends.qmd
             text: League Trends
       - href: projections.qmd

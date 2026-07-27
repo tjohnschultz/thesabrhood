@@ -1,0 +1,14 @@
+---
+title: "Run Game"
+description: "Adjusted MLB pitcher hold, catcher throwing, runner value, count windows, framing, and ABS challenge leaderboards."
+---
+
+::: {.page-intro}
+<span class="eyebrow">The next 90 feet</span>
+
+# Who controls the running game?
+
+The runner chooses the risk. The pitcher creates the window. The catcher must finish the play. The Run Game Engine measures each part separately, then adds pitch-count, framing, and ABS challenge intelligence.
+:::
+
+{{< include includes/run-game.html >}}

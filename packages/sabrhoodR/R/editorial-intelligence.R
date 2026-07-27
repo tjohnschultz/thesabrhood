@@ -42,6 +42,8 @@
 #' @param season_year Season represented by `hitters` and `pitchers`.
 #' @param career_data_through Last season included in the career profiles.
 #' @param minimum_significance Minimum historical recognition score.
+#' @param reached_dates Optional exact milestone dates with `player_id`,
+#'   `milestone_stat`, `milestone_target`, and `reached_date`.
 #'
 #' @return Ranked milestone-watch candidates.
 #' @export
@@ -51,7 +53,8 @@ build_active_milestone_watch <- function(
     career_profiles,
     season_year,
     career_data_through = season_year - 1L,
-    minimum_significance = 20) {
+    minimum_significance = 20,
+    reached_dates = NULL) {
   required_current <- c("player_name", "team")
   if (!is.data.frame(hitters) || !all(required_current %in% names(hitters))) {
     stop("`hitters` must contain player_name and team.", call. = FALSE)
@@ -79,9 +82,15 @@ build_active_milestone_watch <- function(
   profile_lookup$.name_key <- profile_key[unique_profile_key]
 
   specifications <- list(
-    list(data = hitters, role = "hitter", current = "hits", career = "career_H", stat = "hits", thresholds = c(500, 1000, 1500, 2000, 2500, 3000), window = 100),
-    list(data = hitters, role = "hitter", current = "home_runs", career = "career_HR", stat = "home runs", thresholds = c(100, 200, 300, 400, 500, 600, 700), window = 25),
-    list(data = pitchers, role = "pitcher", current = "strikeouts", career = "career_SO_pitch", stat = "strikeouts", thresholds = c(500, 1000, 1500, 2000, 2500, 3000, 4000, 5000), window = 100)
+    list(data = hitters, role = "hitter", current = "hits", career = "career_H", stat = "hits", thresholds = c(500, 1000, 1500, 2000, 2500, 3000), window = 25),
+    list(data = hitters, role = "hitter", current = "home_runs", career = "career_HR", stat = "home runs", thresholds = c(100, 200, 300, 400, 500, 600, 700), window = 10),
+    list(data = hitters, role = "hitter", current = "doubles", career = "career_X2B", stat = "doubles", thresholds = c(200, 300, 400, 500, 600, 700), window = 10),
+    list(data = hitters, role = "hitter", current = "runs", career = "career_R", stat = "runs", thresholds = c(500, 1000, 1500, 2000, 2500), window = 25),
+    list(data = hitters, role = "hitter", current = "rbi", career = "career_RBI", stat = "RBI", thresholds = c(500, 1000, 1500, 2000, 2500), window = 25),
+    list(data = hitters, role = "hitter", current = "stolen_bases", career = "career_SB", stat = "stolen bases", thresholds = c(100, 200, 300, 400, 500, 600), window = 10),
+    list(data = pitchers, role = "pitcher", current = "strikeouts", career = "career_SO_pitch", stat = "strikeouts", thresholds = c(500, 1000, 1500, 2000, 2500, 3000, 4000, 5000), window = 25),
+    list(data = pitchers, role = "pitcher", current = "wins", career = "career_W", stat = "wins", thresholds = c(50, 100, 150, 200, 250, 300), window = 5),
+    list(data = pitchers, role = "pitcher", current = "saves", career = "career_SV", stat = "saves", thresholds = c(50, 100, 150, 200, 250, 300, 400, 500, 600), window = 5)
   )
   output <- list()
   output_index <- 1L
@@ -134,6 +143,7 @@ build_active_milestone_watch <- function(
         milestone_target = target,
         distance_to_milestone = distance,
         milestone_status = status,
+        reached_date = as.Date(NA),
         progress_pct = round(100 * career_to_date[[index]] / target, 1),
         recognition_tier = if ("recognition_tier" %in% names(profiles)) profiles$recognition_tier[[index]] else NA_character_,
         career_significance_score = significance,
@@ -149,6 +159,25 @@ build_active_milestone_watch <- function(
   }
   if (!length(output)) return(tibble::tibble())
   result <- dplyr::bind_rows(output)
+  if (is.data.frame(reached_dates) && nrow(reached_dates)) {
+    required_dates <- c("player_id", "milestone_stat", "milestone_target", "reached_date")
+    if (!all(required_dates %in% names(reached_dates))) {
+      stop("`reached_dates` is missing milestone-date fields.", call. = FALSE)
+    }
+    date_key <- paste(
+      as.character(reached_dates$player_id),
+      as.character(reached_dates$milestone_stat),
+      as.character(reached_dates$milestone_target),
+      sep = "\034"
+    )
+    result_key <- paste(
+      as.character(result$player_id),
+      as.character(result$milestone_stat),
+      as.character(result$milestone_target),
+      sep = "\034"
+    )
+    result$reached_date <- as.Date(reached_dates$reached_date[match(result_key, date_key)])
+  }
   dplyr::arrange(result, dplyr::desc(.data$story_score), .data$distance_to_milestone)
 }
 
@@ -213,6 +242,11 @@ summarize_team_intelligence <- function(hitters, pitchers, hitter_form, pitcher_
   if (any(!vapply(inputs, is.data.frame, logical(1)))) stop("All inputs must be data frames.", call. = FALSE)
   teams <- sort(unique(c(as.character(hitters$team), as.character(pitchers$team))))
   teams <- teams[!is.na(teams) & nzchar(teams)]
+  if ("last_appearance" %in% names(bullpen)) {
+    bullpen_dates <- suppressWarnings(as.Date(bullpen$last_appearance))
+    bullpen_reference <- max(bullpen_dates, na.rm = TRUE)
+    bullpen <- bullpen[!is.na(bullpen_dates) & bullpen_dates >= bullpen_reference - 21L, , drop = FALSE]
+  }
   rows <- lapply(teams, function(team) {
     h <- hitters[hitters$team == team, , drop = FALSE]
     p <- pitchers[pitchers$team == team, , drop = FALSE]
@@ -225,7 +259,7 @@ summarize_team_intelligence <- function(hitters, pitchers, hitter_form, pitcher_
       data.frame(player = as.character(pf$player_name), role = "Pitcher", score = .safe_numeric(pf$form_score))
     )
     top_candidates <- top_candidates[is.finite(top_candidates$score), , drop = FALSE]
-    top <- if (nrow(top_candidates)) top_candidates[which.max(top_candidates$score), , drop = FALSE] else data.frame(player = "No qualified signal", role = "", score = NA_real_)
+    top <- if (nrow(top_candidates)) top_candidates[which.max(top_candidates$score), , drop = FALSE] else data.frame(player = "No qualified riser", role = "", score = NA_real_)
     availability <- if ("availability_score" %in% names(bp)) .safe_numeric(bp$availability_score) else numeric()
     status <- if ("availability_status" %in% names(bp)) tolower(as.character(bp$availability_status)) else character()
     data.frame(
@@ -243,38 +277,71 @@ summarize_team_intelligence <- function(hitters, pitchers, hitter_form, pitcher_
       average_form = if (any(is.finite(form_values))) mean(form_values, na.rm = TRUE) else NA_real_,
       surging_signals = sum(form_values >= 65, na.rm = TRUE),
       cooling_signals = sum(form_values <= 35, na.rm = TRUE),
-      top_signal = paste0(top$player[[1]], if (nzchar(top$role[[1]])) paste0(" (", top$role[[1]], ")") else ""),
-      top_signal_score = top$score[[1]],
+      recent_riser = paste0(top$player[[1]], if (nzchar(top$role[[1]])) paste0(" (", top$role[[1]], ")") else ""),
+      recent_riser_score = top$score[[1]],
       bullpen_arms = nrow(bp),
       bullpen_available = sum(status %in% c("available", "active", "fresh"), na.rm = TRUE),
-      bullpen_limited = sum(status %in% c("limited", "unavailable"), na.rm = TRUE),
+      bullpen_monitor = sum(status %in% c("monitor"), na.rm = TRUE),
+      bullpen_limited = sum(status %in% c("limited"), na.rm = TRUE),
+      bullpen_unavailable = sum(status %in% c("unavailable", "likely_unavailable"), na.rm = TRUE),
       bullpen_availability = if (any(is.finite(availability))) mean(availability, na.rm = TRUE) else NA_real_,
       bullpen_pitches_3d = if ("pitches_last_3d" %in% names(bp)) sum(.safe_numeric(bp$pitches_last_3d), na.rm = TRUE) else NA_real_,
       stringsAsFactors = FALSE
     )
   })
   result <- dplyr::bind_rows(rows)
-  result$offense_rank <- .team_rank(result$offense_woba)
-  result$run_prevention_rank <- .team_rank(result$opponent_woba, FALSE)
-  result$form_rank <- .team_rank(result$average_form)
-  result$bullpen_rank <- .team_rank(result$bullpen_availability)
-  result$team_index <- round(100 * (
-    0.35 * .percentile(result$offense_woba) +
-      0.35 * .percentile(result$opponent_woba, FALSE) +
-      0.20 * .percentile(result$average_form) +
-      0.10 * .percentile(result$bullpen_availability)
+  result$run_generation_score <- round(100 * (
+    0.30 * .percentile(result$offense_woba) +
+      0.20 * .percentile(result$offense_ops) +
+      0.15 * .percentile(result$offense_walk_rate) +
+      0.15 * .percentile(result$offense_strikeout_rate, FALSE) +
+      0.20 * .percentile(result$offense_hard_hit_rate)
   ), 1)
+  result$pitching_score <- round(100 * (
+    0.30 * .percentile(result$opponent_woba, FALSE) +
+      0.20 * .percentile(result$opponent_ops, FALSE) +
+      0.20 * .percentile(result$pitching_strikeout_rate) +
+      0.15 * .percentile(result$pitching_walk_rate, FALSE) +
+      0.15 * .percentile(result$pitching_hard_hit_rate, FALSE)
+  ), 1)
+  result$offense_rank <- .team_rank(result$run_generation_score)
+  result$pitching_rank <- .team_rank(result$pitching_score)
+  # Retain the old field as a data-contract alias while public copy migrates
+  # to the clearer "Pitching Score" language.
+  result$run_prevention_rank <- result$pitching_rank
+  result$form_rank <- .team_rank(result$average_form)
+  result$bullpen_available_share <- ifelse(
+    result$bullpen_arms > 0,
+    result$bullpen_available / result$bullpen_arms,
+    NA_real_
+  )
+  result$bullpen_unavailable_share <- ifelse(
+    result$bullpen_arms > 0,
+    (result$bullpen_limited + result$bullpen_unavailable) / result$bullpen_arms,
+    NA_real_
+  )
+  result$bullpen_state_score <- round(100 * (
+    0.55 * result$bullpen_available_share +
+      0.25 * (1 - result$bullpen_unavailable_share) +
+      0.20 * result$bullpen_availability
+  ), 1)
+  result$bullpen_rank <- .team_rank(result$bullpen_state_score)
+  result$team_index <- round(0.50 * result$run_generation_score + 0.50 * result$pitching_score, 1)
   result$team_index_rank <- .team_rank(result$team_index)
+  bullpen_quartiles <- stats::quantile(result$bullpen_state_score, c(0.25, 0.75), na.rm = TRUE, names = FALSE)
   result$bullpen_health <- ifelse(
-    result$bullpen_availability >= 0.72, "ready",
-    ifelse(result$bullpen_availability >= 0.50, "mixed", "taxed")
+    result$bullpen_available_share < 0.25 | result$bullpen_unavailable_share > 0.60, "emergency",
+    ifelse(
+      result$bullpen_state_score <= bullpen_quartiles[[1L]], "taxed",
+      ifelse(result$bullpen_state_score >= bullpen_quartiles[[2L]], "rested", "usable")
+    )
   )
   result$team_story <- paste0(
-    result$team, " ranks ", .ordinal(result$offense_rank), " in offensive quality and ",
-    .ordinal(result$run_prevention_rank), " in run prevention, with a ",
-    result$bullpen_health, " bullpen and ", result$surging_signals, " surge signals."
+    result$team, " ranks ", .ordinal(result$offense_rank), " in run generation and ",
+    .ordinal(result$pitching_rank), " in pitching performance, with a ",
+    result$bullpen_health, " bullpen and ", result$surging_signals, " recent risers."
   )
-  result$team_intelligence_method <- "weighted_team_components_percentile_index_v1"
+  result$team_intelligence_method <- "balanced_run_generation_pitching_index_recent_bullpen_quartiles_v3"
   result <- result[order(result$team_index_rank), , drop = FALSE]
   tibble::as_tibble(result)
 }

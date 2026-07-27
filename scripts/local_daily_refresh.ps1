@@ -92,11 +92,11 @@ Run the one-time setup first:
 
 $script:stepNumber = 0
 $script:stepTotal = if ($Mode -eq "Full") {
-  23
+  27
 } elseif ($Mode -eq "Lab") {
-  10
+  11
 } elseif ($Mode -eq "Lineups") {
-  12
+  13
 } else {
   1
 }
@@ -178,7 +178,7 @@ function Invoke-LineupRefresh {
   $lineupRows = Get-LineupRowCount
   if ($lineupRows -ge 9) {
     Invoke-RScript "Build batter-starter matchup event probabilities" "scripts\build_daily_matchup_probabilities.R" | Out-Null
-    Invoke-RScript "Run Phase 4 empirical-baserunning game-state simulations" "scripts\build_daily_state_simulations.R" | Out-Null
+    Invoke-RScript "Run Phase 5 manager-hook game-state simulations" "scripts\build_daily_state_simulations.R" | Out-Null
     Invoke-RScript "Recalculate player event probabilities" "scripts\build_daily_player_probabilities.R" | Out-Null
     Invoke-RScript "Rerun player simulations with posted lineups" "scripts\build_daily_player_simulations.R" | Out-Null
   } else {
@@ -187,6 +187,7 @@ function Invoke-LineupRefresh {
   }
 
   Invoke-RScript "Archive eligible pregame predictions" "scripts\archive_projection_snapshot.R" | Out-Null
+  Invoke-RScript "Rebuild the daily newsletter after lineup changes" "scripts\build_daily_newsletter.R" | Out-Null
 }
 
 Push-Location $siteRoot
@@ -208,9 +209,11 @@ try {
       Invoke-RScript "Rebuild every PBP-derived research table and bullpen product" "scripts\build_pbp_products.R" | Out-Null
       Invoke-RScript "Refresh the historical game-to-venue map" "scripts\fetch_historical_game_venues.R" | Out-Null
       Invoke-RScript "Rebuild empirical baserunning, park, and pitcher-hold profiles" "scripts\build_phase4_baserunning_products.R" | Out-Null
+      Invoke-RScript "Rebuild pitch-level run game, framing, and ABS products" "scripts\build_run_game_products.R" | Out-Null
       Invoke-RScript "Refresh season-level FanGraphs source tables" "scripts\refresh_fangraphs_season.R" -Optional | Out-Null
       Invoke-RScript "Rebuild season leaderboards, awards, and team WAR products" "scripts\build_fangraphs_products.R" -Optional | Out-Null
       Invoke-RScript "Refresh today's active rosters and game information" "scripts\pull_daily_game_info.R" | Out-Null
+      Invoke-RScript "Rebuild role-aware pitcher Career Path products" "..\scripts\build_pitcher_career_trajectory_artifacts.R" | Out-Null
       $priorHealthGroups = $env:SABRHOOD_HEALTH_GROUPS
       $env:SABRHOOD_HEALTH_GROUPS = "completed_game_pbp,pbp_analysis,fangraphs_season"
       try {
@@ -235,13 +238,16 @@ try {
       Invoke-RScript "Rebuild every PBP-derived table and bullpen product" "scripts\build_pbp_products.R" | Out-Null
       Invoke-RScript "Refresh the historical game-to-venue map" "scripts\fetch_historical_game_venues.R" | Out-Null
       Invoke-RScript "Rebuild empirical baserunning, park, and pitcher-hold profiles" "scripts\build_phase4_baserunning_products.R" | Out-Null
+      Invoke-RScript "Rebuild pitch-level run game, framing, and ABS products" "scripts\build_run_game_products.R" | Out-Null
 
       Invoke-RScript "Refresh season-level FanGraphs source tables" "scripts\refresh_fangraphs_season.R" -Optional | Out-Null
       Invoke-RScript "Rebuild season leaderboards, awards, and team WAR products" "scripts\build_fangraphs_products.R" -Optional | Out-Null
       Invoke-RScript "Update rolling award-race history checkpoints" "scripts\refresh_award_history.R" -Optional | Out-Null
 
       Invoke-RScript "Rebuild history, milestones, records, and anniversary notes" "scripts\build_history_products.R" | Out-Null
-      Invoke-RScript "Rebuild story scores, spotlights, matchups, and newsletter products" "scripts\build_editorial_products.R" | Out-Null
+      Invoke-RScript "Select today's rare Retrosheet games and stat lines" "scripts\build_daily_retrosheet_history.R" -Optional | Out-Null
+      Invoke-RScript "Rebuild story scores, spotlights, and matchup products" "scripts\build_editorial_products.R" | Out-Null
+      Invoke-RScript "Refresh MLB and Triple-A standings movement" "scripts\refresh_standings.R" -Optional | Out-Null
       Invoke-RScript "Refresh the Triple-A watch" "scripts\refresh_aaa.R" -Optional | Out-Null
       Invoke-RScript "Pull today's games, rosters, probables, lineups, and weather" "scripts\pull_daily_game_info.R" | Out-Null
 
@@ -250,7 +256,7 @@ try {
         $lineupRows = Get-LineupRowCount
         if ($lineupRows -ge 9) {
           Invoke-RScript "Build batter-starter matchup event probabilities" "scripts\build_daily_matchup_probabilities.R" | Out-Null
-          Invoke-RScript "Run Phase 4 empirical-baserunning game-state simulations" "scripts\build_daily_state_simulations.R" | Out-Null
+          Invoke-RScript "Run Phase 5 manager-hook game-state simulations" "scripts\build_daily_state_simulations.R" | Out-Null
           Invoke-RScript "Calculate today's player event probabilities" "scripts\build_daily_player_probabilities.R" | Out-Null
           Invoke-RScript "Run today's player simulations" "scripts\build_daily_player_simulations.R" | Out-Null
         } else {
@@ -263,6 +269,7 @@ try {
         $script:stepNumber += 6
       }
 
+      Invoke-RScript "Build the daily newsletter editorial edition" "scripts\build_daily_newsletter.R" | Out-Null
       Invoke-RScript "Rebuild the complete branded graphics feed" "scripts\build_graphics_feed.R" | Out-Null
       Invoke-RScript "Check that every public product is current enough to publish" "scripts\build_refresh_health.R" | Out-Null
       Invoke-RScript "Update public-data checksums and source dates" "scripts\update_derived_manifest.R" | Out-Null

@@ -1,0 +1,6 @@
+checkpoint_games,selected_profile,training_score,baseline_training_score,training_score_improvement,adopted_profile,training_rows,median_error_games,weights_adopted,bias_adopted
+100,durability,0.874523308652859,0.92185628742515,0.0513452903863108,baseline,72,-73,FALSE,FALSE
+250,durability,0.885434592018417,0.946507352941176,0.0645243385938649,baseline,72,-183,FALSE,FALSE
+500,baseline,0.903897180762852,0.903897180762852,0,baseline,72,-84,FALSE,FALSE
+750,contact_discipline,0.93044133393439,0.974451754385965,0.0451642887946848,baseline,72,-107,FALSE,FALSE
+1000,power_shape,0.945744441726241,0.971577380952381,0.026588658538775,baseline,72,-75,FALSE,FALSE

@@ -1,5 +1,6 @@
 workspace <- normalizePath(".", winslash = "/", mustWork = TRUE)
 suppressPackageStartupMessages(library(sabrhoodR))
+if (!requireNamespace("Lahman", quietly = TRUE)) stop("Lahman is required for the MVP era model.", call. = FALSE)
 
 season_year <- as.integer(Sys.getenv("SABRHOOD_SEASON", unset = format(Sys.Date(), "%Y")))
 source_path <- file.path(workspace, ".private-data", "sources", paste0("fangraphs-season-", season_year, ".rds"))
@@ -8,7 +9,14 @@ if (!file.exists(source_path)) stop("Run scripts/fetch_fangraphs_season_source.R
 snapshot <- readRDS(source_path)
 compact <- standardize_fangraphs_season(snapshot$hitters, snapshot$pitchers, season_year)
 prior <- standardize_fangraphs_season(snapshot$prior_hitters, snapshot$prior_pitchers, season_year - 1L)
-awards <- build_award_race_boards(compact$hitters, compact$pitchers, prior$hitters, prior$pitchers)
+mvp_era <- build_mvp_era_profiles(Lahman::Batting, Lahman::AwardsPlayers)
+awards <- build_award_race_boards(
+  compact$hitters,
+  compact$pitchers,
+  prior$hitters,
+  prior$pitchers,
+  mvp_weights = mvp_era$weights
+)
 positional_war <- build_team_positional_war(compact$hitters, compact$pitchers)
 compact$hitters$source_acquired_at_utc <- snapshot$acquired_at_utc
 compact$pitchers$source_acquired_at_utc <- snapshot$acquired_at_utc
@@ -22,5 +30,9 @@ utils::write.csv(compact$hitters, file.path(output_dir, "fangraphs-season-hitter
 utils::write.csv(compact$pitchers, file.path(output_dir, "fangraphs-season-pitchers.csv"), row.names = FALSE, na = "")
 utils::write.csv(awards, file.path(output_dir, "award-race-board.csv"), row.names = FALSE, na = "")
 utils::write.csv(positional_war, file.path(output_dir, "team-positional-war.csv"), row.names = FALSE, na = "")
+utils::write.csv(mvp_era$winners, file.path(output_dir, "mvp-era-winner-percentiles.csv"), row.names = FALSE, na = "")
+utils::write.csv(mvp_era$profiles, file.path(output_dir, "mvp-era-stat-profiles.csv"), row.names = FALSE, na = "")
+utils::write.csv(mvp_era$weights, file.path(output_dir, "mvp-modern-model-weights.csv"), row.names = FALSE, na = "")
 cat("Built", nrow(compact$hitters), "FanGraphs hitter rows,", nrow(compact$pitchers), "pitcher rows,",
-  nrow(awards), "award-watch rows, and", nrow(positional_war), "team-position rows.\n")
+  nrow(awards), "award-watch rows,", nrow(positional_war), "team-position rows, and",
+  nrow(mvp_era$profiles), "MVP decade-stat profiles.\n")

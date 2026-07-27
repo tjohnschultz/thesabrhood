@@ -104,10 +104,22 @@ standardize_fangraphs_season <- function(hitters, pitchers, season) {
 #' @param minimum_pa Minimum PA for MVP scoring.
 #' @param minimum_outs Minimum recorded outs for Cy Young scoring.
 #' @param young_age Maximum age for the provisional young-player watch.
+#' @param mvp_weights Optional `metric` and `model_weight` table produced by
+#'   [build_mvp_era_profiles()].
 #' @return A combined award-race data frame.
 #' @export
-build_award_race_boards <- function(hitters, pitchers, prior_hitters = NULL, prior_pitchers = NULL, minimum_pa = 200L, minimum_outs = 150L, young_age = 26L) {
+build_award_race_boards <- function(hitters, pitchers, prior_hitters = NULL, prior_pitchers = NULL, minimum_pa = 200L, minimum_outs = 150L, young_age = 26L, mvp_weights = NULL) {
   stopifnot(is.data.frame(hitters), is.data.frame(pitchers))
+  if (is.null(mvp_weights) || !is.data.frame(mvp_weights) || !all(c("metric", "model_weight") %in% names(mvp_weights))) {
+    mvp_weights <- data.frame(
+      metric = c("war", "ops", "hr", "rbi", "r", "h", "sb"),
+      model_weight = c(0.35, 0.20, 0.14, 0.10, 0.08, 0.08, 0.05),
+      stringsAsFactors = FALSE
+    )
+  }
+  mvp_weights$model_weight <- suppressWarnings(as.numeric(mvp_weights$model_weight))
+  mvp_weights <- mvp_weights[is.finite(mvp_weights$model_weight) & mvp_weights$model_weight > 0, , drop = FALSE]
+  mvp_weights$model_weight <- mvp_weights$model_weight / sum(mvp_weights$model_weight)
   pitching_war_by_player <- stats::setNames(pitchers$war, as.character(pitchers$player_id))
   boards <- list()
   for (league_name in c("AL", "NL")) {
@@ -116,13 +128,17 @@ build_award_race_boards <- function(hitters, pitchers, prior_hitters = NULL, pri
       bat$pitching_war <- unname(pitching_war_by_player[as.character(bat$player_id)])
       bat$pitching_war[!is.finite(bat$pitching_war)] <- 0
       bat$combined_war <- bat$war + bat$pitching_war
-      bat$award_score <- 100 * (
-        0.30 * fg_percentile(bat$combined_war) + 0.18 * fg_percentile(bat$wrc_plus) +
-          0.12 * fg_percentile(bat$home_runs) + 0.08 * fg_percentile(bat$rbi) +
-          0.07 * fg_percentile(bat$runs) + 0.10 * fg_percentile(bat$offense) +
-          0.05 * fg_percentile(bat$defense) + 0.05 * fg_percentile(bat$pa) +
-          0.05 * fg_percentile(bat$wpa)
+      metric_columns <- c(
+        war = "combined_war", avg = "avg", obp = "obp", slg = "slg", ops = "ops",
+        h = "hits", hr = "home_runs", rbi = "rbi", r = "runs", sb = "stolen_bases"
       )
+      score_parts <- lapply(seq_len(nrow(mvp_weights)), function(index) {
+        metric <- tolower(as.character(mvp_weights$metric[[index]]))
+        column <- unname(metric_columns[metric])
+        if (!length(column) || is.na(column) || !column %in% names(bat)) return(rep(0, nrow(bat)))
+        mvp_weights$model_weight[[index]] * fg_percentile(bat[[column]])
+      })
+      bat$award_score <- 100 * Reduce(`+`, score_parts)
       bat <- bat[order(-bat$award_score, -bat$combined_war), , drop = FALSE]
       boards[[paste0(league_name, "_mvp")]] <- data.frame(
         award = "MVP", league = league_name, rank = seq_len(nrow(bat)), player_id = bat$player_id,
@@ -131,7 +147,7 @@ build_award_race_boards <- function(hitters, pitchers, prior_hitters = NULL, pri
         primary_label = "wRC+", volume_value = bat$pa, volume_label = "PA",
         evidence = paste0(format(round(bat$combined_war, 1), nsmall = 1), " combined WAR | ", round(bat$home_runs),
           " HR | ", round(bat$rbi), " RBI | ", round(bat$wrc_plus), " wRC+"),
-        eligibility_status = "qualified performance pool", score_method = "fangraphs_mvp_total_value_score_v2",
+        eligibility_status = "qualified performance pool", score_method = "modern_era_mvp_percentile_profile_v3",
         stringsAsFactors = FALSE
       )
     }

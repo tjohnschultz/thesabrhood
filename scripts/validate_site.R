@@ -23,6 +23,10 @@ canonical_file_md5 <- function(path) {
 required_data <- c(
   "data-contract-summary.csv",
   "historical-anniversary-notes.csv",
+  "history-match-notes.csv",
+  "daily-retrosheet-history.csv",
+  "current-season-hitter-game-lines.csv",
+  "current-season-pitcher-game-lines.csv",
   "historical-milestone-notes.csv",
   "historical-player-profiles.csv",
   "hitter-performance-summary.csv",
@@ -49,6 +53,16 @@ required_data <- c(
   ,"team-broadcast-notes.csv"
   ,"hitter-change-profiles.csv"
   ,"pitcher-change-profiles.csv"
+  ,"career-trajectory-projections.csv"
+  ,"career-trajectory-comparables.csv"
+  ,"career-trajectory-model-card.csv"
+  ,"career-trajectory-backtest-summary.csv"
+  ,"career-trajectory-probability-calibration.csv"
+  ,"career-trajectory-holdout-validation.csv"
+  ,"career-trajectory-rate-validation.csv"
+  ,"career-trajectory-weight-tuning.csv"
+  ,"career-trajectory-tuning-evaluation.csv"
+  ,"career-trajectory-weight-profiles.csv"
   ,"daily-projection-demo.csv"
   ,"daily-projection-margin.csv"
   ,"daily-projection-scorelines.csv"
@@ -92,6 +106,19 @@ required_data <- c(
   ,"fangraphs-season-hitters.csv"
   ,"fangraphs-season-pitchers.csv"
   ,"award-race-board.csv"
+  ,"mvp-era-stat-profiles.csv"
+  ,"mvp-modern-model-weights.csv"
+  ,"aaa-call-up-radar.csv"
+  ,"aaa-standings-current.csv"
+  ,"aaa-standings-movement.csv"
+  ,"aaa-team-rankings.csv"
+  ,"hitter-tracking-totals.csv"
+  ,"pitcher-tracking-totals.csv"
+  ,"team-tracking-totals.csv"
+  ,"mlb-standings-current.csv"
+  ,"mlb-standings-movement.csv"
+  ,"daily-newsletter-stories.csv"
+  ,"daily-newsletter-edition.csv"
   ,"graphics-feed-manifest.csv"
   ,"daily-player-probabilities.csv"
   ,"daily-matchup-event-probabilities.csv"
@@ -110,12 +137,26 @@ required_data <- c(
   ,"baserunning-pitcher-hold-profiles.csv"
   ,"baserunning-park-factors.csv"
   ,"baserunning-model-card.csv"
+  ,"run-game-pitcher-ratings.csv"
+  ,"run-game-catcher-ratings.csv"
+  ,"run-game-runner-ratings.csv"
+  ,"run-game-battery-ratings.csv"
+  ,"run-game-count-windows.csv"
+  ,"run-game-notes.csv"
+  ,"run-game-model-card.csv"
+  ,"catcher-framing-ratings.csv"
+  ,"catcher-framing-model-card.csv"
+  ,"abs-challenge-leaderboard.csv"
+  ,"abs-challenge-model-card.csv"
   ,"state-simulation-calibration-status.csv"
   ,"state-reliever-feedback-metrics.csv"
   ,"matchup-event-feedback-metrics.csv"
   ,"matchup-event-feedback-by-event.csv"
   ,"rolling-league-pitch-usage.csv"
   ,"rolling-league-production.csv"
+  ,"rolling-league-pitch-quality.csv"
+  ,"rolling-league-batted-ball.csv"
+  ,"rolling-league-workload.csv"
   ,"insane-baseball-awards.csv"
   ,"team-positional-war.csv"
   ,"hitter-discipline-profiles.csv"
@@ -141,6 +182,7 @@ required_fragments <- c(
   ,"article-listing.html"
   ,"home-research.html"
   ,"history-desk.html"
+  ,"history-match-desk.html"
   ,"home-team-pulse.html"
   ,"league-races.html"
   ,"story-desk.html"
@@ -149,19 +191,24 @@ required_fragments <- c(
   ,"team-report-index.html"
   ,"home-player-change.html"
   ,"player-change-cards.html"
+  ,"career-trajectories.html"
+  ,"home-career-trajectories.html"
   ,"daily-projections.html"
   ,"home-projections.html"
   ,"aaa-watch.html"
   ,"graphics-feed.html"
   ,"newsletter-graphics.html"
   ,"league-leaderboards.html"
+  ,"standings-desk.html"
   ,"league-trends.html"
   ,"insane-awards.html"
+  ,"run-game.html"
 )
 
 allowed_empty_data <- c(
   "daily-batting-orders.csv",
-  "daily-player-simulation-skips.csv"
+  "daily-player-simulation-skips.csv",
+  "history-match-notes.csv"
 )
 
 for (name in required_data) {
@@ -257,7 +304,7 @@ if (file.exists(re24_path)) {
 
 if (check_rendered) {
   required_pages <- c(
-    "index.html", "today.html", "races.html", "insane-awards.html", "league-trends.html", "story-desk.html", "matchups.html", "players.html", "player-change-engine.html", "teams.html", "team-reports.html", "history.html", "pitch-lab.html",
+    "index.html", "today.html", "standings.html", "races.html", "insane-awards.html", "league-trends.html", "story-desk.html", "matchups.html", "players.html", "player-change-engine.html", "career-trajectories.html", "teams.html", "team-reports.html", "history.html", "history-match.html", "pitch-lab.html", "run-game.html",
     "projections.html", "aaa.html", "newsletter.html", "graphics-feed.html", "leaderboards.html", "blog.html", "broadcast.html",
     "methodology.html", "glossary.html", "about.html", "404.html"
   )

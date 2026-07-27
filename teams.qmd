@@ -1,6 +1,6 @@
 ---
 title: "Teams"
-description: "A 30-team view combining offensive quality, run prevention, recent form, and bullpen readiness."
+description: "A 30-team view combining run generation, pitching quality, recent form, and bullpen condition."
 ---
 
 ::: {.page-intro}

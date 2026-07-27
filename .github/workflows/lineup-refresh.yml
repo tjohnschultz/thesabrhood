@@ -85,7 +85,7 @@ jobs:
         if: steps.gate.outputs.active_window == 'true' || inputs.force == true
         run: Rscript scripts/build_daily_team_simulations.R
 
-      - name: Rebuild lineup-dependent player projections
+      - name: Rebuild Phase 5 game-state and player projections
         if: steps.lineups.outputs.has_lineups == 'true'
         shell: bash
         run: |
@@ -97,6 +97,10 @@ jobs:
       - name: Archive the freshest eligible pregame predictions
         if: steps.gate.outputs.active_window == 'true' || inputs.force == true
         run: Rscript scripts/archive_projection_snapshot.R
+
+      - name: Rebuild newsletter after the lineup update
+        if: steps.gate.outputs.active_window == 'true' || inputs.force == true
+        run: Rscript scripts/build_daily_newsletter.R
 
       - name: Regenerate, validate, and render the site
         if: steps.gate.outputs.active_window == 'true' || inputs.force == true

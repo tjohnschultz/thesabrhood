@@ -1,0 +1,19 @@
+---
+title: "Career Path Engine"
+description: "Chronologically backtested MLB hitter career projections built from age- and game-aligned historical paths."
+---
+
+::: {.page-intro .page-intro--dark}
+<span class="eyebrow">Player futures</span>
+
+# A career projection should show its family tree
+
+The Career Path Engine finds historical hitters who reached the same number of games at a similar age with a similar offensive profile, then shows what happened next as a range. Its reliability is measured with roll-forward tests that never allow a future career into an earlier forecast.
+:::
+
+{{< include includes/career-trajectories.html >}}
+
+::: {.section-action}
+[Explore current player performance](players.qmd){.btn .btn-metallic}
+[Read the methodology](methodology.qmd){.btn .btn-sabr-navy}
+:::

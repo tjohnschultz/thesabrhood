@@ -94,3 +94,52 @@ test_that("Phase 4 activates empirical runner profiles", {
   )
   expect_equal(result$game_summary$mean_steal_attempts, 0)
 })
+
+test_that("Phase 5 uses learned hook probabilities and workload limits", {
+  lineup <- make_phase3_lineup()
+  hook_terms <- c(
+    "(Intercept)", "pitches_over_60", "bf_over_18", "third_time",
+    "late_inning", "close_game", "trailing_badly", "adverse_result",
+    "starter_flag", "reliever_flag"
+  )
+  hook_coefficients <- data.frame(
+    term = hook_terms,
+    estimate = c(5, rep(0, length(hook_terms) - 1L))
+  )
+  result <- simulate_game_state_phase5(
+    lineup, lineup, lineup, lineup,
+    n_sims = 35,
+    seed = 71,
+    manager_hook_coefficients = hook_coefficients,
+    away_starter_pitch_limit = 100,
+    home_starter_pitch_limit = 100,
+    run_environment_multiplier = 1.04
+  )
+
+  expect_equal(
+    result$game_summary$model_version,
+    "plate_appearance_state_machine_phase5_manager_hook_v1"
+  )
+  expect_true(result$game_summary$manager_hook_model_active)
+  expect_equal(result$game_summary$run_environment_multiplier, 1.04)
+  expect_gt(result$game_summary$away_starter_hook_probability, 0.95)
+  expect_lt(result$game_summary$away_starter_mean_bf, 3)
+})
+
+test_that("Phase 5 run environment tilts extra-base event probabilities", {
+  lineup <- make_phase3_lineup()
+  cool <- simulate_game_state_phase5(
+    lineup, lineup, lineup, lineup,
+    n_sims = 160,
+    seed = 104,
+    run_environment_multiplier = 0.85
+  )
+  hot <- simulate_game_state_phase5(
+    lineup, lineup, lineup, lineup,
+    n_sims = 160,
+    seed = 104,
+    run_environment_multiplier = 1.18
+  )
+
+  expect_gt(hot$game_summary$mean_total_runs, cool$game_summary$mean_total_runs)
+})

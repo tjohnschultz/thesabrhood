@@ -1,0 +1,22 @@
+---
+title: "History Match"
+description: "Reviewed player and team stat lines placed in verified MLB historical context."
+---
+
+::: {.page-intro .history-match-intro}
+<span class="eyebrow">The comparison engine</span>
+
+# When a current line becomes a piece of baseball history
+
+History Match discovers meaningful combinations below a player’s or team’s
+actual performance, then checks the same season or rolling window against
+verified Retrosheet history. Only producer-reviewed claims appear here.
+:::
+
+{{< include includes/history-match-desk.html >}}
+
+::: {.section-action}
+[Open the complete History Desk](history.qmd){.btn .btn-sabr-navy}
+[Read the methodology](methodology.qmd){.btn .btn-outline-sabr}
+[Download approved note data](data/derived/history-match-notes.csv){.btn .btn-metallic}
+:::

@@ -96,6 +96,10 @@ jobs:
           Rscript scripts/build_history_products.R
           Rscript scripts/build_editorial_products.R
 
+      - name: Refresh MLB and Triple-A standings movement
+        continue-on-error: true
+        run: Rscript scripts/refresh_standings.R
+
       - name: Refresh Triple-A watch
         continue-on-error: true
         run: Rscript scripts/refresh_aaa.R
@@ -123,16 +127,21 @@ jobs:
         if: steps.slate.outputs.has_slate == 'true'
         run: Rscript scripts/build_daily_team_simulations.R
 
-      - name: Build lineup-dependent player projections
+      - name: Build Phase 5 game-state and player projections
         if: steps.slate.outputs.has_lineups == 'true'
         shell: bash
         run: |
+          Rscript scripts/build_daily_matchup_probabilities.R
+          Rscript scripts/build_daily_state_simulations.R
           Rscript scripts/build_daily_player_probabilities.R
           Rscript scripts/build_daily_player_simulations.R
 
       - name: Archive eligible pregame predictions
         if: steps.slate.outputs.has_slate == 'true'
         run: Rscript scripts/archive_projection_snapshot.R
+
+      - name: Build daily newsletter edition
+        run: Rscript scripts/build_daily_newsletter.R
 
       - name: Rebuild branded graphics feed
         run: Rscript scripts/build_graphics_feed.R

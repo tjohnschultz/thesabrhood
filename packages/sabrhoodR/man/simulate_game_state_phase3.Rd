@@ -19,7 +19,12 @@ simulate_game_state_phase3(
   baserunning_rates = list(),
   away_runner_profiles = NULL,
   home_runner_profiles = NULL,
-  defense_steal_multipliers = c(away = 1, home = 1)
+  defense_steal_multipliers = c(away = 1, home = 1),
+  manager_hook_coefficients = NULL,
+  away_starter_pitch_limit = 92,
+  home_starter_pitch_limit = 92,
+  starter_pitch_limit_sd = 7,
+  run_environment_multiplier = 1
 )
 }
 \arguments{
@@ -36,6 +41,14 @@ simulate_game_state_phase3(
 \item{away_runner_profiles, home_runner_profiles}{Long-form empirical runner profiles.}
 \item{defense_steal_multipliers}{Named away/home defensive multipliers for
 steal-attempt probability. Values below one suppress attempts.}
+\item{manager_hook_coefficients}{Optional `term` and `estimate` table from the
+pooled manager hook model.}
+\item{away_starter_pitch_limit, home_starter_pitch_limit}{Pregame expected
+starter pitch-count limits.}
+\item{starter_pitch_limit_sd}{Standard deviation around each starter pitch
+limit.}
+\item{run_environment_multiplier}{Park-and-weather multiplier applied to
+on-base and extra-base-hit event odds.}
 }
 \value{A list with game, hitter, reliever, and detailed-event summaries.}
 \description{

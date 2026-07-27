@@ -1,0 +1,2690 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Chronologically backtested MLB hitter career projections built from age- and game-aligned historical paths.">
+
+<title>Career Path Engine – The SABRhood</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/new-sabr-logo.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-GGNXXW6FWM"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<meta name="theme-color" content="#0C2340">
+
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="includes/article-team-themes.css">
+<meta property="og:title" content="Career Path Engine – The SABRhood">
+<meta property="og:description" content="Chronologically backtested MLB hitter career projections built from age- and game-aligned historical paths.">
+<meta property="og:image" content="https://thesabrhood.com/images/sabrhood-social-preview-v1.png">
+<meta property="og:site_name" content="The SABRhood">
+<meta property="og:image:height" content="946">
+<meta property="og:image:width" content="1662">
+<meta name="twitter:title" content="Career Path Engine – The SABRhood">
+<meta name="twitter:description" content="Chronologically backtested MLB hitter career projections built from age- and game-aligned historical paths.">
+<meta name="twitter:image" content="https://thesabrhood.com/images/sabrhood-social-preview-v1.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="946">
+<meta name="twitter:image-width" content="1662">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">The SABRhood</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./today.html"> 
+<span class="menu-text">Today</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./standings.html"> 
+<span class="menu-text">Standings</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./leaderboards.html"> 
+<span class="menu-text">Leaders</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-awards" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Awards</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-awards">    
+        <li>
+    <a class="dropdown-item" href="./races.html">
+ <span class="dropdown-text">MLB Award Races</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./insane-awards.html">
+ <span class="dropdown-text">Insane Baseball Awards</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-intelligence" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Intelligence</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-intelligence">    
+        <li>
+    <a class="dropdown-item" href="./story-desk.html">
+ <span class="dropdown-text">Story Engine</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./players.html">
+ <span class="dropdown-text">Players</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./player-change-engine.html">
+ <span class="dropdown-text">Player Change Engine</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./career-trajectories.html">
+ <span class="dropdown-text">Career Path Engine</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./teams.html">
+ <span class="dropdown-text">Teams</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./team-reports.html">
+ <span class="dropdown-text">Team reports</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./matchups.html">
+ <span class="dropdown-text">Matchups</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./pitch-lab.html">
+ <span class="dropdown-text">Pitch Lab</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./run-game.html">
+ <span class="dropdown-text">Run Game</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./aaa.html">
+ <span class="dropdown-text">Triple-A Watch</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./history.html">
+ <span class="dropdown-text">History</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./history-match.html">
+ <span class="dropdown-text">History Match</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./league-trends.html">
+ <span class="dropdown-text">League Trends</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./projections.html"> 
+<span class="menu-text">Projections</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./newsletter.html"> 
+<span class="menu-text">Newsletter</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./graphics-feed.html"> 
+<span class="menu-text">Graphics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./blog.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./broadcast.html"> 
+<span class="menu-text">Broadcast</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Career Path Engine</h1>
+</div>
+
+<div>
+  <div class="description">
+    Chronologically backtested MLB hitter career projections built from age- and game-aligned historical paths.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="page-intro page-intro--dark">
+<p><span class="eyebrow">Player futures</span></p>
+<section id="a-career-projection-should-show-its-family-tree" class="level1">
+<h1>A career projection should show its family tree</h1>
+<p>The Career Path Engine finds historical hitters who reached the same number of games at a similar age with a similar offensive profile, then shows what happened next as a range. Its reliability is measured with roll-forward tests that never allow a future career into an earlier forecast.</p>
+</section>
+</div>
+<div class="change-method-strip">
+<strong>Chronologically backtested comparable paths, not destiny</strong><span>The engine aligns hitters by career games and age, then compares era-indexed on-base skill, slugging, isolated power, walks, strikeouts, home-run rate, speed, and playing-time pace. Every historical test uses only careers already complete at that forecast date.</span>
+</div>
+<div class="history-scoreboard">
+<article class="data-card data-card--navy">
+<span class="eyebrow">Backtest</span>
+<h3 class="anchored">
+Pseudo-forecasts
+</h3>
+<div class="data-card__value">
+545
+</div>
+<p>
+Five career checkpoints across 1995-2022 origins.
+</p>
+</article>
+<article class="data-card data-card--red">
+<span class="eyebrow">Median forecast</span>
+<h3 class="anchored">
+Absolute error
+</h3>
+<div class="data-card__value">
+317 games
+</div>
+<p>
+Weighted mean absolute error for remaining games.
+</p>
+</article>
+<article class="data-card data-card--steel">
+<span class="eyebrow">80% range</span>
+<h3 class="anchored">
+Observed coverage
+</h3>
+<div class="data-card__value">
+83.0%
+</div>
+<p>
+How often the realized remaining career landed inside p10-p90.
+</p>
+</article>
+<article class="data-card data-card--navy">
+<span class="eyebrow">Calibration</span>
+<h3 class="anchored">
+Raw probabilities retained
+</h3>
+<div class="data-card__value">
+Brier 0.187
+</div>
+<p>
+Later-season holdout score for the raw 500-game probability.
+</p>
+</article>
+<article class="data-card data-card--red">
+<span class="eyebrow">Weight profiles</span>
+<h3 class="anchored">
+Baseline weights retained
+</h3>
+<div class="data-card__value">
+245 vs 246 MAE
+</div>
+<p>
+Five interpretable profiles were selected on early origins, then tested on 2013-2022.
+</p>
+</article>
+<article class="data-card data-card--steel">
+<span class="eyebrow">Bias correction</span>
+<h3 class="anchored">
+Bias correction rejected
+</h3>
+<div class="data-card__value">
+311 game MAE
+</div>
+<p>
+Training-era median corrections did not transport to the later holdout.
+</p>
+</article>
+<article class="data-card data-card--navy">
+<span class="eyebrow">Career rates</span>
+<h3 class="anchored">
+Final OPS holdout MAE
+</h3>
+<div class="data-card__value">
+0.023
+</div>
+<p>
+Terminal AVG, OBP, SLG, and OPS blend the current line with each neighbor’s remaining career.
+</p>
+</article>
+<article class="data-card data-card--red">
+<span class="eyebrow">Home-run pace</span>
+<h3 class="anchored">
+Future HR / 600 MAE
+</h3>
+<div class="data-card__value">
+6.0
+</div>
+<p>
+The explicit rate-times-games total remains a scenario because it did not beat the direct comparable total.
+</p>
+</article>
+<article class="data-card data-card--steel">
+<span class="eyebrow">Future value</span>
+<h3 class="anchored">
+Holdout MAE
+</h3>
+<div class="data-card__value">
+12.0 units
+</div>
+<p>
+Era-adjusted offensive quality multiplied by projected playing-time volume.
+</p>
+</article>
+<article class="data-card data-card--navy">
+<span class="eyebrow">Upside</span>
+<h3 class="anchored">
++10 value-unit Brier
+</h3>
+<div class="data-card__value">
+0.120
+</div>
+<p>
+Neighbor-weighted probability of adding at least 10 above-average offensive value units.
+</p>
+</article>
+</div>
+<section class="section-heading">
+<span class="eyebrow">Career trajectory watch</span>
+<h2 class="anchored">
+Active hitters with the strongest research-ready paths
+</h2>
+<p>
+Every card shows what happened after similar historical checkpoints. Current players never contribute their own future, and only careers completed before the historical cutoff enter the forecast.
+</p>
+</section>
+<div class="career-trajectory-grid">
+<article class="career-trajectory-card">
+<header>
+<span>CIN · 120 career games</span><strong>Strong neighbor fit</strong>
+</header>
+<h3 class="anchored">
+Sal Stewart
+</h3>
+<p>
+At 120 career games, Sal Stewart’s historical neighbors point to a median 1,544 more games, with a 95% backtest-checked chance of at least 500 more.
+</p>
+<p>
+Median future offensive value: +100.4 units (p10 -2.5, p90 +307.8); 85% neighbor-weighted chance of at least +10 future units. Fringe Hall of Fame Lane (15% of eligible neighbor weight inducted).
+</p>
+<div class="career-trajectory-metrics">
+<span><small>Closest path</small><strong>David Wright</strong></span><span><small>Projected AVG / OBP / SLG</small><strong>.273 / .339 / .468</strong></span><span><small>Future HR / 600 PA</small><strong>21.3</strong></span><span><small>Future offensive value</small><strong>+100.4 units</strong></span><span><small>Legacy path</small><strong>Fringe Hall of Fame Lane</strong></span>
+</div>
+</article>
+<article class="career-trajectory-card">
+<header>
+<span>ARI · 581 career games</span><strong>Strong neighbor fit</strong>
+</header>
+<h3 class="anchored">
+Corbin Carroll
+</h3>
+<p>
+At 581 career games, Corbin Carroll’s historical neighbors point to a median 1,400 more games, with a 100% backtest-checked chance of at least 500 more.
+</p>
+<p>
+Median future offensive value: +111.3 units (p10 +7.9, p90 +363.5); 89% neighbor-weighted chance of at least +10 future units. Credible Hall of Fame Lane (20% of eligible neighbor weight inducted).
+</p>
+<div class="career-trajectory-metrics">
+<span><small>Closest path</small><strong>Barry Bonds</strong></span><span><small>Projected AVG / OBP / SLG</small><strong>.274 / .351 / .476</strong></span><span><small>Future HR / 600 PA</small><strong>23.0</strong></span><span><small>Future offensive value</small><strong>+111.3 units</strong></span><span><small>Legacy path</small><strong>Credible Hall of Fame Lane</strong></span>
+</div>
+</article>
+<article class="career-trajectory-card">
+<header>
+<span>SDP · 369 career games</span><strong>Strong neighbor fit</strong>
+</header>
+<h3 class="anchored">
+Jackson Merrill
+</h3>
+<p>
+At 369 career games, Jackson Merrill’s historical neighbors point to a median 1,447 more games, with a 95% backtest-checked chance of at least 500 more.
+</p>
+<p>
+Median future offensive value: +65.5 units (p10 -11.6, p90 +213.1); 75% neighbor-weighted chance of at least +10 future units. Credible Hall of Fame Lane (15% of eligible neighbor weight inducted).
+</p>
+<div class="career-trajectory-metrics">
+<span><small>Closest path</small><strong>Chet Lemon</strong></span><span><small>Projected AVG / OBP / SLG</small><strong>.273 / .335 / .448</strong></span><span><small>Future HR / 600 PA</small><strong>17.8</strong></span><span><small>Future offensive value</small><strong>+65.5 units</strong></span><span><small>Legacy path</small><strong>Credible Hall of Fame Lane</strong></span>
+</div>
+</article>
+<article class="career-trajectory-card">
+<header>
+<span>KCR · 117 career games</span><strong>Strong neighbor fit</strong>
+</header>
+<h3 class="anchored">
+Carter Jensen
+</h3>
+<p>
+At 117 career games, Carter Jensen’s historical neighbors point to a median 1,166 more games, with a 90% backtest-checked chance of at least 500 more.
+</p>
+<p>
+Median future offensive value: +75.9 units (p10 -14.0, p90 +315.2); 70% neighbor-weighted chance of at least +10 future units. Credible Hall of Fame Lane (20% of eligible neighbor weight inducted).
+</p>
+<div class="career-trajectory-metrics">
+<span><small>Closest path</small><strong>Travis Snider</strong></span><span><small>Projected AVG / OBP / SLG</small><strong>.271 / .341 / .445</strong></span><span><small>Future HR / 600 PA</small><strong>19.5</strong></span><span><small>Future offensive value</small><strong>+75.9 units</strong></span><span><small>Legacy path</small><strong>Credible Hall of Fame Lane</strong></span>
+</div>
+</article>
+<article class="career-trajectory-card">
+<header>
+<span>SDP · 773 career games</span><strong>Strong neighbor fit</strong>
+</header>
+<h3 class="anchored">
+Fernando Tatis Jr.
+</h3>
+<p>
+At 773 career games, Fernando Tatis Jr.’s historical neighbors point to a median 1,225 more games, with a 94% backtest-checked chance of at least 500 more.
+</p>
+<p>
+Median future offensive value: +80.4 units (p10 +24.2, p90 +292.2); 94% neighbor-weighted chance of at least +10 future units. Credible Hall of Fame Lane (21% of eligible neighbor weight inducted).
+</p>
+<div class="career-trajectory-metrics">
+<span><small>Closest path</small><strong>Grady Sizemore</strong></span><span><small>Projected AVG / OBP / SLG</small><strong>.278 / .351 / .481</strong></span><span><small>Future HR / 600 PA</small><strong>23.9</strong></span><span><small>Future offensive value</small><strong>+80.4 units</strong></span><span><small>Legacy path</small><strong>Credible Hall of Fame Lane</strong></span>
+</div>
+</article>
+<article class="career-trajectory-card">
+<header>
+<span>WSN · 193 career games</span><strong>Strong neighbor fit</strong>
+</header>
+<h3 class="anchored">
+Daylen Lile
+</h3>
+<p>
+At 193 career games, Daylen Lile’s historical neighbors point to a median 1,534 more games, with a 95% backtest-checked chance of at least 500 more.
+</p>
+<p>
+Median future offensive value: +33.9 units (p10 -27.8, p90 +203.1); 75% neighbor-weighted chance of at least +10 future units. Fringe Hall of Fame Lane (10% of eligible neighbor weight inducted).
+</p>
+<div class="career-trajectory-metrics">
+<span><small>Closest path</small><strong>Brett Lawrie</strong></span><span><small>Projected AVG / OBP / SLG</small><strong>.278 / .332 / .449</strong></span><span><small>Future HR / 600 PA</small><strong>18.2</strong></span><span><small>Future offensive value</small><strong>+33.9 units</strong></span><span><small>Legacy path</small><strong>Fringe Hall of Fame Lane</strong></span>
+</div>
+</article>
+<article class="career-trajectory-card">
+<header>
+<span>MIL · 344 career games</span><strong>Moderate neighbor fit</strong>
+</header>
+<h3 class="anchored">
+Jackson Chourio
+</h3>
+<p>
+At 344 career games, Jackson Chourio’s historical neighbors point to a median 1,731 more games, with a 95% backtest-checked chance of at least 500 more.
+</p>
+<p>
+Median future offensive value: +101.2 units (p10 -8.3, p90 +360.9); 76% neighbor-weighted chance of at least +10 future units. Credible Hall of Fame Lane (33% of eligible neighbor weight inducted).
+</p>
+<div class="career-trajectory-metrics">
+<span><small>Closest path</small><strong>Alex Rodriguez</strong></span><span><small>Projected AVG / OBP / SLG</small><strong>.275 / .337 / .451</strong></span><span><small>Future HR / 600 PA</small><strong>17.7</strong></span><span><small>Future offensive value</small><strong>+101.2 units</strong></span><span><small>Legacy path</small><strong>Credible Hall of Fame Lane</strong></span>
+</div>
+</article>
+<article class="career-trajectory-card">
+<header>
+<span>TBR · 307 career games</span><strong>Moderate neighbor fit</strong>
+</header>
+<h3 class="anchored">
+Junior Caminero
+</h3>
+<p>
+At 307 career games, Junior Caminero’s historical neighbors point to a median 1,583 more games, with a 100% backtest-checked chance of at least 500 more.
+</p>
+<p>
+Median future offensive value: +176.1 units (p10 +36.8, p90 +402.3); 100% neighbor-weighted chance of at least +10 future units. Credible Hall of Fame Lane (31% of eligible neighbor weight inducted).
+</p>
+<div class="career-trajectory-metrics">
+<span><small>Closest path</small><strong>Eddie Murray</strong></span><span><small>Projected AVG / OBP / SLG</small><strong>.278 / .353 / .483</strong></span><span><small>Future HR / 600 PA</small><strong>25.7</strong></span><span><small>Future offensive value</small><strong>+176.1 units</strong></span><span><small>Legacy path</small><strong>Credible Hall of Fame Lane</strong></span>
+</div>
+</article>
+</div>
+<section class="dashboard-block">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">Active hitter board</span>
+<h2 class="anchored">
+Career ranges and survival probabilities
+</h2>
+<p>
+The 10th, 50th, and 90th percentiles are weighted historical outcomes. The 500+ column is the backtest-checked survival probability; raw neighbor probabilities remain in use because the first calibration mapping worsened the later chronological holdout.
+</p>
+</div>
+<div class="table-scroll">
+<table class="data-table career-trajectory-table">
+<thead>
+<tr>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Age
+</th>
+<th>
+Career G
+</th>
+<th>
+Closest path
+</th>
+<th>
+More G p10
+</th>
+<th>
+More G p50
+</th>
+<th>
+More G p90
+</th>
+<th>
+Career AVG/OBP/SLG
+</th>
+<th>
+Future HR/600
+</th>
+<th>
+Rate x games HR
+</th>
+<th>
+Future value
+</th>
+<th>
++10 upside
+</th>
+<th>
+HOF-neighbor share
+</th>
+<th>
+Legacy path
+</th>
+<th>
+500+
+</th>
+<th>
+Neighbor fit
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Sal Stewart
+</td>
+<td>
+CIN
+</td>
+<td>
+22.0
+</td>
+<td>
+120
+</td>
+<td>
+David Wright
+</td>
+<td>
+760
+</td>
+<td>
+1,544
+</td>
+<td>
+2,521
+</td>
+<td>
+.273/.339/.468
+</td>
+<td>
+21.3
+</td>
+<td>
+276
+</td>
+<td>
+100.4
+</td>
+<td>
+85.3%
+</td>
+<td>
+14.7%
+</td>
+<td>
+fringe Hall of Fame lane
+</td>
+<td>
+95.1%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Corbin Carroll
+</td>
+<td>
+ARI
+</td>
+<td>
+25.0
+</td>
+<td>
+581
+</td>
+<td>
+Barry Bonds
+</td>
+<td>
+714
+</td>
+<td>
+1,400
+</td>
+<td>
+2,325
+</td>
+<td>
+.274/.351/.476
+</td>
+<td>
+23.0
+</td>
+<td>
+318
+</td>
+<td>
+111.3
+</td>
+<td>
+89.4%
+</td>
+<td>
+20.4%
+</td>
+<td>
+credible Hall of Fame lane
+</td>
+<td>
+100.0%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Jackson Merrill
+</td>
+<td>
+SDP
+</td>
+<td>
+23.0
+</td>
+<td>
+369
+</td>
+<td>
+Chet Lemon
+</td>
+<td>
+889
+</td>
+<td>
+1,447
+</td>
+<td>
+2,221
+</td>
+<td>
+.273/.335/.448
+</td>
+<td>
+17.8
+</td>
+<td>
+242
+</td>
+<td>
+65.5
+</td>
+<td>
+74.7%
+</td>
+<td>
+15.5%
+</td>
+<td>
+credible Hall of Fame lane
+</td>
+<td>
+94.7%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Carter Jensen
+</td>
+<td>
+KCR
+</td>
+<td>
+22.0
+</td>
+<td>
+117
+</td>
+<td>
+Travis Snider
+</td>
+<td>
+519
+</td>
+<td>
+1,166
+</td>
+<td>
+2,436
+</td>
+<td>
+.271/.341/.445
+</td>
+<td>
+19.5
+</td>
+<td>
+151
+</td>
+<td>
+75.9
+</td>
+<td>
+69.6%
+</td>
+<td>
+19.8%
+</td>
+<td>
+credible Hall of Fame lane
+</td>
+<td>
+90.0%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Fernando Tatis Jr.
+</td>
+<td>
+SDP
+</td>
+<td>
+27.0
+</td>
+<td>
+773
+</td>
+<td>
+Grady Sizemore
+</td>
+<td>
+539
+</td>
+<td>
+1,225
+</td>
+<td>
+2,150
+</td>
+<td>
+.278/.351/.481
+</td>
+<td>
+23.9
+</td>
+<td>
+345
+</td>
+<td>
+80.4
+</td>
+<td>
+94.4%
+</td>
+<td>
+21.2%
+</td>
+<td>
+credible Hall of Fame lane
+</td>
+<td>
+94.4%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Daylen Lile
+</td>
+<td>
+WSN
+</td>
+<td>
+23.0
+</td>
+<td>
+193
+</td>
+<td>
+Brett Lawrie
+</td>
+<td>
+627
+</td>
+<td>
+1,534
+</td>
+<td>
+2,045
+</td>
+<td>
+.278/.332/.449
+</td>
+<td>
+18.2
+</td>
+<td>
+175
+</td>
+<td>
+33.9
+</td>
+<td>
+74.5%
+</td>
+<td>
+10.5%
+</td>
+<td>
+fringe Hall of Fame lane
+</td>
+<td>
+94.5%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Jackson Chourio
+</td>
+<td>
+MIL
+</td>
+<td>
+22.0
+</td>
+<td>
+344
+</td>
+<td>
+Alex Rodriguez
+</td>
+<td>
+1,136
+</td>
+<td>
+1,731
+</td>
+<td>
+2,586
+</td>
+<td>
+.275/.337/.451
+</td>
+<td>
+17.7
+</td>
+<td>
+308
+</td>
+<td>
+101.2
+</td>
+<td>
+75.5%
+</td>
+<td>
+32.6%
+</td>
+<td>
+credible Hall of Fame lane
+</td>
+<td>
+95.3%
+</td>
+<td>
+moderate
+</td>
+</tr>
+<tr>
+<td>
+Junior Caminero
+</td>
+<td>
+TBR
+</td>
+<td>
+22.0
+</td>
+<td>
+307
+</td>
+<td>
+Eddie Murray
+</td>
+<td>
+1,310
+</td>
+<td>
+1,583
+</td>
+<td>
+2,720
+</td>
+<td>
+.278/.353/.483
+</td>
+<td>
+25.7
+</td>
+<td>
+392
+</td>
+<td>
+176.1
+</td>
+<td>
+100.0%
+</td>
+<td>
+30.6%
+</td>
+<td>
+credible Hall of Fame lane
+</td>
+<td>
+100.0%
+</td>
+<td>
+moderate
+</td>
+</tr>
+<tr>
+<td>
+Gunnar Henderson
+</td>
+<td>
+BAL
+</td>
+<td>
+25.0
+</td>
+<td>
+600
+</td>
+<td>
+Ryan Zimmerman
+</td>
+<td>
+496
+</td>
+<td>
+1,235
+</td>
+<td>
+2,373
+</td>
+<td>
+.267/.342/.465
+</td>
+<td>
+23.4
+</td>
+<td>
+314
+</td>
+<td>
+79.0
+</td>
+<td>
+80.2%
+</td>
+<td>
+20.8%
+</td>
+<td>
+credible Hall of Fame lane
+</td>
+<td>
+85.2%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Drake Baldwin
+</td>
+<td>
+ATL
+</td>
+<td>
+25.0
+</td>
+<td>
+203
+</td>
+<td>
+Buster Posey
+</td>
+<td>
+517
+</td>
+<td>
+1,126
+</td>
+<td>
+2,037
+</td>
+<td>
+.273/.350/.446
+</td>
+<td>
+21.9
+</td>
+<td>
+165
+</td>
+<td>
+48.4
+</td>
+<td>
+69.9%
+</td>
+<td>
+10.5%
+</td>
+<td>
+fringe Hall of Fame lane
+</td>
+<td>
+94.8%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Julio Rodríguez
+</td>
+<td>
+SEA
+</td>
+<td>
+25.0
+</td>
+<td>
+681
+</td>
+<td>
+Carlos Beltran
+</td>
+<td>
+897
+</td>
+<td>
+1,381
+</td>
+<td>
+2,102
+</td>
+<td>
+.275/.333/.450
+</td>
+<td>
+18.5
+</td>
+<td>
+311
+</td>
+<td>
+71.4
+</td>
+<td>
+75.3%
+</td>
+<td>
+25.6%
+</td>
+<td>
+credible Hall of Fame lane
+</td>
+<td>
+95.4%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Wyatt Langford
+</td>
+<td>
+TEX
+</td>
+<td>
+24.0
+</td>
+<td>
+318
+</td>
+<td>
+Grady Sizemore
+</td>
+<td>
+509
+</td>
+<td>
+1,311
+</td>
+<td>
+2,192
+</td>
+<td>
+.271/.342/.442
+</td>
+<td>
+19.1
+</td>
+<td>
+194
+</td>
+<td>
+91.7
+</td>
+<td>
+65.1%
+</td>
+<td>
+20.0%
+</td>
+<td>
+credible Hall of Fame lane
+</td>
+<td>
+90.2%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Shea Langeliers
+</td>
+<td>
+ATH
+</td>
+<td>
+28.0
+</td>
+<td>
+522
+</td>
+<td>
+Adam Lind
+</td>
+<td>
+316
+</td>
+<td>
+998
+</td>
+<td>
+1,700
+</td>
+<td>
+.254/.321/.459
+</td>
+<td>
+23.1
+</td>
+<td>
+280
+</td>
+<td>
+40.0
+</td>
+<td>
+64.5%
+</td>
+<td>
+5.0%
+</td>
+<td>
+fringe Hall of Fame lane
+</td>
+<td>
+89.8%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Colson Montgomery
+</td>
+<td>
+CHW
+</td>
+<td>
+24.0
+</td>
+<td>
+168
+</td>
+<td>
+Jim Presley
+</td>
+<td>
+419
+</td>
+<td>
+1,339
+</td>
+<td>
+2,331
+</td>
+<td>
+.256/.330/.464
+</td>
+<td>
+25.0
+</td>
+<td>
+308
+</td>
+<td>
+55.1
+</td>
+<td>
+75.0%
+</td>
+<td>
+9.6%
+</td>
+<td>
+fringe Hall of Fame lane
+</td>
+<td>
+85.4%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Hunter Goodman
+</td>
+<td>
+COL
+</td>
+<td>
+26.0
+</td>
+<td>
+331
+</td>
+<td>
+Richie Sexson
+</td>
+<td>
+244
+</td>
+<td>
+1,031
+</td>
+<td>
+1,875
+</td>
+<td>
+.256/.313/.474
+</td>
+<td>
+24.0
+</td>
+<td>
+244
+</td>
+<td>
+38.4
+</td>
+<td>
+54.9%
+</td>
+<td>
+4.9%
+</td>
+<td>
+outside the current Hall of Fame lane
+</td>
+<td>
+89.6%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Riley Greene
+</td>
+<td>
+DET
+</td>
+<td>
+25.0
+</td>
+<td>
+589
+</td>
+<td>
+Ben Grieve
+</td>
+<td>
+399
+</td>
+<td>
+1,159
+</td>
+<td>
+1,708
+</td>
+<td>
+.268/.344/.450
+</td>
+<td>
+20.8
+</td>
+<td>
+237
+</td>
+<td>
+54.5
+</td>
+<td>
+89.2%
+</td>
+<td>
+15.7%
+</td>
+<td>
+credible Hall of Fame lane
+</td>
+<td>
+89.0%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Tyler Soderstrom
+</td>
+<td>
+ATH
+</td>
+<td>
+24.0
+</td>
+<td>
+352
+</td>
+<td>
+Eric Chavez
+</td>
+<td>
+269
+</td>
+<td>
+1,245
+</td>
+<td>
+1,933
+</td>
+<td>
+.261/.334/.440
+</td>
+<td>
+18.8
+</td>
+<td>
+177
+</td>
+<td>
+70.4
+</td>
+<td>
+60.1%
+</td>
+<td>
+5.5%
+</td>
+<td>
+fringe Hall of Fame lane
+</td>
+<td>
+84.9%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+James Wood
+</td>
+<td>
+WSN
+</td>
+<td>
+23.0
+</td>
+<td>
+340
+</td>
+<td>
+Scott Rolen
+</td>
+<td>
+649
+</td>
+<td>
+1,510
+</td>
+<td>
+2,452
+</td>
+<td>
+.275/.362/.481
+</td>
+<td>
+26.0
+</td>
+<td>
+351
+</td>
+<td>
+151.3
+</td>
+<td>
+95.4%
+</td>
+<td>
+21.5%
+</td>
+<td>
+credible Hall of Fame lane
+</td>
+<td>
+100.0%
+</td>
+<td>
+moderate
+</td>
+</tr>
+<tr>
+<td>
+Michael Harris II
+</td>
+<td>
+ATL
+</td>
+<td>
+25.0
+</td>
+<td>
+618
+</td>
+<td>
+Delmon Young
+</td>
+<td>
+506
+</td>
+<td>
+1,246
+</td>
+<td>
+2,021
+</td>
+<td>
+.277/.321/.445
+</td>
+<td>
+17.4
+</td>
+<td>
+249
+</td>
+<td>
+41.9
+</td>
+<td>
+64.5%
+</td>
+<td>
+16.2%
+</td>
+<td>
+credible Hall of Fame lane
+</td>
+<td>
+95.2%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Yordan Alvarez
+</td>
+<td>
+HOU
+</td>
+<td>
+29.0
+</td>
+<td>
+780
+</td>
+<td>
+Todd Helton
+</td>
+<td>
+734
+</td>
+<td>
+1,174
+</td>
+<td>
+1,680
+</td>
+<td>
+.293/.388/.532
+</td>
+<td>
+26.2
+</td>
+<td>
+404
+</td>
+<td>
+142.6
+</td>
+<td>
+100.0%
+</td>
+<td>
+31.6%
+</td>
+<td>
+credible Hall of Fame lane
+</td>
+<td>
+91.0%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Cody Bellinger
+</td>
+<td>
+NYY
+</td>
+<td>
+30.0
+</td>
+<td>
+1,251
+</td>
+<td>
+Eric Chavez
+</td>
+<td>
+345
+</td>
+<td>
+777
+</td>
+<td>
+1,565
+</td>
+<td>
+.267/.338/.470
+</td>
+<td>
+20.5
+</td>
+<td>
+356
+</td>
+<td>
+33.9
+</td>
+<td>
+80.0%
+</td>
+<td>
+26.0%
+</td>
+<td>
+credible Hall of Fame lane
+</td>
+<td>
+89.9%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Zach Neto
+</td>
+<td>
+LAA
+</td>
+<td>
+25.0
+</td>
+<td>
+466
+</td>
+<td>
+Chili Davis
+</td>
+<td>
+359
+</td>
+<td>
+1,285
+</td>
+<td>
+1,980
+</td>
+<td>
+.268/.331/.456
+</td>
+<td>
+21.5
+</td>
+<td>
+236
+</td>
+<td>
+66.4
+</td>
+<td>
+75.2%
+</td>
+<td>
+9.7%
+</td>
+<td>
+fringe Hall of Fame lane
+</td>
+<td>
+80.1%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+A.J. Ewing
+</td>
+<td>
+NYM
+</td>
+<td>
+21.0
+</td>
+<td>
+64
+</td>
+<td>
+Chet Lemon
+</td>
+<td>
+565
+</td>
+<td>
+1,553
+</td>
+<td>
+2,279
+</td>
+<td>
+.267/.338/.410
+</td>
+<td>
+14.2
+</td>
+<td>
+135
+</td>
+<td>
+56.6
+</td>
+<td>
+56.0%
+</td>
+<td>
+4.9%
+</td>
+<td>
+outside the current Hall of Fame lane
+</td>
+<td>
+90.1%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Andy Pages
+</td>
+<td>
+LAD
+</td>
+<td>
+25.0
+</td>
+<td>
+373
+</td>
+<td>
+Brett Lawrie
+</td>
+<td>
+452
+</td>
+<td>
+1,130
+</td>
+<td>
+1,843
+</td>
+<td>
+.269/.328/.451
+</td>
+<td>
+21.5
+</td>
+<td>
+244
+</td>
+<td>
+28.3
+</td>
+<td>
+69.8%
+</td>
+<td>
+0.0%
+</td>
+<td>
+outside the current Hall of Fame lane
+</td>
+<td>
+84.7%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Victor Mesa Jr.
+</td>
+<td>
+TBR
+</td>
+<td>
+24.0
+</td>
+<td>
+52
+</td>
+<td>
+Dilson Herrera
+</td>
+<td>
+51
+</td>
+<td>
+1,139
+</td>
+<td>
+1,849
+</td>
+<td>
+.259/.336/.437
+</td>
+<td>
+20.7
+</td>
+<td>
+125
+</td>
+<td>
+28.1
+</td>
+<td>
+60.0%
+</td>
+<td>
+5.0%
+</td>
+<td>
+fringe Hall of Fame lane
+</td>
+<td>
+74.9%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Bo Bichette
+</td>
+<td>
+NYM
+</td>
+<td>
+28.0
+</td>
+<td>
+851
+</td>
+<td>
+Carney Lansford
+</td>
+<td>
+705
+</td>
+<td>
+960
+</td>
+<td>
+1,298
+</td>
+<td>
+.285/.337/.445
+</td>
+<td>
+17.5
+</td>
+<td>
+245
+</td>
+<td>
+33.2
+</td>
+<td>
+70.0%
+</td>
+<td>
+10.7%
+</td>
+<td>
+fringe Hall of Fame lane
+</td>
+<td>
+95.2%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+Vladimir Guerrero Jr.
+</td>
+<td>
+TOR
+</td>
+<td>
+27.0
+</td>
+<td>
+1,074
+</td>
+<td>
+Cal Ripken
+</td>
+<td>
+535
+</td>
+<td>
+1,213
+</td>
+<td>
+1,941
+</td>
+<td>
+.283/.359/.469
+</td>
+<td>
+18.9
+</td>
+<td>
+328
+</td>
+<td>
+61.5
+</td>
+<td>
+84.0%
+</td>
+<td>
+48.4%
+</td>
+<td>
+strong Hall of Fame lane
+</td>
+<td>
+94.0%
+</td>
+<td>
+moderate
+</td>
+</tr>
+<tr>
+<td>
+Nick Kurtz
+</td>
+<td>
+ATH
+</td>
+<td>
+23.0
+</td>
+<td>
+209
+</td>
+<td>
+Jeff Burroughs
+</td>
+<td>
+1,005
+</td>
+<td>
+1,534
+</td>
+<td>
+2,255
+</td>
+<td>
+.276/.373/.495
+</td>
+<td>
+27.2
+</td>
+<td>
+334
+</td>
+<td>
+166.7
+</td>
+<td>
+95.7%
+</td>
+<td>
+10.2%
+</td>
+<td>
+fringe Hall of Fame lane
+</td>
+<td>
+100.0%
+</td>
+<td>
+moderate
+</td>
+</tr>
+<tr>
+<td>
+Pete Crow-Armstrong
+</td>
+<td>
+CHC
+</td>
+<td>
+24.0
+</td>
+<td>
+384
+</td>
+<td>
+Matt Kemp
+</td>
+<td>
+434
+</td>
+<td>
+1,360
+</td>
+<td>
+2,440
+</td>
+<td>
+.270/.330/.465
+</td>
+<td>
+21.6
+</td>
+<td>
+246
+</td>
+<td>
+63.0
+</td>
+<td>
+80.1%
+</td>
+<td>
+14.6%
+</td>
+<td>
+fringe Hall of Fame lane
+</td>
+<td>
+84.9%
+</td>
+<td>
+strong
+</td>
+</tr>
+<tr>
+<td>
+CJ Abrams
+</td>
+<td>
+WSN
+</td>
+<td>
+25.0
+</td>
+<td>
+616
+</td>
+<td>
+Carney Lansford
+</td>
+<td>
+506
+</td>
+<td>
+1,246
+</td>
+<td>
+1,859
+</td>
+<td>
+.270/.325/.431
+</td>
+<td>
+15.7
+</td>
+<td>
+191
+</td>
+<td>
+29.8
+</td>
+<td>
+60.7%
+</td>
+<td>
+10.1%
+</td>
+<td>
+fringe Hall of Fame lane
+</td>
+<td>
+95.2%
+</td>
+<td>
+strong
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<div class="method-callout">
+<strong>Backtested development boundary:</strong> 545 pseudo-forecasts use 1995–2022 origins and only comparables whose careers ended at least three seasons before each origin. The weighted remaining-games MAE is 317 games and the nominal 80% interval covered 83.0% of realized outcomes. Checkpoint-specific weights improved early-origin training scores but moved later holdout MAE from 245.2 to 246.1 games, so baseline weights remain active. Training-era bias correction worsened later MAE to 310.6 games and was also rejected. Future offensive value has a 12.0-unit later-holdout MAE, while the +10-upside probability has a 0.120 Brier score. Value units equal era-adjusted offensive-index points times plate appearances divided by 600; they are not WAR. Hall of Fame lanes are the weighted share of historically eligible neighbors already inducted by that forecast year, not election probabilities. This release covers hitters and offensive career shape; defense, position, injuries, minor-league history, and true WAR are not yet similarity features. Contract details may be attached as licensed context but never affect the baseball projection.
+</div>
+<div class="section-action">
+<p><a href="./players.html" class="btn btn-metallic">Explore current player performance</a> <a href="./methodology.html" class="btn btn-sabr-navy">Read the methodology</a></p>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/thesabrhood\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 The SABRhood</p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./methodology.html">
+<p>Methodology</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./glossary.html">
+<p>Glossary</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./history.html">
+<p>History Desk</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://x.com/thesabrhood">
+<p><span class="citation" data-cites="thesabrhood">@thesabrhood</span></p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

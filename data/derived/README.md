@@ -14,3 +14,51 @@ daily workflow rebuilds daily-cadence products from private current sources,
 while the weekly workflow refreshes cumulative award-history checkpoints.
 `refresh-health.csv` records the source-through date, expected date, cadence,
 lag, and publication status for every time-sensitive product group.
+
+`career-trajectory-projections.csv` and
+`career-trajectory-comparables.csv` are the compact public products for the
+development Career Path Engine. Aggregated chronological evidence is published
+in `career-trajectory-backtest-summary.csv`,
+`career-trajectory-probability-calibration.csv`, and
+`career-trajectory-holdout-validation.csv`. Terminal batting-rate and
+game-linked home-run validation is published in
+`career-trajectory-rate-validation.csv`. That validation product also carries
+future offensive-value MAE and the
++10-value-unit upside Brier score; Hall of Fame lane fields in the projection
+product are eligible-neighbor shares rather than election probabilities.
+Candidate metric definitions,
+checkpoint selections, and later-holdout decisions are published in
+`career-trajectory-weight-profiles.csv`,
+`career-trajectory-weight-tuning.csv`, and
+`career-trajectory-tuning-evaluation.csv`. Row-level pseudo-forecasts, the
+multi-decade checkpoint index, and detailed metric-fit evidence remain private.
+
+`pitcher-career-trajectory-projections.csv` and
+`pitcher-career-trajectory-comparables.csv` power the Analytics Lab's separate
+starter/reliever Career Path view. The accompanying
+`pitcher-career-trajectory-model-card.csv` identifies the initial role-aware
+method and its not-yet-backtest-calibrated status.
+
+`history-match-notes.csv` is the compact, website-approved output of the
+private History Match review desk. It contains current copy, historical count,
+precedent, window, method, and fingerprints but excludes rejected, pending, and
+editorial-only review records. The file may be empty when no current claim has
+cleared the website gate.
+
+`hitter-tracking-totals.csv`, `pitcher-tracking-totals.csv`, and
+`team-tracking-totals.csv` publish volume and opportunity-rate views of two
+directly observed tracking events: pitches at least 100 mph and batted balls at
+least 100 mph. Maximum and average velocity context is retained; no proprietary
+Statcast metric is reconstructed.
+
+`mlb-standings-current.csv` and `mlb-standings-movement.csv` contain the current
+MLB table and a seven-day comparison. Positive rank and games-back changes
+always mean movement toward first. The parallel `aaa-standings-*.csv` products
+feed `aaa-team-rankings.csv`, which combines record, run differential, qualified
+player performance, and the young/readiness pipeline.
+
+`daily-newsletter-edition.csv` records the daily theme and lead, while
+`daily-newsletter-stories.csv` contains the selected, evidence-linked story
+queue. Headlines are deterministic templates built from published data fields.
+The selector limits each reporting lane to two stories and rotates its theme by
+weekday.

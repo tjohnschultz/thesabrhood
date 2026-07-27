@@ -12,3 +12,7 @@ Daily anniversaries balance career importance with a familiarity boost for more 
 :::
 
 {{< include includes/history-desk.html >}}
+
+::: {.section-action}
+[Explore reviewed History Match notes](history-match.qmd){.btn .btn-sabr-navy}
+:::

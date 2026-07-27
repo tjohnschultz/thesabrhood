@@ -38,7 +38,7 @@ build_platoon_edge_boards <- function(hitter_platoon, pitcher_platoon, minimum_p
       } else {
         stronger <- if (woba_l <= woba_r) "L" else "R"
         label <- if (stronger == "L") "left-handed batters" else "right-handed batters"
-        headline <- paste0(left$player_name[[1L]], " is suppressing ", label, " more effectively")
+        headline <- paste0(left$player_name[[1L]], " is limiting ", label, " more effectively")
       }
       data.frame(
         player_id = id,
@@ -173,7 +173,7 @@ build_daily_story_queue <- function(
     paste0("OPS ", sprintf("%.3f", .safe_numeric(offensive_race$ops)), "; race score ", sprintf("%.1f", .safe_numeric(offensive_race$race_score)), "."),
     offensive_race$race_score, offensive_race$pa_reliability, "races.html", offensive_race$player_id)
   candidate[[4L]] <- add("run_prevention", prevention_race$player_name, prevention_race$team,
-    paste0(prevention_race$player_name, " is suppressing offense at an elite rate"),
+    paste0(prevention_race$player_name, " is limiting opponent production at an elite rate"),
     paste0("OPS allowed ", sprintf("%.3f", .safe_numeric(prevention_race$ops)), "; race score ", sprintf("%.1f", .safe_numeric(prevention_race$race_score)), "."),
     prevention_race$race_score, prevention_race$pa_reliability, "races.html", prevention_race$player_id)
   candidate[[5L]] <- add("milestone", active_milestones$player_name, active_milestones$team,

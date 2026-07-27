@@ -1,0 +1,14 @@
+---
+title: "MLB Standings"
+description: "Current MLB standings with seven-day rank, games-back, and run-differential movement."
+---
+
+::: {.page-intro}
+<span class="eyebrow">The race in motion</span>
+
+# Standings with the movement left in
+
+A record is a location. The movement layer shows which clubs are gaining ground, which are losing it, and what changed beneath the rank.
+:::
+
+{{< include includes/standings-desk.html >}}

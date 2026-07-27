@@ -1957,7 +1957,7 @@ build_watch_list <- function(mlb_hitter_trenders, pitcher_hot_board, n_hitters =
       name = pitcher,
       team,
       tag = best_category,
-      reason = glue("{best_stat} is the top signal with a {round(best_z, 2)} z-score mark.")
+      reason = glue("{best_stat} is the clearest recent riser with a {round(best_z, 2)} z-score mark.")
     )
   
   bind_rows(hitter_watch, pitcher_watch)
