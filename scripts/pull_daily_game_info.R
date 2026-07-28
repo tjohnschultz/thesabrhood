@@ -126,7 +126,17 @@ weather_rows <- lapply(seq_len(nrow(games)), function(index) {
       weather_location = game$weather_location, roof_type = game$roof_type,
       temperature_f = NA_real_, apparent_temperature_f = NA_real_, wind_mph = NA_real_,
       wind_gust_mph = NA_real_, wind_direction = NA_real_, precipitation_probability = NA_real_,
-      precipitation_in = NA_real_, conditions = "Indoor environment", forecast_hours = 0L
+      precipitation_in = NA_real_, conditions = "Indoor environment",
+      first_pitch_local = NA_character_, forecast_time_local = NA_character_,
+      forecast_offset_minutes = NA_real_, forecast_hours = 0L,
+      game_window_temperature_low_f = NA_real_,
+      game_window_temperature_high_f = NA_real_,
+      game_window_wind_gust_mph = NA_real_,
+      game_window_precipitation_probability = NA_real_,
+      game_window_precipitation_in = NA_real_,
+      game_window_hours = 0L,
+      forecast_timezone = NA_character_,
+      forecast_method = "fixed_dome_no_weather_v1"
     ))
   }
   url <- build_open_meteo_url(game$latitude, game$longitude, target_date, target_date, timezone = "auto")
@@ -140,24 +150,59 @@ weather_rows <- lapply(seq_len(nrow(games)), function(index) {
   first_pitch_local <- as.POSIXct(format(first_pitch_utc, tz = forecast$timezone, usetz = TRUE), tz = forecast$timezone)
   start_index <- which.min(abs(as.numeric(difftime(local_times, first_pitch_local, units = "secs"))))
   window_index <- seq.int(start_index, min(start_index + 4L, nrow(hourly)))
+  first_pitch_hour <- hourly[start_index, , drop = FALSE]
   window <- hourly[window_index, , drop = FALSE]
+  finite_min <- function(value) {
+    value <- as.numeric(value)
+    if (any(is.finite(value))) min(value, na.rm = TRUE) else NA_real_
+  }
+  finite_max <- function(value) {
+    value <- as.numeric(value)
+    if (any(is.finite(value))) max(value, na.rm = TRUE) else NA_real_
+  }
+  finite_sum <- function(value) {
+    value <- as.numeric(value)
+    if (any(is.finite(value))) sum(value, na.rm = TRUE) else NA_real_
+  }
   data.frame(
     game_id = game$game_id,
     weather_status = "available",
-    weather_note = ifelse(tolower(game$roof_type) == "retractable", "Forecast available; roof decision can supersede it", "Outdoor forecast"),
+    weather_note = ifelse(
+      tolower(game$roof_type) == "retractable",
+      "Nearest-hour first-pitch forecast; roof decision can supersede it",
+      "Nearest-hour first-pitch forecast"
+    ),
     weather_location = game$weather_location,
     roof_type = game$roof_type,
-    temperature_f = mean(window$temperature_2m, na.rm = TRUE),
-    apparent_temperature_f = mean(window$apparent_temperature, na.rm = TRUE),
-    wind_mph = mean(window$wind_speed_10m, na.rm = TRUE),
-    wind_gust_mph = max(window$wind_gusts_10m, na.rm = TRUE),
-    wind_direction = mean(window$wind_direction_10m, na.rm = TRUE),
-    precipitation_probability = max(window$precipitation_probability, na.rm = TRUE),
-    precipitation_in = sum(window$precipitation, na.rm = TRUE),
-    conditions = translate_weather(window$weather_code[[1L]]),
-    forecast_hours = length(window_index),
+    temperature_f = as.numeric(first_pitch_hour$temperature_2m[[1L]]),
+    apparent_temperature_f =
+      as.numeric(first_pitch_hour$apparent_temperature[[1L]]),
+    wind_mph = as.numeric(first_pitch_hour$wind_speed_10m[[1L]]),
+    wind_gust_mph = as.numeric(first_pitch_hour$wind_gusts_10m[[1L]]),
+    wind_direction = as.numeric(first_pitch_hour$wind_direction_10m[[1L]]),
+    precipitation_probability =
+      as.numeric(first_pitch_hour$precipitation_probability[[1L]]),
+    precipitation_in = as.numeric(first_pitch_hour$precipitation[[1L]]),
+    conditions = translate_weather(first_pitch_hour$weather_code[[1L]]),
+    first_pitch_local =
+      format(first_pitch_local, "%Y-%m-%d %H:%M:%S %Z"),
+    forecast_time_local =
+      format(local_times[[start_index]], "%Y-%m-%d %H:%M:%S %Z"),
+    forecast_offset_minutes = as.numeric(difftime(
+      local_times[[start_index]],
+      first_pitch_local,
+      units = "mins"
+    )),
+    forecast_hours = 1L,
+    game_window_temperature_low_f = finite_min(window$temperature_2m),
+    game_window_temperature_high_f = finite_max(window$temperature_2m),
+    game_window_wind_gust_mph = finite_max(window$wind_gusts_10m),
+    game_window_precipitation_probability =
+      finite_max(window$precipitation_probability),
+    game_window_precipitation_in = finite_sum(window$precipitation),
+    game_window_hours = length(window_index),
     forecast_timezone = forecast$timezone,
-    forecast_method = "open_meteo_ballpark_game_window_v1"
+    forecast_method = "open_meteo_first_pitch_plus_game_window_v2"
   )
 })
 weather <- dplyr::bind_rows(weather_rows)

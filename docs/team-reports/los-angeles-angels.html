@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,16 +10,10 @@
 
 <title>Los Angeles Angels Team report – The SABRhood</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -37,16 +31,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../images/new-sabr-logo.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f0a6828d39eed76dd9f56b390c71b39b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -90,24 +83,27 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 <link rel="stylesheet" href="../includes/article-team-themes.css">
 <meta property="og:title" content="Los Angeles Angels Team report – The SABRhood">
 <meta property="og:description" content="Automated SABRhood research report for the Los Angeles Angels.">
-<meta property="og:image" content="https://thesabrhood.com/team-reports/images/sabrhood-social-preview-v1.png">
+<meta property="og:image" content="https://thesabrhood.com/images/sabrhood-social-preview-v1.png">
 <meta property="og:site_name" content="The SABRhood">
+<meta property="og:image:height" content="946">
+<meta property="og:image:width" content="1662">
 <meta name="twitter:title" content="Los Angeles Angels Team report – The SABRhood">
 <meta name="twitter:description" content="Automated SABRhood research report for the Los Angeles Angels.">
-<meta name="twitter:image" content="https://thesabrhood.com/team-reports/images/sabrhood-social-preview-v1.png">
+<meta name="twitter:image" content="https://thesabrhood.com/images/sabrhood-social-preview-v1.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="946">
+<meta name="twitter:image-width" content="1662">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-xl " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../images/thesabrhood2clean.png" alt="" class="navbar-logo light-content">
-    <img src="../images/thesabrhood2clean.png" alt="" class="navbar-logo dark-content">
+    <img src="../images/thesabrhood2clean.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">The SABRhood</span>
@@ -126,6 +122,10 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
   <li class="nav-item">
     <a class="nav-link" href="../today.html"> 
 <span class="menu-text">Today</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../standings.html"> 
+<span class="menu-text">Standings</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../leaderboards.html"> 
@@ -164,6 +164,10 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
  <span class="dropdown-text">Player Change Engine</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../career-trajectories.html">
+ <span class="dropdown-text">Career Path Engine</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../teams.html">
  <span class="dropdown-text">Teams</span></a>
   </li>  
@@ -180,12 +184,24 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
  <span class="dropdown-text">Pitch Lab</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../run-game.html">
+ <span class="dropdown-text">Run Game</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../fielding.html">
+ <span class="dropdown-text">Fielding</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../aaa.html">
  <span class="dropdown-text">Triple-A Watch</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../history.html">
  <span class="dropdown-text">History</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../history-match.html">
+ <span class="dropdown-text">History Match</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../league-trends.html">
@@ -207,7 +223,7 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../blog.html"> 
-<span class="menu-text">Research</span></a>
+<span class="menu-text">Editorials</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../broadcast.html"> 
@@ -259,7 +275,7 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 
 
 <nav class="team-report-nav" aria-label="Team report navigation">
-<a href="athletics.html">← Athletics</a><a href="../team-reports.html">All teams</a><a href="arizona-diamondbacks.html">Arizona Diamondbacks →</a>
+<a href="athletics.html">← Athletics</a><a href="../team-reports.html">All teams</a><a href="st-louis-cardinals.html">St.&nbsp;Louis Cardinals →</a>
 </nav>
 <section class="team-report-hero">
 <div>
@@ -268,49 +284,49 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 Los Angeles Angels
 </h1>
 <p>
-Los Angeles Angels ranks 24th in offensive quality and 12th in run prevention, with a ready bullpen and 0 surge signals.
+Los Angeles Angels ranks 29th in run generation and 13th in pitching performance, with a taxed bullpen and 0 recent risers.
 </p>
 </div>
 <div class="team-report-hero__score">
-<small>League intelligence</small><strong># 20 </strong><span> 40.3 index</span>
+<small>League intelligence</small><strong># 25 </strong><span> 37.2 index</span>
 </div>
 </section>
 <section class="team-fingerprint" aria-label="Team component ranks">
 <div class="rank-meter">
 <div class="rank-meter__label">
-<span>Offensive quality</span><strong>#24</strong>
+<span>Run generation</span><strong>#29</strong>
 </div>
-<div class="rank-meter__track" role="img" aria-label="Offensive quality rank 24 of 30">
-<span style="width:23.3%"></span>
+<div class="rank-meter__track" role="img" aria-label="Run generation rank 29 of 30">
+<span style="width:6.7%"></span>
 </div>
-<small>Weighted estimated wOBA 0.306</small>
-</div>
-<div class="rank-meter">
-<div class="rank-meter__label">
-<span>Run prevention</span><strong>#12</strong>
-</div>
-<div class="rank-meter__track" role="img" aria-label="Run prevention rank 12 of 30">
-<span style="width:63.3%"></span>
-</div>
-<small>Opponent estimated wOBA 0.303</small>
+<small>Composite score 19.1</small>
 </div>
 <div class="rank-meter">
 <div class="rank-meter__label">
-<span>Recent form</span><strong>#16</strong>
+<span>Pitching</span><strong>#13</strong>
 </div>
-<div class="rank-meter__track" role="img" aria-label="Recent form rank 16 of 30">
+<div class="rank-meter__track" role="img" aria-label="Pitching rank 13 of 30">
+<span style="width:60.0%"></span>
+</div>
+<small>Composite score 55.3</small>
+</div>
+<div class="rank-meter">
+<div class="rank-meter__label">
+<span>Recent play</span><strong>#16</strong>
+</div>
+<div class="rank-meter__track" role="img" aria-label="Recent play rank 16 of 30">
 <span style="width:50.0%"></span>
 </div>
-<small>0 surging signals</small>
+<small>0 recent risers</small>
 </div>
 <div class="rank-meter">
 <div class="rank-meter__label">
-<span>Bullpen readiness</span><strong>#25</strong>
+<span>Bullpen readiness</span><strong>#28</strong>
 </div>
-<div class="rank-meter__track" role="img" aria-label="Bullpen readiness rank 25 of 30">
-<span style="width:20.0%"></span>
+<div class="rank-meter__track" role="img" aria-label="Bullpen readiness rank 28 of 30">
+<span style="width:10.0%"></span>
 </div>
-<small>Current state ready</small>
+<small>Current state taxed</small>
 </div>
 </section>
 <section class="section-heading">
@@ -472,7 +488,7 @@ Three concise, evidence-linked notes to start a broadcast conversation.
 Los Angeles Angels’s analytical identity
 </h3>
 <p>
-Los Angeles Angels ranks 24th in offensive quality and 12th in run prevention, with a ready bullpen and 0 surge signals.
+Los Angeles Angels ranks 29th in run generation and 13th in pitching performance, with a taxed bullpen and 0 recent risers.
 </p>
 </div>
 </li>
@@ -484,7 +500,7 @@ Los Angeles Angels ranks 24th in offensive quality and 12th in run prevention, w
 Reid Detmers is the strongest recent pitcher signal
 </h3>
 <p>
-Recent OPS allowed 0.477 versus 0.648 previously.
+Recent OPS allowed 0.477 versus 0.653 previously.
 </p>
 </div>
 </li>
@@ -496,7 +512,7 @@ Recent OPS allowed 0.477 versus 0.648 previously.
 Jo Adell is doing more damage against left-handed pitching
 </h3>
 <p>
-Estimated wOBA: 0.398 vs L, 0.260 vs R.
+Estimated wOBA: 0.398 vs L, 0.263 vs R.
 </p>
 </div>
 </li>
@@ -523,15 +539,15 @@ Jorge Soler
 Los Angeles Angels | RHB
 </p>
 </div>
-<span class="signal-score" aria-label="Context signal score 44.5">44.5</span>
+<span class="signal-score" aria-label="Context signal score 49.5">49.5</span>
 </header>
 <div class="player-context-strip">
-<span><small>Season PA</small><strong>345</strong></span><span><small>OPS</small><strong>0.658</strong></span><span><small>Est. wOBA</small><strong>0.287</strong></span><span><small>Sample</small><strong>strong</strong></span>
+<span><small>Season PA</small><strong>350</strong></span><span><small>OPS</small><strong>0.656</strong></span><span><small>Est. wOBA</small><strong>0.287</strong></span><span><small>Sample</small><strong>strong</strong></span>
 </div>
 <div class="change-banner is-improving">
-<span>Biggest change</span><strong>hard-hit rate +2.8 SD</strong>
+<span>Biggest change</span><strong>hard-hit rate 96.3</strong>
 <p>
-Hard-hit rate is the largest recent shift: improving by 2.8 standard deviations versus the MLB change pattern. Season level: 70th percentile.
+Hard-hit rate is the largest recent shift: improving by 3.1 standard deviations versus the MLB change pattern. Season level: 72nd percentile.
 </p>
 </div>
 <div class="player-context-card__body">
@@ -547,14 +563,14 @@ Hard-hit rate is the largest recent shift: improving by 2.8 standard deviations 
 <div class="percentile-ruler__track" role="img" aria-label="OPS 14 MLB percentile">
 <span style="width:14.0%"></span><i style="left:14.0%"></i>
 </div>
-<small>0.658</small>
+<small>0.656</small>
 </div>
 <div class="percentile-ruler">
 <div class="percentile-ruler__label">
-<span>Est. wOBA</span><strong>11th</strong>
+<span>Est. wOBA</span><strong>13th</strong>
 </div>
-<div class="percentile-ruler__track" role="img" aria-label="Est. wOBA 11 MLB percentile">
-<span style="width:11.0%"></span><i style="left:11.0%"></i>
+<div class="percentile-ruler__track" role="img" aria-label="Est. wOBA 13 MLB percentile">
+<span style="width:13.0%"></span><i style="left:13.0%"></i>
 </div>
 <small>0.287</small>
 </div>
@@ -565,34 +581,34 @@ Hard-hit rate is the largest recent shift: improving by 2.8 standard deviations 
 <div class="percentile-ruler__track" role="img" aria-label="Strikeout rate 4 MLB percentile">
 <span style="width:4.0%"></span><i style="left:4.0%"></i>
 </div>
-<small>32.5%</small>
+<small>32.6%</small>
 </div>
 <div class="percentile-ruler">
 <div class="percentile-ruler__label">
-<span>Walk rate</span><strong>57th</strong>
+<span>Walk rate</span><strong>62nd</strong>
 </div>
-<div class="percentile-ruler__track" role="img" aria-label="Walk rate 57 MLB percentile">
-<span style="width:57.0%"></span><i style="left:57.0%"></i>
+<div class="percentile-ruler__track" role="img" aria-label="Walk rate 62 MLB percentile">
+<span style="width:62.0%"></span><i style="left:62.0%"></i>
 </div>
-<small>9.3%</small>
-</div>
-<div class="percentile-ruler">
-<div class="percentile-ruler__label">
-<span>Hard-hit rate</span><strong>70th</strong>
-</div>
-<div class="percentile-ruler__track" role="img" aria-label="Hard-hit rate 70 MLB percentile">
-<span style="width:70.0%"></span><i style="left:70.0%"></i>
-</div>
-<small>43.8%</small>
+<small>9.7%</small>
 </div>
 <div class="percentile-ruler">
 <div class="percentile-ruler__label">
-<span>Run value / PA</span><strong>17th</strong>
+<span>Hard-hit rate</span><strong>72nd</strong>
 </div>
-<div class="percentile-ruler__track" role="img" aria-label="Run value / PA 17 MLB percentile">
-<span style="width:17.0%"></span><i style="left:17.0%"></i>
+<div class="percentile-ruler__track" role="img" aria-label="Hard-hit rate 72 MLB percentile">
+<span style="width:72.0%"></span><i style="left:72.0%"></i>
 </div>
-<small>-0.015</small>
+<small>44.1%</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Run value / PA</span><strong>29th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Run value / PA 29 MLB percentile">
+<span style="width:29.0%"></span><i style="left:29.0%"></i>
+</div>
+<small>-0.006</small>
 </div>
 </div>
 <div class="percentile-axis" aria-hidden="true">
@@ -606,88 +622,88 @@ Hard-hit rate is the largest recent shift: improving by 2.8 standard deviations 
 <div class="change-z-stack">
 <div class="change-z-row">
 <div class="change-z-row__label">
-<span>OPS</span><strong>-0.8 SD</strong>
+<span>OPS</span><strong>37.4</strong>
 </div>
-<div class="change-z-track" role="img" aria-label="OPS -0.8 SD recent 0.464 baseline 0.679">
-<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:10.4%"></span>
+<div class="change-z-track" role="img" aria-label="OPS 37.4 recent 0.466 baseline 0.679">
+<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:10.5%"></span>
 </div>
-<small>Recent 0.464 <span aria-hidden="true">vs</span> baseline 0.679</small>
-</div>
-<div class="change-z-row">
-<div class="change-z-row__label">
-<span>Est. wOBA</span><strong>-0.8 SD</strong>
-</div>
-<div class="change-z-track" role="img" aria-label="Est. wOBA -0.8 SD recent 0.210 baseline 0.296">
-<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:10.3%"></span>
-</div>
-<small>Recent 0.210 <span aria-hidden="true">vs</span> baseline 0.296</small>
+<small>Recent 0.466 <span aria-hidden="true">vs</span> baseline 0.679</small>
 </div>
 <div class="change-z-row">
 <div class="change-z-row__label">
-<span>Strikeout rate</span><strong>-2.0 SD</strong>
+<span>Est. wOBA</span><strong>38.7</strong>
 </div>
-<div class="change-z-track" role="img" aria-label="Strikeout rate -2.0 SD recent 47.1% baseline 30.9%">
-<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:24.7%"></span>
+<div class="change-z-track" role="img" aria-label="Est. wOBA 38.7 recent 0.218 baseline 0.296">
+<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:9.4%"></span>
 </div>
-<small>Recent 47.1% <span aria-hidden="true">vs</span> baseline 30.9%</small>
-</div>
-<div class="change-z-row">
-<div class="change-z-row__label">
-<span>Walk rate</span><strong>-1.1 SD</strong>
-</div>
-<div class="change-z-track" role="img" aria-label="Walk rate -1.1 SD recent 2.9% baseline 10.0%">
-<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:14.1%"></span>
-</div>
-<small>Recent 2.9% <span aria-hidden="true">vs</span> baseline 10.0%</small>
+<small>Recent 0.218 <span aria-hidden="true">vs</span> baseline 0.296</small>
 </div>
 <div class="change-z-row">
 <div class="change-z-row__label">
-<span>Hard-hit rate</span><strong>+2.8 SD</strong>
+<span>Strikeout rate</span><strong>21.2</strong>
 </div>
-<div class="change-z-track" role="img" aria-label="Hard-hit rate +2.8 SD recent 73.3% baseline 41.3%">
-<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:35.5%"></span>
+<div class="change-z-track" role="img" aria-label="Strikeout rate 21.2 recent 46.2% baseline 30.9%">
+<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:24.0%"></span>
 </div>
-<small>Recent 73.3% <span aria-hidden="true">vs</span> baseline 41.3%</small>
+<small>Recent 46.2% <span aria-hidden="true">vs</span> baseline 30.9%</small>
 </div>
 <div class="change-z-row">
 <div class="change-z-row__label">
-<span>Run value / PA</span><strong>-0.8 SD</strong>
+<span>Walk rate</span><strong>46.1</strong>
 </div>
-<div class="change-z-track" role="img" aria-label="Run value / PA -0.8 SD recent -0.090 baseline -0.006">
-<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:10.0%"></span>
+<div class="change-z-track" role="img" aria-label="Walk rate 46.1 recent 7.7% baseline 10.0%">
+<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:3.3%"></span>
 </div>
-<small>Recent -0.090 <span aria-hidden="true">vs</span> baseline -0.006</small>
+<small>Recent 7.7% <span aria-hidden="true">vs</span> baseline 10.0%</small>
+</div>
+<div class="change-z-row">
+<div class="change-z-row__label">
+<span>Hard-hit rate</span><strong>96.4</strong>
+</div>
+<div class="change-z-track" role="img" aria-label="Hard-hit rate 96.4 recent 75.0% baseline 41.3%">
+<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:38.6%"></span>
+</div>
+<small>Recent 75.0% <span aria-hidden="true">vs</span> baseline 41.3%</small>
+</div>
+<div class="change-z-row">
+<div class="change-z-row__label">
+<span>Run value / PA</span><strong>37.9</strong>
+</div>
+<div class="change-z-track" role="img" aria-label="Run value / PA 37.9 recent -0.079 baseline 0.003">
+<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:10.1%"></span>
+</div>
+<small>Recent -0.079 <span aria-hidden="true">vs</span> baseline 0.003</small>
 </div>
 </div>
 <div class="change-z-axis" aria-hidden="true">
-<span>Cooling</span><span>0 SD</span><span>Improving</span>
+<span>Cooling</span><span>50</span><span>Improving</span>
 </div>
 </section>
 </div>
 <footer class="player-context-card__note">
-<strong>Broadcast read:</strong> Hard-hit rate is the largest recent shift: improving by 2.8 standard deviations versus the MLB change pattern. Season level: 70th percentile. Recent sample: 34 PA; prior sample: 311 PA.
+<strong>Broadcast read:</strong> Hard-hit rate is the largest recent shift: improving by 3.1 standard deviations versus the MLB change pattern. Season level: 72nd percentile. Recent sample: 39 PA; prior sample: 311 PA.
 </footer>
 </article>
 <article class="player-context-card">
 <header class="player-context-card__head">
 <div>
-<span class="eyebrow">Hitter change profile</span>
+<span class="eyebrow">Pitcher change profile</span>
 <h3 class="anchored">
-Nolan Schanuel
+Brent Suter
 </h3>
 <p>
-Los Angeles Angels | LHB
+Los Angeles Angels | LHP
 </p>
 </div>
-<span class="signal-score" aria-label="Context signal score 33.6">33.6</span>
+<span class="signal-score" aria-label="Context signal score 30.4">30.4</span>
 </header>
 <div class="player-context-strip">
-<span><small>Season PA</small><strong>358</strong></span><span><small>OPS</small><strong>0.745</strong></span><span><small>Est. wOBA</small><strong>0.328</strong></span><span><small>Sample</small><strong>strong</strong></span>
+<span><small>Season BF</small><strong>246</strong></span><span><small>OPS allowed</small><strong>0.740</strong></span><span><small>Est. wOBA allowed</small><strong>0.317</strong></span><span><small>Sample</small><strong>moderate</strong></span>
 </div>
-<div class="change-banner is-improving">
-<span>Biggest change</span><strong>walk rate +2.1 SD</strong>
+<div class="change-banner is-declining">
+<span>Biggest change</span><strong>hard-hit rate allowed 19.4</strong>
 <p>
-Walk rate is the largest recent shift: improving by 2.1 standard deviations versus the MLB change pattern. Season level: 55th percentile.
+Hard-hit rate allowed is the largest recent shift: declining by 2.0 standard deviations versus the MLB change pattern. Season level: 92nd percentile.
 </p>
 </div>
 <div class="player-context-card__body">
@@ -698,57 +714,57 @@ Walk rate is the largest recent shift: improving by 2.1 standard deviations vers
 <div class="percentile-stack">
 <div class="percentile-ruler">
 <div class="percentile-ruler__label">
-<span>OPS</span><strong>54th</strong>
+<span>OPS allowed</span><strong>34th</strong>
 </div>
-<div class="percentile-ruler__track" role="img" aria-label="OPS 54 MLB percentile">
-<span style="width:54.0%"></span><i style="left:54.0%"></i>
+<div class="percentile-ruler__track" role="img" aria-label="OPS allowed 34 MLB percentile">
+<span style="width:34.0%"></span><i style="left:34.0%"></i>
 </div>
-<small>0.745</small>
-</div>
-<div class="percentile-ruler">
-<div class="percentile-ruler__label">
-<span>Est. wOBA</span><strong>60th</strong>
-</div>
-<div class="percentile-ruler__track" role="img" aria-label="Est. wOBA 60 MLB percentile">
-<span style="width:60.0%"></span><i style="left:60.0%"></i>
-</div>
-<small>0.328</small>
+<small>0.740</small>
 </div>
 <div class="percentile-ruler">
 <div class="percentile-ruler__label">
-<span>Strikeout rate</span><strong>87th</strong>
+<span>Est. wOBA allowed</span><strong>36th</strong>
 </div>
-<div class="percentile-ruler__track" role="img" aria-label="Strikeout rate 87 MLB percentile">
-<span style="width:87.0%"></span><i style="left:87.0%"></i>
+<div class="percentile-ruler__track" role="img" aria-label="Est. wOBA allowed 36 MLB percentile">
+<span style="width:36.0%"></span><i style="left:36.0%"></i>
 </div>
-<small>14.2%</small>
-</div>
-<div class="percentile-ruler">
-<div class="percentile-ruler__label">
-<span>Walk rate</span><strong>55th</strong>
-</div>
-<div class="percentile-ruler__track" role="img" aria-label="Walk rate 55 MLB percentile">
-<span style="width:55.0%"></span><i style="left:55.0%"></i>
-</div>
-<small>9.2%</small>
+<small>0.317</small>
 </div>
 <div class="percentile-ruler">
 <div class="percentile-ruler__label">
-<span>Hard-hit rate</span><strong>18th</strong>
+<span>Strikeout rate</span><strong>44th</strong>
 </div>
-<div class="percentile-ruler__track" role="img" aria-label="Hard-hit rate 18 MLB percentile">
-<span style="width:18.0%"></span><i style="left:18.0%"></i>
+<div class="percentile-ruler__track" role="img" aria-label="Strikeout rate 44 MLB percentile">
+<span style="width:44.0%"></span><i style="left:44.0%"></i>
 </div>
-<small>32.0%</small>
+<small>21.5%</small>
 </div>
 <div class="percentile-ruler">
 <div class="percentile-ruler__label">
-<span>Run value / PA</span><strong>39th</strong>
+<span>Walk rate allowed</span><strong>83rd</strong>
 </div>
-<div class="percentile-ruler__track" role="img" aria-label="Run value / PA 39 MLB percentile">
-<span style="width:39.0%"></span><i style="left:39.0%"></i>
+<div class="percentile-ruler__track" role="img" aria-label="Walk rate allowed 83 MLB percentile">
+<span style="width:83.0%"></span><i style="left:83.0%"></i>
 </div>
-<small>0.003</small>
+<small>5.7%</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Hard-hit rate allowed</span><strong>92nd</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Hard-hit rate allowed 92 MLB percentile">
+<span style="width:92.0%"></span><i style="left:92.0%"></i>
+</div>
+<small>31.1%</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Run value allowed / PA</span><strong>19th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Run value allowed / PA 19 MLB percentile">
+<span style="width:19.0%"></span><i style="left:19.0%"></i>
+</div>
+<small>0.022</small>
 </div>
 </div>
 <div class="percentile-axis" aria-hidden="true">
@@ -762,66 +778,66 @@ Walk rate is the largest recent shift: improving by 2.1 standard deviations vers
 <div class="change-z-stack">
 <div class="change-z-row">
 <div class="change-z-row__label">
-<span>OPS</span><strong>+0.2 SD</strong>
+<span>OPS allowed</span><strong>52.2</strong>
 </div>
-<div class="change-z-track" role="img" aria-label="OPS +0.2 SD recent 0.770 baseline 0.741">
-<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:2.2%"></span>
+<div class="change-z-track" role="img" aria-label="OPS allowed 52.2 recent 0.708 baseline 0.743">
+<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:1.8%"></span>
 </div>
-<small>Recent 0.770 <span aria-hidden="true">vs</span> baseline 0.741</small>
-</div>
-<div class="change-z-row">
-<div class="change-z-row__label">
-<span>Est. wOBA</span><strong>+0.4 SD</strong>
-</div>
-<div class="change-z-track" role="img" aria-label="Est. wOBA +0.4 SD recent 0.359 baseline 0.325">
-<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:5.2%"></span>
-</div>
-<small>Recent 0.359 <span aria-hidden="true">vs</span> baseline 0.325</small>
+<small>Recent 0.708 <span aria-hidden="true">vs</span> baseline 0.743</small>
 </div>
 <div class="change-z-row">
 <div class="change-z-row__label">
-<span>Strikeout rate</span><strong>+1.1 SD</strong>
+<span>Est. wOBA allowed</span><strong>54.1</strong>
 </div>
-<div class="change-z-track" role="img" aria-label="Strikeout rate +1.1 SD recent 7.9% baseline 15.0%">
-<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:14.3%"></span>
+<div class="change-z-track" role="img" aria-label="Est. wOBA allowed 54.1 recent 0.292 baseline 0.320">
+<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:3.4%"></span>
 </div>
-<small>Recent 7.9% <span aria-hidden="true">vs</span> baseline 15.0%</small>
-</div>
-<div class="change-z-row">
-<div class="change-z-row__label">
-<span>Walk rate</span><strong>+2.1 SD</strong>
-</div>
-<div class="change-z-track" role="img" aria-label="Walk rate +2.1 SD recent 18.4% baseline 8.1%">
-<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:26.4%"></span>
-</div>
-<small>Recent 18.4% <span aria-hidden="true">vs</span> baseline 8.1%</small>
+<small>Recent 0.292 <span aria-hidden="true">vs</span> baseline 0.320</small>
 </div>
 <div class="change-z-row">
 <div class="change-z-row__label">
-<span>Hard-hit rate</span><strong>-0.3 SD</strong>
+<span>Strikeout rate</span><strong>64.3</strong>
 </div>
-<div class="change-z-track" role="img" aria-label="Hard-hit rate -0.3 SD recent 28.6% baseline 32.4%">
-<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:3.4%"></span>
+<div class="change-z-track" role="img" aria-label="Strikeout rate 64.3 recent 29.2% baseline 20.7%">
+<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:11.9%"></span>
 </div>
-<small>Recent 28.6% <span aria-hidden="true">vs</span> baseline 32.4%</small>
+<small>Recent 29.2% <span aria-hidden="true">vs</span> baseline 20.7%</small>
 </div>
 <div class="change-z-row">
 <div class="change-z-row__label">
-<span>Run value / PA</span><strong>+0.5 SD</strong>
+<span>Walk rate allowed</span><strong>66.0</strong>
 </div>
-<div class="change-z-track" role="img" aria-label="Run value / PA +0.5 SD recent 0.040 baseline -0.001">
-<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:6.6%"></span>
+<div class="change-z-track" role="img" aria-label="Walk rate allowed 66.0 recent 0.0% baseline 6.3%">
+<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:13.3%"></span>
 </div>
-<small>Recent 0.040 <span aria-hidden="true">vs</span> baseline -0.001</small>
+<small>Recent 0.0% <span aria-hidden="true">vs</span> baseline 6.3%</small>
+</div>
+<div class="change-z-row">
+<div class="change-z-row__label">
+<span>Hard-hit rate allowed</span><strong>19.5</strong>
+</div>
+<div class="change-z-track" role="img" aria-label="Hard-hit rate allowed 19.5 recent 52.9% baseline 28.7%">
+<span class="change-z-zero"></span><span class="change-z-fill is-negative" style="right:50%;width:25.4%"></span>
+</div>
+<small>Recent 52.9% <span aria-hidden="true">vs</span> baseline 28.7%</small>
+</div>
+<div class="change-z-row">
+<div class="change-z-row__label">
+<span>Run value allowed / PA</span><strong>53.3</strong>
+</div>
+<div class="change-z-track" role="img" aria-label="Run value allowed / PA 53.3 recent 0.002 baseline 0.024">
+<span class="change-z-zero"></span><span class="change-z-fill is-positive" style="left:50%;width:2.8%"></span>
+</div>
+<small>Recent 0.002 <span aria-hidden="true">vs</span> baseline 0.024</small>
 </div>
 </div>
 <div class="change-z-axis" aria-hidden="true">
-<span>Cooling</span><span>0 SD</span><span>Improving</span>
+<span>Cooling</span><span>50</span><span>Improving</span>
 </div>
 </section>
 </div>
 <footer class="player-context-card__note">
-<strong>Broadcast read:</strong> Walk rate is the largest recent shift: improving by 2.1 standard deviations versus the MLB change pattern. Season level: 55th percentile. Recent sample: 38 PA; prior sample: 320 PA.
+<strong>Broadcast read:</strong> Hard-hit rate allowed is the largest recent shift: declining by 2.0 standard deviations versus the MLB change pattern. Season level: 92nd percentile. Recent sample: 24 BF; prior sample: 222 BF.
 </footer>
 </article>
 </div>
@@ -831,10 +847,122 @@ Walk rate is the largest recent shift: improving by 2.1 standard deviations vers
 The category leaders inside this clubhouse
 </h2>
 <p>
-Separate boards keep familiar counting stats beside rate production. Rate boards require at least 30 plate appearances or batters faced in the current data snapshot.
+Familiar production now sits beside tracked force: 100+ mph contact and pitches are shown as both totals and opportunity rates.
 </p>
 </section>
 <div class="leaderboard-grid team-leaderboard-grid">
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">Club contact</span>
+<h3 class="anchored">
+100+ mph batted balls
+</h3>
+<p>
+Tracked-contact season total
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Jo Adell</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">88</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Mike Trout</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">76</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Zach Neto</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">58</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Jorge Soler</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">57</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Vaughn Grissom</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">48</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">Club contact</span>
+<h3 class="anchored">
+100+ mph contact rate
+</h3>
+<p>
+Minimum 30 tracked batted balls
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Mike Trout</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">34.4%</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Jorge Soler</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">29.2%</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Jo Adell</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">28.8%</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Yoán Moncada</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">28.1%</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Vaughn Grissom</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">25.1%</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">Club velocity</span>
+<h3 class="anchored">
+Pitches at 100+ mph
+</h3>
+<p>
+Across every pitch type
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Walbert Ureña</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">47</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Sam Bachman</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">22</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>José Soriano</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">5</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Ryan Zeferjahn</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">2</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>José Fermin</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">Club velocity</span>
+<h3 class="anchored">
+100+ mph pitch rate
+</h3>
+<p>
+Minimum 100 tracked pitches
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Sam Bachman</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">3.0%</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Walbert Ureña</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">2.9%</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>José Soriano</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.2%</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Ryan Zeferjahn</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.2%</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>José Fermin</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.0%</span>
+</li>
+</ol>
+</article>
 <article class="leaderboard-card">
 <header>
 <span class="eyebrow">Club offense</span>
@@ -856,10 +984,10 @@ Best qualified contact results
 <span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Jose Siri</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.270</span>
 </li>
 <li>
-<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Vaughn Grissom</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.251</span>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Vaughn Grissom</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.259</span>
 </li>
 <li>
-<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Mike Trout</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.245</span>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Jo Adell</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.243</span>
 </li>
 </ol>
 </article>
@@ -903,19 +1031,19 @@ On-base and slugging production
 </header>
 <ol>
 <li>
-<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Mike Trout</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.850</span>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Mike Trout</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.835</span>
 </li>
 <li>
 <span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Jose Siri</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.797</span>
 </li>
 <li>
-<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Wade Meckler</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.765</span>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Zach Neto</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.765</span>
 </li>
 <li>
-<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Zach Neto</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.763</span>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Wade Meckler</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.765</span>
 </li>
 <li>
-<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Nolan Schanuel</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.745</span>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Nolan Schanuel</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.744</span>
 </li>
 </ol>
 </article>
@@ -937,10 +1065,10 @@ Total batters finished by strikeout
 <span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>José Soriano</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">127</span>
 </li>
 <li>
-<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Walbert Ureña</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">83</span>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Walbert Ureña</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">88</span>
 </li>
 <li>
-<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Ryan Zeferjahn</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">69</span>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Ryan Zeferjahn</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">71</span>
 </li>
 <li>
 <span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Brent Suter</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">53</span>
@@ -962,13 +1090,13 @@ Strikeouts per batter faced
 <span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Samy Natera Jr.</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">37.5%</span>
 </li>
 <li>
-<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Ryan Zeferjahn</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">33.2%</span>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Ryan Zeferjahn</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">33.3%</span>
 </li>
 <li>
 <span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Kirby Yates</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">28.6%</span>
 </li>
 <li>
-<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Chase Silseth</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">27.8%</span>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Chase Silseth</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">27.7%</span>
 </li>
 <li>
 <span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Reid Detmers</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">27.6%</span>
@@ -990,13 +1118,13 @@ Qualified opponent production
 <span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Samy Natera Jr.</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.466</span>
 </li>
 <li>
-<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Ryan Zeferjahn</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.582</span>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Ryan Zeferjahn</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.593</span>
 </li>
 <li>
-<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>José Fermin</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.593</span>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>José Fermin</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.600</span>
 </li>
 <li>
-<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Walbert Ureña</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.615</span>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Walbert Ureña</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.605</span>
 </li>
 <li>
 <span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>José Soriano</strong><small>Los Angeles Angels</small></span><span class="leaderboard-value">0.628</span>
@@ -1005,60 +1133,15 @@ Qualified opponent production
 </article>
 </div>
 <section class="section-heading">
-<span class="eyebrow">Pitch identity</span>
+<span class="eyebrow">Ace-in-the-Hole</span>
 <h2 class="anchored">
-The arsenal signatures worth knowing
+The staff ace and signature pitch worth knowing
 </h2>
-</section>
-<div class="pitch-identity-grid pitch-identity-grid--compact">
-<article class="pitch-identity-card">
-<div class="pitch-identity-card__head">
-<div>
-<span class="eyebrow">Breaking identity</span>
-<h3 class="anchored">
-Sam Bachman
-</h3>
 <p>
-Los Angeles Angels | Slider
+One pitcher is selected from the club’s strongest qualified pitch profile, with pitch value shown in league context.
 </p>
-</div>
-<span class="signal-score">80.5</span>
-</div>
-<div class="pitch-identity-card__body">
-<div class="movement-plane" role="img" aria-label="-2.1 inches horizontal and -1.2 inches induced vertical break">
-<span class="movement-plane__pitch" style="left:45.8%;bottom:16.6%"></span><span class="movement-plane__x">Horizontal break</span><span class="movement-plane__y">IVB</span>
-</div>
-<div class="pitch-metrics">
-<div class="metric-bar">
-<div class="metric-bar__label">
-<span>Whiff</span><strong>37.6%</strong>
-</div>
-<div class="metric-bar__track" role="img" aria-label="Whiff 37.6%">
-<span style="width:53.7%"></span>
-</div>
-</div>
-<div class="metric-bar">
-<div class="metric-bar__label">
-<span>Chase</span><strong>42.6%</strong>
-</div>
-<div class="metric-bar__track" role="img" aria-label="Chase 42.6%">
-<span style="width:77.4%"></span>
-</div>
-</div>
-<div class="metric-bar">
-<div class="metric-bar__label">
-<span>Usage</span><strong>52.5%</strong>
-</div>
-<div class="metric-bar__track" role="img" aria-label="Usage 52.5%">
-<span style="width:87.5%"></span>
-</div>
-</div>
-<div class="pitch-velo">
-<span>Average velocity</span><strong>88.6 mph</strong>
-</div>
-</div>
-</div>
-</article>
+</section>
+<div class="pitch-identity-grid pitch-identity-grid--compact pitch-identity-grid--single">
 <article class="pitch-identity-card">
 <div class="pitch-identity-card__head">
 <div>
@@ -1067,42 +1150,42 @@ Los Angeles Angels | Slider
 Walbert Ureña
 </h3>
 <p>
-Los Angeles Angels | Changeup
+Los Angeles Angels | RHP | Changeup
 </p>
 </div>
-<span class="signal-score">77.5</span>
+<span class="signal-score">80.7</span>
 </div>
 <div class="pitch-identity-card__body">
-<div class="movement-plane" role="img" aria-label="16.7 inches horizontal and 5.3 inches induced vertical break">
-<span class="movement-plane__pitch" style="left:83.4%;bottom:34.8%"></span><span class="movement-plane__x">Horizontal break</span><span class="movement-plane__y">IVB</span>
+<div class="movement-plane" role="img" aria-label="16.8 inches horizontal and 5.3 inches induced vertical break">
+<span class="movement-plane__pitch" style="left:83.5%;bottom:34.9%"></span><span class="movement-plane__x">Horizontal break</span><span class="movement-plane__y">IVB</span>
 </div>
 <div class="pitch-metrics">
 <div class="metric-bar">
 <div class="metric-bar__label">
-<span>Whiff</span><strong>35.0%</strong>
+<span>Whiff</span><strong>35.6%</strong>
 </div>
-<div class="metric-bar__track" role="img" aria-label="Whiff 35.0%">
-<span style="width:50.0%"></span>
-</div>
-</div>
-<div class="metric-bar">
-<div class="metric-bar__label">
-<span>Chase</span><strong>39.6%</strong>
-</div>
-<div class="metric-bar__track" role="img" aria-label="Chase 39.6%">
-<span style="width:72.1%"></span>
+<div class="metric-bar__track" role="img" aria-label="Whiff 35.6%">
+<span style="width:50.8%"></span>
 </div>
 </div>
 <div class="metric-bar">
 <div class="metric-bar__label">
-<span>Usage</span><strong>32.1%</strong>
+<span>Chase</span><strong>39.4%</strong>
 </div>
-<div class="metric-bar__track" role="img" aria-label="Usage 32.1%">
-<span style="width:53.4%"></span>
+<div class="metric-bar__track" role="img" aria-label="Chase 39.4%">
+<span style="width:71.6%"></span>
+</div>
+</div>
+<div class="metric-bar">
+<div class="metric-bar__label">
+<span>Usage</span><strong>31.9%</strong>
+</div>
+<div class="metric-bar__track" role="img" aria-label="Usage 31.9%">
+<span style="width:53.1%"></span>
 </div>
 </div>
 <div class="pitch-velo">
-<span>Average velocity</span><strong>90.3 mph</strong>
+<span>Average velocity</span><strong>90.4 mph</strong>
 </div>
 </div>
 </div>
@@ -1117,7 +1200,7 @@ The largest qualified handedness edges
 <div class="signal-grid">
 <article class="matchup-edge-card">
 <div class="player-signal__top">
-<span class="eyebrow">hitter edge</span><span class="signal-score">84.6</span>
+<span class="eyebrow">hitter edge</span><span class="signal-score">84.0</span>
 </div>
 <h3 class="anchored">
 Jo Adell
@@ -1139,20 +1222,20 @@ Los Angeles Angels
 </div>
 <div class="metric-bar">
 <div class="metric-bar__label">
-<span>vs R</span><strong>0.260</strong>
+<span>vs R</span><strong>0.263</strong>
 </div>
-<div class="metric-bar__track" role="img" aria-label="vs R 0.260">
-<span style="width:47.3%"></span>
+<div class="metric-bar__track" role="img" aria-label="vs R 0.263">
+<span style="width:47.8%"></span>
 </div>
 </div>
 </div>
 <p class="muted">
-Estimated wOBA: 0.398 vs L, 0.260 vs R.
+Estimated wOBA: 0.398 vs L, 0.263 vs R.
 </p>
 </article>
 <article class="matchup-edge-card">
 <div class="player-signal__top">
-<span class="eyebrow">pitcher edge</span><span class="signal-score">72.8</span>
+<span class="eyebrow">pitcher edge</span><span class="signal-score">73.1</span>
 </div>
 <h3 class="anchored">
 Mitch Farris
@@ -1161,7 +1244,7 @@ Mitch Farris
 Los Angeles Angels
 </p>
 <p>
-<strong>Mitch Farris is suppressing left-handed batters more effectively</strong>
+<strong>Mitch Farris is limiting left-handed batters more effectively</strong>
 </p>
 <div class="matchup-bars">
 <div class="metric-bar is-highlight">
@@ -1196,7 +1279,7 @@ Grayson Rodriguez
 Los Angeles Angels
 </p>
 <p>
-<strong>Grayson Rodriguez is suppressing right-handed batters more effectively</strong>
+<strong>Grayson Rodriguez is limiting right-handed batters more effectively</strong>
 </p>
 <div class="matchup-bars">
 <div class="metric-bar">
@@ -1234,30 +1317,30 @@ The board now shows only the highest-ranked active reliever against a left-hande
 <div class="bullpen-decision-grid">
 <article class="bullpen-decision-card">
 <header>
-<span>Left-handed batter</span><strong>91.6</strong>
+<span>Left-handed batter</span><strong>74.7</strong>
 </header>
 <h3 class="anchored">
-Samy Natera Jr.
+Brent Suter
 </h3>
 <p>
-LHP · available · 2 days rest
+LHP · monitor · 2 days rest
 </p>
 <div class="bullpen-decision-metrics">
-<span><small>Availability</small><strong>93.3%</strong></span><span><small>Matchup</small><strong>100.0%</strong></span><span><small>Performance</small><strong>77.0%</strong></span>
+<span><small>Availability</small><strong>70.0%</strong></span><span><small>Matchup</small><strong>100.0%</strong></span><span><small>Performance</small><strong>46.8%</strong></span>
 </div>
 </article>
 <article class="bullpen-decision-card">
 <header>
-<span>Right-handed batter</span><strong>83.6</strong>
+<span>Right-handed batter</span><strong>80.7</strong>
 </header>
 <h3 class="anchored">
-Sam Bachman
+José Fermin
 </h3>
 <p>
-RHP · available · 7 days rest
+RHP · available · 3 days rest
 </p>
 <div class="bullpen-decision-metrics">
-<span><small>Availability</small><strong>100.0%</strong></span><span><small>Matchup</small><strong>70.0%</strong></span><span><small>Performance</small><strong>58.4%</strong></span>
+<span><small>Availability</small><strong>92.8%</strong></span><span><small>Matchup</small><strong>70.0%</strong></span><span><small>Performance</small><strong>58.3%</strong></span>
 </div>
 </article>
 </div>
@@ -1266,16 +1349,13 @@ RHP · available · 7 days rest
 <div class="section-heading section-heading--tight">
 <span class="eyebrow">Story leads</span>
 <h2 class="anchored">
-What this team could become next
+Team Headlines
 </h2>
 </div>
 <div class="table-scroll">
 <table class="data-table story-queue-table">
 <thead>
 <tr>
-<th>
-Lane
-</th>
 <th>
 Subject
 </th>
@@ -1290,86 +1370,68 @@ Score
 <tbody>
 <tr>
 <td>
-offensive_race
-</td>
-<td>
 Mike Trout
 </td>
 <td>
 Mike Trout is building one of baseball’s strongest offensive cases
 </td>
 <td>
-86.9
+84.4
 </td>
 </tr>
 <tr>
-<td>
-run_prevention
-</td>
 <td>
 Samy Natera Jr.
 </td>
 <td>
-Samy Natera Jr.&nbsp;is suppressing offense at an elite rate
+Samy Natera Jr.&nbsp;is limiting opponent production at an elite rate
 </td>
 <td>
-80.8
+81.0
 </td>
 </tr>
 <tr>
-<td>
-run_prevention
-</td>
-<td>
-Ryan Zeferjahn
-</td>
-<td>
-Ryan Zeferjahn is suppressing offense at an elite rate
-</td>
-<td>
-79.8
-</td>
-</tr>
-<tr>
-<td>
-run_prevention
-</td>
 <td>
 Reid Detmers
 </td>
 <td>
-Reid Detmers is suppressing offense at an elite rate
+Reid Detmers’s Slider: 86.1 mph, 32.4% whiffs
 </td>
 <td>
-78.1
+79.6
 </td>
 </tr>
 <tr>
-<td>
-pitch_identity
-</td>
-<td>
-Sam Bachman
-</td>
-<td>
-Sam Bachman’s Slider: 88.6 mph, 37.6% whiffs
-</td>
-<td>
-77.6
-</td>
-</tr>
-<tr>
-<td>
-pitch_identity
-</td>
 <td>
 Walbert Ureña
 </td>
 <td>
-Walbert Ureña’s Changeup: 90.3 mph, 35.0% whiffs
+Walbert Ureña’s Changeup: 90.4 mph, 35.6% whiffs
 </td>
 <td>
-76.3
+79.1
+</td>
+</tr>
+<tr>
+<td>
+Ryan Zeferjahn
+</td>
+<td>
+Ryan Zeferjahn is limiting opponent production at an elite rate
+</td>
+<td>
+78.7
+</td>
+</tr>
+<tr>
+<td>
+José Soriano
+</td>
+<td>
+José Soriano’s Knuckle Curve: 85.3 mph, 42.3% whiffs
+</td>
+<td>
+78.1
 </td>
 </tr>
 </tbody>
@@ -1380,255 +1442,251 @@ Walbert Ureña’s Changeup: 90.3 mph, 35.0% whiffs
 <strong>Research status:</strong> this automated report is a reporting foundation, not a finished scouting report. Active rosters are date-stamped; injuries, same-day transactions, probable pitchers, and opponent context still require pregame confirmation.
 </div>
 <nav class="team-report-nav" aria-label="Team report navigation">
-<a href="athletics.html">← Athletics</a><a href="../team-reports.html">All teams</a><a href="arizona-diamondbacks.html">Arizona Diamondbacks →</a>
+<a href="athletics.html">← Athletics</a><a href="../team-reports.html">All teams</a><a href="st-louis-cardinals.html">St.&nbsp;Louis Cardinals →</a>
 </nav>
 
 
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
     }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
     }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/thesabrhood\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/thesabrhood\.com");
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1636,161 +1694,185 @@ Walbert Ureña’s Changeup: 90.3 mph, 35.0% whiffs
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

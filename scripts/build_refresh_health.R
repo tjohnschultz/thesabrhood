@@ -31,6 +31,8 @@ state_model <- read_product("daily-state-simulation-model-card.csv")
 baserunning_model <- read_product("baserunning-model-card.csv")
 slate_status <- read_product("daily-slate-status.csv")
 award_history <- read_product("award-race-history.csv")
+standings <- read_product("mlb-standings-current.csv")
+newsletter <- read_product("daily-newsletter-edition.csv")
 
 status_date <- date_value(slate_status, "report_date")
 off_day <- nrow(slate_status) > 0L && identical(as.character(slate_status$slate_state[[1L]]), "no_games_scheduled") && identical(status_date, reference_date)
@@ -56,7 +58,8 @@ rows <- data.frame(
     "completed_game_pbp", "pbp_analysis", "editorial_story_engine", "history_engine",
     "fangraphs_season", "triple_a_watch", "graphics_feed", "daily_slate",
     "daily_projections", "daily_matchup_model", "daily_state_simulation",
-    "phase4_baserunning", "award_race_history"
+    "phase4_baserunning", "award_race_history", "standings_movement",
+    "daily_newsletter"
   ),
   source_through = as.Date(c(
     pbp_date,
@@ -71,7 +74,9 @@ rows <- data.frame(
     matchup_date,
     state_date,
     date_value(baserunning_model, "source_end_date"),
-    date_value(award_history, c("source_through", "checkpoint_date"))
+    date_value(award_history, c("source_through", "checkpoint_date")),
+    date_value(standings, "source_through"),
+    date_value(newsletter, "edition_date")
   ), origin = "1970-01-01"),
   expected_through = as.Date(c(
     reference_date - 1L,
@@ -86,12 +91,15 @@ rows <- data.frame(
     matchup_expected_date,
     state_expected_date,
     pbp_date,
+    reference_date,
+    reference_date - 1L,
     reference_date
   ), origin = "1970-01-01"),
-  max_lag_days = c(4L, 0L, 0L, 0L, 2L, 3L, 2L, 0L, 0L, 0L, 0L, 0L, 8L),
+  max_lag_days = c(4L, 0L, 0L, 0L, 2L, 3L, 2L, 0L, 0L, 0L, 0L, 0L, 8L, 1L, 0L),
   cadence = c(
     "daily", "daily", "daily", "daily", "daily", "daily", "daily",
-    "daily", "daily", "lineup-dependent", "lineup-dependent", "daily", "weekly"
+    "daily", "daily", "lineup-dependent", "lineup-dependent", "daily", "weekly",
+    "daily", "daily"
   ),
   stringsAsFactors = FALSE
 )

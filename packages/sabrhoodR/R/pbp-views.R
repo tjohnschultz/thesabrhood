@@ -94,8 +94,20 @@ build_pitch_view <- function(pbp) {
     event_type = as.character(.column_or_default(raw, c("result.eventType", "details.eventType", "event_type"))),
     event = as.character(.column_or_default(raw, c("result.event", "details.event", "event"))),
     description = as.character(.column_or_default(raw, c("details.description", "result.description", "description"))),
+    result_description = as.character(.column_or_default(
+      raw,
+      c("result.description", "result_description", "description")
+    )),
     pitch_type = as.character(.column_or_default(raw, c("details.type.code", "pitch_type"))),
     pitch_name = as.character(.column_or_default(raw, c("details.type.description", "pitch_name"))),
+    plate_time = .numeric_value(.column_or_default(raw, c("pitchData.plateTime", "plate_time"))),
+    runner_going = .logical_value(.column_or_default(raw, c("details.runnerGoing", "runner_going"), FALSE)),
+    disengagement_count = .integer_value(.column_or_default(
+      raw,
+      c("details.disengagementNum", "disengagement_count"),
+      0L
+    )),
+    umpire_id = as.character(.column_or_default(raw, c("umpire.id", "umpire_id"))),
     call_code = as.character(.column_or_default(raw, c("details.call.code", "call_code"))),
     call_description = as.character(.column_or_default(raw, c("details.call.description", "call_description"))),
     is_in_play = .logical_value(.column_or_default(raw, c("details.isInPlay", "is_in_play"), FALSE)),
@@ -202,7 +214,7 @@ build_plate_appearance_view <- function(pbp) {
     "home_team", "away_team", "pitcher_id", "pitcher_name", "pitcher_hand",
     "batter_id", "batter_name", "batter_side", "outs_before", "outs_after",
     "runner_on_first", "runner_on_second", "runner_on_third", "event_type", "event",
-    "event_key", "description", "pitch_type", "pitch_name", "is_in_play",
+    "event_key", "description", "result_description", "pitch_type", "pitch_name", "is_in_play",
     "is_terminal_pitch", "launch_speed", "launch_angle", "hit_distance", "hit_location", "hit_coord_x", "hit_coord_y",
     "trajectory", "batting_order", "runs_batted_in", "home_score_before",
     "away_score_before", "home_score_after", "away_score_after", "pitches_in_pa"

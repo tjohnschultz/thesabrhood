@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,16 +10,10 @@
 
 <title>Today – The SABRhood</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -37,16 +31,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./images/new-sabr-logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f0a6828d39eed76dd9f56b390c71b39b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,16 +95,15 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 <meta name="twitter:image-width" content="1662">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-xl " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo light-content">
-    <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo dark-content">
+    <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">The SABRhood</span>
@@ -130,6 +122,10 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
   <li class="nav-item">
     <a class="nav-link active" href="./today.html" aria-current="page"> 
 <span class="menu-text">Today</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./standings.html"> 
+<span class="menu-text">Standings</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./leaderboards.html"> 
@@ -168,6 +164,10 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
  <span class="dropdown-text">Player Change Engine</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./career-trajectories.html">
+ <span class="dropdown-text">Career Path Engine</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./teams.html">
  <span class="dropdown-text">Teams</span></a>
   </li>  
@@ -184,12 +184,24 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
  <span class="dropdown-text">Pitch Lab</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./run-game.html">
+ <span class="dropdown-text">Run Game</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./fielding.html">
+ <span class="dropdown-text">Fielding</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./aaa.html">
  <span class="dropdown-text">Triple-A Watch</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./history.html">
  <span class="dropdown-text">History</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./history-match.html">
+ <span class="dropdown-text">History Match</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./league-trends.html">
@@ -211,7 +223,7 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./blog.html"> 
-<span class="menu-text">Research</span></a>
+<span class="menu-text">Editorials</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./broadcast.html"> 
@@ -270,7 +282,7 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 </section>
 </div>
 <div class="update-strip">
-<strong>Data through July 26, 2026</strong><span>Method-labeled signals, not black-box claims.</span>
+<strong>Data through July 27, 2026</strong><span>Method-labeled signals, not black-box claims.</span>
 </div>
 <section class="slate-desk">
 <div class="section-heading section-heading--tight">
@@ -286,283 +298,18 @@ Probable starters, posted orders, park weather, team strength, active-roster bul
 <span class="is-ready">Complete research inputs</span><span class="is-conditional">Lineup or starter still conditional</span><span>Change context uses the displayed performance cutoff</span>
 </div>
 <div class="slate-brief-grid">
-<article class="slate-brief is-ready">
+<article class="slate-brief is-conditional">
 <header>
 <div>
-<span class="eyebrow">2:35 PM ET · Globe Life Field</span>
-<h3 class="anchored">
-Seattle Mariners at Texas Rangers
-</h3>
-</div>
-<span class="slate-status">Research inputs ready</span>
-</header>
-<div class="slate-brief__weather">
-<span>Clear · 84 F · 8.0 mph wind</span><span>confirmed / confirmed orders</span>
-</div>
-<div class="slate-team-grid">
-<section class="slate-team">
-<header>
-<div>
-<span>Seattle Mariners</span><strong>George Kirby</strong>
-</div>
-<small>#17 team index</small>
-</header>
-<p class="slate-signal">
-<strong>George Kirby</strong><span>estimated wOBA allowed +1.6 SD · improving · 42nd season percentile</span>
-</p>
-<p class="slate-signal">
-<strong>Colt Emerson</strong><span>strikeout rate +1.6 SD · improving · 4th season percentile</span>
-</p>
-<p class="slate-bullpen">
-Roster-qualified selector: Gabe Speier (L)
-</p>
-</section>
-<section class="slate-team">
-<header>
-<div>
-<span>Texas Rangers</span><strong>Kumar Rocker</strong>
-</div>
-<small>#4 team index</small>
-</header>
-<p class="slate-signal">
-<strong>Kumar Rocker</strong><span>estimated wOBA allowed +2.0 SD · improving · 47th season percentile</span>
-</p>
-<p class="slate-signal">
-<strong>Wyatt Langford</strong><span>run value per PA +1.7 SD · improving · 60th season percentile</span>
-</p>
-<p class="slate-bullpen">
-Roster-qualified selector: Jacob Latz (L)
-</p>
-</section>
-</div>
-<footer>
-<span>Slate snapshot July 27</span><span>Performance context through July 26, 2026</span>
-</footer>
-</article>
-<article class="slate-brief is-ready">
-<header>
-<div>
-<span class="eyebrow">6:40 PM ET · Comerica Park</span>
-<h3 class="anchored">
-Baltimore Orioles at Detroit Tigers
-</h3>
-</div>
-<span class="slate-status">Research inputs ready</span>
-</header>
-<div class="slate-brief__weather">
-<span>Clear · 73 F · 3.4 mph wind</span><span>confirmed / confirmed orders</span>
-</div>
-<div class="slate-team-grid">
-<section class="slate-team">
-<header>
-<div>
-<span>Baltimore Orioles</span><strong>Kyle Bradish</strong>
-</div>
-<small>#16 team index</small>
-</header>
-<p class="slate-signal">
-<strong>Kyle Bradish</strong><span>hard-hit rate allowed -1.9 SD · declining · 63rd season percentile</span>
-</p>
-<p class="slate-signal">
-<strong>Dylan Beavers</strong><span>run value per PA +1.9 SD · improving · 58th season percentile</span>
-</p>
-<p class="slate-bullpen">
-Roster-qualified selector: Josh Walker (L)
-</p>
-</section>
-<section class="slate-team">
-<header>
-<div>
-<span>Detroit Tigers</span><strong>Keider Montero</strong>
-</div>
-<small>#8 team index</small>
-</header>
-<p class="slate-signal">
-<strong>Keider Montero</strong><span>strikeout rate +2.8 SD · improving · 25th season percentile</span>
-</p>
-<p class="slate-signal">
-<strong>Hao-Yu Lee</strong><span>hard-hit rate +2.3 SD · improving · 40th season percentile</span>
-</p>
-<p class="slate-bullpen">
-Roster-qualified selector: Ty Madden (R)
-</p>
-</section>
-</div>
-<footer>
-<span>Slate snapshot July 27</span><span>Performance context through July 26, 2026</span>
-</footer>
-</article>
-<article class="slate-brief is-ready">
-<header>
-<div>
-<span class="eyebrow">6:40 PM ET · PNC Park</span>
-<h3 class="anchored">
-Arizona Diamondbacks at Pittsburgh Pirates
-</h3>
-</div>
-<span class="slate-status">Research inputs ready</span>
-</header>
-<div class="slate-brief__weather">
-<span>Clear · 68 F · 1.6 mph wind</span><span>confirmed / confirmed orders</span>
-</div>
-<div class="slate-team-grid">
-<section class="slate-team">
-<header>
-<div>
-<span>Arizona Diamondbacks</span><strong>Merrill Kelly</strong>
-</div>
-<small>#22 team index</small>
-</header>
-<p class="slate-signal">
-<strong>Merrill Kelly</strong><span>hard-hit rate allowed -1.2 SD · declining · 9th season percentile</span>
-</p>
-<p class="slate-signal">
-<strong>Geraldo Perdomo</strong><span>walk rate +2.7 SD · improving · 98th season percentile</span>
-</p>
-<p class="slate-bullpen">
-Roster-qualified selector: Brandyn Garcia (L)
-</p>
-</section>
-<section class="slate-team">
-<header>
-<div>
-<span>Pittsburgh Pirates</span><strong>Mitch Keller</strong>
-</div>
-<small>#8 team index</small>
-</header>
-<p class="slate-signal">
-<strong>Mitch Keller</strong><span>run value allowed per PA +1.5 SD · improving · 19th season percentile</span>
-</p>
-<p class="slate-signal">
-<strong>Esmerlyn Valdez</strong><span>walk rate +2.8 SD · improving · 92nd season percentile</span>
-</p>
-<p class="slate-bullpen">
-Roster-qualified selector: Gregory Soto (L)
-</p>
-</section>
-</div>
-<footer>
-<span>Slate snapshot July 27</span><span>Performance context through July 26, 2026</span>
-</footer>
-</article>
-<article class="slate-brief is-ready">
-<header>
-<div>
-<span class="eyebrow">6:40 PM ET · loanDepot park</span>
-<h3 class="anchored">
-Philadelphia Phillies at Miami Marlins
-</h3>
-</div>
-<span class="slate-status">Research inputs ready</span>
-</header>
-<div class="slate-brief__weather">
-<span>Clear · 76 F · 3.4 mph wind</span><span>confirmed / confirmed orders</span>
-</div>
-<div class="slate-team-grid">
-<section class="slate-team">
-<header>
-<div>
-<span>Philadelphia Phillies</span><strong>Zack Wheeler</strong>
-</div>
-<small>#30 team index</small>
-</header>
-<p class="slate-signal">
-<strong>Zack Wheeler</strong><span>walk rate allowed +1.0 SD · improving · 81st season percentile</span>
-</p>
-<p class="slate-signal">
-<strong>Trea Turner</strong><span>OPS +2.3 SD · improving · 21st season percentile</span>
-</p>
-<p class="slate-bullpen">
-Roster-qualified selector: Orion Kerkering (R)
-</p>
-</section>
-<section class="slate-team">
-<header>
-<div>
-<span>Miami Marlins</span><strong>Tyler Phillips</strong>
-</div>
-<small>#14 team index</small>
-</header>
-<p class="slate-signal is-muted">
-Starter change sample not yet qualified.
-</p>
-<p class="slate-signal">
-<strong>Xavier Edwards</strong><span>strikeout rate -2.9 SD · declining · 90th season percentile</span>
-</p>
-<p class="slate-bullpen">
-Roster-qualified selector: John King (L)
-</p>
-</section>
-</div>
-<footer>
-<span>Slate snapshot July 27</span><span>Performance context through July 26, 2026</span>
-</footer>
-</article>
-<article class="slate-brief is-ready">
-<header>
-<div>
-<span class="eyebrow">6:45 PM ET · Nationals Park</span>
-<h3 class="anchored">
-Toronto Blue Jays at Washington Nationals
-</h3>
-</div>
-<span class="slate-status">Research inputs ready</span>
-</header>
-<div class="slate-brief__weather">
-<span>Partly cloudy · 74 F · 4.3 mph wind</span><span>confirmed / confirmed orders</span>
-</div>
-<div class="slate-team-grid">
-<section class="slate-team">
-<header>
-<div>
-<span>Toronto Blue Jays</span><strong>Max Scherzer</strong>
-</div>
-<small>#18 team index</small>
-</header>
-<p class="slate-signal is-muted">
-Starter change sample not yet qualified.
-</p>
-<p class="slate-signal">
-<strong>Kazuma Okamoto</strong><span>run value per PA -2.2 SD · declining · 34th season percentile</span>
-</p>
-<p class="slate-bullpen">
-Roster-qualified selector: Brendon Little (L)
-</p>
-</section>
-<section class="slate-team">
-<header>
-<div>
-<span>Washington Nationals</span><strong>Eddy Yean</strong>
-</div>
-<small>#7 team index</small>
-</header>
-<p class="slate-signal is-muted">
-Starter change sample not yet qualified.
-</p>
-<p class="slate-signal">
-<strong>CJ Abrams</strong><span>OPS +3.3 SD · improving · 99th season percentile</span>
-</p>
-<p class="slate-bullpen">
-Roster-qualified selector: Matt Krook (L)
-</p>
-</section>
-</div>
-<footer>
-<span>Slate snapshot July 27</span><span>Performance context through July 26, 2026</span>
-</footer>
-</article>
-<article class="slate-brief is-ready">
-<header>
-<div>
-<span class="eyebrow">7:10 PM ET · Great American Ball Park</span>
+<span class="eyebrow">1:40 PM ET · Great American Ball Park</span>
 <h3 class="anchored">
 Cleveland Guardians at Cincinnati Reds
 </h3>
 </div>
-<span class="slate-status">Research inputs ready</span>
+<span class="slate-status">Conditional inputs</span>
 </header>
 <div class="slate-brief__weather">
-<span>Clear · 69 F · 2.2 mph wind</span><span>confirmed / confirmed orders</span>
+<span>Clear · 70 F · 3.5 mph wind</span><span>missing / missing orders</span>
 </div>
 <div class="slate-team-grid">
 <section class="slate-team">
@@ -570,13 +317,13 @@ Cleveland Guardians at Cincinnati Reds
 <div>
 <span>Cleveland Guardians</span><strong>Slade Cecconi</strong>
 </div>
-<small>#19 team index</small>
+<small>#20 team index</small>
 </header>
 <p class="slate-signal">
-<strong>Slade Cecconi</strong><span>hard-hit rate allowed -2.0 SD · declining · 49th season percentile</span>
+<strong>Slade Cecconi</strong><span>hard-hit rate allowed 20.4 · declining · 49th season percentile</span>
 </p>
-<p class="slate-signal">
-<strong>Steven Kwan</strong><span>estimated wOBA +1.9 SD · improving · 22nd season percentile</span>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
 </p>
 <p class="slate-bullpen">
 Roster-qualified selector: Erik Sabrowski (L)
@@ -587,24 +334,342 @@ Roster-qualified selector: Erik Sabrowski (L)
 <div>
 <span>Cincinnati Reds</span><strong>Chase Burns</strong>
 </div>
-<small>#22 team index</small>
+<small>#30 team index</small>
 </header>
 <p class="slate-signal">
-<strong>Chase Burns</strong><span>hard-hit rate allowed +1.6 SD · improving · 67th season percentile</span>
+<strong>Chase Burns</strong><span>hard-hit rate allowed 74.9 · improving · 65th season percentile</span>
 </p>
-<p class="slate-signal">
-<strong>Elly De La Cruz</strong><span>strikeout rate +2.0 SD · improving · 15th season percentile</span>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
 </p>
 <p class="slate-bullpen">
-Roster-qualified selector: Brock Burke (L)
+Roster-qualified selector: Sam Moll (L)
 </p>
 </section>
 </div>
 <footer>
-<span>Slate snapshot July 27</span><span>Performance context through July 26, 2026</span>
+<span>Slate snapshot July 28</span><span>Performance context through July 27, 2026</span>
 </footer>
 </article>
-<article class="slate-brief is-ready">
+<article class="slate-brief is-conditional">
+<header>
+<div>
+<span class="eyebrow">6:40 PM ET · Comerica Park</span>
+<h3 class="anchored">
+Baltimore Orioles at Detroit Tigers
+</h3>
+</div>
+<span class="slate-status">Conditional inputs</span>
+</header>
+<div class="slate-brief__weather">
+<span>Cloudy · 72 F · 4.2 mph wind</span><span>missing / missing orders</span>
+</div>
+<div class="slate-team-grid">
+<section class="slate-team">
+<header>
+<div>
+<span>Baltimore Orioles</span><strong>Dean Kremer</strong>
+</div>
+<small>#13 team index</small>
+</header>
+<p class="slate-signal">
+<strong>Dean Kremer</strong><span>walk rate allowed 32.3 · declining · 78th season percentile</span>
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: Grant Wolfram (L)
+</p>
+</section>
+<section class="slate-team">
+<header>
+<div>
+<span>Detroit Tigers</span><strong>Troy Melton</strong>
+</div>
+<small>#9 team index</small>
+</header>
+<p class="slate-signal">
+<strong>Troy Melton</strong><span>walk rate allowed 11.5 · declining · 46th season percentile</span>
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: Kenley Jansen (R)
+</p>
+</section>
+</div>
+<footer>
+<span>Slate snapshot July 28</span><span>Performance context through July 27, 2026</span>
+</footer>
+</article>
+<article class="slate-brief is-conditional">
+<header>
+<div>
+<span class="eyebrow">6:40 PM ET · PNC Park</span>
+<h3 class="anchored">
+Arizona Diamondbacks at Pittsburgh Pirates
+</h3>
+</div>
+<span class="slate-status">Conditional inputs</span>
+</header>
+<div class="slate-brief__weather">
+<span>Partly cloudy · 74 F · 6.7 mph wind</span><span>missing / missing orders</span>
+</div>
+<div class="slate-team-grid">
+<section class="slate-team">
+<header>
+<div>
+<span>Arizona Diamondbacks</span><strong>Brandon Pfaadt</strong>
+</div>
+<small>#22 team index</small>
+</header>
+<p class="slate-signal">
+<strong>Brandon Pfaadt</strong><span>strikeout rate 31.6 · declining · 9th season percentile</span>
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: Juan Morillo (R)
+</p>
+</section>
+<section class="slate-team">
+<header>
+<div>
+<span>Pittsburgh Pirates</span><strong>Bubba Chandler</strong>
+</div>
+<small>#6 team index</small>
+</header>
+<p class="slate-signal">
+<strong>Bubba Chandler</strong><span>estimated wOBA allowed 77.2 · improving · 46th season percentile</span>
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: Gregory Soto (L)
+</p>
+</section>
+</div>
+<footer>
+<span>Slate snapshot July 28</span><span>Performance context through July 27, 2026</span>
+</footer>
+</article>
+<article class="slate-brief is-conditional">
+<header>
+<div>
+<span class="eyebrow">6:40 PM ET · Tropicana Field</span>
+<h3 class="anchored">
+Texas Rangers at Tampa Bay Rays
+</h3>
+</div>
+<span class="slate-status">Conditional inputs</span>
+</header>
+<div class="slate-brief__weather">
+<span>Indoor environment</span><span>missing / missing orders</span>
+</div>
+<div class="slate-team-grid">
+<section class="slate-team">
+<header>
+<div>
+<span>Texas Rangers</span><strong></strong>
+</div>
+<small>#10 team index</small>
+</header>
+<p class="slate-signal is-muted">
+Starter change sample not yet qualified.
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: Jacob Latz (L)
+</p>
+</section>
+<section class="slate-team">
+<header>
+<div>
+<span>Tampa Bay Rays</span><strong>Griffin Jax</strong>
+</div>
+<small>#5 team index</small>
+</header>
+<p class="slate-signal">
+<strong>Griffin Jax</strong><span>walk rate allowed 59.0 · stable · 52nd season percentile</span>
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: Cam Booser (L)
+</p>
+</section>
+</div>
+<footer>
+<span>Slate snapshot July 28</span><span>Performance context through July 27, 2026</span>
+</footer>
+</article>
+<article class="slate-brief is-conditional">
+<header>
+<div>
+<span class="eyebrow">6:40 PM ET · loanDepot park</span>
+<h3 class="anchored">
+Philadelphia Phillies at Miami Marlins
+</h3>
+</div>
+<span class="slate-status">Conditional inputs</span>
+</header>
+<div class="slate-brief__weather">
+<span>Partly cloudy · 77 F · 3.8 mph wind</span><span>missing / missing orders</span>
+</div>
+<div class="slate-team-grid">
+<section class="slate-team">
+<header>
+<div>
+<span>Philadelphia Phillies</span><strong>Aaron Nola</strong>
+</div>
+<small>#12 team index</small>
+</header>
+<p class="slate-signal">
+<strong>Aaron Nola</strong><span>hard-hit rate allowed 38.0 · declining · 37th season percentile</span>
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: Orion Kerkering (R)
+</p>
+</section>
+<section class="slate-team">
+<header>
+<div>
+<span>Miami Marlins</span><strong>Sandy Alcantara</strong>
+</div>
+<small>#8 team index</small>
+</header>
+<p class="slate-signal">
+<strong>Sandy Alcantara</strong><span>walk rate allowed 37.4 · declining · 76th season percentile</span>
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: John King (L)
+</p>
+</section>
+</div>
+<footer>
+<span>Slate snapshot July 28</span><span>Performance context through July 27, 2026</span>
+</footer>
+</article>
+<article class="slate-brief is-conditional">
+<header>
+<div>
+<span class="eyebrow">6:45 PM ET · Nationals Park</span>
+<h3 class="anchored">
+Toronto Blue Jays at Washington Nationals
+</h3>
+</div>
+<span class="slate-status">Conditional inputs</span>
+</header>
+<div class="slate-brief__weather">
+<span>Cloudy · 77 F · 3.7 mph wind</span><span>missing / missing orders</span>
+</div>
+<div class="slate-team-grid">
+<section class="slate-team">
+<header>
+<div>
+<span>Toronto Blue Jays</span><strong>Shane Bieber</strong>
+</div>
+<small>#20 team index</small>
+</header>
+<p class="slate-signal">
+<strong>Shane Bieber</strong><span>estimated wOBA allowed 90.3 · improving · 6th season percentile</span>
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: Louis Varland (R)
+</p>
+</section>
+<section class="slate-team">
+<header>
+<div>
+<span>Washington Nationals</span><strong>Cade Cavalli</strong>
+</div>
+<small>#19 team index</small>
+</header>
+<p class="slate-signal">
+<strong>Cade Cavalli</strong><span>strikeout rate 71.6 · improving · 78th season percentile</span>
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: Andrew Alvarez (L)
+</p>
+</section>
+</div>
+<footer>
+<span>Slate snapshot July 28</span><span>Performance context through July 27, 2026</span>
+</footer>
+</article>
+<article class="slate-brief is-conditional">
+<header>
+<div>
+<span class="eyebrow">7:10 PM ET · Great American Ball Park</span>
+<h3 class="anchored">
+Cleveland Guardians at Cincinnati Reds
+</h3>
+</div>
+<span class="slate-status">Conditional inputs</span>
+</header>
+<div class="slate-brief__weather">
+<span>Clear · 70 F · 3.5 mph wind</span><span>missing / missing orders</span>
+</div>
+<div class="slate-team-grid">
+<section class="slate-team">
+<header>
+<div>
+<span>Cleveland Guardians</span><strong>Gavin Williams</strong>
+</div>
+<small>#20 team index</small>
+</header>
+<p class="slate-signal">
+<strong>Gavin Williams</strong><span>strikeout rate 79.6 · improving · 94th season percentile</span>
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: Erik Sabrowski (L)
+</p>
+</section>
+<section class="slate-team">
+<header>
+<div>
+<span>Cincinnati Reds</span><strong></strong>
+</div>
+<small>#30 team index</small>
+</header>
+<p class="slate-signal is-muted">
+Starter change sample not yet qualified.
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: Sam Moll (L)
+</p>
+</section>
+</div>
+<footer>
+<span>Slate snapshot July 28</span><span>Performance context through July 27, 2026</span>
+</footer>
+</article>
+<article class="slate-brief is-conditional">
 <header>
 <div>
 <span class="eyebrow">7:10 PM ET · Citi Field</span>
@@ -612,52 +677,105 @@ Roster-qualified selector: Brock Burke (L)
 Atlanta Braves at New York Mets
 </h3>
 </div>
-<span class="slate-status">Research inputs ready</span>
+<span class="slate-status">Conditional inputs</span>
 </header>
 <div class="slate-brief__weather">
-<span>Partly cloudy · 71 F · 4.4 mph wind</span><span>confirmed / confirmed orders</span>
+<span>Partly cloudy · 73 F · 2.9 mph wind</span><span>missing / missing orders</span>
 </div>
 <div class="slate-team-grid">
 <section class="slate-team">
 <header>
 <div>
-<span>Atlanta Braves</span><strong>Martín Pérez</strong>
+<span>Atlanta Braves</span><strong>Chris Sale</strong>
 </div>
-<small>#5 team index</small>
+<small>#4 team index</small>
 </header>
-<p class="slate-signal is-muted">
-Starter change sample not yet qualified.
-</p>
 <p class="slate-signal">
-<strong>Drake Baldwin</strong><span>OPS +2.4 SD · improving · 87th season percentile</span>
+<strong>Chris Sale</strong><span>estimated wOBA allowed 66.2 · improving · 88th season percentile</span>
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
 </p>
 <p class="slate-bullpen">
-Roster-qualified selector: Dylan Lee (L)
+Roster-qualified selector: Connor Thomas (L)
 </p>
 </section>
 <section class="slate-team">
 <header>
 <div>
-<span>New York Mets</span><strong>Zac Thornton</strong>
+<span>New York Mets</span><strong>Christian Scott</strong>
 </div>
-<small>#26 team index</small>
+<small>#15 team index</small>
 </header>
 <p class="slate-signal">
-<strong>Zac Thornton</strong><span>strikeout rate -1.5 SD · declining · 32nd season percentile</span>
+<strong>Christian Scott</strong><span>strikeout rate 60.5 · stable · 89th season percentile</span>
 </p>
-<p class="slate-signal">
-<strong>Bo Bichette</strong><span>hard-hit rate -2.4 SD · declining · 56th season percentile</span>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
 </p>
 <p class="slate-bullpen">
-Roster-qualified selector: Luke Weaver (R)
+Roster-qualified selector: Huascar Brazobán (R)
 </p>
 </section>
 </div>
 <footer>
-<span>Slate snapshot July 27</span><span>Performance context through July 26, 2026</span>
+<span>Slate snapshot July 28</span><span>Performance context through July 27, 2026</span>
 </footer>
 </article>
-<article class="slate-brief is-ready">
+<article class="slate-brief is-conditional">
+<header>
+<div>
+<span class="eyebrow">7:40 PM ET · Target Field</span>
+<h3 class="anchored">
+Kansas City Royals at Minnesota Twins
+</h3>
+</div>
+<span class="slate-status">Conditional inputs</span>
+</header>
+<div class="slate-brief__weather">
+<span>Partly cloudy · 76 F · 2.1 mph wind</span><span>missing / missing orders</span>
+</div>
+<div class="slate-team-grid">
+<section class="slate-team">
+<header>
+<div>
+<span>Kansas City Royals</span><strong>Seth Lugo</strong>
+</div>
+<small>#29 team index</small>
+</header>
+<p class="slate-signal">
+<strong>Seth Lugo</strong><span>OPS allowed 64.7 · improving · 16th season percentile</span>
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: Daniel Lynch IV (L)
+</p>
+</section>
+<section class="slate-team">
+<header>
+<div>
+<span>Minnesota Twins</span><strong>Taj Bradley</strong>
+</div>
+<small>#18 team index</small>
+</header>
+<p class="slate-signal">
+<strong>Taj Bradley</strong><span>hard-hit rate allowed 64.2 · improving · 11th season percentile</span>
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: Yoendrys Gómez (R)
+</p>
+</section>
+</div>
+<footer>
+<span>Slate snapshot July 28</span><span>Performance context through July 27, 2026</span>
+</footer>
+</article>
+<article class="slate-brief is-conditional">
 <header>
 <div>
 <span class="eyebrow">7:40 PM ET · Rate Field</span>
@@ -665,24 +783,24 @@ Roster-qualified selector: Luke Weaver (R)
 New York Yankees at Chicago White Sox
 </h3>
 </div>
-<span class="slate-status">Research inputs ready</span>
+<span class="slate-status">Conditional inputs</span>
 </header>
 <div class="slate-brief__weather">
-<span>Partly cloudy · 77 F · 6.4 mph wind</span><span>confirmed / confirmed orders</span>
+<span>Partly cloudy · 74 F · 6.5 mph wind</span><span>missing / missing orders</span>
 </div>
 <div class="slate-team-grid">
 <section class="slate-team">
 <header>
 <div>
-<span>New York Yankees</span><strong>Max Fried</strong>
+<span>New York Yankees</span><strong>Gerrit Cole</strong>
 </div>
-<small>#12 team index</small>
+<small>#3 team index</small>
 </header>
-<p class="slate-signal is-muted">
-Starter change sample not yet qualified.
-</p>
 <p class="slate-signal">
-<strong>Jazz Chisholm Jr.</strong><span>strikeout rate -1.9 SD · declining · 8th season percentile</span>
+<strong>Gerrit Cole</strong><span>strikeout rate 79.7 · improving · 73rd season percentile</span>
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
 </p>
 <p class="slate-bullpen">
 Roster-qualified selector: Brent Headrick (L)
@@ -691,26 +809,26 @@ Roster-qualified selector: Brent Headrick (L)
 <section class="slate-team">
 <header>
 <div>
-<span>Chicago White Sox</span><strong>Noah Schultz</strong>
+<span>Chicago White Sox</span><strong>Anthony Kay</strong>
 </div>
-<small>#10 team index</small>
+<small>#11 team index</small>
 </header>
 <p class="slate-signal">
-<strong>Noah Schultz</strong><span>walk rate allowed +2.4 SD · improving · 13th season percentile</span>
+<strong>Anthony Kay</strong><span>walk rate allowed 35.3 · declining · 35th season percentile</span>
 </p>
-<p class="slate-signal">
-<strong>Colson Montgomery</strong><span>hard-hit rate -1.7 SD · declining · 57th season percentile</span>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
 </p>
 <p class="slate-bullpen">
-Roster-qualified selector: Sean Newcomb (L)
+Roster-qualified selector: Tyler Schweitzer (L)
 </p>
 </section>
 </div>
 <footer>
-<span>Slate snapshot July 27</span><span>Performance context through July 26, 2026</span>
+<span>Slate snapshot July 28</span><span>Performance context through July 27, 2026</span>
 </footer>
 </article>
-<article class="slate-brief is-ready">
+<article class="slate-brief is-conditional">
 <header>
 <div>
 <span class="eyebrow">7:45 PM ET · Busch Stadium</span>
@@ -718,41 +836,41 @@ Roster-qualified selector: Sean Newcomb (L)
 Chicago Cubs at St.&nbsp;Louis Cardinals
 </h3>
 </div>
-<span class="slate-status">Research inputs ready</span>
+<span class="slate-status">Conditional inputs</span>
 </header>
 <div class="slate-brief__weather">
-<span>Clear · 84 F · 3.9 mph wind</span><span>confirmed / confirmed orders</span>
+<span>Clear · 78 F · 5.4 mph wind</span><span>missing / missing orders</span>
 </div>
 <div class="slate-team-grid">
 <section class="slate-team">
 <header>
 <div>
-<span>Chicago Cubs</span><strong>David Peterson</strong>
+<span>Chicago Cubs</span><strong>Colin Rea</strong>
 </div>
-<small>#6 team index</small>
+<small>#14 team index</small>
 </header>
 <p class="slate-signal">
-<strong>David Peterson</strong><span>run value allowed per PA +1.9 SD · improving · 7th season percentile</span>
+<strong>Colin Rea</strong><span>hard-hit rate allowed 68.8 · improving · 44th season percentile</span>
 </p>
-<p class="slate-signal">
-<strong>Seiya Suzuki</strong><span>walk rate +2.2 SD · improving · 75th season percentile</span>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
 </p>
 <p class="slate-bullpen">
-Roster-qualified selector: Ryan Rolison (L)
+Roster-qualified selector: Caleb Thielbar (L)
 </p>
 </section>
 <section class="slate-team">
 <header>
 <div>
-<span>St.&nbsp;Louis Cardinals</span><strong>Matthew Liberatore</strong>
+<span>St.&nbsp;Louis Cardinals</span><strong></strong>
 </div>
-<small>#27 team index</small>
+<small>#26 team index</small>
 </header>
-<p class="slate-signal">
-<strong>Matthew Liberatore</strong><span>estimated wOBA allowed -0.8 SD · declining · 11th season percentile</span>
+<p class="slate-signal is-muted">
+Starter change sample not yet qualified.
 </p>
-<p class="slate-signal">
-<strong>José Fermín</strong><span>walk rate +2.2 SD · improving · 46th season percentile</span>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
 </p>
 <p class="slate-bullpen">
 Roster-qualified selector: Riley O’Brien (R)
@@ -760,10 +878,10 @@ Roster-qualified selector: Riley O’Brien (R)
 </section>
 </div>
 <footer>
-<span>Slate snapshot July 27</span><span>Performance context through July 26, 2026</span>
+<span>Slate snapshot July 28</span><span>Performance context through July 27, 2026</span>
 </footer>
 </article>
-<article class="slate-brief is-ready">
+<article class="slate-brief is-conditional">
 <header>
 <div>
 <span class="eyebrow">9:38 PM ET · Angel Stadium</span>
@@ -771,24 +889,24 @@ Roster-qualified selector: Riley O’Brien (R)
 Houston Astros at Los Angeles Angels
 </h3>
 </div>
-<span class="slate-status">Research inputs ready</span>
+<span class="slate-status">Conditional inputs</span>
 </header>
 <div class="slate-brief__weather">
-<span>Clear · 71 F · 2.3 mph wind</span><span>confirmed / confirmed orders</span>
+<span>Clear · 69 F · 3.9 mph wind</span><span>missing / missing orders</span>
 </div>
 <div class="slate-team-grid">
 <section class="slate-team">
 <header>
 <div>
-<span>Houston Astros</span><strong>Tatsuya Imai</strong>
+<span>Houston Astros</span><strong>Peter Lambert</strong>
 </div>
-<small>#15 team index</small>
+<small>#23 team index</small>
 </header>
 <p class="slate-signal">
-<strong>Tatsuya Imai</strong><span>run value allowed per PA +1.2 SD · improving · 17th season percentile</span>
+<strong>Peter Lambert</strong><span>OPS allowed 55.2 · stable · 83rd season percentile</span>
 </p>
-<p class="slate-signal">
-<strong>Jeremy Peña</strong><span>OPS +3.1 SD · improving · 92nd season percentile</span>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
 </p>
 <p class="slate-bullpen">
 Roster-qualified selector: Steven Okert (L)
@@ -797,26 +915,26 @@ Roster-qualified selector: Steven Okert (L)
 <section class="slate-team">
 <header>
 <div>
-<span>Los Angeles Angels</span><strong>Walbert Ureña</strong>
+<span>Los Angeles Angels</span><strong>Reid Detmers</strong>
 </div>
-<small>#20 team index</small>
+<small>#25 team index</small>
 </header>
 <p class="slate-signal">
-<strong>Walbert Ureña</strong><span>walk rate allowed +1.6 SD · improving · 8th season percentile</span>
+<strong>Reid Detmers</strong><span>run value allowed per PA 68.6 · improving · 53rd season percentile</span>
 </p>
-<p class="slate-signal">
-<strong>Jorge Soler</strong><span>hard-hit rate +2.8 SD · improving · 70th season percentile</span>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
 </p>
 <p class="slate-bullpen">
-Roster-qualified selector: Samy Natera Jr.&nbsp;(L)
+Roster-qualified selector: José Fermin (R)
 </p>
 </section>
 </div>
 <footer>
-<span>Slate snapshot July 27</span><span>Performance context through July 26, 2026</span>
+<span>Slate snapshot July 28</span><span>Performance context through July 27, 2026</span>
 </footer>
 </article>
-<article class="slate-brief is-ready">
+<article class="slate-brief is-conditional">
 <header>
 <div>
 <span class="eyebrow">9:40 PM ET · Sutter Health Park</span>
@@ -824,24 +942,24 @@ Roster-qualified selector: Samy Natera Jr.&nbsp;(L)
 Boston Red Sox at Athletics
 </h3>
 </div>
-<span class="slate-status">Research inputs ready</span>
+<span class="slate-status">Conditional inputs</span>
 </header>
 <div class="slate-brief__weather">
-<span>Clear · 63 F · 6.3 mph wind</span><span>confirmed / confirmed orders</span>
+<span>Clear · 67 F · 6.1 mph wind</span><span>missing / missing orders</span>
 </div>
 <div class="slate-team-grid">
 <section class="slate-team">
 <header>
 <div>
-<span>Boston Red Sox</span><strong>Payton Tolle</strong>
+<span>Boston Red Sox</span><strong>Jake Bennett</strong>
 </div>
-<small>#11 team index</small>
+<small>#7 team index</small>
 </header>
 <p class="slate-signal">
-<strong>Payton Tolle</strong><span>estimated wOBA allowed -1.2 SD · declining · 79th season percentile</span>
+<strong>Jake Bennett</strong><span>strikeout rate 40.9 · stable · 21st season percentile</span>
 </p>
-<p class="slate-signal">
-<strong>Curtis Mead</strong><span>walk rate +1.7 SD · improving · 85th season percentile</span>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
 </p>
 <p class="slate-bullpen">
 Roster-qualified selector: Jovani Morán (L)
@@ -850,15 +968,15 @@ Roster-qualified selector: Jovani Morán (L)
 <section class="slate-team">
 <header>
 <div>
-<span>Athletics</span><strong>Jack Perkins</strong>
+<span>Athletics</span><strong>Gage Jump</strong>
 </div>
-<small>#20 team index</small>
+<small>#24 team index</small>
 </header>
 <p class="slate-signal">
-<strong>Jack Perkins</strong><span>strikeout rate -1.0 SD · declining · 82nd season percentile</span>
+<strong>Gage Jump</strong><span>walk rate allowed 22.0 · declining · 45th season percentile</span>
 </p>
-<p class="slate-signal">
-<strong>Jonah Heim</strong><span>run value per PA -1.7 SD · declining · 10th season percentile</span>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
 </p>
 <p class="slate-bullpen">
 Roster-qualified selector: Hogan Harris (L)
@@ -866,10 +984,63 @@ Roster-qualified selector: Hogan Harris (L)
 </section>
 </div>
 <footer>
-<span>Slate snapshot July 27</span><span>Performance context through July 26, 2026</span>
+<span>Slate snapshot July 28</span><span>Performance context through July 27, 2026</span>
 </footer>
 </article>
-<article class="slate-brief is-ready">
+<article class="slate-brief is-conditional">
+<header>
+<div>
+<span class="eyebrow">9:40 PM ET · Petco Park</span>
+<h3 class="anchored">
+Colorado Rockies at San Diego Padres
+</h3>
+</div>
+<span class="slate-status">Conditional inputs</span>
+</header>
+<div class="slate-brief__weather">
+<span>Cloudy · 70 F · 2.3 mph wind</span><span>missing / missing orders</span>
+</div>
+<div class="slate-team-grid">
+<section class="slate-team">
+<header>
+<div>
+<span>Colorado Rockies</span><strong>Michael Lorenzen</strong>
+</div>
+<small>#28 team index</small>
+</header>
+<p class="slate-signal is-muted">
+Starter change sample not yet qualified.
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: Brennan Bernardino (L)
+</p>
+</section>
+<section class="slate-team">
+<header>
+<div>
+<span>San Diego Padres</span><strong>Michael King</strong>
+</div>
+<small>#27 team index</small>
+</header>
+<p class="slate-signal">
+<strong>Michael King</strong><span>walk rate allowed 37.5 · declining · 24th season percentile</span>
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: Kyle Hart (L)
+</p>
+</section>
+</div>
+<footer>
+<span>Slate snapshot July 28</span><span>Performance context through July 27, 2026</span>
+</footer>
+</article>
+<article class="slate-brief is-conditional">
 <header>
 <div>
 <span class="eyebrow">9:45 PM ET · Oracle Park</span>
@@ -877,41 +1048,41 @@ Roster-qualified selector: Hogan Harris (L)
 Milwaukee Brewers at San Francisco Giants
 </h3>
 </div>
-<span class="slate-status">Research inputs ready</span>
+<span class="slate-status">Conditional inputs</span>
 </header>
 <div class="slate-brief__weather">
-<span>Partly cloudy · 57 F · 6.0 mph wind</span><span>confirmed / confirmed orders</span>
+<span>Clear · 56 F · 4.6 mph wind</span><span>missing / missing orders</span>
 </div>
 <div class="slate-team-grid">
 <section class="slate-team">
 <header>
 <div>
-<span>Milwaukee Brewers</span><strong>Brandon Sproat</strong>
+<span>Milwaukee Brewers</span><strong>Logan Henderson</strong>
 </div>
-<small>#1 team index</small>
+<small>#2 team index</small>
 </header>
 <p class="slate-signal">
-<strong>Brandon Sproat</strong><span>walk rate allowed -1.9 SD · declining · 12th season percentile</span>
+<strong>Logan Henderson</strong><span>hard-hit rate allowed 26.9 · declining · 65th season percentile</span>
 </p>
-<p class="slate-signal">
-<strong>Joey Ortiz</strong><span>OPS +2.9 SD · improving · 17th season percentile</span>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
 </p>
 <p class="slate-bullpen">
-Roster-qualified selector: Aaron Ashby (L)
+Roster-qualified selector: Abner Uribe (R)
 </p>
 </section>
 <section class="slate-team">
 <header>
 <div>
-<span>San Francisco Giants</span><strong>Tyler Mahle</strong>
+<span>San Francisco Giants</span><strong>Landen Roupp</strong>
 </div>
-<small>#13 team index</small>
+<small>#17 team index</small>
 </header>
 <p class="slate-signal">
-<strong>Tyler Mahle</strong><span>hard-hit rate allowed -1.3 SD · declining · 70th season percentile</span>
+<strong>Landen Roupp</strong><span>hard-hit rate allowed 29.6 · declining · 97th season percentile</span>
 </p>
-<p class="slate-signal">
-<strong>Willy Adames</strong><span>strikeout rate -1.7 SD · declining · 10th season percentile</span>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
 </p>
 <p class="slate-bullpen">
 Roster-qualified selector: Sam Hentges (L)
@@ -919,163 +1090,216 @@ Roster-qualified selector: Sam Hentges (L)
 </section>
 </div>
 <footer>
-<span>Slate snapshot July 27</span><span>Performance context through July 26, 2026</span>
+<span>Slate snapshot July 28</span><span>Performance context through July 27, 2026</span>
+</footer>
+</article>
+<article class="slate-brief is-conditional">
+<header>
+<div>
+<span class="eyebrow">10:10 PM ET · UNIQLO Field at Dodger Stadium</span>
+<h3 class="anchored">
+Seattle Mariners at Los Angeles Dodgers
+</h3>
+</div>
+<span class="slate-status">Conditional inputs</span>
+</header>
+<div class="slate-brief__weather">
+<span>Clear · 68 F · 2.4 mph wind</span><span>missing / missing orders</span>
+</div>
+<div class="slate-team-grid">
+<section class="slate-team">
+<header>
+<div>
+<span>Seattle Mariners</span><strong>Luis Castillo</strong>
+</div>
+<small>#16 team index</small>
+</header>
+<p class="slate-signal">
+<strong>Luis Castillo</strong><span>hard-hit rate allowed 91.4 · improving · 33rd season percentile</span>
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: José A. Ferrer (L)
+</p>
+</section>
+<section class="slate-team">
+<header>
+<div>
+<span>Los Angeles Dodgers</span><strong></strong>
+</div>
+<small>#1 team index</small>
+</header>
+<p class="slate-signal is-muted">
+Starter change sample not yet qualified.
+</p>
+<p class="slate-signal is-muted">
+No qualified change signal in the posted order.
+</p>
+<p class="slate-bullpen">
+Roster-qualified selector: Alex Vesia (L)
+</p>
+</section>
+</div>
+<footer>
+<span>Slate snapshot July 28</span><span>Performance context through July 27, 2026</span>
 </footer>
 </article>
 </div>
 </section>
 <section class="section-heading">
-<span class="eyebrow">Recent form</span>
+<span class="eyebrow">Yesterday around MLB</span>
 <h2 class="anchored">
-Hitters changing the conversation
+The performances worth carrying into today
 </h2>
 <p>
-Fourteen-day performance compared with a non-overlapping prior-season baseline.
+Top completed-game lines from around the league, presented with the same production-first approach used in the broadcast packets.
 </p>
 </section>
 <div class="signal-grid signal-grid--four">
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">Hitter surging</span><span class="signal-score" aria-label="Signal score 82.8">82.8</span>
+<span class="eyebrow">Yesterday&amp;rsquo;s hitter</span><span class="signal-score" aria-label="Signal score 18.0">18.0</span>
 </div>
 <h3 class="anchored">
-CJ Abrams
+Francisco Lindor
 </h3>
 <p class="player-signal__team">
-Washington Nationals
+New York Mets
 </p>
 <p>
-<strong>1.640 recent OPS</strong>
+<strong>3 H, 2 HR, 0 2B, 6 RBI</strong>
 </p>
 <p class="muted">
-Change: 0.784 | 41 recent PA
+vs.&nbsp;Atlanta Braves
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">Hitter surging</span><span class="signal-score" aria-label="Signal score 81.0">81.0</span>
+<span class="eyebrow">Yesterday&amp;rsquo;s hitter</span><span class="signal-score" aria-label="Signal score 15.0">15.0</span>
 </div>
 <h3 class="anchored">
-Luis Rengifo
+Nico Hoerner
 </h3>
 <p class="player-signal__team">
-San Diego Padres
+Chicago Cubs
 </p>
 <p>
-<strong>1.230 recent OPS</strong>
+<strong>4 H, 1 HR, 0 2B, 4 RBI</strong>
 </p>
 <p class="muted">
-Change: 0.702 | 31 recent PA
+vs.&nbsp;St.&nbsp;Louis Cardinals
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">Hitter surging</span><span class="signal-score" aria-label="Signal score 80.3">80.3</span>
+<span class="eyebrow">Yesterday&amp;rsquo;s hitter</span><span class="signal-score" aria-label="Signal score 14.0">14.0</span>
 </div>
 <h3 class="anchored">
-Jeremy Peña
-</h3>
-<p class="player-signal__team">
-Houston Astros
-</p>
-<p>
-<strong>1.498 recent OPS</strong>
-</p>
-<p class="muted">
-Change: 0.725 | 34 recent PA
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Hitter surging</span><span class="signal-score" aria-label="Signal score 80.1">80.1</span>
-</div>
-<h3 class="anchored">
-Joey Ortiz
-</h3>
-<p class="player-signal__team">
-Milwaukee Brewers
-</p>
-<p>
-<strong>1.288 recent OPS</strong>
-</p>
-<p class="muted">
-Change: 0.692 | 29 recent PA
-</p>
-</article>
-</div>
-<section class="section-heading">
-<span class="eyebrow">Run prevention</span>
-<h2 class="anchored">
-Arms moving in the right direction
-</h2>
-</section>
-<div class="signal-grid signal-grid--four">
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Pitcher surging</span><span class="signal-score" aria-label="Signal score 81.1">81.1</span>
-</div>
-<h3 class="anchored">
-Luis Morales
-</h3>
-<p class="player-signal__team">
-Athletics
-</p>
-<p>
-<strong>0.554 recent OPS allowed</strong>
-</p>
-<p class="muted">
-Change: -0.825 | 21 recent PA
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Pitcher surging</span><span class="signal-score" aria-label="Signal score 79.7">79.7</span>
-</div>
-<h3 class="anchored">
-Shane Bieber
-</h3>
-<p class="player-signal__team">
-Toronto Blue Jays
-</p>
-<p>
-<strong>0.424 recent OPS allowed</strong>
-</p>
-<p class="muted">
-Change: -0.666 | 46 recent PA
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Pitcher surging</span><span class="signal-score" aria-label="Signal score 77.4">77.4</span>
-</div>
-<h3 class="anchored">
-Robby Ahlstrom
+Joc Pederson
 </h3>
 <p class="player-signal__team">
 Texas Rangers
 </p>
 <p>
-<strong>0.411 recent OPS allowed</strong>
+<strong>2 H, 2 HR, 0 2B, 4 RBI</strong>
 </p>
 <p class="muted">
-Change: -0.411 | 20 recent PA
+vs.&nbsp;Seattle Mariners
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">Pitcher surging</span><span class="signal-score" aria-label="Signal score 75.5">75.5</span>
+<span class="eyebrow">Yesterday&amp;rsquo;s hitter</span><span class="signal-score" aria-label="Signal score 13.0">13.0</span>
 </div>
 <h3 class="anchored">
-Yuki Matsui
+Alex Bregman
+</h3>
+<p class="player-signal__team">
+Chicago Cubs
+</p>
+<p>
+<strong>4 H, 1 HR, 2 2B, 2 RBI</strong>
+</p>
+<p class="muted">
+vs.&nbsp;St.&nbsp;Louis Cardinals
+</p>
+</article>
+</div>
+<section class="section-heading">
+<span class="eyebrow">Yesterday’s arms</span>
+<h2 class="anchored">
+Pitchers who controlled the previous slate
+</h2>
+</section>
+<div class="signal-grid signal-grid--four">
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">Yesterday&amp;rsquo;s pitcher</span><span class="signal-score" aria-label="Signal score 16.0">16.0</span>
+</div>
+<h3 class="anchored">
+Drew Rasmussen
+</h3>
+<p class="player-signal__team">
+Tampa Bay Rays
+</p>
+<p>
+<strong>7.0 IP, 9 K</strong>
+</p>
+<p class="muted">
+vs.&nbsp;Cleveland Guardians
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">Yesterday&amp;rsquo;s pitcher</span><span class="signal-score" aria-label="Signal score 13.7">13.7</span>
+</div>
+<h3 class="anchored">
+Parker Messick
+</h3>
+<p class="player-signal__team">
+Cleveland Guardians
+</p>
+<p>
+<strong>7.2 IP, 6 K</strong>
+</p>
+<p class="muted">
+vs.&nbsp;Tampa Bay Rays
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">Yesterday&amp;rsquo;s pitcher</span><span class="signal-score" aria-label="Signal score 13.7">13.7</span>
+</div>
+<h3 class="anchored">
+Kumar Rocker
+</h3>
+<p class="player-signal__team">
+Texas Rangers
+</p>
+<p>
+<strong>6.2 IP, 7 K</strong>
+</p>
+<p class="muted">
+vs.&nbsp;Seattle Mariners
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">Yesterday&amp;rsquo;s pitcher</span><span class="signal-score" aria-label="Signal score 12.3">12.3</span>
+</div>
+<h3 class="anchored">
+Walker Buehler
 </h3>
 <p class="player-signal__team">
 San Diego Padres
 </p>
 <p>
-<strong>0.259 recent OPS allowed</strong>
+<strong>5.1 IP, 7 K</strong>
 </p>
 <p class="muted">
-Change: -0.439 | 20 recent PA
+vs.&nbsp;Miami Marlins
 </p>
 </article>
 </div>
@@ -1091,70 +1315,70 @@ Daily Lahman anniversary candidates, ranked for editorial review.
 <div class="signal-grid signal-grid--four">
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">On this date</span><span class="signal-score" aria-label="Signal score 79.3">79.3</span>
+<span class="eyebrow">On this date</span><span class="signal-score" aria-label="Signal score 67.6">67.6</span>
 </div>
 <h3 class="anchored">
-Robinson Cano
+Brad Ausmus
 </h3>
 <p class="player-signal__team">
-2022-07-27
+1993-07-28
 </p>
 <p>
-<strong>Robinson Cano: 4 years since final MLB appearance</strong>
+<strong>Brad Ausmus: 33 years since MLB debut</strong>
 </p>
 <p class="muted">
-Robinson Cano’s final MLB appearance came 4 years ago today, on 2022-07-27. Robinson Cano finished with 8 All-Star selections, 2,639 hits, 335 home runs.
+Brad Ausmus’s MLB debut came 33 years ago today, on 1993-07-28. Brad Ausmus finished with 1 All-Star selections, 1,579 hits, 80 home runs.
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">On this date</span><span class="signal-score" aria-label="Signal score 76.2">76.2</span>
+<span class="eyebrow">On this date</span><span class="signal-score" aria-label="Signal score 65.1">65.1</span>
 </div>
 <h3 class="anchored">
-Garret Anderson
+Andre Thornton
 </h3>
 <p class="player-signal__team">
-1994-07-27
+1973-07-28
 </p>
 <p>
-<strong>Garret Anderson: 32 years since MLB debut</strong>
+<strong>Andre Thornton: 53 years since MLB debut</strong>
 </p>
 <p class="muted">
-Garret Anderson’s MLB debut came 32 years ago today, on 1994-07-27. Garret Anderson finished with 3 All-Star selections, 2,529 hits, 287 home runs.
+Andre Thornton’s MLB debut came 53 years ago today, on 1973-07-28. Andre Thornton finished with 2 All-Star selections, 1,342 hits, 253 home runs.
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">On this date</span><span class="signal-score" aria-label="Signal score 73.1">73.1</span>
+<span class="eyebrow">On this date</span><span class="signal-score" aria-label="Signal score 64.9">64.9</span>
 </div>
 <h3 class="anchored">
-Joe Kelley
+Armando Benitez
 </h3>
 <p class="player-signal__team">
-1891-07-27
+1994-07-28
 </p>
 <p>
-<strong>Joe Kelley: 135 years since MLB debut</strong>
+<strong>Armando Benitez: 32 years since MLB debut</strong>
 </p>
 <p class="muted">
-Joe Kelley’s MLB debut came 135 years ago today, on 1891-07-27. Joe Kelley was a Hall of Famer and finished with 2,220 hits, 65 home runs.
+Armando Benitez’s MLB debut came 32 years ago today, on 1994-07-28. Armando Benitez finished with 2 All-Star selections, 40 wins, 946 strikeouts.
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">On this date</span><span class="signal-score" aria-label="Signal score 67.1">67.1</span>
+<span class="eyebrow">On this date</span><span class="signal-score" aria-label="Signal score 63.1">63.1</span>
 </div>
 <h3 class="anchored">
-Ron Guidry
+Brian Roberts
 </h3>
 <p class="player-signal__team">
-1975-07-27
+2014-07-28
 </p>
 <p>
-<strong>Ron Guidry: 51 years since MLB debut</strong>
+<strong>Brian Roberts: 12 years since final MLB appearance</strong>
 </p>
 <p class="muted">
-Ron Guidry’s MLB debut came 51 years ago today, on 1975-07-27. Ron Guidry finished with 4 All-Star selections, 170 wins, 1,778 strikeouts.
+Brian Roberts’s final MLB appearance came 12 years ago today, on 2014-07-28. Brian Roberts finished with 2 All-Star selections, 1,527 hits, 97 home runs.
 </p>
 </article>
 </div>
@@ -1166,248 +1390,244 @@ Ron Guidry’s MLB debut came 51 years ago today, on 1975-07-27. Ron Guidry fini
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
     }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
     }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/thesabrhood\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/thesabrhood\.com");
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1415,161 +1635,185 @@ Ron Guidry’s MLB debut came 51 years ago today, on 1975-07-27. Ron Guidry fini
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

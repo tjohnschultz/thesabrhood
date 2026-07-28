@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,16 +10,10 @@
 
 <title>History – The SABRhood</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -37,16 +31,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./images/new-sabr-logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f0a6828d39eed76dd9f56b390c71b39b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,16 +95,15 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 <meta name="twitter:image-width" content="1662">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-xl " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo light-content">
-    <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo dark-content">
+    <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">The SABRhood</span>
@@ -130,6 +122,10 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
   <li class="nav-item">
     <a class="nav-link" href="./today.html"> 
 <span class="menu-text">Today</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./standings.html"> 
+<span class="menu-text">Standings</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./leaderboards.html"> 
@@ -168,6 +164,10 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
  <span class="dropdown-text">Player Change Engine</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./career-trajectories.html">
+ <span class="dropdown-text">Career Path Engine</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./teams.html">
  <span class="dropdown-text">Teams</span></a>
   </li>  
@@ -184,12 +184,24 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
  <span class="dropdown-text">Pitch Lab</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./run-game.html">
+ <span class="dropdown-text">Run Game</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./fielding.html">
+ <span class="dropdown-text">Fielding</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./aaa.html">
  <span class="dropdown-text">Triple-A Watch</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./history.html">
  <span class="dropdown-text">History</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./history-match.html">
+ <span class="dropdown-text">History Match</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./league-trends.html">
@@ -211,7 +223,7 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./blog.html"> 
-<span class="menu-text">Research</span></a>
+<span class="menu-text">Editorials</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./broadcast.html"> 
@@ -312,7 +324,7 @@ Career clubs and top-ten leaderboard context.
 Anniversary candidates
 </h3>
 <div class="data-card__value">
-156
+157
 </div>
 <p>
 Debuts and final appearances ranked for editorial review.
@@ -322,294 +334,488 @@ Debuts and final appearances ranked for editorial review.
 <section class="section-heading">
 <span class="eyebrow">On this date</span>
 <h2 class="anchored">
-Importance meets audience memory
+Happy anniversary to these players today!
 </h2>
 <p>
-Career significance still matters, but the ranking now adds a familiarity boost for players whose careers ended more recently.
 </p>
 </section>
 <div class="signal-grid signal-grid--four">
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">star anniversary</span><span class="signal-score" aria-label="Signal score 79.3">79.3</span>
+<span class="eyebrow">notable anniversary</span><span class="signal-score" aria-label="Signal score 67.6">67.6</span>
 </div>
 <h3 class="anchored">
-Robinson Cano
+Brad Ausmus
 </h3>
 <p class="player-signal__team">
-4 years ago
+33 years ago
 </p>
 <p>
-<strong>Robinson Cano: 4 years since final MLB appearance</strong>
+<strong>Brad Ausmus: 33 years since MLB debut</strong>
 </p>
 <p class="muted">
-Robinson Cano finished with 8 All-Star selections, 2,639 hits, 335 home runs.
+Brad Ausmus finished with 1 All-Star selections, 1,579 hits, 80 home runs.
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">star anniversary</span><span class="signal-score" aria-label="Signal score 76.2">76.2</span>
+<span class="eyebrow">notable anniversary</span><span class="signal-score" aria-label="Signal score 65.1">65.1</span>
 </div>
 <h3 class="anchored">
-Garret Anderson
+Andre Thornton
+</h3>
+<p class="player-signal__team">
+53 years ago
+</p>
+<p>
+<strong>Andre Thornton: 53 years since MLB debut</strong>
+</p>
+<p class="muted">
+Andre Thornton finished with 2 All-Star selections, 1,342 hits, 253 home runs.
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">notable anniversary</span><span class="signal-score" aria-label="Signal score 64.9">64.9</span>
+</div>
+<h3 class="anchored">
+Armando Benitez
 </h3>
 <p class="player-signal__team">
 32 years ago
 </p>
 <p>
-<strong>Garret Anderson: 32 years since MLB debut</strong>
+<strong>Armando Benitez: 32 years since MLB debut</strong>
 </p>
 <p class="muted">
-Garret Anderson finished with 3 All-Star selections, 2,529 hits, 287 home runs.
+Armando Benitez finished with 2 All-Star selections, 40 wins, 946 strikeouts.
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">icon anniversary</span><span class="signal-score" aria-label="Signal score 73.1">73.1</span>
+<span class="eyebrow">notable anniversary</span><span class="signal-score" aria-label="Signal score 63.1">63.1</span>
 </div>
 <h3 class="anchored">
-Joe Kelley
+Brian Roberts
 </h3>
 <p class="player-signal__team">
-135 years ago
+12 years ago
 </p>
 <p>
-<strong>Joe Kelley: 135 years since MLB debut</strong>
+<strong>Brian Roberts: 12 years since final MLB appearance</strong>
 </p>
 <p class="muted">
-Joe Kelley was a Hall of Famer and finished with 2,220 hits, 65 home runs.
+Brian Roberts finished with 2 All-Star selections, 1,527 hits, 97 home runs.
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">notable anniversary</span><span class="signal-score" aria-label="Signal score 67.1">67.1</span>
+<span class="eyebrow">established anniversary</span><span class="signal-score" aria-label="Signal score 60.6">60.6</span>
 </div>
 <h3 class="anchored">
-Ron Guidry
+Paul Byrd
 </h3>
 <p class="player-signal__team">
-51 years ago
+31 years ago
 </p>
 <p>
-<strong>Ron Guidry: 51 years since MLB debut</strong>
+<strong>Paul Byrd: 31 years since MLB debut</strong>
 </p>
 <p class="muted">
-Ron Guidry finished with 4 All-Star selections, 170 wins, 1,778 strikeouts.
+Paul Byrd finished with 1 All-Star selections, 109 wins, 923 strikeouts.
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">notable anniversary</span><span class="signal-score" aria-label="Signal score 61.9">61.9</span>
+<span class="eyebrow">established anniversary</span><span class="signal-score" aria-label="Signal score 60.4">60.4</span>
 </div>
 <h3 class="anchored">
-Mike Torrez
+Woodie Fryman
 </h3>
 <p class="player-signal__team">
-42 years ago
+43 years ago
 </p>
 <p>
-<strong>Mike Torrez: 42 years since final MLB appearance</strong>
+<strong>Woodie Fryman: 43 years since final MLB appearance</strong>
 </p>
 <p class="muted">
-Mike Torrez finished with 185 wins, 1,404 strikeouts.
+Woodie Fryman finished with 2 All-Star selections, 141 wins, 1,587 strikeouts.
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">established anniversary</span><span class="signal-score" aria-label="Signal score 61.8">61.8</span>
+<span class="eyebrow">notable anniversary</span><span class="signal-score" aria-label="Signal score 60.2">60.2</span>
 </div>
 <h3 class="anchored">
-Denny Neagle
+Eddie Yost
 </h3>
 <p class="player-signal__team">
-35 years ago
+64 years ago
 </p>
 <p>
-<strong>Denny Neagle: 35 years since MLB debut</strong>
+<strong>Eddie Yost: 64 years since final MLB appearance</strong>
 </p>
 <p class="muted">
-Denny Neagle finished with 2 All-Star selections, 124 wins, 1,415 strikeouts.
+Eddie Yost finished with 1 All-Star selections, 1,863 hits, 139 home runs.
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">notable anniversary</span><span class="signal-score" aria-label="Signal score 61.6">61.6</span>
+<span class="eyebrow">established anniversary</span><span class="signal-score" aria-label="Signal score 59.1">59.1</span>
 </div>
 <h3 class="anchored">
-Ed McKean
-</h3>
-<p class="player-signal__team">
-127 years ago
-</p>
-<p>
-<strong>Ed McKean: 127 years since final MLB appearance</strong>
-</p>
-<p class="muted">
-Ed McKean finished with 2,084 hits, 67 home runs.
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">established anniversary</span><span class="signal-score" aria-label="Signal score 59.6">59.6</span>
-</div>
-<h3 class="anchored">
-John Valentin
+Al Martin (born 1967)
 </h3>
 <p class="player-signal__team">
 34 years ago
 </p>
 <p>
-<strong>John Valentin: 34 years since MLB debut</strong>
+<strong>Al Martin (born 1967): 34 years since MLB debut</strong>
 </p>
 <p class="muted">
-John Valentin finished with 1,093 hits, 124 home runs.
+Al Martin (born 1967) finished with 1,172 hits, 132 home runs.
 </p>
 </article>
 </div>
 <section class="section-heading">
-<span class="eyebrow">Active milestone watch</span>
+<span class="eyebrow">The date in box-score history</span>
 <h2 class="anchored">
-Career landmarks moving right now
+Happy anniversary to these record-setting games!
 </h2>
 <p>
-Prior Lahman career totals through 2025 plus current 2026 summaries surface the players who have reached or are approaching recognizable clubs.
+The engine searches through data from Retrosheet regular-season player games, 1898-2025. The data is provided from the Retrosheet online database at retrosheet.org
+</p>
+</section>
+<div class="signal-grid signal-grid--three history-game-grid">
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">Hitter rarity</span><span class="signal-score" aria-label="Signal score 57.2">57.2</span>
+</div>
+<h3 class="anchored">
+Shawon Dunston
+</h3>
+<p class="player-signal__team">
+Chicago Cubs vs.&nbsp;MON
+</p>
+<p>
+<strong>3-for-5, 0 HR, 5 RBI, 9 TB</strong>
+</p>
+<p class="muted">
+July 28, 1990 | three-triple game | 57 occurrences in the indexed era
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">Hitter rarity</span><span class="signal-score" aria-label="Signal score 49.1">49.1</span>
+</div>
+<h3 class="anchored">
+Bill Bradley
+</h3>
+<p class="player-signal__team">
+Cleveland Guardians vs.&nbsp;SLA
+</p>
+<p>
+<strong>4-for-4, 0 HR, 2 RBI, 10 TB</strong>
+</p>
+<p class="muted">
+July 28, 1903 | three-triple game | 57 occurrences in the indexed era
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">Pitcher rarity</span><span class="signal-score" aria-label="Signal score 67.2">67.2</span>
+</div>
+<h3 class="anchored">
+Kenny Rogers
+</h3>
+<p class="player-signal__team">
+Texas Rangers vs.&nbsp;CAL
+</p>
+<p>
+<strong>9.0 IP, 0 H, 0 ER, 0 BB, 8 K</strong>
+</p>
+<p class="muted">
+July 28, 1994 | perfect game | 24 occurrences in the indexed era
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">Pitcher rarity</span><span class="signal-score" aria-label="Signal score 66.3">66.3</span>
+</div>
+<h3 class="anchored">
+Dennis Martinez
+</h3>
+<p class="player-signal__team">
+Montreal Expos vs.&nbsp;LAN
+</p>
+<p>
+<strong>9.0 IP, 0 H, 0 ER, 0 BB, 5 K</strong>
+</p>
+<p class="muted">
+July 28, 1991 | perfect game | 24 occurrences in the indexed era
+</p>
+</article>
+</div>
+<div class="method-callout">
+<strong>Retrosheet attribution:</strong> The information used was obtained free of charge from and is copyrighted by Retrosheet. Interested parties may contact Retrosheet at www.retrosheet.org.
+</div>
+<section class="section-heading">
+<span class="eyebrow">Landmarks ahead</span>
+<h2 class="anchored">
+The next milestones and records
+</h2>
+<p>
+Because records are meant to be broken.
 </p>
 </section>
 <div class="signal-grid signal-grid--four">
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">hitter milestone</span><span class="signal-score" aria-label="Signal score 88.2">88.2</span>
+<span class="eyebrow">pitcher landmark ahead</span><span class="signal-score" aria-label="Signal score 75.0">75.0</span>
 </div>
 <h3 class="anchored">
-Freddie Freeman
+Tarik Skubal
 </h3>
 <p class="player-signal__team">
-Los Angeles Dodgers
+DET
 </p>
 <p>
-<strong>Freddie Freeman reached 2,500 career hits</strong>
+<strong>Tarik Skubal is 1 strikeouts from 1,000</strong>
 </p>
 <p class="muted">
-Reached in 2026 | career estimate 2,548
+Current career estimate 999 | target 1,000
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">hitter milestone</span><span class="signal-score" aria-label="Signal score 84.9">84.9</span>
+<span class="eyebrow">hitter landmark ahead</span><span class="signal-score" aria-label="Signal score 63.7">63.7</span>
 </div>
 <h3 class="anchored">
-Nolan Arenado
+Ozzie Albies
 </h3>
 <p class="player-signal__team">
-Arizona Diamondbacks
+ATL
 </p>
 <p>
-<strong>Nolan Arenado reached 2,000 career hits</strong>
+<strong>Ozzie Albies is 1 stolen bases from 100</strong>
 </p>
 <p class="muted">
-Reached in 2026 | career estimate 2,004
+Current career estimate 99 | target 100
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">hitter milestone</span><span class="signal-score" aria-label="Signal score 84.2">84.2</span>
+<span class="eyebrow">hitter landmark ahead</span><span class="signal-score" aria-label="Signal score 64.2">64.2</span>
+</div>
+<h3 class="anchored">
+Willy Adames
+</h3>
+<p class="player-signal__team">
+SFG
+</p>
+<p>
+<strong>Willy Adames is 2 home runs from 200</strong>
+</p>
+<p class="muted">
+Current career estimate 198 | target 200
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">hitter landmark ahead</span><span class="signal-score" aria-label="Signal score 58.3">58.3</span>
+</div>
+<h3 class="anchored">
+Corbin Carroll
+</h3>
+<p class="player-signal__team">
+ARI
+</p>
+<p>
+<strong>Corbin Carroll is 3 home runs from 100</strong>
+</p>
+<p class="muted">
+Current career estimate 97 | target 100
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">hitter landmark ahead</span><span class="signal-score" aria-label="Signal score 56.9">56.9</span>
+</div>
+<h3 class="anchored">
+Gary Sánchez
+</h3>
+<p class="player-signal__team">
+MIL
+</p>
+<p>
+<strong>Gary Sánchez is 3 home runs from 200</strong>
+</p>
+<p class="muted">
+Current career estimate 197 | target 200
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">hitter landmark ahead</span><span class="signal-score" aria-label="Signal score 56.7">56.7</span>
+</div>
+<h3 class="anchored">
+Rhys Hoskins
+</h3>
+<p class="player-signal__team">
+CLE
+</p>
+<p>
+<strong>Rhys Hoskins is 3 home runs from 200</strong>
+</p>
+<p class="muted">
+Current career estimate 197 | target 200
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">hitter landmark ahead</span><span class="signal-score" aria-label="Signal score 54.2">54.2</span>
 </div>
 <h3 class="anchored">
 Mookie Betts
 </h3>
 <p class="player-signal__team">
-Los Angeles Dodgers
+LAD
 </p>
 <p>
-<strong>Mookie Betts reached 300 career home runs</strong>
+<strong>Mookie Betts is 3 stolen bases from 200</strong>
 </p>
 <p class="muted">
-Reached in 2026 | career estimate 304
+Current career estimate 197 | target 200
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">hitter milestone</span><span class="signal-score" aria-label="Signal score 83.3">83.3</span>
+<span class="eyebrow">pitcher landmark ahead</span><span class="signal-score" aria-label="Signal score 46.6">46.6</span>
 </div>
 <h3 class="anchored">
-George Springer
+Shohei Ohtani
 </h3>
 <p class="player-signal__team">
-Toronto Blue Jays
+LAD
 </p>
 <p>
-<strong>George Springer reached 1,500 career hits</strong>
+<strong>Shohei Ohtani is 3 wins from 50</strong>
 </p>
 <p class="muted">
-Reached in 2026 | career estimate 1,548
+Current career estimate 47 | target 50
 </p>
 </article>
+</div>
+<section class="section-heading">
+<span class="eyebrow">Recently reached</span>
+<h2 class="anchored">
+Who just made history?
+</h2>
+<p>
+Milestones and records reached within the past 30 days.
+</p>
+</section>
+<div class="signal-grid signal-grid--three">
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">hitter milestone</span><span class="signal-score" aria-label="Signal score 83.3">83.3</span>
+<span class="eyebrow">hitter recent landmark</span><span class="signal-score" aria-label="Signal score 77.8">77.8</span>
 </div>
 <h3 class="anchored">
-George Springer
+Joc Pederson
 </h3>
 <p class="player-signal__team">
-Toronto Blue Jays
+TEX
 </p>
 <p>
-<strong>George Springer reached 300 career home runs</strong>
+<strong>Joc Pederson reached 1,000 career hits</strong>
 </p>
 <p class="muted">
-Reached in 2026 | career estimate 304
+Reached July 24, 2026 | current estimate 1,004
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">hitter milestone</span><span class="signal-score" aria-label="Signal score 82.8">82.8</span>
+<span class="eyebrow">hitter recent landmark</span><span class="signal-score" aria-label="Signal score 84.9">84.9</span>
 </div>
 <h3 class="anchored">
-Xander Bogaerts
+Nolan Arenado
 </h3>
 <p class="player-signal__team">
-San Diego Padres
+ARI
 </p>
 <p>
-<strong>Xander Bogaerts reached 200 career home runs</strong>
+<strong>Nolan Arenado reached 2,000 career hits</strong>
 </p>
 <p class="muted">
-Reached in 2026 | career estimate 206
+Reached July 20, 2026 | current estimate 2,004
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">hitter milestone</span><span class="signal-score" aria-label="Signal score 82.5">82.5</span>
-</div>
-<h3 class="anchored">
-Marcell Ozuna
-</h3>
-<p class="player-signal__team">
-Pittsburgh Pirates
-</p>
-<p>
-<strong>Marcell Ozuna reached 300 career home runs</strong>
-</p>
-<p class="muted">
-Reached in 2026 | career estimate 304
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">hitter milestone</span><span class="signal-score" aria-label="Signal score 82.4">82.4</span>
+<span class="eyebrow">hitter recent landmark</span><span class="signal-score" aria-label="Signal score 82.4">82.4</span>
 </div>
 <h3 class="anchored">
 Trea Turner
 </h3>
 <p class="player-signal__team">
-Philadelphia Phillies
+PHI
 </p>
 <p>
 <strong>Trea Turner reached 200 career home runs</strong>
 </p>
 <p class="muted">
-Reached in 2026 | career estimate 200
+Reached July 20, 2026 | current estimate 200
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">hitter recent landmark</span><span class="signal-score" aria-label="Signal score 82.4">82.4</span>
+</div>
+<h3 class="anchored">
+Trea Turner
+</h3>
+<p class="player-signal__team">
+PHI
+</p>
+<p>
+<strong>Trea Turner reached 300 career doubles</strong>
+</p>
+<p class="muted">
+Reached July 20, 2026 | current estimate 300
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">hitter recent landmark</span><span class="signal-score" aria-label="Signal score 77.8">77.8</span>
+</div>
+<h3 class="anchored">
+Joc Pederson
+</h3>
+<p class="player-signal__team">
+TEX
+</p>
+<p>
+<strong>Joc Pederson reached 200 career doubles</strong>
+</p>
+<p class="muted">
+Reached July 19, 2026 | current estimate 202
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">hitter recent landmark</span><span class="signal-score" aria-label="Signal score 80.9">80.9</span>
+</div>
+<h3 class="anchored">
+Pete Alonso
+</h3>
+<p class="player-signal__team">
+BAL
+</p>
+<p>
+<strong>Pete Alonso reached 200 career doubles</strong>
+</p>
+<p class="muted">
+Reached July 11, 2026 | current estimate 203
 </p>
 </article>
 </div>
@@ -619,10 +825,10 @@ Reached in 2026 | career estimate 200
 <section class="section-heading">
 <span class="eyebrow">Milestone vault</span>
 <h2 class="anchored">
-Career clubs and record context
+The G.O.A.T-yard
 </h2>
 <p>
-Evergreen research candidates built from Lahman career totals. True WAR remains a separate future input.
+Player profiles that are among the best in history.
 </p>
 </section>
 <div class="signal-grid signal-grid--four">
@@ -766,288 +972,284 @@ Hank Aaron was a Hall of Famer and finished with 21 All-Star selections, 3,771 h
 <section class="section-heading">
 <span class="eyebrow">Hall of Famer spotlight</span>
 <h2 class="anchored">
-One great career, one compact broadcast card
+HOFer of the Day
 </h2>
 <p>
-The daily selection is random but weighted toward more recent eras, then the card chooses the career totals that best describe the player.
+Meet a new Hall of Famer everyday!.
 </p>
 </section>
 <article class="hof-spotlight">
 <div class="hof-spotlight__identity">
 <div class="hof-spotlight__monogram" aria-hidden="true">
-LW
+BL
 </div>
 <span>Hall of Fame spotlight</span>
 </div>
 <div class="hof-spotlight__copy">
 <span class="eyebrow">Today’s weighted draw</span>
 <h2 class="anchored">
-Lloyd Waner
+Buck Leonard
 </h2>
 <p>
-1927 - 1945 · Bats L · Throws R
+NA - 1948 · Bats L · Throws L
 </p>
 <p>
-<strong>Teams:</strong> Pittsburgh Pirates, Boston Braves, Cincinnati Reds, Philadelphia Phillies, Brooklyn Dodgers
+<strong>Teams:</strong> Homestead Grays
 </p>
 <p>
-Lloyd Waner was a Hall of Famer and finished with 1 All-Star selections, 2,459 hits, 27 home runs.
+Buck Leonard was a Hall of Famer and finished with 11 All-Star selections, 790 hits, 100 home runs.
 </p>
 <div class="hof-spotlight__stats">
-<span><strong>2,459</strong><small>Career hits</small></span><span><strong>27</strong><small>Home runs</small></span><span><strong>598</strong><small>RBI</small></span>
+<span><strong>790</strong><small>Career hits</small></span><span><strong>100</strong><small>Home runs</small></span><span><strong>578</strong><small>RBI</small></span>
 </div>
 </div>
 </article>
-<div class="method-callout">
-<strong>Recognition is context, not a verdict:</strong> the anniversary score exists to order story candidates. Its new recency term models audience familiarity; it is not a claim that recent players were better.
+<div class="section-action">
+<p><a href="./history-match.html" class="btn btn-sabr-navy">Explore reviewed History Match notes</a></p>
 </div>
 
 
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
     }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
     }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/thesabrhood\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/thesabrhood\.com");
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1055,161 +1257,185 @@ Lloyd Waner was a Hall of Famer and finished with 1 All-Star selections, 2,459 h
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

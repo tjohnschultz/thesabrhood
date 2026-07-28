@@ -19,6 +19,10 @@ pitcher_platoon <- read_product("pitcher-platoon-summary.csv")
 hitter_form <- read_product("hitter-recent-form.csv")
 pitcher_form <- read_product("pitcher-recent-form.csv")
 fangraphs_pitchers <- read_product("fangraphs-season-pitchers.csv")
+pitcher_game_lines <- read_product("current-season-pitcher-game-lines.csv")
+weather <- read_product("daily-park-weather.csv")
+hook_coefficients <- read_product("manager-hook-model.csv")
+hook_validation <- read_product("manager-hook-validation-metrics.csv")
 baserunning_league <- read_product("baserunning-league-rates.csv")
 runner_profiles <- read_product("baserunning-runner-profiles.csv")
 pitcher_hold_profiles <- read_product("baserunning-pitcher-hold-profiles.csv")
@@ -163,17 +167,108 @@ pitcher_hold_multiplier <- function(team, starter_id) {
   1
 }
 
-starter_bf_estimate <- function(player_id) {
+num <- function(value) suppressWarnings(as.numeric(value))
+clamp <- function(value, lower, upper) pmin(pmax(value, lower), upper)
+
+hook_validation_passed <- nrow(hook_validation) > 0L &&
+  num(hook_validation$validation_rows[[1L]]) >= 500 &&
+  num(hook_validation$roc_auc[[1L]]) >= 0.65 &&
+  is.finite(num(hook_validation$brier_score[[1L]]))
+validated_hook_coefficients <- if (hook_validation_passed) {
+  hook_coefficients[, c("term", "estimate"), drop = FALSE]
+} else {
+  NULL
+}
+
+starter_workload_profile <- function(player_id, game_date) {
   row <- fangraphs_pitchers[
     as.character(fangraphs_pitchers$player_id) == as.character(player_id),
     ,
     drop = FALSE
   ]
-  if (!nrow(row)) return(21)
-  starts <- suppressWarnings(as.numeric(row$starts[[1L]]))
-  batters_faced <- suppressWarnings(as.numeric(row$batters_faced[[1L]]))
-  if (!is.finite(starts) || starts <= 0 || !is.finite(batters_faced)) return(21)
-  pmin(pmax(batters_faced / starts, 15), 27)
+  season_bf <- 21
+  if (nrow(row)) {
+    starts <- num(row$starts[[1L]])
+    batters_faced <- num(row$batters_faced[[1L]])
+    if (is.finite(starts) && starts > 0 && is.finite(batters_faced)) {
+      season_bf <- clamp(batters_faced / starts, 15, 28)
+    }
+  }
+
+  recent <- pitcher_game_lines[
+    as.character(pitcher_game_lines$player_id) == as.character(player_id) &
+      as.Date(pitcher_game_lines$game_date) < as.Date(game_date),
+    ,
+    drop = FALSE
+  ]
+  recent$game_date_value <- as.Date(recent$game_date)
+  recent <- recent[order(recent$game_date_value, decreasing = TRUE), , drop = FALSE]
+  innings_outs <- num(recent$innings_outs)
+  starter_like <- recent[
+    is.finite(innings_outs) & innings_outs >= 6,
+    ,
+    drop = FALSE
+  ]
+  if (nrow(starter_like)) recent <- starter_like
+  recent <- utils::head(recent, 5L)
+  recent_bf <- if (nrow(recent)) {
+    mean(num(recent$innings_outs) / 3 * 4.28, na.rm = TRUE)
+  } else {
+    NA_real_
+  }
+  reliability <- if (is.finite(recent_bf)) nrow(recent) / (nrow(recent) + 4) else 0
+  expected_bf <- (1 - 0.35 * reliability) * season_bf +
+    0.35 * reliability * ifelse(is.finite(recent_bf), recent_bf, season_bf)
+  last_date <- if (nrow(recent)) max(recent$game_date_value, na.rm = TRUE) else as.Date(NA)
+  rest_days <- as.numeric(as.Date(game_date) - last_date)
+  rest_adjustment <- if (is.finite(rest_days) && rest_days <= 3) -1.5 else 0
+  expected_bf <- clamp(expected_bf + rest_adjustment, 14, 28)
+  pitch_limit <- clamp(expected_bf * 4.05, 68, 108)
+  list(
+    expected_bf = expected_bf,
+    pitch_limit = pitch_limit,
+    season_bf = season_bf,
+    recent_bf = recent_bf,
+    recent_games = nrow(recent),
+    rest_days = rest_days,
+    method = if (nrow(recent)) {
+      "season_bf_plus_shrunk_recent_outs_v1"
+    } else {
+      "season_bf_fallback_v1"
+    }
+  )
+}
+
+game_environment_profile <- function(game) {
+  game_id <- as.character(game$game_id[[1L]])
+  row <- weather[as.character(weather$game_id) == game_id, , drop = FALSE]
+  park_factor <- num(game$park_factor[[1L]])
+  if (!is.finite(park_factor) || park_factor <= 0) park_factor <- 1
+  if (!nrow(row)) {
+    return(list(
+      multiplier = clamp(park_factor, 0.82, 1.22),
+      weather_multiplier = 1,
+      temperature_f = NA_real_,
+      wind_mph = NA_real_,
+      status = "park_only_weather_missing"
+    ))
+  }
+  indoors <- as.character(row$weather_status[[1L]]) == "indoors" ||
+    as.character(row$roof_type[[1L]]) == "fixed_dome"
+  temperature <- num(row$temperature_f[[1L]])
+  temperature_effect <- if (indoors || !is.finite(temperature)) {
+    0
+  } else {
+    clamp((temperature - 70) * 0.0015, -0.035, 0.045)
+  }
+  weather_multiplier <- 1 + temperature_effect
+  list(
+    multiplier = clamp(park_factor * weather_multiplier, 0.82, 1.22),
+    weather_multiplier = weather_multiplier,
+    temperature_f = temperature,
+    wind_mph = num(row$wind_mph[[1L]]),
+    status = if (indoors) "indoor_neutral" else "temperature_adjusted"
+  )
 }
 
 candidate_relievers <- function(team, starter_id) {
@@ -324,6 +419,16 @@ for (index in seq_len(nrow(ready_games))) {
   home_starter <- home_starter[order(home_starter$batting_order), , drop = FALSE]
   if (nrow(away_starter) != 9L || nrow(home_starter) != 9L) next
 
+  away_workload <- starter_workload_profile(
+    game$away_starter_id[[1L]],
+    game$game_date[[1L]]
+  )
+  home_workload <- starter_workload_profile(
+    game$home_starter_id[[1L]],
+    game$game_date[[1L]]
+  )
+  environment <- game_environment_profile(game)
+
   away_bullpen_input <- build_bullpen_matchups(
     away_lineup,
     as.character(game$home_team[[1L]]),
@@ -346,7 +451,7 @@ for (index in seq_len(nrow(ready_games))) {
   }
 
   park_profile <- park_baserunning_profile(game$venue_name[[1L]])
-  simulation <- simulate_game_state_phase4(
+  simulation <- simulate_game_state_phase5(
     away_starter_probs = away_starter,
     home_starter_probs = home_starter,
     away_bullpen_probs = away_bullpen,
@@ -354,8 +459,12 @@ for (index in seq_len(nrow(ready_games))) {
     away_reliever_probs = away_bullpen_input$individual,
     home_reliever_probs = home_bullpen_input$individual,
     n_sims = n_sims,
-    away_starter_bf = starter_bf_estimate(game$away_starter_id[[1L]]),
-    home_starter_bf = starter_bf_estimate(game$home_starter_id[[1L]]),
+    away_starter_bf = away_workload$expected_bf,
+    home_starter_bf = home_workload$expected_bf,
+    away_starter_pitch_limit = away_workload$pitch_limit,
+    home_starter_pitch_limit = home_workload$pitch_limit,
+    manager_hook_coefficients = validated_hook_coefficients,
+    run_environment_multiplier = environment$multiplier,
     seed = as.integer(abs(as.numeric(game_id)) %% .Machine$integer.max),
     park_baserunning = park_profile$profile,
     baserunning_rates = league_baserunning_profile(),
@@ -415,6 +524,24 @@ for (index in seq_len(nrow(ready_games))) {
     }
   }
   summary$publication_status <- "shadow development; current public probabilities remain unchanged"
+  summary$away_starter_expected_bf_input <- away_workload$expected_bf
+  summary$home_starter_expected_bf_input <- home_workload$expected_bf
+  summary$away_starter_pitch_limit_input <- away_workload$pitch_limit
+  summary$home_starter_pitch_limit_input <- home_workload$pitch_limit
+  summary$away_starter_recent_bf <- away_workload$recent_bf
+  summary$home_starter_recent_bf <- home_workload$recent_bf
+  summary$away_starter_recent_games <- away_workload$recent_games
+  summary$home_starter_recent_games <- home_workload$recent_games
+  summary$away_starter_rest_days <- away_workload$rest_days
+  summary$home_starter_rest_days <- home_workload$rest_days
+  summary$away_starter_workload_method <- away_workload$method
+  summary$home_starter_workload_method <- home_workload$method
+  summary$weather_run_multiplier <- environment$weather_multiplier
+  summary$game_run_environment_multiplier <- environment$multiplier
+  summary$weather_temperature_f <- environment$temperature_f
+  summary$weather_wind_mph <- environment$wind_mph
+  summary$run_environment_status <- environment$status
+  summary$manager_hook_validation_passed <- hook_validation_passed
   summary$park_baserunning_tier <- park_profile$tier
   summary$park_baserunning_method <- park_profile$method
   summary$park_baserunning_reliability <- park_profile$reliability
@@ -514,7 +641,21 @@ model_card <- data.frame(
   empirical_park_match_rate = mean(
     game_output$park_baserunning_method == "descriptive_empirical_bayes_v1"
   ),
-  model_version = "plate_appearance_state_machine_phase4_baserunning_v1",
+  manager_hook_validation_passed = hook_validation_passed,
+  manager_hook_validation_rows = if (nrow(hook_validation)) {
+    num(hook_validation$validation_rows[[1L]])
+  } else {
+    0
+  },
+  manager_hook_roc_auc = if (nrow(hook_validation)) {
+    num(hook_validation$roc_auc[[1L]])
+  } else {
+    NA_real_
+  },
+  mean_away_starter_expected_bf = mean(game_output$away_starter_expected_bf_input),
+  mean_home_starter_expected_bf = mean(game_output$home_starter_expected_bf_input),
+  mean_run_environment_multiplier = mean(game_output$game_run_environment_multiplier),
+  model_version = as.character(game_output$model_version[[1L]]),
   publication_status = "shadow development; current public probabilities remain unchanged",
   generated_at_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
   stringsAsFactors = FALSE
@@ -573,7 +714,7 @@ if (identical(tolower(Sys.getenv("SABRHOOD_KEEP_STATE_DRAWS", "false")), "true")
 }
 
 cat(
-  "Phase 4 simulated", nrow(game_output), "games x", n_sims,
+  "Phase 5 simulated", nrow(game_output), "games x", n_sims,
   "draws with", nrow(hitter_output), "player projections.\n"
 )
 cat(

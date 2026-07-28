@@ -172,6 +172,118 @@ league rates, shrunk runner profiles, pitcher-hold summaries, bounded park
 factors, and a model card. Phase 4 stays in shadow mode and inherits the same
 chronological publication gate as Phase 3.
 
+## Phase 5 manager hook and starter workload
+
+Phase 5 replaces the generic starter cutoff with the pooled manager hook model.
+After every plate appearance, the simulator recomputes removal probability from
+the starter's pitch count, batters faced, times through the order, inning,
+fielding-score margin, and the result of the plate appearance. The hook model
+was trained on earlier decisions and checked on later dates before it was
+allowed into the shadow simulator.
+
+Pregame starter workload blends season batters faced with the five most recent
+starter-like appearances, shrinks the recent component, and accounts for short
+rest. That expectation supplies both batters-faced and pitch-limit inputs.
+Temperature and the current park factor tilt event odds before each draw;
+wind remains descriptive until direction can be aligned to each ballpark.
+Phase 5 begins a new version-specific ledger and cannot inherit calibration
+approval from an earlier simulation version.
+
+## Run Game Engine, catcher framing, and ABS
+
+The Run Game Engine moves the steal opportunity to pitch grain. An eligible
+window requires a known runner on first or second, the next base open, fewer
+than three outs, and a pitch delivered before the runner event. Stolen bases
+and caught stealings are attached to the preceding pitch so count, pitch
+family, plate flight time, and disengagement context describe the decision
+window that actually existed.
+
+Starting catchers come from official lineups when available. Defensive
+substitutions and position switches create catcher stints inside the game.
+When a starting catcher must be inferred from roster and batting-order
+evidence, that assignment is labeled and contributes less reliability.
+
+Attempt and success are separate additive logistic models. Each includes
+runner, pitcher, catcher, target base, count, inning, score margin, pitch
+family, and disengagement context, with shrunken player effects. Pitcher and
+catcher boards therefore describe value after the quality and behavior of
+opponents are considered. Count-window notes combine projected offspeed and
+breaking-ball mix, plate flight time, and observed running behavior; they are
+scouting prompts rather than automatic steal recommendations.
+
+The framing development model uses only called pitches. Expected called-strike
+probability is estimated from horizontal and vertical location bins, count,
+batter side, pitcher, and umpire. The catcher's shrunken residual effect
+produces estimated extra strikes and a transparent run estimate of 0.125 runs
+per strike. It is not an official Statcast framing metric.
+
+ABS challenge products standardize the official Baseball Savant batter,
+catcher, pitcher, and team leaderboards. The public page preserves Savant's
+opportunity, challenge, overturn, expected-value, and run-value fields. These
+official challenge results are kept separate from the SABRhood framing
+development score.
+
+## Fielding Engine and runner advancement
+
+The Fielding Engine starts with one credited ball in play. The primary fielder
+and position are parsed from the official play description and matched to the
+season player reference. A transparent expected-out development estimate uses
+batted-ball trajectory, field location, exit velocity, launch angle, and
+distance, with detailed context cells pulled toward broader trajectory-location
+rates in small samples.
+
+This estimate is not Statcast Catch Probability or Outs Above Average. Public
+labels explicitly note that the play-by-play feed does not contain official
+starting position, jump, route, wall, or opportunity-time tracking. Official
+Fielding Run Value is imported and displayed as a separate contract, including
+its range, arm, double-play, catcher throwing, blocking, and framing components.
+
+Runner-advancement prevention reconstructs five decisions: scoring from second
+on a single, first-to-third on a single, scoring from first on a double,
+second-to-third on an out, and first-to-second on an out. A shrunken additive
+logistic model separates runner, credited fielder, advancement type, batted-ball
+context, outs, inning, and score effects. The fielder board therefore measures
+extra bases allowed relative to the runners and situations faced.
+
+Gold Glove Watch standardizes official Fielding Run Value inside each
+league-position group and shrinks the rate by playing time. The American League
+and National League therefore have separate projected selections at every
+tracked position. It is a current-value watchlist, not a forecast of award
+voting. Pitcher and utility are left unfilled because the current official
+fielding contract does not provide comparable rows for those award positions.
+Play of the Day selects the strongest positive SABRhood estimated range or
+advancement contribution for each date and retains its development label on
+every surface.
+
+## History Match Engine
+
+History Match starts from a current player or team line and selects thresholds
+from curated two-stat profiles rather than treating the exact current values as
+the only comparison. Season claims are compared with completed historical
+seasons. Rolling claims compare identical numbers of player games, pitcher
+appearances, or team games.
+
+All rate statistics are rebuilt from additive components. The claim records its
+historical universe, selected thresholds, comparison directions, most recent
+precedent, source-through date, and method version. A claim fingerprint covers
+the threshold and precedent; a separate content fingerprint covers the current
+headline and sentence.
+
+The Analytics Lab can display every discovered note. The broadcast packet uses
+the smaller packet-qualified queue and labels pending candidates for producer
+verification. The public History Match page accepts only claims explicitly
+approved for the website. If a threshold, comparison universe, or historical
+precedent changes, the stored approval no longer matches and the note returns
+to editorial review automatically.
+
+Historical season, rolling-window, and career-path comparisons use the
+modeling index from 1974 through the latest completed release. The separate
+record-only archive scans Retrosheet player games from 1898 through the latest
+completed release for rare single-game feats. Older record seasons never enter
+career trajectories, career backtests, or current-player projections.
+Current-season lines use the daily completed-game pipeline and official season
+products where required.
+
 ## Historical recognition model
 
 The career-significance score exists to improve editorial ordering. It is not a
@@ -196,3 +308,72 @@ season level among the same perspective cohort and prevent an unusual short-term
 change from being confused with elite overall performance. The context signal
 weights the size of the selected change by recent-sample reliability; it remains
 a reporting-priority score, not a projection.
+
+## Career Path Engine validation
+
+The hitter engine aligns players by career games and age, then measures robustly
+scaled distance across playing-time pace and era-indexed OBP, SLG, ISO, walk,
+strikeout, home-run, and speed components. Twenty completed historical
+neighbors form weighted outcome distributions.
+
+Validation rolls the model forward through 1995-2022 at 100, 250, 500, 750, and
+1,000 career games. A pseudo-forecast may use only players whose careers ended
+at least three seasons before that forecast origin. The subject's future is
+used only after prediction to score remaining-games error, p10-p90 interval
+coverage, and 250/500/1,000-game Brier scores.
+
+The current 545-test sample has a weighted 317-game remaining-career MAE and 83%
+coverage for the nominal 80% interval. A probability adjustment trained on
+origins through 2012 increased Brier error in the 2013-2022 holdout, including
+the 500-game score rising from 0.187 to 0.218. That adjustment is therefore not
+used. The displayed probabilities remain raw weighted-neighbor estimates, and
+the product remains a backtested development model rather than a calibrated
+forecast.
+
+Five interpretable similarity-weight profiles were then selected separately at
+each career checkpoint using only 1995-2012 origins. Durability won the
+training comparison at 100 and 250 games, contact and discipline at 750, and
+power shape at 1,000; the baseline remained best at 500. On the untouched
+2013-2022 holdout, however, their combined remaining-games MAE was 246.1
+against 245.2 for the baseline. The tuned weights were therefore rejected.
+
+A second refinement subtracted checkpoint-specific median forecast error
+learned from the early origins. Those training corrections ranged from -73 to
+-183 games, but the later holdout shifted in the opposite direction. Applying
+them increased MAE to 310.6 games and reduced p10-p90 coverage from 86% to 51%.
+The correction was rejected. Both experiments remain in the public model
+evidence so future iterations do not repeat an unsuccessful calculation.
+
+The fourth development pass adds terminal batting-rate distributions. For each
+historical neighbor, the engine adds that player's observed future hits, total
+bases, and times on base to the subject's career-to-date totals. Weighted
+neighbor percentiles then produce projected final AVG, OBP, SLG, and OPS. On
+the untouched 2013-2022 holdout, median forecasts missed final AVG by .010,
+OBP by .010, SLG by .017, and OPS by .023.
+
+Home-run pace is also reported per 600 future plate appearances. A transparent
+rate-linked scenario multiplies each neighbor's future HR rate by the subject's
+plate-appearance pace and the neighbor's remaining games. Its final-home-run
+MAE was 25.1 on the later holdout, compared with 25.0 for the direct comparable
+career-total estimate. The rate-linked result is therefore displayed as an
+explanatory scenario but does not replace the slightly stronger primary
+home-run total.
+
+The fifth development pass adds future offensive value and legacy-path
+context. Offensive value units are calculated as `(offensive index - 100) ×
+plate appearances / 600`; they measure era-adjusted batting quality multiplied
+by opportunity and are explicitly not WAR. The engine projects each neighbor's
+remaining value, adds it to the subject's current value, and reports p10, p50,
+p90, and the weighted chance of adding at least 10 future units. On the
+2013-2022 holdout, the median future-value estimate had a 12.0-unit MAE and the
++10-upside probability had a .120 Brier score.
+
+The Hall of Fame label is a historical lane, not an election probability.
+Comparable players count only when they had been retired for at least five
+years at that forecast date, and induction counts only when it had already
+happened by that date. The displayed share is the renormalized weight of those
+eligible neighbors who had been inducted. Labels require at least eight
+eligible neighbors and an effective sample of five: strong begins at 35%,
+credible at 15%, fringe at 5%, and lower shares are outside the current Hall of
+Fame lane. Position, defense, awards, postseason performance, character
+considerations, and voting behavior are not modeled.

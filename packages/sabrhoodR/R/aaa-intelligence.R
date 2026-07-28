@@ -37,6 +37,7 @@ build_aaa_performance_watch <- function(
       player_id = as.character(.column_or_default(data, c("player_id", "person_id", "id"))),
       player_name = normalize_name(data),
       age = .integer_value(.column_or_default(data, c("age", "current_age"))),
+      team_id = as.character(.column_or_default(data, c("team_id", "team.id"))),
       team = as.character(.column_or_default(data, c("team_name", "team.name"))),
       position = as.character(.column_or_default(data, c("position_abbreviation", "position.abbreviation")))
     )
@@ -69,6 +70,10 @@ build_aaa_performance_watch <- function(
           0.20 * .percentile_score(.data$home_run_rate) +
           0.15 * .percentile_score(.data$stolen_base_rate)
       ), 1),
+      estimated_batting_runs = (.data$ops - stats::median(.data$ops, na.rm = TRUE)) * .data$pa * 0.16,
+      estimated_running_runs = .data$stolen_bases * 0.18,
+      sabrhood_war = round((.data$estimated_batting_runs + .data$estimated_running_runs) / 10, 1),
+      swar_component_status = "batting and stolen-base value; Triple-A fielding and catching components pending",
       watch_method = "aaa_age_and_performance_lens_v1"
     ) |>
     dplyr::arrange(dplyr::desc(.data$performance_score), .data$age)
@@ -81,6 +86,7 @@ build_aaa_performance_watch <- function(
       innings = .numeric_value(.column_or_default(pitching, c("innings_pitched", "inningsPitched"))),
       era = .numeric_value(.column_or_default(pitching, c("era"))),
       whip = .numeric_value(.column_or_default(pitching, c("whip"))),
+      starts = .integer_value(.column_or_default(pitching, c("games_started", "gamesStarted", "starts"))),
       strikeouts = .integer_value(.column_or_default(pitching, c("strike_outs", "strikeouts"))),
       walks = .integer_value(.column_or_default(pitching, c("base_on_balls", "baseOnBalls"))),
       batters_faced = .integer_value(.column_or_default(pitching, c("batters_faced", "battersFaced"))),
@@ -99,9 +105,122 @@ build_aaa_performance_watch <- function(
           0.25 * .percentile_score(.data$whip, FALSE) +
           0.40 * .percentile_score(.data$k_minus_bb_rate)
       ), 1),
+      estimated_pitching_runs = (stats::median(.data$era, na.rm = TRUE) - .data$era) * .data$innings / 9,
+      sabrhood_war = round(.data$estimated_pitching_runs / 10, 1),
+      swar_component_status = "pitching value; pitcher fielding and running components pending",
       watch_method = "aaa_age_and_performance_lens_v1"
     ) |>
     dplyr::arrange(dplyr::desc(.data$performance_score), .data$age)
   pitcher_watch$watch_rank <- seq_len(nrow(pitcher_watch))
   list(hitters = hitter_watch, pitchers = pitcher_watch)
+}
+
+#' Build a transparent Triple-A call-up readiness radar
+#'
+#' This is a descriptive readiness score, not a calibrated probability. It
+#' combines current performance, age relative to the level, Triple-A
+#' experience, and the parent club's positional need.
+#'
+#' @param hitters,pitchers Outputs from [build_aaa_performance_watch()].
+#' @param affiliates A data frame mapping `aaa_team` to `mlb_team`.
+#' @param positional_war Team-position output from [build_team_positional_war()].
+#' @param maximum_age Maximum age eligible for the public radar.
+#' @return One ranked data frame containing hitter and pitcher candidates.
+#' @export
+build_aaa_callup_radar <- function(
+    hitters,
+    pitchers,
+    affiliates,
+    positional_war,
+    maximum_age = 28L) {
+  required_affiliates <- c("aaa_team", "mlb_team")
+  required_needs <- c("team", "position", "position_label", "percentile", "mlb_rank")
+  if (!all(required_affiliates %in% names(affiliates))) {
+    stop("`affiliates` must map aaa_team to mlb_team.", call. = FALSE)
+  }
+  if (!all(required_needs %in% names(positional_war))) {
+    stop("`positional_war` is missing team-need fields.", call. = FALSE)
+  }
+
+  position_group <- function(value) {
+    value <- toupper(trimws(as.character(value)))
+    ifelse(value %in% c("LF", "CF", "RF", "OF"), "OF",
+      ifelse(value %in% c("P", "SP", "RP"), value, value))
+  }
+  normalize_team <- function(value) {
+    tolower(gsub("[^a-z0-9]", "", as.character(value)))
+  }
+  affiliate_key <- normalize_team(affiliates$aaa_team)
+  mlb_team_abbr <- c(
+    "Arizona Diamondbacks" = "ARI", "Athletics" = "ATH",
+    "Atlanta Braves" = "ATL", "Baltimore Orioles" = "BAL",
+    "Boston Red Sox" = "BOS", "Chicago Cubs" = "CHC",
+    "Chicago White Sox" = "CWS", "Cincinnati Reds" = "CIN",
+    "Cleveland Guardians" = "CLE", "Colorado Rockies" = "COL",
+    "Detroit Tigers" = "DET", "Houston Astros" = "HOU",
+    "Kansas City Royals" = "KCR", "Los Angeles Angels" = "LAA",
+    "Los Angeles Dodgers" = "LAD", "Miami Marlins" = "MIA",
+    "Milwaukee Brewers" = "MIL", "Minnesota Twins" = "MIN",
+    "New York Mets" = "NYM", "New York Yankees" = "NYY",
+    "Philadelphia Phillies" = "PHI", "Pittsburgh Pirates" = "PIT",
+    "San Diego Padres" = "SDP", "San Francisco Giants" = "SFG",
+    "Seattle Mariners" = "SEA", "St. Louis Cardinals" = "STL",
+    "Tampa Bay Rays" = "TBR", "Texas Rangers" = "TEX",
+    "Toronto Blue Jays" = "TOR", "Washington Nationals" = "WSN"
+  )
+
+  prepare <- function(data, role) {
+    if (!nrow(data)) return(tibble::tibble())
+    output <- data[is.finite(.numeric_value(data$age)) & .numeric_value(data$age) <= maximum_age, , drop = FALSE]
+    if (!nrow(output)) return(tibble::tibble())
+    output$role <- role
+    if (identical(role, "Pitcher")) {
+      start_share <- .safe_rate(output$starts, output$games)
+      output$need_position <- ifelse(is.finite(start_share) & start_share >= 0.45, "SP", "RP")
+      output$experience_value <- output$innings
+    } else {
+      output$need_position <- position_group(output$position)
+      output$need_position[!output$need_position %in% c("C", "1B", "2B", "3B", "SS", "OF", "DH")] <- "DH"
+      output$experience_value <- output$games
+    }
+    affiliate_match <- match(normalize_team(output$team), affiliate_key)
+    output$mlb_team <- affiliates$mlb_team[affiliate_match]
+    output$age_score <- round(100 * pmax(0, pmin(1, (maximum_age - .numeric_value(output$age)) / 9)), 1)
+    output$experience_score <- round(100 * .percentile_score(output$experience_value), 1)
+    output
+  }
+
+  combined <- dplyr::bind_rows(
+    prepare(hitters, "Hitter"),
+    prepare(pitchers, "Pitcher")
+  )
+  if (!nrow(combined)) return(tibble::tibble())
+
+  combined$mlb_team_abbr <- unname(mlb_team_abbr[combined$mlb_team])
+  need_key <- paste(positional_war$team, positional_war$position, sep = "\034")
+  candidate_key <- paste(combined$mlb_team_abbr, combined$need_position, sep = "\034")
+  need_match <- match(candidate_key, need_key)
+  combined$mlb_need_rank <- .integer_value(positional_war$mlb_rank[need_match])
+  combined$mlb_need_percentile <- round(100 - .numeric_value(positional_war$percentile[need_match]), 1)
+  combined$mlb_need_label <- as.character(positional_war$position_label[need_match])
+  combined$mlb_need_percentile[!is.finite(combined$mlb_need_percentile)] <- 50
+  combined$mlb_need_label[is.na(combined$mlb_need_label) | combined$mlb_need_label == ""] <- combined$need_position[
+    is.na(combined$mlb_need_label) | combined$mlb_need_label == ""
+  ]
+  combined$callup_score <- round(
+    0.35 * .numeric_value(combined$performance_score) +
+      0.30 * combined$age_score +
+      0.15 * combined$experience_score +
+      0.20 * combined$mlb_need_percentile,
+    1
+  )
+  combined$callup_reason <- paste0(
+    combined$player_name, " pairs a ", format(combined$performance_score, nsmall = 1),
+    " performance score with a ", format(combined$mlb_need_percentile, nsmall = 1),
+    " parent-club need score at ", combined$mlb_need_label, "."
+  )
+  combined$callup_method <- "aaa_performance_age_experience_parent_need_v1_not_probability"
+  combined <- combined[order(-combined$callup_score, combined$age, -combined$performance_score), , drop = FALSE]
+  combined$callup_rank <- seq_len(nrow(combined))
+  tibble::as_tibble(combined)
 }

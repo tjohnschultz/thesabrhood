@@ -48,14 +48,12 @@ The engine carries named runners and relievers through innings, outs, score, bat
 ::: {.roadmap-card .is-active}
 <span class="roadmap-step">04</span>
 
-## Empirical baserunning and calibration
+## Learned hook, environment, and calibration
 
-Phase 4 learns runner advancement, steal tendency, steal success, pitcher hold, and venue movement from completed games. Every input is league-shrunk and remains in shadow mode while rolling backtests, model-version tracking, misses review, and the projection archive accumulate.
+Phase 5 adds a time-validated manager hook after every plate appearance, recent starter workload, and park/weather event effects to the existing runner advancement, steal tendency, pitcher hold, and venue movement layers. Every new model version remains in shadow mode while its own rolling backtest, misses review, and projection archive accumulate.
 :::
 :::
 
 ::: {.method-callout}
-These are development projections rather than betting advice. The probabilities will remain visibly labeled until repeated time-based backtests and the live pregame ledger demonstrate stable calibration.
+These are development projections rather than betting advice. Model testing and calibration remain part of the private research workflow.
 :::
-
-{{< include includes/projections-model.html >}}

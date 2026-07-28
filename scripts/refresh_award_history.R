@@ -68,13 +68,20 @@ compact_checkpoints <- lapply(checkpoints, function(item) {
   compact <- standardize_fangraphs_season(item$hitters, item$pitchers, season_year)
   list(date = as.Date(item$date), hitters = compact$hitters, pitchers = compact$pitchers)
 })
+weights_path <- file.path("data", "derived", "mvp-modern-model-weights.csv")
+mvp_weights <- if (file.exists(weights_path)) {
+  utils::read.csv(weights_path, stringsAsFactors = FALSE, check.names = FALSE)
+} else {
+  NULL
+}
 history <- build_award_race_history(
   compact_checkpoints,
   prior$hitters,
   prior$pitchers,
   award = "MVP",
   top_n = 8L,
-  opening_date = opening_date
+  opening_date = opening_date,
+  mvp_weights = mvp_weights
 )
 
 acquired_at <- format(Sys.time(), tz = "UTC", usetz = TRUE)

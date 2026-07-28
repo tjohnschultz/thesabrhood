@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,16 +10,10 @@
 
 <title>Newsletter – The SABRhood</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -37,16 +31,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./images/new-sabr-logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f0a6828d39eed76dd9f56b390c71b39b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,16 +95,15 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 <meta name="twitter:image-width" content="1662">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-xl " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo light-content">
-    <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo dark-content">
+    <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">The SABRhood</span>
@@ -130,6 +122,10 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
   <li class="nav-item">
     <a class="nav-link" href="./today.html"> 
 <span class="menu-text">Today</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./standings.html"> 
+<span class="menu-text">Standings</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./leaderboards.html"> 
@@ -168,6 +164,10 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
  <span class="dropdown-text">Player Change Engine</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./career-trajectories.html">
+ <span class="dropdown-text">Career Path Engine</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./teams.html">
  <span class="dropdown-text">Teams</span></a>
   </li>  
@@ -184,12 +184,24 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
  <span class="dropdown-text">Pitch Lab</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./run-game.html">
+ <span class="dropdown-text">Run Game</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./fielding.html">
+ <span class="dropdown-text">Fielding</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./aaa.html">
  <span class="dropdown-text">Triple-A Watch</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./history.html">
  <span class="dropdown-text">History</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./history-match.html">
+ <span class="dropdown-text">History Match</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./league-trends.html">
@@ -211,7 +223,7 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./blog.html"> 
-<span class="menu-text">Research</span></a>
+<span class="menu-text">Editorials</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./broadcast.html"> 
@@ -271,12 +283,12 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 </div>
 <section class="newsletter-mast">
 <div>
-<span class="eyebrow">Daily edition · July 26, 2026</span>
+<span class="eyebrow">Tuesday edition · July 27, 2026</span>
 <h2 class="anchored">
-The trends turning heads
+Contact that changes the scoreboard
 </h2>
 <p>
-A compact morning briefing generated from form, contact quality, pitch data, game context, and baseball history.
+Exit velocity, plate discipline, and the hitters creating the loudest tracked contact.
 </p>
 </div>
 <div class="newsletter-mast__stamp">
@@ -286,125 +298,142 @@ A compact morning briefing generated from form, contact quality, pitch data, gam
 <div class="newsletter-layout page-columns page-full">
 <main class="newsletter-main">
 <section class="newsletter-story newsletter-story--lead">
-<span class="eyebrow">Biggest mover</span>
-<h2 class="anchored">
-Donovan Walton is forcing the issue
-</h2>
+<span class="eyebrow">contact · lead story</span>
+<h1>
+James Wood has produced 123 batted balls at 100+ mph
+</h1>
 <p class="newsletter-deck">
-The Athletics hitter carries a 0.814 OPS across 26 recent plate appearances, compared with 0.860 before the current window.
+That is 46.2% of his tracked contact, with a 116.3 mph maximum.
 </p>
-<div class="evidence-row">
-<span><small>Form score</small><strong>53.4</strong></span><span><small>Biggest shift</small><strong>+5.0 SD</strong></span><span><small>Season context</small><strong>72nd pct.</strong></span>
+<div class="newsletter-lead-proof">
+<span>266 tracked batted balls.</span><strong>Editorial score 96.2</strong>
 </div>
-<p class="method-note">
-The recent window and prior baseline do not overlap. Form score is a cohort-relative signal, not a rest-of-season projection.
-</p>
+<a class="btn btn-sabr-red" href="leaderboards.html">Read the complete analysis</a>
 </section>
-<section class="newsletter-story">
-<span class="eyebrow">Biggest mover</span>
+<article class="newsletter-story">
+<span class="eyebrow">contact</span>
 <h2 class="anchored">
-Robby Ahlstrom has changed the quality of contact
+Junior Caminero has produced 134 batted balls at 100+ mph
 </h2>
 <p>
-The Texas Rangers pitcher has allowed a 0.411 OPS in the recent window. The prior baseline was 0.821.
+That is 42.1% of his tracked contact, with a 116.9 mph maximum.
 </p>
-<div class="evidence-row">
-<span><small>Recent BF</small><strong>20</strong></span><span><small>Biggest shift</small><strong>+3.8 SD</strong></span><span><small>Season context</small><strong>35th pct.</strong></span>
+<div class="newsletter-evidence">
+<span>318 tracked batted balls.</span><strong>95.4</strong>
 </div>
-<p class="method-note">
-<strong>Context read:</strong> Strikeout rate is the largest recent shift: improving by 3.8 standard deviations versus the MLB change pattern. Season level: 35th percentile.
-</p>
-</section>
-<section class="newsletter-story">
-<span class="eyebrow">Simulation center preview</span>
+<a class="newsletter-story__link" href="leaderboards.html">Open the full board <span aria-hidden="true">→</span></a>
+</article>
+<article class="newsletter-story">
+<span class="eyebrow">future</span>
 <h2 class="anchored">
-Houston Astros at Los Angeles Angels profiles as a Near toss-up
+Héctor Rodríguez is the new No.&nbsp;1 name on Call-Up Radar
 </h2>
 <p>
-The scheduled-game development model gives Los Angeles Angels a 51.8% win share, with a 9.0-run mean total and a 36.3% chance of a one-run result.
+Age 22, a 68.5 Triple-A performance score, and a possible Outfield opening with Cincinnati Reds drive the case.
 </p>
-<div class="evidence-row">
-<span><small>Away mean</small><strong>4.4</strong></span><span><small>Home mean</small><strong>4.6</strong></span><span><small>Extras</small><strong>14.0%</strong></span>
+<div class="newsletter-evidence">
+<span>Readiness score: 76.8/100; descriptive, not a transaction probability.</span><strong>88.4</strong>
 </div>
-<p class="method-note">
-Today’s inputs are connected; calibration and final publication approval are still pending. <a href="projections.html">Open the simulation center.</a>
+<a class="newsletter-story__link" href="aaa.html">Open the full board <span aria-hidden="true">→</span></a>
+</article>
+<article class="newsletter-story">
+<span class="eyebrow">yesterday</span>
+<h2 class="anchored">
+Francisco Lindor delivered one of yesterday’s defining performances
+</h2>
+<p>
+3 H, 2 HR, 0 2B, 6 RBI against Atlanta Braves.
 </p>
-</section>
+<div class="newsletter-evidence">
+<span>Completed-game performance score: 18.0.</span><strong>88.0</strong>
+</div>
+<a class="newsletter-story__link" href="today.html">Open the full board <span aria-hidden="true">→</span></a>
+</article>
 </main>
 <aside class="newsletter-side">
-<section class="newsletter-note">
-<span class="eyebrow">On this date</span>
+<section class="newsletter-note newsletter-briefing">
+<span class="eyebrow">Morning briefing</span>
 <h2 class="anchored">
-History queue
+The rest of today’s board
 </h2>
-<ul class="history-list">
+<ol>
 <li>
-<strong>Robinson Cano</strong><span>Robinson Cano: 4 years since final MLB appearance</span>
+<span>future</span>
+<div>
+<strong>Max Clark is the new No.&nbsp;2 name on Call-Up Radar</strong><small>Readiness score: 73.5/100; descriptive, not a transaction probability.</small>
+</div>
+<a href="aaa.html" aria-label="Open Max Clark is the new No. 2 name on Call-Up Radar">→</a>
 </li>
 <li>
-<strong>Garret Anderson</strong><span>Garret Anderson: 32 years since MLB debut</span>
+<span>awards</span>
+<div>
+<strong>Pete Crow-Armstrong holds the current NL MVP performance lead</strong><small>Race Rating: 96.7/100.</small>
+</div>
+<a href="races.html" aria-label="Open Pete Crow-Armstrong holds the current NL MVP performance lead">→</a>
 </li>
 <li>
-<strong>Joe Kelley</strong><span>Joe Kelley: 135 years since MLB debut</span>
+<span>game day</span>
+<div>
+<strong>Houston Astros at Los Angeles Angels anchors today’s simulation board</strong><small>One-run probability: 36.7%; calibration still pending.</small>
+</div>
+<a href="projections.html" aria-label="Open Houston Astros at Los Angeles Angels anchors today's simulation board">→</a>
 </li>
 <li>
-<strong>Ron Guidry</strong><span>Ron Guidry: 51 years since MLB debut</span>
+<span>yesterday</span>
+<div>
+<strong>Drew Rasmussen delivered one of yesterday’s defining performances</strong><small>Completed-game performance score: 16.0.</small>
+</div>
+<a href="today.html" aria-label="Open Drew Rasmussen delivered one of yesterday's defining performances">→</a>
 </li>
 <li>
-<strong>Mike Torrez</strong><span>Mike Torrez: 42 years since final MLB appearance</span>
+<span>pitching</span>
+<div>
+<strong>Edgardo Henriquez has crossed 100 mph 301 times</strong><small>Maximum velocity: 103.6 mph.</small>
+</div>
+<a href="leaderboards.html" aria-label="Open Edgardo Henriquez has crossed 100 mph 301 times">→</a>
 </li>
-</ul>
+<li>
+<span>history</span>
+<div>
+<strong>Tarik Skubal is 1 strikeout from 1,000</strong><small>Career-to-date total: 999.</small>
+</div>
+<a href="history.html" aria-label="Open Tarik Skubal is 1 strikeout from 1,000">→</a>
+</li>
+<li>
+<span>standings</span>
+<div>
+<strong>Texas Rangers climbed 1 place in the AL West race</strong><small>Seven-day run-differential change: +17.</small>
+</div>
+<a href="standings.html" aria-label="Open Texas Rangers climbed 1 place in the AL West race">→</a>
+</li>
+<li>
+<span>pitching</span>
+<div>
+<strong>Jacob Misiorowski has crossed 100 mph 762 times</strong><small>Maximum velocity: 105.5 mph.</small>
+</div>
+<a href="leaderboards.html" aria-label="Open Jacob Misiorowski has crossed 100 mph 762 times">→</a>
+</li>
+</ol>
 <p class="method-note">
-Candidates are ranked automatically and intended for editorial review.
+The edition limits each reporting lane to two stories, then applies the day’s rotating editorial theme.
 </p>
 </section>
-<section class="newsletter-note">
-<span class="eyebrow">Editor’s radar</span>
+<section class="newsletter-note newsletter-edition-card">
+<span class="eyebrow">Edition audit</span>
 <h2 class="anchored">
-Five different reporting lanes
-</h2>
-<ul class="history-list">
-<li>
-<strong>Offensive race: James Wood</strong><span>James Wood is building one of baseball’s strongest offensive cases</span>
-</li>
-<li>
-<strong>Run prevention: Jacob Misiorowski</strong><span>Jacob Misiorowski is suppressing offense at an elite rate</span>
-</li>
-<li>
-<strong>Team intelligence: Milwaukee Brewers</strong><span>Milwaukee Brewers has a new league-wide reporting lead</span>
-</li>
-<li>
-<strong>Milestone: Freddie Freeman</strong><span>Freddie Freeman reached 2,500 career hits</span>
-</li>
-<li>
-<strong>On this date: Robinson Cano</strong><span>Robinson Cano: 4 years since final MLB appearance</span>
-</li>
-</ul>
-<p class="method-note">
-The queue deliberately selects across categories instead of simply taking the five highest raw scores.
-</p>
-</section>
-<section class="newsletter-note">
-<span class="eyebrow">Race and milestone watch</span>
-<h2 class="anchored">
-Yordan Alvarez leads the offensive board
+12 selected stories
 </h2>
 <p>
-Yordan Alvarez carries a 1.059 OPS and a 96.8 descriptive race score.
+8 distinct reporting lanes are represented. Headlines and decks are assembled from published data fields and threshold-aware templates.
 </p>
-<p>
-<strong>Freddie Freeman:</strong> Freddie Freeman reached 2,500 career hits.
-</p>
-<p class="method-note">
-The race score describes current statistical quality; it is not an award forecast.
-</p>
+<small>deterministic_multi_lane_daily_editor_v1</small>
 </section>
 <section class="newsletter-note newsletter-note--dark">
 <span class="eyebrow">Today’s reading list</span>
 <h2 class="anchored">
 Go deeper
 </h2>
-<a href="today.html">Open the signal desk <span>→</span></a> <a href="pitch-lab.html">Inspect the Pitch Lab <span>→</span></a> <a href="methodology.html">Audit the methods <span>→</span></a>
+<a href="standings.html">Track the standings <span>→</span></a> <a href="leaderboards.html">Open tracking-data leaders <span>→</span></a> <a href="today.html">Open the signal desk <span>→</span></a> <a href="aaa.html">Visit Triple-A Watch <span>→</span></a>
 </section>
 </aside>
 </div>
@@ -420,7 +449,7 @@ The newsletter selects a few explanatory graphics rather than repeating the comp
 </div>
 <div class="graphics-feed-grid graphics-feed-grid--newsletter">
 <figure class="graphics-card graphics-card--compact figure">
-<a class="graphics-card__image" href="images/graphics-feed/league-pitch-usage-trends.png?v=20260727172554"><img src="images/graphics-feed/league-pitch-usage-trends.png?v=20260727172554" alt="Small-multiple line charts showing rolling MLB pitch-type usage." loading="lazy" class="figure-img"></a>
+<a class="graphics-card__image" href="images/graphics-feed/league-pitch-usage-trends.png?v=20260728055043"><img src="images/graphics-feed/league-pitch-usage-trends.png?v=20260728055043" alt="Small-multiple line charts showing rolling MLB pitch-type usage." loading="lazy" class="figure-img"></a>
 <figcaption>
 <span class="eyebrow">League trends</span>
 <h3 class="anchored">
@@ -430,37 +459,37 @@ League Pitch Usage Trends
 Fourteen-day rolling pitch-type usage reveals how MLB’s collective arsenal is changing.
 </p>
 <div>
-<small>Fourteen-day rolling league pitch usage through the current PBP date.</small><a href="images/graphics-feed/league-pitch-usage-trends.png?v=20260727172554" download="league-pitch-usage-trends.png">Download PNG</a>
+<small>Fourteen-day rolling league trends through the current PBP date.</small><a href="images/graphics-feed/league-pitch-usage-trends.png?v=20260728055043" download="league-pitch-usage-trends.png">Download PNG</a>
 </div>
 </figcaption>
 </figure>
 <figure class="graphics-card graphics-card--compact figure">
-<a class="graphics-card__image" href="images/graphics-feed/league-production-trends.png?v=20260727172554"><img src="images/graphics-feed/league-production-trends.png?v=20260727172554" alt="Small-multiple line charts showing indexed rolling MLB production rates." loading="lazy" class="figure-img"></a>
+<a class="graphics-card__image" href="images/graphics-feed/league-production-trends.png?v=20260728055043"><img src="images/graphics-feed/league-production-trends.png?v=20260728055043" alt="Small-multiple line charts showing indexed rolling MLB production rates." loading="lazy" class="figure-img"></a>
 <figcaption>
 <span class="eyebrow">League trends</span>
 <h3 class="anchored">
 League Production Trends
 </h3>
 <p>
-League production rates show when the run environment, contact, and plate discipline are moving together.
+League production rates show when the run environment, contact, and plate discipline move together.
 </p>
 <div>
-<small>Fourteen-day rolling league production through the current PBP date.</small><a href="images/graphics-feed/league-production-trends.png?v=20260727172554" download="league-production-trends.png">Download PNG</a>
+<small>Fourteen-day rolling league trends through the current PBP date.</small><a href="images/graphics-feed/league-production-trends.png?v=20260728055043" download="league-production-trends.png">Download PNG</a>
 </div>
 </figcaption>
 </figure>
 <figure class="graphics-card graphics-card--compact figure">
-<a class="graphics-card__image" href="images/graphics-feed/mlb-positional-war-map.png?v=20260727172554"><img src="images/graphics-feed/mlb-positional-war-map.png?v=20260727172554" alt="Heatmap ranking every MLB team by FanGraphs WAR at each primary position." loading="lazy" class="figure-img"></a>
+<a class="graphics-card__image" href="images/graphics-feed/league-pitch-velocity-trends.png?v=20260728055043"><img src="images/graphics-feed/league-pitch-velocity-trends.png?v=20260728055043" alt="Small-multiple line charts showing rolling velocity by pitch type." loading="lazy" class="figure-img"></a>
 <figcaption>
-<span class="eyebrow">Team identity</span>
+<span class="eyebrow">League trends</span>
 <h3 class="anchored">
-MLB Positional WAR Map
+League Pitch Velocity Trends
 </h3>
 <p>
-Every team and primary position ranked by FanGraphs WAR to expose roster strengths and needs.
+The six most-used pitch types tracked by rolling average velocity.
 </p>
 <div>
-<small>Current FanGraphs season WAR aggregated by primary listed position.</small><a href="images/graphics-feed/mlb-positional-war-map.png?v=20260727172554" download="mlb-positional-war-map.png">Download PNG</a>
+<small>Fourteen-day rolling league trends through the current PBP date.</small><a href="images/graphics-feed/league-pitch-velocity-trends.png?v=20260728055043" download="league-pitch-velocity-trends.png">Download PNG</a>
 </div>
 </figcaption>
 </figure>
@@ -481,248 +510,244 @@ Every team and primary position ranked by FanGraphs WAR to expose roster strengt
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
     }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
     }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/thesabrhood\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/thesabrhood\.com");
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -730,161 +755,185 @@ Every team and primary position ranked by FanGraphs WAR to expose roster strengt
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

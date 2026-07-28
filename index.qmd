@@ -27,6 +27,8 @@ The SABRhood combines pitch-level research, daily signals, simulation, history, 
 
 {{< include includes/home-player-change.html >}}
 
+{{< include includes/home-career-trajectories.html >}}
+
 {{< include includes/home-projections.html >}}
 
 {{< include includes/home-research.html >}}
@@ -45,6 +47,7 @@ Awards races, season leaders, matchup splits, daily historical notes, simulation
 ::: {.feature-band__links}
 [Player intelligence](players.qmd){.feature-link}
 [Player Change Engine](player-change-engine.qmd){.feature-link}
+[Career Path Engine](career-trajectories.qmd){.feature-link}
 [Performance races](races.qmd){.feature-link}
 [Story Engine](story-desk.qmd){.feature-link}
 [Matchup edges](matchups.qmd){.feature-link}

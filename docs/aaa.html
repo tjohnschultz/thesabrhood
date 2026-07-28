@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,16 +10,10 @@
 
 <title>Triple-A Watch – The SABRhood</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -37,16 +31,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./images/new-sabr-logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f0a6828d39eed76dd9f56b390c71b39b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,16 +95,15 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 <meta name="twitter:image-width" content="1662">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-xl " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo light-content">
-    <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo dark-content">
+    <img src="./images/thesabrhood2clean.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">The SABRhood</span>
@@ -130,6 +122,10 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
   <li class="nav-item">
     <a class="nav-link" href="./today.html"> 
 <span class="menu-text">Today</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./standings.html"> 
+<span class="menu-text">Standings</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./leaderboards.html"> 
@@ -168,6 +164,10 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
  <span class="dropdown-text">Player Change Engine</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./career-trajectories.html">
+ <span class="dropdown-text">Career Path Engine</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./teams.html">
  <span class="dropdown-text">Teams</span></a>
   </li>  
@@ -184,12 +184,24 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
  <span class="dropdown-text">Pitch Lab</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./run-game.html">
+ <span class="dropdown-text">Run Game</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./fielding.html">
+ <span class="dropdown-text">Fielding</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./aaa.html">
  <span class="dropdown-text">Triple-A Watch</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./history.html">
  <span class="dropdown-text">History</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./history-match.html">
+ <span class="dropdown-text">History Match</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./league-trends.html">
@@ -211,7 +223,7 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./blog.html"> 
-<span class="menu-text">Research</span></a>
+<span class="menu-text">Editorials</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./broadcast.html"> 
@@ -276,11 +288,11 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 A narrow minor-league desk with an MLB purpose
 </h2>
 <p>
-This page tracks age-qualified performers and statistical standouts from BaseballR’s Triple-A season feed. It is intentionally smaller than the MLB hub.
+The leaderboard identifies production. The Call-Up Radar asks the next question: does age, Triple-A experience, and a parent club’s weakness create a plausible opening?
 </p>
 </div>
 <div class="aaa-scoreboard__stats">
-<span><strong> 145 </strong><small>qualified hitters</small></span><span><strong> 32 </strong><small>qualified pitchers</small></span><span><strong>24</strong><small>young-player age line</small></span>
+<span><strong> 145 </strong><small>qualified hitters</small></span><span><strong> 32 </strong><small>qualified pitchers</small></span><span><strong>28</strong><small>public radar age cap</small></span>
 </div>
 </section>
 <section class="section-heading">
@@ -293,6 +305,62 @@ Familiar production, plate discipline, bat-missing ability, and age context are 
 </p>
 </section>
 <div class="leaderboard-grid aaa-leaderboard-grid">
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">Triple-A hitters</span>
+<h3 class="anchored">
+sWAR prototype
+</h3>
+<p>
+Estimated batting plus stolen-base runs; fielding and catching pending
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Charlie Condon</strong><small>Albuquerque Isotopes</small></span><span class="leaderboard-value">1.3</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Christian Moore</strong><small>Salt Lake Bees</small></span><span class="leaderboard-value">1.2</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>Zac Veen</strong><small>Albuquerque Isotopes</small></span><span class="leaderboard-value">1.2</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Cade Marlowe</strong><small>Salt Lake Bees</small></span><span class="leaderboard-value">1.2</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Luis Lara</strong><small>Nashville Sounds</small></span><span class="leaderboard-value">1.1</span>
+</li>
+</ol>
+</article>
+<article class="leaderboard-card">
+<header>
+<span class="eyebrow">Triple-A runners</span>
+<h3 class="anchored">
+Running value
+</h3>
+<p>
+Estimated stolen-base runs in the current public feed
+</p>
+</header>
+<ol>
+<li>
+<span class="leaderboard-rank">1</span><span class="leaderboard-player"><strong>Braiden Ward</strong><small>Worcester Red Sox</small></span><span class="leaderboard-value">+7.7</span>
+</li>
+<li>
+<span class="leaderboard-rank">2</span><span class="leaderboard-player"><strong>Ji Hwan Bae</strong><small>Syracuse Mets</small></span><span class="leaderboard-value">+6.1</span>
+</li>
+<li>
+<span class="leaderboard-rank">3</span><span class="leaderboard-player"><strong>DaShawn Keirsey Jr.</strong><small>Gwinnett Stripers</small></span><span class="leaderboard-value">+5.9</span>
+</li>
+<li>
+<span class="leaderboard-rank">4</span><span class="leaderboard-player"><strong>Jim Jarvis</strong><small>Gwinnett Stripers</small></span><span class="leaderboard-value">+5.8</span>
+</li>
+<li>
+<span class="leaderboard-rank">5</span><span class="leaderboard-player"><strong>Nick Morabito</strong><small>Syracuse Mets</small></span><span class="leaderboard-value">+5.8</span>
+</li>
+</ol>
+</article>
 <article class="leaderboard-card">
 <header>
 <span class="eyebrow">Triple-A hitters</span>
@@ -412,7 +480,7 @@ Qualified contact discipline
 Lowest ERA
 </h3>
 <p>
-Qualified run prevention
+Qualified pitching results
 </p>
 </header>
 <ol>
@@ -519,653 +587,1359 @@ Traffic allowed per inning
 </article>
 </div>
 <section class="section-heading">
-<span class="eyebrow">Young hitter radar</span>
+<span class="eyebrow">Organizational power board</span>
 <h2 class="anchored">
-Production worth a closer look
+Which Triple-A clubs combine winning and promotable talent?
 </h2>
 <p>
-OPS, plate discipline, power, and speed shape the performance score. Age qualifies the player for this lens; it does not create a prospect ranking.
+The ranking weights record 35%, run differential 20%, the top five qualified hitter performances 20%, the top five pitcher performances 20%, and the young/readiness pipeline 5%.
 </p>
 </section>
-<div class="player-context-grid">
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Age 21 hitter watch</span><span class="signal-score" aria-label="Signal score 81.4">81.4</span>
-</div>
+<div class="aaa-team-grid">
+<article class="aaa-team-card">
+<header>
+<span>#1 Triple-A</span><strong>79.8</strong>
+</header>
 <h3 class="anchored">
-Luis Lara
+Memphis Redbirds
 </h3>
-<p class="player-signal__team">
+<p>
+58–44 · +34 run differential
+</p>
+<div>
+<span><small>Hitter pool</small><strong>67.4</strong></span><span><small>Pitcher pool</small><strong>90.0</strong></span><span><small>7-day state</small><strong>Steady</strong></span>
+</div>
+</article>
+<article class="aaa-team-card">
+<header>
+<span>#2 Triple-A</span><strong>74.8</strong>
+</header>
+<h3 class="anchored">
 Nashville Sounds
-</p>
-<p>
-<strong>OPS 0.902 | 9 HR | 24 SB</strong>
-</p>
-<p class="muted">
-346 PA | 15.6% BB | 13.9% K
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Age 24 hitter watch</span><span class="signal-score" aria-label="Signal score 80.2">80.2</span>
-</div>
-<h3 class="anchored">
-Cooper Ingle
 </h3>
-<p class="player-signal__team">
-Columbus Clippers
-</p>
 <p>
-<strong>OPS 0.990 | 14 HR | 1 SB</strong>
+56–46 · +58 run differential
 </p>
-<p class="muted">
-279 PA | 17.2% BB | 21.5% K
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Age 23 hitter watch</span><span class="signal-score" aria-label="Signal score 79.6">79.6</span>
+<div>
+<span><small>Hitter pool</small><strong>45.1</strong></span><span><small>Pitcher pool</small><strong>77.1</strong></span><span><small>7-day state</small><strong>Steady</strong></span>
 </div>
-<h3 class="anchored">
-Christian Moore
-</h3>
-<p class="player-signal__team">
-Salt Lake Bees
-</p>
-<p>
-<strong>OPS 0.976 | 10 HR | 11 SB</strong>
-</p>
-<p class="muted">
-333 PA | 16.8% BB | 21.9% K
-</p>
 </article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Age 24 hitter watch</span><span class="signal-score" aria-label="Signal score 78.9">78.9</span>
-</div>
+<article class="aaa-team-card">
+<header>
+<span>#3 Triple-A</span><strong>74.0</strong>
+</header>
 <h3 class="anchored">
-Zac Veen
-</h3>
-<p class="player-signal__team">
-Albuquerque Isotopes
-</p>
-<p>
-<strong>OPS 0.944 | 16 HR | 15 SB</strong>
-</p>
-<p class="muted">
-385 PA | 10.9% BB | 21.0% K
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Age 23 hitter watch</span><span class="signal-score" aria-label="Signal score 76.9">76.9</span>
-</div>
-<h3 class="anchored">
-James Tibbs III
-</h3>
-<p class="player-signal__team">
-Oklahoma City Comets
-</p>
-<p>
-<strong>OPS 0.946 | 21 HR | 4 SB</strong>
-</p>
-<p class="muted">
-429 PA | 16.6% BB | 23.8% K
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Age 23 hitter watch</span><span class="signal-score" aria-label="Signal score 75.4">75.4</span>
-</div>
-<h3 class="anchored">
-Kaelen Culpepper
-</h3>
-<p class="player-signal__team">
 St.&nbsp;Paul Saints
-</p>
+</h3>
 <p>
-<strong>OPS 0.854 | 14 HR | 16 SB</strong>
+58–43 · +51 run differential
 </p>
-<p class="muted">
-307 PA | 12.1% BB | 17.3% K
+<div>
+<span><small>Hitter pool</small><strong>62.2</strong></span><span><small>Pitcher pool</small><strong>50.0</strong></span><span><small>7-day state</small><strong>Steady</strong></span>
+</div>
+</article>
+<article class="aaa-team-card">
+<header>
+<span>#4 Triple-A</span><strong>73.3</strong>
+</header>
+<h3 class="anchored">
+Sacramento River Cats
+</h3>
+<p>
+56–43 · +83 run differential
 </p>
+<div>
+<span><small>Hitter pool</small><strong>54.0</strong></span><span><small>Pitcher pool</small><strong>68.4</strong></span><span><small>7-day state</small><strong>Surging</strong></span>
+</div>
+</article>
+<article class="aaa-team-card">
+<header>
+<span>#5 Triple-A</span><strong>73.2</strong>
+</header>
+<h3 class="anchored">
+Rochester Red Wings
+</h3>
+<p>
+59–41 · +47 run differential
+</p>
+<div>
+<span><small>Hitter pool</small><strong>53.1</strong></span><span><small>Pitcher pool</small><strong>52.6</strong></span><span><small>7-day state</small><strong>Steady</strong></span>
+</div>
+</article>
+<article class="aaa-team-card">
+<header>
+<span>#6 Triple-A</span><strong>71.9</strong>
+</header>
+<h3 class="anchored">
+Oklahoma City Comets
+</h3>
+<p>
+53–47 · +96 run differential
+</p>
+<div>
+<span><small>Hitter pool</small><strong>68.0</strong></span><span><small>Pitcher pool</small><strong>47.6</strong></span><span><small>7-day state</small><strong>Slipping</strong></span>
+</div>
 </article>
 </div>
-<section class="dashboard-block">
-<div class="section-heading section-heading--tight">
-<span class="eyebrow">Hitter board</span>
+<div class="aaa-standings-grid">
+<section class="aaa-standings-board">
+<header>
+<span class="eyebrow">Triple-A standings</span>
 <h2 class="anchored">
-Age-24-and-under Triple-A standouts
+International League
 </h2>
-</div>
+</header>
 <div class="table-scroll">
-<table class="data-table">
+<table class="data-table data-table--compact standings-table">
 <thead>
 <tr>
-<th>
-Overall
-</th>
-<th>
-Player
-</th>
-<th>
-Age
-</th>
 <th>
 Club
 </th>
 <th>
-Pos.
+W
 </th>
 <th>
-PA
+L
 </th>
 <th>
-AVG
+Pct.
 </th>
 <th>
-OBP
+Run diff.
 </th>
 <th>
-SLG
+Power rank
 </th>
 <th>
-OPS
-</th>
-<th>
-HR
-</th>
-<th>
-SB
-</th>
-<th>
-BB%
-</th>
-<th>
-K%
-</th>
-<th>
-Score
+7-day state
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-2
+Rochester Red Wings
 </td>
 <td>
-Luis Lara
+59
 </td>
 <td>
-21
+41
 </td>
 <td>
-Nashville Sounds
+0.590
 </td>
 <td>
-CF
++47
 </td>
 <td>
-346
+5
 </td>
 <td>
-0.321
-</td>
-<td>
-0.432
-</td>
-<td>
-0.470
-</td>
-<td>
-0.902
-</td>
-<td>
-9
-</td>
-<td>
-24
-</td>
-<td>
-15.6%
-</td>
-<td>
-13.9%
-</td>
-<td>
-81.4
+steady
 </td>
 </tr>
 <tr>
 <td>
+St.&nbsp;Paul Saints
+</td>
+<td>
+58
+</td>
+<td>
+43
+</td>
+<td>
+0.574
+</td>
+<td>
++51
+</td>
+<td>
 3
 </td>
 <td>
-Cooper Ingle
+steady
+</td>
+</tr>
+<tr>
+<td>
+Memphis Redbirds
 </td>
 <td>
-24
+58
 </td>
 <td>
-Columbus Clippers
+44
 </td>
 <td>
-C
+0.569
 </td>
 <td>
-279
-</td>
-<td>
-0.305
-</td>
-<td>
-0.424
-</td>
-<td>
-0.566
-</td>
-<td>
-0.990
-</td>
-<td>
-14
++34
 </td>
 <td>
 1
 </td>
 <td>
-17.2%
-</td>
-<td>
-21.5%
-</td>
-<td>
-80.2
+steady
 </td>
 </tr>
 <tr>
 <td>
-5
+Nashville Sounds
 </td>
 <td>
-Christian Moore
+56
 </td>
 <td>
-23
+46
 </td>
 <td>
-Salt Lake Bees
+0.549
 </td>
 <td>
-2B
++58
 </td>
 <td>
-333
+2
 </td>
 <td>
-0.313
+steady
+</td>
+</tr>
+<tr>
+<td>
+Charlotte Knights
 </td>
 <td>
-0.435
+55
 </td>
 <td>
-0.541
+47
 </td>
 <td>
-0.976
+0.539
+</td>
+<td>
++109
+</td>
+<td>
+7
+</td>
+<td>
+surging
+</td>
+</tr>
+<tr>
+<td>
+Scranton/Wilkes-Barre RailRiders
+</td>
+<td>
+53
+</td>
+<td>
+46
+</td>
+<td>
+0.535
+</td>
+<td>
++37
 </td>
 <td>
 10
 </td>
 <td>
-11
-</td>
-<td>
-16.8%
-</td>
-<td>
-21.9%
-</td>
-<td>
-79.6
+steady
 </td>
 </tr>
 <tr>
 <td>
-6
+Worcester Red Sox
 </td>
 <td>
-Zac Veen
+51
 </td>
 <td>
-24
+46
 </td>
 <td>
-Albuquerque Isotopes
+0.526
 </td>
 <td>
-RF
++12
 </td>
-<td>
-385
-</td>
-<td>
-0.306
-</td>
-<td>
-0.382
-</td>
-<td>
-0.562
-</td>
-<td>
-0.944
-</td>
-<td>
-16
-</td>
-<td>
-15
-</td>
-<td>
-10.9%
-</td>
-<td>
-21.0%
-</td>
-<td>
-78.9
-</td>
-</tr>
-<tr>
-<td>
-11
-</td>
-<td>
-James Tibbs III
-</td>
-<td>
-23
-</td>
-<td>
-Oklahoma City Comets
-</td>
-<td>
-1B
-</td>
-<td>
-429
-</td>
-<td>
-0.285
-</td>
-<td>
-0.408
-</td>
-<td>
-0.538
-</td>
-<td>
-0.946
-</td>
-<td>
-21
-</td>
-<td>
-4
-</td>
-<td>
-16.6%
-</td>
-<td>
-23.8%
-</td>
-<td>
-76.9
-</td>
-</tr>
-<tr>
 <td>
 13
 </td>
 <td>
-Kaelen Culpepper
+surging
+</td>
+</tr>
+<tr>
+<td>
+Gwinnett Stripers
 </td>
 <td>
-23
+52
 </td>
 <td>
-St.&nbsp;Paul Saints
+48
 </td>
 <td>
-SS
+0.520
 </td>
 <td>
-307
++29
 </td>
 <td>
-0.268
+12
 </td>
 <td>
-0.371
+surging
+</td>
+</tr>
+<tr>
+<td>
+Columbus Clippers
 </td>
 <td>
-0.483
+52
 </td>
 <td>
-0.854
+49
 </td>
 <td>
-14
+0.515
+</td>
+<td>
+-31
+</td>
+<td>
+9
+</td>
+<td>
+slipping
+</td>
+</tr>
+<tr>
+<td>
+Jacksonville Jumbo Shrimp
+</td>
+<td>
+50
+</td>
+<td>
+50
+</td>
+<td>
+0.500
+</td>
+<td>
++22
 </td>
 <td>
 16
 </td>
 <td>
-12.1%
-</td>
-<td>
-17.3%
-</td>
-<td>
-75.4
+slipping
 </td>
 </tr>
 <tr>
 <td>
+Toledo Mud Hens
+</td>
+<td>
+50
+</td>
+<td>
+51
+</td>
+<td>
+0.495
+</td>
+<td>
++54
+</td>
+<td>
+11
+</td>
+<td>
+surging
+</td>
+</tr>
+<tr>
+<td>
+Mets
+</td>
+<td>
+50
+</td>
+<td>
+51
+</td>
+<td>
+0.495
+</td>
+<td>
+-5
+</td>
+<td>
 15
 </td>
 <td>
-Charlie Condon
+steady
+</td>
+</tr>
+<tr>
+<td>
+Buffalo Bisons
 </td>
 <td>
-23
+49
 </td>
 <td>
-Albuquerque Isotopes
+53
 </td>
 <td>
-1B
+0.480
 </td>
 <td>
-393
+-7
 </td>
 <td>
-0.292
+22
 </td>
 <td>
-0.410
+steady
+</td>
+</tr>
+<tr>
+<td>
+Bats
 </td>
 <td>
-0.566
+48
 </td>
 <td>
-0.976
+52
+</td>
+<td>
+0.480
+</td>
+<td>
+-32
 </td>
 <td>
 20
 </td>
 <td>
-6
-</td>
-<td>
-13.7%
-</td>
-<td>
-24.9%
-</td>
-<td>
-74.5
+slipping
 </td>
 </tr>
 <tr>
 <td>
-22
+Omaha Storm Chasers
 </td>
 <td>
-Zach Ehrhard
+48
+</td>
+<td>
+53
+</td>
+<td>
+0.475
+</td>
+<td>
+-66
+</td>
+<td>
+26
+</td>
+<td>
+surging
+</td>
+</tr>
+<tr>
+<td>
+Indianapolis Indians
+</td>
+<td>
+48
+</td>
+<td>
+54
+</td>
+<td>
+0.471
+</td>
+<td>
++26
+</td>
+<td>
+19
+</td>
+<td>
+steady
+</td>
+</tr>
+<tr>
+<td>
+Lehigh Valley IronPigs
+</td>
+<td>
+48
+</td>
+<td>
+54
+</td>
+<td>
+0.471
+</td>
+<td>
+-35
 </td>
 <td>
 23
 </td>
 <td>
-Oklahoma City Comets
-</td>
-<td>
-CF
-</td>
-<td>
-413
-</td>
-<td>
-0.286
-</td>
-<td>
-0.392
-</td>
-<td>
-0.478
-</td>
-<td>
-0.870
-</td>
-<td>
-15
-</td>
-<td>
-13
-</td>
-<td>
-14.3%
-</td>
-<td>
-20.1%
-</td>
-<td>
-72.1
+steady
 </td>
 </tr>
 <tr>
 <td>
-25
+Durham Bulls
 </td>
 <td>
-Angel Genao
+46
 </td>
 <td>
-22
+54
 </td>
 <td>
-Columbus Clippers
+0.460
 </td>
 <td>
-SS
+-87
 </td>
 <td>
-275
+30
 </td>
 <td>
-0.305
+steady
+</td>
+</tr>
+<tr>
+<td>
+Iowa Cubs
 </td>
 <td>
-0.389
+43
 </td>
 <td>
-0.483
+56
 </td>
 <td>
-0.872
+0.434
+</td>
+<td>
+-69
+</td>
+<td>
+28
+</td>
+<td>
+slipping
+</td>
+</tr>
+<tr>
+<td>
+Norfolk Tides
+</td>
+<td>
+36
+</td>
+<td>
+64
+</td>
+<td>
+0.360
+</td>
+<td>
+-128
+</td>
+<td>
+27
+</td>
+<td>
+slipping
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="aaa-standings-board">
+<header>
+<span class="eyebrow">Triple-A standings</span>
+<h2 class="anchored">
+Pacific Coast League
+</h2>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact standings-table">
+<thead>
+<tr>
+<th>
+Club
+</th>
+<th>
+W
+</th>
+<th>
+L
+</th>
+<th>
+Pct.
+</th>
+<th>
+Run diff.
+</th>
+<th>
+Power rank
+</th>
+<th>
+7-day state
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Las Vegas Aviators
+</td>
+<td>
+61
+</td>
+<td>
+39
+</td>
+<td>
+0.610
+</td>
+<td>
++69
 </td>
 <td>
 8
 </td>
 <td>
-6
-</td>
-<td>
-12.0%
-</td>
-<td>
-14.5%
-</td>
-<td>
-69.9
+steady
 </td>
 </tr>
 <tr>
 <td>
-27
+Sacramento River Cats
 </td>
 <td>
-Brett Bateman
+56
+</td>
+<td>
+43
+</td>
+<td>
+0.566
+</td>
+<td>
++83
+</td>
+<td>
+4
+</td>
+<td>
+surging
+</td>
+</tr>
+<tr>
+<td>
+Oklahoma City Comets
+</td>
+<td>
+53
+</td>
+<td>
+47
+</td>
+<td>
+0.530
+</td>
+<td>
++96
+</td>
+<td>
+6
+</td>
+<td>
+slipping
+</td>
+</tr>
+<tr>
+<td>
+Sugar Land Space Cowboys
+</td>
+<td>
+51
+</td>
+<td>
+50
+</td>
+<td>
+0.505
+</td>
+<td>
+-25
+</td>
+<td>
+14
+</td>
+<td>
+steady
+</td>
+</tr>
+<tr>
+<td>
+Salt Lake Bees
+</td>
+<td>
+49
+</td>
+<td>
+52
+</td>
+<td>
+0.485
+</td>
+<td>
+-66
+</td>
+<td>
+18
+</td>
+<td>
+slipping
+</td>
+</tr>
+<tr>
+<td>
+Albuquerque Isotopes
+</td>
+<td>
+49
+</td>
+<td>
+53
+</td>
+<td>
+0.480
+</td>
+<td>
+-58
+</td>
+<td>
+17
+</td>
+<td>
+slipping
+</td>
+</tr>
+<tr>
+<td>
+Reno Aces
+</td>
+<td>
+48
+</td>
+<td>
+54
+</td>
+<td>
+0.471
+</td>
+<td>
+-27
+</td>
+<td>
+21
+</td>
+<td>
+steady
+</td>
+</tr>
+<tr>
+<td>
+Round Rock Express
+</td>
+<td>
+46
+</td>
+<td>
+56
+</td>
+<td>
+0.451
+</td>
+<td>
+-56
 </td>
 <td>
 24
 </td>
 <td>
-Iowa Cubs
-</td>
-<td>
-CF
-</td>
-<td>
-322
-</td>
-<td>
-0.318
-</td>
-<td>
-0.438
-</td>
-<td>
-0.437
-</td>
-<td>
-0.875
-</td>
-<td>
-3
-</td>
-<td>
-20
-</td>
-<td>
-17.7%
-</td>
-<td>
-18.0%
-</td>
-<td>
-68.6
+surging
 </td>
 </tr>
 <tr>
 <td>
-28
+El Paso Chihuahuas
+</td>
+<td>
+44
+</td>
+<td>
+57
+</td>
+<td>
+0.436
+</td>
+<td>
+-66
+</td>
+<td>
+29
+</td>
+<td>
+steady
+</td>
+</tr>
+<tr>
+<td>
+Tacoma Rainiers
+</td>
+<td>
+44
+</td>
+<td>
+58
+</td>
+<td>
+0.431
+</td>
+<td>
++31
+</td>
+<td>
+25
+</td>
+<td>
+slipping
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<section class="section-heading">
+<span class="eyebrow">Call-Up Radar</span>
+<h2 class="anchored">
+Who has performance, timing, and an organizational opening?
+</h2>
+<p>
+The model weights Triple-A production 35%, age 30%, experience 15%, and parent-club positional need 20%. A strong score is a reporting lead, not a transaction probability.
+</p>
+</section>
+<div class="callup-grid">
+<article class="callup-card">
+<header>
+<span class="eyebrow">Call-Up Radar #1</span><strong>76.8</strong>
+</header>
+<h3 class="anchored">
+Héctor Rodríguez
+</h3>
+<p>
+Louisville Bats → Cincinnati Reds · age 22
+</p>
+<div class="callup-card__components">
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Triple-A production</span><strong>68th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Triple-A production 68 MLB percentile">
+<span style="width:68.5%"></span><i style="left:68.5%"></i>
+</div>
+<small>35% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Age at level</span><strong>67th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Age at level 67 MLB percentile">
+<span style="width:66.7%"></span><i style="left:66.7%"></i>
+</div>
+<small>30% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Triple-A experience</span><strong>99th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Triple-A experience 99 MLB percentile">
+<span style="width:99.2%"></span><i style="left:99.2%"></i>
+</div>
+<small>15% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Parent-club need</span><strong>90th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Parent-club need 90 MLB percentile">
+<span style="width:89.7%"></span><i style="left:89.7%"></i>
+</div>
+<small>Outfield · 20% of score</small>
+</div>
+</div>
+<footer>
+Héctor Rodríguez pairs a 68.5 performance score with a 89.7 parent-club need score at Outfield.
+</footer>
+</article>
+<article class="callup-card">
+<header>
+<span class="eyebrow">Call-Up Radar #2</span><strong>73.5</strong>
+</header>
+<h3 class="anchored">
+Max Clark
+</h3>
+<p>
+Toledo Mud Hens → Detroit Tigers · age 21
+</p>
+<div class="callup-card__components">
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Triple-A production</span><strong>60th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Triple-A production 60 MLB percentile">
+<span style="width:59.5%"></span><i style="left:59.5%"></i>
+</div>
+<small>35% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Age at level</span><strong>78th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Age at level 78 MLB percentile">
+<span style="width:77.8%"></span><i style="left:77.8%"></i>
+</div>
+<small>30% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Triple-A experience</span><strong>81st</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Triple-A experience 81 MLB percentile">
+<span style="width:80.8%"></span><i style="left:80.8%"></i>
+</div>
+<small>15% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Parent-club need</span><strong>86th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Parent-club need 86 MLB percentile">
+<span style="width:86.2%"></span><i style="left:86.2%"></i>
+</div>
+<small>Outfield · 20% of score</small>
+</div>
+</div>
+<footer>
+Max Clark pairs a 59.5 performance score with a 86.2 parent-club need score at Outfield.
+</footer>
+</article>
+<article class="callup-card">
+<header>
+<span class="eyebrow">Call-Up Radar #3</span><strong>68.9</strong>
+</header>
+<h3 class="anchored">
+Zac Veen
+</h3>
+<p>
+Albuquerque Isotopes → Colorado Rockies · age 24
+</p>
+<div class="callup-card__components">
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Triple-A production</span><strong>79th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Triple-A production 79 MLB percentile">
+<span style="width:78.9%"></span><i style="left:78.9%"></i>
+</div>
+<small>35% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Age at level</span><strong>44th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Age at level 44 MLB percentile">
+<span style="width:44.4%"></span><i style="left:44.4%"></i>
+</div>
+<small>30% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Triple-A experience</span><strong>81st</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Triple-A experience 81 MLB percentile">
+<span style="width:80.8%"></span><i style="left:80.8%"></i>
+</div>
+<small>15% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Parent-club need</span><strong>79th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Parent-club need 79 MLB percentile">
+<span style="width:79.3%"></span><i style="left:79.3%"></i>
+</div>
+<small>Outfield · 20% of score</small>
+</div>
+</div>
+<footer>
+Zac Veen pairs a 78.9 performance score with a 79.3 parent-club need score at Outfield.
+</footer>
+</article>
+<article class="callup-card">
+<header>
+<span class="eyebrow">Call-Up Radar #4</span><strong>67.4</strong>
+</header>
+<h3 class="anchored">
+Luis Lara
+</h3>
+<p>
+Nashville Sounds → Milwaukee Brewers · age 21
+</p>
+<div class="callup-card__components">
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Triple-A production</span><strong>81st</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Triple-A production 81 MLB percentile">
+<span style="width:81.4%"></span><i style="left:81.4%"></i>
+</div>
+<small>35% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Age at level</span><strong>78th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Age at level 78 MLB percentile">
+<span style="width:77.8%"></span><i style="left:77.8%"></i>
+</div>
+<small>30% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Triple-A experience</span><strong>44th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Triple-A experience 44 MLB percentile">
+<span style="width:44.2%"></span><i style="left:44.2%"></i>
+</div>
+<small>15% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Parent-club need</span><strong>45th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Parent-club need 45 MLB percentile">
+<span style="width:44.8%"></span><i style="left:44.8%"></i>
+</div>
+<small>Outfield · 20% of score</small>
+</div>
+</div>
+<footer>
+Luis Lara pairs a 81.4 performance score with a 44.8 parent-club need score at Outfield.
+</footer>
+</article>
+<article class="callup-card">
+<header>
+<span class="eyebrow">Call-Up Radar #5</span><strong>66.3</strong>
+</header>
+<h3 class="anchored">
+Nestor German
+</h3>
+<p>
+Norfolk Tides → Baltimore Orioles · age 24
+</p>
+<div class="callup-card__components">
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Triple-A production</span><strong>87th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Triple-A production 87 MLB percentile">
+<span style="width:86.9%"></span><i style="left:86.9%"></i>
+</div>
+<small>35% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Age at level</span><strong>44th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Age at level 44 MLB percentile">
+<span style="width:44.4%"></span><i style="left:44.4%"></i>
+</div>
+<small>30% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Triple-A experience</span><strong>95th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Triple-A experience 95 MLB percentile">
+<span style="width:95.2%"></span><i style="left:95.2%"></i>
+</div>
+<small>15% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Parent-club need</span><strong>41st</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Parent-club need 41 MLB percentile">
+<span style="width:41.4%"></span><i style="left:41.4%"></i>
+</div>
+<small>Starting pitching · 20% of score</small>
+</div>
+</div>
+<footer>
+Nestor German pairs a 86.9 performance score with a 41.4 parent-club need score at Starting pitching.
+</footer>
+</article>
+<article class="callup-card">
+<header>
+<span class="eyebrow">Call-Up Radar #6</span><strong>64.8</strong>
+</header>
+<h3 class="anchored">
+Joshua Báez
+</h3>
+<p>
+Memphis Redbirds → St.&nbsp;Louis Cardinals · age 23
+</p>
+<div class="callup-card__components">
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Triple-A production</span><strong>68th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Triple-A production 68 MLB percentile">
+<span style="width:68.2%"></span><i style="left:68.2%"></i>
+</div>
+<small>35% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Age at level</span><strong>56th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Age at level 56 MLB percentile">
+<span style="width:55.6%"></span><i style="left:55.6%"></i>
+</div>
+<small>30% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Triple-A experience</span><strong>88th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Triple-A experience 88 MLB percentile">
+<span style="width:88.3%"></span><i style="left:88.3%"></i>
+</div>
+<small>15% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Parent-club need</span><strong>55th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Parent-club need 55 MLB percentile">
+<span style="width:55.2%"></span><i style="left:55.2%"></i>
+</div>
+<small>Outfield · 20% of score</small>
+</div>
+</div>
+<footer>
+Joshua Báez pairs a 68.2 performance score with a 55.2 parent-club need score at Outfield.
+</footer>
+</article>
+<article class="callup-card">
+<header>
+<span class="eyebrow">Call-Up Radar #7</span><strong>62.4</strong>
+</header>
+<h3 class="anchored">
+Yohandy Morales
+</h3>
+<p>
+Rochester Red Wings → Washington Nationals · age 24
+</p>
+<div class="callup-card__components">
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Triple-A production</span><strong>66th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Triple-A production 66 MLB percentile">
+<span style="width:66.5%"></span><i style="left:66.5%"></i>
+</div>
+<small>35% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Age at level</span><strong>44th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Age at level 44 MLB percentile">
+<span style="width:44.4%"></span><i style="left:44.4%"></i>
+</div>
+<small>30% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Triple-A experience</span><strong>68th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Triple-A experience 68 MLB percentile">
+<span style="width:67.5%"></span><i style="left:67.5%"></i>
+</div>
+<small>15% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Parent-club need</span><strong>79th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Parent-club need 79 MLB percentile">
+<span style="width:78.6%"></span><i style="left:78.6%"></i>
+</div>
+<small>Third base · 20% of score</small>
+</div>
+</div>
+<footer>
+Yohandy Morales pairs a 66.5 performance score with a 78.6 parent-club need score at Third base.
+</footer>
+</article>
+<article class="callup-card">
+<header>
+<span class="eyebrow">Call-Up Radar #8</span><strong>62.1</strong>
+</header>
+<h3 class="anchored">
+Kody Huff
+</h3>
+<p>
+Columbus Clippers → Cleveland Guardians · age 25
+</p>
+<div class="callup-card__components">
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Triple-A production</span><strong>78th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Triple-A production 78 MLB percentile">
+<span style="width:78.5%"></span><i style="left:78.5%"></i>
+</div>
+<small>35% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Age at level</span><strong>33rd</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Age at level 33 MLB percentile">
+<span style="width:33.3%"></span><i style="left:33.3%"></i>
+</div>
+<small>30% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Triple-A experience</span><strong>49th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Triple-A experience 49 MLB percentile">
+<span style="width:49.2%"></span><i style="left:49.2%"></i>
+</div>
+<small>15% of score</small>
+</div>
+<div class="percentile-ruler">
+<div class="percentile-ruler__label">
+<span>Parent-club need</span><strong>86th</strong>
+</div>
+<div class="percentile-ruler__track" role="img" aria-label="Parent-club need 86 MLB percentile">
+<span style="width:86.2%"></span><i style="left:86.2%"></i>
+</div>
+<small>Catcher · 20% of score</small>
+</div>
+</div>
+<footer>
+Kody Huff pairs a 78.5 performance score with a 86.2 parent-club need score at Catcher.
+</footer>
+</article>
+</div>
+<section class="dashboard-block">
+<div class="section-heading section-heading--tight">
+<span class="eyebrow">Complete readiness board</span>
+<h2 class="anchored">
+Every component remains visible
+</h2>
+<p>
+Players older than 28 are excluded from the public radar. Pitchers are mapped to starting or relief need from their Triple-A start share; hitters are mapped by listed position.
+</p>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Role
+</th>
+<th>
+Age
+</th>
+<th>
+Triple-A club
+</th>
+<th>
+Parent club
+</th>
+<th>
+Need
+</th>
+<th>
+Production
+</th>
+<th>
+Age
+</th>
+<th>
+Experience
+</th>
+<th>
+MLB need
+</th>
+<th>
+Radar
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
 </td>
 <td>
 Héctor Rodríguez
+</td>
+<td>
+Hitter
 </td>
 <td>
 22
@@ -1174,45 +1948,188 @@ Héctor Rodríguez
 Louisville Bats
 </td>
 <td>
-RF
+Cincinnati Reds
 </td>
 <td>
-428
+OF
 </td>
 <td>
-0.272
+68.5
 </td>
 <td>
-0.348
+66.7
 </td>
 <td>
-0.522
+99.2
 </td>
 <td>
-0.870
+89.7
+</td>
+<td>
+76.8
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Max Clark
+</td>
+<td>
+Hitter
+</td>
+<td>
+21
+</td>
+<td>
+Toledo Mud Hens
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+OF
+</td>
+<td>
+59.5
+</td>
+<td>
+77.8
+</td>
+<td>
+80.8
+</td>
+<td>
+86.2
+</td>
+<td>
+73.5
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Zac Veen
+</td>
+<td>
+Hitter
 </td>
 <td>
 24
 </td>
 <td>
-6
+Albuquerque Isotopes
 </td>
 <td>
-9.8%
+Colorado Rockies
 </td>
 <td>
-19.9%
+OF
 </td>
 <td>
-68.5
+78.9
+</td>
+<td>
+44.4
+</td>
+<td>
+80.8
+</td>
+<td>
+79.3
+</td>
+<td>
+68.9
 </td>
 </tr>
 <tr>
 <td>
-29
+4
+</td>
+<td>
+Luis Lara
+</td>
+<td>
+Hitter
+</td>
+<td>
+21
+</td>
+<td>
+Nashville Sounds
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+OF
+</td>
+<td>
+81.4
+</td>
+<td>
+77.8
+</td>
+<td>
+44.2
+</td>
+<td>
+44.8
+</td>
+<td>
+67.4
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Nestor German
+</td>
+<td>
+Pitcher
+</td>
+<td>
+24
+</td>
+<td>
+Norfolk Tides
+</td>
+<td>
+Baltimore Orioles
+</td>
+<td>
+SP
+</td>
+<td>
+86.9
+</td>
+<td>
+44.4
+</td>
+<td>
+95.2
+</td>
+<td>
+41.4
+</td>
+<td>
+66.3
+</td>
+</tr>
+<tr>
+<td>
+6
 </td>
 <td>
 Joshua Báez
+</td>
+<td>
+Hitter
 </td>
 <td>
 23
@@ -1221,92 +2138,36 @@ Joshua Báez
 Memphis Redbirds
 </td>
 <td>
-CF
+St.&nbsp;Louis Cardinals
 </td>
 <td>
-405
-</td>
-<td>
-0.244
-</td>
-<td>
-0.316
-</td>
-<td>
-0.567
-</td>
-<td>
-0.883
-</td>
-<td>
-31
-</td>
-<td>
-15
-</td>
-<td>
-7.7%
-</td>
-<td>
-30.4%
+OF
 </td>
 <td>
 68.2
 </td>
-</tr>
-<tr>
 <td>
-31
+55.6
 </td>
 <td>
-Max Anderson
+88.3
 </td>
 <td>
-24
+55.2
 </td>
 <td>
-Toledo Mud Hens
-</td>
-<td>
-2B
-</td>
-<td>
-282
-</td>
-<td>
-0.308
-</td>
-<td>
-0.376
-</td>
-<td>
-0.496
-</td>
-<td>
-0.872
-</td>
-<td>
-9
-</td>
-<td>
-3
-</td>
-<td>
-8.9%
-</td>
-<td>
-12.8%
-</td>
-<td>
-66.9
+64.8
 </td>
 </tr>
 <tr>
 <td>
-32
+7
 </td>
 <td>
 Yohandy Morales
+</td>
+<td>
+Hitter
 </td>
 <td>
 24
@@ -1315,92 +2176,188 @@ Yohandy Morales
 Rochester Red Wings
 </td>
 <td>
+Washington Nationals
+</td>
+<td>
 3B
-</td>
-<td>
-363
-</td>
-<td>
-0.294
-</td>
-<td>
-0.369
-</td>
-<td>
-0.539
-</td>
-<td>
-0.908
-</td>
-<td>
-21
-</td>
-<td>
-4
-</td>
-<td>
-9.4%
-</td>
-<td>
-25.3%
 </td>
 <td>
 66.5
 </td>
-</tr>
-<tr>
 <td>
-34
+44.4
 </td>
 <td>
-LuJames Groover
+67.5
 </td>
 <td>
-24
+78.6
 </td>
 <td>
-Reno Aces
-</td>
-<td>
-3B
-</td>
-<td>
-325
-</td>
-<td>
-0.327
-</td>
-<td>
-0.418
-</td>
-<td>
-0.487
-</td>
-<td>
-0.905
-</td>
-<td>
-6
-</td>
-<td>
-3
-</td>
-<td>
-13.5%
-</td>
-<td>
-16.0%
-</td>
-<td>
-65.8
+62.4
 </td>
 </tr>
 <tr>
 <td>
-38
+8
+</td>
+<td>
+Kody Huff
+</td>
+<td>
+Hitter
+</td>
+<td>
+25
+</td>
+<td>
+Columbus Clippers
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+C
+</td>
+<td>
+78.5
+</td>
+<td>
+33.3
+</td>
+<td>
+49.2
+</td>
+<td>
+86.2
+</td>
+<td>
+62.1
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Charlie Condon
+</td>
+<td>
+Hitter
+</td>
+<td>
+23
+</td>
+<td>
+Albuquerque Isotopes
+</td>
+<td>
+Colorado Rockies
+</td>
+<td>
+1B
+</td>
+<td>
+74.5
+</td>
+<td>
+55.6
+</td>
+<td>
+72.5
+</td>
+<td>
+41.4
+</td>
+<td>
+61.9
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Nelson Rada
+</td>
+<td>
+Hitter
+</td>
+<td>
+20
+</td>
+<td>
+Salt Lake Bees
+</td>
+<td>
+Los Angeles Angels
+</td>
+<td>
+OF
+</td>
+<td>
+46.6
+</td>
+<td>
+88.9
+</td>
+<td>
+80.8
+</td>
+<td>
+31.0
+</td>
+<td>
+61.3
+</td>
+</tr>
+<tr>
+<td>
+11
+</td>
+<td>
+Quinn Mathews
+</td>
+<td>
+Pitcher
+</td>
+<td>
+25
+</td>
+<td>
+Memphis Redbirds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+SP
+</td>
+<td>
+90.0
+</td>
+<td>
+33.3
+</td>
+<td>
+81.0
+</td>
+<td>
+37.9
+</td>
+<td>
+61.2
+</td>
+</tr>
+<tr>
+<td>
+12
 </td>
 <td>
 Leo Bernal
+</td>
+<td>
+Hitter
 </td>
 <td>
 22
@@ -1409,139 +2366,416 @@ Leo Bernal
 Memphis Redbirds
 </td>
 <td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
 C
-</td>
-<td>
-336
-</td>
-<td>
-0.278
-</td>
-<td>
-0.360
-</td>
-<td>
-0.478
-</td>
-<td>
-0.838
-</td>
-<td>
-13
-</td>
-<td>
-7
-</td>
-<td>
-11.6%
-</td>
-<td>
-19.9%
 </td>
 <td>
 63.0
 </td>
-</tr>
-<tr>
 <td>
-42
+66.7
 </td>
 <td>
-Abimelec Ortiz
+44.2
 </td>
 <td>
-24
+55.2
 </td>
 <td>
-Rochester Red Wings
-</td>
-<td>
-1B
-</td>
-<td>
-346
-</td>
-<td>
-0.237
-</td>
-<td>
-0.344
-</td>
-<td>
-0.488
-</td>
-<td>
-0.832
-</td>
-<td>
-17
-</td>
-<td>
-0
-</td>
-<td>
-11.8%
-</td>
-<td>
-18.8%
-</td>
-<td>
-60.0
+59.7
 </td>
 </tr>
 <tr>
 <td>
-45
+13
 </td>
 <td>
-Max Clark
+Christian Moore
 </td>
 <td>
-21
+Hitter
+</td>
+<td>
+23
+</td>
+<td>
+Salt Lake Bees
+</td>
+<td>
+Los Angeles Angels
+</td>
+<td>
+2B
+</td>
+<td>
+79.6
+</td>
+<td>
+55.6
+</td>
+<td>
+11.7
+</td>
+<td>
+65.5
+</td>
+<td>
+59.4
+</td>
+</tr>
+<tr>
+<td>
+14
+</td>
+<td>
+Jim Jarvis
+</td>
+<td>
+Hitter
+</td>
+<td>
+25
+</td>
+<td>
+Gwinnett Stripers
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+SS
+</td>
+<td>
+70.3
+</td>
+<td>
+33.3
+</td>
+<td>
+35.8
+</td>
+<td>
+96.3
+</td>
+<td>
+59.2
+</td>
+</tr>
+<tr>
+<td>
+15
+</td>
+<td>
+Jace Jung
+</td>
+<td>
+Hitter
+</td>
+<td>
+25
 </td>
 <td>
 Toledo Mud Hens
 </td>
 <td>
-CF
+Detroit Tigers
 </td>
 <td>
-408
+1B
 </td>
 <td>
-0.274
+54.0
 </td>
 <td>
-0.365
+33.3
 </td>
 <td>
-0.424
+80.8
 </td>
 <td>
-0.789
+89.7
 </td>
 <td>
-10
-</td>
-<td>
-21
-</td>
-<td>
-12.0%
-</td>
-<td>
-15.2%
-</td>
-<td>
-59.5
+59.0
 </td>
 </tr>
 <tr>
 <td>
-48
+16
 </td>
 <td>
-Kemp Alderman
+James Tibbs III
+</td>
+<td>
+Hitter
+</td>
+<td>
+23
+</td>
+<td>
+Oklahoma City Comets
+</td>
+<td>
+Los Angeles Dodgers
+</td>
+<td>
+1B
+</td>
+<td>
+76.9
+</td>
+<td>
+55.6
+</td>
+<td>
+96.7
+</td>
+<td>
+3.4
+</td>
+<td>
+58.8
+</td>
+</tr>
+<tr>
+<td>
+17
+</td>
+<td>
+Cooper Ingle
+</td>
+<td>
+Hitter
+</td>
+<td>
+24
+</td>
+<td>
+Columbus Clippers
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+C
+</td>
+<td>
+80.2
+</td>
+<td>
+44.4
+</td>
+<td>
+0.0
+</td>
+<td>
+86.2
+</td>
+<td>
+58.6
+</td>
+</tr>
+<tr>
+<td>
+18
+</td>
+<td>
+Nate Furman
+</td>
+<td>
+Hitter
+</td>
+<td>
+24
+</td>
+<td>
+Sacramento River Cats
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+2B
+</td>
+<td>
+52.3
+</td>
+<td>
+44.4
+</td>
+<td>
+93.3
+</td>
+<td>
+62.1
+</td>
+<td>
+58.0
+</td>
+</tr>
+<tr>
+<td>
+19
+</td>
+<td>
+Noah Miller
+</td>
+<td>
+Hitter
+</td>
+<td>
+23
+</td>
+<td>
+Oklahoma City Comets
+</td>
+<td>
+Los Angeles Dodgers
+</td>
+<td>
+SS
+</td>
+<td>
+31.8
+</td>
+<td>
+55.6
+</td>
+<td>
+96.7
+</td>
+<td>
+77.8
+</td>
+<td>
+57.9
+</td>
+</tr>
+<tr>
+<td>
+20
+</td>
+<td>
+Kaelen Culpepper
+</td>
+<td>
+Hitter
+</td>
+<td>
+23
+</td>
+<td>
+St.&nbsp;Paul Saints
+</td>
+<td>
+Minnesota Twins
+</td>
+<td>
+SS
+</td>
+<td>
+75.4
+</td>
+<td>
+55.6
+</td>
+<td>
+6.7
+</td>
+<td>
+66.7
+</td>
+<td>
+57.4
+</td>
+</tr>
+<tr>
+<td>
+21
+</td>
+<td>
+Zach Ehrhard
+</td>
+<td>
+Hitter
+</td>
+<td>
+23
+</td>
+<td>
+Oklahoma City Comets
+</td>
+<td>
+Los Angeles Dodgers
+</td>
+<td>
+OF
+</td>
+<td>
+72.1
+</td>
+<td>
+55.6
+</td>
+<td>
+88.3
+</td>
+<td>
+10.3
+</td>
+<td>
+57.2
+</td>
+</tr>
+<tr>
+<td>
+22
+</td>
+<td>
+Brendan Beck
+</td>
+<td>
+Pitcher
+</td>
+<td>
+27
+</td>
+<td>
+Scranton/Wilkes-Barre RailRiders
+</td>
+<td>
+New York Yankees
+</td>
+<td>
+SP
+</td>
+<td>
+98.7
+</td>
+<td>
+11.1
+</td>
+<td>
+100.0
+</td>
+<td>
+20.7
+</td>
+<td>
+57.0
+</td>
+</tr>
+<tr>
+<td>
+23
+</td>
+<td>
+Deyvison De Los Santos
+</td>
+<td>
+Hitter
 </td>
 <td>
 23
@@ -1550,563 +2784,101 @@ Kemp Alderman
 Jacksonville Jumbo Shrimp
 </td>
 <td>
-RF
+Miami Marlins
 </td>
 <td>
-279
+1B
 </td>
 <td>
-0.289
+47.8
 </td>
 <td>
-0.366
+55.6
 </td>
 <td>
-0.498
+44.2
 </td>
 <td>
-0.864
+82.8
 </td>
 <td>
-14
-</td>
-<td>
-6
-</td>
-<td>
-8.2%
-</td>
-<td>
-30.8%
-</td>
-<td>
-58.1
+56.6
 </td>
 </tr>
 <tr>
-<td>
-54
-</td>
-<td>
-Charles McAdoo
-</td>
 <td>
 24
 </td>
 <td>
-Buffalo Bisons
+Adael Amador
 </td>
 <td>
-3B
-</td>
-<td>
-336
-</td>
-<td>
-0.255
-</td>
-<td>
-0.360
-</td>
-<td>
-0.441
-</td>
-<td>
-0.801
-</td>
-<td>
-12
-</td>
-<td>
-10
-</td>
-<td>
-13.1%
-</td>
-<td>
-22.9%
-</td>
-<td>
-55.9
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section class="section-heading">
-<span class="eyebrow">Young pitcher radar</span>
-<h2 class="anchored">
-Run prevention with bat-missing context
-</h2>
-<p>
-ERA and WHIP share the page with K-BB rate so one result column never carries the whole evaluation.
-</p>
-</section>
-<div class="player-context-grid">
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Age 24 pitcher watch</span><span class="signal-score" aria-label="Signal score 86.9">86.9</span>
-</div>
-<h3 class="anchored">
-Nestor German
-</h3>
-<p class="player-signal__team">
-Norfolk Tides
-</p>
-<p>
-<strong>3.91 ERA | 1.25 WHIP</strong>
-</p>
-<p class="muted">
-96.2 IP | 17.0% K-BB
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Age 24 pitcher watch</span><span class="signal-score" aria-label="Signal score 59.4">59.4</span>
-</div>
-<h3 class="anchored">
-Jack Wenninger
-</h3>
-<p class="player-signal__team">
-Syracuse Mets
-</p>
-<p>
-<strong>3.59 ERA | 1.39 WHIP</strong>
-</p>
-<p class="muted">
-82.2 IP | 9.1% K-BB
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Age 24 pitcher watch</span><span class="signal-score" aria-label="Signal score 58.1">58.1</span>
-</div>
-<h3 class="anchored">
-Josh Stephan
-</h3>
-<p class="player-signal__team">
-Round Rock Express
-</p>
-<p>
-<strong>5.34 ERA | 1.41 WHIP</strong>
-</p>
-<p class="muted">
-96.0 IP | 15.8% K-BB
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Age 23 pitcher watch</span><span class="signal-score" aria-label="Signal score 57.6">57.6</span>
-</div>
-<h3 class="anchored">
-Christian Romero
-</h3>
-<p class="player-signal__team">
-Oklahoma City Comets
-</p>
-<p>
-<strong>4.23 ERA | 1.35 WHIP</strong>
-</p>
-<p class="muted">
-93.2 IP | 10.2% K-BB
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Age 24 pitcher watch</span><span class="signal-score" aria-label="Signal score 47.9">47.9</span>
-</div>
-<h3 class="anchored">
-George Klassen
-</h3>
-<p class="player-signal__team">
-Salt Lake Bees
-</p>
-<p>
-<strong>4.13 ERA | 1.44 WHIP</strong>
-</p>
-<p class="muted">
-85.0 IP | 9.7% K-BB
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Age 24 pitcher watch</span><span class="signal-score" aria-label="Signal score 38.5">38.5</span>
-</div>
-<h3 class="anchored">
-Kade Morris
-</h3>
-<p class="player-signal__team">
-Las Vegas Aviators
-</p>
-<p>
-<strong>4.52 ERA | 1.42 WHIP</strong>
-</p>
-<p class="muted">
-81.2 IP | 8.8% K-BB
-</p>
-</article>
-</div>
-<section class="dashboard-block">
-<div class="section-heading section-heading--tight">
-<span class="eyebrow">Pitcher board</span>
-<h2 class="anchored">
-Age-24-and-under Triple-A standouts
-</h2>
-</div>
-<div class="table-scroll">
-<table class="data-table">
-<thead>
-<tr>
-<th>
-Overall
-</th>
-<th>
-Pitcher
-</th>
-<th>
-Age
-</th>
-<th>
-Club
-</th>
-<th>
-IP
-</th>
-<th>
-ERA
-</th>
-<th>
-WHIP
-</th>
-<th>
-K%
-</th>
-<th>
-BB%
-</th>
-<th>
-K-BB%
-</th>
-<th>
-Score
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-4
-</td>
-<td>
-Nestor German
-</td>
-<td>
-24
-</td>
-<td>
-Norfolk Tides
-</td>
-<td>
-96.2
-</td>
-<td>
-3.91
-</td>
-<td>
-1.25
-</td>
-<td>
-25.4%
-</td>
-<td>
-8.4%
-</td>
-<td>
-17.0%
-</td>
-<td>
-86.9
-</td>
-</tr>
-<tr>
-<td>
-12
-</td>
-<td>
-Jack Wenninger
-</td>
-<td>
-24
-</td>
-<td>
-Syracuse Mets
-</td>
-<td>
-82.2
-</td>
-<td>
-3.59
-</td>
-<td>
-1.39
-</td>
-<td>
-21.9%
-</td>
-<td>
-12.7%
-</td>
-<td>
-9.1%
-</td>
-<td>
-59.4
-</td>
-</tr>
-<tr>
-<td>
-13
-</td>
-<td>
-Josh Stephan
-</td>
-<td>
-24
-</td>
-<td>
-Round Rock Express
-</td>
-<td>
-96.0
-</td>
-<td>
-5.34
-</td>
-<td>
-1.41
-</td>
-<td>
-22.4%
-</td>
-<td>
-6.7%
-</td>
-<td>
-15.8%
-</td>
-<td>
-58.1
-</td>
-</tr>
-<tr>
-<td>
-14
-</td>
-<td>
-Christian Romero
+Hitter
 </td>
 <td>
 23
 </td>
 <td>
-Oklahoma City Comets
+Albuquerque Isotopes
 </td>
 <td>
-93.2
+Colorado Rockies
 </td>
 <td>
-4.23
+2B
 </td>
 <td>
-1.35
+46.7
 </td>
 <td>
-17.8%
+55.6
 </td>
 <td>
-7.5%
+28.3
 </td>
 <td>
-10.2%
+96.6
 </td>
 <td>
-57.6
-</td>
-</tr>
-<tr>
-<td>
-16
-</td>
-<td>
-George Klassen
-</td>
-<td>
-24
-</td>
-<td>
-Salt Lake Bees
-</td>
-<td>
-85.0
-</td>
-<td>
-4.13
-</td>
-<td>
-1.44
-</td>
-<td>
-22.2%
-</td>
-<td>
-12.4%
-</td>
-<td>
-9.7%
-</td>
-<td>
-47.9
+56.6
 </td>
 </tr>
 <tr>
 <td>
-19
+25
 </td>
 <td>
-Kade Morris
+Ryan Clifford
 </td>
 <td>
-24
+Hitter
 </td>
 <td>
-Las Vegas Aviators
+22
 </td>
 <td>
-81.2
+Syracuse Mets
 </td>
 <td>
-4.52
+New York Mets
 </td>
 <td>
-1.42
+1B
 </td>
 <td>
-17.3%
+23.0
 </td>
 <td>
-8.5%
+66.7
 </td>
 <td>
-8.8%
+94.2
 </td>
 <td>
-38.5
-</td>
-</tr>
-<tr>
-<td>
-24
+69.0
 </td>
 <td>
-Andry Lara
-</td>
-<td>
-23
-</td>
-<td>
-Rochester Red Wings
-</td>
-<td>
-85.1
-</td>
-<td>
-5.80
-</td>
-<td>
-1.43
-</td>
-<td>
-18.6%
-</td>
-<td>
-8.5%
-</td>
-<td>
-10.1%
-</td>
-<td>
-35.2
-</td>
-</tr>
-<tr>
-<td>
-29
-</td>
-<td>
-Brody Hopkins
-</td>
-<td>
-24
-</td>
-<td>
-Durham Bulls
-</td>
-<td>
-81.2
-</td>
-<td>
-4.63
-</td>
-<td>
-1.60
-</td>
-<td>
-26.7%
-</td>
-<td>
-20.8%
-</td>
-<td>
-5.9%
-</td>
-<td>
-20.5
-</td>
-</tr>
-<tr>
-<td>
-31
-</td>
-<td>
-Joey Estes
-</td>
-<td>
-24
-</td>
-<td>
-Las Vegas Aviators
-</td>
-<td>
-82.0
-</td>
-<td>
-6.59
-</td>
-<td>
-1.60
-</td>
-<td>
-16.8%
-</td>
-<td>
-11.4%
-</td>
-<td>
-5.4%
-</td>
-<td>
-6.8
+56.0
 </td>
 </tr>
 </tbody>
@@ -2114,255 +2886,251 @@ Las Vegas Aviators
 </div>
 </section>
 <div class="method-callout">
-<strong>Prospect boundary:</strong> this is a performance watch, not an industry prospect list. The current BaseballR Triple-A season feed supports BB%, K%, HR, OPS, ERA, WHIP, and K-BB%; pitch-level chase, zone-contact, exit velocity, launch angle, scouting grades, defense, and injury context must be acquired before the deeper BBE and discipline profile is published.
+<strong>Model boundary:</strong> Call-Up Radar is not yet trained on historical promotions. Options, 40-man status, injuries, service-time strategy, scouting grades, defensive fit, and multiple seasons of minor-league development will be added before it can become a calibrated predictor.
 </div>
 
 
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
     }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
     }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/thesabrhood\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/thesabrhood\.com");
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -2370,161 +3138,185 @@ Las Vegas Aviators
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

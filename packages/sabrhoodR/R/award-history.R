@@ -14,11 +14,13 @@
 #' @param award Award name returned by [build_award_race_boards()].
 #' @param top_n Number of current leaders traced across the season.
 #' @param opening_date Opening date used to scale qualification thresholds.
+#' @param mvp_weights Optional modern-era MVP scoring weights.
 #' @return A list containing full `history`, current-top-player `display`,
 #'   detected `events`, and current `leaders`.
 #' @export
 build_award_race_history <- function(checkpoints, prior_hitters = NULL, prior_pitchers = NULL,
-                                     award = "MVP", top_n = 8L, opening_date = NULL) {
+                                     award = "MVP", top_n = 8L, opening_date = NULL,
+                                     mvp_weights = NULL) {
   if (!is.list(checkpoints) || !length(checkpoints)) stop("`checkpoints` must be a non-empty list.", call. = FALSE)
   dates <- as.Date(vapply(checkpoints, function(item) as.character(item$date), character(1)))
   if (anyNA(dates)) stop("Every checkpoint must contain a valid `date`.", call. = FALSE)
@@ -38,7 +40,8 @@ build_award_race_history <- function(checkpoints, prior_hitters = NULL, prior_pi
     minimum_outs <- max(24L, min(150L, round(1.85 * day_index)))
     board <- build_award_race_boards(
       item$hitters, item$pitchers, prior_hitters, prior_pitchers,
-      minimum_pa = minimum_pa, minimum_outs = minimum_outs
+      minimum_pa = minimum_pa, minimum_outs = minimum_outs,
+      mvp_weights = mvp_weights
     )
     board <- board[board$award == award, , drop = FALSE]
     if (!nrow(board)) return(NULL)

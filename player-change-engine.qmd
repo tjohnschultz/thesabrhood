@@ -1,6 +1,6 @@
 ---
 title: "Player Trend Engine"
-description: "MLB player change detection with recent-versus-prior z-scores and full-season league percentiles."
+description: "MLB player change detection with recent-versus-prior change indexes and full-season league percentiles."
 ---
 
 ::: {.page-intro .change-engine-intro}

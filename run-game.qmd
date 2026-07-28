@@ -1,0 +1,14 @@
+---
+title: "Run Game"
+description: "Adjusted MLB pitcher hold, catcher throwing, runner value, count windows, framing, and ABS challenge leaderboards."
+---
+
+::: {.page-intro}
+<span class="eyebrow">Between the Bases</span>
+
+# Who locks down the basepaths?
+
+The Run Game Engine assigns credit to each base running event, to curate a summary of how each player responds to, or controls, the running game.
+:::
+
+{{< include includes/run-game.html >}}

@@ -22,17 +22,24 @@ pitch_mix <- read_product("pitch-usage-change-board.csv")
 teams <- read_product("team-intelligence-summary.csv")
 league_pitch_usage <- read_product("rolling-league-pitch-usage.csv")
 league_production <- read_product("rolling-league-production.csv")
+league_pitch_quality <- read_product("rolling-league-pitch-quality.csv")
+league_batted_ball <- read_product("rolling-league-batted-ball.csv")
+league_workload <- read_product("rolling-league-workload.csv")
 award_races <- read_product("award-race-board.csv")
 award_history <- read_product("award-race-display.csv")
+mvp_era_profiles <- read_product("mvp-era-stat-profiles.csv")
 positional_war <- read_product("team-positional-war.csv")
 discipline <- read_product("hitter-discipline-profiles.csv")
 arsenal_spotlights <- read_product("arsenal-spotlights.csv")
 pull_spray <- read_product("pull-rate-leader-batted-balls.csv")
+official_fielding <- read_product("official-fielding-run-value.csv")
+gold_glove_watch <- read_product("gold-glove-watch.csv")
+advancement_fielders <- read_product("runner-advancement-fielding-ratings.csv")
 
 brand_navy <- "#0C2340"
 brand_red <- "#BD3039"
 brand_steel <- "#617487"
-brand_cream <- "#F5F1E8"
+brand_cream <- "#EEF6FB"
 brand_blue <- "#4E7696"
 
 sabr_theme <- function() {
@@ -45,7 +52,7 @@ sabr_theme <- function() {
       axis.title = element_text(color = brand_steel, size = 12),
       axis.text = element_text(color = brand_navy, size = 11),
       panel.grid.minor = element_blank(),
-      panel.grid.major = element_line(color = "#D9D3C7", linewidth = 0.45),
+      panel.grid.major = element_line(color = "#CFDFEA", linewidth = 0.45),
       plot.caption = element_text(color = brand_steel, size = 9.5, hjust = 0, margin = margin(t = 22)),
       plot.tag = element_text(color = brand_red, face = "bold", size = 10, hjust = 1),
       plot.tag.position = c(0.98, 0.985),
@@ -152,8 +159,8 @@ team_quadrant_plot <- function() {
     scale_color_gradient(low = brand_blue, high = brand_red) +
     scale_size_continuous(range = c(3, 8)) +
     labs(title = "Which Teams Have Separated From the Pack?",
-      subtitle = "Offensive production and run prevention on shared season scales",
-      x = "Team estimated wOBA (more offense to the right)", y = "Opponent estimated wOBA (better prevention toward the top)",
+      subtitle = "Run generation and pitching performance on shared season scales",
+      x = "Team estimated wOBA (more offense to the right)", y = "Opponent estimated wOBA (better pitching toward the top)",
       color = "Team index", size = "Team index",
       caption = "THE SABRHOOD  |  Crosshairs represent MLB means  |  Labels highlight the largest two-axis outliers") +
     sabr_theme() +
@@ -242,12 +249,16 @@ award_history_plot <- function(league, file_name) {
   if (!nrow(data)) stop("No award-history rows for ", league, " MVP", call. = FALSE)
   data$checkpoint_date <- as.Date(data$checkpoint_date)
   data$race_rating <- as.numeric(data$race_rating)
+  data$award_score <- as.numeric(data$award_score)
   data$race_rank <- as.numeric(data$race_rank)
   data$is_current_leader <- as.logical(data$is_current_leader)
+  checkpoint_leader <- ave(data$award_score, data$checkpoint_date, FUN = max, na.rm = TRUE)
+  data$gap_to_leader <- checkpoint_leader - data$award_score
+  data$race_index <- pmax(0, 100 - 2.5 * data$gap_to_leader)
   endpoint_date <- max(data$checkpoint_date)
   endpoints <- data[data$checkpoint_date == endpoint_date, , drop = FALSE]
   endpoints <- endpoints[order(endpoints$race_rank), , drop = FALSE]
-  endpoints$label_y <- endpoints$race_rating
+  endpoints$label_y <- endpoints$race_index
   if (nrow(endpoints) > 1L) {
     for (index in 2:nrow(endpoints)) {
       endpoints$label_y[[index]] <- min(endpoints$label_y[[index]], endpoints$label_y[[index - 1L]] - 1.15)
@@ -259,29 +270,335 @@ award_history_plot <- function(league, file_name) {
   data$player_name <- factor(data$player_name, levels = players)
   data$leader_weight <- ifelse(data$is_current_leader, "Current leader", "Challenger")
   leader_changes <- data[data$race_rank == 1 & !duplicated(data$checkpoint_date), , drop = FALSE]
-  plot <- ggplot(data, aes(x = checkpoint_date, y = race_rating, group = player_name, color = player_name)) +
+  plot <- ggplot(data, aes(x = checkpoint_date, y = race_index, group = player_name, color = player_name)) +
     geom_line(aes(linewidth = leader_weight), alpha = 0.94) +
     geom_point(data = endpoints, size = 3.2) +
     geom_point(data = leader_changes, shape = 21, fill = brand_cream, stroke = 1.15, size = 3.4) +
-    geom_segment(data = endpoints, aes(x = endpoint_date, xend = endpoint_date + 2.5, y = race_rating, yend = label_y),
+    geom_segment(data = endpoints, aes(x = endpoint_date, xend = endpoint_date + 2.5, y = race_index, yend = label_y),
       linewidth = 0.55, show.legend = FALSE) +
-    geom_text(data = endpoints, aes(x = endpoint_date + 3.2, y = label_y, label = paste0(player_name, "  ", sprintf("%.1f", race_rating))),
+    geom_text(data = endpoints, aes(x = endpoint_date + 3.2, y = label_y, label = paste0(player_name, "  ", sprintf("%.1f", race_index))),
       hjust = 0, fontface = "bold", size = 3.45, show.legend = FALSE) +
     scale_color_manual(values = colors, drop = FALSE) +
     scale_linewidth_manual(values = c("Current leader" = 1.8, "Challenger" = 0.9), guide = "none") +
     scale_x_date(date_breaks = "1 month", date_labels = "%b", expand = expansion(mult = c(0.02, 0.19))) +
-    scale_y_continuous(limits = c(max(0, floor(min(endpoints$label_y, data$race_rating, na.rm = TRUE) - 1)), 100),
+    scale_y_continuous(limits = c(max(0, floor(min(endpoints$label_y, data$race_index, na.rm = TRUE) - 2)), 100),
       breaks = scales::breaks_pretty(n = 7), expand = expansion(mult = c(0.01, 0.03))) +
     coord_cartesian(clip = "off") +
     labs(
       title = paste(league, "MVP Race, Week by Week"),
-      subtitle = "The current top eight traced through cumulative, date-bounded FanGraphs checkpoints",
-      x = NULL, y = "Season-to-date Race Rating", color = NULL,
-      caption = "THE SABRHOOD  |  Weekly cumulative checkpoints  |  Open circles mark the leader at each checkpoint  |  No future statistics enter an earlier rating"
+      subtitle = "Leader = 100 at every checkpoint; distance below 100 shows the size of the current statistical gap",
+      x = NULL, y = "Relative MVP race index", color = NULL,
+      caption = "THE SABRHOOD  |  Modern-era MVP profile  |  Weekly cumulative checkpoints  |  No future statistics enter an earlier rating"
     ) +
     sabr_theme() +
     theme(legend.position = "none", panel.grid.minor = element_blank(), plot.margin = margin(34, 180, 28, 42))
   save_plot(plot, file_name, width = 16, height = 10)
+}
+
+top_defender_by_position <- function(data, metric, top_n = 1L) {
+  positions <- c("C", "1B", "2B", "3B", "SS", "LF", "CF", "RF")
+  rows <- lapply(positions, function(position) {
+    candidates <- data[
+      data$primary_position == position &
+        is.finite(as.numeric(data[[metric]])),
+      ,
+      drop = FALSE
+    ]
+    candidates <- candidates[
+      order(
+        as.numeric(candidates[[metric]]),
+        as.numeric(candidates$fielding_runs),
+        decreasing = TRUE
+      ),
+      ,
+      drop = FALSE
+    ]
+    utils::head(candidates, top_n)
+  })
+  rows <- rows[vapply(rows, nrow, integer(1)) > 0L]
+  if (!length(rows)) return(data.frame())
+  output <- do.call(rbind, rows)
+  output$position_order <- match(output$primary_position, positions)
+  output
+}
+
+defensive_alignment_plot <- function(data, file_name = "all-mlb-defense-team.png") {
+  qualified <- data[
+    is.finite(as.numeric(data$innings)) &
+      as.numeric(data$innings) >= 150,
+    ,
+    drop = FALSE
+  ]
+  selected <- top_defender_by_position(qualified, "gold_glove_score", 1L)
+  coordinates <- data.frame(
+    primary_position = c("C", "1B", "2B", "3B", "SS", "LF", "CF", "RF"),
+    x = c(50, 76, 62, 24, 38, 20, 50, 80),
+    y = c(10, 38, 59, 38, 59, 81, 91, 81),
+    stringsAsFactors = FALSE
+  )
+  selected <- merge(selected, coordinates, by = "primary_position", all.x = TRUE)
+  selected$label <- paste0(
+    selected$primary_position, "\n",
+    selected$player_name, "\n",
+    selected$team, " · ", selected$league, "\n",
+    sprintf("%+.1f FRV", as.numeric(selected$fielding_runs))
+  )
+  infield <- data.frame(
+    x = c(50, 80, 50, 20, 50),
+    y = c(18, 48, 74, 48, 18)
+  )
+  plot <- ggplot() +
+    annotate("rect", xmin = 0, xmax = 100, ymin = 0, ymax = 100, fill = "#DCE9DF") +
+    annotate(
+      "polygon",
+      x = infield$x, y = infield$y,
+      fill = "#D7B98E", color = "#FFFFFF", linewidth = 1.3
+    ) +
+    annotate("segment", x = 50, xend = 6, y = 18, yend = 97, color = "#FFFFFF", linewidth = 1) +
+    annotate("segment", x = 50, xend = 94, y = 18, yend = 97, color = "#FFFFFF", linewidth = 1) +
+    annotate("path", x = c(6, 25, 50, 75, 94), y = c(97, 102, 104, 102, 97), color = brand_navy, linewidth = 1.2) +
+    geom_label(
+      data = selected,
+      aes(x = x, y = y, label = label),
+      fill = "#F8FBFD", color = brand_navy, linewidth = 0.35,
+      label.padding = grid::unit(0.33, "lines"), lineheight = 0.94,
+      fontface = "bold", size = 3.25
+    ) +
+    coord_fixed(xlim = c(0, 100), ylim = c(0, 105), clip = "off") +
+    labs(
+      title = "The All-MLB Defense Team",
+      subtitle = "One current FRV-based selection at each tracked position",
+      caption = paste(
+        "THE SABRHOOD | Official Fielding Run Value with a league-position",
+        "playing-time adjustment | Current-value team, not an award ballot"
+      )
+    ) +
+    sabr_theme() +
+    theme(
+      panel.grid = element_blank(),
+      axis.text = element_blank(),
+      axis.title = element_blank(),
+      axis.ticks = element_blank()
+    )
+  save_plot(plot, file_name, width = 14, height = 12)
+}
+
+gold_glove_rosters_plot <- function(data) {
+  selected <- data[
+    as.numeric(data$position_rank) == 1 &
+      as.numeric(data$innings) >= 150,
+    ,
+    drop = FALSE
+  ]
+  position_levels <- rev(c("C", "1B", "2B", "3B", "SS", "LF", "CF", "RF"))
+  selected$primary_position <- factor(selected$primary_position, levels = position_levels)
+  selected$label <- paste0(
+    selected$player_name, "\n", selected$team,
+    "  |  ", sprintf("%+.1f FRV", as.numeric(selected$fielding_runs))
+  )
+  plot <- ggplot(selected, aes(x = 100, y = primary_position)) +
+    geom_segment(
+      aes(x = 0, xend = 100, yend = primary_position),
+      color = "#CFDFEA", linewidth = 0.75
+    ) +
+    geom_point(color = brand_red, size = 4.2) +
+    geom_text(
+      aes(label = label), hjust = 1.04, color = brand_navy,
+      fontface = "bold", lineheight = 0.95, size = 3.5
+    ) +
+    facet_wrap(~league, nrow = 1) +
+    scale_x_continuous(limits = c(0, 105), expand = expansion(mult = 0)) +
+    labs(
+      title = "If Gold Gloves Were Chosen Today",
+      subtitle = "Separate American League and National League leaders at each tracked position",
+      x = NULL, y = NULL,
+      caption = paste(
+        "THE SABRHOOD | League-position watch score from official Fielding Run Value",
+        "| Pitcher and utility are not covered by this tracking contract"
+      )
+    ) +
+    sabr_theme() +
+    theme(
+      panel.grid = element_blank(),
+      axis.text.x = element_blank(),
+      axis.text.y = element_text(face = "bold", size = 12),
+      axis.ticks = element_blank(),
+      strip.text = element_text(color = brand_navy, face = "bold", size = 16),
+      panel.spacing = grid::unit(1.8, "lines")
+    )
+  save_plot(plot, "gold-glove-watch-rosters.png", width = 16, height = 10)
+}
+
+defensive_position_leaders_plot <- function(data) {
+  qualified <- data[
+    is.finite(as.numeric(data$innings)) &
+      as.numeric(data$innings) >= 150,
+    ,
+    drop = FALSE
+  ]
+  leaders <- top_defender_by_position(qualified, "fielding_runs", 3L)
+  leaders$label <- paste0(leaders$player_name, " · ", leaders$league)
+  leaders$label <- factor(leaders$label, levels = rev(unique(leaders$label)))
+  plot <- ggplot(leaders, aes(x = as.numeric(fielding_runs), y = label)) +
+    geom_col(fill = brand_navy, width = 0.68) +
+    geom_text(
+      aes(label = sprintf("%+.1f", as.numeric(fielding_runs))),
+      hjust = -0.12, color = brand_red, fontface = "bold", size = 3.5
+    ) +
+    facet_wrap(~primary_position, ncol = 4, scales = "free_y") +
+    scale_x_continuous(limits = c(0, 28), expand = expansion(mult = c(0, 0))) +
+    labs(
+      title = "The Best Defenders at Every Position",
+      subtitle = "Top three qualified players by official Fielding Run Value",
+      x = "Fielding Run Value", y = NULL,
+      caption = "THE SABRHOOD | Minimum 150 innings | Position assigned by most recorded outs"
+    ) +
+    sabr_theme() +
+    theme(
+      panel.grid.major.y = element_blank(),
+      axis.text.y = element_text(face = "bold", size = 8.5),
+      strip.text = element_text(color = brand_navy, face = "bold", size = 13),
+      panel.spacing.x = grid::unit(1.8, "lines")
+    )
+  save_plot(plot, "defensive-position-leaders.png", width = 16, height = 11)
+}
+
+advancement_defenders_plot <- function(data) {
+  qualified <- data[
+    is.finite(as.numeric(data$opportunities)) &
+      as.numeric(data$opportunities) >= 50 &
+      is.finite(as.numeric(data$advancement_prevention_score)),
+    ,
+    drop = FALSE
+  ]
+  official_match <- match(as.character(qualified$player_id), as.character(official_fielding$player_id))
+  qualified$throwing_run_value <- as.numeric(official_fielding$throwing_runs[official_match])
+  qualified$throwing_run_value[!is.finite(qualified$throwing_run_value)] <- 0
+  label_rank <- rank(-abs(as.numeric(qualified$advancements_prevented)) - abs(qualified$throwing_run_value), ties.method = "first")
+  qualified$label <- ifelse(label_rank <= 12L, qualified$player_name, "")
+  plot <- ggplot(
+    qualified,
+    aes(x = as.numeric(advancements_prevented), y = throwing_run_value)
+  ) +
+    geom_hline(yintercept = 0, color = brand_steel, linewidth = 0.7) +
+    geom_vline(xintercept = 0, color = brand_steel, linewidth = 0.7) +
+    geom_point(aes(size = as.numeric(opportunities)), color = brand_red, alpha = 0.72) +
+    geom_text(
+      aes(label = label),
+      color = brand_navy, fontface = "bold", size = 3.4,
+      nudge_y = 0.12, check_overlap = TRUE
+    ) +
+    scale_size_continuous(range = c(3, 9), guide = "none") +
+    labs(
+      title = "Who Stops the Extra Base?",
+      subtitle = "Runner-advancement prevention after accounting for the runner and play context",
+      x = "Advances stopped versus expectation", y = "Official throwing run value",
+      caption = "THE SABRHOOD | Minimum 50 advancement opportunities | Development estimate"
+    ) +
+    sabr_theme() +
+    theme(panel.grid.minor = element_blank())
+  save_plot(plot, "runner-advancement-defenders.png")
+}
+
+mvp_era_plot <- function() {
+  available_decades <- sort(unique(as.numeric(mvp_era_profiles$decade)))
+  comparison_pool <- setdiff(available_decades, 2020)
+  rotation_date <- max(as.Date(award_history$checkpoint_date), na.rm = TRUE)
+  comparison_decade <- comparison_pool[(as.integer(rotation_date) %% length(comparison_pool)) + 1L]
+  data <- mvp_era_profiles[mvp_era_profiles$decade %in% c(comparison_decade, 2020), , drop = FALSE]
+  labels <- c(avg = "Batting average", obp = "On-base %", slg = "Slugging", ops = "OPS",
+    h = "Hits", hr = "Home runs", rbi = "RBI", r = "Runs", sb = "Stolen bases")
+  data$metric_label <- unname(labels[as.character(data$metric)])
+  data$metric_label[is.na(data$metric_label)] <- toupper(data$metric[is.na(data$metric_label)])
+  modern <- data[data$decade == 2020, c("metric", "winner_mean_percentile"), drop = FALSE]
+  names(modern)[[2L]] <- "modern_percentile"
+  earlier <- data[data$decade == comparison_decade, c("metric", "winner_mean_percentile"), drop = FALSE]
+  names(earlier)[[2L]] <- "earlier_percentile"
+  paired <- merge(modern, earlier, by = "metric")
+  paired$metric_label <- unname(labels[paired$metric])
+  paired$change <- paired$modern_percentile - paired$earlier_percentile
+  paired$metric_label <- factor(paired$metric_label, levels = paired$metric_label[order(paired$modern_percentile)])
+  plot <- ggplot(paired, aes(y = metric_label)) +
+    geom_segment(aes(x = earlier_percentile, xend = modern_percentile, yend = metric_label),
+      color = brand_steel, linewidth = 1.2) +
+    geom_point(aes(x = earlier_percentile, color = paste0(comparison_decade, "s")), size = 5) +
+    geom_point(aes(x = modern_percentile, color = "2020s"), size = 5) +
+    scale_color_manual(values = c(`2020s` = brand_red, stats::setNames(brand_navy, paste0(comparison_decade, "s")))) +
+    scale_x_continuous(limits = c(45, 100), breaks = seq(50, 100, 10)) +
+    labs(
+      title = paste0("What Looked Like an MVP in the ", comparison_decade, "s?"),
+      subtitle = "Average league percentile of each season's MVP winner, compared with 2020s winners",
+      x = "Winner's average league percentile", y = NULL, color = NULL,
+      caption = "THE SABRHOOD  |  Lahman MVP and batting records  |  WAR is a separate 35% modern-model anchor because Lahman does not supply season WAR"
+    ) +
+    sabr_theme() +
+    theme(legend.position = "top", panel.grid.major.y = element_blank(), axis.text.y = element_text(face = "bold"))
+  save_plot(plot, "mvp-era-rotation.png", width = 16, height = 9)
+}
+
+league_pitch_quality_plot <- function() {
+  data <- league_pitch_quality
+  data$date <- as.Date(data$date)
+  latest <- data[data$date == max(data$date), , drop = FALSE]
+  pitch_types <- utils::head(latest$pitch_type[order(-as.numeric(latest$pitches))], 6L)
+  data <- data[data$pitch_type %in% pitch_types & data$date >= min(data$date) + 13, , drop = FALSE]
+  labels <- latest$pitch_name[match(pitch_types, latest$pitch_type)]
+  data$pitch_name <- factor(data$pitch_name, levels = labels)
+  plot <- ggplot(data, aes(x = date, y = average_velocity, color = pitch_name)) +
+    geom_line(linewidth = 1.2, show.legend = FALSE) +
+    facet_wrap(~ pitch_name, ncol = 2, scales = "free_y") +
+    scale_color_manual(values = rep(c(brand_red, brand_navy, brand_blue, "#D39A2C", "#287B6A", "#76558B"), length.out = length(labels))) +
+    scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+    labs(title = "The League's Velocity Map Keeps Moving", subtitle = "Fourteen-day average velocity for the six most-used pitch types",
+      x = NULL, y = "Average velocity (mph)",
+      caption = "THE SABRHOOD  |  Pitch-level MLB data  |  Each panel uses its own narrow velocity scale") +
+    sabr_theme() +
+    theme(strip.text = element_text(color = brand_navy, face = "bold"), panel.grid.minor = element_blank())
+  save_plot(plot, "league-pitch-velocity-trends.png", height = 12)
+}
+
+league_batted_ball_plot <- function() {
+  data <- league_batted_ball
+  data$date <- as.Date(data$date)
+  data <- data[data$date >= min(data$date) + 13, , drop = FALSE]
+  long <- rbind(
+    data.frame(date = data$date, metric = "Exit velocity", value = data$average_exit_velocity),
+    data.frame(date = data$date, metric = "Launch angle", value = data$average_launch_angle),
+    data.frame(date = data$date, metric = "Hard-hit rate", value = 100 * data$hard_hit_rate),
+    data.frame(date = data$date, metric = "Ground-ball rate", value = 100 * data$ground_ball_rate)
+  )
+  plot <- ggplot(long, aes(x = date, y = value)) +
+    geom_line(color = brand_navy, linewidth = 1.2) +
+    geom_point(data = long[!duplicated(long$metric, fromLast = TRUE), ], color = brand_red, size = 2.8) +
+    facet_wrap(~ metric, ncol = 2, scales = "free_y") +
+    scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+    labs(title = "How Contact Is Changing", subtitle = "Fourteen-day batted-ball shape across the league",
+      x = NULL, y = "Metric value (rates shown as %)",
+      caption = "THE SABRHOOD  |  Exit velocity and launch angle use tracked batted balls; rate denominators remain visible in the data product") +
+    sabr_theme() +
+    theme(strip.text = element_text(color = brand_navy, face = "bold"), panel.grid.minor = element_blank())
+  save_plot(plot, "league-batted-ball-trends.png", height = 10)
+}
+
+league_workload_plot <- function() {
+  data <- league_workload
+  if (!nrow(data)) return(invisible(NULL))
+  data$date <- as.Date(data$date)
+  data <- data[data$date >= min(data$date) + 13, , drop = FALSE]
+  long <- rbind(
+    data.frame(date = data$date, staff = "Starting pitchers", share = data$starter_pa_share),
+    data.frame(date = data$date, staff = "Bullpens", share = data$bullpen_pa_share)
+  )
+  plot <- ggplot(long, aes(x = date, y = 100 * share, color = staff)) +
+    geom_line(linewidth = 1.45) +
+    scale_color_manual(values = c("Starting pitchers" = brand_navy, Bullpens = brand_red)) +
+    scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+    labs(title = "Who Is Carrying the Innings?", subtitle = "Share of league plate appearances handled by starters and bullpens",
+      x = NULL, y = "Share of batters faced (%)", color = NULL,
+      caption = "THE SABRHOOD  |  Starter is the first pitcher used by each team in each game  |  Fourteen-day windows") +
+    sabr_theme() +
+    theme(legend.position = "top")
+  save_plot(plot, "league-starter-bullpen-workload.png")
 }
 
 positional_war_plot <- function() {
@@ -332,22 +649,35 @@ arsenal_spotlight_plot <- function() {
   data$player_label <- paste0(data$player_name, " | ", data$team, "\n",
     data$featured_pitch_name, " +", sprintf("%.1f", data$featured_usage_delta_pp), " pp usage")
   data$player_label <- factor(data$player_label, levels = unique(data$player_label))
+  pitch_levels <- unique(data$pitch_name)
+  pitch_colors <- stats::setNames(
+    rep(c("#D62839", "#163B65", "#2F80A8", "#F2A541", "#2D8B73", "#7A5AA6", "#E06C3B", "#6B7280"), length.out = length(pitch_levels)),
+    pitch_levels
+  )
+  x_limit <- max(5, ceiling(max(abs(data$average_horizontal_break), na.rm = TRUE) / 5) * 5)
+  y_limit <- max(5, ceiling(max(abs(data$average_induced_vertical_break), na.rm = TRUE) / 5) * 5)
   plot <- ggplot(data, aes(x = average_horizontal_break, y = average_induced_vertical_break)) +
     geom_hline(yintercept = 0, color = brand_steel, linewidth = 0.45) +
     geom_vline(xintercept = 0, color = brand_steel, linewidth = 0.45) +
-    geom_point(aes(size = usage_rate, fill = is_featured), shape = 21, color = brand_navy, stroke = 1.1, alpha = 0.9) +
+    geom_point(aes(size = usage_rate, fill = pitch_name, color = is_featured), shape = 21, stroke = 1.5, alpha = 0.94) +
     geom_text(aes(label = pitch_name), nudge_y = 0.65, check_overlap = TRUE, color = brand_navy, fontface = "bold", size = 3.2) +
-    facet_wrap(~ player_label, ncol = 2, scales = "free") +
-    scale_fill_manual(
-      values = c(`TRUE` = brand_red, `FALSE` = brand_cream),
-      labels = c(`TRUE` = "Rising pitch", `FALSE` = "Other pitch")
-    ) +
+    facet_wrap(~ player_label, ncol = 2, scales = "fixed") +
+    scale_fill_manual(values = pitch_colors) +
+    scale_color_manual(values = c(`TRUE` = brand_red, `FALSE` = "#FFFFFF"), guide = "none") +
     scale_size_continuous(range = c(3, 10)) +
-    labs(title = "The Pitches Taking Over Their Arsenals", subtitle = "A pitch earned more usage and more whiffs recently; the full arsenal shows what it plays beside",
-      x = "Horizontal break", y = "Induced vertical break", size = "Season usage", fill = "Featured pitch",
-      caption = "THE SABRHOOD  |  Featured pitch: usage and whiff rate both increased over the last five games") +
+    scale_x_continuous(limits = c(-x_limit, x_limit)) +
+    scale_y_continuous(limits = c(-y_limit, y_limit)) +
+    labs(title = "The Pitches Earning a Larger Role", subtitle = "Shared, zero-centered movement axes; color identifies pitch type and the red outline marks the emerging weapon",
+      x = "Horizontal break", y = "Induced vertical break", size = "Season usage", fill = "Pitch type",
+      caption = "THE SABRHOOD  |  Featured pitch gained at least 3 usage points with 20+ recent pitches and an improved whiff rate over the last five games") +
     sabr_theme() +
-    theme(strip.text = element_text(color = brand_navy, face = "bold", size = 11), legend.position = "top")
+    theme(
+      plot.background = element_rect(fill = "#FFFFFF", color = NA),
+      panel.background = element_rect(fill = "#FFFFFF", color = NA),
+      strip.background = element_rect(fill = "#EEF6FB", color = NA),
+      strip.text = element_text(color = brand_navy, face = "bold", size = 11),
+      legend.position = "top"
+    )
   save_plot(plot, "arsenal-takeover-spotlights.png", height = 12)
 }
 
@@ -395,8 +725,12 @@ pitch_mix_plot()
 team_quadrant_plot()
 league_pitch_usage_plot()
 league_production_plot()
+league_pitch_quality_plot()
+league_batted_ball_plot()
+league_workload_plot()
 award_history_plot("AL", "al-mvp-race.png")
 award_history_plot("NL", "nl-mvp-race.png")
+mvp_era_plot()
 award_race_plot("Cy Young", "AL", "al-cy-young-race.png")
 award_race_plot("Cy Young", "NL", "nl-cy-young-race.png")
 award_race_plot("ROTY watch", "AL", "al-roty-watch.png")
@@ -407,44 +741,68 @@ positional_war_plot()
 discipline_frontier_plot()
 arsenal_spotlight_plot()
 pull_spray_plot()
+defensive_alignment_plot(gold_glove_watch)
+gold_glove_rosters_plot(gold_glove_watch)
+defensive_position_leaders_plot(official_fielding)
+advancement_defenders_plot(advancement_fielders)
 
+manifest_ids <- c(
+  "league-pitch-usage-trends", "league-production-trends", "league-pitch-velocity-trends",
+  "league-batted-ball-trends", "league-starter-bullpen-workload", "mlb-positional-war-map",
+  "hitter-discipline-frontier", "arsenal-takeover-spotlights", "pull-rate-leader-spray",
+  "hitter-change-leaders", "pitcher-change-leaders", "pitch-usage-movers",
+  "hitter-league-separation", "pitcher-league-separation", "team-identity-quadrant"
+)
 manifest <- data.frame(
-  graphic_id = c("league-pitch-usage-trends", "league-production-trends", "mlb-positional-war-map", "hitter-discipline-frontier", "arsenal-takeover-spotlights", "pull-rate-leader-spray", "hitter-change-leaders", "pitcher-change-leaders", "pitch-usage-movers", "hitter-league-separation", "pitcher-league-separation", "team-identity-quadrant"),
-  page_group = c("League trends", "League trends", "Team identity", "Player profiles", "Pitch changes", "Player profiles", "Player movement", "Player movement", "Pitch changes", "League separation", "League separation", "Team identity"),
-  title = c("League Pitch Usage Trends", "League Production Trends", "MLB Positional WAR Map", "Plate-Discipline Frontier", "Arsenal Takeover Spotlights", "Pull-Rate Leader Spray Chart", "Hitters Changing Fastest", "Pitchers Changing Fastest", "Pitches Taking On New Roles", "Hitter League Separation", "Pitcher League Separation", "Team Identity Quadrant"),
+  graphic_id = manifest_ids,
+  page_group = c(rep("League trends", 5), "Team identity", "Player profiles", "Pitch changes",
+    "Player profiles", "Player movement", "Player movement", "Pitch changes",
+    "League separation", "League separation", "Team identity"),
+  title = c(
+    "League Pitch Usage Trends", "League Production Trends", "League Pitch Velocity Trends",
+    "League Batted-Ball Trends", "Starter and Bullpen Workload", "MLB Positional WAR Map",
+    "Plate-Discipline Frontier", "Emerging Weapon Spotlights", "Pull-Rate Leader Spray Chart",
+    "Hitters Changing Fastest", "Pitchers Changing Fastest", "Pitches Taking On New Roles",
+    "Hitter League Separation", "Pitcher League Separation", "Team Identity Quadrant"
+  ),
   subtitle = c(
     "Fourteen-day rolling pitch-type usage reveals how MLB's collective arsenal is changing.",
-    "League production rates show when the run environment, contact, and plate discipline are moving together.",
+    "League production rates show when the run environment, contact, and plate discipline move together.",
+    "The six most-used pitch types tracked by rolling average velocity.",
+    "Exit velocity, launch angle, hard-hit rate, and ground-ball rate tell the league contact story.",
+    "Starter and bullpen shares reveal who is carrying the league's plate appearances.",
     "Every team and primary position ranked by FanGraphs WAR to expose roster strengths and needs.",
     "The league's best combinations of chase avoidance and in-zone contact.",
-    "Full arsenal movement maps for pitchers whose rising pitch gained usage and whiffs together.",
+    "Shared-axis movement maps for pitchers whose emerging pitch gained usage and whiffs together.",
     "A field-level view of the qualified hitter who produces the league's highest pull rate.",
-    "The strongest recent hitter shifts after comparing each player with his earlier-season baseline and the league change distribution.",
-    "The strongest recent pitcher shifts after comparing each arm with his earlier-season baseline and the league change distribution.",
-    "The pitch types with the largest recent usage changes, paired with pitcher and team context.",
+    "The strongest recent hitter shifts against earlier-season and league baselines.",
+    "The strongest recent pitcher shifts against earlier-season and league baselines.",
+    "The pitch types with the largest recent usage changes.",
     "Multi-stat season fingerprints for hitters furthest from the league middle.",
     "Multi-stat season fingerprints for pitchers furthest from the league middle.",
-    "All 30 clubs positioned by offensive production and run prevention."
+    "All 30 clubs positioned by run generation and pitching performance."
   ),
-  image_path = file.path("images", "graphics-feed", paste0(c("league-pitch-usage-trends", "league-production-trends", "mlb-positional-war-map", "hitter-discipline-frontier", "arsenal-takeover-spotlights", "pull-rate-leader-spray", "hitter-change-leaders", "pitcher-change-leaders", "pitch-usage-movers", "hitter-league-separation", "pitcher-league-separation", "team-identity-quadrant"), ".png")),
-  file_name = paste0(c("league-pitch-usage-trends", "league-production-trends", "mlb-positional-war-map", "hitter-discipline-frontier", "arsenal-takeover-spotlights", "pull-rate-leader-spray", "hitter-change-leaders", "pitcher-change-leaders", "pitch-usage-movers", "hitter-league-separation", "pitcher-league-separation", "team-identity-quadrant"), ".png"),
+  image_path = file.path("images", "graphics-feed", paste0(manifest_ids, ".png")),
+  file_name = paste0(manifest_ids, ".png"),
   alt_text = c(
     "Small-multiple line charts showing rolling MLB pitch-type usage.",
     "Small-multiple line charts showing indexed rolling MLB production rates.",
+    "Small-multiple line charts showing rolling velocity by pitch type.",
+    "Small-multiple line charts showing rolling MLB batted-ball characteristics.",
+    "Line chart comparing starter and bullpen shares of league batters faced.",
     "Heatmap ranking every MLB team by FanGraphs WAR at each primary position.",
     "Scatterplot comparing hitter chase rate with zone contact rate.",
-    "Faceted movement maps showing four pitchers' full arsenals and a highlighted rising pitch.",
+    "Faceted, zero-centered movement maps with pitch-type colors and usage-sized points.",
     "Spray chart showing batted balls for MLB's qualified pull-rate leader.",
     "Horizontal bars ranking hitters by standardized recent performance change.",
     "Horizontal bars ranking pitchers by standardized recent performance change.",
     "Horizontal bars showing the largest recent changes in pitch usage.",
     "Heatmap of season percentiles for hitters with the largest league separation.",
     "Heatmap of season percentiles for pitchers with the largest league separation.",
-    "Scatterplot positioning MLB teams by offense and run prevention."
+    "Scatterplot positioning MLB teams by run generation and pitching performance."
   ),
   coverage_note = c(
-    "Fourteen-day rolling league pitch usage through the current PBP date.",
-    "Fourteen-day rolling league production through the current PBP date.",
+    rep("Fourteen-day rolling league trends through the current PBP date.", 5),
     "Current FanGraphs season WAR aggregated by primary listed position.",
     "Pitch-level discipline profiles with at least 300 pitches seen.",
     "Recent five-game pitch changes placed inside each pitcher's season arsenal.",
@@ -457,12 +815,75 @@ manifest <- data.frame(
     "Full-season team summaries through the current data date."
   ),
   orientation = "landscape",
-  featured = c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, FALSE, FALSE, TRUE),
-  display_order = seq_len(12L),
+  featured = c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, FALSE, FALSE, TRUE),
+  display_order = seq_along(manifest_ids),
   source_acquired_at_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
   publication_status = "prototype",
   stringsAsFactors = FALSE
 )
+
+defense_manifest <- data.frame(
+  graphic_id = c(
+    "all-mlb-defense-team",
+    "gold-glove-watch-rosters",
+    "defensive-position-leaders",
+    "runner-advancement-defenders"
+  ),
+  page_group = "Defense",
+  title = c(
+    "All-MLB Defense Team",
+    "AL and NL Gold Glove Watch Rosters",
+    "Defensive Leaders by Position",
+    "Runner-Advancement Prevention Leaders"
+  ),
+  subtitle = c(
+    "One current FRV-based selection at every tracked defensive position.",
+    "Separate American League and National League leaders at each position.",
+    "The top three qualified defenders at every position by official Fielding Run Value.",
+    "The fielders doing the most to stop runners from taking the next base."
+  ),
+  image_path = file.path(
+    "images",
+    "graphics-feed",
+    paste0(
+      c(
+        "all-mlb-defense-team",
+        "gold-glove-watch-rosters",
+        "defensive-position-leaders",
+        "runner-advancement-defenders"
+      ),
+      ".png"
+    )
+  ),
+  file_name = paste0(
+    c(
+      "all-mlb-defense-team",
+      "gold-glove-watch-rosters",
+      "defensive-position-leaders",
+      "runner-advancement-defenders"
+    ),
+    ".png"
+  ),
+  alt_text = c(
+    "Baseball-field alignment naming the selected catcher, infielders, and outfielders on the All-MLB Defense Team.",
+    "Side-by-side American League and National League Gold Glove Watch rosters by position.",
+    "Eight position panels showing the top three defenders by Fielding Run Value.",
+    "Horizontal leaderboard of the top runner-advancement prevention scores."
+  ),
+  coverage_note = c(
+    "Official Fielding Run Value with league-position playing-time adjustment; minimum 150 innings.",
+    "League-specific leaders from official Fielding Run Value; pitcher and utility are not covered.",
+    "Official Fielding Run Value; minimum 150 innings.",
+    "SABRhood runner-advancement development model; minimum 50 opportunities."
+  ),
+  orientation = "landscape",
+  featured = c(TRUE, TRUE, TRUE, FALSE),
+  display_order = nrow(manifest) + seq_len(4L),
+  source_acquired_at_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
+  publication_status = "prototype",
+  stringsAsFactors = FALSE
+)
+manifest <- rbind(manifest, defense_manifest)
 
 utils::write.csv(manifest, file.path(data_dir, "graphics-feed-manifest.csv"), row.names = FALSE, na = "")
 cat("Built", nrow(manifest), "branded graphics feed assets.\n")

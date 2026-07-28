@@ -59,6 +59,36 @@ The rendered homepage is `docs/index.html`. `--no-clean` preserves the imported,
 pre-rendered research archive whose older notebooks still depend on one-off
 personal analysis environments.
 
+## History Match publication
+
+History Match candidates remain private until a producer records a decision in
+the Analytics Lab. From the workspace root,
+`scripts/build_history_match_publication_queue.R` rebuilds the private review
+queue, the consolidated packet feed, and
+`data/derived/history-match-notes.csv`. The site page accepts only
+website-approved rows whose current claim fingerprint matches the reviewed
+claim. Run the standard manifest, fragment, validation, and render sequence
+after approvals change.
+
+## Record-only Retrosheet archive
+
+The daily rare-game desk uses a separate record archive so older seasons cannot
+change the career-trajectory population or its backtests. The aggregate
+Retrosheet snapshot remains private. From the site repository, rebuild the
+compact 1898-through-release record index with:
+
+```powershell
+$env:R_LIBS_USER = "C:\Users\Owner\Documents\Package Construction\sabrhoodR\.Rlib"
+$rscript = "C:\Program Files\R\R-4.4.1\bin\Rscript.exe"
+& $rscript scripts/build_retrosheet_record_archive.R
+& $rscript scripts/build_daily_retrosheet_history.R
+```
+
+The private archive is written beneath
+`progress/private-history/retrosheet-records/<release season>`. Only the small
+daily derived table is published. Career trajectory scripts continue to use the
+separate 1974-through-release Retrosheet modeling index.
+
 ## Public data boundary
 
 The website consumes only `data/derived`, generated HTML fragments, and branded

@@ -1,0 +1,2 @@
+current_season,source_through,history_start,history_end,projection_rows,comparable_rows,role_matching,backtest_calibrated,method,built_at_utc
+2026,,1974,2025,323,6460,TRUE,FALSE,sabrhood_pitcher_career_neighbors_v1,2026-07-26 23:11:57 UTC

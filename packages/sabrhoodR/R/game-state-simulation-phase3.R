@@ -13,6 +13,17 @@
 #' @param home_runner_profiles Long-form empirical profiles for home runners.
 #' @param defense_steal_multipliers Named away/home defensive multipliers for
 #'   steal-attempt probability. Values below one suppress attempts.
+#' @param manager_hook_coefficients Optional coefficient table with `term` and
+#'   `estimate` columns from the pooled manager hook model. When supplied, the
+#'   starter-to-bullpen transition is sampled after every plate appearance
+#'   using current workload, times through the order, inning, score, and result.
+#' @param away_starter_pitch_limit,home_starter_pitch_limit Pregame expected
+#'   pitch-count limits. These are sampled in each draw and remain hard safety
+#'   limits even when the manager hook model is active.
+#' @param starter_pitch_limit_sd Standard deviation around the pregame pitch
+#'   limits.
+#' @param run_environment_multiplier Park-and-weather multiplier applied to
+#'   extra-base-hit and on-base event odds before the game is simulated.
 #'
 #' @return A list with game, hitter, reliever, and event summaries.
 #' @export
@@ -33,7 +44,12 @@ simulate_game_state_phase3 <- function(
     baserunning_rates = list(),
     away_runner_profiles = NULL,
     home_runner_profiles = NULL,
-    defense_steal_multipliers = c(away = 1, home = 1)) {
+    defense_steal_multipliers = c(away = 1, home = 1),
+    manager_hook_coefficients = NULL,
+    away_starter_pitch_limit = 92,
+    home_starter_pitch_limit = 92,
+    starter_pitch_limit_sd = 7,
+    run_environment_multiplier = 1) {
   event_cols <- c("p_BB", "p_HBP", "p_K", "p_1B", "p_2B", "p_3B", "p_HR", "p_OUT")
   event_names <- sub("^p_", "", event_cols)
   stat_names <- c(
@@ -110,6 +126,38 @@ simulate_game_state_phase3 <- function(
   home_starter_probs <- validate_lineup(home_starter_probs, "home_starter_probs")
   away_bullpen_probs <- validate_lineup(away_bullpen_probs, "away_bullpen_probs")
   home_bullpen_probs <- validate_lineup(home_bullpen_probs, "home_bullpen_probs")
+
+  run_environment_multiplier <- as.numeric(run_environment_multiplier)[[1L]]
+  if (!is.finite(run_environment_multiplier) || run_environment_multiplier <= 0) {
+    stop("run_environment_multiplier must be one positive number.", call. = FALSE)
+  }
+  run_environment_multiplier <- pmin(pmax(run_environment_multiplier, 0.82), 1.22)
+  adjust_environment <- function(x) {
+    probability_matrix <- as.matrix(x[, event_cols, drop = FALSE])
+    weights <- c(
+      p_BB = 0.20, p_HBP = 0.10, p_K = 0, p_1B = 0.30,
+      p_2B = 0.85, p_3B = 0.75, p_HR = 1.65, p_OUT = 0
+    )
+    probability_matrix <- sweep(
+      probability_matrix,
+      2L,
+      run_environment_multiplier ^ weights[colnames(probability_matrix)],
+      `*`
+    )
+    probability_matrix <- probability_matrix / rowSums(probability_matrix)
+    x[, event_cols] <- probability_matrix
+    x
+  }
+  away_starter_probs <- adjust_environment(away_starter_probs)
+  home_starter_probs <- adjust_environment(home_starter_probs)
+  away_bullpen_probs <- adjust_environment(away_bullpen_probs)
+  home_bullpen_probs <- adjust_environment(home_bullpen_probs)
+  if (!is.null(away_reliever_probs) && is.data.frame(away_reliever_probs) && nrow(away_reliever_probs)) {
+    away_reliever_probs <- adjust_environment(away_reliever_probs)
+  }
+  if (!is.null(home_reliever_probs) && is.data.frame(home_reliever_probs) && nrow(home_reliever_probs)) {
+    home_reliever_probs <- adjust_environment(home_reliever_probs)
+  }
   away_pool <- prepare_reliever_pool(away_reliever_probs, "away_reliever_probs")
   home_pool <- prepare_reliever_pool(home_reliever_probs, "home_reliever_probs")
 
@@ -120,6 +168,43 @@ simulate_game_state_phase3 <- function(
   clamp <- function(x, lo, hi) min(max(as.numeric(x), lo), hi)
   away_starter_bf <- clamp(away_starter_bf, 12, 30)
   home_starter_bf <- clamp(home_starter_bf, 12, 30)
+  away_starter_pitch_limit <- clamp(away_starter_pitch_limit, 55, 115)
+  home_starter_pitch_limit <- clamp(home_starter_pitch_limit, 55, 115)
+  starter_pitch_limit_sd <- clamp(starter_pitch_limit_sd, 0, 20)
+
+  hook_terms <- c(
+    "(Intercept)", "pitches_over_60", "bf_over_18", "third_time",
+    "late_inning", "close_game", "trailing_badly", "adverse_result",
+    "starter_flag", "reliever_flag"
+  )
+  hook_coefficients <- NULL
+  if (is.data.frame(manager_hook_coefficients) &&
+      all(c("term", "estimate") %in% names(manager_hook_coefficients))) {
+    estimates <- suppressWarnings(as.numeric(manager_hook_coefficients$estimate))
+    names(estimates) <- as.character(manager_hook_coefficients$term)
+    if (all(hook_terms %in% names(estimates)) &&
+        all(is.finite(estimates[hook_terms]))) {
+      hook_coefficients <- estimates[hook_terms]
+    }
+  }
+  manager_hook_active <- !is.null(hook_coefficients)
+  manager_hook_probability <- function(
+      pitches, batters_faced, inning, fielding_score_diff, event) {
+    adverse_events <- c("1B", "2B", "3B", "HR", "BB", "HBP")
+    features <- c(
+      "(Intercept)" = 1,
+      pitches_over_60 = pmax(pitches - 60, 0) / 20,
+      bf_over_18 = pmax(batters_faced - 18, 0) / 9,
+      third_time = as.numeric(batters_faced >= 19),
+      late_inning = pmax(inning - 6, 0) / 3,
+      close_game = as.numeric(abs(fielding_score_diff) <= 2),
+      trailing_badly = as.numeric(fielding_score_diff <= -4),
+      adverse_result = as.numeric(event %in% adverse_events),
+      starter_flag = 1,
+      reliever_flag = 0
+    )
+    stats::plogis(sum(hook_coefficients[names(features)] * features))
+  }
 
   defaults <- list(
     single_second_scores = 0.60,
@@ -280,6 +365,9 @@ simulate_game_state_phase3 <- function(
     double_plays = integer(n_sims), productive_out_runs = integer(n_sims),
     sacrifice_flies = integer(n_sims), steal_attempts = integer(n_sims),
     stolen_bases = integer(n_sims), caught_stealing = integer(n_sims),
+    away_starter_hooked = logical(n_sims), home_starter_hooked = logical(n_sims),
+    away_max_hook_probability = numeric(n_sims),
+    home_max_hook_probability = numeric(n_sims),
     relievers_used = integer(n_sims),
     stringsAsFactors = FALSE
   )
@@ -421,9 +509,20 @@ simulate_game_state_phase3 <- function(
       home = as.integer(round(stats::rnorm(1L, home_starter_bf, 2.6)))
     )
     starter_target <- pmin(pmax(starter_target, 12L), 30L)
-    pitch_limit <- pmin(pmax(as.integer(round(stats::rnorm(2L, 92, 8))), 70L), 112L)
+    if (manager_hook_active) starter_target[] <- 30L
+    pitch_limit <- c(
+      away = as.integer(round(stats::rnorm(
+        1L, away_starter_pitch_limit, starter_pitch_limit_sd
+      ))),
+      home = as.integer(round(stats::rnorm(
+        1L, home_starter_pitch_limit, starter_pitch_limit_sd
+      )))
+    )
+    pitch_limit <- pmin(pmax(pitch_limit, 55L), 115L)
     names(pitch_limit) <- c("away", "home")
     starter_seen <- starter_pitches <- bullpen_pa <- c(away = 0L, home = 0L)
+    starter_removed <- c(away = FALSE, home = FALSE)
+    starter_max_hook_probability <- c(away = 0, home = 0)
     current_reliever <- list(away = NULL, home = NULL)
     reliever_bf <- reliever_pitches <- c(away = 0L, home = 0L)
     reliever_target <- c(away = 0L, home = 0L)
@@ -506,7 +605,8 @@ simulate_game_state_phase3 <- function(
           }
 
           half_pa <- half_pa + 1L
-          starter_active <- starter_seen[[defense]] < starter_target[[defense]] &&
+          starter_active <- !starter_removed[[defense]] &&
+            starter_seen[[defense]] < starter_target[[defense]] &&
             starter_pitches[[defense]] < pitch_limit[[defense]]
 
           selected_pitcher_id <- NA_character_
@@ -633,6 +733,21 @@ simulate_game_state_phase3 <- function(
           }
           lineup_index[[offense]] <- if (spot == 9L) 1L else spot + 1L
 
+          if (starter_active && manager_hook_active) {
+            hook_probability <- manager_hook_probability(
+              pitches = starter_pitches[[defense]],
+              batters_faced = starter_seen[[defense]],
+              inning = inning,
+              fielding_score_diff = score[[defense]] - score[[offense]],
+              event = event
+            )
+            starter_max_hook_probability[[defense]] <- max(
+              starter_max_hook_probability[[defense]],
+              hook_probability
+            )
+            starter_removed[[defense]] <- stats::runif(1L) < hook_probability
+          }
+
           if (inning >= 9L && half == "bottom" && score[["home"]] > score[["away"]]) {
             game_over <- TRUE
             break
@@ -655,6 +770,8 @@ simulate_game_state_phase3 <- function(
       bullpen_pa[["away"]], bullpen_pa[["home"]],
       event_totals[["DP"]], event_totals[["productive_runs"]], event_totals[["SF"]],
       event_totals[["SBA"]], event_totals[["SB"]], event_totals[["CS"]],
+      starter_removed[["away"]], starter_removed[["home"]],
+      starter_max_hook_probability[["away"]], starter_max_hook_probability[["home"]],
       length(unique(c(used_relievers$away, used_relievers$home)))
     )
   }
@@ -704,8 +821,16 @@ simulate_game_state_phase3 <- function(
     mean_steal_attempts = mean(game_results$steal_attempts),
     mean_stolen_bases = mean(game_results$stolen_bases),
     mean_caught_stealing = mean(game_results$caught_stealing),
+    away_starter_hook_probability = mean(game_results$away_starter_hooked),
+    home_starter_hook_probability = mean(game_results$home_starter_hooked),
+    away_mean_max_hook_probability = mean(game_results$away_max_hook_probability),
+    home_mean_max_hook_probability = mean(game_results$home_max_hook_probability),
+    run_environment_multiplier = run_environment_multiplier,
+    manager_hook_model_active = manager_hook_active,
     mean_relievers_used = mean(game_results$relievers_used),
-    model_version = if (runner_model_active) {
+    model_version = if (manager_hook_active) {
+      "plate_appearance_state_machine_phase5_manager_hook_v1"
+    } else if (runner_model_active) {
       "plate_appearance_state_machine_phase4_baserunning_v1"
     } else {
       "plate_appearance_state_machine_phase3_v1"
