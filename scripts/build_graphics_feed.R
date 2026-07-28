@@ -472,13 +472,13 @@ advancement_defenders_plot <- function(data) {
     drop = FALSE
   ]
   official_match <- match(as.character(qualified$player_id), as.character(official_fielding$player_id))
-  qualified$throwing_run_value <- as.numeric(official_fielding$throwing_runs[official_match])
-  qualified$throwing_run_value[!is.finite(qualified$throwing_run_value)] <- 0
-  label_rank <- rank(-abs(as.numeric(qualified$advancements_prevented)) - abs(qualified$throwing_run_value), ties.method = "first")
+  qualified$arm_run_value <- as.numeric(official_fielding$arm_runs[official_match])
+  qualified <- qualified[is.finite(qualified$arm_run_value), , drop = FALSE]
+  label_rank <- rank(-abs(as.numeric(qualified$advancements_prevented)) - abs(qualified$arm_run_value), ties.method = "first")
   qualified$label <- ifelse(label_rank <= 12L, qualified$player_name, "")
   plot <- ggplot(
     qualified,
-    aes(x = as.numeric(advancements_prevented), y = throwing_run_value)
+    aes(x = as.numeric(advancements_prevented), y = arm_run_value)
   ) +
     geom_hline(yintercept = 0, color = brand_steel, linewidth = 0.7) +
     geom_vline(xintercept = 0, color = brand_steel, linewidth = 0.7) +
@@ -492,8 +492,8 @@ advancement_defenders_plot <- function(data) {
     labs(
       title = "Who Stops the Extra Base?",
       subtitle = "Runner-advancement prevention after accounting for the runner and play context",
-      x = "Advances stopped versus expectation", y = "Official throwing run value",
-      caption = "THE SABRHOOD | Minimum 50 advancement opportunities | Development estimate"
+      x = "Advances stopped versus expectation", y = "Official Statcast arm FRV",
+      caption = "THE SABRHOOD | Minimum 50 advancement opportunities | Arm value matched by MLBAM player ID"
     ) +
     sabr_theme() +
     theme(panel.grid.minor = element_blank())

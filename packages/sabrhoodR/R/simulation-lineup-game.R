@@ -144,7 +144,8 @@ simulate_lineup_game <- function(
       sims = dplyr::n(), avg_PA = mean(.data$PA), avg_starter_PA = mean(.data$starter_PA), avg_bullpen_PA = mean(.data$bullpen_PA),
       avg_H = mean(.data$H), avg_BB = mean(.data$BB), avg_K = mean(.data$K), avg_HR = mean(.data$HR), avg_XBH = mean(.data$XBH), avg_TB = mean(.data$TB),
       p_1_plus_H = mean(.data$H >= 1), p_2_plus_H = mean(.data$H >= 2), p_1_plus_BB = mean(.data$BB >= 1), p_2_plus_K = mean(.data$K >= 2),
-      p_1_plus_HR = mean(.data$HR >= 1), p_1_plus_XBH = mean(.data$XBH >= 1), p_2_plus_TB = mean(.data$TB >= 2), p_3_plus_TB = mean(.data$TB >= 3),
+      p_1_plus_HR = mean(.data$HR >= 1), p_2_plus_HR = mean(.data$HR >= 2),
+      p_1_plus_XBH = mean(.data$XBH >= 1), p_2_plus_TB = mean(.data$TB >= 2), p_3_plus_TB = mean(.data$TB >= 3),
       H_p10 = unname(stats::quantile(.data$H, .10)), H_p90 = unname(stats::quantile(.data$H, .90)),
       TB_p10 = unname(stats::quantile(.data$TB, .10)), TB_p90 = unname(stats::quantile(.data$TB, .90)),
       .groups = "drop"

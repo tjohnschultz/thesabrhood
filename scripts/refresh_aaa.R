@@ -7,7 +7,7 @@ season_year <- as.integer(Sys.getenv("SABRHOOD_SEASON", unset = format(Sys.Date(
 output_dir <- Sys.getenv("SABRHOOD_DERIVED_DIR", unset = file.path("data", "derived"))
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
-cat("Pulling Triple-A hitter and pitcher season lines for", season_year, "...\n")
+cat("Pulling Triple-A hitter, pitcher, fielding, and catching season lines for", season_year, "...\n")
 hitting <- baseballr::mlb_stats(
   stat_type = "season",
   stat_group = "hitting",
@@ -22,12 +22,30 @@ pitching <- baseballr::mlb_stats(
   sport_ids = 11,
   limit = 1000
 )
+fielding <- baseballr::mlb_stats(
+  stat_type = "season",
+  player_pool = "ALL",
+  stat_group = "fielding",
+  season = season_year,
+  sport_ids = 11,
+  limit = 5000
+)
+catching <- baseballr::mlb_stats(
+  stat_type = "season",
+  player_pool = "ALL",
+  stat_group = "catching",
+  season = season_year,
+  sport_ids = 11,
+  limit = 5000
+)
 watch <- build_aaa_performance_watch(
   hitting,
   pitching,
   minimum_pa = 100L,
   minimum_ip = 25,
-  prospect_age = 24L
+  prospect_age = 24L,
+  fielding = fielding,
+  catching = catching
 )
 affiliate_path <- file.path("config", "aaa-affiliates.csv")
 positional_war_path <- file.path(output_dir, "team-positional-war.csv")

@@ -243,6 +243,10 @@ required_fragments <- c(
 
 allowed_empty_data <- c(
   "daily-batting-orders.csv",
+  "daily-batter-simulation-summary.csv",
+  "daily-starter-simulation-summary.csv",
+  "daily-lineup-simulation-summary.csv",
+  "daily-player-simulations.csv",
   "daily-player-simulation-skips.csv",
   "daily-series-player-lines.csv",
   "daily-recent-game-lines.csv",

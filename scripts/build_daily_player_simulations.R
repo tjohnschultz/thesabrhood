@@ -171,6 +171,7 @@ for (game_index in seq_len(nrow(games))) {
       avg_K = mean(starter_k_draw), median_K = stats::median(starter_k_draw), K_p10 = unname(stats::quantile(starter_k_draw, .10)), K_p90 = unname(stats::quantile(starter_k_draw, .90)),
       avg_HR = mean(starter_hr_draw), median_HR = stats::median(starter_hr_draw), HR_p10 = unname(stats::quantile(starter_hr_draw, .10)), HR_p90 = unname(stats::quantile(starter_hr_draw, .90)),
       p_k_5plus = mean(starter_k_draw >= 5), p_k_7plus = mean(starter_k_draw >= 7),
+      p_k_10plus = mean(starter_k_draw >= 10),
       stringsAsFactors = FALSE
     )
     starter_summary$game_id <- game_id
@@ -194,9 +195,46 @@ for (game_index in seq_len(nrow(games))) {
   }
 }
 
-batters <- if (length(batter_rows)) do.call(rbind, batter_rows) else data.frame()
-starters <- if (length(starter_rows)) do.call(rbind, starter_rows) else data.frame()
-team_simulations <- if (length(team_rows)) do.call(rbind, team_rows) else data.frame()
+empty_product <- function(columns) {
+  output <- as.data.frame(
+    setNames(replicate(length(columns), character(), simplify = FALSE), columns),
+    stringsAsFactors = FALSE
+  )
+  output[0, , drop = FALSE]
+}
+batters <- if (length(batter_rows)) {
+  do.call(rbind, batter_rows)
+} else {
+  empty_product(c(
+    "lineup_spot", "player", "team", "sims", "avg_PA", "avg_starter_PA", "avg_bullpen_PA",
+    "avg_H", "avg_BB", "avg_K", "avg_HR", "avg_XBH", "avg_TB",
+    "p_1_plus_H", "p_2_plus_H", "p_1_plus_BB", "p_2_plus_K",
+    "p_1_plus_HR", "p_2_plus_HR", "p_1_plus_XBH", "p_2_plus_TB", "p_3_plus_TB",
+    "H_p10", "H_p90", "TB_p10", "TB_p90", "player_id", "game_id", "game_date",
+    "opponent", "opposing_starter_id", "opposing_starter", "opposing_starter_hand",
+    "expected_team_runs", "model_version", "publication_status"
+  ))
+}
+starters <- if (length(starter_rows)) {
+  do.call(rbind, starter_rows)
+} else {
+  empty_product(c(
+    "sims", "avg_H", "median_H", "H_p10", "H_p90", "avg_BB", "median_BB",
+    "BB_p10", "BB_p90", "avg_K", "median_K", "K_p10", "K_p90", "avg_HR",
+    "median_HR", "HR_p10", "HR_p90", "p_k_5plus", "p_k_7plus", "p_k_10plus",
+    "game_id", "game_date", "player_id", "player_name", "team", "opponent",
+    "expected_batters_faced", "model_version", "publication_status"
+  ))
+}
+team_simulations <- if (length(team_rows)) {
+  do.call(rbind, team_rows)
+} else {
+  empty_product(c(
+    "sims", "avg_BF", "avg_starter_BF", "avg_H", "avg_BB", "avg_K",
+    "avg_HR", "avg_XBH", "avg_TB", "game_id", "game_date", "team",
+    "opponent", "model_version"
+  ))
+}
 skipped <- if (length(skipped)) do.call(rbind, skipped) else data.frame(game_id = character(), team = character(), reason = character())
 
 long_rows <- list()
@@ -214,16 +252,34 @@ add_metric <- function(metric_id, metric_label, data, probability_col, expected_
 long_rows[[1L]] <- add_metric("batter_hit_1plus", "1+ hit", batters, "p_1_plus_H", "avg_H", "hitter")
 long_rows[[2L]] <- add_metric("batter_hit_2plus", "2+ hits", batters, "p_2_plus_H", "avg_H", "hitter")
 long_rows[[3L]] <- add_metric("batter_hr_1plus", "1+ home run", batters, "p_1_plus_HR", "avg_HR", "hitter")
-long_rows[[4L]] <- add_metric("batter_xbh_1plus", "1+ extra-base hit", batters, "p_1_plus_XBH", "avg_XBH", "hitter")
-long_rows[[5L]] <- add_metric("batter_tb_2plus", "2+ total bases", batters, "p_2_plus_TB", "avg_TB", "hitter")
-long_rows[[6L]] <- add_metric("batter_tb_3plus", "3+ total bases", batters, "p_3_plus_TB", "avg_TB", "hitter")
+long_rows[[4L]] <- add_metric("batter_hr_2plus", "2+ home runs", batters, "p_2_plus_HR", "avg_HR", "hitter")
+long_rows[[5L]] <- add_metric("batter_xbh_1plus", "1+ extra-base hit", batters, "p_1_plus_XBH", "avg_XBH", "hitter")
+long_rows[[6L]] <- add_metric("batter_tb_2plus", "2+ total bases", batters, "p_2_plus_TB", "avg_TB", "hitter")
+long_rows[[7L]] <- add_metric("batter_tb_3plus", "3+ total bases", batters, "p_3_plus_TB", "avg_TB", "hitter")
 if (nrow(starters)) {
-  long_rows[[7L]] <- add_metric("pitcher_k_5plus", "5+ strikeouts", starters, "p_k_5plus", "avg_K", "pitcher")
-  long_rows[[8L]] <- add_metric("pitcher_k_7plus", "7+ strikeouts", starters, "p_k_7plus", "avg_K", "pitcher")
+  long_rows[[8L]] <- add_metric("pitcher_k_5plus", "5+ strikeouts", starters, "p_k_5plus", "avg_K", "pitcher")
+  long_rows[[9L]] <- add_metric("pitcher_k_7plus", "7+ strikeouts", starters, "p_k_7plus", "avg_K", "pitcher")
+  long_rows[[10L]] <- add_metric("pitcher_k_10plus", "10+ strikeouts", starters, "p_k_10plus", "avg_K", "pitcher")
 }
-player_board <- do.call(rbind, long_rows[!vapply(long_rows, is.null, logical(1))])
-player_board$metric_rank <- ave(-player_board$probability, player_board$metric_id, FUN = function(value) rank(value, ties.method = "first"))
-player_board <- player_board[order(player_board$metric_id, player_board$metric_rank), , drop = FALSE]
+metric_rows <- Filter(Negate(is.null), long_rows)
+if (length(metric_rows)) {
+  player_board <- do.call(rbind, metric_rows)
+  player_board$metric_rank <- ave(
+    -player_board$probability,
+    player_board$metric_id,
+    FUN = function(value) rank(value, ties.method = "first")
+  )
+  player_board <- player_board[order(player_board$metric_id, player_board$metric_rank), , drop = FALSE]
+} else {
+  player_board <- data.frame(
+    metric_id = character(), metric_label = character(), game_id = character(),
+    player_id = character(), player_name = character(), team = character(),
+    opponent = character(), role = character(), probability = numeric(),
+    expected_value = numeric(), simulations = integer(), model_version = character(),
+    publication_status = character(), metric_rank = integer(),
+    stringsAsFactors = FALSE
+  )
+}
 
 model_card <- data.frame(
   game_date = if (nrow(games)) games$game_date[[1L]] else NA,

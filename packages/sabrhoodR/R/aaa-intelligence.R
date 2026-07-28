@@ -14,6 +14,9 @@
 #' Build a compact Triple-A performance watch
 #'
 #' @param hitting,pitching BaseballR `mlb_stats()` season results for sport ID 11.
+#' @param fielding,catching Optional Triple-A fielding and catching season
+#'   results. When supplied, their components share the same estimated-runs
+#'   scale as batting, baserunning, and pitching before conversion to sWAR.
 #' @param minimum_pa Minimum hitter plate appearances.
 #' @param minimum_ip Minimum pitcher innings.
 #' @param prospect_age Maximum age used for the young-player lens.
@@ -25,7 +28,9 @@ build_aaa_performance_watch <- function(
     pitching,
     minimum_pa = 100L,
     minimum_ip = 25,
-    prospect_age = 24L) {
+    prospect_age = 24L,
+    fielding = NULL,
+    catching = NULL) {
   if (!is.data.frame(hitting) || !is.data.frame(pitching)) {
     stop("`hitting` and `pitching` must be data frames.", call. = FALSE)
   }
@@ -42,6 +47,89 @@ build_aaa_performance_watch <- function(
       position = as.character(.column_or_default(data, c("position_abbreviation", "position.abbreviation")))
     )
   }
+  fielding_components <- if (is.data.frame(fielding) && nrow(fielding)) {
+    tibble::tibble(
+      player_id = as.character(.column_or_default(fielding, c("player_id", "person_id", "id"))),
+      position = as.character(.column_or_default(fielding, c("position_abbreviation", "position.abbreviation"))),
+      chances = .numeric_value(.column_or_default(fielding, c("chances"))),
+      fielding_rate = .numeric_value(.column_or_default(fielding, c("fielding", "fielding_percentage"))),
+      double_plays = .numeric_value(.column_or_default(fielding, c("double_plays", "doublePlays")))
+    ) |>
+      dplyr::filter(
+        !is.na(.data$player_id), .data$player_id != "",
+        is.finite(.data$chances), .data$chances > 0,
+        is.finite(.data$fielding_rate)
+      ) |>
+      dplyr::group_by(.data$position) |>
+      dplyr::mutate(
+        position_fielding_rate = stats::median(.data$fielding_rate, na.rm = TRUE),
+        fielding_reliability = .data$chances / (.data$chances + 80),
+        estimated_fielding_runs = (
+          (.data$fielding_rate - .data$position_fielding_rate) * .data$chances * 0.75 +
+            pmax(dplyr::coalesce(.data$double_plays, 0), 0) * 0.015
+        ) * .data$fielding_reliability
+      ) |>
+      dplyr::ungroup() |>
+      dplyr::group_by(.data$player_id) |>
+      dplyr::summarise(
+        estimated_fielding_runs = sum(.data$estimated_fielding_runs, na.rm = TRUE),
+        fielding_chances = sum(.data$chances, na.rm = TRUE),
+        .groups = "drop"
+      )
+  } else {
+    tibble::tibble(
+      player_id = character(),
+      estimated_fielding_runs = numeric(),
+      fielding_chances = numeric()
+    )
+  }
+  catching_components <- if (is.data.frame(catching) && nrow(catching)) {
+    catching_rows <- tibble::tibble(
+      player_id = as.character(.column_or_default(catching, c("player_id", "person_id", "id"))),
+      caught_stealing = .numeric_value(.column_or_default(catching, c("caught_stealing", "caughtStealing"))),
+      stolen_bases = .numeric_value(.column_or_default(catching, c("stolen_bases", "stolenBases"))),
+      passed_balls = .numeric_value(.column_or_default(catching, c("passed_ball", "passedBalls"))),
+      pickoffs = .numeric_value(.column_or_default(catching, c("pickoffs"))),
+      catcher_interference = .numeric_value(.column_or_default(catching, c("catchers_interference", "catchersInterference")))
+    ) |>
+      dplyr::filter(!is.na(.data$player_id), .data$player_id != "") |>
+      dplyr::mutate(
+        caught_stealing = dplyr::coalesce(.data$caught_stealing, 0),
+        stolen_bases = dplyr::coalesce(.data$stolen_bases, 0),
+        passed_balls = dplyr::coalesce(.data$passed_balls, 0),
+        pickoffs = dplyr::coalesce(.data$pickoffs, 0),
+        catcher_interference = dplyr::coalesce(.data$catcher_interference, 0),
+        steal_attempts = .data$caught_stealing + .data$stolen_bases
+      )
+    league_cs_rate <- with(
+      catching_rows,
+      if (sum(steal_attempts, na.rm = TRUE) > 0) {
+        sum(caught_stealing, na.rm = TRUE) / sum(steal_attempts, na.rm = TRUE)
+      } else {
+        0.25
+      }
+    )
+    catching_rows |>
+      dplyr::mutate(
+        estimated_catching_runs =
+          0.45 * (.data$caught_stealing - league_cs_rate * .data$steal_attempts) +
+          0.25 * .data$pickoffs -
+          0.25 * .data$passed_balls -
+          0.30 * .data$catcher_interference
+      ) |>
+      dplyr::group_by(.data$player_id) |>
+      dplyr::summarise(
+        estimated_catching_runs = sum(.data$estimated_catching_runs, na.rm = TRUE),
+        catcher_steal_attempts = sum(.data$steal_attempts, na.rm = TRUE),
+        .groups = "drop"
+      )
+  } else {
+    tibble::tibble(
+      player_id = character(),
+      estimated_catching_runs = numeric(),
+      catcher_steal_attempts = numeric()
+    )
+  }
   hitter_watch <- dplyr::bind_cols(
     common(hitting),
     tibble::tibble(
@@ -49,6 +137,7 @@ build_aaa_performance_watch <- function(
       pa = .integer_value(.column_or_default(hitting, c("plate_appearances", "plateAppearances"))),
       home_runs = .integer_value(.column_or_default(hitting, c("home_runs", "homeRuns"))),
       stolen_bases = .integer_value(.column_or_default(hitting, c("stolen_bases", "stolenBases"))),
+      caught_stealing = .integer_value(.column_or_default(hitting, c("caught_stealing", "caughtStealing"))),
       strikeouts = .integer_value(.column_or_default(hitting, c("strike_outs", "strikeouts"))),
       walks = .integer_value(.column_or_default(hitting, c("base_on_balls", "baseOnBalls"))),
       avg = .numeric_value(.column_or_default(hitting, c("avg", "batting_average"))),
@@ -57,8 +146,15 @@ build_aaa_performance_watch <- function(
       ops = .numeric_value(.column_or_default(hitting, c("ops", "on_base_plus_slugging")))
     )
   ) |>
+    dplyr::left_join(fielding_components, by = "player_id") |>
+    dplyr::left_join(catching_components, by = "player_id") |>
     dplyr::filter(.data$pa >= minimum_pa, !is.na(.data$player_id), .data$player_id != "") |>
     dplyr::mutate(
+      caught_stealing = dplyr::coalesce(.data$caught_stealing, 0L),
+      estimated_fielding_runs = dplyr::coalesce(.data$estimated_fielding_runs, 0),
+      estimated_catching_runs = dplyr::coalesce(.data$estimated_catching_runs, 0),
+      fielding_chances = dplyr::coalesce(.data$fielding_chances, 0),
+      catcher_steal_attempts = dplyr::coalesce(.data$catcher_steal_attempts, 0),
       strikeout_rate = .safe_rate(.data$strikeouts, .data$pa),
       walk_rate = .safe_rate(.data$walks, .data$pa),
       home_run_rate = .safe_rate(.data$home_runs, .data$pa),
@@ -71,10 +167,13 @@ build_aaa_performance_watch <- function(
           0.15 * .percentile_score(.data$stolen_base_rate)
       ), 1),
       estimated_batting_runs = (.data$ops - stats::median(.data$ops, na.rm = TRUE)) * .data$pa * 0.16,
-      estimated_running_runs = .data$stolen_bases * 0.18,
-      sabrhood_war = round((.data$estimated_batting_runs + .data$estimated_running_runs) / 10, 1),
-      swar_component_status = "batting and stolen-base value; Triple-A fielding and catching components pending",
-      watch_method = "aaa_age_and_performance_lens_v1"
+      estimated_running_runs = .data$stolen_bases * 0.18 - .data$caught_stealing * 0.42,
+      sabrhood_war = round((
+        .data$estimated_batting_runs + .data$estimated_running_runs +
+          .data$estimated_fielding_runs + .data$estimated_catching_runs
+      ) / 10, 1),
+      swar_component_status = "batting, baserunning, fielding, and catching estimates on a 10-runs-per-win scale",
+      watch_method = "aaa_age_performance_and_total_runs_lens_v2"
     ) |>
     dplyr::arrange(dplyr::desc(.data$performance_score), .data$age)
   hitter_watch$watch_rank <- seq_len(nrow(hitter_watch))
@@ -90,11 +189,24 @@ build_aaa_performance_watch <- function(
       strikeouts = .integer_value(.column_or_default(pitching, c("strike_outs", "strikeouts"))),
       walks = .integer_value(.column_or_default(pitching, c("base_on_balls", "baseOnBalls"))),
       batters_faced = .integer_value(.column_or_default(pitching, c("batters_faced", "battersFaced"))),
-      home_runs = .integer_value(.column_or_default(pitching, c("home_runs", "homeRuns")))
+      home_runs = .integer_value(.column_or_default(pitching, c("home_runs", "homeRuns"))),
+      stolen_bases_allowed = .integer_value(.column_or_default(pitching, c("stolen_bases", "stolenBases"))),
+      caught_stealing = .integer_value(.column_or_default(pitching, c("caught_stealing", "caughtStealing"))),
+      pickoffs = .integer_value(.column_or_default(pitching, c("pickoffs"))),
+      balks = .integer_value(.column_or_default(pitching, c("balks"))),
+      wild_pitches = .integer_value(.column_or_default(pitching, c("wild_pitches", "wildPitches")))
     )
   ) |>
+    dplyr::left_join(fielding_components, by = "player_id") |>
     dplyr::filter(.data$innings >= minimum_ip, !is.na(.data$player_id), .data$player_id != "") |>
     dplyr::mutate(
+      estimated_fielding_runs = dplyr::coalesce(.data$estimated_fielding_runs, 0),
+      fielding_chances = dplyr::coalesce(.data$fielding_chances, 0),
+      stolen_bases_allowed = dplyr::coalesce(.data$stolen_bases_allowed, 0L),
+      caught_stealing = dplyr::coalesce(.data$caught_stealing, 0L),
+      pickoffs = dplyr::coalesce(.data$pickoffs, 0L),
+      balks = dplyr::coalesce(.data$balks, 0L),
+      wild_pitches = dplyr::coalesce(.data$wild_pitches, 0L),
       estimated_bf = ifelse(is.finite(.data$batters_faced) & .data$batters_faced > 0, .data$batters_faced, .data$innings * 4.3),
       strikeout_rate = .safe_rate(.data$strikeouts, .data$estimated_bf),
       walk_rate = .safe_rate(.data$walks, .data$estimated_bf),
@@ -106,9 +218,18 @@ build_aaa_performance_watch <- function(
           0.40 * .percentile_score(.data$k_minus_bb_rate)
       ), 1),
       estimated_pitching_runs = (stats::median(.data$era, na.rm = TRUE) - .data$era) * .data$innings / 9,
-      sabrhood_war = round(.data$estimated_pitching_runs / 10, 1),
-      swar_component_status = "pitching value; pitcher fielding and running components pending",
-      watch_method = "aaa_age_and_performance_lens_v1"
+      estimated_running_runs =
+        0.20 * (.data$caught_stealing + .data$pickoffs) -
+        0.20 * .data$stolen_bases_allowed -
+        0.25 * .data$balks -
+        0.05 * .data$wild_pitches,
+      estimated_catching_runs = 0,
+      sabrhood_war = round((
+        .data$estimated_pitching_runs + .data$estimated_running_runs +
+          .data$estimated_fielding_runs
+      ) / 10, 1),
+      swar_component_status = "pitching, pitcher fielding, and running-game estimates on a 10-runs-per-win scale",
+      watch_method = "aaa_age_performance_and_total_runs_lens_v2"
     ) |>
     dplyr::arrange(dplyr::desc(.data$performance_score), .data$age)
   pitcher_watch$watch_rank <- seq_len(nrow(pitcher_watch))
