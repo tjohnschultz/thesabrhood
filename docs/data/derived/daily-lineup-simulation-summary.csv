@@ -1,3 +1,8 @@
 "sims","avg_BF","avg_starter_BF","avg_H","avg_BB","avg_K","avg_HR","avg_XBH","avg_TB","game_id","game_date","team","opponent","model_version"
 2000,35.854,22.846,7.3315,3.2415,7.5105,0.878,2.6275,11.871,"824490","2026-07-28","Cleveland Guardians","Cincinnati Reds","starter_bullpen_player_sim_v1"
 2000,36.11,22.674,7.8685,3.3165,8.387,1.237,2.905,13.376,"824490","2026-07-28","Cincinnati Reds","Cleveland Guardians","starter_bullpen_player_sim_v1"
+2000,37.261,21.604,8.818,3.2835,8.3985,1.6265,3.4705,15.6815,"824243","2026-07-28","Detroit Tigers","Baltimore Orioles","starter_bullpen_player_sim_v1"
+2000,36.507,23.216,8.233,3.8085,7.391,1.0205,3.2875,13.7495,"823350","2026-07-28","Arizona Diamondbacks","Pittsburgh Pirates","starter_bullpen_player_sim_v1"
+2000,37.395,28.0995,9.345,3.3995,6.35,1.161,3.105,14.9395,"822949","2026-07-28","Tampa Bay Rays","Texas Rangers","starter_bullpen_player_sim_v1"
+2000,36.9205,22.6505,8.728,3.132,7.985,1.2645,3.2515,14.6705,"823838","2026-07-28","Miami Marlins","Philadelphia Phillies","starter_bullpen_player_sim_v1"
+2000,37.014,21.9675,8.8315,3.0835,6.8385,1.375,3.4325,15.194,"822703","2026-07-28","Washington Nationals","Toronto Blue Jays","starter_bullpen_player_sim_v1"
