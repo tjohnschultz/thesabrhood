@@ -1,121 +1,161 @@
 "current_game_id","team","opponent","game_pk","game_date","recency_label","role","player_id","player_name","stat_line","performance_score"
-"822868","Seattle Mariners","Texas Rangers","822870","2026-07-26","Yesterday","Hitter","686527","Dominic Canzone","3 H, 1 HR, 1 2B, 4 RBI",13
-"822868","Seattle Mariners","Texas Rangers","822870","2026-07-26","Yesterday","Hitter","668227","Randy Arozarena","3 H, 1 HR, 0 2B, 1 RBI",10
-"822868","Seattle Mariners","Texas Rangers","822870","2026-07-26","Yesterday","Hitter","702284","Cole Young","2 H, 0 HR, 0 2B, 0 RBI",4
-"822868","Seattle Mariners","Texas Rangers","822870","2026-07-26","Yesterday","Pitcher","669302","Logan Gilbert","5.2 IP, 4 K",9.66666666666667
-"822868","Seattle Mariners","Texas Rangers","822870","2026-07-26","Yesterday","Pitcher","642100","Gabe Speier","1.1 IP, 3 K",4.33333333333333
-"822868","Texas Rangers","Seattle Mariners","822870","2026-07-26","Yesterday","Hitter","677649","Ezequiel Duran","1 H, 1 HR, 0 2B, 2 RBI",7
-"822868","Texas Rangers","Seattle Mariners","822870","2026-07-26","Yesterday","Hitter","694497","Evan Carter","1 H, 0 HR, 0 2B, 1 RBI",3
-"822868","Texas Rangers","Seattle Mariners","822870","2026-07-26","Yesterday","Hitter","670032","Nicky Lopez","1 H, 0 HR, 0 2B, 1 RBI",3
-"822868","Texas Rangers","Seattle Mariners","822870","2026-07-26","Yesterday","Pitcher","594798","Jacob deGrom","5.0 IP, 4 K",9
-"822868","Texas Rangers","Seattle Mariners","822870","2026-07-26","Yesterday","Pitcher","695239","Robby Ahlstrom","1.0 IP, 2 K",3
-"824245","Baltimore Orioles","Atlanta Braves","824810","2026-07-26","Yesterday","Hitter","624413","Pete Alonso","2 H, 1 HR, 0 2B, 1 RBI",8
-"824245","Baltimore Orioles","Atlanta Braves","824810","2026-07-26","Yesterday","Hitter","621493","Taylor Ward","2 H, 0 HR, 0 2B, 0 RBI",4
-"824245","Baltimore Orioles","Atlanta Braves","824810","2026-07-26","Yesterday","Hitter","687952","Christian Encarnacion-Strand","1 H, 0 HR, 0 2B, 0 RBI",2
-"824245","Baltimore Orioles","Atlanta Braves","824810","2026-07-26","Yesterday","Pitcher","669358","Shane Baz","4.1 IP, 2 K",6.33333333333333
-"824245","Baltimore Orioles","Atlanta Braves","824810","2026-07-26","Yesterday","Pitcher","544150","Albert Suárez","2.0 IP, 2 K",4
-"824245","Detroit Tigers","Kansas City Royals","824246","2026-07-26","Yesterday","Hitter","693307","Dillon Dingler","2 H, 0 HR, 0 2B, 2 RBI",6
-"824245","Detroit Tigers","Kansas City Royals","824246","2026-07-26","Yesterday","Hitter","805808","Kevin McGonigle","2 H, 0 HR, 0 2B, 0 RBI",4
-"824245","Detroit Tigers","Kansas City Royals","824246","2026-07-26","Yesterday","Hitter","690993","Colt Keith","1 H, 0 HR, 0 2B, 0 RBI",2
-"824245","Detroit Tigers","Kansas City Royals","824246","2026-07-26","Yesterday","Pitcher","664285","Framber Valdez","5.0 IP, 4 K",9
-"824245","Detroit Tigers","Kansas City Royals","824246","2026-07-26","Yesterday","Pitcher","805427","Drew Sommers","1.1 IP, 2 K",3.33333333333333
-"823353","Arizona Diamondbacks","Washington Nationals","822706","2026-07-26","Yesterday","Hitter","672515","Gabriel Moreno","2 H, 0 HR, 2 2B, 2 RBI",6
-"823353","Arizona Diamondbacks","Washington Nationals","822706","2026-07-26","Yesterday","Hitter","672695","Geraldo Perdomo","1 H, 1 HR, 0 2B, 1 RBI",6
-"823353","Arizona Diamondbacks","Washington Nationals","822706","2026-07-26","Yesterday","Hitter","606466","Ketel Marte","1 H, 1 HR, 0 2B, 1 RBI",6
-"823353","Arizona Diamondbacks","Washington Nationals","822706","2026-07-26","Yesterday","Pitcher","684442","Kohl Drake","4.0 IP, 1 K",5
-"823353","Arizona Diamondbacks","Washington Nationals","822706","2026-07-26","Yesterday","Pitcher","805299","Brandyn Garcia","1.0 IP, 2 K",3
-"823353","Pittsburgh Pirates","Chicago Cubs","823354","2026-07-26","Yesterday","Hitter","699013","Esmerlyn Valdez","2 H, 1 HR, 0 2B, 2 RBI",9
-"823353","Pittsburgh Pirates","Chicago Cubs","823354","2026-07-26","Yesterday","Hitter","656811","Ryan O'Hearn","1 H, 1 HR, 0 2B, 4 RBI",9
-"823353","Pittsburgh Pirates","Chicago Cubs","823354","2026-07-26","Yesterday","Hitter","676566","Shawn Ross","1 H, 1 HR, 0 2B, 2 RBI",7
-"823353","Pittsburgh Pirates","Chicago Cubs","823354","2026-07-26","Yesterday","Pitcher","677952","Braxton Ashcraft","6.0 IP, 5 K",11
-"823353","Pittsburgh Pirates","Chicago Cubs","823354","2026-07-26","Yesterday","Pitcher","669387","Carmen Mlodzinski","2.0 IP, 2 K",4
-"823839","Philadelphia Phillies","New York Yankees","823433","2026-07-26","Yesterday","Hitter","681082","Bryson Stott","3 H, 1 HR, 1 2B, 5 RBI",14
-"823839","Philadelphia Phillies","New York Yankees","823433","2026-07-26","Yesterday","Hitter","664761","Alec Bohm","1 H, 0 HR, 1 2B, 4 RBI",6
-"823839","Philadelphia Phillies","New York Yankees","823433","2026-07-26","Yesterday","Hitter","607208","Trea Turner","2 H, 0 HR, 0 2B, 1 RBI",5
-"823839","Philadelphia Phillies","New York Yankees","823433","2026-07-26","Yesterday","Pitcher","650911","Cristopher Sánchez","6.0 IP, 6 K",12
-"823839","Philadelphia Phillies","New York Yankees","823433","2026-07-26","Yesterday","Pitcher","663767","Chase Shugart","2.0 IP, 5 K",7
-"823839","Miami Marlins","San Diego Padres","823840","2026-07-26","Yesterday","Hitter","669065","Kyle Stowers","2 H, 1 HR, 1 2B, 1 RBI",8
-"823839","Miami Marlins","San Diego Padres","823840","2026-07-26","Yesterday","Hitter","688363","Graham Pauley","1 H, 0 HR, 0 2B, 1 RBI",3
-"823839","Miami Marlins","San Diego Padres","823840","2026-07-26","Yesterday","Hitter","691594","Javier Sanoja","1 H, 0 HR, 0 2B, 0 RBI",2
-"823839","Miami Marlins","San Diego Padres","823840","2026-07-26","Yesterday","Pitcher","676083","Janson Junk","4.2 IP, 6 K",10.6666666666667
-"823839","Miami Marlins","San Diego Padres","823840","2026-07-26","Yesterday","Pitcher","806188","Cade Gibson","1.0 IP, 1 K",2
-"822705","Toronto Blue Jays","Boston Red Sox","824730","2026-07-26","Yesterday","Hitter","665926","Andrés Giménez","3 H, 0 HR, 1 2B, 1 RBI",7
-"822705","Toronto Blue Jays","Boston Red Sox","824730","2026-07-26","Yesterday","Hitter","672386","Alejandro Kirk","2 H, 0 HR, 0 2B, 0 RBI",4
-"822705","Toronto Blue Jays","Boston Red Sox","824730","2026-07-26","Yesterday","Hitter","543807","George Springer","2 H, 0 HR, 0 2B, 0 RBI",4
-"822705","Toronto Blue Jays","Boston Red Sox","824730","2026-07-26","Yesterday","Pitcher","592332","Kevin Gausman","6.0 IP, 6 K",12
-"822705","Toronto Blue Jays","Boston Red Sox","824730","2026-07-26","Yesterday","Pitcher","663893","Brendon Little","0.2 IP, 1 K",1.66666666666667
-"822705","Washington Nationals","Arizona Diamondbacks","822706","2026-07-26","Yesterday","Hitter","682928","CJ Abrams","3 H, 2 HR, 0 2B, 3 RBI",15
-"822705","Washington Nationals","Arizona Diamondbacks","822706","2026-07-26","Yesterday","Hitter","695578","James Wood","2 H, 2 HR, 0 2B, 3 RBI",13
-"822705","Washington Nationals","Arizona Diamondbacks","822706","2026-07-26","Yesterday","Hitter","686611","Dylan Crews","3 H, 0 HR, 1 2B, 0 RBI",6
-"822705","Washington Nationals","Arizona Diamondbacks","822706","2026-07-26","Yesterday","Pitcher","571945","Miles Mikolas","4.0 IP, 1 K",5
-"822705","Washington Nationals","Arizona Diamondbacks","822706","2026-07-26","Yesterday","Pitcher","668820","Max Kranick","1.0 IP, 1 K",2
-"824490","Cleveland Guardians","Tampa Bay Rays","822950","2026-07-26","Yesterday","Hitter","680757","Steven Kwan","1 H, 0 HR, 1 2B, 0 RBI",2
-"824490","Cleveland Guardians","Tampa Bay Rays","822950","2026-07-26","Yesterday","Hitter","682657","Angel Martínez","0 H, 0 HR, 0 2B, 0 RBI",0
-"824490","Cleveland Guardians","Tampa Bay Rays","822950","2026-07-26","Yesterday","Hitter","595978","Austin Hedges","0 H, 0 HR, 0 2B, 0 RBI",0
-"824490","Cleveland Guardians","Tampa Bay Rays","822950","2026-07-26","Yesterday","Pitcher","800048","Parker Messick","7.2 IP, 6 K",13.6666666666667
-"824490","Cleveland Guardians","Tampa Bay Rays","822950","2026-07-26","Yesterday","Pitcher","670059","Colin Holderman","0.1 IP, 0 K",0.333333333333333
-"824490","Cincinnati Reds","St. Louis Cardinals","823028","2026-07-26","Yesterday","Hitter","682829","Elly De La Cruz","2 H, 1 HR, 0 2B, 1 RBI",8
-"824490","Cincinnati Reds","St. Louis Cardinals","823028","2026-07-26","Yesterday","Hitter","663993","Nathaniel Lowe","3 H, 0 HR, 0 2B, 2 RBI",8
-"824490","Cincinnati Reds","St. Louis Cardinals","823028","2026-07-26","Yesterday","Hitter","663647","Ke'Bryan Hayes","1 H, 1 HR, 0 2B, 1 RBI",6
-"824490","Cincinnati Reds","St. Louis Cardinals","823028","2026-07-26","Yesterday","Pitcher","671096","Andrew Abbott","6.0 IP, 4 K",10
-"824490","Cincinnati Reds","St. Louis Cardinals","823028","2026-07-26","Yesterday","Pitcher","656271","Brock Burke","1.1 IP, 2 K",3.33333333333333
-"823597","Atlanta Braves","Baltimore Orioles","824810","2026-07-26","Yesterday","Hitter","642086","Dominic Smith","3 H, 0 HR, 0 2B, 2 RBI",8
-"823597","Atlanta Braves","Baltimore Orioles","824810","2026-07-26","Yesterday","Hitter","686948","Drake Baldwin","2 H, 0 HR, 0 2B, 0 RBI",4
-"823597","Atlanta Braves","Baltimore Orioles","824810","2026-07-26","Yesterday","Hitter","663586","Austin Riley","1 H, 0 HR, 1 2B, 1 RBI",3
-"823597","Atlanta Braves","Baltimore Orioles","824810","2026-07-26","Yesterday","Pitcher","625643","Reynaldo López","5.2 IP, 6 K",11.6666666666667
-"823597","Atlanta Braves","Baltimore Orioles","824810","2026-07-26","Yesterday","Pitcher","641755","Tyler Kinley","1.1 IP, 1 K",2.33333333333333
-"823597","New York Mets","Los Angeles Dodgers","823599","2026-07-26","Yesterday","Hitter","543760","Marcus Semien","1 H, 1 HR, 0 2B, 3 RBI",8
-"823597","New York Mets","Los Angeles Dodgers","823599","2026-07-26","Yesterday","Hitter","621438","Tyrone Taylor","1 H, 1 HR, 0 2B, 3 RBI",8
-"823597","New York Mets","Los Angeles Dodgers","823599","2026-07-26","Yesterday","Hitter","666182","Bo Bichette","2 H, 0 HR, 0 2B, 0 RBI",4
-"823597","New York Mets","Los Angeles Dodgers","823599","2026-07-26","Yesterday","Pitcher","642547","Freddy Peralta","4.0 IP, 3 K",7
-"823597","New York Mets","Los Angeles Dodgers","823599","2026-07-26","Yesterday","Pitcher","672335","Cionel Pérez","2.0 IP, 3 K",5
-"824570","New York Yankees","Philadelphia Phillies","823433","2026-07-26","Yesterday","Hitter","700250","Ben Rice","2 H, 1 HR, 1 2B, 1 RBI",8
-"824570","New York Yankees","Philadelphia Phillies","823433","2026-07-26","Yesterday","Hitter","683011","Anthony Volpe","2 H, 0 HR, 2 2B, 1 RBI",5
-"824570","New York Yankees","Philadelphia Phillies","823433","2026-07-26","Yesterday","Hitter","645305","Ali Sánchez","2 H, 0 HR, 0 2B, 0 RBI",4
-"824570","New York Yankees","Philadelphia Phillies","823433","2026-07-26","Yesterday","Pitcher","701542","Will Warren","3.0 IP, 5 K",8
-"824570","New York Yankees","Philadelphia Phillies","823433","2026-07-26","Yesterday","Pitcher","642232","Ryan Yarbrough","3.0 IP, 2 K",5
-"824570","Chicago White Sox","Houston Astros","824572","2026-07-26","Yesterday","Hitter","808959","Munetaka Murakami","3 H, 2 HR, 0 2B, 6 RBI",18
-"824570","Chicago White Sox","Houston Astros","824572","2026-07-26","Yesterday","Hitter","678577","Junior Perez","1 H, 1 HR, 0 2B, 2 RBI",7
-"824570","Chicago White Sox","Houston Astros","824572","2026-07-26","Yesterday","Hitter","678246","Miguel Vargas","1 H, 1 HR, 0 2B, 2 RBI",7
-"824570","Chicago White Sox","Houston Astros","824572","2026-07-26","Yesterday","Pitcher","607200","Erick Fedde","4.1 IP, 2 K",6.33333333333333
-"824570","Chicago White Sox","Houston Astros","824572","2026-07-26","Yesterday","Pitcher","669684","Chris Murphy","1.0 IP, 2 K",3
-"823025","Chicago Cubs","Pittsburgh Pirates","823354","2026-07-26","Yesterday","Hitter","673548","Seiya Suzuki","1 H, 1 HR, 0 2B, 2 RBI",7
-"823025","Chicago Cubs","Pittsburgh Pirates","823354","2026-07-26","Yesterday","Hitter","621020","Dansby Swanson","2 H, 0 HR, 0 2B, 1 RBI",5
-"823025","Chicago Cubs","Pittsburgh Pirates","823354","2026-07-26","Yesterday","Hitter","663538","Nico Hoerner","2 H, 0 HR, 0 2B, 1 RBI",5
-"823025","Chicago Cubs","Pittsburgh Pirates","823354","2026-07-26","Yesterday","Pitcher","592791","Jameson Taillon","4.0 IP, 3 K",7
-"823025","Chicago Cubs","Pittsburgh Pirates","823354","2026-07-26","Yesterday","Pitcher","650644","Aaron Civale","2.0 IP, 3 K",5
-"823025","St. Louis Cardinals","Cincinnati Reds","823028","2026-07-26","Yesterday","Hitter","671056","Iván Herrera","2 H, 1 HR, 0 2B, 1 RBI",8
-"823025","St. Louis Cardinals","Cincinnati Reds","823028","2026-07-26","Yesterday","Hitter","676475","Alec Burleson","3 H, 0 HR, 1 2B, 1 RBI",7
-"823025","St. Louis Cardinals","Cincinnati Reds","823028","2026-07-26","Yesterday","Hitter","691026","Masyn Winn","2 H, 0 HR, 0 2B, 0 RBI",4
-"823025","St. Louis Cardinals","Cincinnati Reds","823028","2026-07-26","Yesterday","Pitcher","681517","Kyle Leahy","6.0 IP, 9 K",15
-"823025","St. Louis Cardinals","Cincinnati Reds","823028","2026-07-26","Yesterday","Pitcher","666277","George Soriano","1.0 IP, 2 K",3
-"824001","Houston Astros","Chicago White Sox","824572","2026-07-26","Yesterday","Hitter","665161","Jeremy Peña","2 H, 2 HR, 0 2B, 2 RBI",12
-"824001","Houston Astros","Chicago White Sox","824572","2026-07-26","Yesterday","Hitter","666211","Taylor Trammell","2 H, 1 HR, 0 2B, 1 RBI",8
-"824001","Houston Astros","Chicago White Sox","824572","2026-07-26","Yesterday","Hitter","669397","Nick Allen","1 H, 0 HR, 0 2B, 0 RBI",2
-"824001","Houston Astros","Chicago White Sox","824572","2026-07-26","Yesterday","Pitcher","669854","Ronel Blanco","5.1 IP, 4 K",9.33333333333333
-"824001","Houston Astros","Chicago White Sox","824572","2026-07-26","Yesterday","Pitcher","687911","Bryan King","0.2 IP, 1 K",1.66666666666667
-"824001","Los Angeles Angels","San Francisco Giants","823194","2026-07-26","Yesterday","Hitter","545361","Mike Trout","4 H, 0 HR, 1 2B, 0 RBI",8
-"824001","Los Angeles Angels","San Francisco Giants","823194","2026-07-26","Yesterday","Hitter","666176","Jo Adell","1 H, 1 HR, 0 2B, 2 RBI",7
-"824001","Los Angeles Angels","San Francisco Giants","823194","2026-07-26","Yesterday","Hitter","624585","Jorge Soler","1 H, 1 HR, 0 2B, 2 RBI",7
-"824001","Los Angeles Angels","San Francisco Giants","823194","2026-07-26","Yesterday","Pitcher","667755","José Soriano","5.0 IP, 5 K",10
-"824001","Los Angeles Angels","San Francisco Giants","823194","2026-07-26","Yesterday","Pitcher","666171","Ryan Zeferjahn","1.0 IP, 2 K",3
-"824977","Boston Red Sox","Toronto Blue Jays","824730","2026-07-26","Yesterday","Hitter","680776","Jarren Duran","3 H, 0 HR, 0 2B, 2 RBI",8
-"824977","Boston Red Sox","Toronto Blue Jays","824730","2026-07-26","Yesterday","Hitter","702332","Caleb Durbin","2 H, 0 HR, 0 2B, 0 RBI",4
-"824977","Boston Red Sox","Toronto Blue Jays","824730","2026-07-26","Yesterday","Hitter","663330","Jahmai Jones","1 H, 0 HR, 1 2B, 2 RBI",4
-"824977","Boston Red Sox","Toronto Blue Jays","824730","2026-07-26","Yesterday","Pitcher","624133","Ranger Suarez","4.0 IP, 6 K",10
-"824977","Boston Red Sox","Toronto Blue Jays","824730","2026-07-26","Yesterday","Pitcher","670245","Ryan Watson","2.0 IP, 1 K",3
-"824977","Athletics","Minnesota Twins","823678","2026-07-26","Yesterday","Hitter","701762","Nick Kurtz","1 H, 1 HR, 0 2B, 3 RBI",8
-"824977","Athletics","Minnesota Twins","823678","2026-07-26","Yesterday","Hitter","643446","Jeff McNeil","2 H, 0 HR, 0 2B, 2 RBI",6
-"824977","Athletics","Minnesota Twins","823678","2026-07-26","Yesterday","Hitter","695720","Tommy White","2 H, 0 HR, 0 2B, 0 RBI",4
-"824977","Athletics","Minnesota Twins","823678","2026-07-26","Yesterday","Pitcher","806960","Luis Morales","4.2 IP, 5 K",9.66666666666667
-"824977","Athletics","Minnesota Twins","823678","2026-07-26","Yesterday","Pitcher","664129","Geoff Hartlieb","2.0 IP, 1 K",3
-"823195","Milwaukee Brewers","Colorado Rockies","823755","2026-07-26","Yesterday","Hitter","683734","Andrew Vaughn","1 H, 1 HR, 0 2B, 2 RBI",7
-"823195","Milwaukee Brewers","Colorado Rockies","823755","2026-07-26","Yesterday","Hitter","806198","Cooper Pratt","2 H, 0 HR, 1 2B, 2 RBI",6
-"823195","Milwaukee Brewers","Colorado Rockies","823755","2026-07-26","Yesterday","Hitter","800325","Luis Lara","2 H, 0 HR, 2 2B, 2 RBI",6
-"823195","Milwaukee Brewers","Colorado Rockies","823755","2026-07-26","Yesterday","Pitcher","694819","Jacob Misiorowski","5.0 IP, 12 K",17
-"823195","Milwaukee Brewers","Colorado Rockies","823755","2026-07-26","Yesterday","Pitcher","669060","Bryse Wilson","1.0 IP, 2 K",3
-"823195","San Francisco Giants","Los Angeles Angels","823194","2026-07-26","Yesterday","Hitter","650333","Luis Arraez","2 H, 0 HR, 1 2B, 2 RBI",6
-"823195","San Francisco Giants","Los Angeles Angels","823194","2026-07-26","Yesterday","Hitter","701852","Drew Cavanaugh","2 H, 0 HR, 0 2B, 0 RBI",4
-"823195","San Francisco Giants","Los Angeles Angels","823194","2026-07-26","Yesterday","Hitter","671218","Heliot Ramos","1 H, 0 HR, 0 2B, 0 RBI",2
-"823195","San Francisco Giants","Los Angeles Angels","823194","2026-07-26","Yesterday","Pitcher","687931","Carson Whisenhunt","5.0 IP, 7 K",12
-"823195","San Francisco Giants","Los Angeles Angels","823194","2026-07-26","Yesterday","Pitcher","605288","Adrian Houser","4.0 IP, 2 K",6
+"824490","Cleveland Guardians","Tampa Bay Rays","822950","2026-07-26","Previous game","Hitter","680757","Steven Kwan","1 H, 0 HR, 1 2B, 0 RBI",2
+"824490","Cleveland Guardians","Tampa Bay Rays","822950","2026-07-26","Previous game","Hitter","682657","Angel Martínez","0 H, 0 HR, 0 2B, 0 RBI",0
+"824490","Cleveland Guardians","Tampa Bay Rays","822950","2026-07-26","Previous game","Hitter","595978","Austin Hedges","0 H, 0 HR, 0 2B, 0 RBI",0
+"824490","Cleveland Guardians","Tampa Bay Rays","822950","2026-07-26","Previous game","Pitcher","800048","Parker Messick","7.2 IP, 6 K",13.6666666666667
+"824490","Cleveland Guardians","Tampa Bay Rays","822950","2026-07-26","Previous game","Pitcher","670059","Colin Holderman","0.1 IP, 0 K",0.333333333333333
+"824490","Cincinnati Reds","St. Louis Cardinals","823028","2026-07-26","Previous game","Hitter","682829","Elly De La Cruz","2 H, 1 HR, 0 2B, 1 RBI",8
+"824490","Cincinnati Reds","St. Louis Cardinals","823028","2026-07-26","Previous game","Hitter","663993","Nathaniel Lowe","3 H, 0 HR, 0 2B, 2 RBI",8
+"824490","Cincinnati Reds","St. Louis Cardinals","823028","2026-07-26","Previous game","Hitter","663647","Ke'Bryan Hayes","1 H, 1 HR, 0 2B, 1 RBI",6
+"824490","Cincinnati Reds","St. Louis Cardinals","823028","2026-07-26","Previous game","Pitcher","671096","Andrew Abbott","6.0 IP, 4 K",10
+"824490","Cincinnati Reds","St. Louis Cardinals","823028","2026-07-26","Previous game","Pitcher","656271","Brock Burke","1.1 IP, 2 K",3.33333333333333
+"824489","Cleveland Guardians","Tampa Bay Rays","822950","2026-07-26","Previous game","Hitter","680757","Steven Kwan","1 H, 0 HR, 1 2B, 0 RBI",2
+"824489","Cleveland Guardians","Tampa Bay Rays","822950","2026-07-26","Previous game","Hitter","682657","Angel Martínez","0 H, 0 HR, 0 2B, 0 RBI",0
+"824489","Cleveland Guardians","Tampa Bay Rays","822950","2026-07-26","Previous game","Hitter","595978","Austin Hedges","0 H, 0 HR, 0 2B, 0 RBI",0
+"824489","Cleveland Guardians","Tampa Bay Rays","822950","2026-07-26","Previous game","Pitcher","800048","Parker Messick","7.2 IP, 6 K",13.6666666666667
+"824489","Cleveland Guardians","Tampa Bay Rays","822950","2026-07-26","Previous game","Pitcher","670059","Colin Holderman","0.1 IP, 0 K",0.333333333333333
+"824489","Cincinnati Reds","St. Louis Cardinals","823028","2026-07-26","Previous game","Hitter","682829","Elly De La Cruz","2 H, 1 HR, 0 2B, 1 RBI",8
+"824489","Cincinnati Reds","St. Louis Cardinals","823028","2026-07-26","Previous game","Hitter","663993","Nathaniel Lowe","3 H, 0 HR, 0 2B, 2 RBI",8
+"824489","Cincinnati Reds","St. Louis Cardinals","823028","2026-07-26","Previous game","Hitter","663647","Ke'Bryan Hayes","1 H, 1 HR, 0 2B, 1 RBI",6
+"824489","Cincinnati Reds","St. Louis Cardinals","823028","2026-07-26","Previous game","Pitcher","671096","Andrew Abbott","6.0 IP, 4 K",10
+"824489","Cincinnati Reds","St. Louis Cardinals","823028","2026-07-26","Previous game","Pitcher","656271","Brock Burke","1.1 IP, 2 K",3.33333333333333
+"824243","Baltimore Orioles","Detroit Tigers","824245","2026-07-27","Yesterday","Hitter","691723","Coby Mayo","2 H, 1 HR, 0 2B, 3 RBI",10
+"824243","Baltimore Orioles","Detroit Tigers","824245","2026-07-27","Yesterday","Hitter","702616","Jackson Holliday","4 H, 0 HR, 1 2B, 0 RBI",8
+"824243","Baltimore Orioles","Detroit Tigers","824245","2026-07-27","Yesterday","Hitter","665750","Leody Taveras","1 H, 1 HR, 0 2B, 1 RBI",6
+"824243","Baltimore Orioles","Detroit Tigers","824245","2026-07-27","Yesterday","Pitcher","680694","Kyle Bradish","4.2 IP, 4 K",8.66666666666667
+"824243","Baltimore Orioles","Detroit Tigers","824245","2026-07-27","Yesterday","Pitcher","664991","Grant Wolfram","1.1 IP, 2 K",3.33333333333333
+"824243","Detroit Tigers","Baltimore Orioles","824245","2026-07-27","Yesterday","Hitter","679529","Spencer Torkelson","2 H, 0 HR, 0 2B, 1 RBI",5
+"824243","Detroit Tigers","Baltimore Orioles","824245","2026-07-27","Yesterday","Hitter","656716","Zach McKinstry","2 H, 0 HR, 0 2B, 1 RBI",5
+"824243","Detroit Tigers","Baltimore Orioles","824245","2026-07-27","Yesterday","Hitter","690993","Colt Keith","2 H, 0 HR, 1 2B, 0 RBI",4
+"824243","Detroit Tigers","Baltimore Orioles","824245","2026-07-27","Yesterday","Pitcher","672456","Keider Montero","4.1 IP, 1 K",5.33333333333333
+"824243","Detroit Tigers","Baltimore Orioles","824245","2026-07-27","Yesterday","Pitcher","621097","Jacob Waguespack","2.0 IP, 2 K",4
+"823350","Arizona Diamondbacks","Pittsburgh Pirates","823353","2026-07-27","Yesterday","Hitter","596146","Max Kepler","3 H, 0 HR, 1 2B, 2 RBI",8
+"823350","Arizona Diamondbacks","Pittsburgh Pirates","823353","2026-07-27","Yesterday","Hitter","682998","Corbin Carroll","1 H, 0 HR, 0 2B, 0 RBI",2
+"823350","Arizona Diamondbacks","Pittsburgh Pirates","823353","2026-07-27","Yesterday","Hitter","672695","Geraldo Perdomo","1 H, 0 HR, 0 2B, 0 RBI",2
+"823350","Arizona Diamondbacks","Pittsburgh Pirates","823353","2026-07-27","Yesterday","Pitcher","518876","Merrill Kelly","5.2 IP, 6 K",11.6666666666667
+"823350","Arizona Diamondbacks","Pittsburgh Pirates","823353","2026-07-27","Yesterday","Pitcher","666661","Juan Morillo","1.1 IP, 2 K",3.33333333333333
+"823350","Pittsburgh Pirates","Arizona Diamondbacks","823353","2026-07-27","Yesterday","Hitter","664040","Brandon Lowe","3 H, 0 HR, 1 2B, 2 RBI",8
+"823350","Pittsburgh Pirates","Arizona Diamondbacks","823353","2026-07-27","Yesterday","Hitter","693304","Nick Gonzales","2 H, 0 HR, 0 2B, 0 RBI",4
+"823350","Pittsburgh Pirates","Arizona Diamondbacks","823353","2026-07-27","Yesterday","Hitter","668804","Bryan Reynolds","1 H, 0 HR, 1 2B, 1 RBI",3
+"823350","Pittsburgh Pirates","Arizona Diamondbacks","823353","2026-07-27","Yesterday","Pitcher","656605","Mitch Keller","5.1 IP, 4 K",9.33333333333333
+"823350","Pittsburgh Pirates","Arizona Diamondbacks","823353","2026-07-27","Yesterday","Pitcher","642397","Gregory Soto","1.0 IP, 2 K",3
+"822949","Texas Rangers","Seattle Mariners","822868","2026-07-27","Yesterday","Hitter","592626","Joc Pederson","2 H, 2 HR, 0 2B, 4 RBI",14
+"822949","Texas Rangers","Seattle Mariners","822868","2026-07-27","Yesterday","Hitter","677649","Ezequiel Duran","2 H, 1 HR, 0 2B, 1 RBI",8
+"822949","Texas Rangers","Seattle Mariners","822868","2026-07-27","Yesterday","Hitter","669394","Jake Burger","1 H, 1 HR, 0 2B, 2 RBI",7
+"822949","Texas Rangers","Seattle Mariners","822868","2026-07-27","Yesterday","Pitcher","677958","Kumar Rocker","6.2 IP, 7 K",13.6666666666667
+"822949","Texas Rangers","Seattle Mariners","822868","2026-07-27","Yesterday","Pitcher","656641","Jacob Latz","1.0 IP, 2 K",3
+"822949","Tampa Bay Rays","Cleveland Guardians","822950","2026-07-26","Previous game","Hitter","802415","Chandler Simpson","2 H, 0 HR, 0 2B, 0 RBI",4
+"822949","Tampa Bay Rays","Cleveland Guardians","822950","2026-07-26","Previous game","Hitter","656775","Cedric Mullins","1 H, 0 HR, 0 2B, 1 RBI",3
+"822949","Tampa Bay Rays","Cleveland Guardians","822950","2026-07-26","Previous game","Hitter","810938","Ben Williamson","1 H, 0 HR, 0 2B, 0 RBI",2
+"822949","Tampa Bay Rays","Cleveland Guardians","822950","2026-07-26","Previous game","Pitcher","656876","Drew Rasmussen","7.0 IP, 9 K",16
+"822949","Tampa Bay Rays","Cleveland Guardians","822950","2026-07-26","Previous game","Pitcher","641329","Bryan Baker","1.0 IP, 1 K",2
+"823838","Philadelphia Phillies","Miami Marlins","823839","2026-07-27","Yesterday","Hitter","547180","Bryce Harper","1 H, 1 HR, 0 2B, 2 RBI",7
+"823838","Philadelphia Phillies","Miami Marlins","823839","2026-07-27","Yesterday","Hitter","664761","Alec Bohm","2 H, 0 HR, 0 2B, 1 RBI",5
+"823838","Philadelphia Phillies","Miami Marlins","823839","2026-07-27","Yesterday","Hitter","681082","Bryson Stott","2 H, 0 HR, 0 2B, 0 RBI",4
+"823838","Philadelphia Phillies","Miami Marlins","823839","2026-07-27","Yesterday","Pitcher","554430","Zack Wheeler","3.0 IP, 6 K",9
+"823838","Philadelphia Phillies","Miami Marlins","823839","2026-07-27","Yesterday","Pitcher","679775","Kyle Backhus","2.0 IP, 1 K",3
+"823838","Miami Marlins","Philadelphia Phillies","823839","2026-07-27","Yesterday","Hitter","681715","Heriberto Hernández","2 H, 1 HR, 0 2B, 3 RBI",10
+"823838","Miami Marlins","Philadelphia Phillies","823839","2026-07-27","Yesterday","Hitter","665052","Griffin Conine","2 H, 1 HR, 0 2B, 2 RBI",9
+"823838","Miami Marlins","Philadelphia Phillies","823839","2026-07-27","Yesterday","Hitter","672640","Otto Lopez","3 H, 0 HR, 0 2B, 1 RBI",7
+"823838","Miami Marlins","Philadelphia Phillies","823839","2026-07-27","Yesterday","Pitcher","663969","Tyler Phillips","5.0 IP, 5 K",10
+"823838","Miami Marlins","Philadelphia Phillies","823839","2026-07-27","Yesterday","Pitcher","676534","Calvin Faucher","1.0 IP, 2 K",3
+"822703","Toronto Blue Jays","Washington Nationals","822705","2026-07-27","Yesterday","Hitter","649966","Luis Urías","1 H, 1 HR, 0 2B, 1 RBI",6
+"822703","Toronto Blue Jays","Washington Nationals","822705","2026-07-27","Yesterday","Hitter","664702","Myles Straw","2 H, 0 HR, 1 2B, 1 RBI",5
+"822703","Toronto Blue Jays","Washington Nationals","822705","2026-07-27","Yesterday","Hitter","676391","Ernie Clement","1 H, 0 HR, 1 2B, 1 RBI",3
+"822703","Toronto Blue Jays","Washington Nationals","822705","2026-07-27","Yesterday","Pitcher","453286","Max Scherzer","2.2 IP, 4 K",6.66666666666667
+"822703","Toronto Blue Jays","Washington Nationals","822705","2026-07-27","Yesterday","Pitcher","656546","Jeff Hoffman","1.0 IP, 3 K",4
+"822703","Washington Nationals","Toronto Blue Jays","822705","2026-07-27","Yesterday","Hitter","665953","Andrés Chaparro","1 H, 1 HR, 0 2B, 1 RBI",6
+"822703","Washington Nationals","Toronto Blue Jays","822705","2026-07-27","Yesterday","Hitter","671277","Luis García Jr.","2 H, 0 HR, 1 2B, 1 RBI",5
+"822703","Washington Nationals","Toronto Blue Jays","822705","2026-07-27","Yesterday","Hitter","683083","Nasim Nuñez","2 H, 0 HR, 0 2B, 0 RBI",4
+"822703","Washington Nationals","Toronto Blue Jays","822705","2026-07-27","Yesterday","Pitcher","674841","Andrew Alvarez","4.1 IP, 3 K",7.33333333333333
+"822703","Washington Nationals","Toronto Blue Jays","822705","2026-07-27","Yesterday","Pitcher","678868","Eddy Yean","2.1 IP, 0 K",2.33333333333333
+"823598","Atlanta Braves","New York Mets","823597","2026-07-27","Yesterday","Hitter","645277","Ozzie Albies","2 H, 1 HR, 0 2B, 3 RBI",10
+"823598","Atlanta Braves","New York Mets","823597","2026-07-27","Yesterday","Hitter","686948","Drake Baldwin","1 H, 0 HR, 0 2B, 0 RBI",2
+"823598","Atlanta Braves","New York Mets","823597","2026-07-27","Yesterday","Hitter","663698","Joey Bart","1 H, 0 HR, 0 2B, 0 RBI",2
+"823598","Atlanta Braves","New York Mets","823597","2026-07-27","Yesterday","Pitcher","527048","Martín Pérez","5.0 IP, 4 K",9
+"823598","Atlanta Braves","New York Mets","823597","2026-07-27","Yesterday","Pitcher","671162","Connor Thomas","2.2 IP, 2 K",4.66666666666667
+"823598","New York Mets","Atlanta Braves","823597","2026-07-27","Yesterday","Hitter","596019","Francisco Lindor","3 H, 2 HR, 0 2B, 6 RBI",18
+"823598","New York Mets","Atlanta Braves","823597","2026-07-27","Yesterday","Hitter","621438","Tyrone Taylor","3 H, 1 HR, 0 2B, 3 RBI",12
+"823598","New York Mets","Atlanta Braves","823597","2026-07-27","Yesterday","Hitter","543760","Marcus Semien","3 H, 1 HR, 0 2B, 2 RBI",11
+"823598","New York Mets","Atlanta Braves","823597","2026-07-27","Yesterday","Pitcher","804267","Zac Thornton","6.1 IP, 5 K",11.3333333333333
+"823598","New York Mets","Atlanta Braves","823597","2026-07-27","Yesterday","Pitcher","650960","Daniel Duarte","2.0 IP, 3 K",5
+"823676","Kansas City Royals","Detroit Tigers","824246","2026-07-26","Previous game","Hitter","686681","Michael Massey","1 H, 1 HR, 0 2B, 2 RBI",7
+"823676","Kansas City Royals","Detroit Tigers","824246","2026-07-26","Previous game","Hitter","657041","Lane Thomas","1 H, 1 HR, 0 2B, 1 RBI",6
+"823676","Kansas City Royals","Detroit Tigers","824246","2026-07-26","Previous game","Hitter","571912","Luke Maile","1 H, 0 HR, 1 2B, 1 RBI",3
+"823676","Kansas City Royals","Detroit Tigers","824246","2026-07-26","Previous game","Pitcher","679883","Luinder Avila","4.1 IP, 2 K",6.33333333333333
+"823676","Kansas City Royals","Detroit Tigers","824246","2026-07-26","Previous game","Pitcher","674444","Steven Cruz","1.0 IP, 2 K",3
+"823676","Minnesota Twins","Athletics","823678","2026-07-26","Previous game","Hitter","680777","Ryan Jeffers","3 H, 0 HR, 0 2B, 3 RBI",9
+"823676","Minnesota Twins","Athletics","823678","2026-07-26","Previous game","Hitter","665019","Kody Clemens","3 H, 0 HR, 0 2B, 1 RBI",7
+"823676","Minnesota Twins","Athletics","823678","2026-07-26","Previous game","Hitter","668952","Ryan Kreidler","3 H, 0 HR, 2 2B, 1 RBI",7
+"823676","Minnesota Twins","Athletics","823678","2026-07-26","Previous game","Pitcher","687570","Connor Prielipp","5.2 IP, 5 K",10.6666666666667
+"823676","Minnesota Twins","Athletics","823678","2026-07-26","Previous game","Pitcher","681892","Kody Funderburk","1.0 IP, 1 K",2
+"824569","New York Yankees","Chicago White Sox","824570","2026-07-27","Yesterday","Hitter","645305","Ali Sánchez","1 H, 1 HR, 0 2B, 3 RBI",8
+"824569","New York Yankees","Chicago White Sox","824570","2026-07-27","Yesterday","Hitter","665862","Jazz Chisholm Jr.","2 H, 0 HR, 1 2B, 2 RBI",6
+"824569","New York Yankees","Chicago White Sox","824570","2026-07-27","Yesterday","Hitter","700250","Ben Rice","2 H, 0 HR, 0 2B, 1 RBI",5
+"824569","New York Yankees","Chicago White Sox","824570","2026-07-27","Yesterday","Pitcher","608331","Max Fried","3.0 IP, 4 K",7
+"824569","New York Yankees","Chicago White Sox","824570","2026-07-27","Yesterday","Pitcher","687396","Brent Headrick","1.1 IP, 1 K",2.33333333333333
+"824569","Chicago White Sox","New York Yankees","824570","2026-07-27","Yesterday","Hitter","695657","Colson Montgomery","3 H, 0 HR, 0 2B, 2 RBI",8
+"824569","Chicago White Sox","New York Yankees","824570","2026-07-27","Yesterday","Hitter","695731","Braden Montgomery","1 H, 0 HR, 0 2B, 1 RBI",3
+"824569","Chicago White Sox","New York Yankees","824570","2026-07-27","Yesterday","Hitter","805367","Chase Meidroth","1 H, 0 HR, 1 2B, 1 RBI",3
+"824569","Chicago White Sox","New York Yankees","824570","2026-07-27","Yesterday","Pitcher","702273","Noah Schultz","3.1 IP, 5 K",8.33333333333333
+"824569","Chicago White Sox","New York Yankees","824570","2026-07-27","Yesterday","Pitcher","670950","Trevor Richards","2.0 IP, 4 K",6
+"823026","Chicago Cubs","St. Louis Cardinals","823025","2026-07-27","Yesterday","Hitter","663538","Nico Hoerner","4 H, 1 HR, 0 2B, 4 RBI",15
+"823026","Chicago Cubs","St. Louis Cardinals","823025","2026-07-27","Yesterday","Hitter","608324","Alex Bregman","4 H, 1 HR, 2 2B, 2 RBI",13
+"823026","Chicago Cubs","St. Louis Cardinals","823025","2026-07-27","Yesterday","Hitter","665804","Miguel Amaya","2 H, 0 HR, 0 2B, 1 RBI",5
+"823026","Chicago Cubs","St. Louis Cardinals","823025","2026-07-27","Yesterday","Pitcher","656849","David Peterson","5.2 IP, 3 K",8.66666666666667
+"823026","Chicago Cubs","St. Louis Cardinals","823025","2026-07-27","Yesterday","Pitcher","669020","Ryan Rolison","0.2 IP, 2 K",2.66666666666667
+"823026","St. Louis Cardinals","Chicago Cubs","823025","2026-07-27","Yesterday","Hitter","665877","José Fermín","1 H, 1 HR, 0 2B, 1 RBI",6
+"823026","St. Louis Cardinals","Chicago Cubs","823025","2026-07-27","Yesterday","Hitter","691026","Masyn Winn","2 H, 0 HR, 0 2B, 1 RBI",5
+"823026","St. Louis Cardinals","Chicago Cubs","823025","2026-07-27","Yesterday","Hitter","663494","Bryan Torres","1 H, 0 HR, 1 2B, 1 RBI",3
+"823026","St. Louis Cardinals","Chicago Cubs","823025","2026-07-27","Yesterday","Pitcher","690928","Hunter Dobbins","5.1 IP, 4 K",9.33333333333333
+"823026","St. Louis Cardinals","Chicago Cubs","823025","2026-07-27","Yesterday","Pitcher","669461","Matthew Liberatore","3.1 IP, 5 K",8.33333333333333
+"824003","Houston Astros","Los Angeles Angels","824001","2026-07-27","Yesterday","Hitter","666211","Taylor Trammell","1 H, 1 HR, 0 2B, 1 RBI",6
+"824003","Houston Astros","Los Angeles Angels","824001","2026-07-27","Yesterday","Hitter","670541","Yordan Alvarez","1 H, 0 HR, 0 2B, 1 RBI",3
+"824003","Houston Astros","Los Angeles Angels","824001","2026-07-27","Yesterday","Hitter","543877","Christian Vázquez","1 H, 0 HR, 0 2B, 0 RBI",2
+"824003","Houston Astros","Los Angeles Angels","824001","2026-07-27","Yesterday","Pitcher","664299","Cristian Javier","5.0 IP, 7 K",12
+"824003","Houston Astros","Los Angeles Angels","824001","2026-07-27","Yesterday","Pitcher","805123","AJ Blubaugh","2.1 IP, 1 K",3.33333333333333
+"824003","Los Angeles Angels","Houston Astros","824001","2026-07-27","Yesterday","Hitter","687093","Vaughn Grissom","3 H, 1 HR, 0 2B, 2 RBI",11
+"824003","Los Angeles Angels","Houston Astros","824001","2026-07-27","Yesterday","Hitter","666176","Jo Adell","1 H, 0 HR, 1 2B, 1 RBI",3
+"824003","Los Angeles Angels","Houston Astros","824001","2026-07-27","Yesterday","Hitter","694384","Nolan Schanuel","1 H, 0 HR, 1 2B, 1 RBI",3
+"824003","Los Angeles Angels","Houston Astros","824001","2026-07-27","Yesterday","Pitcher","700712","Walbert Ureña","6.0 IP, 5 K",11
+"824003","Los Angeles Angels","Houston Astros","824001","2026-07-27","Yesterday","Pitcher","666171","Ryan Zeferjahn","1.0 IP, 2 K",3
+"824976","Boston Red Sox","Athletics","824977","2026-07-27","Yesterday","Hitter","678882","Ceddanne Rafaela","1 H, 1 HR, 0 2B, 4 RBI",9
+"824976","Boston Red Sox","Athletics","824977","2026-07-27","Yesterday","Hitter","655316","Andruw Monasterio","1 H, 0 HR, 1 2B, 0 RBI",2
+"824976","Boston Red Sox","Athletics","824977","2026-07-27","Yesterday","Hitter","702332","Caleb Durbin","1 H, 0 HR, 1 2B, 0 RBI",2
+"824976","Boston Red Sox","Athletics","824977","2026-07-27","Yesterday","Pitcher","801139","Payton Tolle","5.0 IP, 7 K",12
+"824976","Boston Red Sox","Athletics","824977","2026-07-27","Yesterday","Pitcher","547973","Aroldis Chapman","1.0 IP, 3 K",4
+"824976","Athletics","Boston Red Sox","824977","2026-07-27","Yesterday","Hitter","641680","Jonah Heim","1 H, 1 HR, 0 2B, 1 RBI",6
+"824976","Athletics","Boston Red Sox","824977","2026-07-27","Yesterday","Hitter","691016","Tyler Soderstrom","1 H, 1 HR, 0 2B, 1 RBI",6
+"824976","Athletics","Boston Red Sox","824977","2026-07-27","Yesterday","Hitter","687515","Colby Thomas","2 H, 0 HR, 0 2B, 0 RBI",4
+"824976","Athletics","Boston Red Sox","824977","2026-07-27","Yesterday","Pitcher","678022","Jack Perkins","5.2 IP, 4 K",9.66666666666667
+"824976","Athletics","Boston Red Sox","824977","2026-07-27","Yesterday","Pitcher","663687","Hogan Harris","1.0 IP, 1 K",2
+"823275","Colorado Rockies","Milwaukee Brewers","823755","2026-07-26","Previous game","Hitter","694249","Cole Carrigg","1 H, 1 HR, 0 2B, 1 RBI",6
+"823275","Colorado Rockies","Milwaukee Brewers","823755","2026-07-26","Previous game","Hitter","650489","Willi Castro","1 H, 1 HR, 0 2B, 1 RBI",6
+"823275","Colorado Rockies","Milwaukee Brewers","823755","2026-07-26","Previous game","Hitter","696100","Hunter Goodman","1 H, 0 HR, 0 2B, 0 RBI",2
+"823275","Colorado Rockies","Milwaukee Brewers","823755","2026-07-26","Previous game","Pitcher","607536","Kyle Freeland","5.1 IP, 2 K",7.33333333333333
+"823275","Colorado Rockies","Milwaukee Brewers","823755","2026-07-26","Previous game","Pitcher","623474","Jimmy Herget","0.2 IP, 1 K",1.66666666666667
+"823275","San Diego Padres","Miami Marlins","823840","2026-07-26","Previous game","Hitter","592518","Manny Machado","2 H, 1 HR, 1 2B, 3 RBI",10
+"823275","San Diego Padres","Miami Marlins","823840","2026-07-26","Previous game","Hitter","701538","Jackson Merrill","2 H, 1 HR, 0 2B, 1 RBI",8
+"823275","San Diego Padres","Miami Marlins","823840","2026-07-26","Previous game","Hitter","630105","Jake Cronenworth","3 H, 0 HR, 0 2B, 0 RBI",6
+"823275","San Diego Padres","Miami Marlins","823840","2026-07-26","Previous game","Pitcher","621111","Walker Buehler","5.1 IP, 7 K",12.3333333333333
+"823275","San Diego Padres","Miami Marlins","823840","2026-07-26","Previous game","Pitcher","673513","Yuki Matsui","0.2 IP, 2 K",2.66666666666667
+"823193","Milwaukee Brewers","San Francisco Giants","823195","2026-07-27","Yesterday","Hitter","683734","Andrew Vaughn","1 H, 0 HR, 0 2B, 0 RBI",2
+"823193","Milwaukee Brewers","San Francisco Giants","823195","2026-07-27","Yesterday","Hitter","694192","Jackson Chourio","1 H, 0 HR, 0 2B, 0 RBI",2
+"823193","Milwaukee Brewers","San Francisco Giants","823195","2026-07-27","Yesterday","Hitter","641343","Jake Bauers","1 H, 0 HR, 0 2B, 0 RBI",2
+"823193","Milwaukee Brewers","San Francisco Giants","823195","2026-07-27","Yesterday","Pitcher","687075","Brandon Sproat","5.2 IP, 5 K",10.6666666666667
+"823193","Milwaukee Brewers","San Francisco Giants","823195","2026-07-27","Yesterday","Pitcher","668831","Garrett Stallings","2.0 IP, 1 K",3
+"823193","San Francisco Giants","Milwaukee Brewers","823195","2026-07-27","Yesterday","Hitter","687529","Grant McCray","1 H, 1 HR, 0 2B, 2 RBI",7
+"823193","San Francisco Giants","Milwaukee Brewers","823195","2026-07-27","Yesterday","Hitter","650333","Luis Arraez","1 H, 0 HR, 0 2B, 1 RBI",3
+"823193","San Francisco Giants","Milwaukee Brewers","823195","2026-07-27","Yesterday","Hitter","669477","Casey Schmitt","1 H, 0 HR, 0 2B, 0 RBI",2
+"823193","San Francisco Giants","Milwaukee Brewers","823195","2026-07-27","Yesterday","Pitcher","641816","Tyler Mahle","6.0 IP, 3 K",9
+"823193","San Francisco Giants","Milwaukee Brewers","823195","2026-07-27","Yesterday","Pitcher","669062","Erik Miller","1.0 IP, 2 K",3
+"823923","Seattle Mariners","Texas Rangers","822868","2026-07-27","Yesterday","Hitter","668227","Randy Arozarena","1 H, 1 HR, 0 2B, 1 RBI",6
+"823923","Seattle Mariners","Texas Rangers","822868","2026-07-27","Yesterday","Hitter","677594","Julio Rodríguez","1 H, 0 HR, 0 2B, 1 RBI",3
+"823923","Seattle Mariners","Texas Rangers","822868","2026-07-27","Yesterday","Hitter","702284","Cole Young","1 H, 0 HR, 0 2B, 0 RBI",2
+"823923","Seattle Mariners","Texas Rangers","822868","2026-07-27","Yesterday","Pitcher","669923","George Kirby","4.0 IP, 3 K",7
+"823923","Seattle Mariners","Texas Rangers","822868","2026-07-27","Yesterday","Pitcher","695380","Alex Hoppe","1.0 IP, 3 K",4
+"823923","Los Angeles Dodgers","New York Mets","823599","2026-07-26","Previous game","Hitter","518692","Freddie Freeman","2 H, 0 HR, 1 2B, 1 RBI",5
+"823923","Los Angeles Dodgers","New York Mets","823599","2026-07-26","Previous game","Hitter","606192","Teoscar Hernández","2 H, 0 HR, 0 2B, 0 RBI",4
+"823923","Los Angeles Dodgers","New York Mets","823599","2026-07-26","Previous game","Hitter","669242","Tommy Edman","2 H, 0 HR, 0 2B, 0 RBI",4
+"823923","Los Angeles Dodgers","New York Mets","823599","2026-07-26","Previous game","Pitcher","686218","Emmet Sheehan","5.0 IP, 5 K",10
+"823923","Los Angeles Dodgers","New York Mets","823599","2026-07-26","Previous game","Pitcher","656212","Charlie Barnes","1.0 IP, 2 K",3

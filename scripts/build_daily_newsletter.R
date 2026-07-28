@@ -226,15 +226,20 @@ if (nrow(milestones)) {
   milestones <- milestones[order(number(milestones$distance_to_milestone), -number(milestones$story_score)), , drop = FALSE]
   for (index in seq_len(min(2L, nrow(milestones)))) {
     row <- milestones[index, , drop = FALSE]
-    milestone_label <- gsub("_", " ", row$milestone_stat)
+    milestone_stat <- as.character(row$milestone_stat[[1L]])
+    milestone_label <- gsub("_", " ", milestone_stat)
     if (number(row$distance_to_milestone) == 1) {
       singular_labels <- c(
         hits = "hit", runs = "run", home_runs = "home run",
         doubles = "double", rbi = "RBI", stolen_bases = "stolen base",
         strikeouts = "strikeout", wins = "win", saves = "save"
       )
-      singular_match <- unname(singular_labels[[row$milestone_stat]])
-      milestone_label <- if (is.null(singular_match)) sub("s$", "", milestone_label) else singular_match
+      singular_match <- unname(singular_labels[milestone_stat])
+      milestone_label <- if (!length(singular_match) || is.na(singular_match) || !nzchar(singular_match)) {
+        sub("s$", "", milestone_label)
+      } else {
+        singular_match
+      }
     }
     add_candidate(story(
       paste0("milestone-", row$player_id, "-", row$milestone_stat), "history", row$player_name, row$team,
