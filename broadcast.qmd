@@ -32,3 +32,23 @@ Player spotlights, pitch-mix changes, historical notes, and broadcast-ready evid
 :::
 
 The packet generator and private journalist analytics lab are currently in development. Selected portfolio packets will be published here after broadcaster approval.
+
+::: {.packet-sample-room}
+## Sample broadcast packets
+
+Downloadable examples will appear here as broadcaster-approved HTML and PDF packets become available. Add each sample inside the grid below using the provided card structure.
+
+::: {.packet-sample-grid}
+::: {.packet-sample-card .is-placeholder}
+### Sample packet coming soon
+
+**Matchup:** Away team at Home team  
+**Game date:** Month Day, Year
+
+Add the approved PDF and offline HTML links here.
+
+[Download PDF](#){.btn .btn-metallic}
+[Open offline HTML](#){.btn .btn-sabr-navy}
+:::
+:::
+:::

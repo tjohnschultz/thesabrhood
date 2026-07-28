@@ -223,6 +223,38 @@ opportunity, challenge, overturn, expected-value, and run-value fields. These
 official challenge results are kept separate from the SABRhood framing
 development score.
 
+## Fielding Engine and runner advancement
+
+The Fielding Engine starts with one credited ball in play. The primary fielder
+and position are parsed from the official play description and matched to the
+season player reference. A transparent expected-out development estimate uses
+batted-ball trajectory, field location, exit velocity, launch angle, and
+distance, with detailed context cells pulled toward broader trajectory-location
+rates in small samples.
+
+This estimate is not Statcast Catch Probability or Outs Above Average. Public
+labels explicitly note that the play-by-play feed does not contain official
+starting position, jump, route, wall, or opportunity-time tracking. Official
+Fielding Run Value is imported and displayed as a separate contract, including
+its range, arm, double-play, catcher throwing, blocking, and framing components.
+
+Runner-advancement prevention reconstructs five decisions: scoring from second
+on a single, first-to-third on a single, scoring from first on a double,
+second-to-third on an out, and first-to-second on an out. A shrunken additive
+logistic model separates runner, credited fielder, advancement type, batted-ball
+context, outs, inning, and score effects. The fielder board therefore measures
+extra bases allowed relative to the runners and situations faced.
+
+Gold Glove Watch standardizes official Fielding Run Value inside each
+league-position group and shrinks the rate by playing time. The American League
+and National League therefore have separate projected selections at every
+tracked position. It is a current-value watchlist, not a forecast of award
+voting. Pitcher and utility are left unfilled because the current official
+fielding contract does not provide comparable rows for those award positions.
+Play of the Day selects the strongest positive SABRhood estimated range or
+advancement contribution for each date and retains its development label on
+every surface.
+
 ## History Match Engine
 
 History Match starts from a current player or team line and selects thresholds

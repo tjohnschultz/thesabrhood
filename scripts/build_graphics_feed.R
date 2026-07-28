@@ -32,6 +32,9 @@ positional_war <- read_product("team-positional-war.csv")
 discipline <- read_product("hitter-discipline-profiles.csv")
 arsenal_spotlights <- read_product("arsenal-spotlights.csv")
 pull_spray <- read_product("pull-rate-leader-batted-balls.csv")
+official_fielding <- read_product("official-fielding-run-value.csv")
+gold_glove_watch <- read_product("gold-glove-watch.csv")
+advancement_fielders <- read_product("runner-advancement-fielding-ratings.csv")
 
 brand_navy <- "#0C2340"
 brand_red <- "#BD3039"
@@ -292,6 +295,211 @@ award_history_plot <- function(league, file_name) {
   save_plot(plot, file_name, width = 16, height = 10)
 }
 
+top_defender_by_position <- function(data, metric, top_n = 1L) {
+  positions <- c("C", "1B", "2B", "3B", "SS", "LF", "CF", "RF")
+  rows <- lapply(positions, function(position) {
+    candidates <- data[
+      data$primary_position == position &
+        is.finite(as.numeric(data[[metric]])),
+      ,
+      drop = FALSE
+    ]
+    candidates <- candidates[
+      order(
+        as.numeric(candidates[[metric]]),
+        as.numeric(candidates$fielding_runs),
+        decreasing = TRUE
+      ),
+      ,
+      drop = FALSE
+    ]
+    utils::head(candidates, top_n)
+  })
+  rows <- rows[vapply(rows, nrow, integer(1)) > 0L]
+  if (!length(rows)) return(data.frame())
+  output <- do.call(rbind, rows)
+  output$position_order <- match(output$primary_position, positions)
+  output
+}
+
+defensive_alignment_plot <- function(data, file_name = "all-mlb-defense-team.png") {
+  qualified <- data[
+    is.finite(as.numeric(data$innings)) &
+      as.numeric(data$innings) >= 150,
+    ,
+    drop = FALSE
+  ]
+  selected <- top_defender_by_position(qualified, "gold_glove_score", 1L)
+  coordinates <- data.frame(
+    primary_position = c("C", "1B", "2B", "3B", "SS", "LF", "CF", "RF"),
+    x = c(50, 76, 62, 24, 38, 20, 50, 80),
+    y = c(10, 38, 59, 38, 59, 81, 91, 81),
+    stringsAsFactors = FALSE
+  )
+  selected <- merge(selected, coordinates, by = "primary_position", all.x = TRUE)
+  selected$label <- paste0(
+    selected$primary_position, "\n",
+    selected$player_name, "\n",
+    selected$team, " · ", selected$league, "\n",
+    sprintf("%+.1f FRV", as.numeric(selected$fielding_runs))
+  )
+  infield <- data.frame(
+    x = c(50, 80, 50, 20, 50),
+    y = c(18, 48, 74, 48, 18)
+  )
+  plot <- ggplot() +
+    annotate("rect", xmin = 0, xmax = 100, ymin = 0, ymax = 100, fill = "#DCE9DF") +
+    annotate(
+      "polygon",
+      x = infield$x, y = infield$y,
+      fill = "#D7B98E", color = "#FFFFFF", linewidth = 1.3
+    ) +
+    annotate("segment", x = 50, xend = 6, y = 18, yend = 97, color = "#FFFFFF", linewidth = 1) +
+    annotate("segment", x = 50, xend = 94, y = 18, yend = 97, color = "#FFFFFF", linewidth = 1) +
+    annotate("path", x = c(6, 25, 50, 75, 94), y = c(97, 102, 104, 102, 97), color = brand_navy, linewidth = 1.2) +
+    geom_label(
+      data = selected,
+      aes(x = x, y = y, label = label),
+      fill = "#F8FBFD", color = brand_navy, linewidth = 0.35,
+      label.padding = grid::unit(0.33, "lines"), lineheight = 0.94,
+      fontface = "bold", size = 3.25
+    ) +
+    coord_fixed(xlim = c(0, 100), ylim = c(0, 105), clip = "off") +
+    labs(
+      title = "The All-MLB Defense Team",
+      subtitle = "One current FRV-based selection at each tracked position",
+      caption = paste(
+        "THE SABRHOOD | Official Fielding Run Value with a league-position",
+        "playing-time adjustment | Current-value team, not an award ballot"
+      )
+    ) +
+    sabr_theme() +
+    theme(
+      panel.grid = element_blank(),
+      axis.text = element_blank(),
+      axis.title = element_blank(),
+      axis.ticks = element_blank()
+    )
+  save_plot(plot, file_name, width = 14, height = 12)
+}
+
+gold_glove_rosters_plot <- function(data) {
+  selected <- data[
+    as.numeric(data$position_rank) == 1 &
+      as.numeric(data$innings) >= 150,
+    ,
+    drop = FALSE
+  ]
+  position_levels <- rev(c("C", "1B", "2B", "3B", "SS", "LF", "CF", "RF"))
+  selected$primary_position <- factor(selected$primary_position, levels = position_levels)
+  selected$label <- paste0(
+    selected$player_name, "\n", selected$team,
+    "  |  ", sprintf("%+.1f FRV", as.numeric(selected$fielding_runs))
+  )
+  plot <- ggplot(selected, aes(x = 100, y = primary_position)) +
+    geom_segment(
+      aes(x = 0, xend = 100, yend = primary_position),
+      color = "#CFDFEA", linewidth = 0.75
+    ) +
+    geom_point(color = brand_red, size = 4.2) +
+    geom_text(
+      aes(label = label), hjust = 1.04, color = brand_navy,
+      fontface = "bold", lineheight = 0.95, size = 3.5
+    ) +
+    facet_wrap(~league, nrow = 1) +
+    scale_x_continuous(limits = c(0, 105), expand = expansion(mult = 0)) +
+    labs(
+      title = "If Gold Gloves Were Chosen Today",
+      subtitle = "Separate American League and National League leaders at each tracked position",
+      x = NULL, y = NULL,
+      caption = paste(
+        "THE SABRHOOD | League-position watch score from official Fielding Run Value",
+        "| Pitcher and utility are not covered by this tracking contract"
+      )
+    ) +
+    sabr_theme() +
+    theme(
+      panel.grid = element_blank(),
+      axis.text.x = element_blank(),
+      axis.text.y = element_text(face = "bold", size = 12),
+      axis.ticks = element_blank(),
+      strip.text = element_text(color = brand_navy, face = "bold", size = 16),
+      panel.spacing = grid::unit(1.8, "lines")
+    )
+  save_plot(plot, "gold-glove-watch-rosters.png", width = 16, height = 10)
+}
+
+defensive_position_leaders_plot <- function(data) {
+  qualified <- data[
+    is.finite(as.numeric(data$innings)) &
+      as.numeric(data$innings) >= 150,
+    ,
+    drop = FALSE
+  ]
+  leaders <- top_defender_by_position(qualified, "fielding_runs", 3L)
+  leaders$label <- paste0(leaders$player_name, " · ", leaders$league)
+  leaders$label <- factor(leaders$label, levels = rev(unique(leaders$label)))
+  plot <- ggplot(leaders, aes(x = as.numeric(fielding_runs), y = label)) +
+    geom_col(fill = brand_navy, width = 0.68) +
+    geom_text(
+      aes(label = sprintf("%+.1f", as.numeric(fielding_runs))),
+      hjust = -0.12, color = brand_red, fontface = "bold", size = 3.5
+    ) +
+    facet_wrap(~primary_position, ncol = 4, scales = "free_y") +
+    scale_x_continuous(limits = c(0, 28), expand = expansion(mult = c(0, 0))) +
+    labs(
+      title = "The Best Defenders at Every Position",
+      subtitle = "Top three qualified players by official Fielding Run Value",
+      x = "Fielding Run Value", y = NULL,
+      caption = "THE SABRHOOD | Minimum 150 innings | Position assigned by most recorded outs"
+    ) +
+    sabr_theme() +
+    theme(
+      panel.grid.major.y = element_blank(),
+      axis.text.y = element_text(face = "bold", size = 8.5),
+      strip.text = element_text(color = brand_navy, face = "bold", size = 13),
+      panel.spacing.x = grid::unit(1.8, "lines")
+    )
+  save_plot(plot, "defensive-position-leaders.png", width = 16, height = 11)
+}
+
+advancement_defenders_plot <- function(data) {
+  qualified <- data[
+    is.finite(as.numeric(data$opportunities)) &
+      as.numeric(data$opportunities) >= 50 &
+      is.finite(as.numeric(data$advancement_prevention_score)),
+    ,
+    drop = FALSE
+  ]
+  official_match <- match(as.character(qualified$player_id), as.character(official_fielding$player_id))
+  qualified$throwing_run_value <- as.numeric(official_fielding$throwing_runs[official_match])
+  qualified$throwing_run_value[!is.finite(qualified$throwing_run_value)] <- 0
+  label_rank <- rank(-abs(as.numeric(qualified$advancements_prevented)) - abs(qualified$throwing_run_value), ties.method = "first")
+  qualified$label <- ifelse(label_rank <= 12L, qualified$player_name, "")
+  plot <- ggplot(
+    qualified,
+    aes(x = as.numeric(advancements_prevented), y = throwing_run_value)
+  ) +
+    geom_hline(yintercept = 0, color = brand_steel, linewidth = 0.7) +
+    geom_vline(xintercept = 0, color = brand_steel, linewidth = 0.7) +
+    geom_point(aes(size = as.numeric(opportunities)), color = brand_red, alpha = 0.72) +
+    geom_text(
+      aes(label = label),
+      color = brand_navy, fontface = "bold", size = 3.4,
+      nudge_y = 0.12, check_overlap = TRUE
+    ) +
+    scale_size_continuous(range = c(3, 9), guide = "none") +
+    labs(
+      title = "Who Stops the Extra Base?",
+      subtitle = "Runner-advancement prevention after accounting for the runner and play context",
+      x = "Advances stopped versus expectation", y = "Official throwing run value",
+      caption = "THE SABRHOOD | Minimum 50 advancement opportunities | Development estimate"
+    ) +
+    sabr_theme() +
+    theme(panel.grid.minor = element_blank())
+  save_plot(plot, "runner-advancement-defenders.png")
+}
+
 mvp_era_plot <- function() {
   available_decades <- sort(unique(as.numeric(mvp_era_profiles$decade)))
   comparison_pool <- setdiff(available_decades, 2020)
@@ -533,6 +741,10 @@ positional_war_plot()
 discipline_frontier_plot()
 arsenal_spotlight_plot()
 pull_spray_plot()
+defensive_alignment_plot(gold_glove_watch)
+gold_glove_rosters_plot(gold_glove_watch)
+defensive_position_leaders_plot(official_fielding)
+advancement_defenders_plot(advancement_fielders)
 
 manifest_ids <- c(
   "league-pitch-usage-trends", "league-production-trends", "league-pitch-velocity-trends",
@@ -609,6 +821,69 @@ manifest <- data.frame(
   publication_status = "prototype",
   stringsAsFactors = FALSE
 )
+
+defense_manifest <- data.frame(
+  graphic_id = c(
+    "all-mlb-defense-team",
+    "gold-glove-watch-rosters",
+    "defensive-position-leaders",
+    "runner-advancement-defenders"
+  ),
+  page_group = "Defense",
+  title = c(
+    "All-MLB Defense Team",
+    "AL and NL Gold Glove Watch Rosters",
+    "Defensive Leaders by Position",
+    "Runner-Advancement Prevention Leaders"
+  ),
+  subtitle = c(
+    "One current FRV-based selection at every tracked defensive position.",
+    "Separate American League and National League leaders at each position.",
+    "The top three qualified defenders at every position by official Fielding Run Value.",
+    "The fielders doing the most to stop runners from taking the next base."
+  ),
+  image_path = file.path(
+    "images",
+    "graphics-feed",
+    paste0(
+      c(
+        "all-mlb-defense-team",
+        "gold-glove-watch-rosters",
+        "defensive-position-leaders",
+        "runner-advancement-defenders"
+      ),
+      ".png"
+    )
+  ),
+  file_name = paste0(
+    c(
+      "all-mlb-defense-team",
+      "gold-glove-watch-rosters",
+      "defensive-position-leaders",
+      "runner-advancement-defenders"
+    ),
+    ".png"
+  ),
+  alt_text = c(
+    "Baseball-field alignment naming the selected catcher, infielders, and outfielders on the All-MLB Defense Team.",
+    "Side-by-side American League and National League Gold Glove Watch rosters by position.",
+    "Eight position panels showing the top three defenders by Fielding Run Value.",
+    "Horizontal leaderboard of the top runner-advancement prevention scores."
+  ),
+  coverage_note = c(
+    "Official Fielding Run Value with league-position playing-time adjustment; minimum 150 innings.",
+    "League-specific leaders from official Fielding Run Value; pitcher and utility are not covered.",
+    "Official Fielding Run Value; minimum 150 innings.",
+    "SABRhood runner-advancement development model; minimum 50 opportunities."
+  ),
+  orientation = "landscape",
+  featured = c(TRUE, TRUE, TRUE, FALSE),
+  display_order = nrow(manifest) + seq_len(4L),
+  source_acquired_at_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
+  publication_status = "prototype",
+  stringsAsFactors = FALSE
+)
+manifest <- rbind(manifest, defense_manifest)
 
 utils::write.csv(manifest, file.path(data_dir, "graphics-feed-manifest.csv"), row.names = FALSE, na = "")
 cat("Built", nrow(manifest), "branded graphics feed assets.\n")

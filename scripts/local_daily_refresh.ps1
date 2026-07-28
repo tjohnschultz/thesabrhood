@@ -92,9 +92,9 @@ Run the one-time setup first:
 
 $script:stepNumber = 0
 $script:stepTotal = if ($Mode -eq "Full") {
-  27
+  29
 } elseif ($Mode -eq "Lab") {
-  11
+  13
 } elseif ($Mode -eq "Lineups") {
   13
 } else {
@@ -210,9 +210,12 @@ try {
       Invoke-RScript "Refresh the historical game-to-venue map" "scripts\fetch_historical_game_venues.R" | Out-Null
       Invoke-RScript "Rebuild empirical baserunning, park, and pitcher-hold profiles" "scripts\build_phase4_baserunning_products.R" | Out-Null
       Invoke-RScript "Rebuild pitch-level run game, framing, and ABS products" "scripts\build_run_game_products.R" | Out-Null
+      Invoke-RScript "Rebuild fielding, runner-advancement, and Gold Glove products" "scripts\build_fielding_products.R" | Out-Null
       Invoke-RScript "Refresh season-level FanGraphs source tables" "scripts\refresh_fangraphs_season.R" -Optional | Out-Null
       Invoke-RScript "Rebuild season leaderboards, awards, and team WAR products" "scripts\build_fangraphs_products.R" -Optional | Out-Null
+      Invoke-RScript "Rebuild hitter Career Path and three-season forecast products" "..\scripts\build_career_trajectory_artifacts.R" -Optional | Out-Null
       Invoke-RScript "Refresh today's active rosters and game information" "scripts\pull_daily_game_info.R" | Out-Null
+      Invoke-RScript "Build current-series and recent-game context" "scripts\build_daily_series_context.R" | Out-Null
       Invoke-RScript "Rebuild role-aware pitcher Career Path products" "..\scripts\build_pitcher_career_trajectory_artifacts.R" | Out-Null
       $priorHealthGroups = $env:SABRHOOD_HEALTH_GROUPS
       $env:SABRHOOD_HEALTH_GROUPS = "completed_game_pbp,pbp_analysis,fangraphs_season"
@@ -239,9 +242,11 @@ try {
       Invoke-RScript "Refresh the historical game-to-venue map" "scripts\fetch_historical_game_venues.R" | Out-Null
       Invoke-RScript "Rebuild empirical baserunning, park, and pitcher-hold profiles" "scripts\build_phase4_baserunning_products.R" | Out-Null
       Invoke-RScript "Rebuild pitch-level run game, framing, and ABS products" "scripts\build_run_game_products.R" | Out-Null
+      Invoke-RScript "Rebuild fielding, runner-advancement, and Gold Glove products" "scripts\build_fielding_products.R" | Out-Null
 
       Invoke-RScript "Refresh season-level FanGraphs source tables" "scripts\refresh_fangraphs_season.R" -Optional | Out-Null
       Invoke-RScript "Rebuild season leaderboards, awards, and team WAR products" "scripts\build_fangraphs_products.R" -Optional | Out-Null
+      Invoke-RScript "Rebuild hitter Career Path and three-season forecast products" "..\scripts\build_career_trajectory_artifacts.R" -Optional | Out-Null
       Invoke-RScript "Update rolling award-race history checkpoints" "scripts\refresh_award_history.R" -Optional | Out-Null
 
       Invoke-RScript "Rebuild history, milestones, records, and anniversary notes" "scripts\build_history_products.R" | Out-Null
@@ -250,6 +255,7 @@ try {
       Invoke-RScript "Refresh MLB and Triple-A standings movement" "scripts\refresh_standings.R" -Optional | Out-Null
       Invoke-RScript "Refresh the Triple-A watch" "scripts\refresh_aaa.R" -Optional | Out-Null
       Invoke-RScript "Pull today's games, rosters, probables, lineups, and weather" "scripts\pull_daily_game_info.R" | Out-Null
+      Invoke-RScript "Build current-series and recent-game context" "scripts\build_daily_series_context.R" | Out-Null
 
       if (Test-HasSlate) {
         Invoke-RScript "Run today's team win and scoring simulations" "scripts\build_daily_team_simulations.R" | Out-Null

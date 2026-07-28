@@ -80,13 +80,11 @@ build_insane_baseball_awards <- function(hitter_summary, pitcher_summary, pitche
       split_pa = dplyr::n(), hits = sum(.data$is_hit), walks = sum(.data$is_walk), total_bases = sum(.data$total_bases), .groups = "drop") |>
     dplyr::filter(.data$split_pa >= minimum_split_pa)
   survivor_rows <- if (nrow(batter_full)) {
-    batter_full$obp <- (batter_full$hits + batter_full$walks) / batter_full$split_pa
     batter_full$slg_proxy <- batter_full$total_bases / pmax(batter_full$split_pa - batter_full$walks, 1)
-    batter_full$ops_proxy <- batter_full$obp + batter_full$slg_proxy
     data.frame(
       player_id = batter_full$batter_id, player_name = batter_full$player_name, team = batter_full$team, role = rep("hitter", nrow(batter_full)),
-      score = 100 * batter_full$ops_proxy, tiebreaker = batter_full$split_pa,
-      display_value = sprintf("%.3f OPS", batter_full$ops_proxy),
+      score = 100 * batter_full$slg_proxy, tiebreaker = batter_full$split_pa,
+      display_value = sprintf("%.3f SLG", batter_full$slg_proxy),
       evidence = paste0(batter_full$hits, " hits and ", batter_full$walks, " walks in ", batter_full$split_pa, " full-count PA."), stringsAsFactors = FALSE
     )
   } else data.frame()
@@ -211,7 +209,7 @@ build_insane_baseball_awards <- function(hitter_summary, pitcher_summary, pitche
   boards <- c(boards, profile_boards)
   output <- do.call(rbind, boards[vapply(boards, nrow, integer(1)) > 0L])
   award_scores <- unique(output[c("award_id", "showcase_score")])
-  featured_ids <- utils::head(award_scores$award_id[order(-award_scores$showcase_score)], 3L)
+  featured_ids <- award_scores$award_id
   output$featured <- output$award_id %in% featured_ids
   output$award_method <- "insane_baseball_awards_v2"
   rownames(output) <- NULL

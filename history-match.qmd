@@ -10,7 +10,11 @@ description: "Reviewed player and team stat lines placed in verified MLB histori
 
 History Match discovers meaningful combinations below a player’s or team’s
 actual performance, then checks the same season or rolling window against
-verified Retrosheet history. Only producer-reviewed claims appear here.
+verified history. Season-level hitter searches pair daily FanGraphs totals with
+Lahman/Retrosheet season history, while rolling and game windows use the
+Retrosheet player-game index. Candidates must be scarce by both occurrence
+count and season frequency; patterns that recur every year are withheld. Only
+producer-reviewed claims appear here.
 :::
 
 {{< include includes/history-match-desk.html >}}

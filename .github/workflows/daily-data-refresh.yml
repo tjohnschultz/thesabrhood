@@ -83,11 +83,13 @@ jobs:
       - name: Rebuild all PBP-derived analytics
         run: Rscript scripts/build_pbp_products.R
 
-      - name: Rebuild Phase 4 baserunning and park inputs
+      - name: Rebuild Phase 4, run game, and fielding inputs
         shell: bash
         run: |
           Rscript scripts/fetch_historical_game_venues.R
           Rscript scripts/build_phase4_baserunning_products.R
+          Rscript scripts/build_run_game_products.R
+          Rscript scripts/build_fielding_products.R
 
       - name: Rebuild history, milestone, and editorial engines
         shell: bash

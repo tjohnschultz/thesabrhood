@@ -74,6 +74,7 @@ required_data <- c(
   ,"pitcher-change-profiles.csv"
   ,"career-trajectory-projections.csv"
   ,"career-trajectory-comparables.csv"
+  ,"career-three-season-forecasts.csv"
   ,"career-trajectory-model-card.csv"
   ,"career-trajectory-backtest-summary.csv"
   ,"career-trajectory-probability-calibration.csv"
@@ -120,6 +121,9 @@ required_data <- c(
   ,"active-roster-bullpens.csv"
   ,"active-roster-bullpen-selector.csv"
   ,"daily-park-weather.csv"
+  ,"daily-series-context.csv"
+  ,"daily-series-player-lines.csv"
+  ,"daily-recent-game-lines.csv"
   ,"aaa-hitter-watch.csv"
   ,"aaa-pitcher-watch.csv"
   ,"fangraphs-season-hitters.csv"
@@ -167,6 +171,15 @@ required_data <- c(
   ,"catcher-framing-model-card.csv"
   ,"abs-challenge-leaderboard.csv"
   ,"abs-challenge-model-card.csv"
+  ,"official-fielding-run-value.csv"
+  ,"official-team-fielding-run-value.csv"
+  ,"fielding-player-ratings.csv"
+  ,"fielding-team-ratings.csv"
+  ,"runner-advancement-fielding-ratings.csv"
+  ,"runner-advancement-team-ratings.csv"
+  ,"fielding-play-of-day.csv"
+  ,"gold-glove-watch.csv"
+  ,"fielding-model-card.csv"
   ,"state-simulation-calibration-status.csv"
   ,"state-reliever-feedback-metrics.csv"
   ,"matchup-event-feedback-metrics.csv"
@@ -178,6 +191,8 @@ required_data <- c(
   ,"rolling-league-workload.csv"
   ,"insane-baseball-awards.csv"
   ,"team-positional-war.csv"
+  ,"player-market-groups.csv"
+  ,"player-market-players.csv"
   ,"hitter-discipline-profiles.csv"
   ,"arsenal-spotlights.csv"
   ,"pull-rate-leader-batted-balls.csv"
@@ -211,6 +226,7 @@ required_fragments <- c(
   ,"home-player-change.html"
   ,"player-change-cards.html"
   ,"career-trajectories.html"
+  ,"player-market.html"
   ,"home-career-trajectories.html"
   ,"daily-projections.html"
   ,"home-projections.html"
@@ -222,11 +238,14 @@ required_fragments <- c(
   ,"league-trends.html"
   ,"insane-awards.html"
   ,"run-game.html"
+  ,"fielding.html"
 )
 
 allowed_empty_data <- c(
   "daily-batting-orders.csv",
   "daily-player-simulation-skips.csv",
+  "daily-series-player-lines.csv",
+  "daily-recent-game-lines.csv",
   "history-match-notes.csv"
 )
 
@@ -244,6 +263,42 @@ for (name in required_data) {
     fail(paste("Unreadable derived data product:", name))
   } else if (nrow(product) < 1L && !name %in% allowed_empty_data) {
     fail(paste("Empty derived data product:", name))
+  }
+}
+
+gold_glove_path <- file.path(
+  site_root,
+  "data",
+  "derived",
+  "gold-glove-watch.csv"
+)
+if (file.exists(gold_glove_path)) {
+  gold_glove <- utils::read.csv(
+    gold_glove_path,
+    stringsAsFactors = FALSE,
+    check.names = FALSE
+  )
+  required_gold_columns <- c(
+    "league", "primary_position", "position_rank",
+    "player_name", "team", "gold_glove_score"
+  )
+  if (!all(required_gold_columns %in% names(gold_glove))) {
+    fail("Gold Glove Watch is missing league-position ranking fields")
+  } else {
+    leaders <- gold_glove[
+      suppressWarnings(as.numeric(gold_glove$position_rank)) == 1,
+      ,
+      drop = FALSE
+    ]
+    leader_groups <- paste(leaders$league, leaders$primary_position)
+    expected_groups <- as.vector(outer(
+      c("AL", "NL"),
+      c("C", "1B", "2B", "3B", "SS", "LF", "CF", "RF"),
+      paste
+    ))
+    if (!setequal(leader_groups, expected_groups)) {
+      fail("Gold Glove Watch must contain one AL and one NL leader at every tracked position")
+    }
   }
 }
 
@@ -292,6 +347,19 @@ for (name in required_fragments) {
   path <- file.path(site_root, "includes", name)
   if (!file.exists(path) || file.info(path)$size < 50) {
     fail(paste("Missing or empty generated fragment:", name))
+  }
+}
+
+required_defense_graphics <- c(
+  "all-mlb-defense-team.png",
+  "gold-glove-watch-rosters.png",
+  "defensive-position-leaders.png",
+  "runner-advancement-defenders.png"
+)
+for (name in required_defense_graphics) {
+  path <- file.path(site_root, "images", "graphics-feed", name)
+  if (!file.exists(path) || file.info(path)$size < 10000) {
+    fail(paste("Missing or unexpectedly small defensive graphic:", name))
   }
 }
 
@@ -346,7 +414,7 @@ if (!length(archive_snapshot_paths)) {
 
 if (check_rendered) {
   required_pages <- c(
-    "index.html", "today.html", "standings.html", "races.html", "insane-awards.html", "league-trends.html", "story-desk.html", "matchups.html", "players.html", "player-change-engine.html", "career-trajectories.html", "teams.html", "team-reports.html", "history.html", "history-match.html", "pitch-lab.html", "run-game.html",
+    "index.html", "today.html", "standings.html", "races.html", "insane-awards.html", "league-trends.html", "story-desk.html", "matchups.html", "players.html", "player-change-engine.html", "career-trajectories.html", "teams.html", "team-reports.html", "history.html", "history-match.html", "pitch-lab.html", "run-game.html", "fielding.html",
     "projections.html", "aaa.html", "newsletter.html", "graphics-feed.html", "leaderboards.html", "blog.html", "broadcast.html",
     "methodology.html", "glossary.html", "about.html", "404.html"
   )

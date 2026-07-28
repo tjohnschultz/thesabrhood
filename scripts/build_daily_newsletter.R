@@ -77,6 +77,27 @@ add_candidate <- function(value) {
   if (is.data.frame(value) && nrow(value)) candidates[[length(candidates) + 1L]] <<- value
 }
 
+yesterday <- read_product("daily-recent-game-lines.csv")
+if (nrow(yesterday)) {
+  yesterday <- yesterday[order(-number(yesterday$performance_score)), , drop = FALSE]
+  yesterday <- yesterday[!duplicated(yesterday$player_name), , drop = FALSE]
+  for (index in seq_len(min(4L, nrow(yesterday)))) {
+    row <- yesterday[index, , drop = FALSE]
+    add_candidate(story(
+      paste0("yesterday-", row$game_pk, "-", row$player_id),
+      "yesterday",
+      row$player_name,
+      row$team,
+      paste0(row$player_name, " delivered one of yesterday's defining performances"),
+      paste0(row$stat_line, " against ", row$opponent, "."),
+      paste0("Completed-game performance score: ", decimal(row$performance_score, 1), "."),
+      88 - 2 * (index - 1L),
+      "today.html",
+      row$game_date
+    ))
+  }
+}
+
 movement <- read_product("mlb-standings-movement.csv")
 if (nrow(movement)) {
   movement <- movement[order(-number(movement$movement_score)), , drop = FALSE]

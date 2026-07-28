@@ -4,11 +4,11 @@ description: "Adjusted MLB pitcher hold, catcher throwing, runner value, count w
 ---
 
 ::: {.page-intro}
-<span class="eyebrow">The next 90 feet</span>
+<span class="eyebrow">Between the Bases</span>
 
-# Who controls the running game?
+# Who locks down the basepaths?
 
-The runner chooses the risk. The pitcher creates the window. The catcher must finish the play. The Run Game Engine measures each part separately, then adds pitch-count, framing, and ABS challenge intelligence.
+The Run Game Engine assigns credit to each base running event, to curate a summary of how each player responds to, or controls, the running game.
 :::
 
 {{< include includes/run-game.html >}}

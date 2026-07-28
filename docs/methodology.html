@@ -99,7 +99,7 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-xl " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
@@ -188,6 +188,10 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
  <span class="dropdown-text">Run Game</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./fielding.html">
+ <span class="dropdown-text">Fielding</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./aaa.html">
  <span class="dropdown-text">Triple-A Watch</span></a>
   </li>  
@@ -219,7 +223,7 @@ gtag('config', 'G-GGNXXW6FWM', { 'anonymize_ip': true});
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./blog.html"> 
-<span class="menu-text">Research</span></a>
+<span class="menu-text">Editorials</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./broadcast.html"> 
@@ -403,6 +407,13 @@ Estimated from the same season-level state table.
 <p>Attempt and success are separate additive logistic models. Each includes runner, pitcher, catcher, target base, count, inning, score margin, pitch family, and disengagement context, with shrunken player effects. Pitcher and catcher boards therefore describe value after the quality and behavior of opponents are considered. Count-window notes combine projected offspeed and breaking-ball mix, plate flight time, and observed running behavior; they are scouting prompts rather than automatic steal recommendations.</p>
 <p>The framing development model uses only called pitches. Expected called-strike probability is estimated from horizontal and vertical location bins, count, batter side, pitcher, and umpire. The catcher’s shrunken residual effect produces estimated extra strikes and a transparent run estimate of 0.125 runs per strike. It is not an official Statcast framing metric.</p>
 <p>ABS challenge products standardize the official Baseball Savant batter, catcher, pitcher, and team leaderboards. The public page preserves Savant’s opportunity, challenge, overturn, expected-value, and run-value fields. These official challenge results are kept separate from the SABRhood framing development score.</p>
+</section>
+<section id="fielding-engine-and-runner-advancement" class="level2">
+<h2 class="anchored" data-anchor-id="fielding-engine-and-runner-advancement">Fielding Engine and runner advancement</h2>
+<p>The Fielding Engine starts with one credited ball in play. The primary fielder and position are parsed from the official play description and matched to the season player reference. A transparent expected-out development estimate uses batted-ball trajectory, field location, exit velocity, launch angle, and distance, with detailed context cells pulled toward broader trajectory-location rates in small samples.</p>
+<p>This estimate is not Statcast Catch Probability or Outs Above Average. Public labels explicitly note that the play-by-play feed does not contain official starting position, jump, route, wall, or opportunity-time tracking. Official Fielding Run Value is imported and displayed as a separate contract, including its range, arm, double-play, catcher throwing, blocking, and framing components.</p>
+<p>Runner-advancement prevention reconstructs five decisions: scoring from second on a single, first-to-third on a single, scoring from first on a double, second-to-third on an out, and first-to-second on an out. A shrunken additive logistic model separates runner, credited fielder, advancement type, batted-ball context, outs, inning, and score effects. The fielder board therefore measures extra bases allowed relative to the runners and situations faced.</p>
+<p>Gold Glove Watch standardizes official Fielding Run Value inside each league-position group and shrinks the rate by playing time. The American League and National League therefore have separate projected selections at every tracked position. It is a current-value watchlist, not a forecast of award voting. Pitcher and utility are left unfilled because the current official fielding contract does not provide comparable rows for those award positions. Play of the Day selects the strongest positive SABRhood estimated range or advancement contribution for each date and retains its development label on every surface.</p>
 </section>
 <section id="history-match-engine" class="level2">
 <h2 class="anchored" data-anchor-id="history-match-engine">History Match Engine</h2>

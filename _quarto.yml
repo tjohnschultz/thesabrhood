@@ -13,6 +13,7 @@ project:
     - players.qmd
     - player-change-engine.qmd
     - career-trajectories.qmd
+    - player-market.qmd
     - teams.qmd
     - team-reports.qmd
     - team-reports/arizona-diamondbacks.qmd
@@ -49,6 +50,7 @@ project:
     - history-match.qmd
     - pitch-lab.qmd
     - run-game.qmd
+    - fielding.qmd
     - aaa.qmd
     - projections.qmd
     - newsletter.qmd
@@ -82,7 +84,7 @@ website:
   google-analytics: "G-GGNXXW6FWM"
   navbar:
     pinned: true
-    collapse-below: lg
+    collapse-below: xl
     background: "#FFFFFF"
     foreground: "#BD3039"
     logo: "images/thesabrhood2clean.png"
@@ -121,6 +123,8 @@ website:
             text: Pitch Lab
           - href: run-game.qmd
             text: Run Game
+          - href: fielding.qmd
+            text: Fielding
           - href: aaa.qmd
             text: Triple-A Watch
           - href: history.qmd
@@ -136,7 +140,7 @@ website:
       - href: graphics-feed.qmd
         text: Graphics
       - href: blog.qmd
-        text: Research
+        text: Editorials
       - href: broadcast.qmd
         text: Broadcast
     right:

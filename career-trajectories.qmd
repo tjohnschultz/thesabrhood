@@ -4,9 +4,9 @@ description: "Chronologically backtested MLB hitter career projections built fro
 ---
 
 ::: {.page-intro .page-intro--dark}
-<span class="eyebrow">Player futures</span>
+<span class="eyebrow">Career-Outlook Engine</span>
 
-# A career projection should show its family tree
+# Career Outlooks
 
 The Career Path Engine finds historical hitters who reached the same number of games at a similar age with a similar offensive profile, then shows what happened next as a range. Its reliability is measured with roll-forward tests that never allow a future career into an earlier forecast.
 :::

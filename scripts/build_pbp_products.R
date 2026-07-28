@@ -129,13 +129,21 @@ hitter_game_lines <- plate_appearances |>
   dplyr::summarise(
     player_name = dplyr::last(.data$batter_name),
     team = dplyr::last(.data$batting_team),
+    opponent = dplyr::last(.data$fielding_team),
+    plate_appearances = dplyr::n(),
+    at_bats = sum(.data$is_at_bat, na.rm = TRUE),
     hits = sum(.data$is_hit, na.rm = TRUE),
     home_runs = sum(.data$is_home_run, na.rm = TRUE),
     doubles = sum(.data$event_key == "double", na.rm = TRUE),
-    rbi = sum(.data$runs_batted_in, na.rm = TRUE),
+    triples = sum(.data$event_key == "triple", na.rm = TRUE),
+    walks = sum(.data$is_walk, na.rm = TRUE),
+    strikeouts = sum(.data$is_strikeout, na.rm = TRUE),
+    total_bases = sum(.data$total_bases, na.rm = TRUE),
+    runs_batted_in = sum(.data$runs_batted_in, na.rm = TRUE),
     .groups = "drop"
   ) |>
-  dplyr::rename(player_id = .data$batter_id)
+  dplyr::rename(player_id = .data$batter_id) |>
+  dplyr::mutate(rbi = .data$runs_batted_in)
 
 pitcher_game_lines <- appearances |>
   dplyr::transmute(
@@ -144,8 +152,20 @@ pitcher_game_lines <- appearances |>
     player_id = .data$pitcher_id,
     player_name = .data$pitcher_name,
     team = .data$fielding_team,
+    opponent = dplyr::if_else(
+      .data$fielding_team == .data$home_team,
+      .data$away_team,
+      .data$home_team
+    ),
+    games = 1L,
+    games_started = as.integer(.data$is_starter),
+    batters_faced = .data$batters_faced,
+    hits_allowed = .data$hits,
+    home_runs_allowed = .data$home_runs,
+    walks_allowed = .data$walks,
     strikeouts = .data$strikeouts,
-    innings_outs = .data$outs_recorded
+    innings_outs = .data$outs_recorded,
+    innings_pitched = .data$outs_recorded / 3
   )
 rm(appearances)
 invisible(gc())

@@ -55,7 +55,5 @@ Phase 5 adds a time-validated manager hook after every plate appearance, recent 
 :::
 
 ::: {.method-callout}
-These are development projections rather than betting advice. The probabilities will remain visibly labeled until repeated time-based backtests and the live pregame ledger demonstrate stable calibration.
+These are development projections rather than betting advice. Model testing and calibration remain part of the private research workflow.
 :::
-
-{{< include includes/projections-model.html >}}

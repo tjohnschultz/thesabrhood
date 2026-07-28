@@ -1,0 +1,14 @@
+---
+title: "Fielding"
+description: "Official Fielding Run Value, Gold Glove Watch, Play of the Day, and adjusted runner-advancement prevention."
+---
+
+::: {.page-intro}
+<span class="eyebrow">The other half of run prevention</span>
+
+# Turn every defensive play into a decision
+
+Range converts the ball in play. The arm changes the runner's choice. The catcher controls strikes, blocks, and throws. The Fielding Engine keeps those skills separate, then presents them as a game-day story, a season leaderboard, and a matchup tool.
+:::
+
+{{< include includes/fielding.html >}}

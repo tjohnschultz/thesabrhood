@@ -1,0 +1,22 @@
+---
+title: "Player Market"
+description: "A development view of MLB role quality, supply, scarcity, and team need."
+---
+
+::: {.page-intro .page-intro--dark}
+<span class="eyebrow">League talent economy</span>
+
+# How difficult is it to find this kind of player?
+
+The Player Market compares the quality and depth of MLB role groups with the
+number of clubs that need help there. It begins with the baseball question;
+contract price and acquisition cost will be added only when those inputs have
+a dependable source.
+:::
+
+{{< include includes/player-market.html >}}
+
+::: {.section-action}
+[Review every player](players.qmd){.btn .btn-metallic}
+[Open team needs](teams.qmd){.btn .btn-sabr-navy}
+:::

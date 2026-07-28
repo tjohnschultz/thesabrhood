@@ -70,6 +70,10 @@ build_aaa_performance_watch <- function(
           0.20 * .percentile_score(.data$home_run_rate) +
           0.15 * .percentile_score(.data$stolen_base_rate)
       ), 1),
+      estimated_batting_runs = (.data$ops - stats::median(.data$ops, na.rm = TRUE)) * .data$pa * 0.16,
+      estimated_running_runs = .data$stolen_bases * 0.18,
+      sabrhood_war = round((.data$estimated_batting_runs + .data$estimated_running_runs) / 10, 1),
+      swar_component_status = "batting and stolen-base value; Triple-A fielding and catching components pending",
       watch_method = "aaa_age_and_performance_lens_v1"
     ) |>
     dplyr::arrange(dplyr::desc(.data$performance_score), .data$age)
@@ -101,6 +105,9 @@ build_aaa_performance_watch <- function(
           0.25 * .percentile_score(.data$whip, FALSE) +
           0.40 * .percentile_score(.data$k_minus_bb_rate)
       ), 1),
+      estimated_pitching_runs = (stats::median(.data$era, na.rm = TRUE) - .data$era) * .data$innings / 9,
+      sabrhood_war = round(.data$estimated_pitching_runs / 10, 1),
+      swar_component_status = "pitching value; pitcher fielding and running components pending",
       watch_method = "aaa_age_and_performance_lens_v1"
     ) |>
     dplyr::arrange(dplyr::desc(.data$performance_score), .data$age)
@@ -144,6 +151,23 @@ build_aaa_callup_radar <- function(
     tolower(gsub("[^a-z0-9]", "", as.character(value)))
   }
   affiliate_key <- normalize_team(affiliates$aaa_team)
+  mlb_team_abbr <- c(
+    "Arizona Diamondbacks" = "ARI", "Athletics" = "ATH",
+    "Atlanta Braves" = "ATL", "Baltimore Orioles" = "BAL",
+    "Boston Red Sox" = "BOS", "Chicago Cubs" = "CHC",
+    "Chicago White Sox" = "CWS", "Cincinnati Reds" = "CIN",
+    "Cleveland Guardians" = "CLE", "Colorado Rockies" = "COL",
+    "Detroit Tigers" = "DET", "Houston Astros" = "HOU",
+    "Kansas City Royals" = "KCR", "Los Angeles Angels" = "LAA",
+    "Los Angeles Dodgers" = "LAD", "Miami Marlins" = "MIA",
+    "Milwaukee Brewers" = "MIL", "Minnesota Twins" = "MIN",
+    "New York Mets" = "NYM", "New York Yankees" = "NYY",
+    "Philadelphia Phillies" = "PHI", "Pittsburgh Pirates" = "PIT",
+    "San Diego Padres" = "SDP", "San Francisco Giants" = "SFG",
+    "Seattle Mariners" = "SEA", "St. Louis Cardinals" = "STL",
+    "Tampa Bay Rays" = "TBR", "Texas Rangers" = "TEX",
+    "Toronto Blue Jays" = "TOR", "Washington Nationals" = "WSN"
+  )
 
   prepare <- function(data, role) {
     if (!nrow(data)) return(tibble::tibble())
@@ -172,8 +196,9 @@ build_aaa_callup_radar <- function(
   )
   if (!nrow(combined)) return(tibble::tibble())
 
+  combined$mlb_team_abbr <- unname(mlb_team_abbr[combined$mlb_team])
   need_key <- paste(positional_war$team, positional_war$position, sep = "\034")
-  candidate_key <- paste(combined$mlb_team, combined$need_position, sep = "\034")
+  candidate_key <- paste(combined$mlb_team_abbr, combined$need_position, sep = "\034")
   need_match <- match(candidate_key, need_key)
   combined$mlb_need_rank <- .integer_value(positional_war$mlb_rank[need_match])
   combined$mlb_need_percentile <- round(100 - .numeric_value(positional_war$percentile[need_match]), 1)
