@@ -1,5 +1,6 @@
 workspace <- normalizePath(".", winslash = "/", mustWork = TRUE)
 suppressPackageStartupMessages(library(sabrhoodR))
+source(file.path(workspace, "scripts", "projection_settlement_contract.R"), local = TRUE)
 
 output_dir <- Sys.getenv("SABRHOOD_DERIVED_DIR", unset = file.path(workspace, "data", "derived"))
 ledger_dir <- Sys.getenv("SABRHOOD_LEDGER_DIR", unset = file.path(workspace, ".private-data", "projection-ledger"))
@@ -473,15 +474,7 @@ if (nrow(eligible_players) && length(pbp_game_ids)) {
   eligible_players$player_id <- as.character(eligible_players$player_id)
   settled_players <- merge(eligible_players, actuals, by = c("game_id", "player_id", "role"), all = FALSE)
   if (nrow(settled_players)) {
-    settled_players$actual_binary <- with(settled_players, ifelse(metric_id == "batter_hit_1plus", actual_H >= 1,
-      ifelse(metric_id == "batter_hit_2plus", actual_H >= 2,
-        ifelse(metric_id == "batter_hr_1plus", actual_HR >= 1,
-          ifelse(metric_id == "batter_xbh_1plus", actual_XBH >= 1,
-            ifelse(metric_id == "batter_tb_2plus", actual_TB >= 2,
-              ifelse(metric_id == "batter_tb_3plus", actual_TB >= 3,
-                ifelse(metric_id == "pitcher_k_5plus", actual_K >= 5,
-                  ifelse(metric_id == "pitcher_k_7plus", actual_K >= 7, NA)))))))))
-    settled_players$actual_binary <- as.integer(settled_players$actual_binary)
+    settled_players$actual_binary <- settle_player_projection_outcomes(settled_players)
     groups <- split(seq_len(nrow(settled_players)), settled_players$metric_id)
     player_metrics <- do.call(rbind, lapply(names(groups), function(metric_id) {
       index <- groups[[metric_id]]

@@ -10,7 +10,10 @@ name: Validate backend contracts
       - "infrastructure/**"
       - "scripts/tests/test_fangraphs_reconciliation.R"
       - "scripts/tests/test_lineup_refresh_gate.R"
+      - "scripts/tests/test_projection_settlement_contract.R"
       - "scripts/lineup_refresh_gate.R"
+      - "scripts/projection_settlement_contract.R"
+      - "scripts/settle_projection_ledger.R"
       - "scripts/validate_fangraphs_reconciliation.R"
       - "supabase/**"
       - "netlify.toml"
@@ -25,7 +28,10 @@ name: Validate backend contracts
       - "infrastructure/**"
       - "scripts/tests/test_fangraphs_reconciliation.R"
       - "scripts/tests/test_lineup_refresh_gate.R"
+      - "scripts/tests/test_projection_settlement_contract.R"
       - "scripts/lineup_refresh_gate.R"
+      - "scripts/projection_settlement_contract.R"
+      - "scripts/settle_projection_ledger.R"
       - "scripts/validate_fangraphs_reconciliation.R"
       - "supabase/**"
       - "netlify.toml"
@@ -77,6 +83,9 @@ jobs:
 
       - name: Run lineup refresh gate contract
         run: Rscript scripts/tests/test_lineup_refresh_gate.R
+
+      - name: Run projection settlement contract
+        run: Rscript scripts/tests/test_projection_settlement_contract.R
 
       - name: Verify source-permission guard is present
         shell: bash
