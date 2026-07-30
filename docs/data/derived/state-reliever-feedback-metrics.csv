@@ -1,2 +1,2 @@
 "eligible_reliever_forecasts","settled_reliever_forecasts","mean_appearance_probability","observed_appearance_rate","appearance_brier_score","calibration_bias","status","model_version"
-346,346,0.755722543352601,0.439306358381503,0.367341410404624,-0.316416184971098,"accumulating completed reliever decisions","plate_appearance_state_machine_phase4_baserunning_v1; plate_appearance_state_machine_phase5_manager_hook_v1"
+512,512,0.761484375,0.43359375,0.3693103125,-0.327890625,"accumulating completed reliever decisions","plate_appearance_state_machine_phase4_baserunning_v1; plate_appearance_state_machine_phase5_manager_hook_v1"
