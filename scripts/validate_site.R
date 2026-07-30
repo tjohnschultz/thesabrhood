@@ -44,6 +44,7 @@ required_data <- c(
   "historical-anniversary-notes.csv",
   "history-match-notes.csv",
   "daily-retrosheet-history.csv",
+  "daily-retrosheet-history-status.csv",
   "current-season-hitter-game-lines.csv",
   "current-season-pitcher-game-lines.csv",
   "historical-milestone-notes.csv",
@@ -250,7 +251,8 @@ allowed_empty_data <- c(
   "daily-player-simulation-skips.csv",
   "daily-series-player-lines.csv",
   "daily-recent-game-lines.csv",
-  "history-match-notes.csv"
+  "history-match-notes.csv",
+  "daily-retrosheet-history.csv"
 )
 
 for (name in required_data) {

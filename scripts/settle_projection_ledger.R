@@ -12,10 +12,21 @@ snapshot_files <- list.files(file.path(ledger_dir, "snapshots"), pattern = "\\.r
 if (!length(snapshot_files)) {
   game_metrics <- data.frame(
     settled_games = 0L, eligible_unsettled_games = 0L, calibration_minimum_games = 300L,
+    correct_winner_predictions = 0L, remaining_to_calibration = 300L,
     calibration_status = "awaiting first pregame snapshot", brier_score = NA_real_,
     log_loss = NA_real_, classification_accuracy = NA_real_, calibration_bias = NA_real_,
+    accuracy_ci_lower = NA_real_, accuracy_ci_upper = NA_real_,
+    accuracy_p_value_vs_coin = NA_real_, observed_home_win_rate = NA_real_,
+    majority_class_accuracy = NA_real_, brier_skill_vs_coin = NA_real_,
     away_runs_mae = NA_real_, home_runs_mae = NA_real_, total_runs_mae = NA_real_,
     model_version = "none eligible yet", stringsAsFactors = FALSE
+  )
+  game_version_metrics <- data.frame(
+    model_version = "none eligible yet", settled_games = 0L,
+    correct_winner_predictions = 0L, classification_accuracy = NA_real_,
+    brier_score = NA_real_, log_loss = NA_real_, calibration_bias = NA_real_,
+    away_runs_mae = NA_real_, home_runs_mae = NA_real_,
+    total_runs_mae = NA_real_, stringsAsFactors = FALSE
   )
   game_calibration <- data.frame(
     probability_bin = NA_integer_, bin_lower = NA_real_, bin_upper = NA_real_, observations = 0L,
@@ -78,6 +89,7 @@ if (!length(snapshot_files)) {
     stringsAsFactors = FALSE
   )
   utils::write.csv(game_metrics, file.path(output_dir, "projection-feedback-metrics.csv"), row.names = FALSE, na = "")
+  utils::write.csv(game_version_metrics, file.path(output_dir, "projection-feedback-by-version.csv"), row.names = FALSE, na = "")
   utils::write.csv(game_calibration, file.path(output_dir, "projection-feedback-calibration.csv"), row.names = FALSE, na = "")
   utils::write.csv(player_metrics, file.path(output_dir, "player-projection-feedback-metrics.csv"), row.names = FALSE, na = "")
   utils::write.csv(matchup_metrics, file.path(output_dir, "matchup-event-feedback-metrics.csv"), row.names = FALSE, na = "")
@@ -217,11 +229,23 @@ if (length(pbp_game_ids)) {
 settled_games <- if (nrow(eligible_games) && nrow(game_outcomes)) merge(eligible_games, game_outcomes, by = "game_id", all = FALSE) else data.frame()
 game_metrics <- data.frame(
   settled_games = nrow(settled_games), eligible_unsettled_games = nrow(eligible_games) - nrow(settled_games),
+  correct_winner_predictions = 0L,
+  remaining_to_calibration = pmax(300L - nrow(settled_games), 0L),
   calibration_minimum_games = 300L, calibration_status = if (nrow(settled_games) >= 300L) "fitted" else "accumulating pregame outcomes",
   brier_score = NA_real_, log_loss = NA_real_, classification_accuracy = NA_real_, calibration_bias = NA_real_,
+  accuracy_ci_lower = NA_real_, accuracy_ci_upper = NA_real_,
+  accuracy_p_value_vs_coin = NA_real_, observed_home_win_rate = NA_real_,
+  majority_class_accuracy = NA_real_, brier_skill_vs_coin = NA_real_,
   away_runs_mae = NA_real_, home_runs_mae = NA_real_, total_runs_mae = NA_real_,
   model_version = if (nrow(eligible_games)) paste(unique(eligible_games$model_version), collapse = "; ") else "none eligible yet",
   stringsAsFactors = FALSE
+)
+game_version_metrics <- data.frame(
+  model_version = "none eligible yet", settled_games = 0L,
+  correct_winner_predictions = 0L, classification_accuracy = NA_real_,
+  brier_score = NA_real_, log_loss = NA_real_, calibration_bias = NA_real_,
+  away_runs_mae = NA_real_, home_runs_mae = NA_real_,
+  total_runs_mae = NA_real_, stringsAsFactors = FALSE
 )
 game_calibration <- data.frame(
   probability_bin = NA_integer_, bin_lower = NA_real_, bin_upper = NA_real_, observations = 0L,
@@ -230,10 +254,24 @@ game_calibration <- data.frame(
 )
 if (nrow(settled_games)) {
   scored <- score_projection_probabilities(settled_games$home_win_probability, settled_games$actual_home_win)
+  predicted_home_win <- num(settled_games$home_win_probability) >= 0.5
+  correct_winner <- predicted_home_win == as.logical(settled_games$actual_home_win)
+  accuracy_test <- stats::binom.test(sum(correct_winner), length(correct_winner), p = 0.5)
+  observed_home_win_rate <- mean(settled_games$actual_home_win)
+  game_metrics$correct_winner_predictions <- sum(correct_winner)
   game_metrics$brier_score <- scored$brier_score
   game_metrics$log_loss <- scored$log_loss
   game_metrics$classification_accuracy <- scored$classification_accuracy
   game_metrics$calibration_bias <- scored$calibration_bias
+  game_metrics$accuracy_ci_lower <- accuracy_test$conf.int[[1L]]
+  game_metrics$accuracy_ci_upper <- accuracy_test$conf.int[[2L]]
+  game_metrics$accuracy_p_value_vs_coin <- accuracy_test$p.value
+  game_metrics$observed_home_win_rate <- observed_home_win_rate
+  game_metrics$majority_class_accuracy <- max(
+    observed_home_win_rate,
+    1 - observed_home_win_rate
+  )
+  game_metrics$brier_skill_vs_coin <- 1 - scored$brier_score / 0.25
   game_metrics$away_runs_mae <- mean(abs(num(settled_games$away_mean_runs) - settled_games$actual_away_runs))
   game_metrics$home_runs_mae <- mean(abs(num(settled_games$home_mean_runs) - settled_games$actual_home_runs))
   game_metrics$total_runs_mae <- mean(abs(num(settled_games$mean_total_runs) - (settled_games$actual_away_runs + settled_games$actual_home_runs)))
@@ -243,6 +281,34 @@ if (nrow(settled_games)) {
     probability_model <- fit_probability_calibrator(settled_games$home_win_probability, settled_games$actual_home_win, min_rows = 300L)
     saveRDS(probability_model, file.path(private_model_dir, "live-game-probability-calibrator.rds"))
   }
+  version_groups <- split(seq_len(nrow(settled_games)), settled_games$model_version)
+  game_version_metrics <- do.call(rbind, lapply(names(version_groups), function(version) {
+    index <- version_groups[[version]]
+    rows <- settled_games[index, , drop = FALSE]
+    version_score <- score_projection_probabilities(
+      rows$home_win_probability,
+      rows$actual_home_win
+    )
+    version_correct <- (
+      num(rows$home_win_probability) >= 0.5
+    ) == as.logical(rows$actual_home_win)
+    data.frame(
+      model_version = version,
+      settled_games = nrow(rows),
+      correct_winner_predictions = sum(version_correct),
+      classification_accuracy = version_score$classification_accuracy,
+      brier_score = version_score$brier_score,
+      log_loss = version_score$log_loss,
+      calibration_bias = version_score$calibration_bias,
+      away_runs_mae = mean(abs(num(rows$away_mean_runs) - rows$actual_away_runs)),
+      home_runs_mae = mean(abs(num(rows$home_mean_runs) - rows$actual_home_runs)),
+      total_runs_mae = mean(abs(
+        num(rows$mean_total_runs) -
+          (rows$actual_away_runs + rows$actual_home_runs)
+      )),
+      stringsAsFactors = FALSE
+    )
+  }))
 }
 
 settled_state <- if (nrow(eligible_state) && nrow(game_outcomes)) {
@@ -592,6 +658,7 @@ saveRDS(
   file.path(ledger_dir, "settled-projection-ledger.rds")
 )
 utils::write.csv(game_metrics, file.path(output_dir, "projection-feedback-metrics.csv"), row.names = FALSE, na = "")
+utils::write.csv(game_version_metrics, file.path(output_dir, "projection-feedback-by-version.csv"), row.names = FALSE, na = "")
 utils::write.csv(game_calibration, file.path(output_dir, "projection-feedback-calibration.csv"), row.names = FALSE, na = "")
 utils::write.csv(player_metrics, file.path(output_dir, "player-projection-feedback-metrics.csv"), row.names = FALSE, na = "")
 utils::write.csv(matchup_metrics, file.path(output_dir, "matchup-event-feedback-metrics.csv"), row.names = FALSE, na = "")

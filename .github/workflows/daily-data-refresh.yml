@@ -96,6 +96,7 @@ jobs:
         run: |
           if [ -z "$SABRHOOD_DATE" ]; then unset SABRHOOD_DATE; fi
           Rscript scripts/build_history_products.R
+          Rscript scripts/build_daily_retrosheet_history.R
           Rscript scripts/build_editorial_products.R
 
       - name: Refresh MLB and Triple-A standings movement
@@ -124,6 +125,9 @@ jobs:
               echo "has_lineups=false" >> "$GITHUB_OUTPUT"
             fi
           fi
+
+      - name: Build yesterday and current-series context
+        run: Rscript scripts/build_daily_series_context.R
 
       - name: Build daily team projections
         if: steps.slate.outputs.has_slate == 'true'

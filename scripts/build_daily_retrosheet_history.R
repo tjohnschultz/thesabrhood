@@ -7,13 +7,22 @@ history_root <- Sys.getenv(
   "SABRHOOD_RETROSHEET_HISTORY",
   unset = file.path(workspace_root, "progress", "private-history", "retrosheet", "2025")
 )
+workspace_record_root <- file.path(
+  workspace_root, "progress", "private-history", "retrosheet-records", "2025"
+)
+repository_record_root <- file.path(
+  "data", "reference", "retrosheet-records", "2025"
+)
 record_root <- Sys.getenv(
   "SABRHOOD_RETROSHEET_RECORD_ARCHIVE",
-  unset = file.path(
-    workspace_root, "progress", "private-history", "retrosheet-records", "2025"
-  )
+  unset = if (dir.exists(workspace_record_root)) {
+    workspace_record_root
+  } else {
+    repository_record_root
+  }
 )
 output_path <- file.path(output_dir, "daily-retrosheet-history.csv")
+status_path <- file.path(output_dir, "daily-retrosheet-history-status.csv")
 record_manifest_path <- file.path(record_root, "record-history-manifest.csv")
 record_hitter_path <- file.path(record_root, "rare-hitter-player-games.rds")
 record_pitcher_path <- file.path(record_root, "rare-pitcher-player-games.rds")
@@ -211,7 +220,43 @@ if (nrow(daily)) {
     "Interested parties may contact Retrosheet at www.retrosheet.org."
   )
   daily$generated_at_utc <- format(Sys.time(), tz = "UTC", usetz = TRUE)
+} else {
+  daily <- data.frame(
+    role = character(),
+    game_date = as.Date(character()),
+    player_id = character(),
+    player_name = character(),
+    team = character(),
+    opponent = character(),
+    rarity_type = character(),
+    rarity_label = character(),
+    occurrence_count = integer(),
+    stat_line = character(),
+    recognition_score = numeric(),
+    story_score = numeric(),
+    headline = character(),
+    report_date = character(),
+    history_universe = character(),
+    history_archive_method = character(),
+    source_note = character(),
+    generated_at_utc = character(),
+    stringsAsFactors = FALSE
+  )
 }
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 utils::write.csv(daily, output_path, row.names = FALSE, na = "")
+status <- data.frame(
+  report_date = as.character(report_date),
+  selected_notes = nrow(daily),
+  history_start = history_start,
+  history_end = history_end,
+  archive_method = if (use_record_archive) {
+    "sabrhood_retrosheet_record_only_archive_v1"
+  } else {
+    "sabrhood_retrosheet_partition_fallback_v1"
+  },
+  generated_at_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
+  stringsAsFactors = FALSE
+)
+utils::write.csv(status, status_path, row.names = FALSE, na = "")
 cat("Built", nrow(daily), "rare Retrosheet on-this-day game notes for", format(report_date, "%B %d"), ".\n")

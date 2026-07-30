@@ -21,6 +21,8 @@ if (!nrow(games)) {
   quit(save = "no", status = 0L)
 }
 
+site_report_date <- max(as.Date(games$game_date), na.rm = TRUE)
+generated_at_utc <- format(Sys.time(), tz = "UTC", usetz = TRUE)
 hitters$game_date <- as.Date(hitters$game_date)
 pitchers$game_date <- as.Date(pitchers$game_date)
 team_games <- unique(hitters[c("game_pk", "game_date", "team", "opponent")])
@@ -220,8 +222,19 @@ bind_rows <- function(rows) if (length(rows)) do.call(rbind, rows) else data.fra
 context <- bind_rows(context_rows)
 series_players <- bind_rows(series_player_rows)
 recent <- bind_rows(recent_rows)
+source_dates <- c(hitters$game_date, pitchers$game_date)
+source_dates <- source_dates[!is.na(source_dates)]
+source_through <- if (length(source_dates)) max(source_dates) else as.Date(NA)
+for (product_name in c("context", "series_players", "recent")) {
+  product <- get(product_name)
+  if (nrow(product)) {
+    product$report_date <- as.character(site_report_date)
+    product$source_through <- as.character(source_through)
+    product$generated_at_utc <- generated_at_utc
+  }
+  assign(product_name, product)
+}
 if (nrow(series_players)) {
-  series_players$source_through <- max(c(hitters$game_date, pitchers$game_date), na.rm = TRUE)
   series_players$method <- "consecutive_same_opponent_player_totals_v1"
   series_players <- series_players[order(
     series_players$current_game_id, series_players$team, series_players$role,

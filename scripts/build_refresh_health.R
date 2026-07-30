@@ -33,6 +33,9 @@ slate_status <- read_product("daily-slate-status.csv")
 award_history <- read_product("award-race-history.csv")
 standings <- read_product("mlb-standings-current.csv")
 newsletter <- read_product("daily-newsletter-edition.csv")
+recent_games <- read_product("daily-recent-game-lines.csv")
+retrosheet_history <- read_product("daily-retrosheet-history-status.csv")
+milestones <- read_product("active-milestone-watch.csv")
 
 status_date <- date_value(slate_status, "report_date")
 off_day <- nrow(slate_status) > 0L && identical(as.character(slate_status$slate_state[[1L]]), "no_games_scheduled") && identical(status_date, reference_date)
@@ -51,11 +54,18 @@ state_expected_date <- if (lineup_models_gated && !is.na(state_date)) {
 } else {
   reference_date
 }
+recent_game_date <- if (off_day) {
+  status_date
+} else {
+  date_value(recent_games, "report_date")
+}
 
 pbp_date <- date_value(pbp_status, "source_through")
+fangraphs_date <- date_value(fangraphs, "source_acquired_at_utc")
 rows <- data.frame(
   product_group = c(
     "completed_game_pbp", "pbp_analysis", "editorial_story_engine", "history_engine",
+    "retrosheet_daily_history", "active_milestones", "daily_recent_performances",
     "fangraphs_season", "triple_a_watch", "graphics_feed", "daily_slate",
     "daily_projections", "daily_matchup_model", "daily_state_simulation",
     "phase4_baserunning", "award_race_history", "standings_movement",
@@ -66,7 +76,10 @@ rows <- data.frame(
     date_value(hitters, c("source_through", "last_game")),
     date_value(stories, "source_through"),
     date_value(history, "report_date"),
-    date_value(fangraphs, "source_acquired_at_utc"),
+    date_value(retrosheet_history, "report_date"),
+    date_value(milestones, "source_through"),
+    recent_game_date,
+    fangraphs_date,
     date_value(aaa, "source_acquired_at_utc"),
     date_value(graphics, "source_acquired_at_utc"),
     slate_date,
@@ -84,6 +97,9 @@ rows <- data.frame(
     pbp_date,
     reference_date,
     reference_date,
+    fangraphs_date,
+    reference_date,
+    reference_date,
     reference_date,
     reference_date,
     reference_date,
@@ -95,9 +111,9 @@ rows <- data.frame(
     reference_date - 1L,
     reference_date
   ), origin = "1970-01-01"),
-  max_lag_days = c(4L, 0L, 0L, 0L, 2L, 3L, 2L, 0L, 0L, 0L, 0L, 0L, 8L, 1L, 0L),
+  max_lag_days = c(4L, 0L, 0L, 0L, 0L, 0L, 0L, 2L, 3L, 2L, 0L, 0L, 0L, 0L, 0L, 8L, 1L, 0L),
   cadence = c(
-    "daily", "daily", "daily", "daily", "daily", "daily", "daily",
+    "daily", "daily", "daily", "daily", "daily", "daily", "daily", "daily", "daily", "daily",
     "daily", "daily", "lineup-dependent", "lineup-dependent", "daily", "weekly",
     "daily", "daily"
   ),
