@@ -44,7 +44,6 @@ required_data <- c(
   "historical-anniversary-notes.csv",
   "history-match-notes.csv",
   "daily-retrosheet-history.csv",
-  "daily-retrosheet-history-status.csv",
   "current-season-hitter-game-lines.csv",
   "current-season-pitcher-game-lines.csv",
   "historical-milestone-notes.csv",
