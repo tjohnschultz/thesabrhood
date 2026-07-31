@@ -1,3 +1,4 @@
 "sims","avg_BF","avg_starter_BF","avg_H","avg_BB","avg_K","avg_HR","avg_XBH","avg_TB","game_id","game_date","team","opponent","model_version"
 2000,36.4085,23.2465,7.9835,2.7355,8.7135,1.254,2.917,13.5485,"824651","2026-07-31","New York Yankees","Chicago Cubs","starter_bullpen_player_sim_v1"
 2000,36.7105,22.417,8.019,3.7365,8.2115,1.041,3.07,13.331,"824651","2026-07-31","Chicago Cubs","New York Yankees","starter_bullpen_player_sim_v1"
+2000,35.514,22.095,6.943,3.1775,9.9045,1.1925,2.568,12.002,"824486","2026-07-31","Cincinnati Reds","Pittsburgh Pirates","starter_bullpen_player_sim_v1"

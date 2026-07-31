@@ -3,131 +3,197 @@
 "batter_hit_1plus","1+ hit","824651","699393","Pedro Ramírez","Chicago Cubs","New York Yankees","hitter",0.7195,1.1015,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
 "batter_hit_1plus","1+ hit","824651","502671","Paul Goldschmidt","New York Yankees","Chicago Cubs","hitter",0.684,1.045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
 "batter_hit_1plus","1+ hit","824651","700250","Ben Rice","New York Yankees","Chicago Cubs","hitter",0.668,1,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hit_1plus","1+ hit","824651","691176","Jasson Domínguez","New York Yankees","Chicago Cubs","hitter",0.644,0.9125,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_hit_1plus","1+ hit","824651","663538","Nico Hoerner","Chicago Cubs","New York Yankees","hitter",0.6435,0.908,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hit_1plus","1+ hit","824651","642708","Amed Rosario","New York Yankees","Chicago Cubs","hitter",0.637,0.8885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hit_1plus","1+ hit","824651","683737","Michael Busch","Chicago Cubs","New York Yankees","hitter",0.636,0.9095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hit_1plus","1+ hit","824651","608324","Alex Bregman","Chicago Cubs","New York Yankees","hitter",0.626,0.882,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hit_1plus","1+ hit","824651","682987","Spencer Jones","New York Yankees","Chicago Cubs","hitter",0.621,0.834,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hit_1plus","1+ hit","824651","645305","Ali Sánchez","New York Yankees","Chicago Cubs","hitter",0.618,0.878,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hit_1plus","1+ hit","824651","683011","Anthony Volpe","New York Yankees","Chicago Cubs","hitter",0.616,0.86,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hit_1plus","1+ hit","824651","676609","José Caballero","New York Yankees","Chicago Cubs","hitter",0.602,0.8215,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hit_1plus","1+ hit","824651","624424","Michael Conforto","Chicago Cubs","New York Yankees","hitter",0.5885,0.803,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hit_1plus","1+ hit","824651","665804","Miguel Amaya","Chicago Cubs","New York Yankees","hitter",0.5875,0.7735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hit_1plus","1+ hit","824651","664023","Ian Happ","Chicago Cubs","New York Yankees","hitter",0.58,0.782,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hit_1plus","1+ hit","824651","663757","Trent Grisham","New York Yankees","Chicago Cubs","hitter",0.555,0.744,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hit_1plus","1+ hit","824651","621020","Dansby Swanson","Chicago Cubs","New York Yankees","hitter",0.5545,0.755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hit_1plus","1+ hit","824486","682829","Elly De La Cruz","Cincinnati Reds","Pittsburgh Pirates","hitter",0.6555,0.9585,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hit_1plus","1+ hit","824651","691176","Jasson Domínguez","New York Yankees","Chicago Cubs","hitter",0.644,0.9125,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_hit_1plus","1+ hit","824651","663538","Nico Hoerner","Chicago Cubs","New York Yankees","hitter",0.6435,0.908,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hit_1plus","1+ hit","824651","642708","Amed Rosario","New York Yankees","Chicago Cubs","hitter",0.637,0.8885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hit_1plus","1+ hit","824651","683737","Michael Busch","Chicago Cubs","New York Yankees","hitter",0.636,0.9095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hit_1plus","1+ hit","824651","608324","Alex Bregman","Chicago Cubs","New York Yankees","hitter",0.626,0.882,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hit_1plus","1+ hit","824651","682987","Spencer Jones","New York Yankees","Chicago Cubs","hitter",0.621,0.834,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hit_1plus","1+ hit","824651","645305","Ali Sánchez","New York Yankees","Chicago Cubs","hitter",0.618,0.878,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hit_1plus","1+ hit","824651","683011","Anthony Volpe","New York Yankees","Chicago Cubs","hitter",0.616,0.86,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hit_1plus","1+ hit","824486","701398","Sal Stewart","Cincinnati Reds","Pittsburgh Pirates","hitter",0.612,0.861,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hit_1plus","1+ hit","824486","663993","Nathaniel Lowe","Cincinnati Reds","Pittsburgh Pirates","hitter",0.604,0.8275,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hit_1plus","1+ hit","824651","676609","José Caballero","New York Yankees","Chicago Cubs","hitter",0.602,0.8215,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hit_1plus","1+ hit","824486","667472","Dane Myers","Cincinnati Reds","Pittsburgh Pirates","hitter",0.597,0.8185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hit_1plus","1+ hit","824486","663886","Tyler Stephenson","Cincinnati Reds","Pittsburgh Pirates","hitter",0.5935,0.8155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hit_1plus","1+ hit","824651","624424","Michael Conforto","Chicago Cubs","New York Yankees","hitter",0.5885,0.803,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hit_1plus","1+ hit","824651","665804","Miguel Amaya","Chicago Cubs","New York Yankees","hitter",0.5875,0.7735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hit_1plus","1+ hit","824651","664023","Ian Happ","Chicago Cubs","New York Yankees","hitter",0.58,0.782,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hit_1plus","1+ hit","824486","668709","JJ Bleday","Cincinnati Reds","Pittsburgh Pirates","hitter",0.576,0.7735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hit_1plus","1+ hit","824651","663757","Trent Grisham","New York Yankees","Chicago Cubs","hitter",0.555,0.744,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hit_1plus","1+ hit","824651","621020","Dansby Swanson","Chicago Cubs","New York Yankees","hitter",0.5545,0.755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hit_1plus","1+ hit","824486","553993","Eugenio Suárez","Cincinnati Reds","Pittsburgh Pirates","hitter",0.531,0.681,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hit_1plus","1+ hit","824486","682622","Noelvi Marte","Cincinnati Reds","Pittsburgh Pirates","hitter",0.4875,0.619,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hit_1plus","1+ hit","824486","680574","Matt McLain","Cincinnati Reds","Pittsburgh Pirates","hitter",0.467,0.5885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
 "batter_hit_2plus","2+ hits","824651","699393","Pedro Ramírez","Chicago Cubs","New York Yankees","hitter",0.296,1.1015,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "batter_hit_2plus","2+ hits","824651","691718","Pete Crow-Armstrong","Chicago Cubs","New York Yankees","hitter",0.293,1.1045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
 "batter_hit_2plus","2+ hits","824651","502671","Paul Goldschmidt","New York Yankees","Chicago Cubs","hitter",0.2895,1.045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
 "batter_hit_2plus","2+ hits","824651","700250","Ben Rice","New York Yankees","Chicago Cubs","hitter",0.2725,1,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hit_2plus","2+ hits","824651","691176","Jasson Domínguez","New York Yankees","Chicago Cubs","hitter",0.229,0.9125,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_hit_2plus","2+ hits","824651","683737","Michael Busch","Chicago Cubs","New York Yankees","hitter",0.2245,0.9095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hit_2plus","2+ hits","824651","663538","Nico Hoerner","Chicago Cubs","New York Yankees","hitter",0.223,0.908,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hit_2plus","2+ hits","824651","645305","Ali Sánchez","New York Yankees","Chicago Cubs","hitter",0.219,0.878,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hit_2plus","2+ hits","824651","608324","Alex Bregman","Chicago Cubs","New York Yankees","hitter",0.212,0.882,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hit_2plus","2+ hits","824651","642708","Amed Rosario","New York Yankees","Chicago Cubs","hitter",0.21,0.8885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hit_2plus","2+ hits","824651","683011","Anthony Volpe","New York Yankees","Chicago Cubs","hitter",0.2055,0.86,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hit_2plus","2+ hits","824651","676609","José Caballero","New York Yankees","Chicago Cubs","hitter",0.1885,0.8215,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hit_2plus","2+ hits","824651","624424","Michael Conforto","Chicago Cubs","New York Yankees","hitter",0.1865,0.803,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hit_2plus","2+ hits","824651","682987","Spencer Jones","New York Yankees","Chicago Cubs","hitter",0.179,0.834,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hit_2plus","2+ hits","824651","664023","Ian Happ","Chicago Cubs","New York Yankees","hitter",0.171,0.782,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hit_2plus","2+ hits","824651","665804","Miguel Amaya","Chicago Cubs","New York Yankees","hitter",0.1675,0.7735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hit_2plus","2+ hits","824651","621020","Dansby Swanson","Chicago Cubs","New York Yankees","hitter",0.1665,0.755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hit_2plus","2+ hits","824651","663757","Trent Grisham","New York Yankees","Chicago Cubs","hitter",0.1635,0.744,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hit_2plus","2+ hits","824486","682829","Elly De La Cruz","Cincinnati Reds","Pittsburgh Pirates","hitter",0.2405,0.9585,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hit_2plus","2+ hits","824651","691176","Jasson Domínguez","New York Yankees","Chicago Cubs","hitter",0.229,0.9125,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_hit_2plus","2+ hits","824651","683737","Michael Busch","Chicago Cubs","New York Yankees","hitter",0.2245,0.9095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hit_2plus","2+ hits","824651","663538","Nico Hoerner","Chicago Cubs","New York Yankees","hitter",0.223,0.908,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hit_2plus","2+ hits","824651","645305","Ali Sánchez","New York Yankees","Chicago Cubs","hitter",0.219,0.878,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hit_2plus","2+ hits","824651","608324","Alex Bregman","Chicago Cubs","New York Yankees","hitter",0.212,0.882,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hit_2plus","2+ hits","824651","642708","Amed Rosario","New York Yankees","Chicago Cubs","hitter",0.21,0.8885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hit_2plus","2+ hits","824651","683011","Anthony Volpe","New York Yankees","Chicago Cubs","hitter",0.2055,0.86,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hit_2plus","2+ hits","824486","701398","Sal Stewart","Cincinnati Reds","Pittsburgh Pirates","hitter",0.2035,0.861,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hit_2plus","2+ hits","824486","667472","Dane Myers","Cincinnati Reds","Pittsburgh Pirates","hitter",0.1925,0.8185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hit_2plus","2+ hits","824651","676609","José Caballero","New York Yankees","Chicago Cubs","hitter",0.1885,0.8215,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hit_2plus","2+ hits","824486","663886","Tyler Stephenson","Cincinnati Reds","Pittsburgh Pirates","hitter",0.1885,0.8155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hit_2plus","2+ hits","824486","663993","Nathaniel Lowe","Cincinnati Reds","Pittsburgh Pirates","hitter",0.187,0.8275,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hit_2plus","2+ hits","824651","624424","Michael Conforto","Chicago Cubs","New York Yankees","hitter",0.1865,0.803,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hit_2plus","2+ hits","824651","682987","Spencer Jones","New York Yankees","Chicago Cubs","hitter",0.179,0.834,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hit_2plus","2+ hits","824486","668709","JJ Bleday","Cincinnati Reds","Pittsburgh Pirates","hitter",0.175,0.7735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hit_2plus","2+ hits","824651","664023","Ian Happ","Chicago Cubs","New York Yankees","hitter",0.171,0.782,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hit_2plus","2+ hits","824651","665804","Miguel Amaya","Chicago Cubs","New York Yankees","hitter",0.1675,0.7735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hit_2plus","2+ hits","824651","621020","Dansby Swanson","Chicago Cubs","New York Yankees","hitter",0.1665,0.755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hit_2plus","2+ hits","824651","663757","Trent Grisham","New York Yankees","Chicago Cubs","hitter",0.1635,0.744,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hit_2plus","2+ hits","824486","553993","Eugenio Suárez","Cincinnati Reds","Pittsburgh Pirates","hitter",0.1345,0.681,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hit_2plus","2+ hits","824486","682622","Noelvi Marte","Cincinnati Reds","Pittsburgh Pirates","hitter",0.1185,0.619,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hit_2plus","2+ hits","824486","680574","Matt McLain","Cincinnati Reds","Pittsburgh Pirates","hitter",0.11,0.5885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
 "batter_hr_1plus","1+ home run","824651","700250","Ben Rice","New York Yankees","Chicago Cubs","hitter",0.269,0.2985,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "batter_hr_1plus","1+ home run","824651","691718","Pete Crow-Armstrong","Chicago Cubs","New York Yankees","hitter",0.214,0.227,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
 "batter_hr_1plus","1+ home run","824651","502671","Paul Goldschmidt","New York Yankees","Chicago Cubs","hitter",0.1925,0.213,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
 "batter_hr_1plus","1+ home run","824651","624424","Michael Conforto","Chicago Cubs","New York Yankees","hitter",0.1875,0.203,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hr_1plus","1+ home run","824651","642708","Amed Rosario","New York Yankees","Chicago Cubs","hitter",0.174,0.183,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_hr_1plus","1+ home run","824651","664023","Ian Happ","Chicago Cubs","New York Yankees","hitter",0.141,0.1475,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hr_1plus","1+ home run","824651","621020","Dansby Swanson","Chicago Cubs","New York Yankees","hitter",0.131,0.138,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hr_1plus","1+ home run","824651","691176","Jasson Domínguez","New York Yankees","Chicago Cubs","hitter",0.129,0.1355,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hr_1plus","1+ home run","824651","663757","Trent Grisham","New York Yankees","Chicago Cubs","hitter",0.1145,0.119,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hr_1plus","1+ home run","824651","682987","Spencer Jones","New York Yankees","Chicago Cubs","hitter",0.111,0.1175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hr_1plus","1+ home run","824651","683737","Michael Busch","Chicago Cubs","New York Yankees","hitter",0.104,0.108,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hr_1plus","1+ home run","824651","676609","José Caballero","New York Yankees","Chicago Cubs","hitter",0.1,0.106,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hr_1plus","1+ home run","824651","608324","Alex Bregman","Chicago Cubs","New York Yankees","hitter",0.08,0.082,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hr_1plus","1+ home run","824651","665804","Miguel Amaya","Chicago Cubs","New York Yankees","hitter",0.063,0.065,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hr_1plus","1+ home run","824651","645305","Ali Sánchez","New York Yankees","Chicago Cubs","hitter",0.0595,0.0615,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hr_1plus","1+ home run","824651","699393","Pedro Ramírez","Chicago Cubs","New York Yankees","hitter",0.0375,0.0385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hr_1plus","1+ home run","824651","663538","Nico Hoerner","Chicago Cubs","New York Yankees","hitter",0.031,0.032,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hr_1plus","1+ home run","824651","683011","Anthony Volpe","New York Yankees","Chicago Cubs","hitter",0.0195,0.02,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hr_1plus","1+ home run","824486","668709","JJ Bleday","Cincinnati Reds","Pittsburgh Pirates","hitter",0.182,0.197,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hr_1plus","1+ home run","824651","642708","Amed Rosario","New York Yankees","Chicago Cubs","hitter",0.174,0.183,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_hr_1plus","1+ home run","824486","682829","Elly De La Cruz","Cincinnati Reds","Pittsburgh Pirates","hitter",0.163,0.17,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hr_1plus","1+ home run","824486","663993","Nathaniel Lowe","Cincinnati Reds","Pittsburgh Pirates","hitter",0.1615,0.176,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hr_1plus","1+ home run","824486","701398","Sal Stewart","Cincinnati Reds","Pittsburgh Pirates","hitter",0.155,0.161,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hr_1plus","1+ home run","824486","553993","Eugenio Suárez","Cincinnati Reds","Pittsburgh Pirates","hitter",0.1415,0.1505,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hr_1plus","1+ home run","824651","664023","Ian Happ","Chicago Cubs","New York Yankees","hitter",0.141,0.1475,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hr_1plus","1+ home run","824651","621020","Dansby Swanson","Chicago Cubs","New York Yankees","hitter",0.131,0.138,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hr_1plus","1+ home run","824651","691176","Jasson Domínguez","New York Yankees","Chicago Cubs","hitter",0.129,0.1355,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hr_1plus","1+ home run","824651","663757","Trent Grisham","New York Yankees","Chicago Cubs","hitter",0.1145,0.119,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hr_1plus","1+ home run","824651","682987","Spencer Jones","New York Yankees","Chicago Cubs","hitter",0.111,0.1175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hr_1plus","1+ home run","824486","682622","Noelvi Marte","Cincinnati Reds","Pittsburgh Pirates","hitter",0.109,0.1125,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hr_1plus","1+ home run","824651","683737","Michael Busch","Chicago Cubs","New York Yankees","hitter",0.104,0.108,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hr_1plus","1+ home run","824651","676609","José Caballero","New York Yankees","Chicago Cubs","hitter",0.1,0.106,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hr_1plus","1+ home run","824486","663886","Tyler Stephenson","Cincinnati Reds","Pittsburgh Pirates","hitter",0.086,0.0905,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hr_1plus","1+ home run","824486","680574","Matt McLain","Cincinnati Reds","Pittsburgh Pirates","hitter",0.0805,0.085,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hr_1plus","1+ home run","824651","608324","Alex Bregman","Chicago Cubs","New York Yankees","hitter",0.08,0.082,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hr_1plus","1+ home run","824651","665804","Miguel Amaya","Chicago Cubs","New York Yankees","hitter",0.063,0.065,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hr_1plus","1+ home run","824651","645305","Ali Sánchez","New York Yankees","Chicago Cubs","hitter",0.0595,0.0615,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hr_1plus","1+ home run","824486","667472","Dane Myers","Cincinnati Reds","Pittsburgh Pirates","hitter",0.0485,0.05,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hr_1plus","1+ home run","824651","699393","Pedro Ramírez","Chicago Cubs","New York Yankees","hitter",0.0375,0.0385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hr_1plus","1+ home run","824651","663538","Nico Hoerner","Chicago Cubs","New York Yankees","hitter",0.031,0.032,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hr_1plus","1+ home run","824651","683011","Anthony Volpe","New York Yankees","Chicago Cubs","hitter",0.0195,0.02,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
 "batter_hr_2plus","2+ home runs","824651","700250","Ben Rice","New York Yankees","Chicago Cubs","hitter",0.028,0.2985,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "batter_hr_2plus","2+ home runs","824651","502671","Paul Goldschmidt","New York Yankees","Chicago Cubs","hitter",0.019,0.213,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
 "batter_hr_2plus","2+ home runs","824651","624424","Michael Conforto","Chicago Cubs","New York Yankees","hitter",0.015,0.203,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_hr_2plus","2+ home runs","824651","691718","Pete Crow-Armstrong","Chicago Cubs","New York Yankees","hitter",0.013,0.227,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hr_2plus","2+ home runs","824651","642708","Amed Rosario","New York Yankees","Chicago Cubs","hitter",0.009,0.183,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_hr_2plus","2+ home runs","824651","621020","Dansby Swanson","Chicago Cubs","New York Yankees","hitter",0.007,0.138,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hr_2plus","2+ home runs","824651","691176","Jasson Domínguez","New York Yankees","Chicago Cubs","hitter",0.0065,0.1355,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hr_2plus","2+ home runs","824651","682987","Spencer Jones","New York Yankees","Chicago Cubs","hitter",0.0065,0.1175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hr_2plus","2+ home runs","824651","664023","Ian Happ","Chicago Cubs","New York Yankees","hitter",0.0065,0.1475,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hr_2plus","2+ home runs","824651","676609","José Caballero","New York Yankees","Chicago Cubs","hitter",0.006,0.106,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hr_2plus","2+ home runs","824651","663757","Trent Grisham","New York Yankees","Chicago Cubs","hitter",0.0045,0.119,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hr_2plus","2+ home runs","824651","683737","Michael Busch","Chicago Cubs","New York Yankees","hitter",0.0035,0.108,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hr_2plus","2+ home runs","824651","645305","Ali Sánchez","New York Yankees","Chicago Cubs","hitter",0.002,0.0615,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hr_2plus","2+ home runs","824651","608324","Alex Bregman","Chicago Cubs","New York Yankees","hitter",0.002,0.082,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hr_2plus","2+ home runs","824651","665804","Miguel Amaya","Chicago Cubs","New York Yankees","hitter",0.002,0.065,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hr_2plus","2+ home runs","824651","699393","Pedro Ramírez","Chicago Cubs","New York Yankees","hitter",0.001,0.0385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hr_2plus","2+ home runs","824651","663538","Nico Hoerner","Chicago Cubs","New York Yankees","hitter",0.001,0.032,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hr_2plus","2+ home runs","824651","683011","Anthony Volpe","New York Yankees","Chicago Cubs","hitter",5e-04,0.02,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hr_2plus","2+ home runs","824486","668709","JJ Bleday","Cincinnati Reds","Pittsburgh Pirates","hitter",0.0145,0.197,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_hr_2plus","2+ home runs","824486","663993","Nathaniel Lowe","Cincinnati Reds","Pittsburgh Pirates","hitter",0.014,0.176,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hr_2plus","2+ home runs","824651","691718","Pete Crow-Armstrong","Chicago Cubs","New York Yankees","hitter",0.013,0.227,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_hr_2plus","2+ home runs","824651","642708","Amed Rosario","New York Yankees","Chicago Cubs","hitter",0.009,0.183,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hr_2plus","2+ home runs","824486","553993","Eugenio Suárez","Cincinnati Reds","Pittsburgh Pirates","hitter",0.009,0.1505,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hr_2plus","2+ home runs","824651","621020","Dansby Swanson","Chicago Cubs","New York Yankees","hitter",0.007,0.138,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hr_2plus","2+ home runs","824486","682829","Elly De La Cruz","Cincinnati Reds","Pittsburgh Pirates","hitter",0.007,0.17,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hr_2plus","2+ home runs","824651","691176","Jasson Domínguez","New York Yankees","Chicago Cubs","hitter",0.0065,0.1355,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hr_2plus","2+ home runs","824651","682987","Spencer Jones","New York Yankees","Chicago Cubs","hitter",0.0065,0.1175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hr_2plus","2+ home runs","824651","664023","Ian Happ","Chicago Cubs","New York Yankees","hitter",0.0065,0.1475,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hr_2plus","2+ home runs","824651","676609","José Caballero","New York Yankees","Chicago Cubs","hitter",0.006,0.106,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hr_2plus","2+ home runs","824486","701398","Sal Stewart","Cincinnati Reds","Pittsburgh Pirates","hitter",0.006,0.161,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hr_2plus","2+ home runs","824651","663757","Trent Grisham","New York Yankees","Chicago Cubs","hitter",0.0045,0.119,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hr_2plus","2+ home runs","824486","663886","Tyler Stephenson","Cincinnati Reds","Pittsburgh Pirates","hitter",0.0045,0.0905,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hr_2plus","2+ home runs","824486","680574","Matt McLain","Cincinnati Reds","Pittsburgh Pirates","hitter",0.0045,0.085,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hr_2plus","2+ home runs","824651","683737","Michael Busch","Chicago Cubs","New York Yankees","hitter",0.0035,0.108,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hr_2plus","2+ home runs","824486","682622","Noelvi Marte","Cincinnati Reds","Pittsburgh Pirates","hitter",0.0035,0.1125,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hr_2plus","2+ home runs","824651","645305","Ali Sánchez","New York Yankees","Chicago Cubs","hitter",0.002,0.0615,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hr_2plus","2+ home runs","824651","608324","Alex Bregman","Chicago Cubs","New York Yankees","hitter",0.002,0.082,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hr_2plus","2+ home runs","824651","665804","Miguel Amaya","Chicago Cubs","New York Yankees","hitter",0.002,0.065,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hr_2plus","2+ home runs","824486","667472","Dane Myers","Cincinnati Reds","Pittsburgh Pirates","hitter",0.0015,0.05,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hr_2plus","2+ home runs","824651","699393","Pedro Ramírez","Chicago Cubs","New York Yankees","hitter",0.001,0.0385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hr_2plus","2+ home runs","824651","663538","Nico Hoerner","Chicago Cubs","New York Yankees","hitter",0.001,0.032,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hr_2plus","2+ home runs","824651","683011","Anthony Volpe","New York Yankees","Chicago Cubs","hitter",5e-04,0.02,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
 "batter_tb_2plus","2+ total bases","824651","691718","Pete Crow-Armstrong","Chicago Cubs","New York Yankees","hitter",0.4855,2.06,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "batter_tb_2plus","2+ total bases","824651","699393","Pedro Ramírez","Chicago Cubs","New York Yankees","hitter",0.48,1.6935,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
 "batter_tb_2plus","2+ total bases","824651","700250","Ben Rice","New York Yankees","Chicago Cubs","hitter",0.457,2.052,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
 "batter_tb_2plus","2+ total bases","824651","502671","Paul Goldschmidt","New York Yankees","Chicago Cubs","hitter",0.407,1.827,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_tb_2plus","2+ total bases","824651","683737","Michael Busch","Chicago Cubs","New York Yankees","hitter",0.372,1.46,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_tb_2plus","2+ total bases","824651","691176","Jasson Domínguez","New York Yankees","Chicago Cubs","hitter",0.369,1.536,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_tb_2plus","2+ total bases","824651","683011","Anthony Volpe","New York Yankees","Chicago Cubs","hitter",0.3665,1.2695,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_tb_2plus","2+ total bases","824651","645305","Ali Sánchez","New York Yankees","Chicago Cubs","hitter",0.357,1.3385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_tb_2plus","2+ total bases","824651","664023","Ian Happ","Chicago Cubs","New York Yankees","hitter",0.3525,1.44,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_tb_2plus","2+ total bases","824651","624424","Michael Conforto","Chicago Cubs","New York Yankees","hitter",0.3515,1.5545,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_tb_2plus","2+ total bases","824651","642708","Amed Rosario","New York Yankees","Chicago Cubs","hitter",0.345,1.5435,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_tb_2plus","2+ total bases","824651","663538","Nico Hoerner","Chicago Cubs","New York Yankees","hitter",0.345,1.2565,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_tb_2plus","2+ total bases","824651","608324","Alex Bregman","Chicago Cubs","New York Yankees","hitter",0.341,1.326,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_tb_2plus","2+ total bases","824651","682987","Spencer Jones","New York Yankees","Chicago Cubs","hitter",0.3305,1.3715,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_tb_2plus","2+ total bases","824651","665804","Miguel Amaya","Chicago Cubs","New York Yankees","hitter",0.324,1.2105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_tb_2plus","2+ total bases","824651","663757","Trent Grisham","New York Yankees","Chicago Cubs","hitter",0.321,1.3105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_tb_2plus","2+ total bases","824651","676609","José Caballero","New York Yankees","Chicago Cubs","hitter",0.3165,1.3,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_tb_2plus","2+ total bases","824651","621020","Dansby Swanson","Chicago Cubs","New York Yankees","hitter",0.314,1.33,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_tb_2plus","2+ total bases","824486","682829","Elly De La Cruz","Cincinnati Reds","Pittsburgh Pirates","hitter",0.3945,1.6765,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_tb_2plus","2+ total bases","824651","683737","Michael Busch","Chicago Cubs","New York Yankees","hitter",0.372,1.46,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_tb_2plus","2+ total bases","824651","691176","Jasson Domínguez","New York Yankees","Chicago Cubs","hitter",0.369,1.536,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_tb_2plus","2+ total bases","824651","683011","Anthony Volpe","New York Yankees","Chicago Cubs","hitter",0.3665,1.2695,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_tb_2plus","2+ total bases","824651","645305","Ali Sánchez","New York Yankees","Chicago Cubs","hitter",0.357,1.3385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_tb_2plus","2+ total bases","824486","701398","Sal Stewart","Cincinnati Reds","Pittsburgh Pirates","hitter",0.355,1.521,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_tb_2plus","2+ total bases","824651","664023","Ian Happ","Chicago Cubs","New York Yankees","hitter",0.3525,1.44,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_tb_2plus","2+ total bases","824651","624424","Michael Conforto","Chicago Cubs","New York Yankees","hitter",0.3515,1.5545,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_tb_2plus","2+ total bases","824486","663993","Nathaniel Lowe","Cincinnati Reds","Pittsburgh Pirates","hitter",0.3505,1.52,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_tb_2plus","2+ total bases","824651","642708","Amed Rosario","New York Yankees","Chicago Cubs","hitter",0.345,1.5435,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_tb_2plus","2+ total bases","824651","663538","Nico Hoerner","Chicago Cubs","New York Yankees","hitter",0.345,1.2565,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_tb_2plus","2+ total bases","824651","608324","Alex Bregman","Chicago Cubs","New York Yankees","hitter",0.341,1.326,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_tb_2plus","2+ total bases","824486","668709","JJ Bleday","Cincinnati Reds","Pittsburgh Pirates","hitter",0.334,1.4815,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_tb_2plus","2+ total bases","824651","682987","Spencer Jones","New York Yankees","Chicago Cubs","hitter",0.3305,1.3715,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_tb_2plus","2+ total bases","824486","663886","Tyler Stephenson","Cincinnati Reds","Pittsburgh Pirates","hitter",0.3295,1.292,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_tb_2plus","2+ total bases","824651","665804","Miguel Amaya","Chicago Cubs","New York Yankees","hitter",0.324,1.2105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_tb_2plus","2+ total bases","824651","663757","Trent Grisham","New York Yankees","Chicago Cubs","hitter",0.321,1.3105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_tb_2plus","2+ total bases","824651","676609","José Caballero","New York Yankees","Chicago Cubs","hitter",0.3165,1.3,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_tb_2plus","2+ total bases","824651","621020","Dansby Swanson","Chicago Cubs","New York Yankees","hitter",0.314,1.33,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_tb_2plus","2+ total bases","824486","667472","Dane Myers","Cincinnati Reds","Pittsburgh Pirates","hitter",0.3125,1.195,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_tb_2plus","2+ total bases","824486","553993","Eugenio Suárez","Cincinnati Reds","Pittsburgh Pirates","hitter",0.277,1.239,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_tb_2plus","2+ total bases","824486","682622","Noelvi Marte","Cincinnati Reds","Pittsburgh Pirates","hitter",0.2535,1.074,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_tb_2plus","2+ total bases","824486","680574","Matt McLain","Cincinnati Reds","Pittsburgh Pirates","hitter",0.2455,1.003,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
 "batter_tb_3plus","3+ total bases","824651","700250","Ben Rice","New York Yankees","Chicago Cubs","hitter",0.3325,2.052,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "batter_tb_3plus","3+ total bases","824651","691718","Pete Crow-Armstrong","Chicago Cubs","New York Yankees","hitter",0.3185,2.06,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
 "batter_tb_3plus","3+ total bases","824651","502671","Paul Goldschmidt","New York Yankees","Chicago Cubs","hitter",0.276,1.827,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
 "batter_tb_3plus","3+ total bases","824651","699393","Pedro Ramírez","Chicago Cubs","New York Yankees","hitter",0.261,1.6935,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_tb_3plus","3+ total bases","824651","624424","Michael Conforto","Chicago Cubs","New York Yankees","hitter",0.2435,1.5545,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_tb_3plus","3+ total bases","824651","642708","Amed Rosario","New York Yankees","Chicago Cubs","hitter",0.2235,1.5435,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_tb_3plus","3+ total bases","824651","691176","Jasson Domínguez","New York Yankees","Chicago Cubs","hitter",0.2225,1.536,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_tb_3plus","3+ total bases","824651","683737","Michael Busch","Chicago Cubs","New York Yankees","hitter",0.211,1.46,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_tb_3plus","3+ total bases","824651","664023","Ian Happ","Chicago Cubs","New York Yankees","hitter",0.2105,1.44,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_tb_3plus","3+ total bases","824651","663757","Trent Grisham","New York Yankees","Chicago Cubs","hitter",0.1935,1.3105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_tb_3plus","3+ total bases","824651","645305","Ali Sánchez","New York Yankees","Chicago Cubs","hitter",0.1895,1.3385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_tb_3plus","3+ total bases","824651","621020","Dansby Swanson","Chicago Cubs","New York Yankees","hitter",0.1845,1.33,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_tb_3plus","3+ total bases","824651","682987","Spencer Jones","New York Yankees","Chicago Cubs","hitter",0.1805,1.3715,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_tb_3plus","3+ total bases","824651","683011","Anthony Volpe","New York Yankees","Chicago Cubs","hitter",0.1725,1.2695,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_tb_3plus","3+ total bases","824651","608324","Alex Bregman","Chicago Cubs","New York Yankees","hitter",0.168,1.326,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_tb_3plus","3+ total bases","824651","676609","José Caballero","New York Yankees","Chicago Cubs","hitter",0.166,1.3,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_tb_3plus","3+ total bases","824651","663538","Nico Hoerner","Chicago Cubs","New York Yankees","hitter",0.1565,1.2565,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_tb_3plus","3+ total bases","824651","665804","Miguel Amaya","Chicago Cubs","New York Yankees","hitter",0.149,1.2105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_tb_3plus","3+ total bases","824486","682829","Elly De La Cruz","Cincinnati Reds","Pittsburgh Pirates","hitter",0.252,1.6765,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_tb_3plus","3+ total bases","824651","624424","Michael Conforto","Chicago Cubs","New York Yankees","hitter",0.2435,1.5545,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_tb_3plus","3+ total bases","824486","701398","Sal Stewart","Cincinnati Reds","Pittsburgh Pirates","hitter",0.228,1.521,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_tb_3plus","3+ total bases","824486","663993","Nathaniel Lowe","Cincinnati Reds","Pittsburgh Pirates","hitter",0.2275,1.52,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_tb_3plus","3+ total bases","824486","668709","JJ Bleday","Cincinnati Reds","Pittsburgh Pirates","hitter",0.2255,1.4815,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_tb_3plus","3+ total bases","824651","642708","Amed Rosario","New York Yankees","Chicago Cubs","hitter",0.2235,1.5435,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_tb_3plus","3+ total bases","824651","691176","Jasson Domínguez","New York Yankees","Chicago Cubs","hitter",0.2225,1.536,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_tb_3plus","3+ total bases","824651","683737","Michael Busch","Chicago Cubs","New York Yankees","hitter",0.211,1.46,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_tb_3plus","3+ total bases","824651","664023","Ian Happ","Chicago Cubs","New York Yankees","hitter",0.2105,1.44,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_tb_3plus","3+ total bases","824651","663757","Trent Grisham","New York Yankees","Chicago Cubs","hitter",0.1935,1.3105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_tb_3plus","3+ total bases","824651","645305","Ali Sánchez","New York Yankees","Chicago Cubs","hitter",0.1895,1.3385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_tb_3plus","3+ total bases","824651","621020","Dansby Swanson","Chicago Cubs","New York Yankees","hitter",0.1845,1.33,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_tb_3plus","3+ total bases","824486","553993","Eugenio Suárez","Cincinnati Reds","Pittsburgh Pirates","hitter",0.1835,1.239,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_tb_3plus","3+ total bases","824651","682987","Spencer Jones","New York Yankees","Chicago Cubs","hitter",0.1805,1.3715,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_tb_3plus","3+ total bases","824651","683011","Anthony Volpe","New York Yankees","Chicago Cubs","hitter",0.1725,1.2695,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_tb_3plus","3+ total bases","824486","663886","Tyler Stephenson","Cincinnati Reds","Pittsburgh Pirates","hitter",0.17,1.292,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_tb_3plus","3+ total bases","824651","608324","Alex Bregman","Chicago Cubs","New York Yankees","hitter",0.168,1.326,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_tb_3plus","3+ total bases","824651","676609","José Caballero","New York Yankees","Chicago Cubs","hitter",0.166,1.3,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_tb_3plus","3+ total bases","824651","663538","Nico Hoerner","Chicago Cubs","New York Yankees","hitter",0.1565,1.2565,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_tb_3plus","3+ total bases","824651","665804","Miguel Amaya","Chicago Cubs","New York Yankees","hitter",0.149,1.2105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_tb_3plus","3+ total bases","824486","667472","Dane Myers","Cincinnati Reds","Pittsburgh Pirates","hitter",0.149,1.195,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_tb_3plus","3+ total bases","824486","682622","Noelvi Marte","Cincinnati Reds","Pittsburgh Pirates","hitter",0.1465,1.074,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_tb_3plus","3+ total bases","824486","680574","Matt McLain","Cincinnati Reds","Pittsburgh Pirates","hitter",0.1345,1.003,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
 "batter_xbh_1plus","1+ extra-base hit","824651","699393","Pedro Ramírez","Chicago Cubs","New York Yankees","hitter",0.4005,0.4805,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "batter_xbh_1plus","1+ extra-base hit","824651","691718","Pete Crow-Armstrong","Chicago Cubs","New York Yankees","hitter",0.398,0.4765,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
 "batter_xbh_1plus","1+ extra-base hit","824651","700250","Ben Rice","New York Yankees","Chicago Cubs","hitter",0.3775,0.446,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_xbh_1plus","1+ extra-base hit","824651","664023","Ian Happ","Chicago Cubs","New York Yankees","hitter",0.3025,0.346,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_xbh_1plus","1+ extra-base hit","824651","502671","Paul Goldschmidt","New York Yankees","Chicago Cubs","hitter",0.298,0.343,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_xbh_1plus","1+ extra-base hit","824651","683011","Anthony Volpe","New York Yankees","Chicago Cubs","hitter",0.296,0.3385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_xbh_1plus","1+ extra-base hit","824651","624424","Michael Conforto","Chicago Cubs","New York Yankees","hitter",0.294,0.3355,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_xbh_1plus","1+ extra-base hit","824651","691176","Jasson Domínguez","New York Yankees","Chicago Cubs","hitter",0.2845,0.332,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_xbh_1plus","1+ extra-base hit","824651","683737","Michael Busch","Chicago Cubs","New York Yankees","hitter",0.283,0.318,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_xbh_1plus","1+ extra-base hit","824651","645305","Ali Sánchez","New York Yankees","Chicago Cubs","hitter",0.281,0.318,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_xbh_1plus","1+ extra-base hit","824651","663757","Trent Grisham","New York Yankees","Chicago Cubs","hitter",0.2725,0.3125,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_xbh_1plus","1+ extra-base hit","824651","682987","Spencer Jones","New York Yankees","Chicago Cubs","hitter",0.26,0.2915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_xbh_1plus","1+ extra-base hit","824651","665804","Miguel Amaya","Chicago Cubs","New York Yankees","hitter",0.26,0.2925,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_xbh_1plus","1+ extra-base hit","824651","642708","Amed Rosario","New York Yankees","Chicago Cubs","hitter",0.2565,0.2815,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_xbh_1plus","1+ extra-base hit","824651","621020","Dansby Swanson","Chicago Cubs","New York Yankees","hitter",0.254,0.288,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_xbh_1plus","1+ extra-base hit","824651","608324","Alex Bregman","Chicago Cubs","New York Yankees","hitter",0.2405,0.2685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_xbh_1plus","1+ extra-base hit","824651","663538","Nico Hoerner","Chicago Cubs","New York Yankees","hitter",0.238,0.2645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_xbh_1plus","1+ extra-base hit","824651","676609","José Caballero","New York Yankees","Chicago Cubs","hitter",0.234,0.254,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"pitcher_k_10plus","10+ strikeouts","824651","684007","Shota Imanaga","Chicago Cubs","New York Yankees","pitcher",0.0385,5.6075,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"pitcher_k_10plus","10+ strikeouts","824651","701542","Will Warren","New York Yankees","Chicago Cubs","pitcher",0.015,4.916,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"pitcher_k_5plus","5+ strikeouts","824651","684007","Shota Imanaga","Chicago Cubs","New York Yankees","pitcher",0.684,5.6075,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"pitcher_k_5plus","5+ strikeouts","824651","701542","Will Warren","New York Yankees","Chicago Cubs","pitcher",0.557,4.916,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"pitcher_k_7plus","7+ strikeouts","824651","684007","Shota Imanaga","Chicago Cubs","New York Yankees","pitcher",0.3225,5.6075,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"pitcher_k_7plus","7+ strikeouts","824651","701542","Will Warren","New York Yankees","Chicago Cubs","pitcher",0.203,4.916,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_xbh_1plus","1+ extra-base hit","824486","682829","Elly De La Cruz","Cincinnati Reds","Pittsburgh Pirates","hitter",0.312,0.363,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_xbh_1plus","1+ extra-base hit","824651","664023","Ian Happ","Chicago Cubs","New York Yankees","hitter",0.3025,0.346,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_xbh_1plus","1+ extra-base hit","824651","502671","Paul Goldschmidt","New York Yankees","Chicago Cubs","hitter",0.298,0.343,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_xbh_1plus","1+ extra-base hit","824651","683011","Anthony Volpe","New York Yankees","Chicago Cubs","hitter",0.296,0.3385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_xbh_1plus","1+ extra-base hit","824651","624424","Michael Conforto","Chicago Cubs","New York Yankees","hitter",0.294,0.3355,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_xbh_1plus","1+ extra-base hit","824486","663993","Nathaniel Lowe","Cincinnati Reds","Pittsburgh Pirates","hitter",0.2905,0.331,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_xbh_1plus","1+ extra-base hit","824651","691176","Jasson Domínguez","New York Yankees","Chicago Cubs","hitter",0.2845,0.332,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_xbh_1plus","1+ extra-base hit","824486","701398","Sal Stewart","Cincinnati Reds","Pittsburgh Pirates","hitter",0.284,0.3215,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_xbh_1plus","1+ extra-base hit","824651","683737","Michael Busch","Chicago Cubs","New York Yankees","hitter",0.283,0.318,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_xbh_1plus","1+ extra-base hit","824651","645305","Ali Sánchez","New York Yankees","Chicago Cubs","hitter",0.281,0.318,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_xbh_1plus","1+ extra-base hit","824651","663757","Trent Grisham","New York Yankees","Chicago Cubs","hitter",0.2725,0.3125,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_xbh_1plus","1+ extra-base hit","824486","668709","JJ Bleday","Cincinnati Reds","Pittsburgh Pirates","hitter",0.2705,0.304,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_xbh_1plus","1+ extra-base hit","824651","682987","Spencer Jones","New York Yankees","Chicago Cubs","hitter",0.26,0.2915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_xbh_1plus","1+ extra-base hit","824651","665804","Miguel Amaya","Chicago Cubs","New York Yankees","hitter",0.26,0.2925,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_xbh_1plus","1+ extra-base hit","824651","642708","Amed Rosario","New York Yankees","Chicago Cubs","hitter",0.2565,0.2815,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_xbh_1plus","1+ extra-base hit","824651","621020","Dansby Swanson","Chicago Cubs","New York Yankees","hitter",0.254,0.288,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_xbh_1plus","1+ extra-base hit","824486","663886","Tyler Stephenson","Cincinnati Reds","Pittsburgh Pirates","hitter",0.2505,0.2825,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_xbh_1plus","1+ extra-base hit","824651","608324","Alex Bregman","Chicago Cubs","New York Yankees","hitter",0.2405,0.2685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_xbh_1plus","1+ extra-base hit","824651","663538","Nico Hoerner","Chicago Cubs","New York Yankees","hitter",0.238,0.2645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_xbh_1plus","1+ extra-base hit","824651","676609","José Caballero","New York Yankees","Chicago Cubs","hitter",0.234,0.254,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_xbh_1plus","1+ extra-base hit","824486","667472","Dane Myers","Cincinnati Reds","Pittsburgh Pirates","hitter",0.234,0.261,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_xbh_1plus","1+ extra-base hit","824486","553993","Eugenio Suárez","Cincinnati Reds","Pittsburgh Pirates","hitter",0.2255,0.249,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_xbh_1plus","1+ extra-base hit","824486","680574","Matt McLain","Cincinnati Reds","Pittsburgh Pirates","hitter",0.214,0.2355,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_xbh_1plus","1+ extra-base hit","824486","682622","Noelvi Marte","Cincinnati Reds","Pittsburgh Pirates","hitter",0.204,0.2205,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"pitcher_k_10plus","10+ strikeouts","824486","694973","Paul Skenes","Pittsburgh Pirates","Cincinnati Reds","pitcher",0.097,6.5475,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"pitcher_k_10plus","10+ strikeouts","824651","684007","Shota Imanaga","Chicago Cubs","New York Yankees","pitcher",0.0385,5.6075,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"pitcher_k_10plus","10+ strikeouts","824651","701542","Will Warren","New York Yankees","Chicago Cubs","pitcher",0.015,4.916,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_5plus","5+ strikeouts","824486","694973","Paul Skenes","Pittsburgh Pirates","Cincinnati Reds","pitcher",0.816,6.5475,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"pitcher_k_5plus","5+ strikeouts","824651","684007","Shota Imanaga","Chicago Cubs","New York Yankees","pitcher",0.684,5.6075,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"pitcher_k_5plus","5+ strikeouts","824651","701542","Will Warren","New York Yankees","Chicago Cubs","pitcher",0.557,4.916,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_7plus","7+ strikeouts","824486","694973","Paul Skenes","Pittsburgh Pirates","Cincinnati Reds","pitcher",0.4905,6.5475,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"pitcher_k_7plus","7+ strikeouts","824651","684007","Shota Imanaga","Chicago Cubs","New York Yankees","pitcher",0.3225,5.6075,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"pitcher_k_7plus","7+ strikeouts","824651","701542","Will Warren","New York Yankees","Chicago Cubs","pitcher",0.203,4.916,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
