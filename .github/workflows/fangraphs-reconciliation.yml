@@ -49,7 +49,7 @@ jobs:
       - name: Install reconciliation dependencies and SABRhood package
         shell: bash
         run: |
-          Rscript -e 'install.packages(c("remotes", "dplyr", "rlang", "tibble", "withr", "ggplot2", "knitr", "rmarkdown", "Lahman"), repos = "https://cloud.r-project.org")'
+          Rscript -e 'install.packages(c("remotes", "jsonlite", "dplyr", "rlang", "tibble", "withr", "ggplot2", "knitr", "rmarkdown", "Lahman"), repos = "https://cloud.r-project.org")'
           Rscript -e 'remotes::install_url("https://github.com/BillPetti/baseballr/archive/refs/tags/v1.6.0.tar.gz", dependencies = NA, upgrade = "never")'
           Rscript -e 'stopifnot(requireNamespace("baseballr", quietly = TRUE)); message("Installed baseballr ", packageVersion("baseballr"))'
           R CMD INSTALL packages/sabrhoodR
@@ -84,6 +84,7 @@ jobs:
         run: |
           set -euo pipefail
           Rscript scripts/build_fangraphs_products.R
+          Rscript scripts/build_editorial_products.R
           Rscript scripts/validate_fangraphs_reconciliation.R \
             --baseline=.backend/fangraphs-baseline
 
@@ -99,6 +100,7 @@ jobs:
           else
             echo "Posted lineups are not available yet; retaining the morning player projections."
           fi
+          Rscript scripts/build_daily_newsletter.R
           Rscript scripts/build_graphics_feed.R
 
       - name: Refresh health metadata and render the site

@@ -1,0 +1,2 @@
+release_season,history_start,history_end,hitter_player_game_rows_scanned,pitcher_player_game_rows_scanned,rare_hitter_rows,rare_pitcher_rows,built_at_utc,method,model_boundary
+2025,1898,2025,5611602,1213925,5833,6031,2026-07-27 03:55:23 UTC,sabrhood_retrosheet_record_only_archive_v1,Record-comparison archive only. Career trajectory models remain pinned to the separate 1974-2025 history index.
