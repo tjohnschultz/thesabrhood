@@ -315,10 +315,10 @@ Game IDs, teams, first pitch, venue, and status.
 Complete games
 </h3>
 <div class="data-card__value">
-0/15
+2/15
 </div>
 <p>
-0 confirmed batting-order rows.
+36 confirmed batting-order rows.
 </p>
 </article>
 <article class="data-card data-card--steel">
@@ -401,10 +401,10 @@ Quinn Mathews
 Kevin Gausman
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Toronto, Ontario
@@ -419,7 +419,7 @@ Toronto, Ontario
 2%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -471,10 +471,10 @@ Jordan Hicks
 Drew Rasmussen
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 St.&nbsp;Petersburg, Florida
@@ -489,7 +489,7 @@ Indoor
 -
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -922,16 +922,1212 @@ conditional
 </section>
 <section class="player-probability-room">
 <div class="section-heading section-heading--tight">
-<span class="eyebrow">Player simulation board · lineup gate</span>
+<span class="eyebrow">Player simulation board · 2,000 draws per lineup</span>
 <h2 class="anchored">
-Player probabilities wait for posted batting orders
+Player outcomes now live inside the game simulation
 </h2>
 <p>
-The team slate can update in the morning, but hitter and starter-event boards are withheld until current-date orders provide real batting-order opportunity. Yesterday’s player board is never relabeled as today’s.
+Confirmed orders are simulated through two continuous phases: the probable starter, then the opposing active-roster bullpen. The same draws produce full-game hitter lines and starter strikeout distributions.
 </p>
 </div>
+<div class="player-probability-grid">
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Home-run probability leaders
+</h3>
+<p>
+Full-game hitter draws include posted batting-order opportunity, the probable starter, the active-roster bullpen quality layer, and the run environment.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Luis Urías
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+25.4%
+</td>
+<td>
+0.28
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Munetaka Murakami
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+24.3%
+</td>
+<td>
+0.27
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Kazuma Okamoto
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+21.8%
+</td>
+<td>
+0.24
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Junior Caminero
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+21.0%
+</td>
+<td>
+0.23
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Victor Mesa Jr.
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+21.0%
+</td>
+<td>
+0.23
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Colson Montgomery
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+20.3%
+</td>
+<td>
+0.22
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Jordan Walker
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+18.4%
+</td>
+<td>
+0.20
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Ryan Vilade
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+17.5%
+</td>
+<td>
+0.19
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Miguel Vargas
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+16.6%
+</td>
+<td>
+0.18
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+George Springer
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+13.1%
+</td>
+<td>
+0.14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Hit probability leaders
+</h3>
+<p>
+Each hitter continues through the same batting order when the simulation moves from the starter phase to the bullpen.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Ernie Clement
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+71.4%
+</td>
+<td>
+1.06
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Yandy Díaz
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+69.2%
+</td>
+<td>
+1.04
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Vladimir Guerrero Jr.
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+68.6%
+</td>
+<td>
+1.03
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Chandler Simpson
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+68.4%
+</td>
+<td>
+1.05
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Luis Urías
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+67.1%
+</td>
+<td>
+1.00
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Alec Burleson
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+67.0%
+</td>
+<td>
+0.97
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Jordan Walker
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+66.4%
+</td>
+<td>
+0.98
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+JJ Wetherholt
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+66.0%
+</td>
+<td>
+0.94
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Kazuma Okamoto
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+65.2%
+</td>
+<td>
+0.90
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Sam Antonacci
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+65.2%
+</td>
+<td>
+0.96
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Extra-base-hit probability leaders
+</h3>
+<p>
+Doubles, triples, and home runs are simulated as mutually exclusive plate-appearance outcomes.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Jordan Walker
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+31.6%
+</td>
+<td>
+0.36
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Miguel Vargas
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+30.4%
+</td>
+<td>
+0.35
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Jonny DeLuca
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+30.4%
+</td>
+<td>
+0.34
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Daulton Varsho
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+30.1%
+</td>
+<td>
+0.34
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Kazuma Okamoto
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+30.0%
+</td>
+<td>
+0.34
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Alec Burleson
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+29.8%
+</td>
+<td>
+0.34
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Blaze Jordan
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+29.5%
+</td>
+<td>
+0.34
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Ernie Clement
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+29.4%
+</td>
+<td>
+0.34
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Braden Montgomery
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+29.3%
+</td>
+<td>
+0.33
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Andrew Benintendi
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+29.0%
+</td>
+<td>
+0.33
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Two-plus total-base leaders
+</h3>
+<p>
+The total-base board preserves each simulated event mix instead of treating every hit as equivalent.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Ernie Clement
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+42.4%
+</td>
+<td>
+1.55
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Jordan Walker
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+40.8%
+</td>
+<td>
+1.76
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Yandy Díaz
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+39.7%
+</td>
+<td>
+1.61
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Vladimir Guerrero Jr.
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+39.3%
+</td>
+<td>
+1.46
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Alec Burleson
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+39.0%
+</td>
+<td>
+1.55
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Chandler Simpson
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+38.9%
+</td>
+<td>
+1.38
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Sam Antonacci
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+38.6%
+</td>
+<td>
+1.47
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Kazuma Okamoto
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+38.0%
+</td>
+<td>
+1.73
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Daulton Varsho
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+38.0%
+</td>
+<td>
+1.42
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Jonny DeLuca
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+37.5%
+</td>
+<td>
+1.50
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Five-plus strikeout leaders
+</h3>
+<p>
+Probable starters draw a game-specific batters-faced distribution against the posted opposing order.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Drew Rasmussen
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+61.8%
+</td>
+<td>
+5.30
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Kevin Gausman
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+57.4%
+</td>
+<td>
+4.91
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Jordan Hicks
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+49.0%
+</td>
+<td>
+4.55
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Quinn Mathews
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+42.8%
+</td>
+<td>
+4.24
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Seven-plus strikeout leaders
+</h3>
+<p>
+The upper-tail board responds to starter workload, the opposing order, and both pitcher and hitter strikeout rates.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Drew Rasmussen
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+28.1%
+</td>
+<td>
+5.30
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Kevin Gausman
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+20.9%
+</td>
+<td>
+4.91
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Jordan Hicks
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+15.6%
+</td>
+<td>
+4.55
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Quinn Mathews
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+11.8%
+</td>
+<td>
+4.24
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
 <div class="method-callout">
-<strong>Current state:</strong> 0 posted batting-order rows are available for August 01.
+<strong>How to read it:</strong> each percentage is the share of simulated games in which the player reached that threshold. Posted batting-order opportunity, starter matchup, bullpen quality, park, and weather all move the distribution.
 </div>
 </section>
 <section class="section-heading">
@@ -949,19 +2145,19 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 1 · scheduled slate</span><span class="projection-lean">Clear lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>St.&nbsp;Louis Cardinals</strong></span><b>37.7%</b>
+<span><small>Away</small><strong>St.&nbsp;Louis Cardinals</strong></span><b>38.5%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Toronto Blue Jays</strong></span><b>62.3%</b>
+<span><small>Home</small><strong>Toronto Blue Jays</strong></span><b>61.5%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="St. Louis Cardinals 37.7% Toronto Blue Jays 62.3%">
-<span class="is-away" style="width:37.7%"></span><span class="is-home" style="width:62.3%"></span>
+<div class="projection-win-track" role="img" aria-label="St. Louis Cardinals 38.5% Toronto Blue Jays 61.5%">
+<span class="is-away" style="width:38.5%"></span><span class="is-home" style="width:61.5%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>3.6 – 4.5</strong></span><span><small>Model total</small><strong>8.1</strong></span><span><small>One-run game</small><strong>36.2%</strong></span>
+<span><small>Mean score</small><strong>3.6 – 4.5</strong></span><span><small>Model total</small><strong>8.1</strong></span><span><small>One-run game</small><strong>36.5%</strong></span>
 </div>
 <footer>
-<strong>Toronto Blue Jays 62.3%</strong><span>20,000 draws · conditional orders · fallback starters</span>
+<strong>Toronto Blue Jays 61.5%</strong><span>20,000 draws · confirmed orders · fallback starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
@@ -989,19 +2185,19 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 3 · scheduled slate</span><span class="projection-lean">Narrow lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>Chicago White Sox</strong></span><b>43.8%</b>
+<span><small>Away</small><strong>Chicago White Sox</strong></span><b>45.7%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Tampa Bay Rays</strong></span><b>56.2%</b>
+<span><small>Home</small><strong>Tampa Bay Rays</strong></span><b>54.3%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="Chicago White Sox 43.8% Tampa Bay Rays 56.2%">
-<span class="is-away" style="width:43.8%"></span><span class="is-home" style="width:56.2%"></span>
+<div class="projection-win-track" role="img" aria-label="Chicago White Sox 45.7% Tampa Bay Rays 54.3%">
+<span class="is-away" style="width:45.7%"></span><span class="is-home" style="width:54.3%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>3.6 – 4.1</strong></span><span><small>Model total</small><strong>7.7</strong></span><span><small>One-run game</small><strong>39.0%</strong></span>
+<span><small>Mean score</small><strong>3.8 – 4.1</strong></span><span><small>Model total</small><strong>7.9</strong></span><span><small>One-run game</small><strong>38.1%</strong></span>
 </div>
 <footer>
-<strong>Tampa Bay Rays 56.2%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Tampa Bay Rays 54.3%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
