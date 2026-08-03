@@ -1,4 +1,7 @@
-derived_dir <- file.path("data", "derived")
+derived_dir <- Sys.getenv(
+  "SABRHOOD_DERIVED_DIR",
+  unset = file.path("data", "derived")
+)
 files <- sort(list.files(derived_dir, pattern = "\\.csv$", full.names = TRUE))
 files <- files[basename(files) != "manifest.csv"]
 if (!length(files)) stop("No derived CSV products are available.", call. = FALSE)
@@ -16,7 +19,16 @@ canonical_file_signature <- function(path) {
 }
 
 rows <- lapply(files, function(path) {
-  product <- utils::read.csv(path, stringsAsFactors = FALSE, check.names = FALSE)
+  product <- tryCatch(
+    utils::read.csv(path, stringsAsFactors = FALSE, check.names = FALSE),
+    error = function(error) {
+      stop(
+        "Unable to read derived product ", basename(path), ": ",
+        conditionMessage(error),
+        call. = FALSE
+      )
+    }
+  )
   signature <- canonical_file_signature(path)
   data.frame(
     file = basename(path),

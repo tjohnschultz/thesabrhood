@@ -1,5 +1,8 @@
 site_root <- normalizePath(".", winslash = "/", mustWork = TRUE)
-derived_dir <- file.path(site_root, "data", "derived")
+derived_dir <- Sys.getenv(
+  "SABRHOOD_DERIVED_DIR",
+  unset = file.path(site_root, "data", "derived")
+)
 
 read_product <- function(name) {
   path <- file.path(derived_dir, name)
@@ -11,13 +14,49 @@ write_product <- function(data, name) {
   utils::write.csv(data, file.path(derived_dir, name), row.names = FALSE, na = "")
 }
 
+empty_series_context <- function() {
+  data.frame(
+    current_game_id = character(), current_game_date = character(),
+    team = character(), opponent = character(), series_start = character(),
+    completed_series_games = integer(), series_game_number = integer(),
+    last_game_date = character(), last_game_pk = character(),
+    played_yesterday = logical(), method = character(), report_date = character(),
+    source_through = character(), generated_at_utc = character(),
+    stringsAsFactors = FALSE
+  )
+}
+
+empty_series_players <- function() {
+  data.frame(
+    current_game_id = character(), team = character(), opponent = character(),
+    role = character(), player_id = character(), player_name = character(),
+    games = integer(), plate_appearances = numeric(), hits = numeric(),
+    doubles = numeric(), triples = numeric(), home_runs = numeric(),
+    runs_batted_in = numeric(), walks = numeric(), strikeouts = numeric(),
+    innings_outs = numeric(), report_date = character(), source_through = character(),
+    generated_at_utc = character(), method = character(),
+    stringsAsFactors = FALSE
+  )
+}
+
+empty_recent_games <- function() {
+  data.frame(
+    current_game_id = character(), team = character(), opponent = character(),
+    game_pk = character(), game_date = character(), recency_label = character(),
+    role = character(), player_id = character(), player_name = character(),
+    stat_line = character(), performance_score = numeric(), report_date = character(),
+    source_through = character(), generated_at_utc = character(),
+    stringsAsFactors = FALSE
+  )
+}
+
 games <- read_product("daily-game-inputs.csv")
 hitters <- read_product("current-season-hitter-game-lines.csv")
 pitchers <- read_product("current-season-pitcher-game-lines.csv")
 if (!nrow(games)) {
-  write_product(data.frame(), "daily-series-context.csv")
-  write_product(data.frame(), "daily-series-player-lines.csv")
-  write_product(data.frame(), "daily-recent-game-lines.csv")
+  write_product(empty_series_context(), "daily-series-context.csv")
+  write_product(empty_series_players(), "daily-series-player-lines.csv")
+  write_product(empty_recent_games(), "daily-recent-game-lines.csv")
   quit(save = "no", status = 0L)
 }
 
@@ -218,10 +257,10 @@ for (game_index in seq_len(nrow(games))) {
   }
 }
 
-bind_rows <- function(rows) if (length(rows)) do.call(rbind, rows) else data.frame()
-context <- bind_rows(context_rows)
-series_players <- bind_rows(series_player_rows)
-recent <- bind_rows(recent_rows)
+bind_rows <- function(rows, empty) if (length(rows)) do.call(rbind, rows) else empty
+context <- bind_rows(context_rows, empty_series_context())
+series_players <- bind_rows(series_player_rows, empty_series_players())
+recent <- bind_rows(recent_rows, empty_recent_games())
 source_dates <- c(hitters$game_date, pitchers$game_date)
 source_dates <- source_dates[!is.na(source_dates)]
 source_through <- if (length(source_dates)) max(source_dates) else as.Date(NA)
