@@ -11,9 +11,12 @@ name: Validate backend contracts
       - "scripts/tests/test_fangraphs_reconciliation.R"
       - "scripts/tests/test_lineup_refresh_gate.R"
       - "scripts/tests/test_projection_settlement_contract.R"
+      - "scripts/tests/test_daily_series_empty_products.R"
+      - "scripts/build_daily_series_context.R"
       - "scripts/lineup_refresh_gate.R"
       - "scripts/projection_settlement_contract.R"
       - "scripts/settle_projection_ledger.R"
+      - "scripts/update_derived_manifest.R"
       - "scripts/validate_fangraphs_reconciliation.R"
       - "supabase/**"
       - "netlify.toml"
@@ -29,9 +32,12 @@ name: Validate backend contracts
       - "scripts/tests/test_fangraphs_reconciliation.R"
       - "scripts/tests/test_lineup_refresh_gate.R"
       - "scripts/tests/test_projection_settlement_contract.R"
+      - "scripts/tests/test_daily_series_empty_products.R"
+      - "scripts/build_daily_series_context.R"
       - "scripts/lineup_refresh_gate.R"
       - "scripts/projection_settlement_contract.R"
       - "scripts/settle_projection_ledger.R"
+      - "scripts/update_derived_manifest.R"
       - "scripts/validate_fangraphs_reconciliation.R"
       - "supabase/**"
       - "netlify.toml"
@@ -86,6 +92,9 @@ jobs:
 
       - name: Run projection settlement contract
         run: Rscript scripts/tests/test_projection_settlement_contract.R
+
+      - name: Run empty daily-series product contract
+        run: Rscript scripts/tests/test_daily_series_empty_products.R
 
       - name: Verify source-permission guard is present
         shell: bash
