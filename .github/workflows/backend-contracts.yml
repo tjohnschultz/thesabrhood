@@ -12,8 +12,10 @@ name: Validate backend contracts
       - "scripts/tests/test_lineup_refresh_gate.R"
       - "scripts/tests/test_projection_settlement_contract.R"
       - "scripts/tests/test_daily_series_empty_products.R"
+      - "scripts/tests/test_phase5_refresh_gate.R"
       - "scripts/build_daily_series_context.R"
       - "scripts/lineup_refresh_gate.R"
+      - "scripts/phase5_refresh_gate.R"
       - "scripts/projection_settlement_contract.R"
       - "scripts/settle_projection_ledger.R"
       - "scripts/update_derived_manifest.R"
@@ -33,8 +35,10 @@ name: Validate backend contracts
       - "scripts/tests/test_lineup_refresh_gate.R"
       - "scripts/tests/test_projection_settlement_contract.R"
       - "scripts/tests/test_daily_series_empty_products.R"
+      - "scripts/tests/test_phase5_refresh_gate.R"
       - "scripts/build_daily_series_context.R"
       - "scripts/lineup_refresh_gate.R"
+      - "scripts/phase5_refresh_gate.R"
       - "scripts/projection_settlement_contract.R"
       - "scripts/settle_projection_ledger.R"
       - "scripts/update_derived_manifest.R"
@@ -95,6 +99,9 @@ jobs:
 
       - name: Run empty daily-series product contract
         run: Rscript scripts/tests/test_daily_series_empty_products.R
+
+      - name: Run Phase 5 refresh gate contract
+        run: Rscript scripts/tests/test_phase5_refresh_gate.R
 
       - name: Verify source-permission guard is present
         shell: bash

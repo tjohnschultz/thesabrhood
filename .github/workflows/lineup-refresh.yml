@@ -78,15 +78,14 @@ jobs:
           if [ -z "$SABRHOOD_DATE" ]; then export SABRHOOD_DATE="${{ steps.gate.outputs.slate_date }}"; fi
           echo "SABRHOOD_DATE=$SABRHOOD_DATE" >> "$GITHUB_ENV"
           Rscript scripts/refresh_daily_lineups.R
-          lineup_rows=$(Rscript -e 'x <- read.csv("data/derived/daily-batting-orders.csv", check.names = FALSE); cat(nrow(x))')
-          if [ "$lineup_rows" -ge 9 ]; then echo "has_lineups=true" >> "$GITHUB_OUTPUT"; else echo "has_lineups=false" >> "$GITHUB_OUTPUT"; fi
+          Rscript scripts/phase5_refresh_gate.R >> "$GITHUB_OUTPUT"
 
       - name: Rebuild team projections with the freshest orders
         if: steps.gate.outputs.active_window == 'true' || inputs.force == true
         run: Rscript scripts/build_daily_team_simulations.R
 
       - name: Rebuild Phase 5 game-state and player projections
-        if: steps.lineups.outputs.has_lineups == 'true'
+        if: steps.lineups.outputs.has_phase5_inputs == 'true'
         shell: bash
         run: |
           Rscript scripts/build_daily_matchup_probabilities.R
