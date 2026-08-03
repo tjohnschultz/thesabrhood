@@ -2,6 +2,7 @@ derived_dir <- Sys.getenv("SABRHOOD_DERIVED_DIR", unset = file.path("data", "der
 configured_date <- Sys.getenv("SABRHOOD_DATE", unset = "")
 reference_date <- as.Date(if (nzchar(configured_date)) configured_date else Sys.Date())
 if (is.na(reference_date)) stop("SABRHOOD_DATE must use YYYY-MM-DD.", call. = FALSE)
+source(file.path("scripts", "phase5_refresh_gate.R"), local = FALSE)
 
 read_product <- function(name) {
   path <- file.path(derived_dir, name)
@@ -43,7 +44,7 @@ slate_date <- if (off_day) status_date else date_value(games, "game_date")
 projection_date <- if (off_day) status_date else date_value(projections, "game_date")
 matchup_date <- if (off_day) status_date else date_value(matchup_model, "game_date")
 state_date <- if (off_day) status_date else date_value(state_model, "game_date")
-lineup_models_gated <- !off_day && nrow(lineups) < 9L
+lineup_models_gated <- phase5_models_are_gated(games, off_day = off_day)
 matchup_expected_date <- if (lineup_models_gated && !is.na(matchup_date)) {
   matchup_date
 } else {

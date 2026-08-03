@@ -36,6 +36,10 @@ evaluate_phase5_refresh_gate <- function(games) {
   )
 }
 
+phase5_models_are_gated <- function(games, off_day = FALSE) {
+  !isTRUE(off_day) && !isTRUE(evaluate_phase5_refresh_gate(games)$active)
+}
+
 emit_phase5_refresh_gate <- function(result) {
   cat("has_phase5_inputs=", ifelse(result$active, "true", "false"), "\n", sep = "")
   cat("phase5_ready_games=", result$ready_games, "\n", sep = "")
