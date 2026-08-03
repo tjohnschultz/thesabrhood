@@ -10,7 +10,8 @@ partial_result <- evaluate_phase5_refresh_gate(partial)
 stopifnot(
   identical(partial_result$active, FALSE),
   identical(partial_result$ready_games, 0L),
-  grepl("no game has two complete lineups", partial_result$reason, fixed = TRUE)
+  grepl("no game has two complete lineups", partial_result$reason, fixed = TRUE),
+  isTRUE(phase5_models_are_gated(partial))
 )
 
 ready <- rbind(
@@ -24,8 +25,11 @@ ready <- rbind(
 ready_result <- evaluate_phase5_refresh_gate(ready)
 stopifnot(
   isTRUE(ready_result$active),
-  identical(ready_result$ready_games, 1L)
+  identical(ready_result$ready_games, 1L),
+  identical(phase5_models_are_gated(ready), FALSE)
 )
+
+stopifnot(identical(phase5_models_are_gated(partial, off_day = TRUE), FALSE))
 
 not_projection_ready <- data.frame(
   projection_ready = FALSE,
