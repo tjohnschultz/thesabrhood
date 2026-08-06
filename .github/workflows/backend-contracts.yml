@@ -7,16 +7,20 @@ name: Validate backend contracts
       - ".github/workflows/daily-data-refresh.yml"
       - ".github/workflows/fangraphs-reconciliation.yml"
       - ".github/workflows/lineup-refresh.yml"
+      - ".github/workflows/weekly-intelligence-refresh.yml"
       - "infrastructure/**"
       - "scripts/tests/test_fangraphs_reconciliation.R"
       - "scripts/tests/test_lineup_refresh_gate.R"
       - "scripts/tests/test_projection_settlement_contract.R"
       - "scripts/tests/test_daily_series_empty_products.R"
       - "scripts/tests/test_phase5_refresh_gate.R"
+      - "scripts/tests/test_refresh_health_contract.R"
       - "scripts/build_daily_series_context.R"
       - "scripts/build_refresh_health.R"
+      - "scripts/build_site_fragments.R"
       - "scripts/lineup_refresh_gate.R"
       - "scripts/phase5_refresh_gate.R"
+      - "scripts/refresh_health_contract.R"
       - "scripts/projection_settlement_contract.R"
       - "scripts/settle_projection_ledger.R"
       - "scripts/update_derived_manifest.R"
@@ -31,16 +35,20 @@ name: Validate backend contracts
       - ".github/workflows/daily-data-refresh.yml"
       - ".github/workflows/fangraphs-reconciliation.yml"
       - ".github/workflows/lineup-refresh.yml"
+      - ".github/workflows/weekly-intelligence-refresh.yml"
       - "infrastructure/**"
       - "scripts/tests/test_fangraphs_reconciliation.R"
       - "scripts/tests/test_lineup_refresh_gate.R"
       - "scripts/tests/test_projection_settlement_contract.R"
       - "scripts/tests/test_daily_series_empty_products.R"
       - "scripts/tests/test_phase5_refresh_gate.R"
+      - "scripts/tests/test_refresh_health_contract.R"
       - "scripts/build_daily_series_context.R"
       - "scripts/build_refresh_health.R"
+      - "scripts/build_site_fragments.R"
       - "scripts/lineup_refresh_gate.R"
       - "scripts/phase5_refresh_gate.R"
+      - "scripts/refresh_health_contract.R"
       - "scripts/projection_settlement_contract.R"
       - "scripts/settle_projection_ledger.R"
       - "scripts/update_derived_manifest.R"
@@ -105,6 +113,9 @@ jobs:
       - name: Run Phase 5 refresh gate contract
         run: Rscript scripts/tests/test_phase5_refresh_gate.R
 
+      - name: Run refresh-health publication contract
+        run: Rscript scripts/tests/test_refresh_health_contract.R
+
       - name: Verify source-permission guard is present
         shell: bash
         run: |
@@ -128,12 +139,18 @@ jobs:
           grep -q "retention-plan" .github/workflows/daily-data-refresh.yml
           ! grep -q "delete-incomplete" .github/workflows/daily-data-refresh.yml
 
-      - name: Confirm provider refresh cadence remains separated
+      - name: Confirm automated provider boundary
         shell: bash
         run: |
           grep -A2 'cron: "0 6 [*] [*] [*]"' .github/workflows/daily-data-refresh.yml | grep -q 'timezone: "America/New_York"'
           ! grep -q "refresh_fangraphs_season.R" .github/workflows/daily-data-refresh.yml
-          grep -A2 'cron: "45 11 [*] 3-11 [*]"' .github/workflows/fangraphs-reconciliation.yml | grep -q 'timezone: "America/New_York"'
+          ! grep -q '^  schedule:' .github/workflows/fangraphs-reconciliation.yml
+          ! grep -q '^  schedule:' .github/workflows/weekly-intelligence-refresh.yml
+          grep -q '^  workflow_dispatch:' .github/workflows/fangraphs-reconciliation.yml
+          grep -q '^  workflow_dispatch:' .github/workflows/weekly-intelligence-refresh.yml
+          grep -q 'legacy_reference' scripts/refresh_health_contract.R
+          grep -q 'Legacy FanGraphs snapshot' scripts/build_site_fragments.R
+          ! grep -q 'FanGraphs season award room' scripts/build_site_fragments.R
           grep -A2 'cron: "[*]/30 10-22 [*] 3-11 [*]"' .github/workflows/lineup-refresh.yml | grep -q 'timezone: "America/New_York"'
           grep -q "validate_fangraphs_reconciliation.R" .github/workflows/fangraphs-reconciliation.yml
           grep -q "Update completed-game PBP" .github/workflows/daily-data-refresh.yml

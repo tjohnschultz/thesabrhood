@@ -1,9 +1,6 @@
-name: Late-morning FanGraphs reconciliation
+name: Manual legacy FanGraphs reconciliation
 
 "on":
-  schedule:
-    - cron: "45 11 * 3-11 *"
-      timezone: "America/New_York"
   workflow_dispatch:
     inputs:
       slate_date:

@@ -10,10 +10,13 @@ fragments in `includes/` so the public site can render without database access o
 private local paths.
 
 The checked-in files are the last successfully validated public snapshot. The
-daily workflow rebuilds daily-cadence products from private current sources,
-while the weekly workflow refreshes cumulative award-history checkpoints.
-`refresh-health.csv` records the source-through date, expected date, cadence,
-lag, and publication status for every time-sensitive product group.
+daily workflow rebuilds daily-cadence products from private current sources.
+FanGraphs and FanGraphs-derived award history are retained temporarily as dated
+legacy references while PBP-derived replacements are built; their workflows are
+manual-only and they do not block daily publication. `refresh-health.csv`
+records the source-through date, expected date, cadence, lag, publication
+status, publication role, and blocking status for every time-sensitive product
+group.
 
 `career-trajectory-projections.csv` and
 `career-trajectory-comparables.csv` are the compact public products for the
