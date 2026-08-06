@@ -9,6 +9,7 @@ groups <- c(
 rows <- data.frame(
   product_group = groups,
   blocks_publication = publication_blocks_for(groups),
+  status = c("current", "stale", "stale", "stale"),
   stringsAsFactors = FALSE
 )
 
@@ -32,7 +33,8 @@ stopifnot(
       "daily_slate, fangraphs_season"
     ),
     c("daily_slate", "fangraphs_season")
-  )
+  ),
+  identical(blocking_stale_groups(rows), "daily_slate")
 )
 
 unknown_error <- tryCatch(
