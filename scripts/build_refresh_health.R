@@ -3,6 +3,7 @@ configured_date <- Sys.getenv("SABRHOOD_DATE", unset = "")
 reference_date <- as.Date(if (nzchar(configured_date)) configured_date else Sys.Date())
 if (is.na(reference_date)) stop("SABRHOOD_DATE must use YYYY-MM-DD.", call. = FALSE)
 source(file.path("scripts", "phase5_refresh_gate.R"), local = FALSE)
+source(file.path("scripts", "refresh_health_contract.R"), local = FALSE)
 
 read_product <- function(name) {
   path <- file.path(derived_dir, name)
@@ -126,25 +127,15 @@ rows$status <- ifelse(
   "missing_date",
   ifelse(rows$lag_days <= rows$max_lag_days, "current", "stale")
 )
+rows$publication_role <- publication_role_for(rows$product_group)
+rows$blocks_publication <- publication_blocks_for(rows$product_group)
 rows$checked_at_utc <- format(Sys.time(), tz = "UTC", usetz = TRUE)
 rows$reference_date <- as.character(reference_date)
 utils::write.csv(rows, file.path(derived_dir, "refresh-health.csv"), row.names = FALSE, na = "")
 
 print(rows[, c("product_group", "source_through", "expected_through", "lag_days", "max_lag_days", "status")], row.names = FALSE)
 configured_gate <- trimws(Sys.getenv("SABRHOOD_HEALTH_GROUPS", unset = ""))
-gate_groups <- if (nzchar(configured_gate)) {
-  trimws(strsplit(configured_gate, ",", fixed = TRUE)[[1L]])
-} else {
-  rows$product_group
-}
-missing_gate_groups <- setdiff(gate_groups, rows$product_group)
-if (length(missing_gate_groups)) {
-  stop(
-    "Unknown freshness gate group(s): ",
-    paste(missing_gate_groups, collapse = ", "),
-    call. = FALSE
-  )
-}
+gate_groups <- resolve_publication_gate_groups(rows, configured_gate)
 gate_rows <- rows[rows$product_group %in% gate_groups, , drop = FALSE]
 if (any(gate_rows$status != "current")) {
   stop(

@@ -1,12 +1,10 @@
-name: Weekly MLB intelligence refresh
+name: Manual legacy FanGraphs history refresh
 
-on:
-  schedule:
-    - cron: "30 13 * 3-11 0"
+"on":
   workflow_dispatch:
     inputs:
       history_end:
-        description: "Last FanGraphs checkpoint date (YYYY-MM-DD); defaults to yesterday"
+        description: "Last legacy FanGraphs checkpoint date (YYYY-MM-DD); defaults to yesterday"
         required: false
         type: string
 

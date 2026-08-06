@@ -17,6 +17,8 @@ deploys the validated static site to Netlify.
   scale-up; they are not required for the proof-of-concept migration.
 - `ROLLOUT.md`: account, budget, shadow, and incremental cutover gates.
 - `SOURCE_POLICY.md`: enforceable MLB/FanGraphs/Retrosheet serving boundary.
+- `FANGRAPHS_RETIREMENT.md`: staged removal of FanGraphs from automated and
+  publication-critical workflows.
 - `AUTH_AND_PAYMENTS.md`: provider-neutral auth, webhook, and entitlement
   boundary.
 
@@ -24,6 +26,7 @@ deploys the validated static site to Netlify.
 
 - No hosted services or paid accounts are created by repository code.
 - No custom domain or deployment is switched.
-- No existing GitHub refresh schedule is removed.
+- The primary MLB/PBP and lineup schedules remain active; legacy FanGraphs
+  schedules are intentionally disabled during their replacement.
 - No MLB/Statcast or FanGraphs data is copied into the serving database.
 - No payment provider is selected and no payments are accepted.

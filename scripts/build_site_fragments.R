@@ -691,6 +691,20 @@ newsletter_stories <- read_product("daily-newsletter-stories.csv")
 newsletter_edition <- read_product("daily-newsletter-edition.csv")
 fangraphs_hitters <- read_product("fangraphs-season-hitters.csv")
 fangraphs_pitchers <- read_product("fangraphs-season-pitchers.csv")
+fangraphs_source_dates <- suppressWarnings(as.Date(substr(
+  c(
+    as.character(fangraphs_hitters$source_acquired_at_utc),
+    as.character(fangraphs_pitchers$source_acquired_at_utc)
+  ),
+  1L,
+  10L
+)))
+fangraphs_source_dates <- fangraphs_source_dates[!is.na(fangraphs_source_dates)]
+fangraphs_snapshot_date <- if (length(fangraphs_source_dates)) {
+  as.character(max(fangraphs_source_dates))
+} else {
+  "date unavailable"
+}
 player_market_groups <- read_product("player-market-groups.csv")
 player_market_players <- read_product("player-market-players.csv")
 award_races <- read_product("award-race-board.csv")
@@ -2037,17 +2051,17 @@ gold_glove_roster_tables <- vapply(c("AL", "NL"), function(league_name) {
   )
 }, character(1))
 write_fragment("league-races.html", c(
-  '<section class="award-race-room"><div class="section-heading section-heading--tight"><span class="eyebrow">FanGraphs season award room</span><h2>MVP, Cy Young, Reliever of the Year, and the provisional rookie pool</h2><p>WAR, counting production, rate quality, volume, leverage, defense, baserunning, pitching performance, and command are translated into league-specific performance scores. Hitting and pitching WAR are combined by player ID so two-way value remains intact. The result is not presented as a ballot forecast.</p></div>',
+  paste0('<section class="award-race-room"><div class="section-heading section-heading--tight"><span class="eyebrow">Legacy FanGraphs snapshot</span><h2>MVP, Cy Young, Reliever of the Year, and the provisional rookie pool</h2><p>This retained reference snapshot runs through ', html_escape(fangraphs_snapshot_date), ' and is no longer refreshed automatically. Its WAR-based boards remain visible during migration and are not presented as current ballot forecasts.</p></div>'),
   '<div class="award-lane-grid">', paste0(award_cards, collapse = ""), '</div>',
   paste0('<div class="award-method-strip"><span><strong>MVP &middot; 2020s ballot profile</strong> ', mvp_weight_text, '</span><span><strong>Cy Young</strong> WAR 25 &middot; ERA 20 &middot; FIP 15 &middot; K-BB 15 &middot; IP 15 &middot; WHIP 10</span><span><strong>Reliever</strong> WAR 25 &middot; ERA 20 &middot; FIP/K-BB 30 &middot; WPA 10 &middot; saves 10 &middot; IP 5</span><span><strong>ROTY</strong> Hitters and pitchers receive separate role-native weights before joining one race; official service days still require verification</span></div>'),
   '<section class="gold-glove-roster-room"><div class="section-heading section-heading--tight"><span class="eyebrow">League-specific defensive awards</span><h2>Gold Glove Index</h2><p>The American League and National League are ranked independently at every official FRV position. The utility placeholder and summary graphic have been removed for a cleaner comparison.</p></div>',
   '<div class="fielding-board-grid">', gold_glove_roster_tables, '</div>',
   '<div class="method-callout"><strong>Index boundary:</strong> selections use league-position standardized, playing-time-shrunk official Fielding Run Value. Pitcher defense appears on the Fielding page as a separately labeled SABRhood estimate.</div></section>',
-  '<section class="award-history-room"><div class="section-heading section-heading--tight"><span class="eyebrow">Seventeen date-bounded checkpoints</span><h2>How the MVP races reached today</h2><p>The current top eight are traced backward through weekly cumulative FanGraphs pulls. Each point is recalculated with only the statistics available through that checkpoint, with stronger playing-time reliability shrinkage early in the season.</p></div><div class="race-timeline-summary">', race_timeline_cards, '</div>',
+  '<section class="award-history-room"><div class="section-heading section-heading--tight"><span class="eyebrow">Legacy date-bounded checkpoints</span><h2>The retained MVP race history</h2><p>These historical checkpoints are frozen while the page moves to SABRhood PBP-derived value measures. They should be read as archived context, not a current race update.</p></div><div class="race-timeline-summary">', race_timeline_cards, '</div>',
   '<div class="race-graphics-grid race-graphics-grid--timelines"><figure><img src="images/graphics-feed/al-mvp-race.png" alt="American League MVP season-to-date Race Rating timeline for the current top eight"><figcaption>AL MVP season-to-date timeline</figcaption></figure><figure><img src="images/graphics-feed/nl-mvp-race.png" alt="National League MVP season-to-date Race Rating timeline for the current top eight"><figcaption>NL MVP season-to-date timeline</figcaption></figure></div></section>',
   paste0('<section class="mvp-era-room"><div class="section-heading section-heading--tight"><span class="eyebrow">Daily ballot-history rotation</span><h2>What the ', html_escape(fmt_int(mvp_rotation_decade)), 's rewarded, compared with today</h2><p>Every historical MVP is placed back into his own league-season distribution. The chart asks which categories MVP winners most consistently dominated in each decade, then compares that profile with winners from the 2020s.</p></div><figure class="feature-graphic feature-graphic--wide"><img src="images/graphics-feed/mvp-era-rotation.png" alt="MVP winner league percentiles by statistic for a rotating historical decade compared with the 2020s"><figcaption><strong>Ballot DNA changes with the sport.</strong> The current model uses the 2020s statistical profile, with WAR retained as a 35% modern total-value anchor because Lahman does not contain season WAR.</figcaption></figure></section>'),
   '<div class="race-graphics-grid"><figure><img src="images/graphics-feed/al-cy-young-race.png" alt="American League Cy Young performance ladder"><figcaption>AL Cy Young performance ladder</figcaption></figure><figure><img src="images/graphics-feed/nl-cy-young-race.png" alt="National League Cy Young performance ladder"><figcaption>NL Cy Young performance ladder</figcaption></figure><figure><img src="images/graphics-feed/al-reliever-race.png" alt="American League reliever performance ladder"><figcaption>AL Reliever of the Year performance ladder</figcaption></figure><figure><img src="images/graphics-feed/nl-reliever-race.png" alt="National League reliever performance ladder"><figcaption>NL Reliever of the Year performance ladder</figcaption></figure></div></section>',
-  '<div class="race-disclaimer"><strong>Two complementary lenses.</strong><span>The FanGraphs award room above includes season value and defensive components. The PBP-derived boards below isolate offensive and pitching performance without claiming to predict a ballot.</span></div>',
+  '<div class="race-disclaimer"><strong>Migration boundary.</strong><span>The legacy FanGraphs room above is frozen and clearly dated. The current boards below are rebuilt from SABRhood PBP-derived offensive and pitching performance without claiming to predict a ballot.</span></div>',
   '<section class="section-heading"><span class="eyebrow">The offensive race</span><h2>Who has built the strongest hitting case?</h2><p>Estimated wOBA, OPS, run value per plate appearance, contact quality, and sample reliability form the transparent composite.</p></section>',
   '<div class="signal-grid">', offense_race_cards, '</div>',
   '<section class="dashboard-block"><div class="section-heading section-heading--tight"><span class="eyebrow">Offensive board</span><h2>Top 12 season performances</h2></div>',
