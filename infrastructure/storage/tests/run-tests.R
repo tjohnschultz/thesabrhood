@@ -20,7 +20,11 @@ fixture_files <- list(
   ".private-data/lf-checkout/should-not-publish.txt" = "excluded checkout",
   "data/derived/manifest.csv" = "file,rows\nsample.csv,1\n",
   "data/derived/refresh-health.csv" =
-    "product_group,status\ncompleted_game_pbp,current\n",
+    paste0(
+      "product_group,status,blocks_publication\n",
+      "completed_game_pbp,current,TRUE\n",
+      "fangraphs_season,stale,FALSE\n"
+    ),
   "data/derived/sample.csv" = "player,value\nExample,1\n",
   "images/graphics-feed/sample.png" = "fake png",
   "docs/index.html" = "<html><body>fixture</body></html>"
@@ -100,7 +104,11 @@ current <- jsonlite::read_json(
 stopifnot(identical(current$release_key, "test-release-1"))
 
 writeLines(
-  "product_group,status\ncompleted_game_pbp,stale\n",
+  paste0(
+    "product_group,status,blocks_publication\n",
+    "completed_game_pbp,stale,TRUE\n",
+    "fangraphs_season,stale,FALSE\n"
+  ),
   file.path(fixture_root, "data", "derived", "refresh-health.csv")
 )
 failed_key <- "test-release-failing"
@@ -118,6 +126,8 @@ current_after_failure <- jsonlite::read_json(
 )
 stopifnot(
   inherits(failed, "try-error"),
+  grepl("completed_game_pbp", as.character(failed), fixed = TRUE),
+  !grepl("fangraphs_season", as.character(failed), fixed = TRUE),
   !dir.exists(file.path(store_root, "releases", failed_key)),
   identical(current_after_failure$release_key, "test-release-1")
 )

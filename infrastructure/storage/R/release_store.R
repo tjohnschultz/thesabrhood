@@ -131,10 +131,24 @@ validate_release_inputs <- function(repository_root) {
 
   health_path <- file.path(repository_root, "data", "derived", "refresh-health.csv")
   health <- utils::read.csv(health_path, stringsAsFactors = FALSE)
-  if (!all(c("product_group", "status") %in% names(health))) {
+  required_health_columns <- c(
+    "product_group",
+    "status",
+    "blocks_publication"
+  )
+  if (!all(required_health_columns %in% names(health))) {
     stop("refresh-health.csv does not contain the expected columns.", call. = FALSE)
   }
-  failing <- health$product_group[is.na(health$status) | health$status != "current"]
+  blocks_publication <- as.logical(health$blocks_publication)
+  if (any(is.na(blocks_publication))) {
+    stop(
+      "refresh-health.csv contains an invalid blocks_publication value.",
+      call. = FALSE
+    )
+  }
+  failing <- health$product_group[
+    blocks_publication & (is.na(health$status) | health$status != "current")
+  ]
   if (length(failing)) {
     stop(
       "Release health gate failed for: ",
