@@ -41,3 +41,18 @@ resolve_publication_gate_groups <- function(rows, configured_gate = "") {
   }
   unique(groups)
 }
+
+blocking_stale_groups <- function(rows) {
+  required <- c("product_group", "status", "blocks_publication")
+  missing <- setdiff(required, names(rows))
+  if (!is.data.frame(rows) || length(missing)) {
+    stop(
+      "Refresh-health rows are missing: ",
+      paste(missing, collapse = ", "),
+      call. = FALSE
+    )
+  }
+  blocks <- as.logical(rows$blocks_publication)
+  blocks[is.na(blocks)] <- FALSE
+  as.character(rows$product_group[rows$status != "current" & blocks])
+}

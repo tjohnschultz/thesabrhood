@@ -3,6 +3,7 @@ check_rendered <- "--rendered" %in% args
 allow_stale_data <- "--allow-stale-data" %in% args
 
 site_root <- normalizePath(".", winslash = "/", mustWork = TRUE)
+source(file.path("scripts", "refresh_health_contract.R"), local = FALSE)
 failures <- character()
 
 fail <- function(message) {
@@ -316,9 +317,16 @@ if (file.exists(refresh_health_path)) {
   )
   if (!all(required_health_columns %in% names(refresh_health))) {
     fail("Refresh-health report is missing required columns")
-  } else if (any(refresh_health$status != "current") && !allow_stale_data) {
-    stale_groups <- refresh_health$product_group[refresh_health$status != "current"]
-    fail(paste("Stale public product groups:", paste(stale_groups, collapse = ", ")))
+  } else if (!allow_stale_data) {
+    publication_columns <- c("publication_role", "blocks_publication")
+    if (!all(publication_columns %in% names(refresh_health))) {
+      fail("Refresh-health report is missing the publication-blocking contract")
+    } else {
+      stale_groups <- blocking_stale_groups(refresh_health)
+      if (length(stale_groups)) {
+        fail(paste("Stale blocking product groups:", paste(stale_groups, collapse = ", ")))
+      }
+    }
   }
 }
 
