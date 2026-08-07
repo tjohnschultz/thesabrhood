@@ -315,10 +315,10 @@ Game IDs, teams, first pitch, venue, and status.
 Complete games
 </h3>
 <div class="data-card__value">
-0/11
+11/11
 </div>
 <p>
-0 confirmed batting-order rows.
+198 confirmed batting-order rows.
 </p>
 </article>
 <article class="data-card data-card--steel">
@@ -401,10 +401,10 @@ Ryan Johnson
 Brandon Young
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Baltimore, Maryland
@@ -419,7 +419,7 @@ Baltimore, Maryland
 1%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -436,10 +436,10 @@ Mason Barnett
 Andrew Abbott
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Cincinnati, Ohio
@@ -454,7 +454,7 @@ Cincinnati, Ohio
 0%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -471,10 +471,10 @@ Nolan McLean
 Foster Griffin
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Cleveland, Ohio
@@ -489,7 +489,7 @@ Cleveland, Ohio
 0%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -506,10 +506,10 @@ Braxton Ashcraft
 Dustin May
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Milwaukee, Wisconsin
@@ -524,7 +524,7 @@ Milwaukee, Wisconsin
 1%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -541,10 +541,10 @@ Dylan Cease
 David Peterson
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Chicago, Illinois
@@ -559,7 +559,7 @@ Chicago, Illinois
 5%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -576,10 +576,10 @@ Framber Valdez
 Bryce Miller
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Seattle, Washington
@@ -594,7 +594,7 @@ Seattle, Washington
 0%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -611,10 +611,10 @@ Miles Mikolas
 Cristopher Sánchez
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Philadelphia, Pennsylvania
@@ -629,7 +629,7 @@ Philadelphia, Pennsylvania
 8%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -646,10 +646,10 @@ Luis Castillo
 Ranger Suarez
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Boston, Massachusetts
@@ -664,7 +664,7 @@ Boston, Massachusetts
 0%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -681,10 +681,10 @@ Janson Junk
 Martín Pérez
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Atlanta, Georgia
@@ -699,7 +699,7 @@ Atlanta, Georgia
 5%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -716,10 +716,10 @@ Bailey Ober
 Michael Wacha
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Kansas City, Missouri
@@ -734,7 +734,7 @@ Kansas City, Missouri
 52%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -751,10 +751,10 @@ Walker Buehler
 Kohl Drake
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Phoenix, Arizona
@@ -769,7 +769,7 @@ Phoenix, Arizona
 0%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 </tbody>
@@ -782,16 +782,1452 @@ conditional
 </section>
 <section class="player-probability-room">
 <div class="section-heading section-heading--tight">
-<span class="eyebrow">Player simulation board · lineup gate</span>
+<span class="eyebrow">Player simulation board · 2,000 draws per lineup</span>
 <h2 class="anchored">
-Player probabilities wait for posted batting orders
+Player outcomes now live inside the game simulation
 </h2>
 <p>
-The team slate can update in the morning, but hitter and starter-event boards are withheld until current-date orders provide real batting-order opportunity. Yesterday’s player board is never relabeled as today’s.
+Confirmed orders are simulated through two continuous phases: the probable starter, then the opposing active-roster bullpen. The same draws produce full-game hitter lines and starter strikeout distributions.
 </p>
 </div>
+<div class="player-probability-grid">
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Home-run probability leaders
+</h3>
+<p>
+Full-game hitter draws include posted batting-order opportunity, the probable starter, the active-roster bullpen quality layer, and the run environment.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Kyle Schwarber
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+34.0%
+</td>
+<td>
+0.40
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Brian Serven
+</td>
+<td>
+Athletics
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+31.3%
+</td>
+<td>
+0.36
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Christian Encarnacion-Strand
+</td>
+<td>
+Baltimore Orioles
+</td>
+<td>
+Los Angeles Angels
+</td>
+<td>
+30.0%
+</td>
+<td>
+0.34
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Max Clark
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+Seattle Mariners
+</td>
+<td>
+29.8%
+</td>
+<td>
+0.34
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Munetaka Murakami
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+25.1%
+</td>
+<td>
+0.29
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+JJ Bleday
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+Athletics
+</td>
+<td>
+24.7%
+</td>
+<td>
+0.28
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Matt Olson
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+23.6%
+</td>
+<td>
+0.26
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+John Rave
+</td>
+<td>
+Kansas City Royals
+</td>
+<td>
+Minnesota Twins
+</td>
+<td>
+23.6%
+</td>
+<td>
+0.26
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Ty France
+</td>
+<td>
+San Diego Padres
+</td>
+<td>
+Arizona Diamondbacks
+</td>
+<td>
+22.7%
+</td>
+<td>
+0.24
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Dominic Canzone
+</td>
+<td>
+Seattle Mariners
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+22.0%
+</td>
+<td>
+0.24
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Hit probability leaders
+</h3>
+<p>
+Each hitter continues through the same batting order when the simulation moves from the starter phase to the bullpen.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Luis Arraez
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+82.2%
+</td>
+<td>
+1.41
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Otto Lopez
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+76.5%
+</td>
+<td>
+1.22
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Brandon Marsh
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+75.7%
+</td>
+<td>
+1.21
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Fernando Tatis Jr.
+</td>
+<td>
+San Diego Padres
+</td>
+<td>
+Arizona Diamondbacks
+</td>
+<td>
+75.4%
+</td>
+<td>
+1.23
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Ceddanne Rafaela
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+75.3%
+</td>
+<td>
+1.21
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Dylan Beavers
+</td>
+<td>
+Baltimore Orioles
+</td>
+<td>
+Los Angeles Angels
+</td>
+<td>
+75.0%
+</td>
+<td>
+1.17
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Trea Turner
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+74.9%
+</td>
+<td>
+1.21
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Ty France
+</td>
+<td>
+San Diego Padres
+</td>
+<td>
+Arizona Diamondbacks
+</td>
+<td>
+74.9%
+</td>
+<td>
+1.16
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Kyle Schwarber
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+74.8%
+</td>
+<td>
+1.21
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Michael Harris II
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+73.4%
+</td>
+<td>
+1.13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Extra-base-hit probability leaders
+</h3>
+<p>
+Doubles, triples, and home runs are simulated as mutually exclusive plate-appearance outcomes.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Corbin Carroll
+</td>
+<td>
+Arizona Diamondbacks
+</td>
+<td>
+San Diego Padres
+</td>
+<td>
+45.1%
+</td>
+<td>
+0.57
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Nick Sogard
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+43.0%
+</td>
+<td>
+0.52
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Jonathan Ornelas
+</td>
+<td>
+Athletics
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+42.8%
+</td>
+<td>
+0.52
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Bryce Harper
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+42.0%
+</td>
+<td>
+0.51
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Kyle Schwarber
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+41.9%
+</td>
+<td>
+0.52
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Luis Lara
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+Pittsburgh Pirates
+</td>
+<td>
+41.8%
+</td>
+<td>
+0.50
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Dylan Beavers
+</td>
+<td>
+Baltimore Orioles
+</td>
+<td>
+Los Angeles Angels
+</td>
+<td>
+40.9%
+</td>
+<td>
+0.48
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Luis Arraez
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+40.8%
+</td>
+<td>
+0.50
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Ceddanne Rafaela
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+40.2%
+</td>
+<td>
+0.48
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Elly De La Cruz
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+Athletics
+</td>
+<td>
+39.6%
+</td>
+<td>
+0.47
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Two-plus total-base leaders
+</h3>
+<p>
+The total-base board preserves each simulated event mix instead of treating every hit as equivalent.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Luis Arraez
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+57.2%
+</td>
+<td>
+2.04
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Kyle Schwarber
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+51.8%
+</td>
+<td>
+2.55
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Ceddanne Rafaela
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+51.8%
+</td>
+<td>
+2.04
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Dylan Beavers
+</td>
+<td>
+Baltimore Orioles
+</td>
+<td>
+Los Angeles Angels
+</td>
+<td>
+51.2%
+</td>
+<td>
+1.77
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Otto Lopez
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+50.6%
+</td>
+<td>
+1.90
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Trea Turner
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+50.0%
+</td>
+<td>
+1.98
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Ty France
+</td>
+<td>
+San Diego Padres
+</td>
+<td>
+Arizona Diamondbacks
+</td>
+<td>
+50.0%
+</td>
+<td>
+2.12
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Bryce Harper
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+50.0%
+</td>
+<td>
+2.10
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Elly De La Cruz
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+Athletics
+</td>
+<td>
+49.9%
+</td>
+<td>
+2.08
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Nick Sogard
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+49.8%
+</td>
+<td>
+1.62
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Five-plus strikeout leaders
+</h3>
+<p>
+Probable starters draw a game-specific batters-faced distribution against the posted opposing order.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Mason Barnett
+</td>
+<td>
+Athletics
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+86.8%
+</td>
+<td>
+7.08
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Dylan Cease
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+Chicago Cubs
+</td>
+<td>
+85.3%
+</td>
+<td>
+6.92
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Cristopher Sánchez
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+76.3%
+</td>
+<td>
+6.14
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Braxton Ashcraft
+</td>
+<td>
+Pittsburgh Pirates
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+72.4%
+</td>
+<td>
+5.79
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Ranger Suarez
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+67.4%
+</td>
+<td>
+5.56
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Bryce Miller
+</td>
+<td>
+Seattle Mariners
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+66.2%
+</td>
+<td>
+5.47
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Nolan McLean
+</td>
+<td>
+New York Mets
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+64.1%
+</td>
+<td>
+5.34
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Brandon Young
+</td>
+<td>
+Baltimore Orioles
+</td>
+<td>
+Los Angeles Angels
+</td>
+<td>
+63.5%
+</td>
+<td>
+5.29
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Foster Griffin
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+New York Mets
+</td>
+<td>
+59.7%
+</td>
+<td>
+5.14
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Michael Wacha
+</td>
+<td>
+Kansas City Royals
+</td>
+<td>
+Minnesota Twins
+</td>
+<td>
+57.6%
+</td>
+<td>
+5.01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Seven-plus strikeout leaders
+</h3>
+<p>
+The upper-tail board responds to starter workload, the opposing order, and both pitcher and hitter strikeout rates.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Mason Barnett
+</td>
+<td>
+Athletics
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+58.0%
+</td>
+<td>
+7.08
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Dylan Cease
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+Chicago Cubs
+</td>
+<td>
+57.0%
+</td>
+<td>
+6.92
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Cristopher Sánchez
+</td>
+<td>
+Philadelphia Phillies
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+42.1%
+</td>
+<td>
+6.14
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Braxton Ashcraft
+</td>
+<td>
+Pittsburgh Pirates
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+35.9%
+</td>
+<td>
+5.79
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Ranger Suarez
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+32.9%
+</td>
+<td>
+5.56
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Bryce Miller
+</td>
+<td>
+Seattle Mariners
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+29.7%
+</td>
+<td>
+5.47
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Brandon Young
+</td>
+<td>
+Baltimore Orioles
+</td>
+<td>
+Los Angeles Angels
+</td>
+<td>
+27.4%
+</td>
+<td>
+5.29
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Nolan McLean
+</td>
+<td>
+New York Mets
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+27.3%
+</td>
+<td>
+5.34
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Foster Griffin
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+New York Mets
+</td>
+<td>
+25.2%
+</td>
+<td>
+5.14
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Michael Wacha
+</td>
+<td>
+Kansas City Royals
+</td>
+<td>
+Minnesota Twins
+</td>
+<td>
+22.4%
+</td>
+<td>
+5.01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
 <div class="method-callout">
-<strong>Current state:</strong> 0 posted batting-order rows are available for August 06.
+<strong>How to read it:</strong> each percentage is the share of simulated games in which the player reached that threshold. Posted batting-order opportunity, starter matchup, bullpen quality, park, and weather all move the distribution.
 </div>
 </section>
 <section class="section-heading">
@@ -809,39 +2245,39 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 1 · scheduled slate</span><span class="projection-lean">Clear lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>Los Angeles Angels</strong></span><b>26.3%</b>
+<span><small>Away</small><strong>Los Angeles Angels</strong></span><b>28.2%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Baltimore Orioles</strong></span><b>73.7%</b>
+<span><small>Home</small><strong>Baltimore Orioles</strong></span><b>71.8%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="Los Angeles Angels 26.3% Baltimore Orioles 73.7%">
-<span class="is-away" style="width:26.3%"></span><span class="is-home" style="width:73.7%"></span>
+<div class="projection-win-track" role="img" aria-label="Los Angeles Angels 28.2% Baltimore Orioles 71.8%">
+<span class="is-away" style="width:28.2%"></span><span class="is-home" style="width:71.8%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>4.0 – 6.0</strong></span><span><small>Model total</small><strong>9.9</strong></span><span><small>One-run game</small><strong>28.5%</strong></span>
+<span><small>Mean score</small><strong>4.3 – 6.1</strong></span><span><small>Model total</small><strong>10.4</strong></span><span><small>One-run game</small><strong>28.7%</strong></span>
 </div>
 <footer>
-<strong>Baltimore Orioles 73.7%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Baltimore Orioles 71.8%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
 <header>
-<span class="eyebrow">Game 2 · scheduled slate</span><span class="projection-lean">Narrow lean</span>
+<span class="eyebrow">Game 2 · scheduled slate</span><span class="projection-lean">Near toss-up</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>Athletics</strong></span><b>55.1%</b>
+<span><small>Away</small><strong>Athletics</strong></span><b>49.1%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Cincinnati Reds</strong></span><b>44.9%</b>
+<span><small>Home</small><strong>Cincinnati Reds</strong></span><b>50.9%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="Athletics 55.1% Cincinnati Reds 44.9%">
-<span class="is-away" style="width:55.1%"></span><span class="is-home" style="width:44.9%"></span>
+<div class="projection-win-track" role="img" aria-label="Athletics 49.1% Cincinnati Reds 50.9%">
+<span class="is-away" style="width:49.1%"></span><span class="is-home" style="width:50.9%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>5.0 – 4.6</strong></span><span><small>Model total</small><strong>9.6</strong></span><span><small>One-run game</small><strong>34.2%</strong></span>
+<span><small>Mean score</small><strong>4.8 – 4.9</strong></span><span><small>Model total</small><strong>9.7</strong></span><span><small>One-run game</small><strong>34.5%</strong></span>
 </div>
 <footer>
-<strong>Athletics 55.1%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Cincinnati Reds 50.9%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
@@ -849,19 +2285,19 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 3 · scheduled slate</span><span class="projection-lean">Near toss-up</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>New York Mets</strong></span><b>51.4%</b>
+<span><small>Away</small><strong>New York Mets</strong></span><b>49.1%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Cleveland Guardians</strong></span><b>48.6%</b>
+<span><small>Home</small><strong>Cleveland Guardians</strong></span><b>50.9%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="New York Mets 51.4% Cleveland Guardians 48.6%">
-<span class="is-away" style="width:51.4%"></span><span class="is-home" style="width:48.6%"></span>
+<div class="projection-win-track" role="img" aria-label="New York Mets 49.1% Cleveland Guardians 50.9%">
+<span class="is-away" style="width:49.1%"></span><span class="is-home" style="width:50.9%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>3.7 – 3.7</strong></span><span><small>Model total</small><strong>7.4</strong></span><span><small>One-run game</small><strong>39.1%</strong></span>
+<span><small>Mean score</small><strong>3.7 – 3.7</strong></span><span><small>Model total</small><strong>7.4</strong></span><span><small>One-run game</small><strong>39.3%</strong></span>
 </div>
 <footer>
-<strong>New York Mets 51.4%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Cleveland Guardians 50.9%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
@@ -869,19 +2305,19 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 4 · scheduled slate</span><span class="projection-lean">Near toss-up</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>Pittsburgh Pirates</strong></span><b>48.4%</b>
+<span><small>Away</small><strong>Pittsburgh Pirates</strong></span><b>47.3%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Milwaukee Brewers</strong></span><b>51.6%</b>
+<span><small>Home</small><strong>Milwaukee Brewers</strong></span><b>52.7%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="Pittsburgh Pirates 48.4% Milwaukee Brewers 51.6%">
-<span class="is-away" style="width:48.4%"></span><span class="is-home" style="width:51.6%"></span>
+<div class="projection-win-track" role="img" aria-label="Pittsburgh Pirates 47.3% Milwaukee Brewers 52.7%">
+<span class="is-away" style="width:47.3%"></span><span class="is-home" style="width:52.7%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>4.0 – 4.1</strong></span><span><small>Model total</small><strong>8.2</strong></span><span><small>One-run game</small><strong>37.8%</strong></span>
+<span><small>Mean score</small><strong>4.2 – 4.4</strong></span><span><small>Model total</small><strong>8.5</strong></span><span><small>One-run game</small><strong>36.6%</strong></span>
 </div>
 <footer>
-<strong>Milwaukee Brewers 51.6%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Milwaukee Brewers 52.7%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
@@ -889,19 +2325,19 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 5 · scheduled slate</span><span class="projection-lean">Clear lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>Toronto Blue Jays</strong></span><b>63.5%</b>
+<span><small>Away</small><strong>Toronto Blue Jays</strong></span><b>61.6%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Chicago Cubs</strong></span><b>36.5%</b>
+<span><small>Home</small><strong>Chicago Cubs</strong></span><b>38.4%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="Toronto Blue Jays 63.5% Chicago Cubs 36.5%">
-<span class="is-away" style="width:63.5%"></span><span class="is-home" style="width:36.5%"></span>
+<div class="projection-win-track" role="img" aria-label="Toronto Blue Jays 61.6% Chicago Cubs 38.4%">
+<span class="is-away" style="width:61.6%"></span><span class="is-home" style="width:38.4%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>4.2 – 3.3</strong></span><span><small>Model total</small><strong>7.5</strong></span><span><small>One-run game</small><strong>36.7%</strong></span>
+<span><small>Mean score</small><strong>4.1 – 3.3</strong></span><span><small>Model total</small><strong>7.5</strong></span><span><small>One-run game</small><strong>37.5%</strong></span>
 </div>
 <footer>
-<strong>Toronto Blue Jays 63.5%</strong><span>20,000 draws · conditional orders · fallback starters</span>
+<strong>Toronto Blue Jays 61.6%</strong><span>20,000 draws · confirmed orders · fallback starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
@@ -909,19 +2345,19 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 6 · scheduled slate</span><span class="projection-lean">Narrow lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>Detroit Tigers</strong></span><b>42.9%</b>
+<span><small>Away</small><strong>Detroit Tigers</strong></span><b>43.1%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Seattle Mariners</strong></span><b>57.1%</b>
+<span><small>Home</small><strong>Seattle Mariners</strong></span><b>56.9%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="Detroit Tigers 42.9% Seattle Mariners 57.1%">
-<span class="is-away" style="width:42.9%"></span><span class="is-home" style="width:57.1%"></span>
+<div class="projection-win-track" role="img" aria-label="Detroit Tigers 43.1% Seattle Mariners 56.9%">
+<span class="is-away" style="width:43.1%"></span><span class="is-home" style="width:56.9%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>4.1 – 4.6</strong></span><span><small>Model total</small><strong>8.6</strong></span><span><small>One-run game</small><strong>36.0%</strong></span>
+<span><small>Mean score</small><strong>4.2 – 4.7</strong></span><span><small>Model total</small><strong>8.9</strong></span><span><small>One-run game</small><strong>35.6%</strong></span>
 </div>
 <footer>
-<strong>Seattle Mariners 57.1%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Seattle Mariners 56.9%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
@@ -929,19 +2365,19 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 7 · scheduled slate</span><span class="projection-lean">Clear lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>Washington Nationals</strong></span><b>24.8%</b>
+<span><small>Away</small><strong>Washington Nationals</strong></span><b>18.5%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Philadelphia Phillies</strong></span><b>75.2%</b>
+<span><small>Home</small><strong>Philadelphia Phillies</strong></span><b>81.5%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="Washington Nationals 24.8% Philadelphia Phillies 75.2%">
-<span class="is-away" style="width:24.8%"></span><span class="is-home" style="width:75.2%"></span>
+<div class="projection-win-track" role="img" aria-label="Washington Nationals 18.5% Philadelphia Phillies 81.5%">
+<span class="is-away" style="width:18.5%"></span><span class="is-home" style="width:81.5%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>3.4 – 5.4</strong></span><span><small>Model total</small><strong>8.7</strong></span><span><small>One-run game</small><strong>29.5%</strong></span>
+<span><small>Mean score</small><strong>3.2 – 6.0</strong></span><span><small>Model total</small><strong>9.2</strong></span><span><small>One-run game</small><strong>24.3%</strong></span>
 </div>
 <footer>
-<strong>Philadelphia Phillies 75.2%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Philadelphia Phillies 81.5%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
@@ -949,19 +2385,19 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 8 · scheduled slate</span><span class="projection-lean">Clear lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>Chicago White Sox</strong></span><b>32.6%</b>
+<span><small>Away</small><strong>Chicago White Sox</strong></span><b>30.8%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Boston Red Sox</strong></span><b>67.4%</b>
+<span><small>Home</small><strong>Boston Red Sox</strong></span><b>69.2%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="Chicago White Sox 32.6% Boston Red Sox 67.4%">
-<span class="is-away" style="width:32.6%"></span><span class="is-home" style="width:67.4%"></span>
+<div class="projection-win-track" role="img" aria-label="Chicago White Sox 30.8% Boston Red Sox 69.2%">
+<span class="is-away" style="width:30.8%"></span><span class="is-home" style="width:69.2%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>3.2 – 4.5</strong></span><span><small>Model total</small><strong>7.8</strong></span><span><small>One-run game</small><strong>35.2%</strong></span>
+<span><small>Mean score</small><strong>3.2 – 4.7</strong></span><span><small>Model total</small><strong>7.9</strong></span><span><small>One-run game</small><strong>34.1%</strong></span>
 </div>
 <footer>
-<strong>Boston Red Sox 67.4%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Boston Red Sox 69.2%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
@@ -969,39 +2405,39 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 9 · scheduled slate</span><span class="projection-lean">Narrow lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>Miami Marlins</strong></span><b>43.0%</b>
+<span><small>Away</small><strong>Miami Marlins</strong></span><b>40.8%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Atlanta Braves</strong></span><b>57.0%</b>
+<span><small>Home</small><strong>Atlanta Braves</strong></span><b>59.2%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="Miami Marlins 43.0% Atlanta Braves 57.0%">
-<span class="is-away" style="width:43%"></span><span class="is-home" style="width:57%"></span>
+<div class="projection-win-track" role="img" aria-label="Miami Marlins 40.8% Atlanta Braves 59.2%">
+<span class="is-away" style="width:40.8%"></span><span class="is-home" style="width:59.2%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>4.2 – 4.7</strong></span><span><small>Model total</small><strong>8.8</strong></span><span><small>One-run game</small><strong>36.8%</strong></span>
+<span><small>Mean score</small><strong>4.2 – 4.9</strong></span><span><small>Model total</small><strong>9.1</strong></span><span><small>One-run game</small><strong>35.8%</strong></span>
 </div>
 <footer>
-<strong>Atlanta Braves 57.0%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Atlanta Braves 59.2%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
 <header>
-<span class="eyebrow">Game 10 · scheduled slate</span><span class="projection-lean">Near toss-up</span>
+<span class="eyebrow">Game 10 · scheduled slate</span><span class="projection-lean">Narrow lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>Minnesota Twins</strong></span><b>49.5%</b>
+<span><small>Away</small><strong>Minnesota Twins</strong></span><b>40.9%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Kansas City Royals</strong></span><b>50.5%</b>
+<span><small>Home</small><strong>Kansas City Royals</strong></span><b>59.1%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="Minnesota Twins 49.5% Kansas City Royals 50.5%">
-<span class="is-away" style="width:49.5%"></span><span class="is-home" style="width:50.5%"></span>
+<div class="projection-win-track" role="img" aria-label="Minnesota Twins 40.9% Kansas City Royals 59.1%">
+<span class="is-away" style="width:40.9%"></span><span class="is-home" style="width:59.1%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>4.6 – 4.6</strong></span><span><small>Model total</small><strong>9.2</strong></span><span><small>One-run game</small><strong>35.5%</strong></span>
+<span><small>Mean score</small><strong>4.2 – 5.0</strong></span><span><small>Model total</small><strong>9.2</strong></span><span><small>One-run game</small><strong>34.9%</strong></span>
 </div>
 <footer>
-<strong>Kansas City Royals 50.5%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Kansas City Royals 59.1%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
@@ -1009,19 +2445,19 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 11 · scheduled slate</span><span class="projection-lean">Narrow lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>San Diego Padres</strong></span><b>58.3%</b>
+<span><small>Away</small><strong>San Diego Padres</strong></span><b>55.7%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Arizona Diamondbacks</strong></span><b>41.7%</b>
+<span><small>Home</small><strong>Arizona Diamondbacks</strong></span><b>44.3%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="San Diego Padres 58.3% Arizona Diamondbacks 41.7%">
-<span class="is-away" style="width:58.3%"></span><span class="is-home" style="width:41.7%"></span>
+<div class="projection-win-track" role="img" aria-label="San Diego Padres 55.7% Arizona Diamondbacks 44.3%">
+<span class="is-away" style="width:55.7%"></span><span class="is-home" style="width:44.3%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>4.8 – 4.1</strong></span><span><small>Model total</small><strong>8.9</strong></span><span><small>One-run game</small><strong>35.5%</strong></span>
+<span><small>Mean score</small><strong>4.8 – 4.4</strong></span><span><small>Model total</small><strong>9.2</strong></span><span><small>One-run game</small><strong>35.3%</strong></span>
 </div>
 <footer>
-<strong>San Diego Padres 58.3%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>San Diego Padres 55.7%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 </div>
@@ -1030,23 +2466,23 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <div>
 <span class="eyebrow">Feature simulation · 20,000 draws</span>
 <h2 class="anchored">
-Minnesota Twins at Kansas City Royals
+Athletics at Cincinnati Reds
 </h2>
 <p>
 The closest matchup on today’s scheduled slate pairs the score distribution with the players most likely to produce a defining performance.
 </p>
 </div>
 <div class="projection-feature__call">
-<small>Model lean</small><strong>Kansas City Royals</strong><span>50.5%</span>
+<small>Model lean</small><strong>Cincinnati Reds</strong><span>50.9%</span>
 </div>
 </div>
 <div class="projection-matchup-score">
 <div>
-<span>Minnesota Twins</span><strong>4.6</strong><small>80% range 2–7</small>
+<span>Athletics</span><strong>4.8</strong><small>80% range 2–8</small>
 </div>
 <i aria-hidden="true">at</i>
 <div>
-<span>Kansas City Royals</span><strong>4.6</strong><small>80% range 2–7</small>
+<span>Cincinnati Reds</span><strong>4.9</strong><small>80% range 2–8</small>
 </div>
 </div>
 <div class="projection-feature__grid">
@@ -1058,58 +2494,58 @@ The closest matchup on today’s scheduled slate pairs the score distribution wi
 <div class="margin-row">
 <span>Away by 5+</span>
 <div class="margin-row__track">
-<i style="width:35.3%"></i>
+<i style="width:37.7%"></i>
 </div>
-<strong>6.3%</strong>
+<strong>6.6%</strong>
 </div>
 <div class="margin-row">
 <span>Away by 3-4</span>
 <div class="margin-row__track">
-<i style="width:75.7%"></i>
+<i style="width:77.4%"></i>
 </div>
 <strong>13.5%</strong>
 </div>
 <div class="margin-row">
 <span>Away by 2</span>
 <div class="margin-row__track">
-<i style="width:67.4%"></i>
+<i style="width:69.1%"></i>
 </div>
 <strong>12.0%</strong>
 </div>
 <div class="margin-row">
 <span>Away by 1</span>
 <div class="margin-row__track">
-<i style="width:98.8%"></i>
+<i style="width:98.3%"></i>
 </div>
-<strong>17.6%</strong>
+<strong>17.1%</strong>
 </div>
 <div class="margin-row">
 <span>Home by 1</span>
 <div class="margin-row__track">
 <i style="width:100.0%"></i>
 </div>
-<strong>17.9%</strong>
+<strong>17.4%</strong>
 </div>
 <div class="margin-row">
 <span>Home by 2</span>
 <div class="margin-row__track">
-<i style="width:67.3%"></i>
+<i style="width:69.5%"></i>
 </div>
-<strong>12.0%</strong>
+<strong>12.1%</strong>
 </div>
 <div class="margin-row">
 <span>Home by 3-4</span>
 <div class="margin-row__track">
-<i style="width:78.4%"></i>
+<i style="width:79.9%"></i>
 </div>
-<strong>14.0%</strong>
+<strong>13.9%</strong>
 </div>
 <div class="margin-row">
 <span>Home by 5+</span>
 <div class="margin-row__track">
-<i style="width:36.9%"></i>
+<i style="width:43.0%"></i>
 </div>
-<strong>6.6%</strong>
+<strong>7.5%</strong>
 </div>
 </div>
 </section>
@@ -1119,16 +2555,16 @@ The closest matchup on today’s scheduled slate pairs the score distribution wi
 </div>
 <ol class="projection-driver-list">
 <li>
-<span>Posted-lineup offense</span><strong>Minnesota Twins</strong><small>104 vs 96 blended wRC+ after platoon, contact-quality, and recent-form adjustments</small>
+<span>Posted-lineup offense</span><strong>Athletics</strong><small>98 vs 96 blended wRC+ after platoon, contact-quality, and recent-form adjustments</small>
 </li>
 <li>
-<span>Probable starter</span><strong>Kansas City Royals</strong><small>Bailey Ober 4.6 over 5.4 expected IP vs Michael Wacha 3.9 over 6.2 expected IP</small>
+<span>Probable starter</span><strong>Cincinnati Reds</strong><small>Mason Barnett 4.72 over 6.8 expected IP vs Andrew Abbott 4.63 over 5.3 expected IP</small>
 </li>
 <li>
-<span>Available bullpen</span><strong>Minnesota Twins</strong><small>4.02 vs 4.52 FIP blend with active reliever selector</small>
+<span>Available bullpen</span><strong>Athletics</strong><small>4.36 vs 4.55 FIP blend with active reliever selector</small>
 </li>
 <li>
-<span>Park and weather</span><strong>Run environment</strong><small>75 F temperature adjustment; park factor 1</small>
+<span>Park and weather</span><strong>Run environment</strong><small>72 F temperature adjustment; park factor 1</small>
 </li>
 </ol>
 </section>
@@ -1138,9 +2574,34 @@ The closest matchup on today’s scheduled slate pairs the score distribution wi
 <span>Projected standout performances</span><small>Highest-upside player outcomes in this matchup</small>
 </div>
 <div class="projection-standout-grid">
-<div class="method-callout">
-<strong>Lineup gate:</strong> standout-performance probabilities appear when current batting orders and probable starters have completed their player-level simulation.
-</div>
+<article class="projection-standout-card">
+<span>2+ home runs</span>
+<h3 class="anchored">
+Brian Serven
+</h3>
+<strong>3.8%</strong><small>Athletics vs.&nbsp;Cincinnati Reds · expected 0.36</small>
+</article>
+<article class="projection-standout-card">
+<span>10+ strikeouts</span>
+<h3 class="anchored">
+Mason Barnett
+</h3>
+<strong>15.4%</strong><small>Athletics vs.&nbsp;Cincinnati Reds · expected 7.08</small>
+</article>
+<article class="projection-standout-card">
+<span>3+ total bases</span>
+<h3 class="anchored">
+Elly De La Cruz
+</h3>
+<strong>32.1%</strong><small>Cincinnati Reds vs.&nbsp;Athletics · expected 2.08</small>
+</article>
+<article class="projection-standout-card">
+<span>7+ strikeouts</span>
+<h3 class="anchored">
+Mason Barnett
+</h3>
+<strong>58.0%</strong><small>Athletics vs.&nbsp;Cincinnati Reds · expected 7.08</small>
+</article>
 </div>
 </div>
 </section>
