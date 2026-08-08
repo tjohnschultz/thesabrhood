@@ -1,199 +1,265 @@
 "metric_id","metric_label","game_id","player_id","player_name","team","opponent","role","probability","expected_value","simulations","model_version","publication_status","metric_rank"
-"batter_hit_1plus","1+ hit","824726","678882","Ceddanne Rafaela","Boston Red Sox","Athletics","hitter",0.7145,1.117,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_hit_1plus","1+ hit","823514","671739","Michael Harris II","Atlanta Braves","New York Yankees","hitter",0.7065,1.0465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_hit_1plus","1+ hit","824726","575929","Willson Contreras","Boston Red Sox","Athletics","hitter",0.6925,1.0185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_hit_1plus","1+ hit","823514","686948","Drake Baldwin","Atlanta Braves","New York Yankees","hitter",0.678,1.026,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hit_1plus","1+ hit","824726","663330","Jahmai Jones","Boston Red Sox","Athletics","hitter",0.6675,0.991,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_hit_1plus","1+ hit","824726","702332","Caleb Durbin","Boston Red Sox","Athletics","hitter",0.6525,0.9165,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hit_1plus","1+ hit","824726","677800","Wilyer Abreu","Boston Red Sox","Athletics","hitter",0.6465,0.9385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hit_1plus","1+ hit","823514","645277","Ozzie Albies","Atlanta Braves","New York Yankees","hitter",0.6435,0.917,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hit_1plus","1+ hit","824726","655316","Andruw Monasterio","Boston Red Sox","Athletics","hitter",0.6435,0.924,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hit_1plus","1+ hit","823514","643289","Mauricio Dubón","Atlanta Braves","New York Yankees","hitter",0.6405,0.8985,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hit_1plus","1+ hit","823514","621566","Matt Olson","Atlanta Braves","New York Yankees","hitter",0.638,0.9295,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hit_1plus","1+ hit","823514","671218","Heliot Ramos","New York Yankees","Atlanta Braves","hitter",0.633,0.8765,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hit_1plus","1+ hit","823514","502671","Paul Goldschmidt","New York Yankees","Atlanta Braves","hitter",0.621,0.8755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hit_1plus","1+ hit","823514","660670","Ronald Acuña Jr.","Atlanta Braves","New York Yankees","hitter",0.608,0.851,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hit_1plus","1+ hit","824726","642201","Eli White","Boston Red Sox","Athletics","hitter",0.608,0.832,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hit_1plus","1+ hit","824726","657136","Connor Wong","Boston Red Sox","Athletics","hitter",0.605,0.813,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hit_1plus","1+ hit","823514","805347","Jim Jarvis","Atlanta Braves","New York Yankees","hitter",0.5975,0.814,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hit_1plus","1+ hit","824726","686765","Nick Sogard","Boston Red Sox","Athletics","hitter",0.595,0.819,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_hit_1plus","1+ hit","823514","700250","Ben Rice","New York Yankees","Atlanta Braves","hitter",0.5945,0.824,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_hit_1plus","1+ hit","823514","573262","Mike Yastrzemski","Atlanta Braves","New York Yankees","hitter",0.572,0.783,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_hit_1plus","1+ hit","823514","806146","George Lombard Jr.","New York Yankees","Atlanta Braves","hitter",0.561,0.742,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_hit_1plus","1+ hit","823514","642708","Amed Rosario","New York Yankees","Atlanta Braves","hitter",0.555,0.7365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_hit_1plus","1+ hit","823514","663586","Austin Riley","Atlanta Braves","New York Yankees","hitter",0.547,0.7205,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_hit_1plus","1+ hit","823514","682987","Spencer Jones","New York Yankees","Atlanta Braves","hitter",0.5345,0.725,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_hit_1plus","1+ hit","823514","663757","Trent Grisham","New York Yankees","Atlanta Braves","hitter",0.523,0.671,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_hit_1plus","1+ hit","823514","676609","José Caballero","New York Yankees","Atlanta Braves","hitter",0.5225,0.6665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_hit_1plus","1+ hit","823514","669224","Austin Wells","New York Yankees","Atlanta Braves","hitter",0.4245,0.515,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_hit_2plus","2+ hits","824726","678882","Ceddanne Rafaela","Boston Red Sox","Athletics","hitter",0.3165,1.117,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_hit_2plus","2+ hits","823514","686948","Drake Baldwin","Atlanta Braves","New York Yankees","hitter",0.2775,1.026,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_hit_2plus","2+ hits","823514","671739","Michael Harris II","Atlanta Braves","New York Yankees","hitter",0.276,1.0465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_hit_2plus","2+ hits","824726","575929","Willson Contreras","Boston Red Sox","Athletics","hitter",0.264,1.0185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hit_2plus","2+ hits","824726","663330","Jahmai Jones","Boston Red Sox","Athletics","hitter",0.2615,0.991,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_hit_2plus","2+ hits","824726","677800","Wilyer Abreu","Boston Red Sox","Athletics","hitter",0.242,0.9385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hit_2plus","2+ hits","823514","621566","Matt Olson","Atlanta Braves","New York Yankees","hitter",0.239,0.9295,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hit_2plus","2+ hits","823514","645277","Ozzie Albies","Atlanta Braves","New York Yankees","hitter",0.2285,0.917,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hit_2plus","2+ hits","824726","655316","Andruw Monasterio","Boston Red Sox","Athletics","hitter",0.2275,0.924,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hit_2plus","2+ hits","824726","702332","Caleb Durbin","Boston Red Sox","Athletics","hitter",0.22,0.9165,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hit_2plus","2+ hits","823514","643289","Mauricio Dubón","Atlanta Braves","New York Yankees","hitter",0.217,0.8985,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hit_2plus","2+ hits","823514","502671","Paul Goldschmidt","New York Yankees","Atlanta Braves","hitter",0.2135,0.8755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hit_2plus","2+ hits","823514","671218","Heliot Ramos","New York Yankees","Atlanta Braves","hitter",0.204,0.8765,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hit_2plus","2+ hits","823514","660670","Ronald Acuña Jr.","Atlanta Braves","New York Yankees","hitter",0.2025,0.851,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hit_2plus","2+ hits","823514","700250","Ben Rice","New York Yankees","Atlanta Braves","hitter",0.1975,0.824,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hit_2plus","2+ hits","824726","686765","Nick Sogard","Boston Red Sox","Athletics","hitter",0.194,0.819,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hit_2plus","2+ hits","824726","642201","Eli White","Boston Red Sox","Athletics","hitter",0.193,0.832,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hit_2plus","2+ hits","823514","805347","Jim Jarvis","Atlanta Braves","New York Yankees","hitter",0.186,0.814,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_hit_2plus","2+ hits","824726","657136","Connor Wong","Boston Red Sox","Athletics","hitter",0.1815,0.813,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_hit_2plus","2+ hits","823514","573262","Mike Yastrzemski","Atlanta Braves","New York Yankees","hitter",0.176,0.783,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_hit_2plus","2+ hits","823514","642708","Amed Rosario","New York Yankees","Atlanta Braves","hitter",0.16,0.7365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_hit_2plus","2+ hits","823514","682987","Spencer Jones","New York Yankees","Atlanta Braves","hitter",0.159,0.725,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_hit_2plus","2+ hits","823514","806146","George Lombard Jr.","New York Yankees","Atlanta Braves","hitter",0.157,0.742,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_hit_2plus","2+ hits","823514","663586","Austin Riley","Atlanta Braves","New York Yankees","hitter",0.153,0.7205,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_hit_2plus","2+ hits","823514","663757","Trent Grisham","New York Yankees","Atlanta Braves","hitter",0.132,0.671,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_hit_2plus","2+ hits","823514","676609","José Caballero","New York Yankees","Atlanta Braves","hitter",0.1255,0.6665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_hit_2plus","2+ hits","823514","669224","Austin Wells","New York Yankees","Atlanta Braves","hitter",0.081,0.515,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_hr_1plus","1+ home run","823514","621566","Matt Olson","Atlanta Braves","New York Yankees","hitter",0.229,0.2465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_hr_1plus","1+ home run","823514","700250","Ben Rice","New York Yankees","Atlanta Braves","hitter",0.2075,0.224,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_hr_1plus","1+ home run","824726","575929","Willson Contreras","Boston Red Sox","Athletics","hitter",0.2025,0.226,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_hr_1plus","1+ home run","823514","502671","Paul Goldschmidt","New York Yankees","Atlanta Braves","hitter",0.198,0.2095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hr_1plus","1+ home run","823514","686948","Drake Baldwin","Atlanta Braves","New York Yankees","hitter",0.189,0.205,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_hr_1plus","1+ home run","823514","671739","Michael Harris II","Atlanta Braves","New York Yankees","hitter",0.1815,0.1945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hr_1plus","1+ home run","823514","642708","Amed Rosario","New York Yankees","Atlanta Braves","hitter",0.157,0.1685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hr_1plus","1+ home run","824726","677800","Wilyer Abreu","Boston Red Sox","Athletics","hitter",0.146,0.154,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hr_1plus","1+ home run","823514","645277","Ozzie Albies","Atlanta Braves","New York Yankees","hitter",0.1405,0.1475,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hr_1plus","1+ home run","824726","678882","Ceddanne Rafaela","Boston Red Sox","Athletics","hitter",0.1405,0.1485,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hr_1plus","1+ home run","823514","682987","Spencer Jones","New York Yankees","Atlanta Braves","hitter",0.1395,0.1485,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hr_1plus","1+ home run","823514","660670","Ronald Acuña Jr.","Atlanta Braves","New York Yankees","hitter",0.134,0.145,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hr_1plus","1+ home run","824726","663330","Jahmai Jones","Boston Red Sox","Athletics","hitter",0.133,0.1405,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hr_1plus","1+ home run","824726","642201","Eli White","Boston Red Sox","Athletics","hitter",0.1285,0.136,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hr_1plus","1+ home run","824726","655316","Andruw Monasterio","Boston Red Sox","Athletics","hitter",0.108,0.112,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hr_1plus","1+ home run","823514","671218","Heliot Ramos","New York Yankees","Atlanta Braves","hitter",0.1035,0.1075,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hr_1plus","1+ home run","824726","702332","Caleb Durbin","Boston Red Sox","Athletics","hitter",0.103,0.111,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hr_1plus","1+ home run","823514","806146","George Lombard Jr.","New York Yankees","Atlanta Braves","hitter",0.0985,0.1015,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_hr_1plus","1+ home run","823514","663757","Trent Grisham","New York Yankees","Atlanta Braves","hitter",0.0975,0.1005,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_hr_1plus","1+ home run","823514","663586","Austin Riley","Atlanta Braves","New York Yankees","hitter",0.0915,0.0965,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_hr_1plus","1+ home run","823514","643289","Mauricio Dubón","Atlanta Braves","New York Yankees","hitter",0.088,0.09,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_hr_1plus","1+ home run","823514","676609","José Caballero","New York Yankees","Atlanta Braves","hitter",0.0855,0.0875,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_hr_1plus","1+ home run","823514","669224","Austin Wells","New York Yankees","Atlanta Braves","hitter",0.081,0.083,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_hr_1plus","1+ home run","823514","573262","Mike Yastrzemski","Atlanta Braves","New York Yankees","hitter",0.08,0.082,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_hr_1plus","1+ home run","824726","657136","Connor Wong","Boston Red Sox","Athletics","hitter",0.0425,0.043,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_hr_1plus","1+ home run","823514","805347","Jim Jarvis","Atlanta Braves","New York Yankees","hitter",0.04,0.0405,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_hr_1plus","1+ home run","824726","686765","Nick Sogard","Boston Red Sox","Athletics","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_hr_2plus","2+ home runs","824726","575929","Willson Contreras","Boston Red Sox","Athletics","hitter",0.0225,0.226,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_hr_2plus","2+ home runs","823514","621566","Matt Olson","Atlanta Braves","New York Yankees","hitter",0.0175,0.2465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_hr_2plus","2+ home runs","823514","700250","Ben Rice","New York Yankees","Atlanta Braves","hitter",0.016,0.224,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_hr_2plus","2+ home runs","823514","686948","Drake Baldwin","Atlanta Braves","New York Yankees","hitter",0.0155,0.205,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hr_2plus","2+ home runs","823514","671739","Michael Harris II","Atlanta Braves","New York Yankees","hitter",0.012,0.1945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_hr_2plus","2+ home runs","823514","502671","Paul Goldschmidt","New York Yankees","Atlanta Braves","hitter",0.0115,0.2095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hr_2plus","2+ home runs","823514","642708","Amed Rosario","New York Yankees","Atlanta Braves","hitter",0.0115,0.1685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hr_2plus","2+ home runs","823514","660670","Ronald Acuña Jr.","Atlanta Braves","New York Yankees","hitter",0.009,0.145,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hr_2plus","2+ home runs","823514","682987","Spencer Jones","New York Yankees","Atlanta Braves","hitter",0.0085,0.1485,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hr_2plus","2+ home runs","824726","677800","Wilyer Abreu","Boston Red Sox","Athletics","hitter",0.008,0.154,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hr_2plus","2+ home runs","824726","702332","Caleb Durbin","Boston Red Sox","Athletics","hitter",0.008,0.111,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hr_2plus","2+ home runs","824726","678882","Ceddanne Rafaela","Boston Red Sox","Athletics","hitter",0.0075,0.1485,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hr_2plus","2+ home runs","824726","642201","Eli White","Boston Red Sox","Athletics","hitter",0.0075,0.136,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hr_2plus","2+ home runs","824726","663330","Jahmai Jones","Boston Red Sox","Athletics","hitter",0.007,0.1405,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hr_2plus","2+ home runs","823514","645277","Ozzie Albies","Atlanta Braves","New York Yankees","hitter",0.0065,0.1475,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hr_2plus","2+ home runs","823514","663586","Austin Riley","Atlanta Braves","New York Yankees","hitter",0.005,0.0965,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hr_2plus","2+ home runs","823514","671218","Heliot Ramos","New York Yankees","Atlanta Braves","hitter",0.004,0.1075,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hr_2plus","2+ home runs","824726","655316","Andruw Monasterio","Boston Red Sox","Athletics","hitter",0.004,0.112,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_hr_2plus","2+ home runs","823514","663757","Trent Grisham","New York Yankees","Atlanta Braves","hitter",0.003,0.1005,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_hr_2plus","2+ home runs","823514","806146","George Lombard Jr.","New York Yankees","Atlanta Braves","hitter",0.003,0.1015,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_hr_2plus","2+ home runs","823514","643289","Mauricio Dubón","Atlanta Braves","New York Yankees","hitter",0.002,0.09,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_hr_2plus","2+ home runs","823514","676609","José Caballero","New York Yankees","Atlanta Braves","hitter",0.002,0.0875,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_hr_2plus","2+ home runs","823514","669224","Austin Wells","New York Yankees","Atlanta Braves","hitter",0.002,0.083,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_hr_2plus","2+ home runs","823514","573262","Mike Yastrzemski","Atlanta Braves","New York Yankees","hitter",0.0015,0.082,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_hr_2plus","2+ home runs","823514","805347","Jim Jarvis","Atlanta Braves","New York Yankees","hitter",5e-04,0.0405,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_hr_2plus","2+ home runs","824726","657136","Connor Wong","Boston Red Sox","Athletics","hitter",5e-04,0.043,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_hr_2plus","2+ home runs","824726","686765","Nick Sogard","Boston Red Sox","Athletics","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_tb_2plus","2+ total bases","824726","678882","Ceddanne Rafaela","Boston Red Sox","Athletics","hitter",0.4875,1.8905,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_tb_2plus","2+ total bases","824726","575929","Willson Contreras","Boston Red Sox","Athletics","hitter",0.4385,1.8905,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_tb_2plus","2+ total bases","824726","655316","Andruw Monasterio","Boston Red Sox","Athletics","hitter",0.4295,1.616,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_tb_2plus","2+ total bases","824726","686765","Nick Sogard","Boston Red Sox","Athletics","hitter",0.424,1.297,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_tb_2plus","2+ total bases","823514","671739","Michael Harris II","Atlanta Braves","New York Yankees","hitter",0.4205,1.811,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_tb_2plus","2+ total bases","823514","621566","Matt Olson","Atlanta Braves","New York Yankees","hitter",0.4185,1.849,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_tb_2plus","2+ total bases","824726","677800","Wilyer Abreu","Boston Red Sox","Athletics","hitter",0.416,1.667,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_tb_2plus","2+ total bases","824726","663330","Jahmai Jones","Boston Red Sox","Athletics","hitter",0.413,1.6505,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_tb_2plus","2+ total bases","824726","702332","Caleb Durbin","Boston Red Sox","Athletics","hitter",0.403,1.5365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_tb_2plus","2+ total bases","823514","686948","Drake Baldwin","Atlanta Braves","New York Yankees","hitter",0.383,1.7315,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_tb_2plus","2+ total bases","823514","805347","Jim Jarvis","Atlanta Braves","New York Yankees","hitter",0.375,1.2975,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_tb_2plus","2+ total bases","823514","645277","Ozzie Albies","Atlanta Braves","New York Yankees","hitter",0.3745,1.5305,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_tb_2plus","2+ total bases","823514","502671","Paul Goldschmidt","New York Yankees","Atlanta Braves","hitter",0.373,1.6145,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_tb_2plus","2+ total bases","823514","643289","Mauricio Dubón","Atlanta Braves","New York Yankees","hitter",0.372,1.4195,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_tb_2plus","2+ total bases","823514","671218","Heliot Ramos","New York Yankees","Atlanta Braves","hitter",0.3705,1.43,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_tb_2plus","2+ total bases","823514","700250","Ben Rice","New York Yankees","Atlanta Braves","hitter",0.3705,1.6345,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_tb_2plus","2+ total bases","824726","642201","Eli White","Boston Red Sox","Athletics","hitter",0.369,1.4565,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_tb_2plus","2+ total bases","823514","660670","Ronald Acuña Jr.","Atlanta Braves","New York Yankees","hitter",0.3605,1.501,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_tb_2plus","2+ total bases","824726","657136","Connor Wong","Boston Red Sox","Athletics","hitter",0.3395,1.2285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_tb_2plus","2+ total bases","823514","573262","Mike Yastrzemski","Atlanta Braves","New York Yankees","hitter",0.332,1.2575,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_tb_2plus","2+ total bases","823514","806146","George Lombard Jr.","New York Yankees","Atlanta Braves","hitter",0.303,1.2255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_tb_2plus","2+ total bases","823514","642708","Amed Rosario","New York Yankees","Atlanta Braves","hitter",0.293,1.3185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_tb_2plus","2+ total bases","823514","663586","Austin Riley","Atlanta Braves","New York Yankees","hitter",0.292,1.178,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_tb_2plus","2+ total bases","823514","663757","Trent Grisham","New York Yankees","Atlanta Braves","hitter",0.2905,1.162,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_tb_2plus","2+ total bases","823514","682987","Spencer Jones","New York Yankees","Atlanta Braves","hitter",0.273,1.243,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_tb_2plus","2+ total bases","823514","676609","José Caballero","New York Yankees","Atlanta Braves","hitter",0.2495,1.0685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_tb_2plus","2+ total bases","823514","669224","Austin Wells","New York Yankees","Atlanta Braves","hitter",0.196,0.8595,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_tb_3plus","3+ total bases","823514","621566","Matt Olson","Atlanta Braves","New York Yankees","hitter",0.2935,1.849,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_tb_3plus","3+ total bases","824726","678882","Ceddanne Rafaela","Boston Red Sox","Athletics","hitter",0.292,1.8905,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_tb_3plus","3+ total bases","824726","575929","Willson Contreras","Boston Red Sox","Athletics","hitter",0.286,1.8905,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_hit_1plus","1+ hit","824726","678882","Ceddanne Rafaela","Boston Red Sox","Athletics","hitter",0.7245,1.1115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"batter_hit_1plus","1+ hit","823834","672640","Otto Lopez","Miami Marlins","Los Angeles Angels","hitter",0.724,1.108,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_hit_1plus","1+ hit","823514","671739","Michael Harris II","Atlanta Braves","New York Yankees","hitter",0.7065,1.0465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_hit_1plus","1+ hit","824726","575929","Willson Contreras","Boston Red Sox","Athletics","hitter",0.6955,1.02,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_hit_1plus","1+ hit","823834","669364","Xavier Edwards","Miami Marlins","Los Angeles Angels","hitter",0.6845,1.0125,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hit_1plus","1+ hit","823514","686948","Drake Baldwin","Atlanta Braves","New York Yankees","hitter",0.678,1.026,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_hit_1plus","1+ hit","824726","663330","Jahmai Jones","Boston Red Sox","Athletics","hitter",0.668,0.981,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hit_1plus","1+ hit","824726","702332","Caleb Durbin","Boston Red Sox","Athletics","hitter",0.6635,0.96,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hit_1plus","1+ hit","824726","655316","Andruw Monasterio","Boston Red Sox","Athletics","hitter",0.6565,0.964,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hit_1plus","1+ hit","823514","645277","Ozzie Albies","Atlanta Braves","New York Yankees","hitter",0.6435,0.917,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hit_1plus","1+ hit","823514","643289","Mauricio Dubón","Atlanta Braves","New York Yankees","hitter",0.6405,0.8985,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hit_1plus","1+ hit","823834","665052","Griffin Conine","Miami Marlins","Los Angeles Angels","hitter",0.64,0.8975,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hit_1plus","1+ hit","823514","621566","Matt Olson","Atlanta Braves","New York Yankees","hitter",0.638,0.9295,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hit_1plus","1+ hit","823514","671218","Heliot Ramos","New York Yankees","Atlanta Braves","hitter",0.633,0.8765,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hit_1plus","1+ hit","824726","642201","Eli White","Boston Red Sox","Athletics","hitter",0.627,0.864,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hit_1plus","1+ hit","824726","686765","Nick Sogard","Boston Red Sox","Athletics","hitter",0.622,0.8525,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hit_1plus","1+ hit","823514","502671","Paul Goldschmidt","New York Yankees","Atlanta Braves","hitter",0.621,0.8755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hit_1plus","1+ hit","823834","669065","Kyle Stowers","Miami Marlins","Los Angeles Angels","hitter",0.6175,0.867,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hit_1plus","1+ hit","823834","691594","Javier Sanoja","Miami Marlins","Los Angeles Angels","hitter",0.614,0.8435,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hit_1plus","1+ hit","824726","657136","Connor Wong","Boston Red Sox","Athletics","hitter",0.6085,0.8225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hit_1plus","1+ hit","823514","660670","Ronald Acuña Jr.","Atlanta Braves","New York Yankees","hitter",0.608,0.851,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hit_1plus","1+ hit","823514","805347","Jim Jarvis","Atlanta Braves","New York Yankees","hitter",0.5975,0.814,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hit_1plus","1+ hit","823514","700250","Ben Rice","New York Yankees","Atlanta Braves","hitter",0.5945,0.824,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hit_1plus","1+ hit","823834","681715","Heriberto Hernández","Miami Marlins","Los Angeles Angels","hitter",0.588,0.7995,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hit_1plus","1+ hit","823834","691788","Joe Mack","Miami Marlins","Los Angeles Angels","hitter",0.583,0.787,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hit_1plus","1+ hit","823834","683357","Owen Caissie","Miami Marlins","Los Angeles Angels","hitter",0.573,0.7765,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hit_1plus","1+ hit","823514","573262","Mike Yastrzemski","Atlanta Braves","New York Yankees","hitter",0.572,0.783,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hit_1plus","1+ hit","823834","805300","Jakob Marsee","Miami Marlins","Los Angeles Angels","hitter",0.566,0.757,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_hit_1plus","1+ hit","823514","806146","George Lombard Jr.","New York Yankees","Atlanta Braves","hitter",0.561,0.742,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_hit_1plus","1+ hit","823514","642708","Amed Rosario","New York Yankees","Atlanta Braves","hitter",0.555,0.7365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_hit_1plus","1+ hit","823514","663586","Austin Riley","Atlanta Braves","New York Yankees","hitter",0.547,0.7205,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_hit_1plus","1+ hit","824726","680776","Jarren Duran","Boston Red Sox","Athletics","hitter",0.541,0.7025,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_hit_1plus","1+ hit","823514","682987","Spencer Jones","New York Yankees","Atlanta Braves","hitter",0.5345,0.725,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_hit_1plus","1+ hit","823514","663757","Trent Grisham","New York Yankees","Atlanta Braves","hitter",0.523,0.671,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_hit_1plus","1+ hit","823514","676609","José Caballero","New York Yankees","Atlanta Braves","hitter",0.5225,0.6665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_hit_1plus","1+ hit","823514","669224","Austin Wells","New York Yankees","Atlanta Braves","hitter",0.4245,0.515,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hit_2plus","2+ hits","823834","672640","Otto Lopez","Miami Marlins","Los Angeles Angels","hitter",0.3045,1.108,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"batter_hit_2plus","2+ hits","824726","678882","Ceddanne Rafaela","Boston Red Sox","Athletics","hitter",0.304,1.1115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_hit_2plus","2+ hits","823514","686948","Drake Baldwin","Atlanta Braves","New York Yankees","hitter",0.2775,1.026,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_hit_2plus","2+ hits","823514","671739","Michael Harris II","Atlanta Braves","New York Yankees","hitter",0.276,1.0465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_hit_2plus","2+ hits","824726","575929","Willson Contreras","Boston Red Sox","Athletics","hitter",0.2685,1.02,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hit_2plus","2+ hits","823834","669364","Xavier Edwards","Miami Marlins","Los Angeles Angels","hitter",0.268,1.0125,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_hit_2plus","2+ hits","824726","663330","Jahmai Jones","Boston Red Sox","Athletics","hitter",0.25,0.981,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hit_2plus","2+ hits","824726","655316","Andruw Monasterio","Boston Red Sox","Athletics","hitter",0.2485,0.964,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hit_2plus","2+ hits","824726","702332","Caleb Durbin","Boston Red Sox","Athletics","hitter",0.242,0.96,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hit_2plus","2+ hits","823514","621566","Matt Olson","Atlanta Braves","New York Yankees","hitter",0.239,0.9295,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hit_2plus","2+ hits","823514","645277","Ozzie Albies","Atlanta Braves","New York Yankees","hitter",0.2285,0.917,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hit_2plus","2+ hits","823514","643289","Mauricio Dubón","Atlanta Braves","New York Yankees","hitter",0.217,0.8985,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hit_2plus","2+ hits","823514","502671","Paul Goldschmidt","New York Yankees","Atlanta Braves","hitter",0.2135,0.8755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hit_2plus","2+ hits","823834","665052","Griffin Conine","Miami Marlins","Los Angeles Angels","hitter",0.2125,0.8975,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hit_2plus","2+ hits","823834","669065","Kyle Stowers","Miami Marlins","Los Angeles Angels","hitter",0.2075,0.867,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hit_2plus","2+ hits","823514","671218","Heliot Ramos","New York Yankees","Atlanta Braves","hitter",0.204,0.8765,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hit_2plus","2+ hits","823514","660670","Ronald Acuña Jr.","Atlanta Braves","New York Yankees","hitter",0.2025,0.851,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hit_2plus","2+ hits","824726","642201","Eli White","Boston Red Sox","Athletics","hitter",0.2005,0.864,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hit_2plus","2+ hits","823514","700250","Ben Rice","New York Yankees","Atlanta Braves","hitter",0.1975,0.824,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hit_2plus","2+ hits","824726","686765","Nick Sogard","Boston Red Sox","Athletics","hitter",0.197,0.8525,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hit_2plus","2+ hits","823834","691594","Javier Sanoja","Miami Marlins","Los Angeles Angels","hitter",0.195,0.8435,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hit_2plus","2+ hits","824726","657136","Connor Wong","Boston Red Sox","Athletics","hitter",0.1875,0.8225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hit_2plus","2+ hits","823514","805347","Jim Jarvis","Atlanta Braves","New York Yankees","hitter",0.186,0.814,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hit_2plus","2+ hits","823834","681715","Heriberto Hernández","Miami Marlins","Los Angeles Angels","hitter",0.1855,0.7995,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hit_2plus","2+ hits","823834","691788","Joe Mack","Miami Marlins","Los Angeles Angels","hitter",0.18,0.787,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hit_2plus","2+ hits","823834","683357","Owen Caissie","Miami Marlins","Los Angeles Angels","hitter",0.177,0.7765,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hit_2plus","2+ hits","823514","573262","Mike Yastrzemski","Atlanta Braves","New York Yankees","hitter",0.176,0.783,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hit_2plus","2+ hits","823834","805300","Jakob Marsee","Miami Marlins","Los Angeles Angels","hitter",0.1615,0.757,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_hit_2plus","2+ hits","823514","642708","Amed Rosario","New York Yankees","Atlanta Braves","hitter",0.16,0.7365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_hit_2plus","2+ hits","823514","682987","Spencer Jones","New York Yankees","Atlanta Braves","hitter",0.159,0.725,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_hit_2plus","2+ hits","823514","806146","George Lombard Jr.","New York Yankees","Atlanta Braves","hitter",0.157,0.742,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_hit_2plus","2+ hits","823514","663586","Austin Riley","Atlanta Braves","New York Yankees","hitter",0.153,0.7205,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_hit_2plus","2+ hits","824726","680776","Jarren Duran","Boston Red Sox","Athletics","hitter",0.142,0.7025,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_hit_2plus","2+ hits","823514","663757","Trent Grisham","New York Yankees","Atlanta Braves","hitter",0.132,0.671,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_hit_2plus","2+ hits","823514","676609","José Caballero","New York Yankees","Atlanta Braves","hitter",0.1255,0.6665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_hit_2plus","2+ hits","823514","669224","Austin Wells","New York Yankees","Atlanta Braves","hitter",0.081,0.515,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hr_1plus","1+ home run","823834","665052","Griffin Conine","Miami Marlins","Los Angeles Angels","hitter",0.2365,0.2635,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"batter_hr_1plus","1+ home run","823514","621566","Matt Olson","Atlanta Braves","New York Yankees","hitter",0.229,0.2465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_hr_1plus","1+ home run","824726","575929","Willson Contreras","Boston Red Sox","Athletics","hitter",0.2135,0.232,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_hr_1plus","1+ home run","823514","700250","Ben Rice","New York Yankees","Atlanta Braves","hitter",0.2075,0.224,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_hr_1plus","1+ home run","823514","502671","Paul Goldschmidt","New York Yankees","Atlanta Braves","hitter",0.198,0.2095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hr_1plus","1+ home run","823834","681715","Heriberto Hernández","Miami Marlins","Los Angeles Angels","hitter",0.19,0.2115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_hr_1plus","1+ home run","823514","686948","Drake Baldwin","Atlanta Braves","New York Yankees","hitter",0.189,0.205,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hr_1plus","1+ home run","823514","671739","Michael Harris II","Atlanta Braves","New York Yankees","hitter",0.1815,0.1945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hr_1plus","1+ home run","823834","683357","Owen Caissie","Miami Marlins","Los Angeles Angels","hitter",0.168,0.1805,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hr_1plus","1+ home run","823834","669065","Kyle Stowers","Miami Marlins","Los Angeles Angels","hitter",0.1645,0.1765,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hr_1plus","1+ home run","823834","691788","Joe Mack","Miami Marlins","Los Angeles Angels","hitter",0.163,0.1735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hr_1plus","1+ home run","823514","642708","Amed Rosario","New York Yankees","Atlanta Braves","hitter",0.157,0.1685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hr_1plus","1+ home run","824726","678882","Ceddanne Rafaela","Boston Red Sox","Athletics","hitter",0.147,0.157,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hr_1plus","1+ home run","823514","645277","Ozzie Albies","Atlanta Braves","New York Yankees","hitter",0.1405,0.1475,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hr_1plus","1+ home run","823514","682987","Spencer Jones","New York Yankees","Atlanta Braves","hitter",0.1395,0.1485,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hr_1plus","1+ home run","823514","660670","Ronald Acuña Jr.","Atlanta Braves","New York Yankees","hitter",0.134,0.145,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hr_1plus","1+ home run","824726","642201","Eli White","Boston Red Sox","Athletics","hitter",0.133,0.1375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hr_1plus","1+ home run","824726","663330","Jahmai Jones","Boston Red Sox","Athletics","hitter",0.132,0.1375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hr_1plus","1+ home run","824726","655316","Andruw Monasterio","Boston Red Sox","Athletics","hitter",0.1115,0.117,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hr_1plus","1+ home run","824726","680776","Jarren Duran","Boston Red Sox","Athletics","hitter",0.107,0.109,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hr_1plus","1+ home run","823514","671218","Heliot Ramos","New York Yankees","Atlanta Braves","hitter",0.1035,0.1075,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hr_1plus","1+ home run","824726","702332","Caleb Durbin","Boston Red Sox","Athletics","hitter",0.1035,0.1105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hr_1plus","1+ home run","823514","806146","George Lombard Jr.","New York Yankees","Atlanta Braves","hitter",0.0985,0.1015,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hr_1plus","1+ home run","823514","663757","Trent Grisham","New York Yankees","Atlanta Braves","hitter",0.0975,0.1005,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hr_1plus","1+ home run","823514","663586","Austin Riley","Atlanta Braves","New York Yankees","hitter",0.0915,0.0965,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hr_1plus","1+ home run","823514","643289","Mauricio Dubón","Atlanta Braves","New York Yankees","hitter",0.088,0.09,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hr_1plus","1+ home run","823514","676609","José Caballero","New York Yankees","Atlanta Braves","hitter",0.0855,0.0875,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hr_1plus","1+ home run","823514","669224","Austin Wells","New York Yankees","Atlanta Braves","hitter",0.081,0.083,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_hr_1plus","1+ home run","823514","573262","Mike Yastrzemski","Atlanta Braves","New York Yankees","hitter",0.08,0.082,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_hr_1plus","1+ home run","823834","672640","Otto Lopez","Miami Marlins","Los Angeles Angels","hitter",0.0765,0.0795,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_hr_1plus","1+ home run","823834","805300","Jakob Marsee","Miami Marlins","Los Angeles Angels","hitter",0.06,0.061,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_hr_1plus","1+ home run","823834","669364","Xavier Edwards","Miami Marlins","Los Angeles Angels","hitter",0.0515,0.053,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_hr_1plus","1+ home run","823834","691594","Javier Sanoja","Miami Marlins","Los Angeles Angels","hitter",0.044,0.0445,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_hr_1plus","1+ home run","823514","805347","Jim Jarvis","Atlanta Braves","New York Yankees","hitter",0.04,0.0405,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_hr_1plus","1+ home run","824726","657136","Connor Wong","Boston Red Sox","Athletics","hitter",0.0375,0.0375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_hr_1plus","1+ home run","824726","686765","Nick Sogard","Boston Red Sox","Athletics","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hr_2plus","2+ home runs","823834","665052","Griffin Conine","Miami Marlins","Los Angeles Angels","hitter",0.027,0.2635,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"batter_hr_2plus","2+ home runs","823834","681715","Heriberto Hernández","Miami Marlins","Los Angeles Angels","hitter",0.019,0.2115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_hr_2plus","2+ home runs","824726","575929","Willson Contreras","Boston Red Sox","Athletics","hitter",0.0185,0.232,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_hr_2plus","2+ home runs","823514","621566","Matt Olson","Atlanta Braves","New York Yankees","hitter",0.0175,0.2465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_hr_2plus","2+ home runs","823514","700250","Ben Rice","New York Yankees","Atlanta Braves","hitter",0.016,0.224,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hr_2plus","2+ home runs","823514","686948","Drake Baldwin","Atlanta Braves","New York Yankees","hitter",0.0155,0.205,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_hr_2plus","2+ home runs","823514","671739","Michael Harris II","Atlanta Braves","New York Yankees","hitter",0.012,0.1945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hr_2plus","2+ home runs","823834","669065","Kyle Stowers","Miami Marlins","Los Angeles Angels","hitter",0.012,0.1765,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hr_2plus","2+ home runs","823514","502671","Paul Goldschmidt","New York Yankees","Atlanta Braves","hitter",0.0115,0.2095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hr_2plus","2+ home runs","823514","642708","Amed Rosario","New York Yankees","Atlanta Braves","hitter",0.0115,0.1685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hr_2plus","2+ home runs","823834","683357","Owen Caissie","Miami Marlins","Los Angeles Angels","hitter",0.0115,0.1805,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hr_2plus","2+ home runs","823834","691788","Joe Mack","Miami Marlins","Los Angeles Angels","hitter",0.01,0.1735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hr_2plus","2+ home runs","823514","660670","Ronald Acuña Jr.","Atlanta Braves","New York Yankees","hitter",0.009,0.145,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hr_2plus","2+ home runs","824726","678882","Ceddanne Rafaela","Boston Red Sox","Athletics","hitter",0.009,0.157,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hr_2plus","2+ home runs","823514","682987","Spencer Jones","New York Yankees","Atlanta Braves","hitter",0.0085,0.1485,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hr_2plus","2+ home runs","823514","645277","Ozzie Albies","Atlanta Braves","New York Yankees","hitter",0.0065,0.1475,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hr_2plus","2+ home runs","824726","702332","Caleb Durbin","Boston Red Sox","Athletics","hitter",0.0065,0.1105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hr_2plus","2+ home runs","824726","655316","Andruw Monasterio","Boston Red Sox","Athletics","hitter",0.0055,0.117,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hr_2plus","2+ home runs","823514","663586","Austin Riley","Atlanta Braves","New York Yankees","hitter",0.005,0.0965,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hr_2plus","2+ home runs","824726","663330","Jahmai Jones","Boston Red Sox","Athletics","hitter",0.005,0.1375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hr_2plus","2+ home runs","824726","642201","Eli White","Boston Red Sox","Athletics","hitter",0.0045,0.1375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hr_2plus","2+ home runs","823514","671218","Heliot Ramos","New York Yankees","Atlanta Braves","hitter",0.004,0.1075,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hr_2plus","2+ home runs","823514","663757","Trent Grisham","New York Yankees","Atlanta Braves","hitter",0.003,0.1005,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hr_2plus","2+ home runs","823514","806146","George Lombard Jr.","New York Yankees","Atlanta Braves","hitter",0.003,0.1015,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hr_2plus","2+ home runs","823834","672640","Otto Lopez","Miami Marlins","Los Angeles Angels","hitter",0.003,0.0795,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hr_2plus","2+ home runs","823514","643289","Mauricio Dubón","Atlanta Braves","New York Yankees","hitter",0.002,0.09,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hr_2plus","2+ home runs","823514","676609","José Caballero","New York Yankees","Atlanta Braves","hitter",0.002,0.0875,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hr_2plus","2+ home runs","823514","669224","Austin Wells","New York Yankees","Atlanta Braves","hitter",0.002,0.083,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_hr_2plus","2+ home runs","824726","680776","Jarren Duran","Boston Red Sox","Athletics","hitter",0.002,0.109,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_hr_2plus","2+ home runs","823514","573262","Mike Yastrzemski","Atlanta Braves","New York Yankees","hitter",0.0015,0.082,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_hr_2plus","2+ home runs","823834","669364","Xavier Edwards","Miami Marlins","Los Angeles Angels","hitter",0.0015,0.053,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_hr_2plus","2+ home runs","823834","805300","Jakob Marsee","Miami Marlins","Los Angeles Angels","hitter",0.001,0.061,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_hr_2plus","2+ home runs","823514","805347","Jim Jarvis","Atlanta Braves","New York Yankees","hitter",5e-04,0.0405,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_hr_2plus","2+ home runs","823834","691594","Javier Sanoja","Miami Marlins","Los Angeles Angels","hitter",5e-04,0.0445,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_hr_2plus","2+ home runs","824726","686765","Nick Sogard","Boston Red Sox","Athletics","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_hr_2plus","2+ home runs","824726","657136","Connor Wong","Boston Red Sox","Athletics","hitter",0,0.0375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_tb_2plus","2+ total bases","824726","678882","Ceddanne Rafaela","Boston Red Sox","Athletics","hitter",0.483,1.897,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"batter_tb_2plus","2+ total bases","823834","672640","Otto Lopez","Miami Marlins","Los Angeles Angels","hitter",0.4655,1.7275,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_tb_2plus","2+ total bases","824726","655316","Andruw Monasterio","Boston Red Sox","Athletics","hitter",0.454,1.7055,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_tb_2plus","2+ total bases","824726","575929","Willson Contreras","Boston Red Sox","Athletics","hitter",0.4505,1.9225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_tb_2plus","2+ total bases","824726","686765","Nick Sogard","Boston Red Sox","Athletics","hitter",0.426,1.3285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_tb_2plus","2+ total bases","823514","671739","Michael Harris II","Atlanta Braves","New York Yankees","hitter",0.4205,1.811,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_tb_2plus","2+ total bases","823514","621566","Matt Olson","Atlanta Braves","New York Yankees","hitter",0.4185,1.849,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_tb_2plus","2+ total bases","824726","702332","Caleb Durbin","Boston Red Sox","Athletics","hitter",0.4175,1.58,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_tb_2plus","2+ total bases","823834","669065","Kyle Stowers","Miami Marlins","Los Angeles Angels","hitter",0.412,1.6665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_tb_2plus","2+ total bases","824726","663330","Jahmai Jones","Boston Red Sox","Athletics","hitter",0.4085,1.63,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_tb_2plus","2+ total bases","823834","669364","Xavier Edwards","Miami Marlins","Los Angeles Angels","hitter",0.396,1.476,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_tb_2plus","2+ total bases","823514","686948","Drake Baldwin","Atlanta Braves","New York Yankees","hitter",0.383,1.7315,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_tb_2plus","2+ total bases","823834","691594","Javier Sanoja","Miami Marlins","Los Angeles Angels","hitter",0.379,1.3175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_tb_2plus","2+ total bases","823514","805347","Jim Jarvis","Atlanta Braves","New York Yankees","hitter",0.375,1.2975,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_tb_2plus","2+ total bases","823514","645277","Ozzie Albies","Atlanta Braves","New York Yankees","hitter",0.3745,1.5305,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_tb_2plus","2+ total bases","823514","502671","Paul Goldschmidt","New York Yankees","Atlanta Braves","hitter",0.373,1.6145,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_tb_2plus","2+ total bases","823514","643289","Mauricio Dubón","Atlanta Braves","New York Yankees","hitter",0.372,1.4195,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_tb_2plus","2+ total bases","823514","671218","Heliot Ramos","New York Yankees","Atlanta Braves","hitter",0.3705,1.43,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_tb_2plus","2+ total bases","823514","700250","Ben Rice","New York Yankees","Atlanta Braves","hitter",0.3705,1.6345,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_tb_2plus","2+ total bases","824726","642201","Eli White","Boston Red Sox","Athletics","hitter",0.3695,1.489,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_tb_2plus","2+ total bases","823514","660670","Ronald Acuña Jr.","Atlanta Braves","New York Yankees","hitter",0.3605,1.501,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_tb_2plus","2+ total bases","823834","681715","Heriberto Hernández","Miami Marlins","Los Angeles Angels","hitter",0.35,1.5625,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_tb_2plus","2+ total bases","824726","657136","Connor Wong","Boston Red Sox","Athletics","hitter",0.349,1.2355,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_tb_2plus","2+ total bases","823834","683357","Owen Caissie","Miami Marlins","Los Angeles Angels","hitter",0.337,1.467,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_tb_2plus","2+ total bases","823834","665052","Griffin Conine","Miami Marlins","Los Angeles Angels","hitter",0.3335,1.688,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_tb_2plus","2+ total bases","823514","573262","Mike Yastrzemski","Atlanta Braves","New York Yankees","hitter",0.332,1.2575,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_tb_2plus","2+ total bases","823834","805300","Jakob Marsee","Miami Marlins","Los Angeles Angels","hitter",0.3275,1.203,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_tb_2plus","2+ total bases","823834","691788","Joe Mack","Miami Marlins","Los Angeles Angels","hitter",0.3195,1.4135,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_tb_2plus","2+ total bases","823514","806146","George Lombard Jr.","New York Yankees","Atlanta Braves","hitter",0.303,1.2255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_tb_2plus","2+ total bases","824726","680776","Jarren Duran","Boston Red Sox","Athletics","hitter",0.297,1.203,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_tb_2plus","2+ total bases","823514","642708","Amed Rosario","New York Yankees","Atlanta Braves","hitter",0.293,1.3185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_tb_2plus","2+ total bases","823514","663586","Austin Riley","Atlanta Braves","New York Yankees","hitter",0.292,1.178,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_tb_2plus","2+ total bases","823514","663757","Trent Grisham","New York Yankees","Atlanta Braves","hitter",0.2905,1.162,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_tb_2plus","2+ total bases","823514","682987","Spencer Jones","New York Yankees","Atlanta Braves","hitter",0.273,1.243,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_tb_2plus","2+ total bases","823514","676609","José Caballero","New York Yankees","Atlanta Braves","hitter",0.2495,1.0685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_tb_2plus","2+ total bases","823514","669224","Austin Wells","New York Yankees","Atlanta Braves","hitter",0.196,0.8595,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_tb_3plus","3+ total bases","824726","575929","Willson Contreras","Boston Red Sox","Athletics","hitter",0.299,1.9225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"batter_tb_3plus","3+ total bases","823514","621566","Matt Olson","Atlanta Braves","New York Yankees","hitter",0.2935,1.849,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_tb_3plus","3+ total bases","824726","678882","Ceddanne Rafaela","Boston Red Sox","Athletics","hitter",0.284,1.897,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
 "batter_tb_3plus","3+ total bases","823514","671739","Michael Harris II","Atlanta Braves","New York Yankees","hitter",0.269,1.811,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_tb_3plus","3+ total bases","823514","700250","Ben Rice","New York Yankees","Atlanta Braves","hitter",0.2575,1.6345,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_tb_3plus","3+ total bases","823514","502671","Paul Goldschmidt","New York Yankees","Atlanta Braves","hitter",0.252,1.6145,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_tb_3plus","3+ total bases","824726","677800","Wilyer Abreu","Boston Red Sox","Athletics","hitter",0.2515,1.667,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_tb_3plus","3+ total bases","823514","686948","Drake Baldwin","Atlanta Braves","New York Yankees","hitter",0.2475,1.7315,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_tb_3plus","3+ total bases","824726","663330","Jahmai Jones","Boston Red Sox","Athletics","hitter",0.245,1.6505,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_tb_3plus","3+ total bases","824726","655316","Andruw Monasterio","Boston Red Sox","Athletics","hitter",0.243,1.616,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_tb_3plus","3+ total bases","823514","645277","Ozzie Albies","Atlanta Braves","New York Yankees","hitter",0.224,1.5305,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_tb_3plus","3+ total bases","823514","660670","Ronald Acuña Jr.","Atlanta Braves","New York Yankees","hitter",0.22,1.501,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_tb_3plus","3+ total bases","824726","702332","Caleb Durbin","Boston Red Sox","Athletics","hitter",0.218,1.5365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_tb_3plus","3+ total bases","824726","642201","Eli White","Boston Red Sox","Athletics","hitter",0.207,1.4565,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_tb_3plus","3+ total bases","823514","671218","Heliot Ramos","New York Yankees","Atlanta Braves","hitter",0.199,1.43,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_tb_3plus","3+ total bases","823514","643289","Mauricio Dubón","Atlanta Braves","New York Yankees","hitter",0.196,1.4195,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_tb_3plus","3+ total bases","823514","642708","Amed Rosario","New York Yankees","Atlanta Braves","hitter",0.19,1.3185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_tb_3plus","3+ total bases","823514","805347","Jim Jarvis","Atlanta Braves","New York Yankees","hitter",0.176,1.2975,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_tb_3plus","3+ total bases","823514","682987","Spencer Jones","New York Yankees","Atlanta Braves","hitter",0.173,1.243,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_tb_3plus","3+ total bases","824726","686765","Nick Sogard","Boston Red Sox","Athletics","hitter",0.171,1.297,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_tb_3plus","3+ total bases","823514","573262","Mike Yastrzemski","Atlanta Braves","New York Yankees","hitter",0.1665,1.2575,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_tb_3plus","3+ total bases","823514","806146","George Lombard Jr.","New York Yankees","Atlanta Braves","hitter",0.1625,1.2255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_tb_3plus","3+ total bases","823514","663757","Trent Grisham","New York Yankees","Atlanta Braves","hitter",0.156,1.162,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_tb_3plus","3+ total bases","823514","663586","Austin Riley","Atlanta Braves","New York Yankees","hitter",0.1525,1.178,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_tb_3plus","3+ total bases","824726","657136","Connor Wong","Boston Red Sox","Athletics","hitter",0.1525,1.2285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_tb_3plus","3+ total bases","823514","676609","José Caballero","New York Yankees","Atlanta Braves","hitter",0.1365,1.0685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_tb_3plus","3+ total bases","823514","669224","Austin Wells","New York Yankees","Atlanta Braves","hitter",0.1125,0.8595,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_xbh_1plus","1+ extra-base hit","824726","678882","Ceddanne Rafaela","Boston Red Sox","Athletics","hitter",0.382,0.456,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_xbh_1plus","1+ extra-base hit","824726","686765","Nick Sogard","Boston Red Sox","Athletics","hitter",0.376,0.441,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_xbh_1plus","1+ extra-base hit","824726","655316","Andruw Monasterio","Boston Red Sox","Athletics","hitter",0.374,0.443,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_xbh_1plus","1+ extra-base hit","824726","575929","Willson Contreras","Boston Red Sox","Athletics","hitter",0.352,0.4085,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_xbh_1plus","1+ extra-base hit","823514","621566","Matt Olson","Atlanta Braves","New York Yankees","hitter",0.3495,0.4115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_xbh_1plus","1+ extra-base hit","824726","677800","Wilyer Abreu","Boston Red Sox","Athletics","hitter",0.3475,0.4035,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_xbh_1plus","1+ extra-base hit","823514","805347","Jim Jarvis","Atlanta Braves","New York Yankees","hitter",0.3275,0.376,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_xbh_1plus","1+ extra-base hit","824726","702332","Caleb Durbin","Boston Red Sox","Athletics","hitter",0.327,0.374,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_xbh_1plus","1+ extra-base hit","823514","671739","Michael Harris II","Atlanta Braves","New York Yankees","hitter",0.316,0.363,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_xbh_1plus","1+ extra-base hit","824726","663330","Jahmai Jones","Boston Red Sox","Athletics","hitter",0.314,0.361,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_xbh_1plus","1+ extra-base hit","823514","700250","Ben Rice","New York Yankees","Atlanta Braves","hitter",0.3085,0.353,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_xbh_1plus","1+ extra-base hit","824726","642201","Eli White","Boston Red Sox","Athletics","hitter",0.298,0.3375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_xbh_1plus","1+ extra-base hit","823514","660670","Ronald Acuña Jr.","Atlanta Braves","New York Yankees","hitter",0.2945,0.3465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_xbh_1plus","1+ extra-base hit","823514","671218","Heliot Ramos","New York Yankees","Atlanta Braves","hitter",0.2925,0.3255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_xbh_1plus","1+ extra-base hit","823514","643289","Mauricio Dubón","Atlanta Braves","New York Yankees","hitter",0.2875,0.3225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_xbh_1plus","1+ extra-base hit","823514","502671","Paul Goldschmidt","New York Yankees","Atlanta Braves","hitter",0.2845,0.312,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_xbh_1plus","1+ extra-base hit","824726","657136","Connor Wong","Boston Red Sox","Athletics","hitter",0.2765,0.3135,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_xbh_1plus","1+ extra-base hit","823514","645277","Ozzie Albies","Atlanta Braves","New York Yankees","hitter",0.273,0.3025,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_xbh_1plus","1+ extra-base hit","823514","573262","Mike Yastrzemski","Atlanta Braves","New York Yankees","hitter",0.2615,0.296,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_xbh_1plus","1+ extra-base hit","823514","686948","Drake Baldwin","Atlanta Braves","New York Yankees","hitter",0.2535,0.287,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_xbh_1plus","1+ extra-base hit","823514","663757","Trent Grisham","New York Yankees","Atlanta Braves","hitter",0.2495,0.2775,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_xbh_1plus","1+ extra-base hit","823514","806146","George Lombard Jr.","New York Yankees","Atlanta Braves","hitter",0.244,0.2665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_xbh_1plus","1+ extra-base hit","823514","663586","Austin Riley","Atlanta Braves","New York Yankees","hitter",0.229,0.2535,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_xbh_1plus","1+ extra-base hit","823514","642708","Amed Rosario","New York Yankees","Atlanta Braves","hitter",0.221,0.2415,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_xbh_1plus","1+ extra-base hit","823514","682987","Spencer Jones","New York Yankees","Atlanta Braves","hitter",0.1965,0.2175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_xbh_1plus","1+ extra-base hit","823514","676609","José Caballero","New York Yankees","Atlanta Braves","hitter",0.1955,0.2135,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_xbh_1plus","1+ extra-base hit","823514","669224","Austin Wells","New York Yankees","Atlanta Braves","hitter",0.1645,0.1715,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_tb_3plus","3+ total bases","824726","655316","Andruw Monasterio","Boston Red Sox","Athletics","hitter",0.262,1.7055,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_tb_3plus","3+ total bases","823514","700250","Ben Rice","New York Yankees","Atlanta Braves","hitter",0.2575,1.6345,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_tb_3plus","3+ total bases","823834","669065","Kyle Stowers","Miami Marlins","Los Angeles Angels","hitter",0.2575,1.6665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_tb_3plus","3+ total bases","823834","672640","Otto Lopez","Miami Marlins","Los Angeles Angels","hitter",0.255,1.7275,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_tb_3plus","3+ total bases","823514","502671","Paul Goldschmidt","New York Yankees","Atlanta Braves","hitter",0.252,1.6145,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_tb_3plus","3+ total bases","823834","665052","Griffin Conine","Miami Marlins","Los Angeles Angels","hitter",0.2515,1.688,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_tb_3plus","3+ total bases","823514","686948","Drake Baldwin","Atlanta Braves","New York Yankees","hitter",0.2475,1.7315,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_tb_3plus","3+ total bases","824726","663330","Jahmai Jones","Boston Red Sox","Athletics","hitter",0.238,1.63,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_tb_3plus","3+ total bases","823834","681715","Heriberto Hernández","Miami Marlins","Los Angeles Angels","hitter",0.236,1.5625,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_tb_3plus","3+ total bases","824726","702332","Caleb Durbin","Boston Red Sox","Athletics","hitter",0.225,1.58,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_tb_3plus","3+ total bases","823514","645277","Ozzie Albies","Atlanta Braves","New York Yankees","hitter",0.224,1.5305,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_tb_3plus","3+ total bases","823834","683357","Owen Caissie","Miami Marlins","Los Angeles Angels","hitter",0.224,1.467,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_tb_3plus","3+ total bases","823514","660670","Ronald Acuña Jr.","Atlanta Braves","New York Yankees","hitter",0.22,1.501,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_tb_3plus","3+ total bases","824726","642201","Eli White","Boston Red Sox","Athletics","hitter",0.217,1.489,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_tb_3plus","3+ total bases","823834","669364","Xavier Edwards","Miami Marlins","Los Angeles Angels","hitter",0.21,1.476,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_tb_3plus","3+ total bases","823834","691788","Joe Mack","Miami Marlins","Los Angeles Angels","hitter",0.204,1.4135,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_tb_3plus","3+ total bases","823514","671218","Heliot Ramos","New York Yankees","Atlanta Braves","hitter",0.199,1.43,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_tb_3plus","3+ total bases","823514","643289","Mauricio Dubón","Atlanta Braves","New York Yankees","hitter",0.196,1.4195,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_tb_3plus","3+ total bases","823514","642708","Amed Rosario","New York Yankees","Atlanta Braves","hitter",0.19,1.3185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_tb_3plus","3+ total bases","823514","805347","Jim Jarvis","Atlanta Braves","New York Yankees","hitter",0.176,1.2975,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_tb_3plus","3+ total bases","824726","686765","Nick Sogard","Boston Red Sox","Athletics","hitter",0.174,1.3285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_tb_3plus","3+ total bases","823514","682987","Spencer Jones","New York Yankees","Atlanta Braves","hitter",0.173,1.243,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_tb_3plus","3+ total bases","823834","691594","Javier Sanoja","Miami Marlins","Los Angeles Angels","hitter",0.171,1.3175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_tb_3plus","3+ total bases","824726","680776","Jarren Duran","Boston Red Sox","Athletics","hitter",0.168,1.203,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_tb_3plus","3+ total bases","823514","573262","Mike Yastrzemski","Atlanta Braves","New York Yankees","hitter",0.1665,1.2575,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_tb_3plus","3+ total bases","823514","806146","George Lombard Jr.","New York Yankees","Atlanta Braves","hitter",0.1625,1.2255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_tb_3plus","3+ total bases","824726","657136","Connor Wong","Boston Red Sox","Athletics","hitter",0.159,1.2355,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_tb_3plus","3+ total bases","823514","663757","Trent Grisham","New York Yankees","Atlanta Braves","hitter",0.156,1.162,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_tb_3plus","3+ total bases","823514","663586","Austin Riley","Atlanta Braves","New York Yankees","hitter",0.1525,1.178,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_tb_3plus","3+ total bases","823834","805300","Jakob Marsee","Miami Marlins","Los Angeles Angels","hitter",0.1515,1.203,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_tb_3plus","3+ total bases","823514","676609","José Caballero","New York Yankees","Atlanta Braves","hitter",0.1365,1.0685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_tb_3plus","3+ total bases","823514","669224","Austin Wells","New York Yankees","Atlanta Braves","hitter",0.1125,0.8595,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_xbh_1plus","1+ extra-base hit","824726","655316","Andruw Monasterio","Boston Red Sox","Athletics","hitter",0.395,0.4785,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"batter_xbh_1plus","1+ extra-base hit","824726","678882","Ceddanne Rafaela","Boston Red Sox","Athletics","hitter",0.3805,0.45,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_xbh_1plus","1+ extra-base hit","824726","686765","Nick Sogard","Boston Red Sox","Athletics","hitter",0.38,0.447,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_xbh_1plus","1+ extra-base hit","823834","669065","Kyle Stowers","Miami Marlins","Los Angeles Angels","hitter",0.3655,0.4255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_xbh_1plus","1+ extra-base hit","824726","575929","Willson Contreras","Boston Red Sox","Athletics","hitter",0.3635,0.423,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_xbh_1plus","1+ extra-base hit","823834","672640","Otto Lopez","Miami Marlins","Los Angeles Angels","hitter",0.363,0.4315,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_xbh_1plus","1+ extra-base hit","823514","621566","Matt Olson","Atlanta Braves","New York Yankees","hitter",0.3495,0.4115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_xbh_1plus","1+ extra-base hit","824726","702332","Caleb Durbin","Boston Red Sox","Athletics","hitter",0.329,0.3795,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_xbh_1plus","1+ extra-base hit","823514","805347","Jim Jarvis","Atlanta Braves","New York Yankees","hitter",0.3275,0.376,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_xbh_1plus","1+ extra-base hit","823514","671739","Michael Harris II","Atlanta Braves","New York Yankees","hitter",0.316,0.363,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_xbh_1plus","1+ extra-base hit","824726","663330","Jahmai Jones","Boston Red Sox","Athletics","hitter",0.3155,0.3565,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_xbh_1plus","1+ extra-base hit","823834","691594","Javier Sanoja","Miami Marlins","Los Angeles Angels","hitter",0.3135,0.3555,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_xbh_1plus","1+ extra-base hit","823514","700250","Ben Rice","New York Yankees","Atlanta Braves","hitter",0.3085,0.353,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_xbh_1plus","1+ extra-base hit","824726","642201","Eli White","Boston Red Sox","Athletics","hitter",0.3,0.3335,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_xbh_1plus","1+ extra-base hit","823514","660670","Ronald Acuña Jr.","Atlanta Braves","New York Yankees","hitter",0.2945,0.3465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_xbh_1plus","1+ extra-base hit","823514","671218","Heliot Ramos","New York Yankees","Atlanta Braves","hitter",0.2925,0.3255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_xbh_1plus","1+ extra-base hit","823834","669364","Xavier Edwards","Miami Marlins","Los Angeles Angels","hitter",0.2895,0.332,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_xbh_1plus","1+ extra-base hit","823834","681715","Heriberto Hernández","Miami Marlins","Los Angeles Angels","hitter",0.288,0.3285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_xbh_1plus","1+ extra-base hit","823514","643289","Mauricio Dubón","Atlanta Braves","New York Yankees","hitter",0.2875,0.3225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_xbh_1plus","1+ extra-base hit","823514","502671","Paul Goldschmidt","New York Yankees","Atlanta Braves","hitter",0.2845,0.312,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_xbh_1plus","1+ extra-base hit","824726","657136","Connor Wong","Boston Red Sox","Athletics","hitter",0.283,0.319,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_xbh_1plus","1+ extra-base hit","823834","683357","Owen Caissie","Miami Marlins","Los Angeles Angels","hitter",0.2785,0.318,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_xbh_1plus","1+ extra-base hit","823834","805300","Jakob Marsee","Miami Marlins","Los Angeles Angels","hitter",0.2755,0.3105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_xbh_1plus","1+ extra-base hit","823514","645277","Ozzie Albies","Atlanta Braves","New York Yankees","hitter",0.273,0.3025,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_xbh_1plus","1+ extra-base hit","823514","573262","Mike Yastrzemski","Atlanta Braves","New York Yankees","hitter",0.2615,0.296,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_xbh_1plus","1+ extra-base hit","823514","686948","Drake Baldwin","Atlanta Braves","New York Yankees","hitter",0.2535,0.287,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_xbh_1plus","1+ extra-base hit","823514","663757","Trent Grisham","New York Yankees","Atlanta Braves","hitter",0.2495,0.2775,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_xbh_1plus","1+ extra-base hit","823834","691788","Joe Mack","Miami Marlins","Los Angeles Angels","hitter",0.247,0.274,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_xbh_1plus","1+ extra-base hit","823514","806146","George Lombard Jr.","New York Yankees","Atlanta Braves","hitter",0.244,0.2665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_xbh_1plus","1+ extra-base hit","824726","680776","Jarren Duran","Boston Red Sox","Athletics","hitter",0.2435,0.266,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_xbh_1plus","1+ extra-base hit","823834","665052","Griffin Conine","Miami Marlins","Los Angeles Angels","hitter",0.2365,0.2635,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_xbh_1plus","1+ extra-base hit","823514","663586","Austin Riley","Atlanta Braves","New York Yankees","hitter",0.229,0.2535,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_xbh_1plus","1+ extra-base hit","823514","642708","Amed Rosario","New York Yankees","Atlanta Braves","hitter",0.221,0.2415,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_xbh_1plus","1+ extra-base hit","823514","682987","Spencer Jones","New York Yankees","Atlanta Braves","hitter",0.1965,0.2175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_xbh_1plus","1+ extra-base hit","823514","676609","José Caballero","New York Yankees","Atlanta Braves","hitter",0.1955,0.2135,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_xbh_1plus","1+ extra-base hit","823514","669224","Austin Wells","New York Yankees","Atlanta Braves","hitter",0.1645,0.1715,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
 "pitcher_k_10plus","10+ strikeouts","823514","519242","Chris Sale","Atlanta Braves","New York Yankees","pitcher",0.1015,6.611,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"pitcher_k_10plus","10+ strikeouts","823514","543037","Gerrit Cole","New York Yankees","Atlanta Braves","pitcher",0.028,5.3445,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"pitcher_k_10plus","10+ strikeouts","824726","695611","Gage Jump","Athletics","Boston Red Sox","pitcher",0.0165,4.987,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_10plus","10+ strikeouts","823834","700712","Walbert Ureña","Los Angeles Angels","Miami Marlins","pitcher",0.0315,5.3495,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"pitcher_k_10plus","10+ strikeouts","823514","543037","Gerrit Cole","New York Yankees","Atlanta Braves","pitcher",0.028,5.3445,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_10plus","10+ strikeouts","824726","695611","Gage Jump","Athletics","Boston Red Sox","pitcher",0.0195,5.139,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
 "pitcher_k_5plus","5+ strikeouts","823514","519242","Chris Sale","Atlanta Braves","New York Yankees","pitcher",0.82,6.611,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "pitcher_k_5plus","5+ strikeouts","823514","543037","Gerrit Cole","New York Yankees","Atlanta Braves","pitcher",0.6465,5.3445,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"pitcher_k_5plus","5+ strikeouts","824726","695611","Gage Jump","Athletics","Boston Red Sox","pitcher",0.57,4.987,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_5plus","5+ strikeouts","823834","700712","Walbert Ureña","Los Angeles Angels","Miami Marlins","pitcher",0.6425,5.3495,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_5plus","5+ strikeouts","824726","695611","Gage Jump","Athletics","Boston Red Sox","pitcher",0.6045,5.139,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
 "pitcher_k_7plus","7+ strikeouts","823514","519242","Chris Sale","Atlanta Braves","New York Yankees","pitcher",0.505,6.611,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "pitcher_k_7plus","7+ strikeouts","823514","543037","Gerrit Cole","New York Yankees","Atlanta Braves","pitcher",0.2815,5.3445,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"pitcher_k_7plus","7+ strikeouts","824726","695611","Gage Jump","Athletics","Boston Red Sox","pitcher",0.2245,4.987,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_7plus","7+ strikeouts","823834","700712","Walbert Ureña","Los Angeles Angels","Miami Marlins","pitcher",0.276,5.3495,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_7plus","7+ strikeouts","824726","695611","Gage Jump","Athletics","Boston Red Sox","pitcher",0.249,5.139,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
