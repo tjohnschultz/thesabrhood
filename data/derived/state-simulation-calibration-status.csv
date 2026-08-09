@@ -1,2 +1,2 @@
 "settled_games","training_games","holdout_games","raw_holdout_brier","calibrated_holdout_brier","raw_holdout_runs_mae","calibrated_holdout_runs_mae","probability_improvement","runs_improvement","deployment_approved","status","method","model_version"
-118,0,0,,,,,,,FALSE,"awaiting 182 more settled forecasts for plate_appearance_state_machine_phase5_manager_hook_v1","chronological_70_30_state_gate_v2","plate_appearance_state_machine_phase5_manager_hook_v1"
+133,0,0,,,,,,,FALSE,"awaiting 167 more settled forecasts for plate_appearance_state_machine_phase5_manager_hook_v1","chronological_70_30_state_gate_v2","plate_appearance_state_machine_phase5_manager_hook_v1"
