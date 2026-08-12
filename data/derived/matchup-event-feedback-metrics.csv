@@ -1,2 +1,2 @@
 "eligible_matchups","settled_matchups","observed_plate_appearances","multiclass_log_loss","multiclass_brier_score","predicted_woba","observed_woba","calibration_status","model_version"
-3176,3081,7536,1.4583365596577,0.690648458058678,0.312527901539242,0.305475053078556,"eligible for event calibration review","multinomial_log5_platoon_form_v1"
+3448,3351,8218,1.45596793195067,0.689154877315075,0.312354262420218,0.305313944998783,"eligible for event calibration review","multinomial_log5_platoon_form_v1"
