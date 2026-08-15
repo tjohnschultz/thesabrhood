@@ -1,133 +1,331 @@
 "metric_id","metric_label","game_id","player_id","player_name","team","opponent","role","probability","expected_value","simulations","model_version","publication_status","metric_rank"
 "batter_hit_1plus","1+ hit","824239","680664","Eduardo Valencia","Detroit Tigers","Chicago White Sox","hitter",0.734,1.1315,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "batter_hit_1plus","1+ hit","824239","701678","Hao-Yu Lee","Detroit Tigers","Chicago White Sox","hitter",0.726,1.116,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_hit_1plus","1+ hit","824239","693307","Dillon Dingler","Detroit Tigers","Chicago White Sox","hitter",0.7095,1.0875,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_hit_1plus","1+ hit","824239","650402","Gleyber Torres","Detroit Tigers","Chicago White Sox","hitter",0.706,1.0845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hit_1plus","1+ hit","824239","803011","Sam Antonacci","Chicago White Sox","Detroit Tigers","hitter",0.691,1.0365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_hit_1plus","1+ hit","824239","595879","Javier Báez","Detroit Tigers","Chicago White Sox","hitter",0.6785,0.9855,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hit_1plus","1+ hit","824239","805808","Kevin McGonigle","Detroit Tigers","Chicago White Sox","hitter",0.6765,0.9975,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hit_1plus","1+ hit","824239","701162","Ben Malgeri","Detroit Tigers","Chicago White Sox","hitter",0.6385,0.9155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hit_1plus","1+ hit","824239","671976","Tristan Peters","Chicago White Sox","Detroit Tigers","hitter",0.6325,0.8755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hit_1plus","1+ hit","824239","805367","Chase Meidroth","Chicago White Sox","Detroit Tigers","hitter",0.6175,0.853,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hit_1plus","1+ hit","824239","643217","Andrew Benintendi","Chicago White Sox","Detroit Tigers","hitter",0.608,0.859,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hit_1plus","1+ hit","824239","678246","Miguel Vargas","Chicago White Sox","Detroit Tigers","hitter",0.601,0.8225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hit_1plus","1+ hit","824239","695731","Braden Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.598,0.812,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hit_1plus","1+ hit","824239","667452","Corey Julks","Detroit Tigers","Chicago White Sox","hitter",0.598,0.823,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hit_1plus","1+ hit","824239","679529","Spencer Torkelson","Detroit Tigers","Chicago White Sox","hitter",0.5925,0.8125,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hit_1plus","1+ hit","824239","808959","Munetaka Murakami","Chicago White Sox","Detroit Tigers","hitter",0.5825,0.8045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hit_1plus","1+ hit","824239","668670","Jake Rogers","Chicago White Sox","Detroit Tigers","hitter",0.5685,0.754,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hit_1plus","1+ hit","824239","695657","Colson Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.544,0.7285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_hit_2plus","2+ hits","824239","701678","Hao-Yu Lee","Detroit Tigers","Chicago White Sox","hitter",0.3175,1.116,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_hit_2plus","2+ hits","824239","680664","Eduardo Valencia","Detroit Tigers","Chicago White Sox","hitter",0.3145,1.1315,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_hit_2plus","2+ hits","824239","693307","Dillon Dingler","Detroit Tigers","Chicago White Sox","hitter",0.3,1.0875,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_hit_2plus","2+ hits","824239","650402","Gleyber Torres","Detroit Tigers","Chicago White Sox","hitter",0.2985,1.0845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hit_2plus","2+ hits","824239","803011","Sam Antonacci","Chicago White Sox","Detroit Tigers","hitter",0.277,1.0365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_hit_2plus","2+ hits","824239","805808","Kevin McGonigle","Detroit Tigers","Chicago White Sox","hitter",0.2625,0.9975,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hit_2plus","2+ hits","824239","595879","Javier Báez","Detroit Tigers","Chicago White Sox","hitter",0.259,0.9855,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hit_2plus","2+ hits","824239","701162","Ben Malgeri","Detroit Tigers","Chicago White Sox","hitter",0.232,0.9155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hit_2plus","2+ hits","824239","643217","Andrew Benintendi","Chicago White Sox","Detroit Tigers","hitter",0.213,0.859,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hit_2plus","2+ hits","824239","671976","Tristan Peters","Chicago White Sox","Detroit Tigers","hitter",0.2065,0.8755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hit_2plus","2+ hits","824239","805367","Chase Meidroth","Chicago White Sox","Detroit Tigers","hitter",0.2055,0.853,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hit_2plus","2+ hits","824239","667452","Corey Julks","Detroit Tigers","Chicago White Sox","hitter",0.1945,0.823,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hit_2plus","2+ hits","824239","808959","Munetaka Murakami","Chicago White Sox","Detroit Tigers","hitter",0.1875,0.8045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hit_2plus","2+ hits","824239","679529","Spencer Torkelson","Detroit Tigers","Chicago White Sox","hitter",0.186,0.8125,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hit_2plus","2+ hits","824239","678246","Miguel Vargas","Chicago White Sox","Detroit Tigers","hitter",0.184,0.8225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hit_2plus","2+ hits","824239","695731","Braden Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.182,0.812,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hit_2plus","2+ hits","824239","668670","Jake Rogers","Chicago White Sox","Detroit Tigers","hitter",0.1605,0.754,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hit_2plus","2+ hits","824239","695657","Colson Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.1595,0.7285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hit_1plus","1+ hit","824644","691718","Pete Crow-Armstrong","Chicago Cubs","St. Louis Cardinals","hitter",0.722,1.1395,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_hit_1plus","1+ hit","824239","693307","Dillon Dingler","Detroit Tigers","Chicago White Sox","hitter",0.7095,1.0875,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_hit_1plus","1+ hit","824239","650402","Gleyber Torres","Detroit Tigers","Chicago White Sox","hitter",0.706,1.0845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hit_1plus","1+ hit","824239","803011","Sam Antonacci","Chicago White Sox","Detroit Tigers","hitter",0.691,1.0365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_hit_1plus","1+ hit","824239","595879","Javier Báez","Detroit Tigers","Chicago White Sox","hitter",0.6785,0.9855,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hit_1plus","1+ hit","824644","699393","Pedro Ramírez","Chicago Cubs","St. Louis Cardinals","hitter",0.6785,0.9725,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hit_1plus","1+ hit","824239","805808","Kevin McGonigle","Detroit Tigers","Chicago White Sox","hitter",0.6765,0.9975,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hit_1plus","1+ hit","824644","663538","Nico Hoerner","Chicago Cubs","St. Louis Cardinals","hitter",0.6755,0.9715,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hit_1plus","1+ hit","824644","676475","Alec Burleson","St. Louis Cardinals","Chicago Cubs","hitter",0.6735,0.9895,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hit_1plus","1+ hit","824644","691023","Jordan Walker","St. Louis Cardinals","Chicago Cubs","hitter",0.673,0.998,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hit_1plus","1+ hit","824644","673548","Seiya Suzuki","Chicago Cubs","St. Louis Cardinals","hitter",0.673,1.0225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hit_1plus","1+ hit","824644","683737","Michael Busch","Chicago Cubs","St. Louis Cardinals","hitter",0.656,0.9365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hit_1plus","1+ hit","824644","671056","Iván Herrera","St. Louis Cardinals","Chicago Cubs","hitter",0.6535,0.9305,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hit_1plus","1+ hit","824644","802139","JJ Wetherholt","St. Louis Cardinals","Chicago Cubs","hitter",0.6445,0.9255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hit_1plus","1+ hit","824644","608324","Alex Bregman","Chicago Cubs","St. Louis Cardinals","hitter",0.6415,0.932,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hit_1plus","1+ hit","824644","695491","Joshua Báez","St. Louis Cardinals","Chicago Cubs","hitter",0.64,0.876,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hit_1plus","1+ hit","824239","701162","Ben Malgeri","Detroit Tigers","Chicago White Sox","hitter",0.6385,0.9155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hit_1plus","1+ hit","824644","691026","Masyn Winn","St. Louis Cardinals","Chicago Cubs","hitter",0.6345,0.8875,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hit_1plus","1+ hit","822775","664770","Nathan Lukes","Toronto Blue Jays","New York Yankees","hitter",0.633,0.897,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hit_1plus","1+ hit","824239","671976","Tristan Peters","Chicago White Sox","Detroit Tigers","hitter",0.6325,0.8755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hit_1plus","1+ hit","822775","660821","Jesús Sánchez","Toronto Blue Jays","New York Yankees","hitter",0.6295,0.8845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hit_1plus","1+ hit","824239","805367","Chase Meidroth","Chicago White Sox","Detroit Tigers","hitter",0.6175,0.853,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hit_1plus","1+ hit","824239","643217","Andrew Benintendi","Chicago White Sox","Detroit Tigers","hitter",0.608,0.859,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hit_1plus","1+ hit","824644","691458","Blaze Jordan","St. Louis Cardinals","Chicago Cubs","hitter",0.6065,0.833,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hit_1plus","1+ hit","824644","665804","Miguel Amaya","Chicago Cubs","St. Louis Cardinals","hitter",0.606,0.834,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hit_1plus","1+ hit","824644","664023","Ian Happ","Chicago Cubs","St. Louis Cardinals","hitter",0.6035,0.831,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_hit_1plus","1+ hit","824239","678246","Miguel Vargas","Chicago White Sox","Detroit Tigers","hitter",0.601,0.8225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_hit_1plus","1+ hit","822775","703520","Brett Bateman","Toronto Blue Jays","New York Yankees","hitter",0.5995,0.8325,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_hit_1plus","1+ hit","824239","695731","Braden Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.598,0.812,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_hit_1plus","1+ hit","824239","667452","Corey Julks","Detroit Tigers","Chicago White Sox","hitter",0.598,0.823,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_hit_1plus","1+ hit","824239","679529","Spencer Torkelson","Detroit Tigers","Chicago White Sox","hitter",0.5925,0.8125,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_hit_1plus","1+ hit","824644","624424","Michael Conforto","Chicago Cubs","St. Louis Cardinals","hitter",0.5855,0.802,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_hit_1plus","1+ hit","824239","808959","Munetaka Murakami","Chicago White Sox","Detroit Tigers","hitter",0.5825,0.8045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_hit_1plus","1+ hit","822775","672386","Alejandro Kirk","Toronto Blue Jays","New York Yankees","hitter",0.5755,0.788,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hit_1plus","1+ hit","824239","668670","Jake Rogers","Chicago White Sox","Detroit Tigers","hitter",0.5685,0.754,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_hit_1plus","1+ hit","822775","665926","Andrés Giménez","Toronto Blue Jays","New York Yankees","hitter",0.554,0.7355,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_hit_1plus","1+ hit","824644","677592","Everson Pereira","St. Louis Cardinals","Chicago Cubs","hitter",0.552,0.736,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_hit_1plus","1+ hit","824239","695657","Colson Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.544,0.7285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_hit_1plus","1+ hit","822775","672960","Kazuma Okamoto","Toronto Blue Jays","New York Yankees","hitter",0.5435,0.7215,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_hit_1plus","1+ hit","822775","678218","Brandon Valenzuela","Toronto Blue Jays","New York Yankees","hitter",0.541,0.705,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_hit_1plus","1+ hit","824644","686780","Pedro Pagés","St. Louis Cardinals","Chicago Cubs","hitter",0.528,0.6935,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_hit_1plus","1+ hit","822775","669701","Josh Smith","Toronto Blue Jays","New York Yankees","hitter",0.5045,0.646,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_hit_1plus","1+ hit","822775","807727","Charles McAdoo","Toronto Blue Jays","New York Yankees","hitter",0.4885,0.623,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
+"batter_hit_2plus","2+ hits","824644","691718","Pete Crow-Armstrong","Chicago Cubs","St. Louis Cardinals","hitter",0.324,1.1395,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"batter_hit_2plus","2+ hits","824239","701678","Hao-Yu Lee","Detroit Tigers","Chicago White Sox","hitter",0.3175,1.116,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_hit_2plus","2+ hits","824239","680664","Eduardo Valencia","Detroit Tigers","Chicago White Sox","hitter",0.3145,1.1315,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_hit_2plus","2+ hits","824239","693307","Dillon Dingler","Detroit Tigers","Chicago White Sox","hitter",0.3,1.0875,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_hit_2plus","2+ hits","824239","650402","Gleyber Torres","Detroit Tigers","Chicago White Sox","hitter",0.2985,1.0845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hit_2plus","2+ hits","824239","803011","Sam Antonacci","Chicago White Sox","Detroit Tigers","hitter",0.277,1.0365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_hit_2plus","2+ hits","824644","673548","Seiya Suzuki","Chicago Cubs","St. Louis Cardinals","hitter",0.2765,1.0225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hit_2plus","2+ hits","824644","676475","Alec Burleson","St. Louis Cardinals","Chicago Cubs","hitter",0.267,0.9895,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hit_2plus","2+ hits","824239","805808","Kevin McGonigle","Detroit Tigers","Chicago White Sox","hitter",0.2625,0.9975,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hit_2plus","2+ hits","824644","691023","Jordan Walker","St. Louis Cardinals","Chicago Cubs","hitter",0.262,0.998,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hit_2plus","2+ hits","824239","595879","Javier Báez","Detroit Tigers","Chicago White Sox","hitter",0.259,0.9855,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hit_2plus","2+ hits","824644","699393","Pedro Ramírez","Chicago Cubs","St. Louis Cardinals","hitter",0.251,0.9725,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hit_2plus","2+ hits","824644","663538","Nico Hoerner","Chicago Cubs","St. Louis Cardinals","hitter",0.247,0.9715,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hit_2plus","2+ hits","824644","608324","Alex Bregman","Chicago Cubs","St. Louis Cardinals","hitter",0.245,0.932,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hit_2plus","2+ hits","824239","701162","Ben Malgeri","Detroit Tigers","Chicago White Sox","hitter",0.232,0.9155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hit_2plus","2+ hits","824644","671056","Iván Herrera","St. Louis Cardinals","Chicago Cubs","hitter",0.2265,0.9305,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hit_2plus","2+ hits","824644","802139","JJ Wetherholt","St. Louis Cardinals","Chicago Cubs","hitter",0.2255,0.9255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hit_2plus","2+ hits","824644","683737","Michael Busch","Chicago Cubs","St. Louis Cardinals","hitter",0.225,0.9365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hit_2plus","2+ hits","822775","664770","Nathan Lukes","Toronto Blue Jays","New York Yankees","hitter",0.2145,0.897,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hit_2plus","2+ hits","824239","643217","Andrew Benintendi","Chicago White Sox","Detroit Tigers","hitter",0.213,0.859,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hit_2plus","2+ hits","824644","691026","Masyn Winn","St. Louis Cardinals","Chicago Cubs","hitter",0.2115,0.8875,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hit_2plus","2+ hits","822775","660821","Jesús Sánchez","Toronto Blue Jays","New York Yankees","hitter",0.21,0.8845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hit_2plus","2+ hits","824239","671976","Tristan Peters","Chicago White Sox","Detroit Tigers","hitter",0.2065,0.8755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hit_2plus","2+ hits","824239","805367","Chase Meidroth","Chicago White Sox","Detroit Tigers","hitter",0.2055,0.853,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hit_2plus","2+ hits","824644","695491","Joshua Báez","St. Louis Cardinals","Chicago Cubs","hitter",0.203,0.876,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hit_2plus","2+ hits","824644","691458","Blaze Jordan","St. Louis Cardinals","Chicago Cubs","hitter",0.2005,0.833,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hit_2plus","2+ hits","824644","664023","Ian Happ","Chicago Cubs","St. Louis Cardinals","hitter",0.195,0.831,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hit_2plus","2+ hits","824239","667452","Corey Julks","Detroit Tigers","Chicago White Sox","hitter",0.1945,0.823,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_hit_2plus","2+ hits","824644","665804","Miguel Amaya","Chicago Cubs","St. Louis Cardinals","hitter",0.193,0.834,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_hit_2plus","2+ hits","822775","703520","Brett Bateman","Toronto Blue Jays","New York Yankees","hitter",0.192,0.8325,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_hit_2plus","2+ hits","824644","624424","Michael Conforto","Chicago Cubs","St. Louis Cardinals","hitter",0.189,0.802,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_hit_2plus","2+ hits","824239","808959","Munetaka Murakami","Chicago White Sox","Detroit Tigers","hitter",0.1875,0.8045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_hit_2plus","2+ hits","824239","679529","Spencer Torkelson","Detroit Tigers","Chicago White Sox","hitter",0.186,0.8125,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_hit_2plus","2+ hits","824239","678246","Miguel Vargas","Chicago White Sox","Detroit Tigers","hitter",0.184,0.8225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_hit_2plus","2+ hits","824239","695731","Braden Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.182,0.812,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_hit_2plus","2+ hits","822775","672386","Alejandro Kirk","Toronto Blue Jays","New York Yankees","hitter",0.1805,0.788,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hit_2plus","2+ hits","824644","677592","Everson Pereira","St. Louis Cardinals","Chicago Cubs","hitter",0.165,0.736,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_hit_2plus","2+ hits","824239","668670","Jake Rogers","Chicago White Sox","Detroit Tigers","hitter",0.1605,0.754,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_hit_2plus","2+ hits","824239","695657","Colson Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.1595,0.7285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_hit_2plus","2+ hits","822775","665926","Andrés Giménez","Toronto Blue Jays","New York Yankees","hitter",0.158,0.7355,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_hit_2plus","2+ hits","822775","672960","Kazuma Okamoto","Toronto Blue Jays","New York Yankees","hitter",0.1575,0.7215,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_hit_2plus","2+ hits","824644","686780","Pedro Pagés","St. Louis Cardinals","Chicago Cubs","hitter",0.148,0.6935,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_hit_2plus","2+ hits","822775","678218","Brandon Valenzuela","Toronto Blue Jays","New York Yankees","hitter",0.1435,0.705,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_hit_2plus","2+ hits","822775","807727","Charles McAdoo","Toronto Blue Jays","New York Yankees","hitter",0.1235,0.623,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_hit_2plus","2+ hits","822775","669701","Josh Smith","Toronto Blue Jays","New York Yankees","hitter",0.122,0.646,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
 "batter_hr_1plus","1+ home run","824239","680664","Eduardo Valencia","Detroit Tigers","Chicago White Sox","hitter",0.49,0.6105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "batter_hr_1plus","1+ home run","824239","808959","Munetaka Murakami","Chicago White Sox","Detroit Tigers","hitter",0.256,0.2915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
 "batter_hr_1plus","1+ home run","824239","693307","Dillon Dingler","Detroit Tigers","Chicago White Sox","hitter",0.2085,0.228,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_hr_1plus","1+ home run","824239","695657","Colson Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.193,0.208,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hr_1plus","1+ home run","824239","678246","Miguel Vargas","Chicago White Sox","Detroit Tigers","hitter",0.168,0.186,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_hr_1plus","1+ home run","824239","679529","Spencer Torkelson","Detroit Tigers","Chicago White Sox","hitter",0.1675,0.1775,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hr_1plus","1+ home run","824239","650402","Gleyber Torres","Detroit Tigers","Chicago White Sox","hitter",0.1255,0.1345,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hr_1plus","1+ home run","824239","701678","Hao-Yu Lee","Detroit Tigers","Chicago White Sox","hitter",0.125,0.1325,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hr_1plus","1+ home run","824239","643217","Andrew Benintendi","Chicago White Sox","Detroit Tigers","hitter",0.124,0.1325,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hr_1plus","1+ home run","824239","667452","Corey Julks","Detroit Tigers","Chicago White Sox","hitter",0.11,0.1155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hr_1plus","1+ home run","824239","668670","Jake Rogers","Chicago White Sox","Detroit Tigers","hitter",0.101,0.106,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hr_1plus","1+ home run","824239","805808","Kevin McGonigle","Detroit Tigers","Chicago White Sox","hitter",0.093,0.0945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hr_1plus","1+ home run","824239","803011","Sam Antonacci","Chicago White Sox","Detroit Tigers","hitter",0.086,0.0905,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hr_1plus","1+ home run","824239","595879","Javier Báez","Detroit Tigers","Chicago White Sox","hitter",0.0775,0.0795,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hr_1plus","1+ home run","824239","701162","Ben Malgeri","Detroit Tigers","Chicago White Sox","hitter",0.074,0.0755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hr_1plus","1+ home run","824239","805367","Chase Meidroth","Chicago White Sox","Detroit Tigers","hitter",0.067,0.07,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hr_1plus","1+ home run","824239","695731","Braden Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.0635,0.065,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hr_1plus","1+ home run","824239","671976","Tristan Peters","Chicago White Sox","Detroit Tigers","hitter",0.054,0.055,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hr_1plus","1+ home run","824644","691718","Pete Crow-Armstrong","Chicago Cubs","St. Louis Cardinals","hitter",0.2035,0.222,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_hr_1plus","1+ home run","824239","695657","Colson Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.193,0.208,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hr_1plus","1+ home run","824644","691023","Jordan Walker","St. Louis Cardinals","Chicago Cubs","hitter",0.18,0.1925,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_hr_1plus","1+ home run","824644","624424","Michael Conforto","Chicago Cubs","St. Louis Cardinals","hitter",0.1755,0.186,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hr_1plus","1+ home run","824644","673548","Seiya Suzuki","Chicago Cubs","St. Louis Cardinals","hitter",0.174,0.1885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hr_1plus","1+ home run","824239","678246","Miguel Vargas","Chicago White Sox","Detroit Tigers","hitter",0.168,0.186,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hr_1plus","1+ home run","824239","679529","Spencer Torkelson","Detroit Tigers","Chicago White Sox","hitter",0.1675,0.1775,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hr_1plus","1+ home run","822775","672960","Kazuma Okamoto","Toronto Blue Jays","New York Yankees","hitter",0.161,0.1715,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hr_1plus","1+ home run","824644","664023","Ian Happ","Chicago Cubs","St. Louis Cardinals","hitter",0.154,0.1645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hr_1plus","1+ home run","824644","802139","JJ Wetherholt","St. Louis Cardinals","Chicago Cubs","hitter",0.1305,0.138,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hr_1plus","1+ home run","824239","650402","Gleyber Torres","Detroit Tigers","Chicago White Sox","hitter",0.1255,0.1345,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hr_1plus","1+ home run","824239","701678","Hao-Yu Lee","Detroit Tigers","Chicago White Sox","hitter",0.125,0.1325,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hr_1plus","1+ home run","824239","643217","Andrew Benintendi","Chicago White Sox","Detroit Tigers","hitter",0.124,0.1325,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hr_1plus","1+ home run","824644","676475","Alec Burleson","St. Louis Cardinals","Chicago Cubs","hitter",0.121,0.126,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hr_1plus","1+ home run","824644","695491","Joshua Báez","St. Louis Cardinals","Chicago Cubs","hitter",0.1165,0.1245,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hr_1plus","1+ home run","822775","807727","Charles McAdoo","Toronto Blue Jays","New York Yankees","hitter",0.1155,0.12,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hr_1plus","1+ home run","824644","677592","Everson Pereira","St. Louis Cardinals","Chicago Cubs","hitter",0.115,0.1205,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hr_1plus","1+ home run","824239","667452","Corey Julks","Detroit Tigers","Chicago White Sox","hitter",0.11,0.1155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hr_1plus","1+ home run","822775","678218","Brandon Valenzuela","Toronto Blue Jays","New York Yankees","hitter",0.1075,0.113,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hr_1plus","1+ home run","824644","671056","Iván Herrera","St. Louis Cardinals","Chicago Cubs","hitter",0.1065,0.1105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hr_1plus","1+ home run","822775","703520","Brett Bateman","Toronto Blue Jays","New York Yankees","hitter",0.104,0.11,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hr_1plus","1+ home run","824644","683737","Michael Busch","Chicago Cubs","St. Louis Cardinals","hitter",0.102,0.107,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hr_1plus","1+ home run","824239","668670","Jake Rogers","Chicago White Sox","Detroit Tigers","hitter",0.101,0.106,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hr_1plus","1+ home run","824239","805808","Kevin McGonigle","Detroit Tigers","Chicago White Sox","hitter",0.093,0.0945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hr_1plus","1+ home run","822775","660821","Jesús Sánchez","Toronto Blue Jays","New York Yankees","hitter",0.0915,0.0955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_hr_1plus","1+ home run","824239","803011","Sam Antonacci","Chicago White Sox","Detroit Tigers","hitter",0.086,0.0905,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_hr_1plus","1+ home run","824644","608324","Alex Bregman","Chicago Cubs","St. Louis Cardinals","hitter",0.08,0.084,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_hr_1plus","1+ home run","822775","672386","Alejandro Kirk","Toronto Blue Jays","New York Yankees","hitter",0.0795,0.0835,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_hr_1plus","1+ home run","824239","595879","Javier Báez","Detroit Tigers","Chicago White Sox","hitter",0.0775,0.0795,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_hr_1plus","1+ home run","824239","701162","Ben Malgeri","Detroit Tigers","Chicago White Sox","hitter",0.074,0.0755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_hr_1plus","1+ home run","824644","686780","Pedro Pagés","St. Louis Cardinals","Chicago Cubs","hitter",0.073,0.075,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_hr_1plus","1+ home run","824239","805367","Chase Meidroth","Chicago White Sox","Detroit Tigers","hitter",0.067,0.07,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_hr_1plus","1+ home run","824239","695731","Braden Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.0635,0.065,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hr_1plus","1+ home run","822775","664770","Nathan Lukes","Toronto Blue Jays","New York Yankees","hitter",0.063,0.066,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_hr_1plus","1+ home run","824644","665804","Miguel Amaya","Chicago Cubs","St. Louis Cardinals","hitter",0.059,0.0615,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_hr_1plus","1+ home run","822775","665926","Andrés Giménez","Toronto Blue Jays","New York Yankees","hitter",0.0555,0.0565,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_hr_1plus","1+ home run","824239","671976","Tristan Peters","Chicago White Sox","Detroit Tigers","hitter",0.054,0.055,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_hr_1plus","1+ home run","824644","663538","Nico Hoerner","Chicago Cubs","St. Louis Cardinals","hitter",0.051,0.053,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_hr_1plus","1+ home run","824644","691026","Masyn Winn","St. Louis Cardinals","Chicago Cubs","hitter",0.0405,0.042,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_hr_1plus","1+ home run","824644","699393","Pedro Ramírez","Chicago Cubs","St. Louis Cardinals","hitter",0.036,0.037,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_hr_1plus","1+ home run","824644","691458","Blaze Jordan","St. Louis Cardinals","Chicago Cubs","hitter",0.0305,0.0305,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_hr_1plus","1+ home run","822775","669701","Josh Smith","Toronto Blue Jays","New York Yankees","hitter",0.022,0.0225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
 "batter_hr_2plus","2+ home runs","824239","680664","Eduardo Valencia","Detroit Tigers","Chicago White Sox","hitter",0.1085,0.6105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "batter_hr_2plus","2+ home runs","824239","808959","Munetaka Murakami","Chicago White Sox","Detroit Tigers","hitter",0.033,0.2915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
 "batter_hr_2plus","2+ home runs","824239","693307","Dillon Dingler","Detroit Tigers","Chicago White Sox","hitter",0.019,0.228,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_hr_2plus","2+ home runs","824239","678246","Miguel Vargas","Chicago White Sox","Detroit Tigers","hitter",0.0175,0.186,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hr_2plus","2+ home runs","824239","695657","Colson Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.0145,0.208,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_hr_2plus","2+ home runs","824239","679529","Spencer Torkelson","Detroit Tigers","Chicago White Sox","hitter",0.01,0.1775,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hr_2plus","2+ home runs","824239","650402","Gleyber Torres","Detroit Tigers","Chicago White Sox","hitter",0.009,0.1345,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hr_2plus","2+ home runs","824239","643217","Andrew Benintendi","Chicago White Sox","Detroit Tigers","hitter",0.0085,0.1325,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hr_2plus","2+ home runs","824239","701678","Hao-Yu Lee","Detroit Tigers","Chicago White Sox","hitter",0.0075,0.1325,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hr_2plus","2+ home runs","824239","667452","Corey Julks","Detroit Tigers","Chicago White Sox","hitter",0.0055,0.1155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hr_2plus","2+ home runs","824239","803011","Sam Antonacci","Chicago White Sox","Detroit Tigers","hitter",0.0045,0.0905,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hr_2plus","2+ home runs","824239","668670","Jake Rogers","Chicago White Sox","Detroit Tigers","hitter",0.0045,0.106,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hr_2plus","2+ home runs","824239","805367","Chase Meidroth","Chicago White Sox","Detroit Tigers","hitter",0.003,0.07,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hr_2plus","2+ home runs","824239","595879","Javier Báez","Detroit Tigers","Chicago White Sox","hitter",0.002,0.0795,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hr_2plus","2+ home runs","824239","695731","Braden Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.0015,0.065,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hr_2plus","2+ home runs","824239","805808","Kevin McGonigle","Detroit Tigers","Chicago White Sox","hitter",0.0015,0.0945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hr_2plus","2+ home runs","824239","701162","Ben Malgeri","Detroit Tigers","Chicago White Sox","hitter",0.0015,0.0755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hr_2plus","2+ home runs","824239","671976","Tristan Peters","Chicago White Sox","Detroit Tigers","hitter",0.001,0.055,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hr_2plus","2+ home runs","824644","691718","Pete Crow-Armstrong","Chicago Cubs","St. Louis Cardinals","hitter",0.018,0.222,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_hr_2plus","2+ home runs","824239","678246","Miguel Vargas","Chicago White Sox","Detroit Tigers","hitter",0.0175,0.186,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hr_2plus","2+ home runs","824239","695657","Colson Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.0145,0.208,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_hr_2plus","2+ home runs","824644","673548","Seiya Suzuki","Chicago Cubs","St. Louis Cardinals","hitter",0.0145,0.1885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hr_2plus","2+ home runs","824644","691023","Jordan Walker","St. Louis Cardinals","Chicago Cubs","hitter",0.012,0.1925,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hr_2plus","2+ home runs","824644","664023","Ian Happ","Chicago Cubs","St. Louis Cardinals","hitter",0.0105,0.1645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hr_2plus","2+ home runs","824239","679529","Spencer Torkelson","Detroit Tigers","Chicago White Sox","hitter",0.01,0.1775,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hr_2plus","2+ home runs","824644","624424","Michael Conforto","Chicago Cubs","St. Louis Cardinals","hitter",0.01,0.186,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hr_2plus","2+ home runs","822775","672960","Kazuma Okamoto","Toronto Blue Jays","New York Yankees","hitter",0.01,0.1715,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hr_2plus","2+ home runs","824239","650402","Gleyber Torres","Detroit Tigers","Chicago White Sox","hitter",0.009,0.1345,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hr_2plus","2+ home runs","824239","643217","Andrew Benintendi","Chicago White Sox","Detroit Tigers","hitter",0.0085,0.1325,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hr_2plus","2+ home runs","824644","695491","Joshua Báez","St. Louis Cardinals","Chicago Cubs","hitter",0.008,0.1245,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hr_2plus","2+ home runs","824239","701678","Hao-Yu Lee","Detroit Tigers","Chicago White Sox","hitter",0.0075,0.1325,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hr_2plus","2+ home runs","824644","802139","JJ Wetherholt","St. Louis Cardinals","Chicago Cubs","hitter",0.0075,0.138,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hr_2plus","2+ home runs","822775","703520","Brett Bateman","Toronto Blue Jays","New York Yankees","hitter",0.006,0.11,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hr_2plus","2+ home runs","824239","667452","Corey Julks","Detroit Tigers","Chicago White Sox","hitter",0.0055,0.1155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hr_2plus","2+ home runs","824644","677592","Everson Pereira","St. Louis Cardinals","Chicago Cubs","hitter",0.0055,0.1205,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hr_2plus","2+ home runs","824644","676475","Alec Burleson","St. Louis Cardinals","Chicago Cubs","hitter",0.005,0.126,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hr_2plus","2+ home runs","824644","683737","Michael Busch","Chicago Cubs","St. Louis Cardinals","hitter",0.005,0.107,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hr_2plus","2+ home runs","822775","678218","Brandon Valenzuela","Toronto Blue Jays","New York Yankees","hitter",0.005,0.113,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hr_2plus","2+ home runs","824239","803011","Sam Antonacci","Chicago White Sox","Detroit Tigers","hitter",0.0045,0.0905,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hr_2plus","2+ home runs","824239","668670","Jake Rogers","Chicago White Sox","Detroit Tigers","hitter",0.0045,0.106,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hr_2plus","2+ home runs","824644","671056","Iván Herrera","St. Louis Cardinals","Chicago Cubs","hitter",0.004,0.1105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hr_2plus","2+ home runs","824644","608324","Alex Bregman","Chicago Cubs","St. Louis Cardinals","hitter",0.004,0.084,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hr_2plus","2+ home runs","822775","672386","Alejandro Kirk","Toronto Blue Jays","New York Yankees","hitter",0.004,0.0835,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_hr_2plus","2+ home runs","822775","807727","Charles McAdoo","Toronto Blue Jays","New York Yankees","hitter",0.004,0.12,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_hr_2plus","2+ home runs","824239","805367","Chase Meidroth","Chicago White Sox","Detroit Tigers","hitter",0.003,0.07,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_hr_2plus","2+ home runs","822775","664770","Nathan Lukes","Toronto Blue Jays","New York Yankees","hitter",0.003,0.066,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_hr_2plus","2+ home runs","822775","660821","Jesús Sánchez","Toronto Blue Jays","New York Yankees","hitter",0.003,0.0955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_hr_2plus","2+ home runs","824644","665804","Miguel Amaya","Chicago Cubs","St. Louis Cardinals","hitter",0.0025,0.0615,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_hr_2plus","2+ home runs","824239","595879","Javier Báez","Detroit Tigers","Chicago White Sox","hitter",0.002,0.0795,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_hr_2plus","2+ home runs","824644","686780","Pedro Pagés","St. Louis Cardinals","Chicago Cubs","hitter",0.002,0.075,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_hr_2plus","2+ home runs","824644","663538","Nico Hoerner","Chicago Cubs","St. Louis Cardinals","hitter",0.002,0.053,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hr_2plus","2+ home runs","824239","695731","Braden Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.0015,0.065,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_hr_2plus","2+ home runs","824239","805808","Kevin McGonigle","Detroit Tigers","Chicago White Sox","hitter",0.0015,0.0945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_hr_2plus","2+ home runs","824239","701162","Ben Malgeri","Detroit Tigers","Chicago White Sox","hitter",0.0015,0.0755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_hr_2plus","2+ home runs","824644","691026","Masyn Winn","St. Louis Cardinals","Chicago Cubs","hitter",0.0015,0.042,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_hr_2plus","2+ home runs","824239","671976","Tristan Peters","Chicago White Sox","Detroit Tigers","hitter",0.001,0.055,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_hr_2plus","2+ home runs","824644","699393","Pedro Ramírez","Chicago Cubs","St. Louis Cardinals","hitter",0.001,0.037,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_hr_2plus","2+ home runs","822775","665926","Andrés Giménez","Toronto Blue Jays","New York Yankees","hitter",0.001,0.0565,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_hr_2plus","2+ home runs","822775","669701","Josh Smith","Toronto Blue Jays","New York Yankees","hitter",5e-04,0.0225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_hr_2plus","2+ home runs","824644","691458","Blaze Jordan","St. Louis Cardinals","Chicago Cubs","hitter",0,0.0305,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
 "batter_tb_2plus","2+ total bases","824239","680664","Eduardo Valencia","Detroit Tigers","Chicago White Sox","hitter",0.549,2.963,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_tb_2plus","2+ total bases","824239","693307","Dillon Dingler","Detroit Tigers","Chicago White Sox","hitter",0.4655,1.991,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_tb_2plus","2+ total bases","824239","701678","Hao-Yu Lee","Detroit Tigers","Chicago White Sox","hitter",0.462,1.7955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_tb_2plus","2+ total bases","824239","650402","Gleyber Torres","Detroit Tigers","Chicago White Sox","hitter",0.418,1.7,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_tb_2plus","2+ total bases","824239","595879","Javier Báez","Detroit Tigers","Chicago White Sox","hitter",0.4055,1.505,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_tb_2plus","2+ total bases","824239","803011","Sam Antonacci","Chicago White Sox","Detroit Tigers","hitter",0.4015,1.568,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_tb_2plus","2+ total bases","824239","805808","Kevin McGonigle","Detroit Tigers","Chicago White Sox","hitter",0.39,1.515,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_tb_2plus","2+ total bases","824239","678246","Miguel Vargas","Chicago White Sox","Detroit Tigers","hitter",0.377,1.5825,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_tb_2plus","2+ total bases","824239","643217","Andrew Benintendi","Chicago White Sox","Detroit Tigers","hitter",0.3725,1.487,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_tb_2plus","2+ total bases","824239","701162","Ben Malgeri","Detroit Tigers","Chicago White Sox","hitter",0.3725,1.431,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_tb_2plus","2+ total bases","824239","671976","Tristan Peters","Chicago White Sox","Detroit Tigers","hitter",0.3715,1.359,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_tb_2plus","2+ total bases","824239","695731","Braden Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.36,1.316,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_tb_2plus","2+ total bases","824239","679529","Spencer Torkelson","Detroit Tigers","Chicago White Sox","hitter",0.3535,1.5035,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_tb_2plus","2+ total bases","824239","667452","Corey Julks","Detroit Tigers","Chicago White Sox","hitter",0.344,1.352,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_tb_2plus","2+ total bases","824239","805367","Chase Meidroth","Chicago White Sox","Detroit Tigers","hitter",0.335,1.284,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_tb_2plus","2+ total bases","824239","808959","Munetaka Murakami","Chicago White Sox","Detroit Tigers","hitter",0.329,1.6895,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_tb_2plus","2+ total bases","824239","695657","Colson Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.3215,1.4645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_tb_2plus","2+ total bases","824239","668670","Jake Rogers","Chicago White Sox","Detroit Tigers","hitter",0.3095,1.2455,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_tb_2plus","2+ total bases","824644","691718","Pete Crow-Armstrong","Chicago Cubs","St. Louis Cardinals","hitter",0.5005,2.1195,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_tb_2plus","2+ total bases","824239","693307","Dillon Dingler","Detroit Tigers","Chicago White Sox","hitter",0.4655,1.991,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_tb_2plus","2+ total bases","824239","701678","Hao-Yu Lee","Detroit Tigers","Chicago White Sox","hitter",0.462,1.7955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_tb_2plus","2+ total bases","824644","699393","Pedro Ramírez","Chicago Cubs","St. Louis Cardinals","hitter",0.436,1.506,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_tb_2plus","2+ total bases","824644","673548","Seiya Suzuki","Chicago Cubs","St. Louis Cardinals","hitter",0.423,1.7925,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_tb_2plus","2+ total bases","824239","650402","Gleyber Torres","Detroit Tigers","Chicago White Sox","hitter",0.418,1.7,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_tb_2plus","2+ total bases","824644","676475","Alec Burleson","St. Louis Cardinals","Chicago Cubs","hitter",0.414,1.6185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_tb_2plus","2+ total bases","824644","691023","Jordan Walker","St. Louis Cardinals","Chicago Cubs","hitter",0.41,1.742,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_tb_2plus","2+ total bases","824239","595879","Javier Báez","Detroit Tigers","Chicago White Sox","hitter",0.4055,1.505,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_tb_2plus","2+ total bases","824239","803011","Sam Antonacci","Chicago White Sox","Detroit Tigers","hitter",0.4015,1.568,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_tb_2plus","2+ total bases","824239","805808","Kevin McGonigle","Detroit Tigers","Chicago White Sox","hitter",0.39,1.515,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_tb_2plus","2+ total bases","824644","664023","Ian Happ","Chicago Cubs","St. Louis Cardinals","hitter",0.389,1.557,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_tb_2plus","2+ total bases","824644","608324","Alex Bregman","Chicago Cubs","St. Louis Cardinals","hitter",0.388,1.4375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_tb_2plus","2+ total bases","824644","691458","Blaze Jordan","St. Louis Cardinals","Chicago Cubs","hitter",0.3815,1.299,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_tb_2plus","2+ total bases","824644","663538","Nico Hoerner","Chicago Cubs","St. Louis Cardinals","hitter",0.3805,1.402,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_tb_2plus","2+ total bases","824644","683737","Michael Busch","Chicago Cubs","St. Louis Cardinals","hitter",0.3785,1.4945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_tb_2plus","2+ total bases","824239","678246","Miguel Vargas","Chicago White Sox","Detroit Tigers","hitter",0.377,1.5825,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_tb_2plus","2+ total bases","824644","671056","Iván Herrera","St. Louis Cardinals","Chicago Cubs","hitter",0.3755,1.496,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_tb_2plus","2+ total bases","824239","643217","Andrew Benintendi","Chicago White Sox","Detroit Tigers","hitter",0.3725,1.487,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_tb_2plus","2+ total bases","824239","701162","Ben Malgeri","Detroit Tigers","Chicago White Sox","hitter",0.3725,1.431,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_tb_2plus","2+ total bases","824239","671976","Tristan Peters","Chicago White Sox","Detroit Tigers","hitter",0.3715,1.359,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_tb_2plus","2+ total bases","824644","695491","Joshua Báez","St. Louis Cardinals","Chicago Cubs","hitter",0.3625,1.4615,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_tb_2plus","2+ total bases","822775","660821","Jesús Sánchez","Toronto Blue Jays","New York Yankees","hitter",0.3615,1.4045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_tb_2plus","2+ total bases","824239","695731","Braden Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.36,1.316,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_tb_2plus","2+ total bases","824239","679529","Spencer Torkelson","Detroit Tigers","Chicago White Sox","hitter",0.3535,1.5035,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_tb_2plus","2+ total bases","824644","624424","Michael Conforto","Chicago Cubs","St. Louis Cardinals","hitter",0.352,1.515,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_tb_2plus","2+ total bases","824644","665804","Miguel Amaya","Chicago Cubs","St. Louis Cardinals","hitter",0.3495,1.2885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_tb_2plus","2+ total bases","824644","691026","Masyn Winn","St. Louis Cardinals","Chicago Cubs","hitter",0.345,1.2645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_tb_2plus","2+ total bases","824239","667452","Corey Julks","Detroit Tigers","Chicago White Sox","hitter",0.344,1.352,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_tb_2plus","2+ total bases","822775","703520","Brett Bateman","Toronto Blue Jays","New York Yankees","hitter",0.339,1.366,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_tb_2plus","2+ total bases","824239","805367","Chase Meidroth","Chicago White Sox","Detroit Tigers","hitter",0.335,1.284,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_tb_2plus","2+ total bases","822775","664770","Nathan Lukes","Toronto Blue Jays","New York Yankees","hitter",0.3345,1.311,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_tb_2plus","2+ total bases","824644","802139","JJ Wetherholt","St. Louis Cardinals","Chicago Cubs","hitter",0.333,1.466,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_tb_2plus","2+ total bases","824239","808959","Munetaka Murakami","Chicago White Sox","Detroit Tigers","hitter",0.329,1.6895,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_tb_2plus","2+ total bases","824239","695657","Colson Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.3215,1.4645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_tb_2plus","2+ total bases","824239","668670","Jake Rogers","Chicago White Sox","Detroit Tigers","hitter",0.3095,1.2455,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_tb_2plus","2+ total bases","824644","677592","Everson Pereira","St. Louis Cardinals","Chicago Cubs","hitter",0.3095,1.2645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_tb_2plus","2+ total bases","822775","672386","Alejandro Kirk","Toronto Blue Jays","New York Yankees","hitter",0.3095,1.2265,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_tb_2plus","2+ total bases","822775","672960","Kazuma Okamoto","Toronto Blue Jays","New York Yankees","hitter",0.2915,1.3255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_tb_2plus","2+ total bases","822775","665926","Andrés Giménez","Toronto Blue Jays","New York Yankees","hitter",0.2865,1.119,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_tb_2plus","2+ total bases","824644","686780","Pedro Pagés","St. Louis Cardinals","Chicago Cubs","hitter",0.279,1.0885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_tb_2plus","2+ total bases","822775","678218","Brandon Valenzuela","Toronto Blue Jays","New York Yankees","hitter",0.26,1.1415,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_tb_2plus","2+ total bases","822775","669701","Josh Smith","Toronto Blue Jays","New York Yankees","hitter",0.237,0.9155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_tb_2plus","2+ total bases","822775","807727","Charles McAdoo","Toronto Blue Jays","New York Yankees","hitter",0.2255,1.0465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
 "batter_tb_3plus","3+ total bases","824239","680664","Eduardo Valencia","Detroit Tigers","Chicago White Sox","hitter",0.497,2.963,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_tb_3plus","3+ total bases","824239","693307","Dillon Dingler","Detroit Tigers","Chicago White Sox","hitter",0.304,1.991,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_tb_3plus","3+ total bases","824239","808959","Munetaka Murakami","Chicago White Sox","Detroit Tigers","hitter",0.268,1.6895,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_tb_3plus","3+ total bases","824239","701678","Hao-Yu Lee","Detroit Tigers","Chicago White Sox","hitter",0.267,1.7955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_tb_3plus","3+ total bases","824239","650402","Gleyber Torres","Detroit Tigers","Chicago White Sox","hitter",0.241,1.7,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_tb_3plus","3+ total bases","824239","678246","Miguel Vargas","Chicago White Sox","Detroit Tigers","hitter",0.236,1.5825,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_tb_3plus","3+ total bases","824239","695657","Colson Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.235,1.4645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_tb_3plus","3+ total bases","824239","679529","Spencer Torkelson","Detroit Tigers","Chicago White Sox","hitter",0.2285,1.5035,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_tb_3plus","3+ total bases","824239","803011","Sam Antonacci","Chicago White Sox","Detroit Tigers","hitter",0.2245,1.568,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_tb_3plus","3+ total bases","824239","595879","Javier Báez","Detroit Tigers","Chicago White Sox","hitter",0.2175,1.505,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_tb_3plus","3+ total bases","824239","643217","Andrew Benintendi","Chicago White Sox","Detroit Tigers","hitter",0.216,1.487,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_tb_3plus","3+ total bases","824239","805808","Kevin McGonigle","Detroit Tigers","Chicago White Sox","hitter",0.2105,1.515,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_tb_3plus","3+ total bases","824239","701162","Ben Malgeri","Detroit Tigers","Chicago White Sox","hitter",0.2015,1.431,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_tb_3plus","3+ total bases","824239","671976","Tristan Peters","Chicago White Sox","Detroit Tigers","hitter",0.185,1.359,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_tb_3plus","3+ total bases","824239","667452","Corey Julks","Detroit Tigers","Chicago White Sox","hitter",0.1835,1.352,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_tb_3plus","3+ total bases","824239","695731","Braden Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.172,1.316,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_tb_3plus","3+ total bases","824239","805367","Chase Meidroth","Chicago White Sox","Detroit Tigers","hitter",0.165,1.284,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_tb_3plus","3+ total bases","824239","668670","Jake Rogers","Chicago White Sox","Detroit Tigers","hitter",0.159,1.2455,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_tb_3plus","3+ total bases","824644","691718","Pete Crow-Armstrong","Chicago Cubs","St. Louis Cardinals","hitter",0.3445,2.1195,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_tb_3plus","3+ total bases","824239","693307","Dillon Dingler","Detroit Tigers","Chicago White Sox","hitter",0.304,1.991,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_tb_3plus","3+ total bases","824644","673548","Seiya Suzuki","Chicago Cubs","St. Louis Cardinals","hitter",0.272,1.7925,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_tb_3plus","3+ total bases","824239","808959","Munetaka Murakami","Chicago White Sox","Detroit Tigers","hitter",0.268,1.6895,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_tb_3plus","3+ total bases","824239","701678","Hao-Yu Lee","Detroit Tigers","Chicago White Sox","hitter",0.267,1.7955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_tb_3plus","3+ total bases","824644","691023","Jordan Walker","St. Louis Cardinals","Chicago Cubs","hitter",0.266,1.742,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_tb_3plus","3+ total bases","824239","650402","Gleyber Torres","Detroit Tigers","Chicago White Sox","hitter",0.241,1.7,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_tb_3plus","3+ total bases","824644","676475","Alec Burleson","St. Louis Cardinals","Chicago Cubs","hitter",0.2385,1.6185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_tb_3plus","3+ total bases","824239","678246","Miguel Vargas","Chicago White Sox","Detroit Tigers","hitter",0.236,1.5825,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_tb_3plus","3+ total bases","824644","664023","Ian Happ","Chicago Cubs","St. Louis Cardinals","hitter",0.2355,1.557,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_tb_3plus","3+ total bases","824239","695657","Colson Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.235,1.4645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_tb_3plus","3+ total bases","824644","624424","Michael Conforto","Chicago Cubs","St. Louis Cardinals","hitter",0.2315,1.515,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_tb_3plus","3+ total bases","824239","679529","Spencer Torkelson","Detroit Tigers","Chicago White Sox","hitter",0.2285,1.5035,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_tb_3plus","3+ total bases","824239","803011","Sam Antonacci","Chicago White Sox","Detroit Tigers","hitter",0.2245,1.568,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_tb_3plus","3+ total bases","824239","595879","Javier Báez","Detroit Tigers","Chicago White Sox","hitter",0.2175,1.505,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_tb_3plus","3+ total bases","824239","643217","Andrew Benintendi","Chicago White Sox","Detroit Tigers","hitter",0.216,1.487,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_tb_3plus","3+ total bases","824644","699393","Pedro Ramírez","Chicago Cubs","St. Louis Cardinals","hitter",0.2135,1.506,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_tb_3plus","3+ total bases","824644","683737","Michael Busch","Chicago Cubs","St. Louis Cardinals","hitter",0.211,1.4945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_tb_3plus","3+ total bases","824239","805808","Kevin McGonigle","Detroit Tigers","Chicago White Sox","hitter",0.2105,1.515,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_tb_3plus","3+ total bases","824644","671056","Iván Herrera","St. Louis Cardinals","Chicago Cubs","hitter",0.2095,1.496,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_tb_3plus","3+ total bases","824644","802139","JJ Wetherholt","St. Louis Cardinals","Chicago Cubs","hitter",0.2055,1.466,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_tb_3plus","3+ total bases","824644","695491","Joshua Báez","St. Louis Cardinals","Chicago Cubs","hitter",0.204,1.4615,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_tb_3plus","3+ total bases","824239","701162","Ben Malgeri","Detroit Tigers","Chicago White Sox","hitter",0.2015,1.431,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_tb_3plus","3+ total bases","824644","608324","Alex Bregman","Chicago Cubs","St. Louis Cardinals","hitter",0.2015,1.4375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_tb_3plus","3+ total bases","822775","672960","Kazuma Okamoto","Toronto Blue Jays","New York Yankees","hitter",0.198,1.3255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_tb_3plus","3+ total bases","824644","663538","Nico Hoerner","Chicago Cubs","St. Louis Cardinals","hitter",0.195,1.402,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_tb_3plus","3+ total bases","822775","703520","Brett Bateman","Toronto Blue Jays","New York Yankees","hitter",0.188,1.366,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_tb_3plus","3+ total bases","824239","671976","Tristan Peters","Chicago White Sox","Detroit Tigers","hitter",0.185,1.359,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_tb_3plus","3+ total bases","822775","660821","Jesús Sánchez","Toronto Blue Jays","New York Yankees","hitter",0.185,1.4045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_tb_3plus","3+ total bases","824239","667452","Corey Julks","Detroit Tigers","Chicago White Sox","hitter",0.1835,1.352,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_tb_3plus","3+ total bases","824644","691458","Blaze Jordan","St. Louis Cardinals","Chicago Cubs","hitter",0.1835,1.299,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_tb_3plus","3+ total bases","824644","677592","Everson Pereira","St. Louis Cardinals","Chicago Cubs","hitter",0.181,1.2645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_tb_3plus","3+ total bases","824644","665804","Miguel Amaya","Chicago Cubs","St. Louis Cardinals","hitter",0.173,1.2885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_tb_3plus","3+ total bases","824239","695731","Braden Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.172,1.316,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_tb_3plus","3+ total bases","822775","664770","Nathan Lukes","Toronto Blue Jays","New York Yankees","hitter",0.17,1.311,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_tb_3plus","3+ total bases","824239","805367","Chase Meidroth","Chicago White Sox","Detroit Tigers","hitter",0.165,1.284,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_tb_3plus","3+ total bases","824239","668670","Jake Rogers","Chicago White Sox","Detroit Tigers","hitter",0.159,1.2455,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_tb_3plus","3+ total bases","822775","672386","Alejandro Kirk","Toronto Blue Jays","New York Yankees","hitter",0.1575,1.2265,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_tb_3plus","3+ total bases","824644","691026","Masyn Winn","St. Louis Cardinals","Chicago Cubs","hitter",0.1525,1.2645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_tb_3plus","3+ total bases","822775","665926","Andrés Giménez","Toronto Blue Jays","New York Yankees","hitter",0.1465,1.119,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_tb_3plus","3+ total bases","822775","678218","Brandon Valenzuela","Toronto Blue Jays","New York Yankees","hitter",0.1455,1.1415,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_tb_3plus","3+ total bases","822775","807727","Charles McAdoo","Toronto Blue Jays","New York Yankees","hitter",0.137,1.0465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_tb_3plus","3+ total bases","824644","686780","Pedro Pagés","St. Louis Cardinals","Chicago Cubs","hitter",0.1355,1.0885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_tb_3plus","3+ total bases","822775","669701","Josh Smith","Toronto Blue Jays","New York Yankees","hitter",0.0965,0.9155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
 "batter_xbh_1plus","1+ extra-base hit","824239","680664","Eduardo Valencia","Detroit Tigers","Chicago White Sox","hitter",0.49,0.6105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_xbh_1plus","1+ extra-base hit","824239","693307","Dillon Dingler","Detroit Tigers","Chicago White Sox","hitter",0.3685,0.432,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_xbh_1plus","1+ extra-base hit","824239","701678","Hao-Yu Lee","Detroit Tigers","Chicago White Sox","hitter",0.3425,0.395,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_xbh_1plus","1+ extra-base hit","824239","678246","Miguel Vargas","Chicago White Sox","Detroit Tigers","hitter",0.3185,0.369,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_xbh_1plus","1+ extra-base hit","824239","671976","Tristan Peters","Chicago White Sox","Detroit Tigers","hitter",0.307,0.351,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_xbh_1plus","1+ extra-base hit","824239","695731","Braden Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.304,0.35,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_xbh_1plus","1+ extra-base hit","824239","595879","Javier Báez","Detroit Tigers","Chicago White Sox","hitter",0.301,0.3335,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_xbh_1plus","1+ extra-base hit","824239","643217","Andrew Benintendi","Chicago White Sox","Detroit Tigers","hitter",0.3,0.346,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_xbh_1plus","1+ extra-base hit","824239","679529","Spencer Torkelson","Detroit Tigers","Chicago White Sox","hitter",0.2925,0.326,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_xbh_1plus","1+ extra-base hit","824239","701162","Ben Malgeri","Detroit Tigers","Chicago White Sox","hitter",0.2915,0.3415,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_xbh_1plus","1+ extra-base hit","824239","650402","Gleyber Torres","Detroit Tigers","Chicago White Sox","hitter",0.2875,0.33,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_xbh_1plus","1+ extra-base hit","824239","803011","Sam Antonacci","Chicago White Sox","Detroit Tigers","hitter",0.2855,0.3315,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_xbh_1plus","1+ extra-base hit","824239","805808","Kevin McGonigle","Detroit Tigers","Chicago White Sox","hitter",0.28,0.314,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_xbh_1plus","1+ extra-base hit","824239","695657","Colson Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.2765,0.311,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_xbh_1plus","1+ extra-base hit","824239","808959","Munetaka Murakami","Chicago White Sox","Detroit Tigers","hitter",0.265,0.301,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_xbh_1plus","1+ extra-base hit","824239","667452","Corey Julks","Detroit Tigers","Chicago White Sox","hitter",0.2605,0.2865,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_xbh_1plus","1+ extra-base hit","824239","668670","Jake Rogers","Chicago White Sox","Detroit Tigers","hitter",0.249,0.2735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_xbh_1plus","1+ extra-base hit","824239","805367","Chase Meidroth","Chicago White Sox","Detroit Tigers","hitter",0.247,0.2725,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"pitcher_k_10plus","10+ strikeouts","824239","675512","Troy Melton","Detroit Tigers","Chicago White Sox","pitcher",0.034,5.5035,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"pitcher_k_10plus","10+ strikeouts","824239","641743","Anthony Kay","Chicago White Sox","Detroit Tigers","pitcher",0.0085,4.653,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"pitcher_k_5plus","5+ strikeouts","824239","675512","Troy Melton","Detroit Tigers","Chicago White Sox","pitcher",0.6695,5.5035,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"pitcher_k_5plus","5+ strikeouts","824239","641743","Anthony Kay","Chicago White Sox","Detroit Tigers","pitcher",0.5075,4.653,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"pitcher_k_7plus","7+ strikeouts","824239","675512","Troy Melton","Detroit Tigers","Chicago White Sox","pitcher",0.307,5.5035,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"pitcher_k_7plus","7+ strikeouts","824239","641743","Anthony Kay","Chicago White Sox","Detroit Tigers","pitcher",0.1725,4.653,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_xbh_1plus","1+ extra-base hit","824644","691718","Pete Crow-Armstrong","Chicago Cubs","St. Louis Cardinals","hitter",0.4225,0.5115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_xbh_1plus","1+ extra-base hit","824239","693307","Dillon Dingler","Detroit Tigers","Chicago White Sox","hitter",0.3685,0.432,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_xbh_1plus","1+ extra-base hit","824644","699393","Pedro Ramírez","Chicago Cubs","St. Louis Cardinals","hitter",0.362,0.431,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_xbh_1plus","1+ extra-base hit","824239","701678","Hao-Yu Lee","Detroit Tigers","Chicago White Sox","hitter",0.3425,0.395,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_xbh_1plus","1+ extra-base hit","824644","691458","Blaze Jordan","St. Louis Cardinals","Chicago Cubs","hitter",0.332,0.3785,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_xbh_1plus","1+ extra-base hit","824644","664023","Ian Happ","Chicago Cubs","St. Louis Cardinals","hitter",0.3305,0.3775,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_xbh_1plus","1+ extra-base hit","824239","678246","Miguel Vargas","Chicago White Sox","Detroit Tigers","hitter",0.3185,0.369,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_xbh_1plus","1+ extra-base hit","824644","673548","Seiya Suzuki","Chicago Cubs","St. Louis Cardinals","hitter",0.318,0.3745,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_xbh_1plus","1+ extra-base hit","824644","676475","Alec Burleson","St. Louis Cardinals","Chicago Cubs","hitter",0.314,0.3605,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_xbh_1plus","1+ extra-base hit","824239","671976","Tristan Peters","Chicago White Sox","Detroit Tigers","hitter",0.307,0.351,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_xbh_1plus","1+ extra-base hit","824239","695731","Braden Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.304,0.35,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_xbh_1plus","1+ extra-base hit","824644","691023","Jordan Walker","St. Louis Cardinals","Chicago Cubs","hitter",0.304,0.345,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_xbh_1plus","1+ extra-base hit","824239","595879","Javier Báez","Detroit Tigers","Chicago White Sox","hitter",0.301,0.3335,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_xbh_1plus","1+ extra-base hit","824239","643217","Andrew Benintendi","Chicago White Sox","Detroit Tigers","hitter",0.3,0.346,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_xbh_1plus","1+ extra-base hit","824239","679529","Spencer Torkelson","Detroit Tigers","Chicago White Sox","hitter",0.2925,0.326,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_xbh_1plus","1+ extra-base hit","824239","701162","Ben Malgeri","Detroit Tigers","Chicago White Sox","hitter",0.2915,0.3415,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_xbh_1plus","1+ extra-base hit","824644","624424","Michael Conforto","Chicago Cubs","St. Louis Cardinals","hitter",0.2915,0.33,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_xbh_1plus","1+ extra-base hit","824644","608324","Alex Bregman","Chicago Cubs","St. Louis Cardinals","hitter",0.2885,0.3215,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_xbh_1plus","1+ extra-base hit","824239","650402","Gleyber Torres","Detroit Tigers","Chicago White Sox","hitter",0.2875,0.33,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_xbh_1plus","1+ extra-base hit","824644","683737","Michael Busch","Chicago Cubs","St. Louis Cardinals","hitter",0.2865,0.3255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_xbh_1plus","1+ extra-base hit","824239","803011","Sam Antonacci","Chicago White Sox","Detroit Tigers","hitter",0.2855,0.3315,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_xbh_1plus","1+ extra-base hit","824644","671056","Iván Herrera","St. Louis Cardinals","Chicago Cubs","hitter",0.2845,0.3275,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_xbh_1plus","1+ extra-base hit","824644","695491","Joshua Báez","St. Louis Cardinals","Chicago Cubs","hitter",0.2845,0.3195,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_xbh_1plus","1+ extra-base hit","824644","665804","Miguel Amaya","Chicago Cubs","St. Louis Cardinals","hitter",0.2805,0.314,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_xbh_1plus","1+ extra-base hit","824239","805808","Kevin McGonigle","Detroit Tigers","Chicago White Sox","hitter",0.28,0.314,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_xbh_1plus","1+ extra-base hit","822775","660821","Jesús Sánchez","Toronto Blue Jays","New York Yankees","hitter",0.2775,0.315,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_xbh_1plus","1+ extra-base hit","824239","695657","Colson Montgomery","Chicago White Sox","Detroit Tigers","hitter",0.2765,0.311,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_xbh_1plus","1+ extra-base hit","824644","663538","Nico Hoerner","Chicago Cubs","St. Louis Cardinals","hitter",0.2755,0.3035,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_xbh_1plus","1+ extra-base hit","822775","703520","Brett Bateman","Toronto Blue Jays","New York Yankees","hitter",0.2705,0.3035,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_xbh_1plus","1+ extra-base hit","824239","808959","Munetaka Murakami","Chicago White Sox","Detroit Tigers","hitter",0.265,0.301,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_xbh_1plus","1+ extra-base hit","824239","667452","Corey Julks","Detroit Tigers","Chicago White Sox","hitter",0.2605,0.2865,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_xbh_1plus","1+ extra-base hit","824239","668670","Jake Rogers","Chicago White Sox","Detroit Tigers","hitter",0.249,0.2735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_xbh_1plus","1+ extra-base hit","824644","691026","Masyn Winn","St. Louis Cardinals","Chicago Cubs","hitter",0.2485,0.278,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_xbh_1plus","1+ extra-base hit","824644","677592","Everson Pereira","St. Louis Cardinals","Chicago Cubs","hitter",0.248,0.2735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_xbh_1plus","1+ extra-base hit","824239","805367","Chase Meidroth","Chicago White Sox","Detroit Tigers","hitter",0.247,0.2725,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_xbh_1plus","1+ extra-base hit","822775","664770","Nathan Lukes","Toronto Blue Jays","New York Yankees","hitter",0.2365,0.266,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_xbh_1plus","1+ extra-base hit","822775","665926","Andrés Giménez","Toronto Blue Jays","New York Yankees","hitter",0.2345,0.2595,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_xbh_1plus","1+ extra-base hit","822775","672386","Alejandro Kirk","Toronto Blue Jays","New York Yankees","hitter",0.231,0.256,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_xbh_1plus","1+ extra-base hit","822775","672960","Kazuma Okamoto","Toronto Blue Jays","New York Yankees","hitter",0.23,0.254,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_xbh_1plus","1+ extra-base hit","824644","802139","JJ Wetherholt","St. Louis Cardinals","Chicago Cubs","hitter",0.227,0.252,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_xbh_1plus","1+ extra-base hit","824644","686780","Pedro Pagés","St. Louis Cardinals","Chicago Cubs","hitter",0.2155,0.2325,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_xbh_1plus","1+ extra-base hit","822775","678218","Brandon Valenzuela","Toronto Blue Jays","New York Yankees","hitter",0.187,0.2045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_xbh_1plus","1+ extra-base hit","822775","669701","Josh Smith","Toronto Blue Jays","New York Yankees","hitter",0.1855,0.21,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_xbh_1plus","1+ extra-base hit","822775","807727","Charles McAdoo","Toronto Blue Jays","New York Yankees","hitter",0.167,0.1785,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
+"pitcher_k_10plus","10+ strikeouts","822775","693645","Cam Schlittler","New York Yankees","Toronto Blue Jays","pitcher",0.054,5.8815,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"pitcher_k_10plus","10+ strikeouts","824239","675512","Troy Melton","Detroit Tigers","Chicago White Sox","pitcher",0.034,5.5035,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"pitcher_k_10plus","10+ strikeouts","824644","571510","Matthew Boyd","Chicago Cubs","St. Louis Cardinals","pitcher",0.0145,4.723,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_10plus","10+ strikeouts","824239","641743","Anthony Kay","Chicago White Sox","Detroit Tigers","pitcher",0.0085,4.653,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"pitcher_k_10plus","10+ strikeouts","824644","700241","Michael McGreevy","St. Louis Cardinals","Chicago Cubs","pitcher",0.004,4.2025,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"pitcher_k_5plus","5+ strikeouts","822775","693645","Cam Schlittler","New York Yankees","Toronto Blue Jays","pitcher",0.719,5.8815,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"pitcher_k_5plus","5+ strikeouts","824239","675512","Troy Melton","Detroit Tigers","Chicago White Sox","pitcher",0.6695,5.5035,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"pitcher_k_5plus","5+ strikeouts","824644","571510","Matthew Boyd","Chicago Cubs","St. Louis Cardinals","pitcher",0.535,4.723,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_5plus","5+ strikeouts","824239","641743","Anthony Kay","Chicago White Sox","Detroit Tigers","pitcher",0.5075,4.653,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"pitcher_k_5plus","5+ strikeouts","824644","700241","Michael McGreevy","St. Louis Cardinals","Chicago Cubs","pitcher",0.411,4.2025,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"pitcher_k_7plus","7+ strikeouts","822775","693645","Cam Schlittler","New York Yankees","Toronto Blue Jays","pitcher",0.3795,5.8815,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"pitcher_k_7plus","7+ strikeouts","824239","675512","Troy Melton","Detroit Tigers","Chicago White Sox","pitcher",0.307,5.5035,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"pitcher_k_7plus","7+ strikeouts","824644","571510","Matthew Boyd","Chicago Cubs","St. Louis Cardinals","pitcher",0.177,4.723,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_7plus","7+ strikeouts","824239","641743","Anthony Kay","Chicago White Sox","Detroit Tigers","pitcher",0.1725,4.653,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"pitcher_k_7plus","7+ strikeouts","824644","700241","Michael McGreevy","St. Louis Cardinals","Chicago Cubs","pitcher",0.118,4.2025,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
