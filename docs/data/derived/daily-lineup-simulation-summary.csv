@@ -1,3 +1,7 @@
 "sims","avg_BF","avg_starter_BF","avg_H","avg_BB","avg_K","avg_HR","avg_XBH","avg_TB","game_id","game_date","team","opponent","model_version"
 2000,36.439,22.045,8.314,2.9085,7.4675,0.989,3.0235,13.481,"824514","2026-08-17","St. Louis Cardinals","Cincinnati Reds","starter_bullpen_player_sim_v1"
 2000,36.163,23.932,7.799,3.8365,7.822,1.185,2.884,13.189,"824514","2026-08-17","Cincinnati Reds","St. Louis Cardinals","starter_bullpen_player_sim_v1"
+2000,36.7,24.3115,8.301,3.3205,6.5555,1.165,2.6465,13.385,"822939","2026-08-17","Tampa Bay Rays","Baltimore Orioles","starter_bullpen_player_sim_v1"
+2000,36.6165,22.477,8.701,2.8445,7.118,1.178,3.0695,14.274,"823427","2026-08-17","Philadelphia Phillies","Miami Marlins","starter_bullpen_player_sim_v1"
+2000,35.9155,20.639,7.6445,3.088,7.83,1.019,2.5065,12.3195,"823589","2026-08-17","New York Mets","San Diego Padres","starter_bullpen_player_sim_v1"
+2000,36.2195,23.426,7.787,3.2355,6.995,1.234,2.933,13.32,"823668","2026-08-17","Minnesota Twins","Atlanta Braves","starter_bullpen_player_sim_v1"
