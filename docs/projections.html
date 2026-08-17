@@ -315,10 +315,10 @@ Game IDs, teams, first pitch, venue, and status.
 Complete games
 </h3>
 <div class="data-card__value">
-0/11
+1/11
 </div>
 <p>
-9 confirmed batting-order rows.
+18 confirmed batting-order rows.
 </p>
 </article>
 <article class="data-card data-card--steel">
@@ -401,7 +401,7 @@ Quinn Mathews
 Kent Emanuel
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 confirmed
@@ -419,7 +419,7 @@ Cincinnati, Ohio
 4%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -573,6 +573,7 @@ Boston Red Sox
 Mitch Bratt
 </td>
 <td>
+Alec Gamboa
 </td>
 <td>
 missing
@@ -781,16 +782,1132 @@ conditional
 </section>
 <section class="player-probability-room">
 <div class="section-heading section-heading--tight">
-<span class="eyebrow">Player simulation board · lineup gate</span>
+<span class="eyebrow">Player simulation board · 2,000 draws per lineup</span>
 <h2 class="anchored">
-Player probabilities wait for posted batting orders
+Player outcomes now live inside the game simulation
 </h2>
 <p>
-The team slate can update in the morning, but hitter and starter-event boards are withheld until current-date orders provide real batting-order opportunity. Yesterday’s player board is never relabeled as today’s.
+Confirmed orders are simulated through two continuous phases: the probable starter, then the opposing active-roster bullpen. The same draws produce full-game hitter lines and starter strikeout distributions.
 </p>
 </div>
+<div class="player-probability-grid">
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Home-run probability leaders
+</h3>
+<p>
+Full-game hitter draws include posted batting-order opportunity, the probable starter, the active-roster bullpen quality layer, and the run environment.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Elly De La Cruz
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+19.6%
+</td>
+<td>
+0.21
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Sal Stewart
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+19.1%
+</td>
+<td>
+0.21
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Jordan Walker
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+16.6%
+</td>
+<td>
+0.18
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Eugenio Suárez
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+16.2%
+</td>
+<td>
+0.17
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Everson Pereira
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+14.2%
+</td>
+<td>
+0.15
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Noelvi Marte
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+13.2%
+</td>
+<td>
+0.14
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Alec Burleson
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+12.8%
+</td>
+<td>
+0.14
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Joshua Báez
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+12.7%
+</td>
+<td>
+0.13
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Iván Herrera
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+11.4%
+</td>
+<td>
+0.12
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Michael Toglia
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+10.9%
+</td>
+<td>
+0.11
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Hit probability leaders
+</h3>
+<p>
+Each hitter continues through the same batting order when the simulation moves from the starter phase to the bullpen.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Elly De La Cruz
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+70.8%
+</td>
+<td>
+1.10
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Jordan Walker
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+70.7%
+</td>
+<td>
+1.07
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Alec Burleson
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+70.3%
+</td>
+<td>
+1.07
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Joshua Báez
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+67.9%
+</td>
+<td>
+1.02
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Sal Stewart
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+67.8%
+</td>
+<td>
+0.98
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Dane Myers
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+67.4%
+</td>
+<td>
+0.99
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Tyler Stephenson
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+66.0%
+</td>
+<td>
+0.96
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Iván Herrera
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+65.0%
+</td>
+<td>
+0.93
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Blaze Jordan
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+63.9%
+</td>
+<td>
+0.88
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+José Fermín
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+63.5%
+</td>
+<td>
+0.89
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Extra-base-hit probability leaders
+</h3>
+<p>
+Doubles, triples, and home runs are simulated as mutually exclusive plate-appearance outcomes.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Elly De La Cruz
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+38.4%
+</td>
+<td>
+0.45
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Blaze Jordan
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+36.2%
+</td>
+<td>
+0.41
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Sal Stewart
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+32.1%
+</td>
+<td>
+0.37
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Alec Burleson
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+32.0%
+</td>
+<td>
+0.37
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Jordan Walker
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+31.8%
+</td>
+<td>
+0.36
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Joshua Báez
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+31.4%
+</td>
+<td>
+0.37
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Iván Herrera
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+29.8%
+</td>
+<td>
+0.34
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Tyler Stephenson
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+29.2%
+</td>
+<td>
+0.33
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+José Fermín
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+28.4%
+</td>
+<td>
+0.32
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Dane Myers
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+28.1%
+</td>
+<td>
+0.32
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Two-plus total-base leaders
+</h3>
+<p>
+The total-base board preserves each simulated event mix instead of treating every hit as equivalent.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Elly De La Cruz
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+47.2%
+</td>
+<td>
+1.99
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Alec Burleson
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+43.3%
+</td>
+<td>
+1.73
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Jordan Walker
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+42.0%
+</td>
+<td>
+1.80
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Joshua Báez
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+41.8%
+</td>
+<td>
+1.68
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Blaze Jordan
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+41.7%
+</td>
+<td>
+1.39
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Sal Stewart
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+40.8%
+</td>
+<td>
+1.79
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Iván Herrera
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+39.1%
+</td>
+<td>
+1.52
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Dane Myers
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+39.1%
+</td>
+<td>
+1.48
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Tyler Stephenson
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+39.1%
+</td>
+<td>
+1.53
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Michael Toglia
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+36.9%
+</td>
+<td>
+1.44
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Five-plus strikeout leaders
+</h3>
+<p>
+Probable starters draw a game-specific batters-faced distribution against the posted opposing order.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Quinn Mathews
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+50.3%
+</td>
+<td>
+4.66
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Kent Emanuel
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+49.3%
+</td>
+<td>
+4.55
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Seven-plus strikeout leaders
+</h3>
+<p>
+The upper-tail board responds to starter workload, the opposing order, and both pitcher and hitter strikeout rates.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Quinn Mathews
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+17.4%
+</td>
+<td>
+4.66
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Kent Emanuel
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+15.3%
+</td>
+<td>
+4.55
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
 <div class="method-callout">
-<strong>Current state:</strong> 9 posted batting-order rows are available for August 17.
+<strong>How to read it:</strong> each percentage is the share of simulated games in which the player reached that threshold. Posted batting-order opportunity, starter matchup, bullpen quality, park, and weather all move the distribution.
 </div>
 </section>
 <section class="section-heading">
@@ -808,19 +1925,19 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 1 · scheduled slate</span><span class="projection-lean">Near toss-up</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>St.&nbsp;Louis Cardinals</strong></span><b>51.1%</b>
+<span><small>Away</small><strong>St.&nbsp;Louis Cardinals</strong></span><b>51.9%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Cincinnati Reds</strong></span><b>48.9%</b>
+<span><small>Home</small><strong>Cincinnati Reds</strong></span><b>48.1%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="St. Louis Cardinals 51.1% Cincinnati Reds 48.9%">
-<span class="is-away" style="width:51.1%"></span><span class="is-home" style="width:48.9%"></span>
+<div class="projection-win-track" role="img" aria-label="St. Louis Cardinals 51.9% Cincinnati Reds 48.1%">
+<span class="is-away" style="width:51.9%"></span><span class="is-home" style="width:48.1%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>4.3 – 4.3</strong></span><span><small>Model total</small><strong>8.6</strong></span><span><small>One-run game</small><strong>36.7%</strong></span>
+<span><small>Mean score</small><strong>4.4 – 4.3</strong></span><span><small>Model total</small><strong>8.7</strong></span><span><small>One-run game</small><strong>36.6%</strong></span>
 </div>
 <footer>
-<strong>St.&nbsp;Louis Cardinals 51.1%</strong><span>20,000 draws · conditional orders · fallback starters</span>
+<strong>St.&nbsp;Louis Cardinals 51.9%</strong><span>20,000 draws · confirmed orders · fallback starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
@@ -908,19 +2025,19 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 6 · scheduled slate</span><span class="projection-lean">Clear lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>Arizona Diamondbacks</strong></span><b>35.0%</b>
+<span><small>Away</small><strong>Arizona Diamondbacks</strong></span><b>27.9%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Boston Red Sox</strong></span><b>65.0%</b>
+<span><small>Home</small><strong>Boston Red Sox</strong></span><b>72.1%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="Arizona Diamondbacks 35.0% Boston Red Sox 65.0%">
-<span class="is-away" style="width:35%"></span><span class="is-home" style="width:65%"></span>
+<div class="projection-win-track" role="img" aria-label="Arizona Diamondbacks 27.9% Boston Red Sox 72.1%">
+<span class="is-away" style="width:27.9%"></span><span class="is-home" style="width:72.1%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>3.8 – 4.9</strong></span><span><small>Model total</small><strong>8.7</strong></span><span><small>One-run game</small><strong>33.9%</strong></span>
+<span><small>Mean score</small><strong>3.3 – 4.9</strong></span><span><small>Model total</small><strong>8.2</strong></span><span><small>One-run game</small><strong>31.8%</strong></span>
 </div>
 <footer>
-<strong>Boston Red Sox 65.0%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Boston Red Sox 72.1%</strong><span>20,000 draws · conditional orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
@@ -1036,12 +2153,12 @@ The closest matchup on today’s scheduled slate pairs the score distribution wi
 </p>
 </div>
 <div class="projection-feature__call">
-<small>Model lean</small><strong>St.&nbsp;Louis Cardinals</strong><span>51.1%</span>
+<small>Model lean</small><strong>St.&nbsp;Louis Cardinals</strong><span>51.9%</span>
 </div>
 </div>
 <div class="projection-matchup-score">
 <div>
-<span>St.&nbsp;Louis Cardinals</span><strong>4.3</strong><small>80% range 2–7</small>
+<span>St.&nbsp;Louis Cardinals</span><strong>4.4</strong><small>80% range 2–7</small>
 </div>
 <i aria-hidden="true">at</i>
 <div>
@@ -1057,21 +2174,21 @@ The closest matchup on today’s scheduled slate pairs the score distribution wi
 <div class="margin-row">
 <span>Away by 5+</span>
 <div class="margin-row__track">
-<i style="width:31.9%"></i>
+<i style="width:33.2%"></i>
 </div>
-<strong>5.9%</strong>
+<strong>6.2%</strong>
 </div>
 <div class="margin-row">
 <span>Away by 3-4</span>
 <div class="margin-row__track">
-<i style="width:75.7%"></i>
+<i style="width:76.5%"></i>
 </div>
-<strong>14.0%</strong>
+<strong>14.3%</strong>
 </div>
 <div class="margin-row">
 <span>Away by 2</span>
 <div class="margin-row__track">
-<i style="width:68.0%"></i>
+<i style="width:67.4%"></i>
 </div>
 <strong>12.6%</strong>
 </div>
@@ -1080,35 +2197,35 @@ The closest matchup on today’s scheduled slate pairs the score distribution wi
 <div class="margin-row__track">
 <i style="width:100.0%"></i>
 </div>
-<strong>18.5%</strong>
+<strong>18.7%</strong>
 </div>
 <div class="margin-row">
 <span>Home by 1</span>
 <div class="margin-row__track">
-<i style="width:98.3%"></i>
+<i style="width:95.6%"></i>
 </div>
-<strong>18.2%</strong>
+<strong>17.9%</strong>
 </div>
 <div class="margin-row">
 <span>Home by 2</span>
 <div class="margin-row__track">
-<i style="width:63.9%"></i>
+<i style="width:62.3%"></i>
 </div>
-<strong>11.8%</strong>
+<strong>11.7%</strong>
 </div>
 <div class="margin-row">
 <span>Home by 3-4</span>
 <div class="margin-row__track">
-<i style="width:71.9%"></i>
+<i style="width:70.0%"></i>
 </div>
-<strong>13.3%</strong>
+<strong>13.1%</strong>
 </div>
 <div class="margin-row">
 <span>Home by 5+</span>
 <div class="margin-row__track">
-<i style="width:30.0%"></i>
+<i style="width:28.9%"></i>
 </div>
-<strong>5.6%</strong>
+<strong>5.4%</strong>
 </div>
 </div>
 </section>
@@ -1118,7 +2235,7 @@ The closest matchup on today’s scheduled slate pairs the score distribution wi
 </div>
 <ol class="projection-driver-list">
 <li>
-<span>Posted-lineup offense</span><strong>St.&nbsp;Louis Cardinals</strong><small>94 vs 89 blended wRC+ after platoon, contact-quality, and recent-form adjustments</small>
+<span>Posted-lineup offense</span><strong>St.&nbsp;Louis Cardinals</strong><small>95 vs 89 blended wRC+ after platoon, contact-quality, and recent-form adjustments</small>
 </li>
 <li>
 <span>Probable starter</span><strong>Cincinnati Reds</strong><small>Quinn Mathews 4.5 over 5 expected IP vs Kent Emanuel 4.15 over 5 expected IP</small>
@@ -1137,9 +2254,34 @@ The closest matchup on today’s scheduled slate pairs the score distribution wi
 <span>Projected standout performances</span><small>Highest-upside player outcomes in this matchup</small>
 </div>
 <div class="projection-standout-grid">
-<div class="method-callout">
-<strong>Lineup gate:</strong> standout-performance probabilities appear when current batting orders and probable starters have completed their player-level simulation.
-</div>
+<article class="projection-standout-card">
+<span>2+ home runs</span>
+<h3 class="anchored">
+Sal Stewart
+</h3>
+<strong>2.1%</strong><small>Cincinnati Reds vs.&nbsp;St.&nbsp;Louis Cardinals · expected 0.21</small>
+</article>
+<article class="projection-standout-card">
+<span>10+ strikeouts</span>
+<h3 class="anchored">
+Kent Emanuel
+</h3>
+<strong>1.0%</strong><small>Cincinnati Reds vs.&nbsp;St.&nbsp;Louis Cardinals · expected 4.55</small>
+</article>
+<article class="projection-standout-card">
+<span>3+ total bases</span>
+<h3 class="anchored">
+Elly De La Cruz
+</h3>
+<strong>31.9%</strong><small>Cincinnati Reds vs.&nbsp;St.&nbsp;Louis Cardinals · expected 1.99</small>
+</article>
+<article class="projection-standout-card">
+<span>7+ strikeouts</span>
+<h3 class="anchored">
+Quinn Mathews
+</h3>
+<strong>17.4%</strong><small>St.&nbsp;Louis Cardinals vs.&nbsp;Cincinnati Reds · expected 4.66</small>
+</article>
 </div>
 </div>
 </section>
