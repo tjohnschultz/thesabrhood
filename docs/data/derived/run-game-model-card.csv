@@ -1,2 +1,2 @@
 "model_version","opportunity_definition","eligible_pitches","attempts","successes","pitchers","catchers","catcher_coverage","league_attempt_rate","league_success_rate","publication_status","source_through","generated_at_utc"
-"run_game_shrunk_logit_v1","one row per eligible pitch before an attempt",184096,2199,1833,790,104,0.943735876933774,0.0119448548583348,0.83356070941337,"development; chronological validation required","2026-08-15","2026-08-16 10:27:45 UTC"
+"run_game_shrunk_logit_v1","one row per eligible pitch before an attempt",185569,2217,1844,793,104,0.943487328163648,0.0119470385678642,0.831754623364908,"development; chronological validation required","2026-08-16","2026-08-17 10:36:06 UTC"
