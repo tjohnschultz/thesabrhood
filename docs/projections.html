@@ -315,10 +315,10 @@ Game IDs, teams, first pitch, venue, and status.
 Complete games
 </h3>
 <div class="data-card__value">
-0/15
+1/15
 </div>
 <p>
-0 confirmed batting-order rows.
+18 confirmed batting-order rows.
 </p>
 </article>
 <article class="data-card data-card--steel">
@@ -471,10 +471,10 @@ Carson Whisenhunt
 Foster Griffin
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Cleveland, Ohio
@@ -489,7 +489,7 @@ Cleveland, Ohio
 0%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -920,16 +920,1132 @@ conditional
 </section>
 <section class="player-probability-room">
 <div class="section-heading section-heading--tight">
-<span class="eyebrow">Player simulation board · lineup gate</span>
+<span class="eyebrow">Player simulation board · 2,000 draws per lineup</span>
 <h2 class="anchored">
-Player probabilities wait for posted batting orders
+Player outcomes now live inside the game simulation
 </h2>
 <p>
-The team slate can update in the morning, but hitter and starter-event boards are withheld until current-date orders provide real batting-order opportunity. Yesterday’s player board is never relabeled as today’s.
+Confirmed orders are simulated through two continuous phases: the probable starter, then the opposing active-roster bullpen. The same draws produce full-game hitter lines and starter strikeout distributions.
 </p>
 </div>
+<div class="player-probability-grid">
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Home-run probability leaders
+</h3>
+<p>
+Full-game hitter draws include posted batting-order opportunity, the probable starter, the active-roster bullpen quality layer, and the run environment.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Osleivis Basabe
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+50.6%
+</td>
+<td>
+0.64
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Victor Bericoto
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+24.2%
+</td>
+<td>
+0.27
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Angel Martínez
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+17.4%
+</td>
+<td>
+0.19
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Rafael Devers
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+17.1%
+</td>
+<td>
+0.18
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Rhys Hoskins
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+16.9%
+</td>
+<td>
+0.18
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Jo Adell
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+16.4%
+</td>
+<td>
+0.18
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Angel Genao
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+14.3%
+</td>
+<td>
+0.15
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Jonah Cox
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+13.7%
+</td>
+<td>
+0.14
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Bryce Eldridge
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+13.1%
+</td>
+<td>
+0.14
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+José Ramírez
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+12.5%
+</td>
+<td>
+0.13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Hit probability leaders
+</h3>
+<p>
+Each hitter continues through the same batting order when the simulation moves from the starter phase to the bullpen.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Steven Kwan
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+72.0%
+</td>
+<td>
+1.11
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Jo Adell
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+70.2%
+</td>
+<td>
+1.07
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Angel Martínez
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+69.2%
+</td>
+<td>
+1.05
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Victor Bericoto
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+68.6%
+</td>
+<td>
+1.01
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Angel Genao
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+68.0%
+</td>
+<td>
+0.99
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Brayan Rocchio
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+67.7%
+</td>
+<td>
+0.96
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Jonah Cox
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+67.4%
+</td>
+<td>
+0.99
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+José Ramírez
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+67.0%
+</td>
+<td>
+0.97
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Patrick Bailey
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+66.1%
+</td>
+<td>
+0.94
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Rafael Devers
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+63.7%
+</td>
+<td>
+0.91
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Extra-base-hit probability leaders
+</h3>
+<p>
+Doubles, triples, and home runs are simulated as mutually exclusive plate-appearance outcomes.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Osleivis Basabe
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+50.6%
+</td>
+<td>
+0.64
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Rafael Devers
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+32.9%
+</td>
+<td>
+0.38
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Angel Martínez
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+32.4%
+</td>
+<td>
+0.38
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Jonah Cox
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+32.4%
+</td>
+<td>
+0.37
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+José Ramírez
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+32.1%
+</td>
+<td>
+0.36
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Angel Genao
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+30.9%
+</td>
+<td>
+0.34
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Jo Adell
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+30.7%
+</td>
+<td>
+0.36
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Travis Bazzana
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+30.2%
+</td>
+<td>
+0.34
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Christian Koss
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+30.0%
+</td>
+<td>
+0.34
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Rhys Hoskins
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+29.2%
+</td>
+<td>
+0.32
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Two-plus total-base leaders
+</h3>
+<p>
+The total-base board preserves each simulated event mix instead of treating every hit as equivalent.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Osleivis Basabe
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+51.9%
+</td>
+<td>
+2.79
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Angel Martínez
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+43.6%
+</td>
+<td>
+1.82
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Jo Adell
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+43.0%
+</td>
+<td>
+1.80
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Steven Kwan
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+42.2%
+</td>
+<td>
+1.46
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Jonah Cox
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+41.9%
+</td>
+<td>
+1.67
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+José Ramírez
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+40.5%
+</td>
+<td>
+1.62
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Angel Genao
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+40.3%
+</td>
+<td>
+1.65
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Rafael Devers
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+39.9%
+</td>
+<td>
+1.68
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Victor Bericoto
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+37.9%
+</td>
+<td>
+1.82
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Travis Bazzana
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+37.9%
+</td>
+<td>
+1.51
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Five-plus strikeout leaders
+</h3>
+<p>
+Probable starters draw a game-specific batters-faced distribution against the posted opposing order.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Foster Griffin
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+66.0%
+</td>
+<td>
+5.57
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Carson Whisenhunt
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+38.6%
+</td>
+<td>
+4.03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Seven-plus strikeout leaders
+</h3>
+<p>
+The upper-tail board responds to starter workload, the opposing order, and both pitcher and hitter strikeout rates.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Foster Griffin
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+32.4%
+</td>
+<td>
+5.57
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Carson Whisenhunt
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+9.2%
+</td>
+<td>
+4.03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
 <div class="method-callout">
-<strong>Current state:</strong> 0 posted batting-order rows are available for August 18.
+<strong>How to read it:</strong> each percentage is the share of simulated games in which the player reached that threshold. Posted batting-order opportunity, starter matchup, bullpen quality, park, and weather all move the distribution.
 </div>
 </section>
 <section class="section-heading">
@@ -987,19 +2103,19 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 3 · scheduled slate</span><span class="projection-lean">Clear lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>San Francisco Giants</strong></span><b>37.1%</b>
+<span><small>Away</small><strong>San Francisco Giants</strong></span><b>35.8%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Cleveland Guardians</strong></span><b>62.9%</b>
+<span><small>Home</small><strong>Cleveland Guardians</strong></span><b>64.2%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="San Francisco Giants 37.1% Cleveland Guardians 62.9%">
-<span class="is-away" style="width:37.1%"></span><span class="is-home" style="width:62.9%"></span>
+<div class="projection-win-track" role="img" aria-label="San Francisco Giants 35.8% Cleveland Guardians 64.2%">
+<span class="is-away" style="width:35.8%"></span><span class="is-home" style="width:64.2%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>4.1 – 5.1</strong></span><span><small>Model total</small><strong>9.2</strong></span><span><small>One-run game</small><strong>33.4%</strong></span>
+<span><small>Mean score</small><strong>4.0 – 5.1</strong></span><span><small>Model total</small><strong>9.2</strong></span><span><small>One-run game</small><strong>33.0%</strong></span>
 </div>
 <footer>
-<strong>Cleveland Guardians 62.9%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Cleveland Guardians 64.2%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
