@@ -315,10 +315,10 @@ Game IDs, teams, first pitch, venue, and status.
 Complete games
 </h3>
 <div class="data-card__value">
-0/9
+3/9
 </div>
 <p>
-0 confirmed batting-order rows.
+54 confirmed batting-order rows.
 </p>
 </article>
 <article class="data-card data-card--steel">
@@ -401,10 +401,10 @@ Michael McGreevy
 Brady Singer
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Cincinnati, Ohio
@@ -419,7 +419,7 @@ Cincinnati, Ohio
 29%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -436,10 +436,10 @@ Landen Roupp
 Gavin Williams
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Cleveland, Ohio
@@ -454,7 +454,7 @@ Cleveland, Ohio
 2%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -471,10 +471,10 @@ Shane Bieber
 Ian Seymour
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 St.&nbsp;Petersburg, Florida
@@ -489,7 +489,7 @@ Indoor
 -
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -712,16 +712,1292 @@ conditional
 </section>
 <section class="player-probability-room">
 <div class="section-heading section-heading--tight">
-<span class="eyebrow">Player simulation board · lineup gate</span>
+<span class="eyebrow">Player simulation board · 2,000 draws per lineup</span>
 <h2 class="anchored">
-Player probabilities wait for posted batting orders
+Player outcomes now live inside the game simulation
 </h2>
 <p>
-The team slate can update in the morning, but hitter and starter-event boards are withheld until current-date orders provide real batting-order opportunity. Yesterday’s player board is never relabeled as today’s.
+Confirmed orders are simulated through two continuous phases: the probable starter, then the opposing active-roster bullpen. The same draws produce full-game hitter lines and starter strikeout distributions.
 </p>
 </div>
+<div class="player-probability-grid">
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Home-run probability leaders
+</h3>
+<p>
+Full-game hitter draws include posted batting-order opportunity, the probable starter, the active-roster bullpen quality layer, and the run environment.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Osleivis Basabe
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+46.6%
+</td>
+<td>
+0.58
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Junior Caminero
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+27.7%
+</td>
+<td>
+0.31
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Jordan Walker
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+20.4%
+</td>
+<td>
+0.22
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+JJ Bleday
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+20.1%
+</td>
+<td>
+0.22
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Elly De La Cruz
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+19.5%
+</td>
+<td>
+0.21
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Kazuma Okamoto
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+19.4%
+</td>
+<td>
+0.21
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Sal Stewart
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+18.2%
+</td>
+<td>
+0.20
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Bryan Torres
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+17.0%
+</td>
+<td>
+0.19
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Charles McAdoo
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+16.0%
+</td>
+<td>
+0.17
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Nathaniel Lowe
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+15.8%
+</td>
+<td>
+0.17
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Hit probability leaders
+</h3>
+<p>
+Each hitter continues through the same batting order when the simulation moves from the starter phase to the bullpen.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Chandler Simpson
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+77.6%
+</td>
+<td>
+1.28
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Yandy Díaz
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+73.7%
+</td>
+<td>
+1.16
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Alec Burleson
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+73.4%
+</td>
+<td>
+1.15
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Junior Caminero
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+72.4%
+</td>
+<td>
+1.12
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Jordan Walker
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+72.0%
+</td>
+<td>
+1.13
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Jonathan Aranda
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+72.0%
+</td>
+<td>
+1.12
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+JJ Wetherholt
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+71.6%
+</td>
+<td>
+1.11
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Elly De La Cruz
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+70.7%
+</td>
+<td>
+1.12
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Iván Herrera
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+70.2%
+</td>
+<td>
+1.03
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Nick Fortes
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+69.4%
+</td>
+<td>
+1.00
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Extra-base-hit probability leaders
+</h3>
+<p>
+Doubles, triples, and home runs are simulated as mutually exclusive plate-appearance outcomes.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Osleivis Basabe
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+46.6%
+</td>
+<td>
+0.58
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Elly De La Cruz
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+38.8%
+</td>
+<td>
+0.46
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Jordan Walker
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+36.0%
+</td>
+<td>
+0.42
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Junior Caminero
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+35.0%
+</td>
+<td>
+0.41
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Blaze Jordan
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+34.9%
+</td>
+<td>
+0.41
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Alec Burleson
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+34.8%
+</td>
+<td>
+0.41
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Jonny DeLuca
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+33.5%
+</td>
+<td>
+0.38
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Sal Stewart
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+32.4%
+</td>
+<td>
+0.39
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Joshua Báez
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+31.6%
+</td>
+<td>
+0.37
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Rafael Devers
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+31.5%
+</td>
+<td>
+0.37
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Two-plus total-base leaders
+</h3>
+<p>
+The total-base board preserves each simulated event mix instead of treating every hit as equivalent.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Chandler Simpson
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+49.1%
+</td>
+<td>
+1.65
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Elly De La Cruz
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+48.3%
+</td>
+<td>
+2.02
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Jordan Walker
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+47.6%
+</td>
+<td>
+2.02
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Osleivis Basabe
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+47.5%
+</td>
+<td>
+2.54
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Alec Burleson
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+47.0%
+</td>
+<td>
+1.86
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Junior Caminero
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+47.0%
+</td>
+<td>
+2.17
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Yandy Díaz
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+44.9%
+</td>
+<td>
+1.83
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Jonny DeLuca
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+42.9%
+</td>
+<td>
+1.71
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Jonathan Aranda
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+41.8%
+</td>
+<td>
+1.71
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+JJ Wetherholt
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+41.5%
+</td>
+<td>
+1.75
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Five-plus strikeout leaders
+</h3>
+<p>
+Probable starters draw a game-specific batters-faced distribution against the posted opposing order.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Gavin Williams
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+78.5%
+</td>
+<td>
+6.30
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Ian Seymour
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+73.7%
+</td>
+<td>
+6.04
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Landen Roupp
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+48.9%
+</td>
+<td>
+4.56
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Michael McGreevy
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+46.2%
+</td>
+<td>
+4.41
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Brady Singer
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+43.9%
+</td>
+<td>
+4.29
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Shane Bieber
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+20.4%
+</td>
+<td>
+3.23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Seven-plus strikeout leaders
+</h3>
+<p>
+The upper-tail board responds to starter workload, the opposing order, and both pitcher and hitter strikeout rates.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Gavin Williams
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+46.1%
+</td>
+<td>
+6.30
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Ian Seymour
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+40.2%
+</td>
+<td>
+6.04
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Landen Roupp
+</td>
+<td>
+San Francisco Giants
+</td>
+<td>
+Cleveland Guardians
+</td>
+<td>
+16.1%
+</td>
+<td>
+4.56
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Michael McGreevy
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+14.0%
+</td>
+<td>
+4.41
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Brady Singer
+</td>
+<td>
+Cincinnati Reds
+</td>
+<td>
+St.&nbsp;Louis Cardinals
+</td>
+<td>
+12.6%
+</td>
+<td>
+4.29
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Shane Bieber
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+3.5%
+</td>
+<td>
+3.23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
 <div class="method-callout">
-<strong>Current state:</strong> 0 posted batting-order rows are available for August 20.
+<strong>How to read it:</strong> each percentage is the share of simulated games in which the player reached that threshold. Posted batting-order opportunity, starter matchup, bullpen quality, park, and weather all move the distribution.
 </div>
 </section>
 <section class="section-heading">
@@ -739,19 +2015,19 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 1 · scheduled slate</span><span class="projection-lean">Narrow lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>St.&nbsp;Louis Cardinals</strong></span><b>56.7%</b>
+<span><small>Away</small><strong>St.&nbsp;Louis Cardinals</strong></span><b>57.4%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Cincinnati Reds</strong></span><b>43.3%</b>
+<span><small>Home</small><strong>Cincinnati Reds</strong></span><b>42.6%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="St. Louis Cardinals 56.7% Cincinnati Reds 43.3%">
-<span class="is-away" style="width:56.7%"></span><span class="is-home" style="width:43.3%"></span>
+<div class="projection-win-track" role="img" aria-label="St. Louis Cardinals 57.4% Cincinnati Reds 42.6%">
+<span class="is-away" style="width:57.4%"></span><span class="is-home" style="width:42.6%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>4.7 – 4.2</strong></span><span><small>Model total</small><strong>8.9</strong></span><span><small>One-run game</small><strong>35.8%</strong></span>
+<span><small>Mean score</small><strong>4.9 – 4.3</strong></span><span><small>Model total</small><strong>9.2</strong></span><span><small>One-run game</small><strong>35.1%</strong></span>
 </div>
 <footer>
-<strong>St.&nbsp;Louis Cardinals 56.7%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>St.&nbsp;Louis Cardinals 57.4%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
@@ -759,19 +2035,19 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 2 · scheduled slate</span><span class="projection-lean">Near toss-up</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>San Francisco Giants</strong></span><b>50.5%</b>
+<span><small>Away</small><strong>San Francisco Giants</strong></span><b>48.2%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Cleveland Guardians</strong></span><b>49.5%</b>
+<span><small>Home</small><strong>Cleveland Guardians</strong></span><b>51.8%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="San Francisco Giants 50.5% Cleveland Guardians 49.5%">
-<span class="is-away" style="width:50.5%"></span><span class="is-home" style="width:49.5%"></span>
+<div class="projection-win-track" role="img" aria-label="San Francisco Giants 48.2% Cleveland Guardians 51.8%">
+<span class="is-away" style="width:48.2%"></span><span class="is-home" style="width:51.8%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>3.8 – 3.8</strong></span><span><small>Model total</small><strong>7.6</strong></span><span><small>One-run game</small><strong>39.5%</strong></span>
+<span><small>Mean score</small><strong>3.7 – 3.8</strong></span><span><small>Model total</small><strong>7.5</strong></span><span><small>One-run game</small><strong>39.7%</strong></span>
 </div>
 <footer>
-<strong>San Francisco Giants 50.5%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Cleveland Guardians 51.8%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
@@ -779,19 +2055,19 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 3 · scheduled slate</span><span class="projection-lean">Clear lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>Toronto Blue Jays</strong></span><b>34.4%</b>
+<span><small>Away</small><strong>Toronto Blue Jays</strong></span><b>28.2%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Tampa Bay Rays</strong></span><b>65.6%</b>
+<span><small>Home</small><strong>Tampa Bay Rays</strong></span><b>71.8%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="Toronto Blue Jays 34.4% Tampa Bay Rays 65.6%">
-<span class="is-away" style="width:34.4%"></span><span class="is-home" style="width:65.6%"></span>
+<div class="projection-win-track" role="img" aria-label="Toronto Blue Jays 28.2% Tampa Bay Rays 71.8%">
+<span class="is-away" style="width:28.2%"></span><span class="is-home" style="width:71.8%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>4.0 – 5.2</strong></span><span><small>Model total</small><strong>9.2</strong></span><span><small>One-run game</small><strong>33.1%</strong></span>
+<span><small>Mean score</small><strong>3.6 – 5.3</strong></span><span><small>Model total</small><strong>8.9</strong></span><span><small>One-run game</small><strong>31.6%</strong></span>
 </div>
 <footer>
-<strong>Tampa Bay Rays 65.6%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Tampa Bay Rays 71.8%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
