@@ -39,7 +39,7 @@
 "823910",2,"Probable starter","Los Angeles Dodgers","Jared Jones 3.66 over 4.7 expected IP vs Tarik Skubal 2.6 over 6.1 expected IP"
 "823910",3,"Available bullpen","Los Angeles Dodgers","3.96 vs 3.32 FIP blend with active reliever selector"
 "823910",4,"Park and weather","Run environment","73 F temperature adjustment; park factor 1"
-"823100",1,"Posted-lineup offense","Chicago Cubs","107 vs 106 blended wRC+ after platoon, contact-quality, and recent-form adjustments"
+"823100",1,"Posted-lineup offense","Chicago Cubs","107 vs 103 blended wRC+ after platoon, contact-quality, and recent-form adjustments"
 "823100",2,"Probable starter","Chicago Cubs","David Peterson 4.15 over 5 expected IP vs Kade Anderson 4.15 over 5 expected IP"
 "823100",3,"Available bullpen","Seattle Mariners","3.89 vs 3.47 FIP blend with active reliever selector"
 "823100",4,"Park and weather","Run environment","63 F temperature adjustment; park factor 1"
