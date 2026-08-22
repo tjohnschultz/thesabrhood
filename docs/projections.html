@@ -315,10 +315,10 @@ Game IDs, teams, first pitch, venue, and status.
 Complete games
 </h3>
 <div class="data-card__value">
-0/15
+1/15
 </div>
 <p>
-18 confirmed batting-order rows.
+36 confirmed batting-order rows.
 </p>
 </article>
 <article class="data-card data-card--steel">
@@ -439,7 +439,7 @@ Logan Henderson
 confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Milwaukee, Wisconsin
@@ -454,7 +454,7 @@ Milwaukee, Wisconsin
 6%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -474,7 +474,7 @@ Eury Pérez
 missing
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Miami, Florida
@@ -921,16 +921,1212 @@ conditional
 </section>
 <section class="player-probability-room">
 <div class="section-heading section-heading--tight">
-<span class="eyebrow">Player simulation board · lineup gate</span>
+<span class="eyebrow">Player simulation board · 2,000 draws per lineup</span>
 <h2 class="anchored">
-Player probabilities wait for posted batting orders
+Player outcomes now live inside the game simulation
 </h2>
 <p>
-The team slate can update in the morning, but hitter and starter-event boards are withheld until current-date orders provide real batting-order opportunity. Yesterday’s player board is never relabeled as today’s.
+Confirmed orders are simulated through two continuous phases: the probable starter, then the opposing active-roster bullpen. The same draws produce full-game hitter lines and starter strikeout distributions.
 </p>
 </div>
+<div class="player-probability-grid">
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Home-run probability leaders
+</h3>
+<p>
+Full-game hitter draws include posted batting-order opportunity, the probable starter, the active-roster bullpen quality layer, and the run environment.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Griffin Conine
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+30.4%
+</td>
+<td>
+0.35
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Owen Caissie
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+22.0%
+</td>
+<td>
+0.24
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Heriberto Hernández
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+21.4%
+</td>
+<td>
+0.24
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Ben Rice
+</td>
+<td>
+New York Yankees
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+21.3%
+</td>
+<td>
+0.23
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Matt Olson
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+21.0%
+</td>
+<td>
+0.23
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Joe Mack
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+18.2%
+</td>
+<td>
+0.19
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Jake Bauers
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+17.8%
+</td>
+<td>
+0.19
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Luis García Jr.
+</td>
+<td>
+New York Yankees
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+17.0%
+</td>
+<td>
+0.18
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Drake Baldwin
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+16.3%
+</td>
+<td>
+0.17
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Michael Harris II
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+15.8%
+</td>
+<td>
+0.17
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Hit probability leaders
+</h3>
+<p>
+Each hitter continues through the same batting order when the simulation moves from the starter phase to the bullpen.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Otto Lopez
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+77.7%
+</td>
+<td>
+1.28
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Xavier Edwards
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+74.7%
+</td>
+<td>
+1.18
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Griffin Conine
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+72.0%
+</td>
+<td>
+1.11
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Jackson Chourio
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+69.3%
+</td>
+<td>
+1.04
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Owen Caissie
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+68.1%
+</td>
+<td>
+1.01
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+William Contreras
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+66.8%
+</td>
+<td>
+0.98
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Michael Harris II
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+66.7%
+</td>
+<td>
+0.96
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Javier Sanoja
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+66.6%
+</td>
+<td>
+0.98
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Joe Mack
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+66.3%
+</td>
+<td>
+0.92
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Heriberto Hernández
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+64.6%
+</td>
+<td>
+0.90
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Extra-base-hit probability leaders
+</h3>
+<p>
+Doubles, triples, and home runs are simulated as mutually exclusive plate-appearance outcomes.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Otto Lopez
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+40.6%
+</td>
+<td>
+0.50
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Owen Caissie
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+36.0%
+</td>
+<td>
+0.42
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Javier Sanoja
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+35.7%
+</td>
+<td>
+0.41
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Luis Lara
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+35.1%
+</td>
+<td>
+0.42
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Esteury Ruiz
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+34.4%
+</td>
+<td>
+0.40
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Andrew Vaughn
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+33.6%
+</td>
+<td>
+0.40
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Xavier Edwards
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+33.2%
+</td>
+<td>
+0.39
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Matt Olson
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+31.9%
+</td>
+<td>
+0.37
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Heriberto Hernández
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+31.4%
+</td>
+<td>
+0.37
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Brice Turang
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+31.1%
+</td>
+<td>
+0.36
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Two-plus total-base leaders
+</h3>
+<p>
+The total-base board preserves each simulated event mix instead of treating every hit as equivalent.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Otto Lopez
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+51.9%
+</td>
+<td>
+2.00
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Xavier Edwards
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+46.4%
+</td>
+<td>
+1.71
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Owen Caissie
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+44.8%
+</td>
+<td>
+1.93
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Griffin Conine
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+43.5%
+</td>
+<td>
+2.17
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Javier Sanoja
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+43.4%
+</td>
+<td>
+1.51
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Jackson Chourio
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+42.8%
+</td>
+<td>
+1.72
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Andrew Vaughn
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+41.4%
+</td>
+<td>
+1.53
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Esteury Ruiz
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+40.0%
+</td>
+<td>
+1.59
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Brice Turang
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+38.6%
+</td>
+<td>
+1.56
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Luis Lara
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+38.0%
+</td>
+<td>
+1.19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Five-plus strikeout leaders
+</h3>
+<p>
+Probable starters draw a game-specific batters-faced distribution against the posted opposing order.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Dylan Cease
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+New York Yankees
+</td>
+<td>
+88.9%
+</td>
+<td>
+7.28
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Jake Irvin
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+55.1%
+</td>
+<td>
+4.82
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Logan Henderson
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+55.0%
+</td>
+<td>
+4.79
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Martín Pérez
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+45.6%
+</td>
+<td>
+4.41
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Seven-plus strikeout leaders
+</h3>
+<p>
+The upper-tail board responds to starter workload, the opposing order, and both pitcher and hitter strikeout rates.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Dylan Cease
+</td>
+<td>
+Toronto Blue Jays
+</td>
+<td>
+New York Yankees
+</td>
+<td>
+61.2%
+</td>
+<td>
+7.28
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Logan Henderson
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+18.9%
+</td>
+<td>
+4.79
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Jake Irvin
+</td>
+<td>
+Washington Nationals
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+18.4%
+</td>
+<td>
+4.82
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Martín Pérez
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+Milwaukee Brewers
+</td>
+<td>
+14.1%
+</td>
+<td>
+4.41
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
 <div class="method-callout">
-<strong>Current state:</strong> 18 posted batting-order rows are available for August 22.
+<strong>How to read it:</strong> each percentage is the share of simulated games in which the player reached that threshold. Posted batting-order opportunity, starter matchup, bullpen quality, park, and weather all move the distribution.
 </div>
 </section>
 <section class="section-heading">
@@ -965,22 +2161,22 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 </article>
 <article class="projection-game-card">
 <header>
-<span class="eyebrow">Game 2 · scheduled slate</span><span class="projection-lean">Narrow lean</span>
+<span class="eyebrow">Game 2 · scheduled slate</span><span class="projection-lean">Clear lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>Atlanta Braves</strong></span><b>40.8%</b>
+<span><small>Away</small><strong>Atlanta Braves</strong></span><b>37.9%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Milwaukee Brewers</strong></span><b>59.2%</b>
+<span><small>Home</small><strong>Milwaukee Brewers</strong></span><b>62.1%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="Atlanta Braves 40.8% Milwaukee Brewers 59.2%">
-<span class="is-away" style="width:40.8%"></span><span class="is-home" style="width:59.2%"></span>
+<div class="projection-win-track" role="img" aria-label="Atlanta Braves 37.9% Milwaukee Brewers 62.1%">
+<span class="is-away" style="width:37.9%"></span><span class="is-home" style="width:62.1%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>3.6 – 4.2</strong></span><span><small>Model total</small><strong>7.9</strong></span><span><small>One-run game</small><strong>37.6%</strong></span>
+<span><small>Mean score</small><strong>3.6 – 4.5</strong></span><span><small>Model total</small><strong>8.1</strong></span><span><small>One-run game</small><strong>36.6%</strong></span>
 </div>
 <footer>
-<strong>Milwaukee Brewers 59.2%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Milwaukee Brewers 62.1%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
@@ -988,19 +2184,19 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span class="eyebrow">Game 3 · scheduled slate</span><span class="projection-lean">Narrow lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>Washington Nationals</strong></span><b>44.2%</b>
+<span><small>Away</small><strong>Washington Nationals</strong></span><b>40.1%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Miami Marlins</strong></span><b>55.8%</b>
+<span><small>Home</small><strong>Miami Marlins</strong></span><b>59.9%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="Washington Nationals 44.2% Miami Marlins 55.8%">
-<span class="is-away" style="width:44.2%"></span><span class="is-home" style="width:55.8%"></span>
+<div class="projection-win-track" role="img" aria-label="Washington Nationals 40.1% Miami Marlins 59.9%">
+<span class="is-away" style="width:40.1%"></span><span class="is-home" style="width:59.9%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>4.6 – 5.0</strong></span><span><small>Model total</small><strong>9.6</strong></span><span><small>One-run game</small><strong>34.3%</strong></span>
+<span><small>Mean score</small><strong>4.6 – 5.4</strong></span><span><small>Model total</small><strong>10.0</strong></span><span><small>One-run game</small><strong>33.0%</strong></span>
 </div>
 <footer>
-<strong>Miami Marlins 55.8%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Miami Marlins 59.9%</strong><span>20,000 draws · conditional orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
