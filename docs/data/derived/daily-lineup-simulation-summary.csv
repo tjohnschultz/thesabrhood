@@ -1,4 +1,7 @@
 "sims","avg_BF","avg_starter_BF","avg_H","avg_BB","avg_K","avg_HR","avg_XBH","avg_TB","game_id","game_date","team","opponent","model_version"
 2000,36.327,27.999,7.7865,3.1655,9.0315,1.1165,3.3655,13.555,"823337","2026-09-03","San Francisco Giants","Pittsburgh Pirates","starter_bullpen_player_sim_v1"
 2000,36.6535,21.933,8.41,3.2055,8.0295,1.0345,2.8505,13.4785,"823337","2026-09-03","Pittsburgh Pirates","San Francisco Giants","starter_bullpen_player_sim_v1"
+2000,35.875,23.32,8.204,2.504,6.6305,0.81,2.914,12.909,"824388","2026-09-03","Toronto Blue Jays","Cleveland Guardians","starter_bullpen_player_sim_v1"
 2000,35.8725,23.038,7.4995,3.617,6.9285,0.9485,2.732,12.2555,"824388","2026-09-03","Cleveland Guardians","Toronto Blue Jays","starter_bullpen_player_sim_v1"
+2000,36.8795,22.355,8.0445,4.0295,8.6745,1.3655,3.3045,14.217,"824144","2026-09-03","Chicago White Sox","Houston Astros","starter_bullpen_player_sim_v1"
+2000,37.4135,25.978,9.0015,3.247,7.3205,1.583,3.4625,15.775,"824144","2026-09-03","Houston Astros","Chicago White Sox","starter_bullpen_player_sim_v1"

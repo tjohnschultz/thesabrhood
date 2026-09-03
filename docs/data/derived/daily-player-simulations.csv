@@ -1,199 +1,397 @@
 "metric_id","metric_label","game_id","player_id","player_name","team","opponent","role","probability","expected_value","simulations","model_version","publication_status","metric_rank"
-"batter_hit_1plus","1+ hit","823337","693304","Nick Gonzales","Pittsburgh Pirates","San Francisco Giants","hitter",0.734,1.1185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_hit_1plus","1+ hit","823337","687462","Spencer Horwitz","Pittsburgh Pirates","San Francisco Giants","hitter",0.697,1.0555,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_hit_1plus","1+ hit","823337","663968","Jake Mangum","Pittsburgh Pirates","San Francisco Giants","hitter",0.6965,1.0335,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_hit_1plus","1+ hit","823337","687551","Drew Gilbert","San Francisco Giants","Pittsburgh Pirates","hitter",0.67,0.9915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hit_1plus","1+ hit","823337","664040","Brandon Lowe","Pittsburgh Pirates","San Francisco Giants","hitter",0.6615,0.984,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_hit_1plus","1+ hit","824388","800050","Chase DeLauter","Cleveland Guardians","Toronto Blue Jays","hitter",0.66,0.937,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hit_1plus","1+ hit","823337","668804","Bryan Reynolds","Pittsburgh Pirates","San Francisco Giants","hitter",0.659,0.9375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hit_1plus","1+ hit","823337","813841","Jonah Cox","San Francisco Giants","Pittsburgh Pirates","hitter",0.6525,0.9185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hit_1plus","1+ hit","823337","805811","Bryce Eldridge","San Francisco Giants","Pittsburgh Pirates","hitter",0.6485,0.9115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hit_1plus","1+ hit","823337","646240","Rafael Devers","San Francisco Giants","Pittsburgh Pirates","hitter",0.6425,0.919,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hit_1plus","1+ hit","823337","665833","Oneil Cruz","Pittsburgh Pirates","San Francisco Giants","hitter",0.64,0.911,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hit_1plus","1+ hit","824388","680757","Steven Kwan","Cleveland Guardians","Toronto Blue Jays","hitter",0.6375,0.908,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hit_1plus","1+ hit","824388","666176","Jo Adell","Cleveland Guardians","Toronto Blue Jays","hitter",0.6255,0.8745,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hit_1plus","1+ hit","823337","806367","Turner Hill","San Francisco Giants","Pittsburgh Pirates","hitter",0.621,0.8655,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hit_1plus","1+ hit","823337","668800","Andrew Knizner","San Francisco Giants","Pittsburgh Pirates","hitter",0.6205,0.8725,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hit_1plus","1+ hit","824388","663993","Nathaniel Lowe","Cleveland Guardians","Toronto Blue Jays","hitter",0.6205,0.877,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hit_1plus","1+ hit","823337","801501","Nathan Furman","San Francisco Giants","Pittsburgh Pirates","hitter",0.6155,0.815,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hit_1plus","1+ hit","823337","694378","Jacob Gonzalez","Pittsburgh Pirates","San Francisco Giants","hitter",0.601,0.8115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_hit_1plus","1+ hit","824388","677587","Brayan Rocchio","Cleveland Guardians","Toronto Blue Jays","hitter",0.6005,0.7955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_hit_1plus","1+ hit","824388","608070","José Ramírez","Cleveland Guardians","Toronto Blue Jays","hitter",0.5985,0.819,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_hit_1plus","1+ hit","823337","694376","Shay Whitcomb","San Francisco Giants","Pittsburgh Pirates","hitter",0.5885,0.776,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_hit_1plus","1+ hit","824388","595978","Austin Hedges","Cleveland Guardians","Toronto Blue Jays","hitter",0.588,0.7955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_hit_1plus","1+ hit","823337","804668","Rafael Flores Jr.","Pittsburgh Pirates","San Francisco Giants","hitter",0.5865,0.794,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_hit_1plus","1+ hit","824388","694197","Angel Genao","Cleveland Guardians","Toronto Blue Jays","hitter",0.578,0.7735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_hit_1plus","1+ hit","823337","669707","Jared Triolo","Pittsburgh Pirates","San Francisco Giants","hitter",0.5695,0.7645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_hit_1plus","1+ hit","824388","683953","Travis Bazzana","Cleveland Guardians","Toronto Blue Jays","hitter",0.5435,0.7195,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_hit_1plus","1+ hit","823337","683766","Christian Koss","San Francisco Giants","Pittsburgh Pirates","hitter",0.5355,0.717,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_hit_2plus","2+ hits","823337","693304","Nick Gonzales","Pittsburgh Pirates","San Francisco Giants","hitter",0.305,1.1185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_hit_2plus","2+ hits","823337","687462","Spencer Horwitz","Pittsburgh Pirates","San Francisco Giants","hitter",0.2935,1.0555,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_hit_2plus","2+ hits","823337","663968","Jake Mangum","Pittsburgh Pirates","San Francisco Giants","hitter",0.2715,1.0335,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_hit_2plus","2+ hits","823337","664040","Brandon Lowe","Pittsburgh Pirates","San Francisco Giants","hitter",0.2605,0.984,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hit_2plus","2+ hits","823337","687551","Drew Gilbert","San Francisco Giants","Pittsburgh Pirates","hitter",0.2535,0.9915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_hit_2plus","2+ hits","824388","800050","Chase DeLauter","Cleveland Guardians","Toronto Blue Jays","hitter",0.23,0.937,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hit_2plus","2+ hits","823337","665833","Oneil Cruz","Pittsburgh Pirates","San Francisco Giants","hitter",0.2285,0.911,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hit_2plus","2+ hits","823337","813841","Jonah Cox","San Francisco Giants","Pittsburgh Pirates","hitter",0.225,0.9185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hit_2plus","2+ hits","823337","668804","Bryan Reynolds","Pittsburgh Pirates","San Francisco Giants","hitter",0.2245,0.9375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hit_2plus","2+ hits","823337","805811","Bryce Eldridge","San Francisco Giants","Pittsburgh Pirates","hitter",0.224,0.9115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hit_2plus","2+ hits","823337","646240","Rafael Devers","San Francisco Giants","Pittsburgh Pirates","hitter",0.222,0.919,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hit_2plus","2+ hits","824388","663993","Nathaniel Lowe","Cleveland Guardians","Toronto Blue Jays","hitter",0.22,0.877,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hit_2plus","2+ hits","824388","680757","Steven Kwan","Cleveland Guardians","Toronto Blue Jays","hitter",0.219,0.908,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hit_2plus","2+ hits","823337","668800","Andrew Knizner","San Francisco Giants","Pittsburgh Pirates","hitter",0.2145,0.8725,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hit_2plus","2+ hits","824388","666176","Jo Adell","Cleveland Guardians","Toronto Blue Jays","hitter",0.2135,0.8745,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hit_2plus","2+ hits","823337","806367","Turner Hill","San Francisco Giants","Pittsburgh Pirates","hitter",0.2075,0.8655,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hit_2plus","2+ hits","824388","608070","José Ramírez","Cleveland Guardians","Toronto Blue Jays","hitter",0.1835,0.819,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hit_2plus","2+ hits","823337","694378","Jacob Gonzalez","Pittsburgh Pirates","San Francisco Giants","hitter",0.1815,0.8115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_hit_2plus","2+ hits","824388","595978","Austin Hedges","Cleveland Guardians","Toronto Blue Jays","hitter",0.179,0.7955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_hit_2plus","2+ hits","823337","804668","Rafael Flores Jr.","Pittsburgh Pirates","San Francisco Giants","hitter",0.1775,0.794,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_hit_2plus","2+ hits","823337","801501","Nathan Furman","San Francisco Giants","Pittsburgh Pirates","hitter",0.1745,0.815,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_hit_2plus","2+ hits","823337","694376","Shay Whitcomb","San Francisco Giants","Pittsburgh Pirates","hitter",0.1675,0.776,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_hit_2plus","2+ hits","824388","694197","Angel Genao","Cleveland Guardians","Toronto Blue Jays","hitter",0.166,0.7735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_hit_2plus","2+ hits","823337","669707","Jared Triolo","Pittsburgh Pirates","San Francisco Giants","hitter",0.165,0.7645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_hit_2plus","2+ hits","824388","677587","Brayan Rocchio","Cleveland Guardians","Toronto Blue Jays","hitter",0.1645,0.7955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_hit_2plus","2+ hits","823337","683766","Christian Koss","San Francisco Giants","Pittsburgh Pirates","hitter",0.1595,0.717,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_hit_2plus","2+ hits","824388","683953","Travis Bazzana","Cleveland Guardians","Toronto Blue Jays","hitter",0.1535,0.7195,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_hr_1plus","1+ home run","823337","694376","Shay Whitcomb","San Francisco Giants","Pittsburgh Pirates","hitter",0.272,0.304,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_hr_1plus","1+ home run","823337","664040","Brandon Lowe","Pittsburgh Pirates","San Francisco Giants","hitter",0.1855,0.203,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_hr_1plus","1+ home run","823337","646240","Rafael Devers","San Francisco Giants","Pittsburgh Pirates","hitter",0.1755,0.19,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_hr_1plus","1+ home run","823337","804668","Rafael Flores Jr.","Pittsburgh Pirates","San Francisco Giants","hitter",0.1665,0.1805,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hr_1plus","1+ home run","823337","665833","Oneil Cruz","Pittsburgh Pirates","San Francisco Giants","hitter",0.1655,0.1795,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_hr_1plus","1+ home run","824388","663993","Nathaniel Lowe","Cleveland Guardians","Toronto Blue Jays","hitter",0.16,0.1705,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hr_1plus","1+ home run","823337","805811","Bryce Eldridge","San Francisco Giants","Pittsburgh Pirates","hitter",0.146,0.1535,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hr_1plus","1+ home run","823337","687462","Spencer Horwitz","Pittsburgh Pirates","San Francisco Giants","hitter",0.1445,0.1545,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hr_1plus","1+ home run","824388","666176","Jo Adell","Cleveland Guardians","Toronto Blue Jays","hitter",0.132,0.1405,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hr_1plus","1+ home run","823337","813841","Jonah Cox","San Francisco Giants","Pittsburgh Pirates","hitter",0.131,0.1405,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hr_1plus","1+ home run","823337","668800","Andrew Knizner","San Francisco Giants","Pittsburgh Pirates","hitter",0.125,0.131,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hr_1plus","1+ home run","824388","800050","Chase DeLauter","Cleveland Guardians","Toronto Blue Jays","hitter",0.1215,0.1305,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hr_1plus","1+ home run","823337","806367","Turner Hill","San Francisco Giants","Pittsburgh Pirates","hitter",0.1185,0.1285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hr_1plus","1+ home run","823337","694378","Jacob Gonzalez","Pittsburgh Pirates","San Francisco Giants","hitter",0.1115,0.1175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hr_1plus","1+ home run","824388","694197","Angel Genao","Cleveland Guardians","Toronto Blue Jays","hitter",0.1095,0.113,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hr_1plus","1+ home run","824388","608070","José Ramírez","Cleveland Guardians","Toronto Blue Jays","hitter",0.108,0.1155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hr_1plus","1+ home run","823337","668804","Bryan Reynolds","Pittsburgh Pirates","San Francisco Giants","hitter",0.1015,0.1085,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hr_1plus","1+ home run","824388","595978","Austin Hedges","Cleveland Guardians","Toronto Blue Jays","hitter",0.094,0.095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_hr_1plus","1+ home run","824388","683953","Travis Bazzana","Cleveland Guardians","Toronto Blue Jays","hitter",0.092,0.096,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_hr_1plus","1+ home run","824388","677587","Brayan Rocchio","Cleveland Guardians","Toronto Blue Jays","hitter",0.076,0.078,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_hr_1plus","1+ home run","823337","687551","Drew Gilbert","San Francisco Giants","Pittsburgh Pirates","hitter",0.068,0.069,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_hr_1plus","1+ home run","823337","693304","Nick Gonzales","Pittsburgh Pirates","San Francisco Giants","hitter",0.0475,0.048,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_hr_1plus","1+ home run","823337","663968","Jake Mangum","Pittsburgh Pirates","San Francisco Giants","hitter",0.0285,0.029,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_hr_1plus","1+ home run","823337","669707","Jared Triolo","Pittsburgh Pirates","San Francisco Giants","hitter",0.0135,0.014,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_hr_1plus","1+ home run","824388","680757","Steven Kwan","Cleveland Guardians","Toronto Blue Jays","hitter",0.0095,0.0095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_hr_1plus","1+ home run","823337","801501","Nathan Furman","San Francisco Giants","Pittsburgh Pirates","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_hr_1plus","1+ home run","823337","683766","Christian Koss","San Francisco Giants","Pittsburgh Pirates","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_hr_2plus","2+ home runs","823337","694376","Shay Whitcomb","San Francisco Giants","Pittsburgh Pirates","hitter",0.03,0.304,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_hr_2plus","2+ home runs","823337","664040","Brandon Lowe","Pittsburgh Pirates","San Francisco Giants","hitter",0.0175,0.203,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_hr_2plus","2+ home runs","823337","646240","Rafael Devers","San Francisco Giants","Pittsburgh Pirates","hitter",0.014,0.19,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_hr_2plus","2+ home runs","823337","804668","Rafael Flores Jr.","Pittsburgh Pirates","San Francisco Giants","hitter",0.014,0.1805,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hr_2plus","2+ home runs","823337","665833","Oneil Cruz","Pittsburgh Pirates","San Francisco Giants","hitter",0.012,0.1795,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_hr_2plus","2+ home runs","824388","663993","Nathaniel Lowe","Cleveland Guardians","Toronto Blue Jays","hitter",0.0105,0.1705,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hr_2plus","2+ home runs","823337","813841","Jonah Cox","San Francisco Giants","Pittsburgh Pirates","hitter",0.0095,0.1405,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hr_2plus","2+ home runs","823337","806367","Turner Hill","San Francisco Giants","Pittsburgh Pirates","hitter",0.0095,0.1285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hr_2plus","2+ home runs","823337","687462","Spencer Horwitz","Pittsburgh Pirates","San Francisco Giants","hitter",0.0095,0.1545,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hr_2plus","2+ home runs","824388","800050","Chase DeLauter","Cleveland Guardians","Toronto Blue Jays","hitter",0.009,0.1305,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hr_2plus","2+ home runs","824388","666176","Jo Adell","Cleveland Guardians","Toronto Blue Jays","hitter",0.008,0.1405,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hr_2plus","2+ home runs","823337","805811","Bryce Eldridge","San Francisco Giants","Pittsburgh Pirates","hitter",0.0075,0.1535,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hr_2plus","2+ home runs","824388","608070","José Ramírez","Cleveland Guardians","Toronto Blue Jays","hitter",0.0075,0.1155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hr_2plus","2+ home runs","823337","668804","Bryan Reynolds","Pittsburgh Pirates","San Francisco Giants","hitter",0.0065,0.1085,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hr_2plus","2+ home runs","823337","694378","Jacob Gonzalez","Pittsburgh Pirates","San Francisco Giants","hitter",0.006,0.1175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hr_2plus","2+ home runs","823337","668800","Andrew Knizner","San Francisco Giants","Pittsburgh Pirates","hitter",0.0055,0.131,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hr_2plus","2+ home runs","824388","694197","Angel Genao","Cleveland Guardians","Toronto Blue Jays","hitter",0.0035,0.113,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hr_2plus","2+ home runs","824388","683953","Travis Bazzana","Cleveland Guardians","Toronto Blue Jays","hitter",0.0035,0.096,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_hr_2plus","2+ home runs","824388","677587","Brayan Rocchio","Cleveland Guardians","Toronto Blue Jays","hitter",0.002,0.078,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_hr_2plus","2+ home runs","823337","687551","Drew Gilbert","San Francisco Giants","Pittsburgh Pirates","hitter",0.001,0.069,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_hr_2plus","2+ home runs","824388","595978","Austin Hedges","Cleveland Guardians","Toronto Blue Jays","hitter",0.001,0.095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_hr_2plus","2+ home runs","823337","693304","Nick Gonzales","Pittsburgh Pirates","San Francisco Giants","hitter",5e-04,0.048,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_hr_2plus","2+ home runs","823337","663968","Jake Mangum","Pittsburgh Pirates","San Francisco Giants","hitter",5e-04,0.029,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_hr_2plus","2+ home runs","823337","669707","Jared Triolo","Pittsburgh Pirates","San Francisco Giants","hitter",5e-04,0.014,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_hr_2plus","2+ home runs","823337","801501","Nathan Furman","San Francisco Giants","Pittsburgh Pirates","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_hr_2plus","2+ home runs","823337","683766","Christian Koss","San Francisco Giants","Pittsburgh Pirates","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_hr_2plus","2+ home runs","824388","680757","Steven Kwan","Cleveland Guardians","Toronto Blue Jays","hitter",0,0.0095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_tb_2plus","2+ total bases","823337","801501","Nathan Furman","San Francisco Giants","Pittsburgh Pirates","hitter",0.457,1.375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_tb_2plus","2+ total bases","823337","687462","Spencer Horwitz","Pittsburgh Pirates","San Francisco Giants","hitter",0.4355,1.7485,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_tb_2plus","2+ total bases","823337","664040","Brandon Lowe","Pittsburgh Pirates","San Francisco Giants","hitter",0.4355,1.844,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_tb_2plus","2+ total bases","823337","687551","Drew Gilbert","San Francisco Giants","Pittsburgh Pirates","hitter",0.4155,1.531,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_tb_2plus","2+ total bases","823337","646240","Rafael Devers","San Francisco Giants","Pittsburgh Pirates","hitter",0.413,1.723,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_tb_2plus","2+ total bases","823337","693304","Nick Gonzales","Pittsburgh Pirates","San Francisco Giants","hitter",0.3995,1.4995,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_tb_2plus","2+ total bases","824388","800050","Chase DeLauter","Cleveland Guardians","Toronto Blue Jays","hitter",0.393,1.565,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_tb_2plus","2+ total bases","823337","668804","Bryan Reynolds","Pittsburgh Pirates","San Francisco Giants","hitter",0.3925,1.5385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_tb_2plus","2+ total bases","823337","813841","Jonah Cox","San Francisco Giants","Pittsburgh Pirates","hitter",0.391,1.589,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_tb_2plus","2+ total bases","823337","663968","Jake Mangum","Pittsburgh Pirates","San Francisco Giants","hitter",0.3825,1.3915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_tb_2plus","2+ total bases","823337","668800","Andrew Knizner","San Francisco Giants","Pittsburgh Pirates","hitter",0.377,1.4895,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_tb_2plus","2+ total bases","823337","805811","Bryce Eldridge","San Francisco Giants","Pittsburgh Pirates","hitter",0.3745,1.5665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_tb_2plus","2+ total bases","824388","663993","Nathaniel Lowe","Cleveland Guardians","Toronto Blue Jays","hitter",0.3745,1.575,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_tb_2plus","2+ total bases","823337","683766","Christian Koss","San Francisco Giants","Pittsburgh Pirates","hitter",0.3615,1.1295,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_tb_2plus","2+ total bases","823337","806367","Turner Hill","San Francisco Giants","Pittsburgh Pirates","hitter",0.3595,1.4635,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_tb_2plus","2+ total bases","824388","666176","Jo Adell","Cleveland Guardians","Toronto Blue Jays","hitter",0.356,1.4845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_tb_2plus","2+ total bases","824388","608070","José Ramírez","Cleveland Guardians","Toronto Blue Jays","hitter",0.3545,1.3955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_tb_2plus","2+ total bases","823337","665833","Oneil Cruz","Pittsburgh Pirates","San Francisco Giants","hitter",0.3515,1.5785,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_tb_2plus","2+ total bases","824388","680757","Steven Kwan","Cleveland Guardians","Toronto Blue Jays","hitter",0.3455,1.211,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_tb_2plus","2+ total bases","823337","694378","Jacob Gonzalez","Pittsburgh Pirates","San Francisco Giants","hitter",0.3445,1.368,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_tb_2plus","2+ total bases","823337","694376","Shay Whitcomb","San Francisco Giants","Pittsburgh Pirates","hitter",0.3335,1.688,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_tb_2plus","2+ total bases","824388","595978","Austin Hedges","Cleveland Guardians","Toronto Blue Jays","hitter",0.3205,1.2695,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_tb_2plus","2+ total bases","824388","694197","Angel Genao","Cleveland Guardians","Toronto Blue Jays","hitter",0.314,1.3045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_tb_2plus","2+ total bases","824388","677587","Brayan Rocchio","Cleveland Guardians","Toronto Blue Jays","hitter",0.313,1.2375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_tb_2plus","2+ total bases","824388","683953","Travis Bazzana","Cleveland Guardians","Toronto Blue Jays","hitter",0.3105,1.213,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_tb_2plus","2+ total bases","823337","804668","Rafael Flores Jr.","Pittsburgh Pirates","San Francisco Giants","hitter",0.308,1.4255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_tb_2plus","2+ total bases","823337","669707","Jared Triolo","Pittsburgh Pirates","San Francisco Giants","hitter",0.3055,1.0845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_tb_3plus","3+ total bases","823337","664040","Brandon Lowe","Pittsburgh Pirates","San Francisco Giants","hitter",0.2815,1.844,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_tb_3plus","3+ total bases","823337","694376","Shay Whitcomb","San Francisco Giants","Pittsburgh Pirates","hitter",0.2775,1.688,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_tb_3plus","3+ total bases","823337","687462","Spencer Horwitz","Pittsburgh Pirates","San Francisco Giants","hitter",0.263,1.7485,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_tb_3plus","3+ total bases","823337","646240","Rafael Devers","San Francisco Giants","Pittsburgh Pirates","hitter",0.259,1.723,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_tb_3plus","3+ total bases","824388","663993","Nathaniel Lowe","Cleveland Guardians","Toronto Blue Jays","hitter",0.2365,1.575,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_tb_3plus","3+ total bases","823337","813841","Jonah Cox","San Francisco Giants","Pittsburgh Pirates","hitter",0.2315,1.589,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_tb_3plus","3+ total bases","824388","800050","Chase DeLauter","Cleveland Guardians","Toronto Blue Jays","hitter",0.2285,1.565,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_tb_3plus","3+ total bases","823337","665833","Oneil Cruz","Pittsburgh Pirates","San Francisco Giants","hitter",0.2235,1.5785,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_tb_3plus","3+ total bases","823337","805811","Bryce Eldridge","San Francisco Giants","Pittsburgh Pirates","hitter",0.2215,1.5665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_tb_3plus","3+ total bases","824388","666176","Jo Adell","Cleveland Guardians","Toronto Blue Jays","hitter",0.2125,1.4845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_tb_3plus","3+ total bases","823337","687551","Drew Gilbert","San Francisco Giants","Pittsburgh Pirates","hitter",0.2115,1.531,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_tb_3plus","3+ total bases","823337","668804","Bryan Reynolds","Pittsburgh Pirates","San Francisco Giants","hitter",0.211,1.5385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_tb_3plus","3+ total bases","823337","806367","Turner Hill","San Francisco Giants","Pittsburgh Pirates","hitter",0.2075,1.4635,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_tb_3plus","3+ total bases","823337","693304","Nick Gonzales","Pittsburgh Pirates","San Francisco Giants","hitter",0.206,1.4995,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_tb_3plus","3+ total bases","823337","668800","Andrew Knizner","San Francisco Giants","Pittsburgh Pirates","hitter",0.2055,1.4895,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_tb_3plus","3+ total bases","823337","804668","Rafael Flores Jr.","Pittsburgh Pirates","San Francisco Giants","hitter",0.2045,1.4255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_tb_3plus","3+ total bases","824388","608070","José Ramírez","Cleveland Guardians","Toronto Blue Jays","hitter",0.192,1.3955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_tb_3plus","3+ total bases","823337","694378","Jacob Gonzalez","Pittsburgh Pirates","San Francisco Giants","hitter",0.1865,1.368,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_tb_3plus","3+ total bases","824388","694197","Angel Genao","Cleveland Guardians","Toronto Blue Jays","hitter",0.181,1.3045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_tb_3plus","3+ total bases","823337","663968","Jake Mangum","Pittsburgh Pirates","San Francisco Giants","hitter",0.1795,1.3915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_tb_3plus","3+ total bases","823337","801501","Nathan Furman","San Francisco Giants","Pittsburgh Pirates","hitter",0.1745,1.375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_tb_3plus","3+ total bases","824388","595978","Austin Hedges","Cleveland Guardians","Toronto Blue Jays","hitter",0.174,1.2695,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_tb_3plus","3+ total bases","824388","683953","Travis Bazzana","Cleveland Guardians","Toronto Blue Jays","hitter",0.165,1.213,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_tb_3plus","3+ total bases","824388","677587","Brayan Rocchio","Cleveland Guardians","Toronto Blue Jays","hitter",0.1525,1.2375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_tb_3plus","3+ total bases","823337","683766","Christian Koss","San Francisco Giants","Pittsburgh Pirates","hitter",0.1475,1.1295,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_tb_3plus","3+ total bases","824388","680757","Steven Kwan","Cleveland Guardians","Toronto Blue Jays","hitter",0.137,1.211,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_tb_3plus","3+ total bases","823337","669707","Jared Triolo","Pittsburgh Pirates","San Francisco Giants","hitter",0.13,1.0845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hit_1plus","1+ hit","824144","665161","Jeremy Peña","Houston Astros","Chicago White Sox","hitter",0.787,1.3345,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"batter_hit_1plus","1+ hit","824144","670541","Yordan Alvarez","Houston Astros","Chicago White Sox","hitter",0.758,1.2295,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_hit_1plus","1+ hit","823337","693304","Nick Gonzales","Pittsburgh Pirates","San Francisco Giants","hitter",0.734,1.1185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_hit_1plus","1+ hit","824144","803011","Sam Antonacci","Chicago White Sox","Houston Astros","hitter",0.713,1.098,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_hit_1plus","1+ hit","824144","670623","Isaac Paredes","Houston Astros","Chicago White Sox","hitter",0.7105,1.051,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hit_1plus","1+ hit","823337","687462","Spencer Horwitz","Pittsburgh Pirates","San Francisco Giants","hitter",0.697,1.0555,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_hit_1plus","1+ hit","823337","663968","Jake Mangum","Pittsburgh Pirates","San Francisco Giants","hitter",0.6965,1.0335,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hit_1plus","1+ hit","824388","664770","Nathan Lukes","Toronto Blue Jays","Cleveland Guardians","hitter",0.696,1.0725,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hit_1plus","1+ hit","824388","665489","Vladimir Guerrero Jr.","Toronto Blue Jays","Cleveland Guardians","hitter",0.681,0.968,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hit_1plus","1+ hit","824144","514888","Jose Altuve","Houston Astros","Chicago White Sox","hitter",0.6785,0.969,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hit_1plus","1+ hit","824388","660821","Jesús Sánchez","Toronto Blue Jays","Cleveland Guardians","hitter",0.677,1.003,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hit_1plus","1+ hit","823337","687551","Drew Gilbert","San Francisco Giants","Pittsburgh Pirates","hitter",0.67,0.9915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hit_1plus","1+ hit","823337","664040","Brandon Lowe","Pittsburgh Pirates","San Francisco Giants","hitter",0.6615,0.984,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hit_1plus","1+ hit","824388","800050","Chase DeLauter","Cleveland Guardians","Toronto Blue Jays","hitter",0.66,0.937,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hit_1plus","1+ hit","823337","668804","Bryan Reynolds","Pittsburgh Pirates","San Francisco Giants","hitter",0.659,0.9375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hit_1plus","1+ hit","824144","662139","Daulton Varsho","Houston Astros","Chicago White Sox","hitter",0.657,0.958,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hit_1plus","1+ hit","824388","703520","Brett Bateman","Toronto Blue Jays","Cleveland Guardians","hitter",0.6565,0.959,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hit_1plus","1+ hit","824388","676391","Ernie Clement","Toronto Blue Jays","Cleveland Guardians","hitter",0.655,0.944,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hit_1plus","1+ hit","824144","673237","Yainer Diaz","Houston Astros","Chicago White Sox","hitter",0.655,0.9415,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hit_1plus","1+ hit","823337","813841","Jonah Cox","San Francisco Giants","Pittsburgh Pirates","hitter",0.6525,0.9185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hit_1plus","1+ hit","824144","572233","Christian Walker","Houston Astros","Chicago White Sox","hitter",0.6525,0.9245,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hit_1plus","1+ hit","823337","805811","Bryce Eldridge","San Francisco Giants","Pittsburgh Pirates","hitter",0.6485,0.9115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hit_1plus","1+ hit","823337","646240","Rafael Devers","San Francisco Giants","Pittsburgh Pirates","hitter",0.6425,0.919,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hit_1plus","1+ hit","823337","665833","Oneil Cruz","Pittsburgh Pirates","San Francisco Giants","hitter",0.64,0.911,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hit_1plus","1+ hit","824144","643217","Andrew Benintendi","Chicago White Sox","Houston Astros","hitter",0.64,0.9,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hit_1plus","1+ hit","824388","680757","Steven Kwan","Cleveland Guardians","Toronto Blue Jays","hitter",0.6375,0.908,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hit_1plus","1+ hit","824144","671976","Tristan Peters","Chicago White Sox","Houston Astros","hitter",0.636,0.906,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hit_1plus","1+ hit","824144","695731","Braden Montgomery","Chicago White Sox","Houston Astros","hitter",0.628,0.875,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_hit_1plus","1+ hit","824388","666176","Jo Adell","Cleveland Guardians","Toronto Blue Jays","hitter",0.6255,0.8745,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_hit_1plus","1+ hit","824144","805367","Chase Meidroth","Chicago White Sox","Houston Astros","hitter",0.625,0.8935,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_hit_1plus","1+ hit","824144","808959","Munetaka Murakami","Chicago White Sox","Houston Astros","hitter",0.624,0.8655,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_hit_1plus","1+ hit","824144","678246","Miguel Vargas","Chicago White Sox","Houston Astros","hitter",0.6225,0.909,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_hit_1plus","1+ hit","823337","806367","Turner Hill","San Francisco Giants","Pittsburgh Pirates","hitter",0.621,0.8655,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_hit_1plus","1+ hit","823337","668800","Andrew Knizner","San Francisco Giants","Pittsburgh Pirates","hitter",0.6205,0.8725,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_hit_1plus","1+ hit","824388","663993","Nathaniel Lowe","Cleveland Guardians","Toronto Blue Jays","hitter",0.6205,0.877,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_hit_1plus","1+ hit","824144","666211","Taylor Trammell","Houston Astros","Chicago White Sox","hitter",0.616,0.86,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hit_1plus","1+ hit","823337","801501","Nathan Furman","San Francisco Giants","Pittsburgh Pirates","hitter",0.6155,0.815,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_hit_1plus","1+ hit","824388","669701","Josh Smith","Toronto Blue Jays","Cleveland Guardians","hitter",0.609,0.8305,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_hit_1plus","1+ hit","824144","695657","Colson Montgomery","Chicago White Sox","Houston Astros","hitter",0.6035,0.7895,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_hit_1plus","1+ hit","823337","694378","Jacob Gonzalez","Pittsburgh Pirates","San Francisco Giants","hitter",0.601,0.8115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_hit_1plus","1+ hit","824388","665926","Andrés Giménez","Toronto Blue Jays","Cleveland Guardians","hitter",0.601,0.837,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_hit_1plus","1+ hit","824388","677587","Brayan Rocchio","Cleveland Guardians","Toronto Blue Jays","hitter",0.6005,0.7955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_hit_1plus","1+ hit","824388","815873","Sean Keys","Toronto Blue Jays","Cleveland Guardians","hitter",0.6,0.828,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_hit_1plus","1+ hit","824388","608070","José Ramírez","Cleveland Guardians","Toronto Blue Jays","hitter",0.5985,0.819,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_hit_1plus","1+ hit","823337","694376","Shay Whitcomb","San Francisco Giants","Pittsburgh Pirates","hitter",0.5885,0.776,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
+"batter_hit_1plus","1+ hit","824388","595978","Austin Hedges","Cleveland Guardians","Toronto Blue Jays","hitter",0.588,0.7955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",46
+"batter_hit_1plus","1+ hit","823337","804668","Rafael Flores Jr.","Pittsburgh Pirates","San Francisco Giants","hitter",0.5865,0.794,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",47
+"batter_hit_1plus","1+ hit","824144","668670","Jake Rogers","Chicago White Sox","Houston Astros","hitter",0.5825,0.808,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",48
+"batter_hit_1plus","1+ hit","824388","678218","Brandon Valenzuela","Toronto Blue Jays","Cleveland Guardians","hitter",0.578,0.762,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",49
+"batter_hit_1plus","1+ hit","824388","694197","Angel Genao","Cleveland Guardians","Toronto Blue Jays","hitter",0.578,0.7735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",50
+"batter_hit_1plus","1+ hit","823337","669707","Jared Triolo","Pittsburgh Pirates","San Francisco Giants","hitter",0.5695,0.7645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",51
+"batter_hit_1plus","1+ hit","824144","664774","LaMonte Wade Jr.","Houston Astros","Chicago White Sox","hitter",0.563,0.7335,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",52
+"batter_hit_1plus","1+ hit","824388","683953","Travis Bazzana","Cleveland Guardians","Toronto Blue Jays","hitter",0.5435,0.7195,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",53
+"batter_hit_1plus","1+ hit","823337","683766","Christian Koss","San Francisco Giants","Pittsburgh Pirates","hitter",0.5355,0.717,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",54
+"batter_hit_2plus","2+ hits","824144","665161","Jeremy Peña","Houston Astros","Chicago White Sox","hitter",0.407,1.3345,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"batter_hit_2plus","2+ hits","824144","670541","Yordan Alvarez","Houston Astros","Chicago White Sox","hitter",0.3625,1.2295,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_hit_2plus","2+ hits","824144","803011","Sam Antonacci","Chicago White Sox","Houston Astros","hitter",0.308,1.098,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_hit_2plus","2+ hits","823337","693304","Nick Gonzales","Pittsburgh Pirates","San Francisco Giants","hitter",0.305,1.1185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_hit_2plus","2+ hits","824388","664770","Nathan Lukes","Toronto Blue Jays","Cleveland Guardians","hitter",0.296,1.0725,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hit_2plus","2+ hits","823337","687462","Spencer Horwitz","Pittsburgh Pirates","San Francisco Giants","hitter",0.2935,1.0555,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_hit_2plus","2+ hits","824144","670623","Isaac Paredes","Houston Astros","Chicago White Sox","hitter",0.2755,1.051,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hit_2plus","2+ hits","823337","663968","Jake Mangum","Pittsburgh Pirates","San Francisco Giants","hitter",0.2715,1.0335,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hit_2plus","2+ hits","824388","660821","Jesús Sánchez","Toronto Blue Jays","Cleveland Guardians","hitter",0.268,1.003,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hit_2plus","2+ hits","823337","664040","Brandon Lowe","Pittsburgh Pirates","San Francisco Giants","hitter",0.2605,0.984,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hit_2plus","2+ hits","823337","687551","Drew Gilbert","San Francisco Giants","Pittsburgh Pirates","hitter",0.2535,0.9915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hit_2plus","2+ hits","824144","662139","Daulton Varsho","Houston Astros","Chicago White Sox","hitter",0.252,0.958,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hit_2plus","2+ hits","824388","703520","Brett Bateman","Toronto Blue Jays","Cleveland Guardians","hitter",0.248,0.959,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hit_2plus","2+ hits","824144","514888","Jose Altuve","Houston Astros","Chicago White Sox","hitter",0.2395,0.969,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hit_2plus","2+ hits","824144","673237","Yainer Diaz","Houston Astros","Chicago White Sox","hitter",0.239,0.9415,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hit_2plus","2+ hits","824388","665489","Vladimir Guerrero Jr.","Toronto Blue Jays","Cleveland Guardians","hitter",0.237,0.968,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hit_2plus","2+ hits","824144","678246","Miguel Vargas","Chicago White Sox","Houston Astros","hitter",0.234,0.909,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hit_2plus","2+ hits","824388","676391","Ernie Clement","Toronto Blue Jays","Cleveland Guardians","hitter",0.2325,0.944,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hit_2plus","2+ hits","824144","572233","Christian Walker","Houston Astros","Chicago White Sox","hitter",0.232,0.9245,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hit_2plus","2+ hits","824388","800050","Chase DeLauter","Cleveland Guardians","Toronto Blue Jays","hitter",0.23,0.937,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hit_2plus","2+ hits","824144","671976","Tristan Peters","Chicago White Sox","Houston Astros","hitter",0.23,0.906,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hit_2plus","2+ hits","823337","665833","Oneil Cruz","Pittsburgh Pirates","San Francisco Giants","hitter",0.2285,0.911,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hit_2plus","2+ hits","823337","813841","Jonah Cox","San Francisco Giants","Pittsburgh Pirates","hitter",0.225,0.9185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hit_2plus","2+ hits","823337","668804","Bryan Reynolds","Pittsburgh Pirates","San Francisco Giants","hitter",0.2245,0.9375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hit_2plus","2+ hits","823337","805811","Bryce Eldridge","San Francisco Giants","Pittsburgh Pirates","hitter",0.224,0.9115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hit_2plus","2+ hits","823337","646240","Rafael Devers","San Francisco Giants","Pittsburgh Pirates","hitter",0.222,0.919,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hit_2plus","2+ hits","824388","663993","Nathaniel Lowe","Cleveland Guardians","Toronto Blue Jays","hitter",0.22,0.877,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hit_2plus","2+ hits","824144","805367","Chase Meidroth","Chicago White Sox","Houston Astros","hitter",0.22,0.8935,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_hit_2plus","2+ hits","824144","643217","Andrew Benintendi","Chicago White Sox","Houston Astros","hitter",0.2195,0.9,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_hit_2plus","2+ hits","824388","680757","Steven Kwan","Cleveland Guardians","Toronto Blue Jays","hitter",0.219,0.908,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_hit_2plus","2+ hits","823337","668800","Andrew Knizner","San Francisco Giants","Pittsburgh Pirates","hitter",0.2145,0.8725,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_hit_2plus","2+ hits","824388","666176","Jo Adell","Cleveland Guardians","Toronto Blue Jays","hitter",0.2135,0.8745,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_hit_2plus","2+ hits","823337","806367","Turner Hill","San Francisco Giants","Pittsburgh Pirates","hitter",0.2075,0.8655,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_hit_2plus","2+ hits","824144","666211","Taylor Trammell","Houston Astros","Chicago White Sox","hitter",0.207,0.86,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_hit_2plus","2+ hits","824144","695731","Braden Montgomery","Chicago White Sox","Houston Astros","hitter",0.205,0.875,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_hit_2plus","2+ hits","824144","808959","Munetaka Murakami","Chicago White Sox","Houston Astros","hitter",0.2015,0.8655,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hit_2plus","2+ hits","824388","665926","Andrés Giménez","Toronto Blue Jays","Cleveland Guardians","hitter",0.2005,0.837,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_hit_2plus","2+ hits","824388","815873","Sean Keys","Toronto Blue Jays","Cleveland Guardians","hitter",0.196,0.828,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_hit_2plus","2+ hits","824144","668670","Jake Rogers","Chicago White Sox","Houston Astros","hitter",0.194,0.808,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_hit_2plus","2+ hits","824388","669701","Josh Smith","Toronto Blue Jays","Cleveland Guardians","hitter",0.191,0.8305,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_hit_2plus","2+ hits","824388","608070","José Ramírez","Cleveland Guardians","Toronto Blue Jays","hitter",0.1835,0.819,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_hit_2plus","2+ hits","823337","694378","Jacob Gonzalez","Pittsburgh Pirates","San Francisco Giants","hitter",0.1815,0.8115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_hit_2plus","2+ hits","824388","595978","Austin Hedges","Cleveland Guardians","Toronto Blue Jays","hitter",0.179,0.7955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_hit_2plus","2+ hits","823337","804668","Rafael Flores Jr.","Pittsburgh Pirates","San Francisco Giants","hitter",0.1775,0.794,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_hit_2plus","2+ hits","823337","801501","Nathan Furman","San Francisco Giants","Pittsburgh Pirates","hitter",0.1745,0.815,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
+"batter_hit_2plus","2+ hits","823337","694376","Shay Whitcomb","San Francisco Giants","Pittsburgh Pirates","hitter",0.1675,0.776,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",46
+"batter_hit_2plus","2+ hits","824388","694197","Angel Genao","Cleveland Guardians","Toronto Blue Jays","hitter",0.166,0.7735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",47
+"batter_hit_2plus","2+ hits","824144","695657","Colson Montgomery","Chicago White Sox","Houston Astros","hitter",0.166,0.7895,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",48
+"batter_hit_2plus","2+ hits","823337","669707","Jared Triolo","Pittsburgh Pirates","San Francisco Giants","hitter",0.165,0.7645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",49
+"batter_hit_2plus","2+ hits","824388","677587","Brayan Rocchio","Cleveland Guardians","Toronto Blue Jays","hitter",0.1645,0.7955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",50
+"batter_hit_2plus","2+ hits","824388","678218","Brandon Valenzuela","Toronto Blue Jays","Cleveland Guardians","hitter",0.1635,0.762,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",51
+"batter_hit_2plus","2+ hits","823337","683766","Christian Koss","San Francisco Giants","Pittsburgh Pirates","hitter",0.1595,0.717,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",52
+"batter_hit_2plus","2+ hits","824388","683953","Travis Bazzana","Cleveland Guardians","Toronto Blue Jays","hitter",0.1535,0.7195,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",53
+"batter_hit_2plus","2+ hits","824144","664774","LaMonte Wade Jr.","Houston Astros","Chicago White Sox","hitter",0.1525,0.7335,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",54
+"batter_hr_1plus","1+ home run","824144","670541","Yordan Alvarez","Houston Astros","Chicago White Sox","hitter",0.3045,0.352,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"batter_hr_1plus","1+ home run","824144","808959","Munetaka Murakami","Chicago White Sox","Houston Astros","hitter",0.29,0.3345,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_hr_1plus","1+ home run","823337","694376","Shay Whitcomb","San Francisco Giants","Pittsburgh Pirates","hitter",0.272,0.304,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_hr_1plus","1+ home run","824144","695657","Colson Montgomery","Chicago White Sox","Houston Astros","hitter",0.2245,0.2395,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_hr_1plus","1+ home run","824144","678246","Miguel Vargas","Chicago White Sox","Houston Astros","hitter",0.202,0.221,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hr_1plus","1+ home run","824144","665161","Jeremy Peña","Houston Astros","Chicago White Sox","hitter",0.196,0.2175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_hr_1plus","1+ home run","824144","572233","Christian Walker","Houston Astros","Chicago White Sox","hitter",0.196,0.2135,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hr_1plus","1+ home run","823337","664040","Brandon Lowe","Pittsburgh Pirates","San Francisco Giants","hitter",0.1855,0.203,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hr_1plus","1+ home run","823337","646240","Rafael Devers","San Francisco Giants","Pittsburgh Pirates","hitter",0.1755,0.19,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hr_1plus","1+ home run","823337","804668","Rafael Flores Jr.","Pittsburgh Pirates","San Francisco Giants","hitter",0.1665,0.1805,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hr_1plus","1+ home run","823337","665833","Oneil Cruz","Pittsburgh Pirates","San Francisco Giants","hitter",0.1655,0.1795,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hr_1plus","1+ home run","824388","663993","Nathaniel Lowe","Cleveland Guardians","Toronto Blue Jays","hitter",0.16,0.1705,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hr_1plus","1+ home run","824144","670623","Isaac Paredes","Houston Astros","Chicago White Sox","hitter",0.1505,0.158,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hr_1plus","1+ home run","824144","673237","Yainer Diaz","Houston Astros","Chicago White Sox","hitter",0.149,0.1595,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hr_1plus","1+ home run","823337","805811","Bryce Eldridge","San Francisco Giants","Pittsburgh Pirates","hitter",0.146,0.1535,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hr_1plus","1+ home run","823337","687462","Spencer Horwitz","Pittsburgh Pirates","San Francisco Giants","hitter",0.1445,0.1545,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hr_1plus","1+ home run","824144","514888","Jose Altuve","Houston Astros","Chicago White Sox","hitter",0.1435,0.152,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hr_1plus","1+ home run","824144","666211","Taylor Trammell","Houston Astros","Chicago White Sox","hitter",0.1385,0.1435,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hr_1plus","1+ home run","824388","678218","Brandon Valenzuela","Toronto Blue Jays","Cleveland Guardians","hitter",0.138,0.1435,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hr_1plus","1+ home run","824144","643217","Andrew Benintendi","Chicago White Sox","Houston Astros","hitter",0.137,0.1425,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hr_1plus","1+ home run","824388","666176","Jo Adell","Cleveland Guardians","Toronto Blue Jays","hitter",0.132,0.1405,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hr_1plus","1+ home run","823337","813841","Jonah Cox","San Francisco Giants","Pittsburgh Pirates","hitter",0.131,0.1405,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hr_1plus","1+ home run","823337","668800","Andrew Knizner","San Francisco Giants","Pittsburgh Pirates","hitter",0.125,0.131,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hr_1plus","1+ home run","824388","703520","Brett Bateman","Toronto Blue Jays","Cleveland Guardians","hitter",0.1215,0.129,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hr_1plus","1+ home run","824388","800050","Chase DeLauter","Cleveland Guardians","Toronto Blue Jays","hitter",0.1215,0.1305,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hr_1plus","1+ home run","823337","806367","Turner Hill","San Francisco Giants","Pittsburgh Pirates","hitter",0.1185,0.1285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hr_1plus","1+ home run","824144","668670","Jake Rogers","Chicago White Sox","Houston Astros","hitter",0.1175,0.125,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hr_1plus","1+ home run","824388","660821","Jesús Sánchez","Toronto Blue Jays","Cleveland Guardians","hitter",0.1155,0.1215,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_hr_1plus","1+ home run","823337","694378","Jacob Gonzalez","Pittsburgh Pirates","San Francisco Giants","hitter",0.1115,0.1175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_hr_1plus","1+ home run","824388","694197","Angel Genao","Cleveland Guardians","Toronto Blue Jays","hitter",0.1095,0.113,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_hr_1plus","1+ home run","824388","608070","José Ramírez","Cleveland Guardians","Toronto Blue Jays","hitter",0.108,0.1155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_hr_1plus","1+ home run","823337","668804","Bryan Reynolds","Pittsburgh Pirates","San Francisco Giants","hitter",0.1015,0.1085,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_hr_1plus","1+ home run","824144","664774","LaMonte Wade Jr.","Houston Astros","Chicago White Sox","hitter",0.1005,0.1035,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_hr_1plus","1+ home run","824388","815873","Sean Keys","Toronto Blue Jays","Cleveland Guardians","hitter",0.0975,0.103,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_hr_1plus","1+ home run","824388","595978","Austin Hedges","Cleveland Guardians","Toronto Blue Jays","hitter",0.094,0.095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_hr_1plus","1+ home run","824144","803011","Sam Antonacci","Chicago White Sox","Houston Astros","hitter",0.0935,0.097,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hr_1plus","1+ home run","824388","683953","Travis Bazzana","Cleveland Guardians","Toronto Blue Jays","hitter",0.092,0.096,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_hr_1plus","1+ home run","824388","664770","Nathan Lukes","Toronto Blue Jays","Cleveland Guardians","hitter",0.0805,0.0845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_hr_1plus","1+ home run","824144","662139","Daulton Varsho","Houston Astros","Chicago White Sox","hitter",0.08,0.0835,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_hr_1plus","1+ home run","824388","677587","Brayan Rocchio","Cleveland Guardians","Toronto Blue Jays","hitter",0.076,0.078,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_hr_1plus","1+ home run","824388","665926","Andrés Giménez","Toronto Blue Jays","Cleveland Guardians","hitter",0.0735,0.0775,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_hr_1plus","1+ home run","824144","671976","Tristan Peters","Chicago White Sox","Houston Astros","hitter",0.071,0.074,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_hr_1plus","1+ home run","823337","687551","Drew Gilbert","San Francisco Giants","Pittsburgh Pirates","hitter",0.068,0.069,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_hr_1plus","1+ home run","824144","805367","Chase Meidroth","Chicago White Sox","Houston Astros","hitter",0.068,0.069,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_hr_1plus","1+ home run","824388","676391","Ernie Clement","Toronto Blue Jays","Cleveland Guardians","hitter",0.063,0.064,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
+"batter_hr_1plus","1+ home run","824144","695731","Braden Montgomery","Chicago White Sox","Houston Astros","hitter",0.0605,0.063,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",46
+"batter_hr_1plus","1+ home run","824388","665489","Vladimir Guerrero Jr.","Toronto Blue Jays","Cleveland Guardians","hitter",0.058,0.059,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",47
+"batter_hr_1plus","1+ home run","823337","693304","Nick Gonzales","Pittsburgh Pirates","San Francisco Giants","hitter",0.0475,0.048,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",48
+"batter_hr_1plus","1+ home run","823337","663968","Jake Mangum","Pittsburgh Pirates","San Francisco Giants","hitter",0.0285,0.029,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",49
+"batter_hr_1plus","1+ home run","824388","669701","Josh Smith","Toronto Blue Jays","Cleveland Guardians","hitter",0.028,0.028,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",50
+"batter_hr_1plus","1+ home run","823337","669707","Jared Triolo","Pittsburgh Pirates","San Francisco Giants","hitter",0.0135,0.014,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",51
+"batter_hr_1plus","1+ home run","824388","680757","Steven Kwan","Cleveland Guardians","Toronto Blue Jays","hitter",0.0095,0.0095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",52
+"batter_hr_1plus","1+ home run","823337","801501","Nathan Furman","San Francisco Giants","Pittsburgh Pirates","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",53
+"batter_hr_1plus","1+ home run","823337","683766","Christian Koss","San Francisco Giants","Pittsburgh Pirates","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",54
+"batter_hr_2plus","2+ home runs","824144","670541","Yordan Alvarez","Houston Astros","Chicago White Sox","hitter",0.042,0.352,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"batter_hr_2plus","2+ home runs","824144","808959","Munetaka Murakami","Chicago White Sox","Houston Astros","hitter",0.04,0.3345,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_hr_2plus","2+ home runs","823337","694376","Shay Whitcomb","San Francisco Giants","Pittsburgh Pirates","hitter",0.03,0.304,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_hr_2plus","2+ home runs","824144","665161","Jeremy Peña","Houston Astros","Chicago White Sox","hitter",0.02,0.2175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_hr_2plus","2+ home runs","823337","664040","Brandon Lowe","Pittsburgh Pirates","San Francisco Giants","hitter",0.0175,0.203,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hr_2plus","2+ home runs","824144","678246","Miguel Vargas","Chicago White Sox","Houston Astros","hitter",0.0175,0.221,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_hr_2plus","2+ home runs","824144","572233","Christian Walker","Houston Astros","Chicago White Sox","hitter",0.0165,0.2135,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hr_2plus","2+ home runs","824144","695657","Colson Montgomery","Chicago White Sox","Houston Astros","hitter",0.0145,0.2395,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hr_2plus","2+ home runs","823337","646240","Rafael Devers","San Francisco Giants","Pittsburgh Pirates","hitter",0.014,0.19,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hr_2plus","2+ home runs","823337","804668","Rafael Flores Jr.","Pittsburgh Pirates","San Francisco Giants","hitter",0.014,0.1805,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hr_2plus","2+ home runs","823337","665833","Oneil Cruz","Pittsburgh Pirates","San Francisco Giants","hitter",0.012,0.1795,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hr_2plus","2+ home runs","824388","663993","Nathaniel Lowe","Cleveland Guardians","Toronto Blue Jays","hitter",0.0105,0.1705,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hr_2plus","2+ home runs","824144","673237","Yainer Diaz","Houston Astros","Chicago White Sox","hitter",0.0105,0.1595,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hr_2plus","2+ home runs","823337","813841","Jonah Cox","San Francisco Giants","Pittsburgh Pirates","hitter",0.0095,0.1405,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hr_2plus","2+ home runs","823337","806367","Turner Hill","San Francisco Giants","Pittsburgh Pirates","hitter",0.0095,0.1285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hr_2plus","2+ home runs","823337","687462","Spencer Horwitz","Pittsburgh Pirates","San Francisco Giants","hitter",0.0095,0.1545,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hr_2plus","2+ home runs","824388","800050","Chase DeLauter","Cleveland Guardians","Toronto Blue Jays","hitter",0.009,0.1305,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hr_2plus","2+ home runs","824388","666176","Jo Adell","Cleveland Guardians","Toronto Blue Jays","hitter",0.008,0.1405,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hr_2plus","2+ home runs","823337","805811","Bryce Eldridge","San Francisco Giants","Pittsburgh Pirates","hitter",0.0075,0.1535,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hr_2plus","2+ home runs","824388","703520","Brett Bateman","Toronto Blue Jays","Cleveland Guardians","hitter",0.0075,0.129,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hr_2plus","2+ home runs","824388","608070","José Ramírez","Cleveland Guardians","Toronto Blue Jays","hitter",0.0075,0.1155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hr_2plus","2+ home runs","824144","668670","Jake Rogers","Chicago White Sox","Houston Astros","hitter",0.0075,0.125,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hr_2plus","2+ home runs","824144","670623","Isaac Paredes","Houston Astros","Chicago White Sox","hitter",0.0075,0.158,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hr_2plus","2+ home runs","824144","514888","Jose Altuve","Houston Astros","Chicago White Sox","hitter",0.0075,0.152,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hr_2plus","2+ home runs","823337","668804","Bryan Reynolds","Pittsburgh Pirates","San Francisco Giants","hitter",0.0065,0.1085,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hr_2plus","2+ home runs","823337","694378","Jacob Gonzalez","Pittsburgh Pirates","San Francisco Giants","hitter",0.006,0.1175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hr_2plus","2+ home runs","824388","660821","Jesús Sánchez","Toronto Blue Jays","Cleveland Guardians","hitter",0.006,0.1215,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hr_2plus","2+ home runs","823337","668800","Andrew Knizner","San Francisco Giants","Pittsburgh Pirates","hitter",0.0055,0.131,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_hr_2plus","2+ home runs","824388","815873","Sean Keys","Toronto Blue Jays","Cleveland Guardians","hitter",0.0055,0.103,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_hr_2plus","2+ home runs","824388","678218","Brandon Valenzuela","Toronto Blue Jays","Cleveland Guardians","hitter",0.0055,0.1435,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_hr_2plus","2+ home runs","824144","643217","Andrew Benintendi","Chicago White Sox","Houston Astros","hitter",0.0055,0.1425,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_hr_2plus","2+ home runs","824144","666211","Taylor Trammell","Houston Astros","Chicago White Sox","hitter",0.005,0.1435,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_hr_2plus","2+ home runs","824388","665926","Andrés Giménez","Toronto Blue Jays","Cleveland Guardians","hitter",0.004,0.0775,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_hr_2plus","2+ home runs","824388","664770","Nathan Lukes","Toronto Blue Jays","Cleveland Guardians","hitter",0.0035,0.0845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_hr_2plus","2+ home runs","824388","694197","Angel Genao","Cleveland Guardians","Toronto Blue Jays","hitter",0.0035,0.113,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_hr_2plus","2+ home runs","824388","683953","Travis Bazzana","Cleveland Guardians","Toronto Blue Jays","hitter",0.0035,0.096,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hr_2plus","2+ home runs","824144","803011","Sam Antonacci","Chicago White Sox","Houston Astros","hitter",0.0035,0.097,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_hr_2plus","2+ home runs","824144","662139","Daulton Varsho","Houston Astros","Chicago White Sox","hitter",0.0035,0.0835,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_hr_2plus","2+ home runs","824144","671976","Tristan Peters","Chicago White Sox","Houston Astros","hitter",0.003,0.074,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_hr_2plus","2+ home runs","824144","664774","LaMonte Wade Jr.","Houston Astros","Chicago White Sox","hitter",0.003,0.1035,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_hr_2plus","2+ home runs","824144","695731","Braden Montgomery","Chicago White Sox","Houston Astros","hitter",0.0025,0.063,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_hr_2plus","2+ home runs","824388","677587","Brayan Rocchio","Cleveland Guardians","Toronto Blue Jays","hitter",0.002,0.078,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_hr_2plus","2+ home runs","823337","687551","Drew Gilbert","San Francisco Giants","Pittsburgh Pirates","hitter",0.001,0.069,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_hr_2plus","2+ home runs","824388","665489","Vladimir Guerrero Jr.","Toronto Blue Jays","Cleveland Guardians","hitter",0.001,0.059,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_hr_2plus","2+ home runs","824388","676391","Ernie Clement","Toronto Blue Jays","Cleveland Guardians","hitter",0.001,0.064,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
+"batter_hr_2plus","2+ home runs","824388","595978","Austin Hedges","Cleveland Guardians","Toronto Blue Jays","hitter",0.001,0.095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",46
+"batter_hr_2plus","2+ home runs","824144","805367","Chase Meidroth","Chicago White Sox","Houston Astros","hitter",0.001,0.069,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",47
+"batter_hr_2plus","2+ home runs","823337","693304","Nick Gonzales","Pittsburgh Pirates","San Francisco Giants","hitter",5e-04,0.048,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",48
+"batter_hr_2plus","2+ home runs","823337","663968","Jake Mangum","Pittsburgh Pirates","San Francisco Giants","hitter",5e-04,0.029,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",49
+"batter_hr_2plus","2+ home runs","823337","669707","Jared Triolo","Pittsburgh Pirates","San Francisco Giants","hitter",5e-04,0.014,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",50
+"batter_hr_2plus","2+ home runs","823337","801501","Nathan Furman","San Francisco Giants","Pittsburgh Pirates","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",51
+"batter_hr_2plus","2+ home runs","823337","683766","Christian Koss","San Francisco Giants","Pittsburgh Pirates","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",52
+"batter_hr_2plus","2+ home runs","824388","669701","Josh Smith","Toronto Blue Jays","Cleveland Guardians","hitter",0,0.028,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",53
+"batter_hr_2plus","2+ home runs","824388","680757","Steven Kwan","Cleveland Guardians","Toronto Blue Jays","hitter",0,0.0095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",54
+"batter_tb_2plus","2+ total bases","824144","665161","Jeremy Peña","Houston Astros","Chicago White Sox","hitter",0.5395,2.235,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"batter_tb_2plus","2+ total bases","824144","670541","Yordan Alvarez","Houston Astros","Chicago White Sox","hitter",0.5255,2.4575,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_tb_2plus","2+ total bases","823337","801501","Nathan Furman","San Francisco Giants","Pittsburgh Pirates","hitter",0.457,1.375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_tb_2plus","2+ total bases","824144","803011","Sam Antonacci","Chicago White Sox","Houston Astros","hitter",0.4495,1.7005,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_tb_2plus","2+ total bases","823337","687462","Spencer Horwitz","Pittsburgh Pirates","San Francisco Giants","hitter",0.4355,1.7485,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_tb_2plus","2+ total bases","823337","664040","Brandon Lowe","Pittsburgh Pirates","San Francisco Giants","hitter",0.4355,1.844,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_tb_2plus","2+ total bases","824144","670623","Isaac Paredes","Houston Astros","Chicago White Sox","hitter",0.433,1.7675,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_tb_2plus","2+ total bases","824388","660821","Jesús Sánchez","Toronto Blue Jays","Cleveland Guardians","hitter",0.4255,1.6445,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_tb_2plus","2+ total bases","824144","678246","Miguel Vargas","Chicago White Sox","Houston Astros","hitter",0.4245,1.799,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_tb_2plus","2+ total bases","824144","671976","Tristan Peters","Chicago White Sox","Houston Astros","hitter",0.421,1.4805,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_tb_2plus","2+ total bases","823337","687551","Drew Gilbert","San Francisco Giants","Pittsburgh Pirates","hitter",0.4155,1.531,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_tb_2plus","2+ total bases","824388","664770","Nathan Lukes","Toronto Blue Jays","Cleveland Guardians","hitter",0.4155,1.59,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_tb_2plus","2+ total bases","823337","646240","Rafael Devers","San Francisco Giants","Pittsburgh Pirates","hitter",0.413,1.723,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_tb_2plus","2+ total bases","824144","572233","Christian Walker","Houston Astros","Chicago White Sox","hitter",0.4115,1.767,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_tb_2plus","2+ total bases","824144","662139","Daulton Varsho","Houston Astros","Chicago White Sox","hitter",0.411,1.5155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_tb_2plus","2+ total bases","824144","643217","Andrew Benintendi","Chicago White Sox","Houston Astros","hitter",0.408,1.6,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_tb_2plus","2+ total bases","824144","514888","Jose Altuve","Houston Astros","Chicago White Sox","hitter",0.404,1.6605,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_tb_2plus","2+ total bases","823337","693304","Nick Gonzales","Pittsburgh Pirates","San Francisco Giants","hitter",0.3995,1.4995,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_tb_2plus","2+ total bases","824144","695731","Braden Montgomery","Chicago White Sox","Houston Astros","hitter",0.398,1.4135,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_tb_2plus","2+ total bases","824388","703520","Brett Bateman","Toronto Blue Jays","Cleveland Guardians","hitter",0.394,1.596,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_tb_2plus","2+ total bases","824388","800050","Chase DeLauter","Cleveland Guardians","Toronto Blue Jays","hitter",0.393,1.565,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_tb_2plus","2+ total bases","823337","668804","Bryan Reynolds","Pittsburgh Pirates","San Francisco Giants","hitter",0.3925,1.5385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_tb_2plus","2+ total bases","823337","813841","Jonah Cox","San Francisco Giants","Pittsburgh Pirates","hitter",0.391,1.589,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_tb_2plus","2+ total bases","824144","673237","Yainer Diaz","Houston Astros","Chicago White Sox","hitter",0.386,1.5965,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_tb_2plus","2+ total bases","823337","663968","Jake Mangum","Pittsburgh Pirates","San Francisco Giants","hitter",0.3825,1.3915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_tb_2plus","2+ total bases","824388","676391","Ernie Clement","Toronto Blue Jays","Cleveland Guardians","hitter",0.3795,1.417,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_tb_2plus","2+ total bases","823337","668800","Andrew Knizner","San Francisco Giants","Pittsburgh Pirates","hitter",0.377,1.4895,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_tb_2plus","2+ total bases","823337","805811","Bryce Eldridge","San Francisco Giants","Pittsburgh Pirates","hitter",0.3745,1.5665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_tb_2plus","2+ total bases","824388","663993","Nathaniel Lowe","Cleveland Guardians","Toronto Blue Jays","hitter",0.3745,1.575,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_tb_2plus","2+ total bases","824144","808959","Munetaka Murakami","Chicago White Sox","Houston Astros","hitter",0.3695,1.8755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_tb_2plus","2+ total bases","824144","666211","Taylor Trammell","Houston Astros","Chicago White Sox","hitter",0.365,1.5005,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_tb_2plus","2+ total bases","823337","683766","Christian Koss","San Francisco Giants","Pittsburgh Pirates","hitter",0.3615,1.1295,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_tb_2plus","2+ total bases","824388","665489","Vladimir Guerrero Jr.","Toronto Blue Jays","Cleveland Guardians","hitter",0.3615,1.3935,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_tb_2plus","2+ total bases","824144","695657","Colson Montgomery","Chicago White Sox","Houston Astros","hitter",0.361,1.6175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_tb_2plus","2+ total bases","823337","806367","Turner Hill","San Francisco Giants","Pittsburgh Pirates","hitter",0.3595,1.4635,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_tb_2plus","2+ total bases","824388","669701","Josh Smith","Toronto Blue Jays","Cleveland Guardians","hitter",0.3595,1.238,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_tb_2plus","2+ total bases","824388","666176","Jo Adell","Cleveland Guardians","Toronto Blue Jays","hitter",0.356,1.4845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_tb_2plus","2+ total bases","824144","805367","Chase Meidroth","Chicago White Sox","Houston Astros","hitter",0.356,1.342,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_tb_2plus","2+ total bases","824388","608070","José Ramírez","Cleveland Guardians","Toronto Blue Jays","hitter",0.3545,1.3955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_tb_2plus","2+ total bases","823337","665833","Oneil Cruz","Pittsburgh Pirates","San Francisco Giants","hitter",0.3515,1.5785,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_tb_2plus","2+ total bases","824388","665926","Andrés Giménez","Toronto Blue Jays","Cleveland Guardians","hitter",0.3515,1.319,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_tb_2plus","2+ total bases","824388","815873","Sean Keys","Toronto Blue Jays","Cleveland Guardians","hitter",0.3495,1.3905,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_tb_2plus","2+ total bases","824388","680757","Steven Kwan","Cleveland Guardians","Toronto Blue Jays","hitter",0.3455,1.211,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_tb_2plus","2+ total bases","823337","694378","Jacob Gonzalez","Pittsburgh Pirates","San Francisco Giants","hitter",0.3445,1.368,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_tb_2plus","2+ total bases","824144","668670","Jake Rogers","Chicago White Sox","Houston Astros","hitter",0.3405,1.3885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
+"batter_tb_2plus","2+ total bases","823337","694376","Shay Whitcomb","San Francisco Giants","Pittsburgh Pirates","hitter",0.3335,1.688,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",46
+"batter_tb_2plus","2+ total bases","824144","664774","LaMonte Wade Jr.","Houston Astros","Chicago White Sox","hitter",0.322,1.275,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",47
+"batter_tb_2plus","2+ total bases","824388","595978","Austin Hedges","Cleveland Guardians","Toronto Blue Jays","hitter",0.3205,1.2695,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",48
+"batter_tb_2plus","2+ total bases","824388","694197","Angel Genao","Cleveland Guardians","Toronto Blue Jays","hitter",0.314,1.3045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",49
+"batter_tb_2plus","2+ total bases","824388","677587","Brayan Rocchio","Cleveland Guardians","Toronto Blue Jays","hitter",0.313,1.2375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",50
+"batter_tb_2plus","2+ total bases","824388","683953","Travis Bazzana","Cleveland Guardians","Toronto Blue Jays","hitter",0.3105,1.213,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",51
+"batter_tb_2plus","2+ total bases","823337","804668","Rafael Flores Jr.","Pittsburgh Pirates","San Francisco Giants","hitter",0.308,1.4255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",52
+"batter_tb_2plus","2+ total bases","823337","669707","Jared Triolo","Pittsburgh Pirates","San Francisco Giants","hitter",0.3055,1.0845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",53
+"batter_tb_2plus","2+ total bases","824388","678218","Brandon Valenzuela","Toronto Blue Jays","Cleveland Guardians","hitter",0.3035,1.3205,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",54
+"batter_tb_3plus","3+ total bases","824144","670541","Yordan Alvarez","Houston Astros","Chicago White Sox","hitter",0.3845,2.4575,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"batter_tb_3plus","3+ total bases","824144","665161","Jeremy Peña","Houston Astros","Chicago White Sox","hitter",0.3455,2.235,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_tb_3plus","3+ total bases","824144","808959","Munetaka Murakami","Chicago White Sox","Houston Astros","hitter",0.3,1.8755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_tb_3plus","3+ total bases","823337","664040","Brandon Lowe","Pittsburgh Pirates","San Francisco Giants","hitter",0.2815,1.844,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_tb_3plus","3+ total bases","824144","678246","Miguel Vargas","Chicago White Sox","Houston Astros","hitter",0.28,1.799,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_tb_3plus","3+ total bases","823337","694376","Shay Whitcomb","San Francisco Giants","Pittsburgh Pirates","hitter",0.2775,1.688,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_tb_3plus","3+ total bases","824144","572233","Christian Walker","Houston Astros","Chicago White Sox","hitter",0.2685,1.767,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_tb_3plus","3+ total bases","823337","687462","Spencer Horwitz","Pittsburgh Pirates","San Francisco Giants","hitter",0.263,1.7485,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_tb_3plus","3+ total bases","824144","695657","Colson Montgomery","Chicago White Sox","Houston Astros","hitter",0.263,1.6175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_tb_3plus","3+ total bases","823337","646240","Rafael Devers","San Francisco Giants","Pittsburgh Pirates","hitter",0.259,1.723,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_tb_3plus","3+ total bases","824144","670623","Isaac Paredes","Houston Astros","Chicago White Sox","hitter",0.2565,1.7675,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_tb_3plus","3+ total bases","824144","803011","Sam Antonacci","Chicago White Sox","Houston Astros","hitter",0.247,1.7005,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_tb_3plus","3+ total bases","824388","660821","Jesús Sánchez","Toronto Blue Jays","Cleveland Guardians","hitter",0.244,1.6445,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_tb_3plus","3+ total bases","824144","514888","Jose Altuve","Houston Astros","Chicago White Sox","hitter",0.2425,1.6605,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_tb_3plus","3+ total bases","824388","663993","Nathaniel Lowe","Cleveland Guardians","Toronto Blue Jays","hitter",0.2365,1.575,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_tb_3plus","3+ total bases","824388","703520","Brett Bateman","Toronto Blue Jays","Cleveland Guardians","hitter",0.2355,1.596,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_tb_3plus","3+ total bases","824144","673237","Yainer Diaz","Houston Astros","Chicago White Sox","hitter",0.2355,1.5965,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_tb_3plus","3+ total bases","824144","643217","Andrew Benintendi","Chicago White Sox","Houston Astros","hitter",0.232,1.6,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_tb_3plus","3+ total bases","823337","813841","Jonah Cox","San Francisco Giants","Pittsburgh Pirates","hitter",0.2315,1.589,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_tb_3plus","3+ total bases","824144","666211","Taylor Trammell","Houston Astros","Chicago White Sox","hitter",0.23,1.5005,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_tb_3plus","3+ total bases","824388","800050","Chase DeLauter","Cleveland Guardians","Toronto Blue Jays","hitter",0.2285,1.565,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_tb_3plus","3+ total bases","824388","664770","Nathan Lukes","Toronto Blue Jays","Cleveland Guardians","hitter",0.225,1.59,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_tb_3plus","3+ total bases","823337","665833","Oneil Cruz","Pittsburgh Pirates","San Francisco Giants","hitter",0.2235,1.5785,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_tb_3plus","3+ total bases","823337","805811","Bryce Eldridge","San Francisco Giants","Pittsburgh Pirates","hitter",0.2215,1.5665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_tb_3plus","3+ total bases","824388","666176","Jo Adell","Cleveland Guardians","Toronto Blue Jays","hitter",0.2125,1.4845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_tb_3plus","3+ total bases","823337","687551","Drew Gilbert","San Francisco Giants","Pittsburgh Pirates","hitter",0.2115,1.531,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_tb_3plus","3+ total bases","824144","662139","Daulton Varsho","Houston Astros","Chicago White Sox","hitter",0.2115,1.5155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_tb_3plus","3+ total bases","823337","668804","Bryan Reynolds","Pittsburgh Pirates","San Francisco Giants","hitter",0.211,1.5385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_tb_3plus","3+ total bases","823337","806367","Turner Hill","San Francisco Giants","Pittsburgh Pirates","hitter",0.2075,1.4635,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_tb_3plus","3+ total bases","823337","693304","Nick Gonzales","Pittsburgh Pirates","San Francisco Giants","hitter",0.206,1.4995,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_tb_3plus","3+ total bases","823337","668800","Andrew Knizner","San Francisco Giants","Pittsburgh Pirates","hitter",0.2055,1.4895,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_tb_3plus","3+ total bases","824144","671976","Tristan Peters","Chicago White Sox","Houston Astros","hitter",0.2055,1.4805,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_tb_3plus","3+ total bases","823337","804668","Rafael Flores Jr.","Pittsburgh Pirates","San Francisco Giants","hitter",0.2045,1.4255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_tb_3plus","3+ total bases","824144","668670","Jake Rogers","Chicago White Sox","Houston Astros","hitter",0.195,1.3885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_tb_3plus","3+ total bases","824388","815873","Sean Keys","Toronto Blue Jays","Cleveland Guardians","hitter",0.1925,1.3905,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_tb_3plus","3+ total bases","824388","608070","José Ramírez","Cleveland Guardians","Toronto Blue Jays","hitter",0.192,1.3955,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_tb_3plus","3+ total bases","824388","676391","Ernie Clement","Toronto Blue Jays","Cleveland Guardians","hitter",0.1915,1.417,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_tb_3plus","3+ total bases","824144","695731","Braden Montgomery","Chicago White Sox","Houston Astros","hitter",0.1915,1.4135,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_tb_3plus","3+ total bases","824388","678218","Brandon Valenzuela","Toronto Blue Jays","Cleveland Guardians","hitter",0.189,1.3205,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_tb_3plus","3+ total bases","823337","694378","Jacob Gonzalez","Pittsburgh Pirates","San Francisco Giants","hitter",0.1865,1.368,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_tb_3plus","3+ total bases","824388","665489","Vladimir Guerrero Jr.","Toronto Blue Jays","Cleveland Guardians","hitter",0.1835,1.3935,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_tb_3plus","3+ total bases","824144","664774","LaMonte Wade Jr.","Houston Astros","Chicago White Sox","hitter",0.1815,1.275,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_tb_3plus","3+ total bases","824388","694197","Angel Genao","Cleveland Guardians","Toronto Blue Jays","hitter",0.181,1.3045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_tb_3plus","3+ total bases","824388","665926","Andrés Giménez","Toronto Blue Jays","Cleveland Guardians","hitter",0.18,1.319,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_tb_3plus","3+ total bases","823337","663968","Jake Mangum","Pittsburgh Pirates","San Francisco Giants","hitter",0.1795,1.3915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
+"batter_tb_3plus","3+ total bases","824144","805367","Chase Meidroth","Chicago White Sox","Houston Astros","hitter",0.178,1.342,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",46
+"batter_tb_3plus","3+ total bases","823337","801501","Nathan Furman","San Francisco Giants","Pittsburgh Pirates","hitter",0.1745,1.375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",47
+"batter_tb_3plus","3+ total bases","824388","595978","Austin Hedges","Cleveland Guardians","Toronto Blue Jays","hitter",0.174,1.2695,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",48
+"batter_tb_3plus","3+ total bases","824388","683953","Travis Bazzana","Cleveland Guardians","Toronto Blue Jays","hitter",0.165,1.213,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",49
+"batter_tb_3plus","3+ total bases","824388","677587","Brayan Rocchio","Cleveland Guardians","Toronto Blue Jays","hitter",0.1525,1.2375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",50
+"batter_tb_3plus","3+ total bases","824388","669701","Josh Smith","Toronto Blue Jays","Cleveland Guardians","hitter",0.15,1.238,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",51
+"batter_tb_3plus","3+ total bases","823337","683766","Christian Koss","San Francisco Giants","Pittsburgh Pirates","hitter",0.1475,1.1295,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",52
+"batter_tb_3plus","3+ total bases","824388","680757","Steven Kwan","Cleveland Guardians","Toronto Blue Jays","hitter",0.137,1.211,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",53
+"batter_tb_3plus","3+ total bases","823337","669707","Jared Triolo","Pittsburgh Pirates","San Francisco Giants","hitter",0.13,1.0845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",54
 "batter_xbh_1plus","1+ extra-base hit","823337","801501","Nathan Furman","San Francisco Giants","Pittsburgh Pirates","hitter",0.435,0.5245,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"batter_xbh_1plus","1+ extra-base hit","823337","664040","Brandon Lowe","Pittsburgh Pirates","San Francisco Giants","hitter",0.3595,0.4355,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"batter_xbh_1plus","1+ extra-base hit","823337","646240","Rafael Devers","San Francisco Giants","Pittsburgh Pirates","hitter",0.3485,0.4095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"batter_xbh_1plus","1+ extra-base hit","823337","683766","Christian Koss","San Francisco Giants","Pittsburgh Pirates","hitter",0.3295,0.379,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_xbh_1plus","1+ extra-base hit","823337","687551","Drew Gilbert","San Francisco Giants","Pittsburgh Pirates","hitter",0.324,0.376,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
-"batter_xbh_1plus","1+ extra-base hit","823337","687462","Spencer Horwitz","Pittsburgh Pirates","San Francisco Giants","hitter",0.324,0.37,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_xbh_1plus","1+ extra-base hit","823337","813841","Jonah Cox","San Francisco Giants","Pittsburgh Pirates","hitter",0.3235,0.373,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_xbh_1plus","1+ extra-base hit","823337","668804","Bryan Reynolds","Pittsburgh Pirates","San Francisco Giants","hitter",0.313,0.364,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_xbh_1plus","1+ extra-base hit","824388","800050","Chase DeLauter","Cleveland Guardians","Toronto Blue Jays","hitter",0.3095,0.3495,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_xbh_1plus","1+ extra-base hit","823337","668800","Andrew Knizner","San Francisco Giants","Pittsburgh Pirates","hitter",0.295,0.34,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_xbh_1plus","1+ extra-base hit","824388","663993","Nathaniel Lowe","Cleveland Guardians","Toronto Blue Jays","hitter",0.295,0.341,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_xbh_1plus","1+ extra-base hit","823337","805811","Bryce Eldridge","San Francisco Giants","Pittsburgh Pirates","hitter",0.2935,0.335,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_xbh_1plus","1+ extra-base hit","824388","608070","José Ramírez","Cleveland Guardians","Toronto Blue Jays","hitter",0.293,0.332,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_xbh_1plus","1+ extra-base hit","823337","806367","Turner Hill","San Francisco Giants","Pittsburgh Pirates","hitter",0.2825,0.3245,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_xbh_1plus","1+ extra-base hit","823337","694378","Jacob Gonzalez","Pittsburgh Pirates","San Francisco Giants","hitter",0.2745,0.306,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_xbh_1plus","1+ extra-base hit","824388","666176","Jo Adell","Cleveland Guardians","Toronto Blue Jays","hitter",0.274,0.3155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_xbh_1plus","1+ extra-base hit","823337","694376","Shay Whitcomb","San Francisco Giants","Pittsburgh Pirates","hitter",0.272,0.304,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_xbh_1plus","1+ extra-base hit","823337","665833","Oneil Cruz","Pittsburgh Pirates","San Francisco Giants","hitter",0.259,0.299,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_xbh_1plus","1+ extra-base hit","824388","683953","Travis Bazzana","Cleveland Guardians","Toronto Blue Jays","hitter",0.257,0.29,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_xbh_1plus","1+ extra-base hit","824388","694197","Angel Genao","Cleveland Guardians","Toronto Blue Jays","hitter",0.2555,0.2895,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_xbh_1plus","1+ extra-base hit","824388","595978","Austin Hedges","Cleveland Guardians","Toronto Blue Jays","hitter",0.2475,0.275,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_xbh_1plus","1+ extra-base hit","823337","663968","Jake Mangum","Pittsburgh Pirates","San Francisco Giants","hitter",0.2465,0.275,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_xbh_1plus","1+ extra-base hit","823337","693304","Nick Gonzales","Pittsburgh Pirates","San Francisco Giants","hitter",0.246,0.2705,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_xbh_1plus","1+ extra-base hit","824388","677587","Brayan Rocchio","Cleveland Guardians","Toronto Blue Jays","hitter",0.245,0.2735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_xbh_1plus","1+ extra-base hit","823337","669707","Jared Triolo","Pittsburgh Pirates","San Francisco Giants","hitter",0.2415,0.2695,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_xbh_1plus","1+ extra-base hit","824388","680757","Steven Kwan","Cleveland Guardians","Toronto Blue Jays","hitter",0.2385,0.266,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_xbh_1plus","1+ extra-base hit","823337","804668","Rafael Flores Jr.","Pittsburgh Pirates","San Francisco Giants","hitter",0.2335,0.261,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_xbh_1plus","1+ extra-base hit","824144","670541","Yordan Alvarez","Houston Astros","Chicago White Sox","hitter",0.4165,0.5105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"batter_xbh_1plus","1+ extra-base hit","824144","665161","Jeremy Peña","Houston Astros","Chicago White Sox","hitter",0.381,0.4525,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"batter_xbh_1plus","1+ extra-base hit","824144","678246","Miguel Vargas","Chicago White Sox","Houston Astros","hitter",0.363,0.4355,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"batter_xbh_1plus","1+ extra-base hit","823337","664040","Brandon Lowe","Pittsburgh Pirates","San Francisco Giants","hitter",0.3595,0.4355,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_xbh_1plus","1+ extra-base hit","824144","671976","Tristan Peters","Chicago White Sox","Houston Astros","hitter",0.349,0.4055,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
+"batter_xbh_1plus","1+ extra-base hit","823337","646240","Rafael Devers","San Francisco Giants","Pittsburgh Pirates","hitter",0.3485,0.4095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_xbh_1plus","1+ extra-base hit","824144","643217","Andrew Benintendi","Chicago White Sox","Houston Astros","hitter",0.342,0.3975,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_xbh_1plus","1+ extra-base hit","824144","572233","Christian Walker","Houston Astros","Chicago White Sox","hitter",0.341,0.3995,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_xbh_1plus","1+ extra-base hit","824144","695731","Braden Montgomery","Chicago White Sox","Houston Astros","hitter",0.3355,0.3925,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_xbh_1plus","1+ extra-base hit","824144","803011","Sam Antonacci","Chicago White Sox","Houston Astros","hitter",0.33,0.384,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_xbh_1plus","1+ extra-base hit","823337","683766","Christian Koss","San Francisco Giants","Pittsburgh Pirates","hitter",0.3295,0.379,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_xbh_1plus","1+ extra-base hit","824144","670623","Isaac Paredes","Houston Astros","Chicago White Sox","hitter",0.3275,0.38,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_xbh_1plus","1+ extra-base hit","824388","660821","Jesús Sánchez","Toronto Blue Jays","Cleveland Guardians","hitter",0.326,0.3785,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_xbh_1plus","1+ extra-base hit","823337","687551","Drew Gilbert","San Francisco Giants","Pittsburgh Pirates","hitter",0.324,0.376,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_xbh_1plus","1+ extra-base hit","823337","687462","Spencer Horwitz","Pittsburgh Pirates","San Francisco Giants","hitter",0.324,0.37,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_xbh_1plus","1+ extra-base hit","823337","813841","Jonah Cox","San Francisco Giants","Pittsburgh Pirates","hitter",0.3235,0.373,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_xbh_1plus","1+ extra-base hit","824144","514888","Jose Altuve","Houston Astros","Chicago White Sox","hitter",0.32,0.3715,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_xbh_1plus","1+ extra-base hit","824144","662139","Daulton Varsho","Houston Astros","Chicago White Sox","hitter",0.317,0.364,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_xbh_1plus","1+ extra-base hit","823337","668804","Bryan Reynolds","Pittsburgh Pirates","San Francisco Giants","hitter",0.313,0.364,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_xbh_1plus","1+ extra-base hit","824144","695657","Colson Montgomery","Chicago White Sox","Houston Astros","hitter",0.3115,0.34,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_xbh_1plus","1+ extra-base hit","824388","800050","Chase DeLauter","Cleveland Guardians","Toronto Blue Jays","hitter",0.3095,0.3495,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_xbh_1plus","1+ extra-base hit","824388","703520","Brett Bateman","Toronto Blue Jays","Cleveland Guardians","hitter",0.304,0.3525,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_xbh_1plus","1+ extra-base hit","824144","666211","Taylor Trammell","Houston Astros","Chicago White Sox","hitter",0.303,0.3425,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_xbh_1plus","1+ extra-base hit","824144","808959","Munetaka Murakami","Chicago White Sox","Houston Astros","hitter",0.2955,0.341,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_xbh_1plus","1+ extra-base hit","823337","668800","Andrew Knizner","San Francisco Giants","Pittsburgh Pirates","hitter",0.295,0.34,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_xbh_1plus","1+ extra-base hit","824388","663993","Nathaniel Lowe","Cleveland Guardians","Toronto Blue Jays","hitter",0.295,0.341,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_xbh_1plus","1+ extra-base hit","823337","805811","Bryce Eldridge","San Francisco Giants","Pittsburgh Pirates","hitter",0.2935,0.335,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_xbh_1plus","1+ extra-base hit","824388","669701","Josh Smith","Toronto Blue Jays","Cleveland Guardians","hitter",0.293,0.3325,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_xbh_1plus","1+ extra-base hit","824388","608070","José Ramírez","Cleveland Guardians","Toronto Blue Jays","hitter",0.293,0.332,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_xbh_1plus","1+ extra-base hit","824144","673237","Yainer Diaz","Houston Astros","Chicago White Sox","hitter",0.2885,0.3235,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_xbh_1plus","1+ extra-base hit","824388","664770","Nathan Lukes","Toronto Blue Jays","Cleveland Guardians","hitter",0.2875,0.332,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_xbh_1plus","1+ extra-base hit","824388","815873","Sean Keys","Toronto Blue Jays","Cleveland Guardians","hitter",0.2875,0.335,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_xbh_1plus","1+ extra-base hit","824388","676391","Ernie Clement","Toronto Blue Jays","Cleveland Guardians","hitter",0.2855,0.325,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_xbh_1plus","1+ extra-base hit","824144","664774","LaMonte Wade Jr.","Houston Astros","Chicago White Sox","hitter",0.2835,0.3185,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_xbh_1plus","1+ extra-base hit","823337","806367","Turner Hill","San Francisco Giants","Pittsburgh Pirates","hitter",0.2825,0.3245,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_xbh_1plus","1+ extra-base hit","823337","694378","Jacob Gonzalez","Pittsburgh Pirates","San Francisco Giants","hitter",0.2745,0.306,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_xbh_1plus","1+ extra-base hit","824388","666176","Jo Adell","Cleveland Guardians","Toronto Blue Jays","hitter",0.274,0.3155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_xbh_1plus","1+ extra-base hit","824388","665926","Andrés Giménez","Toronto Blue Jays","Cleveland Guardians","hitter",0.2735,0.311,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_xbh_1plus","1+ extra-base hit","824144","668670","Jake Rogers","Chicago White Sox","Houston Astros","hitter",0.2735,0.3175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_xbh_1plus","1+ extra-base hit","823337","694376","Shay Whitcomb","San Francisco Giants","Pittsburgh Pirates","hitter",0.272,0.304,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_xbh_1plus","1+ extra-base hit","824388","665489","Vladimir Guerrero Jr.","Toronto Blue Jays","Cleveland Guardians","hitter",0.26,0.286,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_xbh_1plus","1+ extra-base hit","823337","665833","Oneil Cruz","Pittsburgh Pirates","San Francisco Giants","hitter",0.259,0.299,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_xbh_1plus","1+ extra-base hit","824144","805367","Chase Meidroth","Chicago White Sox","Houston Astros","hitter",0.2585,0.291,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_xbh_1plus","1+ extra-base hit","824388","683953","Travis Bazzana","Cleveland Guardians","Toronto Blue Jays","hitter",0.257,0.29,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
+"batter_xbh_1plus","1+ extra-base hit","824388","694197","Angel Genao","Cleveland Guardians","Toronto Blue Jays","hitter",0.2555,0.2895,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",46
+"batter_xbh_1plus","1+ extra-base hit","824388","595978","Austin Hedges","Cleveland Guardians","Toronto Blue Jays","hitter",0.2475,0.275,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",47
+"batter_xbh_1plus","1+ extra-base hit","823337","663968","Jake Mangum","Pittsburgh Pirates","San Francisco Giants","hitter",0.2465,0.275,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",48
+"batter_xbh_1plus","1+ extra-base hit","823337","693304","Nick Gonzales","Pittsburgh Pirates","San Francisco Giants","hitter",0.246,0.2705,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",49
+"batter_xbh_1plus","1+ extra-base hit","824388","677587","Brayan Rocchio","Cleveland Guardians","Toronto Blue Jays","hitter",0.245,0.2735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",50
+"batter_xbh_1plus","1+ extra-base hit","823337","669707","Jared Triolo","Pittsburgh Pirates","San Francisco Giants","hitter",0.2415,0.2695,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",51
+"batter_xbh_1plus","1+ extra-base hit","824388","678218","Brandon Valenzuela","Toronto Blue Jays","Cleveland Guardians","hitter",0.239,0.2615,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",52
+"batter_xbh_1plus","1+ extra-base hit","824388","680757","Steven Kwan","Cleveland Guardians","Toronto Blue Jays","hitter",0.2385,0.266,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",53
+"batter_xbh_1plus","1+ extra-base hit","823337","804668","Rafael Flores Jr.","Pittsburgh Pirates","San Francisco Giants","hitter",0.2335,0.261,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",54
 "pitcher_k_10plus","10+ strikeouts","823337","669199","Lake Bachar","Pittsburgh Pirates","San Francisco Giants","pitcher",0.15,7.0985,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"pitcher_k_10plus","10+ strikeouts","823337","694918","Blade Tidwell","San Francisco Giants","Pittsburgh Pirates","pitcher",0.011,4.687,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"pitcher_k_10plus","10+ strikeouts","824388","667755","José Soriano","Toronto Blue Jays","Cleveland Guardians","pitcher",0.007,4.5625,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_10plus","10+ strikeouts","824144","686613","Hunter Brown","Houston Astros","Chicago White Sox","pitcher",0.027,5.3365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"pitcher_k_10plus","10+ strikeouts","824144","622491","Luis Castillo","Chicago White Sox","Houston Astros","pitcher",0.027,5.0345,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_10plus","10+ strikeouts","823337","694918","Blade Tidwell","San Francisco Giants","Pittsburgh Pirates","pitcher",0.011,4.687,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"pitcher_k_10plus","10+ strikeouts","824388","676440","Tanner Bibee","Cleveland Guardians","Toronto Blue Jays","pitcher",0.007,4.2085,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"pitcher_k_10plus","10+ strikeouts","824388","667755","José Soriano","Toronto Blue Jays","Cleveland Guardians","pitcher",0.007,4.5625,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
 "pitcher_k_5plus","5+ strikeouts","823337","669199","Lake Bachar","Pittsburgh Pirates","San Francisco Giants","pitcher",0.861,7.0985,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"pitcher_k_5plus","5+ strikeouts","823337","694918","Blade Tidwell","San Francisco Giants","Pittsburgh Pirates","pitcher",0.5115,4.687,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"pitcher_k_5plus","5+ strikeouts","824388","667755","José Soriano","Toronto Blue Jays","Cleveland Guardians","pitcher",0.488,4.5625,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_5plus","5+ strikeouts","824144","686613","Hunter Brown","Houston Astros","Chicago White Sox","pitcher",0.6235,5.3365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"pitcher_k_5plus","5+ strikeouts","824144","622491","Luis Castillo","Chicago White Sox","Houston Astros","pitcher",0.584,5.0345,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_5plus","5+ strikeouts","823337","694918","Blade Tidwell","San Francisco Giants","Pittsburgh Pirates","pitcher",0.5115,4.687,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"pitcher_k_5plus","5+ strikeouts","824388","667755","José Soriano","Toronto Blue Jays","Cleveland Guardians","pitcher",0.488,4.5625,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"pitcher_k_5plus","5+ strikeouts","824388","676440","Tanner Bibee","Cleveland Guardians","Toronto Blue Jays","pitcher",0.425,4.2085,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
 "pitcher_k_7plus","7+ strikeouts","823337","669199","Lake Bachar","Pittsburgh Pirates","San Francisco Giants","pitcher",0.5955,7.0985,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"pitcher_k_7plus","7+ strikeouts","823337","694918","Blade Tidwell","San Francisco Giants","Pittsburgh Pirates","pitcher",0.176,4.687,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"pitcher_k_7plus","7+ strikeouts","824388","667755","José Soriano","Toronto Blue Jays","Cleveland Guardians","pitcher",0.161,4.5625,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_7plus","7+ strikeouts","824144","686613","Hunter Brown","Houston Astros","Chicago White Sox","pitcher",0.2895,5.3365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"pitcher_k_7plus","7+ strikeouts","824144","622491","Luis Castillo","Chicago White Sox","Houston Astros","pitcher",0.2255,5.0345,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_7plus","7+ strikeouts","823337","694918","Blade Tidwell","San Francisco Giants","Pittsburgh Pirates","pitcher",0.176,4.687,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"pitcher_k_7plus","7+ strikeouts","824388","667755","José Soriano","Toronto Blue Jays","Cleveland Guardians","pitcher",0.161,4.5625,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"pitcher_k_7plus","7+ strikeouts","824388","676440","Tanner Bibee","Cleveland Guardians","Toronto Blue Jays","pitcher",0.114,4.2085,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
