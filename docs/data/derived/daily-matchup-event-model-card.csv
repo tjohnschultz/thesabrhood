@@ -1,2 +1,2 @@
 "game_date","scheduled_games","matchup_rows","confirmed_lineup_rows","overall_player_match_rate","complete_platoon_match_rate","mean_matchup_reliability","max_probability_sum_error","hitter_prior_pa","pitcher_prior_pa","split_prior_pa","form_strength","model_version","publication_status","generated_at_utc"
-"2026-09-04",14,234,234,0.833333333333333,0.807692307692308,55.7356822774316,2.22044604925031e-16,200,250,125,1,"multinomial_log5_platoon_form_v1","shadow development; not yet driving the public game probabilities","2026-09-04 22:06:40 UTC"
+"2026-09-04",16,288,288,0.805555555555556,0.75,53.9171137019466,2.22044604925031e-16,200,250,125,1,"multinomial_log5_platoon_form_v1","shadow development; not yet driving the public game probabilities","2026-09-05 00:19:40 UTC"
