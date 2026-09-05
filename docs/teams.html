@@ -307,13 +307,13 @@ The core index balances a broad Run Generation Score and Pitching Score. Recent 
 Los Angeles Dodgers
 </h3>
 <p class="player-signal__team">
-Recent riser: Mookie Betts (Hitter)
+Recent riser: Teoscar Hernández (Hitter)
 </p>
 <p>
 <strong>Run generation # 1 | pitching # 1</strong>
 </p>
 <p class="muted">
-0 surging | bullpen rested
+0 surging | bullpen taxed
 </p>
 </article>
 <article class="player-signal">
@@ -327,15 +327,15 @@ Milwaukee Brewers
 Recent riser: DL Hall (Pitcher)
 </p>
 <p>
-<strong>Run generation # 2 | pitching # 2</strong>
+<strong>Run generation # 2 | pitching # 4</strong>
 </p>
 <p class="muted">
-3 surging | bullpen taxed
+2 surging | bullpen usable
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">Team intelligence # 3</span><span class="signal-score" aria-label="Signal score 75.1">75.1</span>
+<span class="eyebrow">Team intelligence # 3</span><span class="signal-score" aria-label="Signal score 75.3">75.3</span>
 </div>
 <h3 class="anchored">
 New York Yankees
@@ -352,7 +352,7 @@ Recent riser: Jazz Chisholm Jr.&nbsp;(Hitter)
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
-<span class="eyebrow">Team intelligence # 4</span><span class="signal-score" aria-label="Signal score 75.0">75.0</span>
+<span class="eyebrow">Team intelligence # 4</span><span class="signal-score" aria-label="Signal score 74.3">74.3</span>
 </div>
 <h3 class="anchored">
 Boston Red Sox
@@ -361,15 +361,32 @@ Boston Red Sox
 Recent riser: Mickey Gasper (Hitter)
 </p>
 <p>
-<strong>Run generation # 6 | pitching # 2</strong>
+<strong>Run generation # 6 | pitching # 3</strong>
 </p>
 <p class="muted">
-1 surging | bullpen usable
+2 surging | bullpen taxed
 </p>
 </article>
 <article class="player-signal">
 <div class="player-signal__top">
 <span class="eyebrow">Team intelligence # 5</span><span class="signal-score" aria-label="Signal score 70.1">70.1</span>
+</div>
+<h3 class="anchored">
+Tampa Bay Rays
+</h3>
+<p class="player-signal__team">
+Recent riser: Freddy Peralta (Pitcher)
+</p>
+<p>
+<strong>Run generation # 10 | pitching # 5</strong>
+</p>
+<p class="muted">
+2 surging | bullpen usable
+</p>
+</article>
+<article class="player-signal">
+<div class="player-signal__top">
+<span class="eyebrow">Team intelligence # 6</span><span class="signal-score" aria-label="Signal score 69.7">69.7</span>
 </div>
 <h3 class="anchored">
 Philadelphia Phillies
@@ -382,23 +399,6 @@ Recent riser: Andrew Painter (Pitcher)
 </p>
 <p class="muted">
 2 surging | bullpen rested
-</p>
-</article>
-<article class="player-signal">
-<div class="player-signal__top">
-<span class="eyebrow">Team intelligence # 6</span><span class="signal-score" aria-label="Signal score 69.2">69.2</span>
-</div>
-<h3 class="anchored">
-Tampa Bay Rays
-</h3>
-<p class="player-signal__team">
-Recent riser: Freddy Peralta (Pitcher)
-</p>
-<p>
-<strong>Run generation # 10 | pitching # 5</strong>
-</p>
-<p class="muted">
-0 surging | bullpen taxed
 </p>
 </article>
 </div>
@@ -463,28 +463,28 @@ Los Angeles Dodgers
 88.0
 </td>
 <td>
-86.6
+87.1
 </td>
 <td>
-89.5
-</td>
-<td>
-1
+89.0
 </td>
 <td>
 1
 </td>
 <td>
-21
+1
 </td>
 <td>
-7
+22
 </td>
 <td>
-rested
+25
 </td>
 <td>
-Mookie Betts (Hitter)
+taxed
+</td>
+<td>
+Teoscar Hernández (Hitter)
 </td>
 </tr>
 <tr>
@@ -507,16 +507,16 @@ Milwaukee Brewers
 2
 </td>
 <td>
-2
+4
 </td>
 <td>
-10
+9
 </td>
 <td>
-27
+9
 </td>
 <td>
-taxed
+usable
 </td>
 <td>
 DL Hall (Pitcher)
@@ -530,13 +530,13 @@ DL Hall (Pitcher)
 New York Yankees
 </td>
 <td>
-75.1
+75.3
 </td>
 <td>
-65.5
+65.0
 </td>
 <td>
-84.7
+85.7
 </td>
 <td>
 5
@@ -548,7 +548,7 @@ New York Yankees
 18
 </td>
 <td>
-5
+2
 </td>
 <td>
 rested
@@ -565,28 +565,28 @@ Jazz Chisholm Jr.&nbsp;(Hitter)
 Boston Red Sox
 </td>
 <td>
-75.0
+74.3
 </td>
 <td>
-65.2
+63.4
 </td>
 <td>
-84.7
+85.2
 </td>
 <td>
 6
 </td>
 <td>
-2
+3
 </td>
 <td>
 27
 </td>
 <td>
-15
+28
 </td>
 <td>
-usable
+taxed
 </td>
 <td>
 Mickey Gasper (Hitter)
@@ -597,48 +597,13 @@ Mickey Gasper (Hitter)
 5
 </td>
 <td>
-Philadelphia Phillies
+Tampa Bay Rays
 </td>
 <td>
 70.1
 </td>
 <td>
-63.1
-</td>
-<td>
-77.1
-</td>
-<td>
-7
-</td>
-<td>
-7
-</td>
-<td>
-14
-</td>
-<td>
-3
-</td>
-<td>
-rested
-</td>
-<td>
-Andrew Painter (Pitcher)
-</td>
-</tr>
-<tr>
-<td>
-6
-</td>
-<td>
-Tampa Bay Rays
-</td>
-<td>
-69.2
-</td>
-<td>
-56.6
+58.3
 </td>
 <td>
 81.9
@@ -650,13 +615,13 @@ Tampa Bay Rays
 5
 </td>
 <td>
-19
+12
 </td>
 <td>
-25
+13
 </td>
 <td>
-taxed
+usable
 </td>
 <td>
 Freddy Peralta (Pitcher)
@@ -664,270 +629,25 @@ Freddy Peralta (Pitcher)
 </tr>
 <tr>
 <td>
-7
-</td>
-<td>
-Atlanta Braves
-</td>
-<td>
-66.0
-</td>
-<td>
-54.0
-</td>
-<td>
-78.1
-</td>
-<td>
-12
-</td>
-<td>
 6
 </td>
 <td>
-25
+Philadelphia Phillies
 </td>
 <td>
-23
+69.7
 </td>
 <td>
-taxed
+62.8
 </td>
 <td>
-Michael Harris II (Hitter)
-</td>
-</tr>
-<tr>
-<td>
-8
-</td>
-<td>
-Pittsburgh Pirates
-</td>
-<td>
-64.0
-</td>
-<td>
-69.3
-</td>
-<td>
-58.6
-</td>
-<td>
-4
-</td>
-<td>
-11
-</td>
-<td>
-28
-</td>
-<td>
-6
-</td>
-<td>
-rested
-</td>
-<td>
-Carmen Mlodzinski (Pitcher)
-</td>
-</tr>
-<tr>
-<td>
-9
-</td>
-<td>
-Miami Marlins
-</td>
-<td>
-55.1
-</td>
-<td>
-54.3
-</td>
-<td>
-56.0
-</td>
-<td>
-11
-</td>
-<td>
-12
-</td>
-<td>
-16
-</td>
-<td>
-17
-</td>
-<td>
-usable
-</td>
-<td>
-Tyler Phillips (Pitcher)
-</td>
-</tr>
-<tr>
-<td>
-10
-</td>
-<td>
-San Diego Padres
-</td>
-<td>
-54.0
-</td>
-<td>
-45.7
-</td>
-<td>
-62.4
-</td>
-<td>
-19
-</td>
-<td>
-9
+76.6
 </td>
 <td>
 7
 </td>
 <td>
-22
-</td>
-<td>
-usable
-</td>
-<td>
-Yuki Matsui (Pitcher)
-</td>
-</tr>
-<tr>
-<td>
-11
-</td>
-<td>
-Minnesota Twins
-</td>
-<td>
-53.7
-</td>
-<td>
-61.0
-</td>
-<td>
-46.4
-</td>
-<td>
-8
-</td>
-<td>
-16
-</td>
-<td>
-20
-</td>
-<td>
-29
-</td>
-<td>
-emergency
-</td>
-<td>
-Zebby Matthews (Pitcher)
-</td>
-</tr>
-<tr>
-<td>
-12
-</td>
-<td>
-Chicago Cubs
-</td>
-<td>
-53.4
-</td>
-<td>
-80.0
-</td>
-<td>
-26.7
-</td>
-<td>
-3
-</td>
-<td>
-24
-</td>
-<td>
-6
-</td>
-<td>
-28
-</td>
-<td>
-taxed
-</td>
-<td>
-Tyrone Taylor (Hitter)
-</td>
-</tr>
-<tr>
-<td>
-13
-</td>
-<td>
-Texas Rangers
-</td>
-<td>
-50.7
-</td>
-<td>
-46.6
-</td>
-<td>
-54.7
-</td>
-<td>
-18
-</td>
-<td>
-13
-</td>
-<td>
-17
-</td>
-<td>
-11
-</td>
-<td>
-usable
-</td>
-<td>
-Ezequiel Duran (Hitter)
-</td>
-</tr>
-<tr>
-<td>
-14
-</td>
-<td>
-Chicago White Sox
-</td>
-<td>
-48.6
-</td>
-<td>
-51.7
-</td>
-<td>
-45.5
-</td>
-<td>
-15
-</td>
-<td>
-17
+7
 </td>
 <td>
 15
@@ -939,24 +659,304 @@ Chicago White Sox
 rested
 </td>
 <td>
+Andrew Painter (Pitcher)
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Atlanta Braves
+</td>
+<td>
+66.4
+</td>
+<td>
+54.0
+</td>
+<td>
+78.8
+</td>
+<td>
+12
+</td>
+<td>
+6
+</td>
+<td>
+25
+</td>
+<td>
+10
+</td>
+<td>
+usable
+</td>
+<td>
+Victor Mederos (Pitcher)
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Pittsburgh Pirates
+</td>
+<td>
+64.9
+</td>
+<td>
+69.8
+</td>
+<td>
+60.0
+</td>
+<td>
+4
+</td>
+<td>
+10
+</td>
+<td>
+24
+</td>
+<td>
+27
+</td>
+<td>
+taxed
+</td>
+<td>
+Carmen Mlodzinski (Pitcher)
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+San Diego Padres
+</td>
+<td>
+54.7
+</td>
+<td>
+46.7
+</td>
+<td>
+62.6
+</td>
+<td>
+18
+</td>
+<td>
+9
+</td>
+<td>
+11
+</td>
+<td>
+7
+</td>
+<td>
+rested
+</td>
+<td>
+Yuki Matsui (Pitcher)
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Miami Marlins
+</td>
+<td>
+54.0
+</td>
+<td>
+52.6
+</td>
+<td>
+55.5
+</td>
+<td>
+13
+</td>
+<td>
+12
+</td>
+<td>
+20
+</td>
+<td>
+19
+</td>
+<td>
+usable
+</td>
+<td>
+Tyler Phillips (Pitcher)
+</td>
+</tr>
+<tr>
+<td>
+11
+</td>
+<td>
+Chicago Cubs
+</td>
+<td>
+53.6
+</td>
+<td>
+80.5
+</td>
+<td>
+26.7
+</td>
+<td>
+3
+</td>
+<td>
+24
+</td>
+<td>
+3
+</td>
+<td>
+16
+</td>
+<td>
+usable
+</td>
+<td>
+Tyrone Taylor (Hitter)
+</td>
+</tr>
+<tr>
+<td>
+12
+</td>
+<td>
+Minnesota Twins
+</td>
+<td>
+52.4
+</td>
+<td>
+59.8
+</td>
+<td>
+45.0
+</td>
+<td>
+8
+</td>
+<td>
+16
+</td>
+<td>
+19
+</td>
+<td>
+8
+</td>
+<td>
+rested
+</td>
+<td>
+Zebby Matthews (Pitcher)
+</td>
+</tr>
+<tr>
+<td>
+13
+</td>
+<td>
+Texas Rangers
+</td>
+<td>
+50.0
+</td>
+<td>
+46.0
+</td>
+<td>
+54.0
+</td>
+<td>
+19
+</td>
+<td>
+13
+</td>
+<td>
+17
+</td>
+<td>
+22
+</td>
+<td>
+usable
+</td>
+<td>
+Elias Díaz (Hitter)
+</td>
+</tr>
+<tr>
+<td>
+14
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+47.8
+</td>
+<td>
+51.7
+</td>
+<td>
+43.8
+</td>
+<td>
+15
+</td>
+<td>
+17
+</td>
+<td>
+14
+</td>
+<td>
+15
+</td>
+<td>
+usable
+</td>
+<td>
 Tristan Peters (Hitter)
 </td>
 </tr>
 <tr>
 <td>
-15
+14
 </td>
 <td>
 Cleveland Guardians
 </td>
 <td>
-48.5
+47.8
 </td>
 <td>
 27.8
 </td>
 <td>
-69.3
+67.8
 </td>
 <td>
 27
@@ -965,13 +965,13 @@ Cleveland Guardians
 8
 </td>
 <td>
-11
+7
 </td>
 <td>
-9
+30
 </td>
 <td>
-usable
+taxed
 </td>
 <td>
 Matt Festa (Pitcher)
@@ -985,28 +985,28 @@ Matt Festa (Pitcher)
 Detroit Tigers
 </td>
 <td>
-44.7
+45.3
 </td>
 <td>
-38.4
+39.0
 </td>
 <td>
-51.0
+51.6
 </td>
 <td>
-25
+23
 </td>
 <td>
-15
+14
 </td>
 <td>
 30
 </td>
 <td>
-24
+12
 </td>
 <td>
-taxed
+usable
 </td>
 <td>
 Max Clark (Hitter)
@@ -1017,13 +1017,48 @@ Max Clark (Hitter)
 17
 </td>
 <td>
+Seattle Mariners
+</td>
+<td>
+43.8
+</td>
+<td>
+27.6
+</td>
+<td>
+60.0
+</td>
+<td>
+28
+</td>
+<td>
+10
+</td>
+<td>
+28
+</td>
+<td>
+21
+</td>
+<td>
+usable
+</td>
+<td>
+Cal Raleigh (Hitter)
+</td>
+</tr>
+<tr>
+<td>
+18
+</td>
+<td>
 Arizona Diamondbacks
 </td>
 <td>
-43.5
+43.7
 </td>
 <td>
-46.7
+47.2
 </td>
 <td>
 40.2
@@ -1035,51 +1070,16 @@ Arizona Diamondbacks
 19
 </td>
 <td>
-22
+29
 </td>
 <td>
-19
+5
 </td>
 <td>
-usable
+rested
 </td>
 <td>
 Merrill Kelly (Pitcher)
-</td>
-</tr>
-<tr>
-<td>
-17
-</td>
-<td>
-Seattle Mariners
-</td>
-<td>
-43.5
-</td>
-<td>
-27.1
-</td>
-<td>
-59.8
-</td>
-<td>
-28
-</td>
-<td>
-10
-</td>
-<td>
-23
-</td>
-<td>
-10
-</td>
-<td>
-usable
-</td>
-<td>
-Cal Raleigh (Hitter)
 </td>
 </tr>
 <tr>
@@ -1093,25 +1093,25 @@ San Francisco Giants
 42.8
 </td>
 <td>
-42.9
+43.8
 </td>
 <td>
-42.8
+41.7
 </td>
 <td>
-21
+20
 </td>
 <td>
 18
 </td>
 <td>
-4
+5
 </td>
 <td>
-21
+23
 </td>
 <td>
-usable
+taxed
 </td>
 <td>
 Reiver Sanmartin (Pitcher)
@@ -1122,51 +1122,16 @@ Reiver Sanmartin (Pitcher)
 20
 </td>
 <td>
-Houston Astros
-</td>
-<td>
-41.4
-</td>
-<td>
-43.8
-</td>
-<td>
-39.0
-</td>
-<td>
-20
-</td>
-<td>
-20
-</td>
-<td>
-13
-</td>
-<td>
-4
-</td>
-<td>
-rested
-</td>
-<td>
-Hayden Wesneski (Pitcher)
-</td>
-</tr>
-<tr>
-<td>
-21
-</td>
-<td>
 Athletics
 </td>
 <td>
-41.2
+41.5
 </td>
 <td>
 58.4
 </td>
 <td>
-24.1
+24.7
 </td>
 <td>
 9
@@ -1178,13 +1143,48 @@ Athletics
 2
 </td>
 <td>
-1
+26
 </td>
 <td>
-rested
+taxed
 </td>
 <td>
-Kade Morris (Pitcher)
+Chris Roycroft (Pitcher)
+</td>
+</tr>
+<tr>
+<td>
+21
+</td>
+<td>
+Houston Astros
+</td>
+<td>
+41.0
+</td>
+<td>
+42.4
+</td>
+<td>
+39.7
+</td>
+<td>
+21
+</td>
+<td>
+20
+</td>
+<td>
+13
+</td>
+<td>
+18
+</td>
+<td>
+usable
+</td>
+<td>
+Yainer Diaz (Hitter)
 </td>
 </tr>
 <tr>
@@ -1195,10 +1195,10 @@ Kade Morris (Pitcher)
 New York Mets
 </td>
 <td>
-38.8
+40.2
 </td>
 <td>
-39.5
+42.2
 </td>
 <td>
 38.1
@@ -1210,16 +1210,16 @@ New York Mets
 21
 </td>
 <td>
-24
+21
 </td>
 <td>
-25
+11
 </td>
 <td>
-taxed
+usable
 </td>
 <td>
-Brett Baty (Hitter)
+Kodai Senga (Pitcher)
 </td>
 </tr>
 <tr>
@@ -1230,28 +1230,28 @@ Brett Baty (Hitter)
 Baltimore Orioles
 </td>
 <td>
-36.8
+35.5
 </td>
 <td>
-39.5
+36.0
 </td>
 <td>
-34.0
+35.0
 </td>
 <td>
-22
+25
 </td>
 <td>
 23
 </td>
 <td>
-5
+8
 </td>
 <td>
-20
+24
 </td>
 <td>
-usable
+taxed
 </td>
 <td>
 Luis Robert Jr.&nbsp;(Hitter)
@@ -1259,31 +1259,31 @@ Luis Robert Jr.&nbsp;(Hitter)
 </tr>
 <tr>
 <td>
-24
+23
 </td>
 <td>
 Kansas City Royals
 </td>
 <td>
-34.9
+35.5
 </td>
 <td>
 52.6
 </td>
 <td>
-17.2
+18.3
 </td>
 <td>
-14
+13
 </td>
 <td>
 27
 </td>
 <td>
-3
+4
 </td>
 <td>
-14
+17
 </td>
 <td>
 usable
@@ -1300,28 +1300,28 @@ Carter Jensen (Hitter)
 Colorado Rockies
 </td>
 <td>
-34.8
+35.4
 </td>
 <td>
-52.9
+54.1
 </td>
 <td>
 16.6
 </td>
 <td>
-13
+11
 </td>
 <td>
 28
 </td>
 <td>
-8
+6
 </td>
 <td>
-18
+4
 </td>
 <td>
-usable
+rested
 </td>
 <td>
 Troy Johnston (Hitter)
@@ -1335,28 +1335,28 @@ Troy Johnston (Hitter)
 Toronto Blue Jays
 </td>
 <td>
-33.9
+33.2
 </td>
 <td>
-15.7
+16.2
 </td>
 <td>
-52.1
+50.3
 </td>
 <td>
 29
 </td>
 <td>
-14
+15
 </td>
 <td>
 1
 </td>
 <td>
-8
+20
 </td>
 <td>
-rested
+usable
 </td>
 <td>
 Myles Straw (Hitter)
@@ -1370,10 +1370,10 @@ Myles Straw (Hitter)
 Washington Nationals
 </td>
 <td>
-31.8
+31.9
 </td>
 <td>
-51.0
+51.2
 </td>
 <td>
 12.6
@@ -1385,10 +1385,10 @@ Washington Nationals
 30
 </td>
 <td>
-9
+10
 </td>
 <td>
-16
+14
 </td>
 <td>
 usable
@@ -1405,13 +1405,13 @@ Daylen Lile (Hitter)
 St.&nbsp;Louis Cardinals
 </td>
 <td>
-30.7
+29.3
 </td>
 <td>
-38.6
+36.4
 </td>
 <td>
-22.8
+22.2
 </td>
 <td>
 24
@@ -1420,10 +1420,10 @@ St.&nbsp;Louis Cardinals
 26
 </td>
 <td>
-29
+26
 </td>
 <td>
-30
+29
 </td>
 <td>
 taxed
@@ -1440,13 +1440,13 @@ Gordon Graceffo (Pitcher)
 Los Angeles Angels
 </td>
 <td>
-22.6
+24.4
 </td>
 <td>
 11.2
 </td>
 <td>
-34.1
+37.6
 </td>
 <td>
 30
@@ -1455,16 +1455,16 @@ Los Angeles Angels
 22
 </td>
 <td>
-12
+16
 </td>
 <td>
-12
+6
 </td>
 <td>
-usable
+rested
 </td>
 <td>
-Tayler Saucedo (Pitcher)
+Ryan Johnson (Pitcher)
 </td>
 </tr>
 <tr>
@@ -1475,13 +1475,13 @@ Tayler Saucedo (Pitcher)
 Cincinnati Reds
 </td>
 <td>
-22.0
+22.4
 </td>
 <td>
-28.6
+30.3
 </td>
 <td>
-15.5
+14.5
 </td>
 <td>
 26
@@ -1490,16 +1490,16 @@ Cincinnati Reds
 29
 </td>
 <td>
-26
+23
 </td>
 <td>
-13
+2
 </td>
 <td>
-usable
+rested
 </td>
 <td>
-Tyler Stephenson (Hitter)
+Elly De La Cruz (Hitter)
 </td>
 </tr>
 </tbody>
