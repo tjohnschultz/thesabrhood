@@ -1,2 +1,2 @@
 "eligible_game_forecasts","settled_games","brier_score","away_runs_mae","home_runs_mae","total_runs_mae","mean_tie_probability","calibration_status","model_version"
-514,514,0.24699626459144,2.47249805447471,2.2988560311284,3.45443579766537,0.000140077821011673,"eligible for chronological calibration review","plate_appearance_state_machine_phase4_baserunning_v1; plate_appearance_state_machine_phase5_manager_hook_v1"
+529,529,0.24622454442344,2.4684763705104,2.27579584120983,3.43856332703214,0.000136105860113422,"eligible for chronological calibration review","plate_appearance_state_machine_phase4_baserunning_v1; plate_appearance_state_machine_phase5_manager_hook_v1"
