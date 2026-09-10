@@ -3,7 +3,7 @@
 "batter_hit_1plus","1+ hit","823413","607208","Trea Turner","Philadelphia Phillies","Houston Astros","hitter",0.741,1.1705,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
 "batter_hit_1plus","1+ hit","823413","669016","Brandon Marsh","Philadelphia Phillies","Houston Astros","hitter",0.724,1.1115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
 "batter_hit_1plus","1+ hit","824872","650490","Yandy Díaz","Tampa Bay Rays","Atlanta Braves","hitter",0.723,1.1465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
-"batter_hit_1plus","1+ hit","824872","671739","Michael Harris II","Atlanta Braves","Tampa Bay Rays","hitter",0.708,1.07,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
+"batter_hit_1plus","1+ hit","824872","671739","Michael Harris II","Atlanta Braves","Tampa Bay Rays","hitter",0.708,1.0725,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
 "batter_hit_1plus","1+ hit","823413","656941","Kyle Schwarber","Philadelphia Phillies","Houston Astros","hitter",0.6995,1.068,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
 "batter_hit_1plus","1+ hit","824872","686948","Drake Baldwin","Atlanta Braves","Tampa Bay Rays","hitter",0.6955,1.0705,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
 "batter_hit_1plus","1+ hit","823413","547180","Bryce Harper","Philadelphia Phillies","Houston Astros","hitter",0.695,1.0425,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
@@ -11,66 +11,84 @@
 "batter_hit_1plus","1+ hit","823413","702222","Justin Crawford","Philadelphia Phillies","Houston Astros","hitter",0.687,1.0135,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
 "batter_hit_1plus","1+ hit","823413","665161","Jeremy Peña","Houston Astros","Philadelphia Phillies","hitter",0.6855,1.017,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
 "batter_hit_1plus","1+ hit","824872","802415","Chandler Simpson","Tampa Bay Rays","Atlanta Braves","hitter",0.679,0.9875,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hit_1plus","1+ hit","824872","643289","Mauricio Dubón","Atlanta Braves","Tampa Bay Rays","hitter",0.673,0.97,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hit_1plus","1+ hit","824872","676356","Jonny DeLuca","Tampa Bay Rays","Atlanta Braves","hitter",0.667,0.972,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hit_1plus","1+ hit","824872","676356","Jonny DeLuca","Tampa Bay Rays","Atlanta Braves","hitter",0.667,0.972,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hit_1plus","1+ hit","824872","643289","Mauricio Dubón","Atlanta Braves","Tampa Bay Rays","hitter",0.667,0.981,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
 "batter_hit_1plus","1+ hit","824872","663743","Nick Fortes","Tampa Bay Rays","Atlanta Braves","hitter",0.6665,0.9475,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
 "batter_hit_1plus","1+ hit","823413","670541","Yordan Alvarez","Houston Astros","Philadelphia Phillies","hitter",0.666,0.9845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hit_1plus","1+ hit","823413","664761","Alec Bohm","Philadelphia Phillies","Houston Astros","hitter",0.665,0.968,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hit_1plus","1+ hit","824872","668723","Ryan Vilade","Tampa Bay Rays","Atlanta Braves","hitter",0.652,0.944,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_hit_1plus","1+ hit","824872","621566","Matt Olson","Atlanta Braves","Tampa Bay Rays","hitter",0.652,0.94,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_hit_1plus","1+ hit","824872","691406","Junior Caminero","Tampa Bay Rays","Atlanta Braves","hitter",0.65,0.945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_hit_1plus","1+ hit","824872","676551","Brewer Hicklen","Atlanta Braves","Tampa Bay Rays","hitter",0.63,0.8595,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_hit_1plus","1+ hit","824872","663611","Nick Madrigal","Tampa Bay Rays","Atlanta Braves","hitter",0.621,0.844,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_hit_1plus","1+ hit","824872","660670","Ronald Acuña Jr.","Atlanta Braves","Tampa Bay Rays","hitter",0.6095,0.864,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_hit_1plus","1+ hit","824872","657041","Lane Thomas","Atlanta Braves","Tampa Bay Rays","hitter",0.602,0.8055,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_hit_1plus","1+ hit","824872","622761","Jorge Mateo","Tampa Bay Rays","Atlanta Braves","hitter",0.601,0.8225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_hit_1plus","1+ hit","823413","670623","Isaac Paredes","Houston Astros","Philadelphia Phillies","hitter",0.586,0.816,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_hit_1plus","1+ hit","823413","662139","Daulton Varsho","Houston Astros","Philadelphia Phillies","hitter",0.581,0.773,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_hit_1plus","1+ hit","823413","572233","Christian Walker","Houston Astros","Philadelphia Phillies","hitter",0.5665,0.764,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
-"batter_hit_1plus","1+ hit","824872","663586","Austin Riley","Atlanta Braves","Tampa Bay Rays","hitter",0.562,0.7535,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
-"batter_hit_1plus","1+ hit","823413","514888","Jose Altuve","Houston Astros","Philadelphia Phillies","hitter",0.562,0.751,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
-"batter_hit_1plus","1+ hit","823413","666211","Taylor Trammell","Houston Astros","Philadelphia Phillies","hitter",0.5445,0.705,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
-"batter_hit_1plus","1+ hit","823413","665561","Rafael Marchán","Philadelphia Phillies","Houston Astros","hitter",0.5265,0.675,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
-"batter_hit_1plus","1+ hit","824872","656775","Cedric Mullins","Tampa Bay Rays","Atlanta Braves","hitter",0.5225,0.665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
-"batter_hit_1plus","1+ hit","823413","543877","Christian Vázquez","Houston Astros","Philadelphia Phillies","hitter",0.511,0.65,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
-"batter_hit_1plus","1+ hit","823413","701358","Cam Smith","Houston Astros","Philadelphia Phillies","hitter",0.4915,0.6395,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
-"batter_hit_1plus","1+ hit","824872","673490","Ha-Seong Kim","Atlanta Braves","Tampa Bay Rays","hitter",0.4155,0.502,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hit_1plus","1+ hit","823088","668227","Randy Arozarena","Seattle Mariners","Texas Rangers","hitter",0.666,0.98,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hit_1plus","1+ hit","823413","664761","Alec Bohm","Philadelphia Phillies","Houston Astros","hitter",0.665,0.968,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hit_1plus","1+ hit","824872","642086","Dominic Smith","Atlanta Braves","Tampa Bay Rays","hitter",0.658,0.9435,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hit_1plus","1+ hit","824872","668723","Ryan Vilade","Tampa Bay Rays","Atlanta Braves","hitter",0.652,0.944,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hit_1plus","1+ hit","824872","621566","Matt Olson","Atlanta Braves","Tampa Bay Rays","hitter",0.652,0.94,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hit_1plus","1+ hit","824872","691406","Junior Caminero","Tampa Bay Rays","Atlanta Braves","hitter",0.65,0.945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hit_1plus","1+ hit","823088","647304","Josh Naylor","Seattle Mariners","Texas Rangers","hitter",0.631,0.859,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hit_1plus","1+ hit","823088","686527","Dominic Canzone","Seattle Mariners","Texas Rangers","hitter",0.629,0.881,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hit_1plus","1+ hit","823088","677594","Julio Rodríguez","Seattle Mariners","Texas Rangers","hitter",0.6275,0.8685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hit_1plus","1+ hit","824872","663611","Nick Madrigal","Tampa Bay Rays","Atlanta Braves","hitter",0.621,0.844,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hit_1plus","1+ hit","823088","702284","Cole Young","Seattle Mariners","Texas Rangers","hitter",0.615,0.837,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hit_1plus","1+ hit","824872","676551","Brewer Hicklen","Atlanta Braves","Tampa Bay Rays","hitter",0.6115,0.8415,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_hit_1plus","1+ hit","824872","660670","Ronald Acuña Jr.","Atlanta Braves","Tampa Bay Rays","hitter",0.6095,0.864,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_hit_1plus","1+ hit","824872","622761","Jorge Mateo","Tampa Bay Rays","Atlanta Braves","hitter",0.601,0.8225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_hit_1plus","1+ hit","823413","670623","Isaac Paredes","Houston Astros","Philadelphia Phillies","hitter",0.586,0.816,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_hit_1plus","1+ hit","824872","663586","Austin Riley","Atlanta Braves","Tampa Bay Rays","hitter",0.5815,0.793,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_hit_1plus","1+ hit","823413","662139","Daulton Varsho","Houston Astros","Philadelphia Phillies","hitter",0.581,0.773,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_hit_1plus","1+ hit","823088","641487","J.P. Crawford","Seattle Mariners","Texas Rangers","hitter",0.581,0.7785,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_hit_1plus","1+ hit","823413","572233","Christian Walker","Houston Astros","Philadelphia Phillies","hitter",0.5665,0.764,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_hit_1plus","1+ hit","823088","703155","Lazaro Montes","Seattle Mariners","Texas Rangers","hitter",0.565,0.7565,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hit_1plus","1+ hit","823413","514888","Jose Altuve","Houston Astros","Philadelphia Phillies","hitter",0.562,0.751,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_hit_1plus","1+ hit","823088","801126","Brock Rodden","Seattle Mariners","Texas Rangers","hitter",0.5615,0.735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_hit_1plus","1+ hit","823413","666211","Taylor Trammell","Houston Astros","Philadelphia Phillies","hitter",0.5445,0.705,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_hit_1plus","1+ hit","823413","665561","Rafael Marchán","Philadelphia Phillies","Houston Astros","hitter",0.5265,0.675,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_hit_1plus","1+ hit","824872","656775","Cedric Mullins","Tampa Bay Rays","Atlanta Braves","hitter",0.5225,0.665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_hit_1plus","1+ hit","823413","543877","Christian Vázquez","Houston Astros","Philadelphia Phillies","hitter",0.511,0.65,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_hit_1plus","1+ hit","823088","663728","Cal Raleigh","Seattle Mariners","Texas Rangers","hitter",0.502,0.629,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_hit_1plus","1+ hit","823413","701358","Cam Smith","Houston Astros","Philadelphia Phillies","hitter",0.4915,0.6395,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_hit_1plus","1+ hit","824872","673490","Ha-Seong Kim","Atlanta Braves","Tampa Bay Rays","hitter",0.4285,0.5065,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
 "batter_hit_2plus","2+ hits","823413","650333","Luis Arraez","Philadelphia Phillies","Houston Astros","hitter",0.409,1.349,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "batter_hit_2plus","2+ hits","823413","607208","Trea Turner","Philadelphia Phillies","Houston Astros","hitter",0.3345,1.1705,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
 "batter_hit_2plus","2+ hits","824872","650490","Yandy Díaz","Tampa Bay Rays","Atlanta Braves","hitter",0.33,1.1465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
 "batter_hit_2plus","2+ hits","823413","669016","Brandon Marsh","Philadelphia Phillies","Houston Astros","hitter",0.312,1.1115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
 "batter_hit_2plus","2+ hits","824872","686948","Drake Baldwin","Atlanta Braves","Tampa Bay Rays","hitter",0.299,1.0705,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
 "batter_hit_2plus","2+ hits","823413","656941","Kyle Schwarber","Philadelphia Phillies","Houston Astros","hitter",0.2935,1.068,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_hit_2plus","2+ hits","824872","671739","Michael Harris II","Atlanta Braves","Tampa Bay Rays","hitter",0.2865,1.07,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_hit_2plus","2+ hits","824872","671739","Michael Harris II","Atlanta Braves","Tampa Bay Rays","hitter",0.288,1.0725,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
 "batter_hit_2plus","2+ hits","823413","547180","Bryce Harper","Philadelphia Phillies","Houston Astros","hitter",0.285,1.0425,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
 "batter_hit_2plus","2+ hits","823413","681082","Bryson Stott","Philadelphia Phillies","Houston Astros","hitter",0.274,1.0215,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
 "batter_hit_2plus","2+ hits","823413","702222","Justin Crawford","Philadelphia Phillies","Houston Astros","hitter",0.273,1.0135,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
 "batter_hit_2plus","2+ hits","823413","665161","Jeremy Peña","Houston Astros","Philadelphia Phillies","hitter",0.2645,1.017,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
 "batter_hit_2plus","2+ hits","823413","670541","Yordan Alvarez","Houston Astros","Philadelphia Phillies","hitter",0.261,0.9845,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
 "batter_hit_2plus","2+ hits","824872","802415","Chandler Simpson","Tampa Bay Rays","Atlanta Braves","hitter",0.26,0.9875,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hit_2plus","2+ hits","824872","676356","Jonny DeLuca","Tampa Bay Rays","Atlanta Braves","hitter",0.2545,0.972,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hit_2plus","2+ hits","823413","664761","Alec Bohm","Philadelphia Phillies","Houston Astros","hitter",0.25,0.968,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hit_2plus","2+ hits","824872","643289","Mauricio Dubón","Atlanta Braves","Tampa Bay Rays","hitter",0.2465,0.97,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hit_2plus","2+ hits","824872","691406","Junior Caminero","Tampa Bay Rays","Atlanta Braves","hitter",0.2445,0.945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hit_2plus","2+ hits","824872","621566","Matt Olson","Atlanta Braves","Tampa Bay Rays","hitter",0.243,0.94,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_hit_2plus","2+ hits","824872","668723","Ryan Vilade","Tampa Bay Rays","Atlanta Braves","hitter",0.241,0.944,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_hit_2plus","2+ hits","824872","663743","Nick Fortes","Tampa Bay Rays","Atlanta Braves","hitter",0.239,0.9475,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_hit_2plus","2+ hits","824872","660670","Ronald Acuña Jr.","Atlanta Braves","Tampa Bay Rays","hitter",0.214,0.864,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_hit_2plus","2+ hits","823413","670623","Isaac Paredes","Houston Astros","Philadelphia Phillies","hitter",0.1935,0.816,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_hit_2plus","2+ hits","824872","663611","Nick Madrigal","Tampa Bay Rays","Atlanta Braves","hitter",0.1905,0.844,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_hit_2plus","2+ hits","824872","676551","Brewer Hicklen","Atlanta Braves","Tampa Bay Rays","hitter",0.1895,0.8595,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_hit_2plus","2+ hits","824872","622761","Jorge Mateo","Tampa Bay Rays","Atlanta Braves","hitter",0.189,0.8225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_hit_2plus","2+ hits","824872","657041","Lane Thomas","Atlanta Braves","Tampa Bay Rays","hitter",0.173,0.8055,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_hit_2plus","2+ hits","823413","662139","Daulton Varsho","Houston Astros","Philadelphia Phillies","hitter",0.1695,0.773,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_hit_2plus","2+ hits","823413","572233","Christian Walker","Houston Astros","Philadelphia Phillies","hitter",0.1665,0.764,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
-"batter_hit_2plus","2+ hits","824872","663586","Austin Riley","Atlanta Braves","Tampa Bay Rays","hitter",0.1645,0.7535,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
-"batter_hit_2plus","2+ hits","823413","514888","Jose Altuve","Houston Astros","Philadelphia Phillies","hitter",0.163,0.751,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
-"batter_hit_2plus","2+ hits","823413","666211","Taylor Trammell","Houston Astros","Philadelphia Phillies","hitter",0.1435,0.705,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
-"batter_hit_2plus","2+ hits","823413","665561","Rafael Marchán","Philadelphia Phillies","Houston Astros","hitter",0.132,0.675,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
-"batter_hit_2plus","2+ hits","823413","701358","Cam Smith","Houston Astros","Philadelphia Phillies","hitter",0.1305,0.6395,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
-"batter_hit_2plus","2+ hits","824872","656775","Cedric Mullins","Tampa Bay Rays","Atlanta Braves","hitter",0.1265,0.665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
-"batter_hit_2plus","2+ hits","823413","543877","Christian Vázquez","Houston Astros","Philadelphia Phillies","hitter",0.1265,0.65,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
-"batter_hit_2plus","2+ hits","824872","673490","Ha-Seong Kim","Atlanta Braves","Tampa Bay Rays","hitter",0.0805,0.502,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hit_2plus","2+ hits","824872","643289","Mauricio Dubón","Atlanta Braves","Tampa Bay Rays","hitter",0.2585,0.981,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hit_2plus","2+ hits","824872","676356","Jonny DeLuca","Tampa Bay Rays","Atlanta Braves","hitter",0.2545,0.972,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hit_2plus","2+ hits","823088","668227","Randy Arozarena","Seattle Mariners","Texas Rangers","hitter",0.2515,0.98,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hit_2plus","2+ hits","823413","664761","Alec Bohm","Philadelphia Phillies","Houston Astros","hitter",0.25,0.968,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hit_2plus","2+ hits","824872","642086","Dominic Smith","Atlanta Braves","Tampa Bay Rays","hitter",0.2455,0.9435,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hit_2plus","2+ hits","824872","691406","Junior Caminero","Tampa Bay Rays","Atlanta Braves","hitter",0.2445,0.945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hit_2plus","2+ hits","824872","621566","Matt Olson","Atlanta Braves","Tampa Bay Rays","hitter",0.243,0.94,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hit_2plus","2+ hits","824872","668723","Ryan Vilade","Tampa Bay Rays","Atlanta Braves","hitter",0.241,0.944,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hit_2plus","2+ hits","824872","663743","Nick Fortes","Tampa Bay Rays","Atlanta Braves","hitter",0.239,0.9475,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hit_2plus","2+ hits","824872","660670","Ronald Acuña Jr.","Atlanta Braves","Tampa Bay Rays","hitter",0.214,0.864,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hit_2plus","2+ hits","823088","686527","Dominic Canzone","Seattle Mariners","Texas Rangers","hitter",0.214,0.881,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hit_2plus","2+ hits","823088","677594","Julio Rodríguez","Seattle Mariners","Texas Rangers","hitter",0.207,0.8685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hit_2plus","2+ hits","823088","647304","Josh Naylor","Seattle Mariners","Texas Rangers","hitter",0.1975,0.859,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hit_2plus","2+ hits","824872","676551","Brewer Hicklen","Atlanta Braves","Tampa Bay Rays","hitter",0.1955,0.8415,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hit_2plus","2+ hits","823413","670623","Isaac Paredes","Houston Astros","Philadelphia Phillies","hitter",0.1935,0.816,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_hit_2plus","2+ hits","824872","663611","Nick Madrigal","Tampa Bay Rays","Atlanta Braves","hitter",0.1905,0.844,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_hit_2plus","2+ hits","824872","622761","Jorge Mateo","Tampa Bay Rays","Atlanta Braves","hitter",0.189,0.8225,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_hit_2plus","2+ hits","823088","702284","Cole Young","Seattle Mariners","Texas Rangers","hitter",0.188,0.837,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_hit_2plus","2+ hits","824872","663586","Austin Riley","Atlanta Braves","Tampa Bay Rays","hitter",0.178,0.793,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_hit_2plus","2+ hits","823413","662139","Daulton Varsho","Houston Astros","Philadelphia Phillies","hitter",0.1695,0.773,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_hit_2plus","2+ hits","823088","641487","J.P. Crawford","Seattle Mariners","Texas Rangers","hitter",0.1695,0.7785,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_hit_2plus","2+ hits","823088","703155","Lazaro Montes","Seattle Mariners","Texas Rangers","hitter",0.1675,0.7565,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_hit_2plus","2+ hits","823413","572233","Christian Walker","Houston Astros","Philadelphia Phillies","hitter",0.1665,0.764,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hit_2plus","2+ hits","823413","514888","Jose Altuve","Houston Astros","Philadelphia Phillies","hitter",0.163,0.751,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_hit_2plus","2+ hits","823088","801126","Brock Rodden","Seattle Mariners","Texas Rangers","hitter",0.1525,0.735,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_hit_2plus","2+ hits","823413","666211","Taylor Trammell","Houston Astros","Philadelphia Phillies","hitter",0.1435,0.705,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_hit_2plus","2+ hits","823413","665561","Rafael Marchán","Philadelphia Phillies","Houston Astros","hitter",0.132,0.675,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_hit_2plus","2+ hits","823413","701358","Cam Smith","Houston Astros","Philadelphia Phillies","hitter",0.1305,0.6395,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_hit_2plus","2+ hits","824872","656775","Cedric Mullins","Tampa Bay Rays","Atlanta Braves","hitter",0.1265,0.665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_hit_2plus","2+ hits","823413","543877","Christian Vázquez","Houston Astros","Philadelphia Phillies","hitter",0.1265,0.65,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_hit_2plus","2+ hits","823088","663728","Cal Raleigh","Seattle Mariners","Texas Rangers","hitter",0.115,0.629,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_hit_2plus","2+ hits","824872","673490","Ha-Seong Kim","Atlanta Braves","Tampa Bay Rays","hitter",0.072,0.5065,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
 "batter_hr_1plus","1+ home run","823413","656941","Kyle Schwarber","Philadelphia Phillies","Houston Astros","hitter",0.3335,0.383,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "batter_hr_1plus","1+ home run","823413","670541","Yordan Alvarez","Houston Astros","Philadelphia Phillies","hitter",0.245,0.2765,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
 "batter_hr_1plus","1+ home run","823413","547180","Bryce Harper","Philadelphia Phillies","Houston Astros","hitter",0.2265,0.2525,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
@@ -78,35 +96,44 @@
 "batter_hr_1plus","1+ home run","824872","691406","Junior Caminero","Tampa Bay Rays","Atlanta Braves","hitter",0.217,0.233,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
 "batter_hr_1plus","1+ home run","824872","621566","Matt Olson","Atlanta Braves","Tampa Bay Rays","hitter",0.2095,0.227,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
 "batter_hr_1plus","1+ home run","824872","668723","Ryan Vilade","Tampa Bay Rays","Atlanta Braves","hitter",0.2,0.2175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
-"batter_hr_1plus","1+ home run","824872","671739","Michael Harris II","Atlanta Braves","Tampa Bay Rays","hitter",0.1665,0.179,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hr_1plus","1+ home run","823413","572233","Christian Walker","Houston Astros","Philadelphia Phillies","hitter",0.164,0.1775,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hr_1plus","1+ home run","823413","607208","Trea Turner","Philadelphia Phillies","Houston Astros","hitter",0.1545,0.166,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hr_1plus","1+ home run","823413","669016","Brandon Marsh","Philadelphia Phillies","Houston Astros","hitter",0.1535,0.1635,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hr_1plus","1+ home run","823413","665161","Jeremy Peña","Houston Astros","Philadelphia Phillies","hitter",0.14,0.1495,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hr_1plus","1+ home run","823413","664761","Alec Bohm","Philadelphia Phillies","Houston Astros","hitter",0.1335,0.1455,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hr_1plus","1+ home run","823413","670623","Isaac Paredes","Houston Astros","Philadelphia Phillies","hitter",0.13,0.1385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hr_1plus","1+ home run","824872","650490","Yandy Díaz","Tampa Bay Rays","Atlanta Braves","hitter",0.1295,0.138,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hr_1plus","1+ home run","824872","676356","Jonny DeLuca","Tampa Bay Rays","Atlanta Braves","hitter",0.125,0.134,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hr_1plus","1+ home run","824872","660670","Ronald Acuña Jr.","Atlanta Braves","Tampa Bay Rays","hitter",0.1235,0.1285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hr_1plus","1+ home run","824872","656775","Cedric Mullins","Tampa Bay Rays","Atlanta Braves","hitter",0.114,0.119,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_hr_1plus","1+ home run","823413","514888","Jose Altuve","Houston Astros","Philadelphia Phillies","hitter",0.1045,0.1115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_hr_1plus","1+ home run","824872","663586","Austin Riley","Atlanta Braves","Tampa Bay Rays","hitter",0.1015,0.105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_hr_1plus","1+ home run","824872","622761","Jorge Mateo","Tampa Bay Rays","Atlanta Braves","hitter",0.1005,0.105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_hr_1plus","1+ home run","824872","657041","Lane Thomas","Atlanta Braves","Tampa Bay Rays","hitter",0.0985,0.1055,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_hr_1plus","1+ home run","823413","701358","Cam Smith","Houston Astros","Philadelphia Phillies","hitter",0.089,0.0925,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_hr_1plus","1+ home run","824872","643289","Mauricio Dubón","Atlanta Braves","Tampa Bay Rays","hitter",0.0875,0.0935,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_hr_1plus","1+ home run","823413","666211","Taylor Trammell","Houston Astros","Philadelphia Phillies","hitter",0.0865,0.091,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_hr_1plus","1+ home run","823413","681082","Bryson Stott","Philadelphia Phillies","Houston Astros","hitter",0.086,0.0925,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_hr_1plus","1+ home run","823413","665561","Rafael Marchán","Philadelphia Phillies","Houston Astros","hitter",0.0805,0.0835,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_hr_1plus","1+ home run","823413","662139","Daulton Varsho","Houston Astros","Philadelphia Phillies","hitter",0.068,0.0685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
-"batter_hr_1plus","1+ home run","823413","543877","Christian Vázquez","Houston Astros","Philadelphia Phillies","hitter",0.062,0.0625,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
-"batter_hr_1plus","1+ home run","824872","663743","Nick Fortes","Tampa Bay Rays","Atlanta Braves","hitter",0.06,0.061,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
-"batter_hr_1plus","1+ home run","823413","650333","Luis Arraez","Philadelphia Phillies","Houston Astros","hitter",0.037,0.0375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
-"batter_hr_1plus","1+ home run","823413","702222","Justin Crawford","Philadelphia Phillies","Houston Astros","hitter",0.0265,0.0265,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
-"batter_hr_1plus","1+ home run","824872","802415","Chandler Simpson","Tampa Bay Rays","Atlanta Braves","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
-"batter_hr_1plus","1+ home run","824872","663611","Nick Madrigal","Tampa Bay Rays","Atlanta Braves","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
-"batter_hr_1plus","1+ home run","824872","676551","Brewer Hicklen","Atlanta Braves","Tampa Bay Rays","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
-"batter_hr_1plus","1+ home run","824872","673490","Ha-Seong Kim","Atlanta Braves","Tampa Bay Rays","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hr_1plus","1+ home run","823088","686527","Dominic Canzone","Seattle Mariners","Texas Rangers","hitter",0.195,0.208,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
+"batter_hr_1plus","1+ home run","824872","671739","Michael Harris II","Atlanta Braves","Tampa Bay Rays","hitter",0.1675,0.1815,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hr_1plus","1+ home run","823413","572233","Christian Walker","Houston Astros","Philadelphia Phillies","hitter",0.164,0.1775,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hr_1plus","1+ home run","823413","607208","Trea Turner","Philadelphia Phillies","Houston Astros","hitter",0.1545,0.166,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hr_1plus","1+ home run","823413","669016","Brandon Marsh","Philadelphia Phillies","Houston Astros","hitter",0.1535,0.1635,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hr_1plus","1+ home run","823413","665161","Jeremy Peña","Houston Astros","Philadelphia Phillies","hitter",0.14,0.1495,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hr_1plus","1+ home run","823413","664761","Alec Bohm","Philadelphia Phillies","Houston Astros","hitter",0.1335,0.1455,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hr_1plus","1+ home run","823413","670623","Isaac Paredes","Houston Astros","Philadelphia Phillies","hitter",0.13,0.1385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hr_1plus","1+ home run","824872","650490","Yandy Díaz","Tampa Bay Rays","Atlanta Braves","hitter",0.1295,0.138,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hr_1plus","1+ home run","823088","663728","Cal Raleigh","Seattle Mariners","Texas Rangers","hitter",0.126,0.1305,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hr_1plus","1+ home run","824872","676356","Jonny DeLuca","Tampa Bay Rays","Atlanta Braves","hitter",0.125,0.134,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hr_1plus","1+ home run","824872","660670","Ronald Acuña Jr.","Atlanta Braves","Tampa Bay Rays","hitter",0.1235,0.1285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hr_1plus","1+ home run","823088","677594","Julio Rodríguez","Seattle Mariners","Texas Rangers","hitter",0.1185,0.1255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hr_1plus","1+ home run","823088","668227","Randy Arozarena","Seattle Mariners","Texas Rangers","hitter",0.1175,0.1245,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hr_1plus","1+ home run","823088","702284","Cole Young","Seattle Mariners","Texas Rangers","hitter",0.1175,0.121,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hr_1plus","1+ home run","824872","642086","Dominic Smith","Atlanta Braves","Tampa Bay Rays","hitter",0.116,0.1235,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hr_1plus","1+ home run","824872","656775","Cedric Mullins","Tampa Bay Rays","Atlanta Braves","hitter",0.114,0.119,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hr_1plus","1+ home run","823088","641487","J.P. Crawford","Seattle Mariners","Texas Rangers","hitter",0.108,0.11,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hr_1plus","1+ home run","823413","514888","Jose Altuve","Houston Astros","Philadelphia Phillies","hitter",0.1045,0.1115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hr_1plus","1+ home run","824872","622761","Jorge Mateo","Tampa Bay Rays","Atlanta Braves","hitter",0.1005,0.105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hr_1plus","1+ home run","823088","801126","Brock Rodden","Seattle Mariners","Texas Rangers","hitter",0.097,0.1,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_hr_1plus","1+ home run","824872","663586","Austin Riley","Atlanta Braves","Tampa Bay Rays","hitter",0.0945,0.097,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_hr_1plus","1+ home run","823088","703155","Lazaro Montes","Seattle Mariners","Texas Rangers","hitter",0.0945,0.0985,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_hr_1plus","1+ home run","824872","643289","Mauricio Dubón","Atlanta Braves","Tampa Bay Rays","hitter",0.09,0.094,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_hr_1plus","1+ home run","823413","701358","Cam Smith","Houston Astros","Philadelphia Phillies","hitter",0.089,0.0925,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_hr_1plus","1+ home run","823413","666211","Taylor Trammell","Houston Astros","Philadelphia Phillies","hitter",0.0865,0.091,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_hr_1plus","1+ home run","823413","681082","Bryson Stott","Philadelphia Phillies","Houston Astros","hitter",0.086,0.0925,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_hr_1plus","1+ home run","823413","665561","Rafael Marchán","Philadelphia Phillies","Houston Astros","hitter",0.0805,0.0835,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_hr_1plus","1+ home run","823413","662139","Daulton Varsho","Houston Astros","Philadelphia Phillies","hitter",0.068,0.0685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hr_1plus","1+ home run","823413","543877","Christian Vázquez","Houston Astros","Philadelphia Phillies","hitter",0.062,0.0625,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_hr_1plus","1+ home run","823088","647304","Josh Naylor","Seattle Mariners","Texas Rangers","hitter",0.0615,0.063,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_hr_1plus","1+ home run","824872","663743","Nick Fortes","Tampa Bay Rays","Atlanta Braves","hitter",0.06,0.061,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_hr_1plus","1+ home run","823413","650333","Luis Arraez","Philadelphia Phillies","Houston Astros","hitter",0.037,0.0375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_hr_1plus","1+ home run","823413","702222","Justin Crawford","Philadelphia Phillies","Houston Astros","hitter",0.0265,0.0265,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_hr_1plus","1+ home run","824872","802415","Chandler Simpson","Tampa Bay Rays","Atlanta Braves","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_hr_1plus","1+ home run","824872","663611","Nick Madrigal","Tampa Bay Rays","Atlanta Braves","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_hr_1plus","1+ home run","824872","676551","Brewer Hicklen","Atlanta Braves","Tampa Bay Rays","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_hr_1plus","1+ home run","824872","673490","Ha-Seong Kim","Atlanta Braves","Tampa Bay Rays","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
 "batter_hr_2plus","2+ home runs","823413","656941","Kyle Schwarber","Philadelphia Phillies","Houston Astros","hitter",0.0465,0.383,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "batter_hr_2plus","2+ home runs","823413","670541","Yordan Alvarez","Houston Astros","Philadelphia Phillies","hitter",0.03,0.2765,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
 "batter_hr_2plus","2+ home runs","823413","547180","Bryce Harper","Philadelphia Phillies","Houston Astros","hitter",0.0245,0.2525,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
@@ -115,70 +142,88 @@
 "batter_hr_2plus","2+ home runs","824872","621566","Matt Olson","Atlanta Braves","Tampa Bay Rays","hitter",0.017,0.227,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
 "batter_hr_2plus","2+ home runs","824872","691406","Junior Caminero","Tampa Bay Rays","Atlanta Braves","hitter",0.0155,0.233,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
 "batter_hr_2plus","2+ home runs","823413","572233","Christian Walker","Houston Astros","Philadelphia Phillies","hitter",0.0135,0.1775,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
-"batter_hr_2plus","2+ home runs","823413","664761","Alec Bohm","Philadelphia Phillies","Houston Astros","hitter",0.012,0.1455,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_hr_2plus","2+ home runs","824872","671739","Michael Harris II","Atlanta Braves","Tampa Bay Rays","hitter",0.0115,0.179,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_hr_2plus","2+ home runs","823413","607208","Trea Turner","Philadelphia Phillies","Houston Astros","hitter",0.011,0.166,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_hr_2plus","2+ home runs","823413","669016","Brandon Marsh","Philadelphia Phillies","Houston Astros","hitter",0.01,0.1635,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_hr_2plus","2+ home runs","823413","665161","Jeremy Peña","Houston Astros","Philadelphia Phillies","hitter",0.0095,0.1495,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_hr_2plus","2+ home runs","824872","676356","Jonny DeLuca","Tampa Bay Rays","Atlanta Braves","hitter",0.0085,0.134,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_hr_2plus","2+ home runs","823413","670623","Isaac Paredes","Houston Astros","Philadelphia Phillies","hitter",0.0085,0.1385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_hr_2plus","2+ home runs","824872","650490","Yandy Díaz","Tampa Bay Rays","Atlanta Braves","hitter",0.007,0.138,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_hr_2plus","2+ home runs","824872","657041","Lane Thomas","Atlanta Braves","Tampa Bay Rays","hitter",0.007,0.1055,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_hr_2plus","2+ home runs","823413","681082","Bryson Stott","Philadelphia Phillies","Houston Astros","hitter",0.0065,0.0925,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_hr_2plus","2+ home runs","824872","643289","Mauricio Dubón","Atlanta Braves","Tampa Bay Rays","hitter",0.006,0.0935,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_hr_2plus","2+ home runs","823413","514888","Jose Altuve","Houston Astros","Philadelphia Phillies","hitter",0.006,0.1115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_hr_2plus","2+ home runs","824872","656775","Cedric Mullins","Tampa Bay Rays","Atlanta Braves","hitter",0.005,0.119,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_hr_2plus","2+ home runs","824872","660670","Ronald Acuña Jr.","Atlanta Braves","Tampa Bay Rays","hitter",0.005,0.1285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_hr_2plus","2+ home runs","823413","666211","Taylor Trammell","Houston Astros","Philadelphia Phillies","hitter",0.0045,0.091,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_hr_2plus","2+ home runs","824872","622761","Jorge Mateo","Tampa Bay Rays","Atlanta Braves","hitter",0.004,0.105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_hr_2plus","2+ home runs","824872","663586","Austin Riley","Atlanta Braves","Tampa Bay Rays","hitter",0.0035,0.105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_hr_2plus","2+ home runs","823413","701358","Cam Smith","Houston Astros","Philadelphia Phillies","hitter",0.0035,0.0925,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_hr_2plus","2+ home runs","823413","665561","Rafael Marchán","Philadelphia Phillies","Houston Astros","hitter",0.003,0.0835,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_hr_2plus","2+ home runs","824872","663743","Nick Fortes","Tampa Bay Rays","Atlanta Braves","hitter",0.001,0.061,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
-"batter_hr_2plus","2+ home runs","823413","662139","Daulton Varsho","Houston Astros","Philadelphia Phillies","hitter",5e-04,0.0685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
-"batter_hr_2plus","2+ home runs","823413","543877","Christian Vázquez","Houston Astros","Philadelphia Phillies","hitter",5e-04,0.0625,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
-"batter_hr_2plus","2+ home runs","823413","650333","Luis Arraez","Philadelphia Phillies","Houston Astros","hitter",5e-04,0.0375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
-"batter_hr_2plus","2+ home runs","824872","802415","Chandler Simpson","Tampa Bay Rays","Atlanta Braves","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
-"batter_hr_2plus","2+ home runs","824872","663611","Nick Madrigal","Tampa Bay Rays","Atlanta Braves","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
-"batter_hr_2plus","2+ home runs","824872","676551","Brewer Hicklen","Atlanta Braves","Tampa Bay Rays","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
-"batter_hr_2plus","2+ home runs","824872","673490","Ha-Seong Kim","Atlanta Braves","Tampa Bay Rays","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
-"batter_hr_2plus","2+ home runs","823413","702222","Justin Crawford","Philadelphia Phillies","Houston Astros","hitter",0,0.0265,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hr_2plus","2+ home runs","824872","671739","Michael Harris II","Atlanta Braves","Tampa Bay Rays","hitter",0.013,0.1815,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
+"batter_hr_2plus","2+ home runs","823088","686527","Dominic Canzone","Seattle Mariners","Texas Rangers","hitter",0.013,0.208,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_hr_2plus","2+ home runs","823413","664761","Alec Bohm","Philadelphia Phillies","Houston Astros","hitter",0.012,0.1455,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_hr_2plus","2+ home runs","823413","607208","Trea Turner","Philadelphia Phillies","Houston Astros","hitter",0.011,0.166,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_hr_2plus","2+ home runs","823413","669016","Brandon Marsh","Philadelphia Phillies","Houston Astros","hitter",0.01,0.1635,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_hr_2plus","2+ home runs","823413","665161","Jeremy Peña","Houston Astros","Philadelphia Phillies","hitter",0.0095,0.1495,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_hr_2plus","2+ home runs","824872","676356","Jonny DeLuca","Tampa Bay Rays","Atlanta Braves","hitter",0.0085,0.134,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_hr_2plus","2+ home runs","823413","670623","Isaac Paredes","Houston Astros","Philadelphia Phillies","hitter",0.0085,0.1385,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_hr_2plus","2+ home runs","824872","642086","Dominic Smith","Atlanta Braves","Tampa Bay Rays","hitter",0.0075,0.1235,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_hr_2plus","2+ home runs","824872","650490","Yandy Díaz","Tampa Bay Rays","Atlanta Braves","hitter",0.007,0.138,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_hr_2plus","2+ home runs","823088","677594","Julio Rodríguez","Seattle Mariners","Texas Rangers","hitter",0.007,0.1255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_hr_2plus","2+ home runs","823413","681082","Bryson Stott","Philadelphia Phillies","Houston Astros","hitter",0.0065,0.0925,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_hr_2plus","2+ home runs","823413","514888","Jose Altuve","Houston Astros","Philadelphia Phillies","hitter",0.006,0.1115,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_hr_2plus","2+ home runs","823088","668227","Randy Arozarena","Seattle Mariners","Texas Rangers","hitter",0.006,0.1245,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_hr_2plus","2+ home runs","824872","656775","Cedric Mullins","Tampa Bay Rays","Atlanta Braves","hitter",0.005,0.119,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_hr_2plus","2+ home runs","824872","660670","Ronald Acuña Jr.","Atlanta Braves","Tampa Bay Rays","hitter",0.005,0.1285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_hr_2plus","2+ home runs","823413","666211","Taylor Trammell","Houston Astros","Philadelphia Phillies","hitter",0.0045,0.091,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_hr_2plus","2+ home runs","823088","663728","Cal Raleigh","Seattle Mariners","Texas Rangers","hitter",0.0045,0.1305,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_hr_2plus","2+ home runs","824872","622761","Jorge Mateo","Tampa Bay Rays","Atlanta Braves","hitter",0.004,0.105,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_hr_2plus","2+ home runs","823088","703155","Lazaro Montes","Seattle Mariners","Texas Rangers","hitter",0.004,0.0985,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_hr_2plus","2+ home runs","824872","643289","Mauricio Dubón","Atlanta Braves","Tampa Bay Rays","hitter",0.0035,0.094,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_hr_2plus","2+ home runs","823413","701358","Cam Smith","Houston Astros","Philadelphia Phillies","hitter",0.0035,0.0925,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_hr_2plus","2+ home runs","823413","665561","Rafael Marchán","Philadelphia Phillies","Houston Astros","hitter",0.003,0.0835,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_hr_2plus","2+ home runs","823088","702284","Cole Young","Seattle Mariners","Texas Rangers","hitter",0.003,0.121,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_hr_2plus","2+ home runs","823088","801126","Brock Rodden","Seattle Mariners","Texas Rangers","hitter",0.003,0.1,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_hr_2plus","2+ home runs","824872","663586","Austin Riley","Atlanta Braves","Tampa Bay Rays","hitter",0.0025,0.097,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_hr_2plus","2+ home runs","823088","641487","J.P. Crawford","Seattle Mariners","Texas Rangers","hitter",0.002,0.11,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_hr_2plus","2+ home runs","823088","647304","Josh Naylor","Seattle Mariners","Texas Rangers","hitter",0.0015,0.063,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_hr_2plus","2+ home runs","824872","663743","Nick Fortes","Tampa Bay Rays","Atlanta Braves","hitter",0.001,0.061,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_hr_2plus","2+ home runs","823413","662139","Daulton Varsho","Houston Astros","Philadelphia Phillies","hitter",5e-04,0.0685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_hr_2plus","2+ home runs","823413","543877","Christian Vázquez","Houston Astros","Philadelphia Phillies","hitter",5e-04,0.0625,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_hr_2plus","2+ home runs","823413","650333","Luis Arraez","Philadelphia Phillies","Houston Astros","hitter",5e-04,0.0375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_hr_2plus","2+ home runs","824872","802415","Chandler Simpson","Tampa Bay Rays","Atlanta Braves","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_hr_2plus","2+ home runs","824872","663611","Nick Madrigal","Tampa Bay Rays","Atlanta Braves","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_hr_2plus","2+ home runs","824872","676551","Brewer Hicklen","Atlanta Braves","Tampa Bay Rays","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_hr_2plus","2+ home runs","824872","673490","Ha-Seong Kim","Atlanta Braves","Tampa Bay Rays","hitter",0,0,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_hr_2plus","2+ home runs","823413","702222","Justin Crawford","Philadelphia Phillies","Houston Astros","hitter",0,0.0265,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
 "batter_tb_2plus","2+ total bases","823413","650333","Luis Arraez","Philadelphia Phillies","Houston Astros","hitter",0.5605,1.9315,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "batter_tb_2plus","2+ total bases","823413","547180","Bryce Harper","Philadelphia Phillies","Houston Astros","hitter",0.469,2.0255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
 "batter_tb_2plus","2+ total bases","823413","607208","Trea Turner","Philadelphia Phillies","Houston Astros","hitter",0.467,1.899,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
 "batter_tb_2plus","2+ total bases","823413","681082","Bryson Stott","Philadelphia Phillies","Houston Astros","hitter",0.462,1.687,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
 "batter_tb_2plus","2+ total bases","823413","656941","Kyle Schwarber","Philadelphia Phillies","Houston Astros","hitter",0.453,2.253,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
 "batter_tb_2plus","2+ total bases","824872","650490","Yandy Díaz","Tampa Bay Rays","Atlanta Braves","hitter",0.447,1.7935,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",6
-"batter_tb_2plus","2+ total bases","824872","676551","Brewer Hicklen","Atlanta Braves","Tampa Bay Rays","hitter",0.447,1.4005,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
+"batter_tb_2plus","2+ total bases","824872","676551","Brewer Hicklen","Atlanta Braves","Tampa Bay Rays","hitter",0.435,1.3805,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
 "batter_tb_2plus","2+ total bases","823413","669016","Brandon Marsh","Philadelphia Phillies","Houston Astros","hitter",0.4345,1.802,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
 "batter_tb_2plus","2+ total bases","824872","686948","Drake Baldwin","Atlanta Braves","Tampa Bay Rays","hitter",0.4265,1.8755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_tb_2plus","2+ total bases","824872","671739","Michael Harris II","Atlanta Braves","Tampa Bay Rays","hitter",0.426,1.7865,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_tb_2plus","2+ total bases","823413","670541","Yordan Alvarez","Houston Astros","Philadelphia Phillies","hitter",0.426,1.932,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_tb_2plus","2+ total bases","823413","670541","Yordan Alvarez","Houston Astros","Philadelphia Phillies","hitter",0.426,1.932,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_tb_2plus","2+ total bases","824872","671739","Michael Harris II","Atlanta Braves","Tampa Bay Rays","hitter",0.424,1.7965,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
 "batter_tb_2plus","2+ total bases","824872","676356","Jonny DeLuca","Tampa Bay Rays","Atlanta Braves","hitter",0.42,1.645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
 "batter_tb_2plus","2+ total bases","824872","621566","Matt Olson","Atlanta Braves","Tampa Bay Rays","hitter",0.4105,1.8055,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
 "batter_tb_2plus","2+ total bases","823413","702222","Justin Crawford","Philadelphia Phillies","Houston Astros","hitter",0.4095,1.429,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_tb_2plus","2+ total bases","824872","663743","Nick Fortes","Tampa Bay Rays","Atlanta Braves","hitter",0.396,1.417,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_tb_2plus","2+ total bases","823413","664761","Alec Bohm","Philadelphia Phillies","Houston Astros","hitter",0.396,1.6075,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_tb_2plus","2+ total bases","823413","665161","Jeremy Peña","Houston Astros","Philadelphia Phillies","hitter",0.3935,1.641,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_tb_2plus","2+ total bases","824872","668723","Ryan Vilade","Tampa Bay Rays","Atlanta Braves","hitter",0.3905,1.7415,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_tb_2plus","2+ total bases","824872","691406","Junior Caminero","Tampa Bay Rays","Atlanta Braves","hitter",0.389,1.7595,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_tb_2plus","2+ total bases","824872","643289","Mauricio Dubón","Atlanta Braves","Tampa Bay Rays","hitter",0.384,1.503,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_tb_2plus","2+ total bases","824872","663611","Nick Madrigal","Tampa Bay Rays","Atlanta Braves","hitter",0.382,1.249,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_tb_2plus","2+ total bases","824872","802415","Chandler Simpson","Tampa Bay Rays","Atlanta Braves","hitter",0.3745,1.2915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_tb_2plus","2+ total bases","824872","660670","Ronald Acuña Jr.","Atlanta Braves","Tampa Bay Rays","hitter",0.3745,1.4775,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_tb_2plus","2+ total bases","823413","572233","Christian Walker","Houston Astros","Philadelphia Phillies","hitter",0.3475,1.4685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_tb_2plus","2+ total bases","823413","670623","Isaac Paredes","Houston Astros","Philadelphia Phillies","hitter",0.341,1.4175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_tb_2plus","2+ total bases","824872","663586","Austin Riley","Atlanta Braves","Tampa Bay Rays","hitter",0.332,1.277,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_tb_2plus","2+ total bases","824872","622761","Jorge Mateo","Tampa Bay Rays","Atlanta Braves","hitter",0.327,1.3235,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_tb_2plus","2+ total bases","823413","662139","Daulton Varsho","Houston Astros","Philadelphia Phillies","hitter",0.327,1.2245,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
-"batter_tb_2plus","2+ total bases","824872","657041","Lane Thomas","Atlanta Braves","Tampa Bay Rays","hitter",0.322,1.3265,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
-"batter_tb_2plus","2+ total bases","823413","514888","Jose Altuve","Houston Astros","Philadelphia Phillies","hitter",0.302,1.2665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
-"batter_tb_2plus","2+ total bases","823413","666211","Taylor Trammell","Houston Astros","Philadelphia Phillies","hitter",0.2815,1.1455,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
-"batter_tb_2plus","2+ total bases","823413","665561","Rafael Marchán","Philadelphia Phillies","Houston Astros","hitter",0.2785,1.1155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
-"batter_tb_2plus","2+ total bases","823413","701358","Cam Smith","Houston Astros","Philadelphia Phillies","hitter",0.2705,1.0885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
-"batter_tb_2plus","2+ total bases","824872","656775","Cedric Mullins","Tampa Bay Rays","Atlanta Braves","hitter",0.2635,1.144,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
-"batter_tb_2plus","2+ total bases","824872","673490","Ha-Seong Kim","Atlanta Braves","Tampa Bay Rays","hitter",0.2455,0.7675,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
-"batter_tb_2plus","2+ total bases","823413","543877","Christian Vázquez","Houston Astros","Philadelphia Phillies","hitter",0.2415,0.99,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_tb_2plus","2+ total bases","824872","643289","Mauricio Dubón","Atlanta Braves","Tampa Bay Rays","hitter",0.397,1.519,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_tb_2plus","2+ total bases","824872","663743","Nick Fortes","Tampa Bay Rays","Atlanta Braves","hitter",0.396,1.417,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_tb_2plus","2+ total bases","823413","664761","Alec Bohm","Philadelphia Phillies","Houston Astros","hitter",0.396,1.6075,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_tb_2plus","2+ total bases","823413","665161","Jeremy Peña","Houston Astros","Philadelphia Phillies","hitter",0.3935,1.641,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_tb_2plus","2+ total bases","823088","668227","Randy Arozarena","Seattle Mariners","Texas Rangers","hitter",0.3935,1.598,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_tb_2plus","2+ total bases","824872","668723","Ryan Vilade","Tampa Bay Rays","Atlanta Braves","hitter",0.3905,1.7415,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_tb_2plus","2+ total bases","824872","691406","Junior Caminero","Tampa Bay Rays","Atlanta Braves","hitter",0.389,1.7595,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_tb_2plus","2+ total bases","824872","663611","Nick Madrigal","Tampa Bay Rays","Atlanta Braves","hitter",0.382,1.249,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_tb_2plus","2+ total bases","823088","686527","Dominic Canzone","Seattle Mariners","Texas Rangers","hitter",0.3765,1.661,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_tb_2plus","2+ total bases","824872","802415","Chandler Simpson","Tampa Bay Rays","Atlanta Braves","hitter",0.3745,1.2915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_tb_2plus","2+ total bases","824872","660670","Ronald Acuña Jr.","Atlanta Braves","Tampa Bay Rays","hitter",0.3745,1.4775,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_tb_2plus","2+ total bases","824872","642086","Dominic Smith","Atlanta Braves","Tampa Bay Rays","hitter",0.3585,1.458,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_tb_2plus","2+ total bases","823413","572233","Christian Walker","Houston Astros","Philadelphia Phillies","hitter",0.3475,1.4685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_tb_2plus","2+ total bases","823413","670623","Isaac Paredes","Houston Astros","Philadelphia Phillies","hitter",0.341,1.4175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_tb_2plus","2+ total bases","823088","702284","Cole Young","Seattle Mariners","Texas Rangers","hitter",0.33,1.357,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_tb_2plus","2+ total bases","824872","622761","Jorge Mateo","Tampa Bay Rays","Atlanta Braves","hitter",0.327,1.3235,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_tb_2plus","2+ total bases","823413","662139","Daulton Varsho","Houston Astros","Philadelphia Phillies","hitter",0.327,1.2245,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_tb_2plus","2+ total bases","824872","663586","Austin Riley","Atlanta Braves","Tampa Bay Rays","hitter",0.3205,1.291,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_tb_2plus","2+ total bases","823088","677594","Julio Rodríguez","Seattle Mariners","Texas Rangers","hitter",0.315,1.367,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_tb_2plus","2+ total bases","823088","641487","J.P. Crawford","Seattle Mariners","Texas Rangers","hitter",0.3145,1.2685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_tb_2plus","2+ total bases","823088","703155","Lazaro Montes","Seattle Mariners","Texas Rangers","hitter",0.3075,1.226,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_tb_2plus","2+ total bases","823413","514888","Jose Altuve","Houston Astros","Philadelphia Phillies","hitter",0.302,1.2665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_tb_2plus","2+ total bases","823088","801126","Brock Rodden","Seattle Mariners","Texas Rangers","hitter",0.3015,1.2095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_tb_2plus","2+ total bases","823088","647304","Josh Naylor","Seattle Mariners","Texas Rangers","hitter",0.299,1.1915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_tb_2plus","2+ total bases","823413","666211","Taylor Trammell","Houston Astros","Philadelphia Phillies","hitter",0.2815,1.1455,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_tb_2plus","2+ total bases","823413","665561","Rafael Marchán","Philadelphia Phillies","Houston Astros","hitter",0.2785,1.1155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_tb_2plus","2+ total bases","823413","701358","Cam Smith","Houston Astros","Philadelphia Phillies","hitter",0.2705,1.0885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_tb_2plus","2+ total bases","824872","656775","Cedric Mullins","Tampa Bay Rays","Atlanta Braves","hitter",0.2635,1.144,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_tb_2plus","2+ total bases","823088","663728","Cal Raleigh","Seattle Mariners","Texas Rangers","hitter",0.2575,1.141,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_tb_2plus","2+ total bases","824872","673490","Ha-Seong Kim","Atlanta Braves","Tampa Bay Rays","hitter",0.2555,0.783,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_tb_2plus","2+ total bases","823413","543877","Christian Vázquez","Houston Astros","Philadelphia Phillies","hitter",0.2415,0.99,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
 "batter_tb_3plus","3+ total bases","823413","656941","Kyle Schwarber","Philadelphia Phillies","Houston Astros","hitter",0.366,2.253,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "batter_tb_3plus","3+ total bases","823413","547180","Bryce Harper","Philadelphia Phillies","Houston Astros","hitter",0.3155,2.0255,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
 "batter_tb_3plus","3+ total bases","823413","650333","Luis Arraez","Philadelphia Phillies","Houston Astros","hitter",0.3055,1.9315,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
@@ -188,34 +233,43 @@
 "batter_tb_3plus","3+ total bases","824872","686948","Drake Baldwin","Atlanta Braves","Tampa Bay Rays","hitter",0.2765,1.8755,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",7
 "batter_tb_3plus","3+ total bases","824872","668723","Ryan Vilade","Tampa Bay Rays","Atlanta Braves","hitter",0.2675,1.7415,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
 "batter_tb_3plus","3+ total bases","824872","691406","Junior Caminero","Tampa Bay Rays","Atlanta Braves","hitter",0.2665,1.7595,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
-"batter_tb_3plus","3+ total bases","824872","671739","Michael Harris II","Atlanta Braves","Tampa Bay Rays","hitter",0.262,1.7865,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
+"batter_tb_3plus","3+ total bases","824872","671739","Michael Harris II","Atlanta Braves","Tampa Bay Rays","hitter",0.26,1.7965,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
 "batter_tb_3plus","3+ total bases","824872","650490","Yandy Díaz","Tampa Bay Rays","Atlanta Braves","hitter",0.256,1.7935,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
 "batter_tb_3plus","3+ total bases","823413","669016","Brandon Marsh","Philadelphia Phillies","Houston Astros","hitter",0.255,1.802,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_tb_3plus","3+ total bases","823413","681082","Bryson Stott","Philadelphia Phillies","Houston Astros","hitter",0.2475,1.687,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_tb_3plus","3+ total bases","823413","665161","Jeremy Peña","Houston Astros","Philadelphia Phillies","hitter",0.2435,1.641,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_tb_3plus","3+ total bases","824872","676356","Jonny DeLuca","Tampa Bay Rays","Atlanta Braves","hitter",0.2415,1.645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_tb_3plus","3+ total bases","823413","664761","Alec Bohm","Philadelphia Phillies","Houston Astros","hitter",0.233,1.6075,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_tb_3plus","3+ total bases","823413","572233","Christian Walker","Houston Astros","Philadelphia Phillies","hitter",0.2215,1.4685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_tb_3plus","3+ total bases","824872","660670","Ronald Acuña Jr.","Atlanta Braves","Tampa Bay Rays","hitter",0.214,1.4775,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_tb_3plus","3+ total bases","823413","670623","Isaac Paredes","Houston Astros","Philadelphia Phillies","hitter",0.2065,1.4175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_tb_3plus","3+ total bases","824872","643289","Mauricio Dubón","Atlanta Braves","Tampa Bay Rays","hitter",0.2045,1.503,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_tb_3plus","3+ total bases","823413","702222","Justin Crawford","Philadelphia Phillies","Houston Astros","hitter",0.192,1.429,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_tb_3plus","3+ total bases","824872","663743","Nick Fortes","Tampa Bay Rays","Atlanta Braves","hitter",0.1905,1.417,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_tb_3plus","3+ total bases","824872","676551","Brewer Hicklen","Atlanta Braves","Tampa Bay Rays","hitter",0.182,1.4005,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_tb_3plus","3+ total bases","824872","657041","Lane Thomas","Atlanta Braves","Tampa Bay Rays","hitter",0.1805,1.3265,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_tb_3plus","3+ total bases","824872","663586","Austin Riley","Atlanta Braves","Tampa Bay Rays","hitter",0.1785,1.277,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_tb_3plus","3+ total bases","823413","514888","Jose Altuve","Houston Astros","Philadelphia Phillies","hitter",0.176,1.2665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_tb_3plus","3+ total bases","824872","622761","Jorge Mateo","Tampa Bay Rays","Atlanta Braves","hitter",0.173,1.3235,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_tb_3plus","3+ total bases","823413","662139","Daulton Varsho","Houston Astros","Philadelphia Phillies","hitter",0.163,1.2245,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
-"batter_tb_3plus","3+ total bases","824872","802415","Chandler Simpson","Tampa Bay Rays","Atlanta Braves","hitter",0.1565,1.2915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
-"batter_tb_3plus","3+ total bases","824872","656775","Cedric Mullins","Tampa Bay Rays","Atlanta Braves","hitter",0.1555,1.144,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
-"batter_tb_3plus","3+ total bases","824872","663611","Nick Madrigal","Tampa Bay Rays","Atlanta Braves","hitter",0.1545,1.249,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
-"batter_tb_3plus","3+ total bases","823413","666211","Taylor Trammell","Houston Astros","Philadelphia Phillies","hitter",0.1505,1.1455,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
-"batter_tb_3plus","3+ total bases","823413","701358","Cam Smith","Houston Astros","Philadelphia Phillies","hitter",0.1455,1.0885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
-"batter_tb_3plus","3+ total bases","823413","665561","Rafael Marchán","Philadelphia Phillies","Houston Astros","hitter",0.145,1.1155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
-"batter_tb_3plus","3+ total bases","823413","543877","Christian Vázquez","Houston Astros","Philadelphia Phillies","hitter",0.1205,0.99,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
-"batter_tb_3plus","3+ total bases","824872","673490","Ha-Seong Kim","Atlanta Braves","Tampa Bay Rays","hitter",0.076,0.7675,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
-"batter_xbh_1plus","1+ extra-base hit","824872","676551","Brewer Hicklen","Atlanta Braves","Tampa Bay Rays","hitter",0.421,0.5035,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
+"batter_tb_3plus","3+ total bases","823088","686527","Dominic Canzone","Seattle Mariners","Texas Rangers","hitter",0.251,1.661,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_tb_3plus","3+ total bases","823413","681082","Bryson Stott","Philadelphia Phillies","Houston Astros","hitter",0.2475,1.687,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_tb_3plus","3+ total bases","823413","665161","Jeremy Peña","Houston Astros","Philadelphia Phillies","hitter",0.2435,1.641,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_tb_3plus","3+ total bases","824872","676356","Jonny DeLuca","Tampa Bay Rays","Atlanta Braves","hitter",0.2415,1.645,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_tb_3plus","3+ total bases","823413","664761","Alec Bohm","Philadelphia Phillies","Houston Astros","hitter",0.233,1.6075,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_tb_3plus","3+ total bases","823088","668227","Randy Arozarena","Seattle Mariners","Texas Rangers","hitter",0.2315,1.598,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_tb_3plus","3+ total bases","823413","572233","Christian Walker","Houston Astros","Philadelphia Phillies","hitter",0.2215,1.4685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_tb_3plus","3+ total bases","824872","643289","Mauricio Dubón","Atlanta Braves","Tampa Bay Rays","hitter",0.2145,1.519,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_tb_3plus","3+ total bases","824872","660670","Ronald Acuña Jr.","Atlanta Braves","Tampa Bay Rays","hitter",0.214,1.4775,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_tb_3plus","3+ total bases","823413","670623","Isaac Paredes","Houston Astros","Philadelphia Phillies","hitter",0.2065,1.4175,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_tb_3plus","3+ total bases","824872","642086","Dominic Smith","Atlanta Braves","Tampa Bay Rays","hitter",0.195,1.458,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_tb_3plus","3+ total bases","823413","702222","Justin Crawford","Philadelphia Phillies","Houston Astros","hitter",0.192,1.429,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_tb_3plus","3+ total bases","823088","702284","Cole Young","Seattle Mariners","Texas Rangers","hitter",0.192,1.357,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_tb_3plus","3+ total bases","824872","663743","Nick Fortes","Tampa Bay Rays","Atlanta Braves","hitter",0.1905,1.417,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_tb_3plus","3+ total bases","824872","676551","Brewer Hicklen","Atlanta Braves","Tampa Bay Rays","hitter",0.188,1.3805,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_tb_3plus","3+ total bases","823088","677594","Julio Rodríguez","Seattle Mariners","Texas Rangers","hitter",0.179,1.367,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_tb_3plus","3+ total bases","824872","663586","Austin Riley","Atlanta Braves","Tampa Bay Rays","hitter",0.1765,1.291,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_tb_3plus","3+ total bases","823413","514888","Jose Altuve","Houston Astros","Philadelphia Phillies","hitter",0.176,1.2665,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_tb_3plus","3+ total bases","824872","622761","Jorge Mateo","Tampa Bay Rays","Atlanta Braves","hitter",0.173,1.3235,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_tb_3plus","3+ total bases","823088","663728","Cal Raleigh","Seattle Mariners","Texas Rangers","hitter",0.1665,1.141,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_tb_3plus","3+ total bases","823088","801126","Brock Rodden","Seattle Mariners","Texas Rangers","hitter",0.1665,1.2095,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_tb_3plus","3+ total bases","823088","641487","J.P. Crawford","Seattle Mariners","Texas Rangers","hitter",0.1655,1.2685,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_tb_3plus","3+ total bases","823088","703155","Lazaro Montes","Seattle Mariners","Texas Rangers","hitter",0.1655,1.226,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_tb_3plus","3+ total bases","823413","662139","Daulton Varsho","Houston Astros","Philadelphia Phillies","hitter",0.163,1.2245,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_tb_3plus","3+ total bases","824872","802415","Chandler Simpson","Tampa Bay Rays","Atlanta Braves","hitter",0.1565,1.2915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_tb_3plus","3+ total bases","824872","656775","Cedric Mullins","Tampa Bay Rays","Atlanta Braves","hitter",0.1555,1.144,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_tb_3plus","3+ total bases","824872","663611","Nick Madrigal","Tampa Bay Rays","Atlanta Braves","hitter",0.1545,1.249,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_tb_3plus","3+ total bases","823413","666211","Taylor Trammell","Houston Astros","Philadelphia Phillies","hitter",0.1505,1.1455,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_tb_3plus","3+ total bases","823413","701358","Cam Smith","Houston Astros","Philadelphia Phillies","hitter",0.1455,1.0885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_tb_3plus","3+ total bases","823413","665561","Rafael Marchán","Philadelphia Phillies","Houston Astros","hitter",0.145,1.1155,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_tb_3plus","3+ total bases","823088","647304","Josh Naylor","Seattle Mariners","Texas Rangers","hitter",0.13,1.1915,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_tb_3plus","3+ total bases","823413","543877","Christian Vázquez","Houston Astros","Philadelphia Phillies","hitter",0.1205,0.99,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_tb_3plus","3+ total bases","824872","673490","Ha-Seong Kim","Atlanta Braves","Tampa Bay Rays","hitter",0.0695,0.783,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
+"batter_xbh_1plus","1+ extra-base hit","824872","676551","Brewer Hicklen","Atlanta Braves","Tampa Bay Rays","hitter",0.407,0.499,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
 "batter_xbh_1plus","1+ extra-base hit","823413","650333","Luis Arraez","Philadelphia Phillies","Houston Astros","hitter",0.4035,0.475,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
 "batter_xbh_1plus","1+ extra-base hit","823413","547180","Bryce Harper","Philadelphia Phillies","Houston Astros","hitter",0.3805,0.452,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
 "batter_xbh_1plus","1+ extra-base hit","823413","681082","Bryson Stott","Philadelphia Phillies","Houston Astros","hitter",0.3745,0.4465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
@@ -225,41 +279,53 @@
 "batter_xbh_1plus","1+ extra-base hit","824872","676356","Jonny DeLuca","Tampa Bay Rays","Atlanta Braves","hitter",0.333,0.382,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",8
 "batter_xbh_1plus","1+ extra-base hit","824872","663611","Nick Madrigal","Tampa Bay Rays","Atlanta Braves","hitter",0.3285,0.377,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",9
 "batter_xbh_1plus","1+ extra-base hit","823413","607208","Trea Turner","Philadelphia Phillies","Houston Astros","hitter",0.3215,0.382,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",10
-"batter_xbh_1plus","1+ extra-base hit","824872","671739","Michael Harris II","Atlanta Braves","Tampa Bay Rays","hitter",0.309,0.3485,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
-"batter_xbh_1plus","1+ extra-base hit","824872","668723","Ryan Vilade","Tampa Bay Rays","Atlanta Braves","hitter",0.305,0.35,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
-"batter_xbh_1plus","1+ extra-base hit","824872","650490","Yandy Díaz","Tampa Bay Rays","Atlanta Braves","hitter",0.304,0.355,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
-"batter_xbh_1plus","1+ extra-base hit","824872","660670","Ronald Acuña Jr.","Atlanta Braves","Tampa Bay Rays","hitter",0.3015,0.3405,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
-"batter_xbh_1plus","1+ extra-base hit","824872","691406","Junior Caminero","Tampa Bay Rays","Atlanta Braves","hitter",0.299,0.342,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
-"batter_xbh_1plus","1+ extra-base hit","823413","669016","Brandon Marsh","Philadelphia Phillies","Houston Astros","hitter",0.2975,0.3485,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
-"batter_xbh_1plus","1+ extra-base hit","823413","702222","Justin Crawford","Philadelphia Phillies","Houston Astros","hitter",0.2975,0.3425,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
-"batter_xbh_1plus","1+ extra-base hit","823413","572233","Christian Walker","Houston Astros","Philadelphia Phillies","hitter",0.2955,0.337,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
-"batter_xbh_1plus","1+ extra-base hit","823413","664761","Alec Bohm","Philadelphia Phillies","Houston Astros","hitter",0.2955,0.334,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
-"batter_xbh_1plus","1+ extra-base hit","824872","663743","Nick Fortes","Tampa Bay Rays","Atlanta Braves","hitter",0.293,0.3275,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
-"batter_xbh_1plus","1+ extra-base hit","824872","686948","Drake Baldwin","Atlanta Braves","Tampa Bay Rays","hitter",0.2915,0.324,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
-"batter_xbh_1plus","1+ extra-base hit","824872","643289","Mauricio Dubón","Atlanta Braves","Tampa Bay Rays","hitter",0.2865,0.3285,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
-"batter_xbh_1plus","1+ extra-base hit","823413","670623","Isaac Paredes","Houston Astros","Philadelphia Phillies","hitter",0.2765,0.3145,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
-"batter_xbh_1plus","1+ extra-base hit","823413","665161","Jeremy Peña","Houston Astros","Philadelphia Phillies","hitter",0.2725,0.3085,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
-"batter_xbh_1plus","1+ extra-base hit","823413","662139","Daulton Varsho","Houston Astros","Philadelphia Phillies","hitter",0.271,0.296,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
-"batter_xbh_1plus","1+ extra-base hit","824872","663586","Austin Riley","Atlanta Braves","Tampa Bay Rays","hitter",0.2645,0.292,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
-"batter_xbh_1plus","1+ extra-base hit","824872","657041","Lane Thomas","Atlanta Braves","Tampa Bay Rays","hitter",0.2635,0.2995,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
-"batter_xbh_1plus","1+ extra-base hit","824872","802415","Chandler Simpson","Tampa Bay Rays","Atlanta Braves","hitter",0.2465,0.277,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
-"batter_xbh_1plus","1+ extra-base hit","824872","622761","Jorge Mateo","Tampa Bay Rays","Atlanta Braves","hitter",0.2465,0.2765,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
-"batter_xbh_1plus","1+ extra-base hit","823413","514888","Jose Altuve","Houston Astros","Philadelphia Phillies","hitter",0.2455,0.278,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
-"batter_xbh_1plus","1+ extra-base hit","823413","665561","Rafael Marchán","Philadelphia Phillies","Houston Astros","hitter",0.231,0.258,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
-"batter_xbh_1plus","1+ extra-base hit","824872","673490","Ha-Seong Kim","Atlanta Braves","Tampa Bay Rays","hitter",0.226,0.247,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
-"batter_xbh_1plus","1+ extra-base hit","823413","666211","Taylor Trammell","Houston Astros","Philadelphia Phillies","hitter",0.224,0.2465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
-"batter_xbh_1plus","1+ extra-base hit","823413","701358","Cam Smith","Houston Astros","Philadelphia Phillies","hitter",0.222,0.2485,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
-"batter_xbh_1plus","1+ extra-base hit","824872","656775","Cedric Mullins","Tampa Bay Rays","Atlanta Braves","hitter",0.214,0.2365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
-"batter_xbh_1plus","1+ extra-base hit","823413","543877","Christian Vázquez","Houston Astros","Philadelphia Phillies","hitter",0.192,0.205,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_xbh_1plus","1+ extra-base hit","823088","686527","Dominic Canzone","Seattle Mariners","Texas Rangers","hitter",0.3075,0.3505,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",11
+"batter_xbh_1plus","1+ extra-base hit","824872","671739","Michael Harris II","Atlanta Braves","Tampa Bay Rays","hitter",0.307,0.351,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",12
+"batter_xbh_1plus","1+ extra-base hit","824872","668723","Ryan Vilade","Tampa Bay Rays","Atlanta Braves","hitter",0.305,0.35,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",13
+"batter_xbh_1plus","1+ extra-base hit","824872","650490","Yandy Díaz","Tampa Bay Rays","Atlanta Braves","hitter",0.304,0.355,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",14
+"batter_xbh_1plus","1+ extra-base hit","824872","660670","Ronald Acuña Jr.","Atlanta Braves","Tampa Bay Rays","hitter",0.3015,0.3405,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",15
+"batter_xbh_1plus","1+ extra-base hit","823088","668227","Randy Arozarena","Seattle Mariners","Texas Rangers","hitter",0.3005,0.3495,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",16
+"batter_xbh_1plus","1+ extra-base hit","824872","691406","Junior Caminero","Tampa Bay Rays","Atlanta Braves","hitter",0.299,0.342,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",17
+"batter_xbh_1plus","1+ extra-base hit","823413","669016","Brandon Marsh","Philadelphia Phillies","Houston Astros","hitter",0.2975,0.3485,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",18
+"batter_xbh_1plus","1+ extra-base hit","823413","702222","Justin Crawford","Philadelphia Phillies","Houston Astros","hitter",0.2975,0.3425,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",19
+"batter_xbh_1plus","1+ extra-base hit","823413","572233","Christian Walker","Houston Astros","Philadelphia Phillies","hitter",0.2955,0.337,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",20
+"batter_xbh_1plus","1+ extra-base hit","823413","664761","Alec Bohm","Philadelphia Phillies","Houston Astros","hitter",0.2955,0.334,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",21
+"batter_xbh_1plus","1+ extra-base hit","824872","663743","Nick Fortes","Tampa Bay Rays","Atlanta Braves","hitter",0.293,0.3275,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",22
+"batter_xbh_1plus","1+ extra-base hit","824872","643289","Mauricio Dubón","Atlanta Braves","Tampa Bay Rays","hitter",0.293,0.334,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",23
+"batter_xbh_1plus","1+ extra-base hit","824872","686948","Drake Baldwin","Atlanta Braves","Tampa Bay Rays","hitter",0.2915,0.324,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",24
+"batter_xbh_1plus","1+ extra-base hit","823413","670623","Isaac Paredes","Houston Astros","Philadelphia Phillies","hitter",0.2765,0.3145,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",25
+"batter_xbh_1plus","1+ extra-base hit","823413","665161","Jeremy Peña","Houston Astros","Philadelphia Phillies","hitter",0.2725,0.3085,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",26
+"batter_xbh_1plus","1+ extra-base hit","823413","662139","Daulton Varsho","Houston Astros","Philadelphia Phillies","hitter",0.271,0.296,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",27
+"batter_xbh_1plus","1+ extra-base hit","824872","663586","Austin Riley","Atlanta Braves","Tampa Bay Rays","hitter",0.2565,0.2885,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",28
+"batter_xbh_1plus","1+ extra-base hit","823088","702284","Cole Young","Seattle Mariners","Texas Rangers","hitter",0.249,0.268,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",29
+"batter_xbh_1plus","1+ extra-base hit","824872","802415","Chandler Simpson","Tampa Bay Rays","Atlanta Braves","hitter",0.2465,0.277,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",30
+"batter_xbh_1plus","1+ extra-base hit","824872","622761","Jorge Mateo","Tampa Bay Rays","Atlanta Braves","hitter",0.2465,0.2765,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",31
+"batter_xbh_1plus","1+ extra-base hit","823413","514888","Jose Altuve","Houston Astros","Philadelphia Phillies","hitter",0.2455,0.278,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",32
+"batter_xbh_1plus","1+ extra-base hit","823088","703155","Lazaro Montes","Seattle Mariners","Texas Rangers","hitter",0.2415,0.26,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",33
+"batter_xbh_1plus","1+ extra-base hit","823088","801126","Brock Rodden","Seattle Mariners","Texas Rangers","hitter",0.2415,0.263,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",34
+"batter_xbh_1plus","1+ extra-base hit","823088","641487","J.P. Crawford","Seattle Mariners","Texas Rangers","hitter",0.2405,0.261,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",35
+"batter_xbh_1plus","1+ extra-base hit","824872","642086","Dominic Smith","Atlanta Braves","Tampa Bay Rays","hitter",0.238,0.2625,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",36
+"batter_xbh_1plus","1+ extra-base hit","824872","673490","Ha-Seong Kim","Atlanta Braves","Tampa Bay Rays","hitter",0.2375,0.258,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",37
+"batter_xbh_1plus","1+ extra-base hit","823413","665561","Rafael Marchán","Philadelphia Phillies","Houston Astros","hitter",0.231,0.258,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",38
+"batter_xbh_1plus","1+ extra-base hit","823413","666211","Taylor Trammell","Houston Astros","Philadelphia Phillies","hitter",0.224,0.2465,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",39
+"batter_xbh_1plus","1+ extra-base hit","823413","701358","Cam Smith","Houston Astros","Philadelphia Phillies","hitter",0.222,0.2485,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",40
+"batter_xbh_1plus","1+ extra-base hit","823088","663728","Cal Raleigh","Seattle Mariners","Texas Rangers","hitter",0.218,0.24,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",41
+"batter_xbh_1plus","1+ extra-base hit","823088","677594","Julio Rodríguez","Seattle Mariners","Texas Rangers","hitter",0.2165,0.2375,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",42
+"batter_xbh_1plus","1+ extra-base hit","824872","656775","Cedric Mullins","Tampa Bay Rays","Atlanta Braves","hitter",0.214,0.2365,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",43
+"batter_xbh_1plus","1+ extra-base hit","823413","543877","Christian Vázquez","Houston Astros","Philadelphia Phillies","hitter",0.192,0.205,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",44
+"batter_xbh_1plus","1+ extra-base hit","823088","647304","Josh Naylor","Seattle Mariners","Texas Rangers","hitter",0.1855,0.1995,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",45
 "pitcher_k_10plus","10+ strikeouts","823413","554430","Zack Wheeler","Philadelphia Phillies","Houston Astros","pitcher",0.047,5.7935,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"pitcher_k_10plus","10+ strikeouts","823413","664299","Cristian Javier","Houston Astros","Philadelphia Phillies","pitcher",0.018,4.9945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"pitcher_k_10plus","10+ strikeouts","824872","527048","Martín Pérez","Atlanta Braves","Tampa Bay Rays","pitcher",0.003,4.0045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"pitcher_k_10plus","10+ strikeouts","824872","607259","Nick Martinez","Tampa Bay Rays","Atlanta Braves","pitcher",0.003,4.203,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"pitcher_k_10plus","10+ strikeouts","823088","594798","Jacob deGrom","Texas Rangers","Seattle Mariners","pitcher",0.032,5.39,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"pitcher_k_10plus","10+ strikeouts","823413","664299","Cristian Javier","Houston Astros","Philadelphia Phillies","pitcher",0.018,4.9945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_10plus","10+ strikeouts","824872","527048","Martín Pérez","Atlanta Braves","Tampa Bay Rays","pitcher",0.003,4.0045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"pitcher_k_10plus","10+ strikeouts","824872","607259","Nick Martinez","Tampa Bay Rays","Atlanta Braves","pitcher",0.003,4.0455,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
 "pitcher_k_5plus","5+ strikeouts","823413","554430","Zack Wheeler","Philadelphia Phillies","Houston Astros","pitcher",0.7235,5.7935,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"pitcher_k_5plus","5+ strikeouts","823413","664299","Cristian Javier","Houston Astros","Philadelphia Phillies","pitcher",0.573,4.9945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"pitcher_k_5plus","5+ strikeouts","824872","607259","Nick Martinez","Tampa Bay Rays","Atlanta Braves","pitcher",0.4175,4.203,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"pitcher_k_5plus","5+ strikeouts","824872","527048","Martín Pérez","Atlanta Braves","Tampa Bay Rays","pitcher",0.3755,4.0045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"pitcher_k_5plus","5+ strikeouts","823088","594798","Jacob deGrom","Texas Rangers","Seattle Mariners","pitcher",0.653,5.39,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"pitcher_k_5plus","5+ strikeouts","823413","664299","Cristian Javier","Houston Astros","Philadelphia Phillies","pitcher",0.573,4.9945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_5plus","5+ strikeouts","824872","607259","Nick Martinez","Tampa Bay Rays","Atlanta Braves","pitcher",0.381,4.0455,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"pitcher_k_5plus","5+ strikeouts","824872","527048","Martín Pérez","Atlanta Braves","Tampa Bay Rays","pitcher",0.3755,4.0045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
 "pitcher_k_7plus","7+ strikeouts","823413","554430","Zack Wheeler","Philadelphia Phillies","Houston Astros","pitcher",0.356,5.7935,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",1
-"pitcher_k_7plus","7+ strikeouts","823413","664299","Cristian Javier","Houston Astros","Philadelphia Phillies","pitcher",0.224,4.9945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
-"pitcher_k_7plus","7+ strikeouts","824872","607259","Nick Martinez","Tampa Bay Rays","Atlanta Braves","pitcher",0.116,4.203,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
-"pitcher_k_7plus","7+ strikeouts","824872","527048","Martín Pérez","Atlanta Braves","Tampa Bay Rays","pitcher",0.0955,4.0045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"pitcher_k_7plus","7+ strikeouts","823088","594798","Jacob deGrom","Texas Rangers","Seattle Mariners","pitcher",0.28,5.39,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",2
+"pitcher_k_7plus","7+ strikeouts","823413","664299","Cristian Javier","Houston Astros","Philadelphia Phillies","pitcher",0.224,4.9945,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",3
+"pitcher_k_7plus","7+ strikeouts","824872","607259","Nick Martinez","Tampa Bay Rays","Atlanta Braves","pitcher",0.097,4.0455,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",4
+"pitcher_k_7plus","7+ strikeouts","824872","527048","Martín Pérez","Atlanta Braves","Tampa Bay Rays","pitcher",0.0955,4.0045,2000,"starter_bullpen_player_sim_v1","development_uncalibrated",5
