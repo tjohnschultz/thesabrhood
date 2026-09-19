@@ -315,10 +315,10 @@ Game IDs, teams, first pitch, venue, and status.
 Complete games
 </h3>
 <div class="data-card__value">
-0/15
+2/15
 </div>
 <p>
-0 confirmed batting-order rows.
+36 confirmed batting-order rows.
 </p>
 </article>
 <article class="data-card data-card--steel">
@@ -401,10 +401,10 @@ Jackson Jobe
 Sean Burke
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 Chicago, Illinois
@@ -419,7 +419,7 @@ Chicago, Illinois
 6%
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -465,15 +465,16 @@ Boston Red Sox
 Tampa Bay Rays
 </td>
 <td>
+Brayan Bello
 </td>
 <td>
 Freddy Peralta
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
-missing
+confirmed
 </td>
 <td>
 St.&nbsp;Petersburg, Florida
@@ -488,7 +489,7 @@ Indoor
 -
 </td>
 <td>
-conditional
+ready
 </td>
 </tr>
 <tr>
@@ -849,6 +850,7 @@ San Francisco Giants
 Los Angeles Dodgers
 </td>
 <td>
+Yunior Marte
 </td>
 <td>
 Tarik Skubal
@@ -920,16 +922,1212 @@ conditional
 </section>
 <section class="player-probability-room">
 <div class="section-heading section-heading--tight">
-<span class="eyebrow">Player simulation board · lineup gate</span>
+<span class="eyebrow">Player simulation board · 2,000 draws per lineup</span>
 <h2 class="anchored">
-Player probabilities wait for posted batting orders
+Player outcomes now live inside the game simulation
 </h2>
 <p>
-The team slate can update in the morning, but hitter and starter-event boards are withheld until current-date orders provide real batting-order opportunity. Yesterday’s player board is never relabeled as today’s.
+Confirmed orders are simulated through two continuous phases: the probable starter, then the opposing active-roster bullpen. The same draws produce full-game hitter lines and starter strikeout distributions.
 </p>
 </div>
+<div class="player-probability-grid">
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Home-run probability leaders
+</h3>
+<p>
+Full-game hitter draws include posted batting-order opportunity, the probable starter, the active-roster bullpen quality layer, and the run environment.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Max Clark
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+29.1%
+</td>
+<td>
+0.34
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Munetaka Murakami
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+27.1%
+</td>
+<td>
+0.30
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Junior Caminero
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+24.6%
+</td>
+<td>
+0.27
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Victor Mesa Jr.
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+21.5%
+</td>
+<td>
+0.24
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Colson Montgomery
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+20.6%
+</td>
+<td>
+0.22
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Dillon Dingler
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+17.8%
+</td>
+<td>
+0.20
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Miguel Vargas
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+17.0%
+</td>
+<td>
+0.18
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Liam Hicks
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+14.0%
+</td>
+<td>
+0.15
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Cedric Mullins
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+13.9%
+</td>
+<td>
+0.15
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Yandy Díaz
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+13.7%
+</td>
+<td>
+0.15
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Hit probability leaders
+</h3>
+<p>
+Each hitter continues through the same batting order when the simulation moves from the starter phase to the bullpen.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Yandy Díaz
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+76.1%
+</td>
+<td>
+1.24
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Sam Antonacci
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+72.6%
+</td>
+<td>
+1.12
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Jonathan Aranda
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+71.9%
+</td>
+<td>
+1.12
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Liam Hicks
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+71.2%
+</td>
+<td>
+1.07
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Chandler Simpson
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+71.2%
+</td>
+<td>
+1.10
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Junior Caminero
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+70.5%
+</td>
+<td>
+1.05
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Kevin McGonigle
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+68.4%
+</td>
+<td>
+1.02
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Adley Rutschman
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+66.8%
+</td>
+<td>
+0.96
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Mickey Gasper
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+65.6%
+</td>
+<td>
+0.94
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Hao-Yu Lee
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+65.4%
+</td>
+<td>
+0.93
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Extra-base-hit probability leaders
+</h3>
+<p>
+Doubles, triples, and home runs are simulated as mutually exclusive plate-appearance outcomes.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Mickey Gasper
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+34.8%
+</td>
+<td>
+0.40
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Nick Sogard
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+34.6%
+</td>
+<td>
+0.41
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Junior Caminero
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+34.5%
+</td>
+<td>
+0.39
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Adley Rutschman
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+33.7%
+</td>
+<td>
+0.40
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Miguel Vargas
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+33.4%
+</td>
+<td>
+0.38
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Roman Anthony
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+32.4%
+</td>
+<td>
+0.38
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Yandy Díaz
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+32.2%
+</td>
+<td>
+0.37
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Dillon Dingler
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+32.1%
+</td>
+<td>
+0.37
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Braden Montgomery
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+31.4%
+</td>
+<td>
+0.36
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Wilyer Abreu
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+31.1%
+</td>
+<td>
+0.36
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Two-plus total-base leaders
+</h3>
+<p>
+The total-base board preserves each simulated event mix instead of treating every hit as equivalent.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Yandy Díaz
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+48.4%
+</td>
+<td>
+1.92
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Sam Antonacci
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+44.8%
+</td>
+<td>
+1.69
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Junior Caminero
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+44.8%
+</td>
+<td>
+1.98
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Jonathan Aranda
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+44.1%
+</td>
+<td>
+1.76
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Mickey Gasper
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+42.1%
+</td>
+<td>
+1.38
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Chandler Simpson
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+41.0%
+</td>
+<td>
+1.40
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Adley Rutschman
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+40.7%
+</td>
+<td>
+1.60
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Liam Hicks
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+40.3%
+</td>
+<td>
+1.66
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Nick Sogard
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+40.2%
+</td>
+<td>
+1.30
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Miguel Vargas
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+40.0%
+</td>
+<td>
+1.64
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Five-plus strikeout leaders
+</h3>
+<p>
+Probable starters draw a game-specific batters-faced distribution against the posted opposing order.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Sean Burke
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+82.5%
+</td>
+<td>
+6.73
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Jackson Jobe
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+64.8%
+</td>
+<td>
+5.40
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Freddy Peralta
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+54.8%
+</td>
+<td>
+4.88
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Brayan Bello
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+51.3%
+</td>
+<td>
+4.66
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="player-prob-board">
+<header>
+<span class="eyebrow">Starter + bullpen Monte Carlo</span>
+<h3 class="anchored">
+Seven-plus strikeout leaders
+</h3>
+<p>
+The upper-tail board responds to starter workload, the opposing order, and both pitcher and hitter strikeout rates.
+</p>
+</header>
+<div class="table-scroll">
+<table class="data-table data-table--compact">
+<thead>
+<tr>
+<th>
+Rank
+</th>
+<th>
+Player
+</th>
+<th>
+Team
+</th>
+<th>
+Opponent
+</th>
+<th>
+Probability
+</th>
+<th>
+Mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+Sean Burke
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+53.3%
+</td>
+<td>
+6.73
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Jackson Jobe
+</td>
+<td>
+Detroit Tigers
+</td>
+<td>
+Chicago White Sox
+</td>
+<td>
+27.9%
+</td>
+<td>
+5.40
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Freddy Peralta
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+21.4%
+</td>
+<td>
+4.88
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Brayan Bello
+</td>
+<td>
+Boston Red Sox
+</td>
+<td>
+Tampa Bay Rays
+</td>
+<td>
+16.9%
+</td>
+<td>
+4.66
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
 <div class="method-callout">
-<strong>Current state:</strong> 0 posted batting-order rows are available for September 19.
+<strong>How to read it:</strong> each percentage is the share of simulated games in which the player reached that threshold. Posted batting-order opportunity, starter matchup, bullpen quality, park, and weather all move the distribution.
 </div>
 </section>
 <section class="section-heading">
@@ -944,22 +2142,22 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <div class="projection-slate-grid">
 <article class="projection-game-card">
 <header>
-<span class="eyebrow">Game 1 · scheduled slate</span><span class="projection-lean">Narrow lean</span>
+<span class="eyebrow">Game 1 · scheduled slate</span><span class="projection-lean">Near toss-up</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>Detroit Tigers</strong></span><b>43.1%</b>
+<span><small>Away</small><strong>Detroit Tigers</strong></span><b>46.2%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Chicago White Sox</strong></span><b>56.9%</b>
+<span><small>Home</small><strong>Chicago White Sox</strong></span><b>53.8%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="Detroit Tigers 43.1% Chicago White Sox 56.9%">
-<span class="is-away" style="width:43.1%"></span><span class="is-home" style="width:56.9%"></span>
+<div class="projection-win-track" role="img" aria-label="Detroit Tigers 46.2% Chicago White Sox 53.8%">
+<span class="is-away" style="width:46.2%"></span><span class="is-home" style="width:53.8%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>4.0 – 4.5</strong></span><span><small>Model total</small><strong>8.5</strong></span><span><small>One-run game</small><strong>36.6%</strong></span>
+<span><small>Mean score</small><strong>4.3 – 4.5</strong></span><span><small>Model total</small><strong>8.8</strong></span><span><small>One-run game</small><strong>36.8%</strong></span>
 </div>
 <footer>
-<strong>Chicago White Sox 56.9%</strong><span>20,000 draws · conditional orders · fallback starters</span>
+<strong>Chicago White Sox 53.8%</strong><span>20,000 draws · confirmed orders · fallback starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
@@ -984,22 +2182,22 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 </article>
 <article class="projection-game-card">
 <header>
-<span class="eyebrow">Game 3 · scheduled slate</span><span class="projection-lean">Narrow lean</span>
+<span class="eyebrow">Game 3 · scheduled slate</span><span class="projection-lean">Clear lean</span>
 </header>
 <div class="projection-team-row">
-<span><small>Away</small><strong>Boston Red Sox</strong></span><b>45.0%</b>
+<span><small>Away</small><strong>Boston Red Sox</strong></span><b>33.9%</b>
 </div>
 <div class="projection-team-row">
-<span><small>Home</small><strong>Tampa Bay Rays</strong></span><b>55.0%</b>
+<span><small>Home</small><strong>Tampa Bay Rays</strong></span><b>66.1%</b>
 </div>
-<div class="projection-win-track" role="img" aria-label="Boston Red Sox 45.0% Tampa Bay Rays 55.0%">
-<span class="is-away" style="width:45%"></span><span class="is-home" style="width:55%"></span>
+<div class="projection-win-track" role="img" aria-label="Boston Red Sox 33.9% Tampa Bay Rays 66.1%">
+<span class="is-away" style="width:33.9%"></span><span class="is-home" style="width:66.1%"></span>
 </div>
 <div class="projection-score-strip">
-<span><small>Mean score</small><strong>4.1 – 4.4</strong></span><span><small>Model total</small><strong>8.5</strong></span><span><small>One-run game</small><strong>36.6%</strong></span>
+<span><small>Mean score</small><strong>3.9 – 5.1</strong></span><span><small>Model total</small><strong>9.0</strong></span><span><small>One-run game</small><strong>32.8%</strong></span>
 </div>
 <footer>
-<strong>Tampa Bay Rays 55.0%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Tampa Bay Rays 66.1%</strong><span>20,000 draws · confirmed orders · matched starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
@@ -1219,7 +2417,7 @@ Each game card shows the simulated win split, score center, uncertainty, and cur
 <span><small>Mean score</small><strong>3.0 – 4.7</strong></span><span><small>Model total</small><strong>7.8</strong></span><span><small>One-run game</small><strong>32.7%</strong></span>
 </div>
 <footer>
-<strong>Los Angeles Dodgers 72.9%</strong><span>20,000 draws · conditional orders · matched starters</span>
+<strong>Los Angeles Dodgers 72.9%</strong><span>20,000 draws · conditional orders · fallback starters</span>
 </footer>
 </article>
 <article class="projection-game-card">
