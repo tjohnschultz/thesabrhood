@@ -1,2 +1,2 @@
 "eligible_reliever_forecasts","settled_reliever_forecasts","mean_appearance_probability","observed_appearance_rate","appearance_brier_score","calibration_bias","status","model_version"
-7728,7728,0.768957556935818,0.391821946169772,0.396266293995859,-0.377135610766046,"eligible for manager-selector calibration review","plate_appearance_state_machine_phase4_baserunning_v1; plate_appearance_state_machine_phase5_manager_hook_v1"
+7907,7907,0.76885139749589,0.392816491716201,0.395547602883521,-0.376034905779689,"eligible for manager-selector calibration review","plate_appearance_state_machine_phase4_baserunning_v1; plate_appearance_state_machine_phase5_manager_hook_v1"
